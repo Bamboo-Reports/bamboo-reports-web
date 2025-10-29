@@ -1,23 +1,19 @@
 import { Button } from "@/components/ui/button";
 import gccIllustration from "@/assets/gcc-illustration.png";
-
 const Hero = () => {
-  return (
-    <section className="py-16 px-4">
+  return <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4">
-            <span className="text-foreground">Actionable Insights On</span>
+            <span className="text-foreground text-5xl">Actionable Insights On</span>
             <br />
-            <span className="text-primary">Global Capability Centers</span>
-            <span className="inline-block ml-4 border-b-4 border-dashed border-primary w-64 align-middle"></span>
+            <span className="text-primary text-6xl">Global Capability Centers</span>
+            
           </h1>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-muted-foreground mb-8 font-normal text-lg">
             A Platform With the Largest Repository to Help You Navigate the Thriving GCC/GIC Opportunity
           </p>
-          <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg rounded-full mb-4">
-            Get a demo →
-          </Button>
+          <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 rounded-full mb-4 font-extrabold text-xl text-center">Get Demo</Button>
           <p className="text-sm text-muted-foreground">
             Get expert advice to supercharge your GCC strategy
           </p>
@@ -38,8 +34,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
