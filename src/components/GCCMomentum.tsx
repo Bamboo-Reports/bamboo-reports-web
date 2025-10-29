@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
+import gccMomentumReport from "@/assets/gcc-momentum-report.png";
 
 const GCCMomentum = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isFormLoaded, setIsFormLoaded] = useState(false);
 
   useEffect(() => {
-    // Load JotForm script
+    // Load JotForm script immediately on component mount (not waiting for popup to open)
     const script = document.createElement('script');
     script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
     script.async = true;
@@ -14,15 +16,20 @@ const GCCMomentum = () => {
 
     script.onload = () => {
       if (window.jotformEmbedHandler) {
-        window.jotformEmbedHandler(
-          "iframe[id='JotFormIFrame-251101747497459']",
-          "https://form.jotform.com/"
-        );
+        // Initialize the handler as soon as script loads
+        setTimeout(() => {
+          window.jotformEmbedHandler(
+            "iframe[id='JotFormIFrame-251101747497459']",
+            "https://form.jotform.com/"
+          );
+        }, 100);
       }
     };
 
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
@@ -67,6 +74,10 @@ const GCCMomentum = () => {
     }
   };
 
+  const handleIframeLoad = () => {
+    setIsFormLoaded(true);
+  };
+
   return (
     <>
       <section className="py-16 px-4 bg-secondary/20">
@@ -89,7 +100,7 @@ const GCCMomentum = () => {
             
             <div className="flex justify-center">
               <img 
-                src="/placeholder.svg" 
+                src={gccMomentumReport} 
                 alt="GCC Momentum Report" 
                 className="w-full max-w-2xl"
               />
@@ -97,6 +108,20 @@ const GCCMomentum = () => {
           </div>
         </div>
       </section>
+
+      {/* Hidden iframe to preload form */}
+      <div className="hidden">
+        <iframe
+          id="JotFormIFrame-251101747497459"
+          title="[RNXT] Bamboo Reports Leads"
+          allowTransparency="true"
+          allow="geolocation; microphone; camera; fullscreen; payment"
+          src="https://form.jotform.com/251101747497459"
+          scrolling="no"
+          onLoad={handleIframeLoad}
+          className="w-full h-full border-0"
+        />
+      </div>
 
       {/* Popup Overlay */}
       {isPopupOpen && (
@@ -124,9 +149,17 @@ const GCCMomentum = () => {
             </div>
 
             {/* Form Container */}
-            <div className="h-[600px] lg:h-[539px] overflow-hidden">
+            <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
+              {/* Loading spinner */}
+              {!isFormLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-white">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#f39122]"></div>
+                </div>
+              )}
+              
+              {/* Move the hidden iframe here when popup opens */}
               <iframe
-                id="JotFormIFrame-251101747497459"
+                id="JotFormIFrame-251101747497459-visible"
                 title="[RNXT] Bamboo Reports Leads"
                 allowTransparency="true"
                 allow="geolocation; microphone; camera; fullscreen; payment"
