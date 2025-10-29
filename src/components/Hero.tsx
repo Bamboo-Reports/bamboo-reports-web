@@ -12,7 +12,7 @@ const Hero = () => {
           <p className="text-muted-foreground mb-8 font-normal text-lg">
             A Platform With the Largest Repository to Help You Navigate the Thriving GCC/GIC Opportunity
           </p>
-          <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 rounded-full mb-4 font-extrabold text-xl text-center">Get Demo</Button>
+          <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 rounded-full mb-4 font-extrabold text-xl text-center">Get a Demo</Button>
           <p className="text-sm text-muted-foreground">
             Get expert advice to supercharge your GCC strategy
           </p>
