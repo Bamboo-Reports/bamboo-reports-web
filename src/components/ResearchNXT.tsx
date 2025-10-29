@@ -26,7 +26,7 @@ const ResearchNXT = () => {
         </p>
 
         {/* Continuous logo scroll */}
-        <div className="logo-marquee" style={{ ["--marquee-duration"]: "2s" }}>
+        <div className="logo-marquee" style={{ ["--marquee-duration"]: "22s" }}>
           <div className="logo-track">
             {logos.concat(logos).map((logo, i) => (
               <div className="logo-item" key={i}>
