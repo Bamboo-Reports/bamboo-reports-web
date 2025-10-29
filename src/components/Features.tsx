@@ -5,25 +5,29 @@ const features = [
     icon: TrendingUp,
     title: "90% More Center-Level Coverage",
     description: "Our platform provides significantly more detailed information than most competitors, ensuring you have the complete picture.",
-    color: "text-blue-500"
+    color: "text-blue-500",
+    bgColor: "bg-blue-50"
   },
   {
     icon: Lightbulb,
     title: "What If Scenarios",
     description: "Simulate market shifts to forecast potential business impacts and opportunities.",
-    color: "text-blue-500"
+    color: "text-blue-500",
+    bgColor: "bg-blue-50"
   },
   {
     icon: Filter,
     title: "Proprietary TAM Slicers",
     description: "Align with your Go-to-Market strategies through highly customizable data filters.",
-    color: "text-blue-500"
+    color: "text-blue-500",
+    bgColor: "bg-blue-50"
   },
   {
     icon: Target,
     title: "Tailor Made Market Insights",
     description: "Customized intelligence aligned to your unique industry and growth strategy.",
-    color: "text-blue-500"
+    color: "text-blue-500",
+    bgColor: "bg-blue-50"
   }
 ];
 
@@ -35,12 +39,11 @@ const Features = () => {
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
           Bamboo Reports is a research-backed intelligence solution designed to make the GCC opportunities in India more accessible and actionable.
         </p>
-
         {/* Added responsive padding for desktop */}
         <div className="grid md:grid-cols-2 gap-8 md:px-10 lg:px-20">
           {features.map((feature, index) => (
             <div key={index} className="flex gap-4 items-start">
-              <div className={`${feature.color} mt-1`}>
+              <div className={`${feature.bgColor} ${feature.color} p-3 rounded-full flex-shrink-0`}>
                 <feature.icon size={24} />
               </div>
               <div>
