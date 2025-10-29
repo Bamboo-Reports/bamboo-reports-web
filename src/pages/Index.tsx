@@ -4,6 +4,9 @@ import Features from "@/components/Features";
 import IntelligenceSpans from "@/components/IntelligenceSpans";
 import WhoBenefits from "@/components/WhoBenefits";
 import RealTimeData from "@/components/RealTimeData";
+import ResearchNXT from "@/components/ResearchNXT";
+import GCCMomentum from "@/components/GCCMomentum";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -14,6 +17,9 @@ const Index = () => {
       <IntelligenceSpans />
       <WhoBenefits />
       <RealTimeData />
+      <ResearchNXT />
+      <GCCMomentum />
+      <Footer />
     </div>
   );
 };
