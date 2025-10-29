@@ -11,12 +11,12 @@ const logos = [
   { src: salesforceLogo, alt: "Salesforce" },
   { src: vymoLogo, alt: "Vymo" },
   { src: thoughtworksLogo, alt: "Thoughtworks" },
-  { src: slkLogo, alt: "SLK" }
+  { src: slkLogo, alt: "SLK" },
 ];
 
 const ResearchNXT = () => {
   return (
-    <section className="py-16 px-4 bg-background overflow-hidden">
+    <section className="py-16 px-4 bg-background">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-3">
           Bamboo Reports is built by Research NXT
@@ -25,16 +25,12 @@ const ResearchNXT = () => {
           a market intelligence firm trusted by 50+ global tech companies.
         </p>
 
-        {/* Continuous scrolling logo strip */}
-        <div className="relative w-full overflow-hidden">
-          <div className="flex animate-scroll whitespace-nowrap">
-            {[...logos, ...logos].map((logo, index) => (
-              <div key={index} className="mx-8 inline-block">
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-8 md:h-10 object-contain grayscale hover:grayscale-0 transition-all"
-                />
+        {/* Continuous logo scroll */}
+        <div className="logo-marquee" style={{ ["--marquee-duration"]: "22s" }}>
+          <div className="logo-track">
+            {logos.concat(logos).map((logo, i) => (
+              <div className="logo-item" key={i}>
+                <img src={logo.src} alt={logo.alt} />
               </div>
             ))}
           </div>
