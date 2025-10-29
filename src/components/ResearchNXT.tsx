@@ -35,7 +35,7 @@ const ResearchNXT = () => {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition-all"
+                  className="h-12 md:h-16 object-contain"
                 />
               </div>
             ))}
@@ -48,7 +48,7 @@ const ResearchNXT = () => {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition-all"
+                  className="h-12 md:h-16 object-contain"
                 />
               </div>
             ))}
