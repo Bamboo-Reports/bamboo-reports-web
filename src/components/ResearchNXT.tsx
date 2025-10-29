@@ -1,5 +1,6 @@
-import ramcoLogo from "@/assets/logos/ramco.png";
+import { useState, useEffect } from "react";
 import qyrusLogo from "@/assets/logos/qyrus.png";
+import ramcoLogo from "@/assets/logos/ramco.png";
 import salesforceLogo from "@/assets/logos/salesforce.png";
 import slkLogo from "@/assets/logos/slk.png";
 import thoughtworksLogo from "@/assets/logos/thoughtworks.png";
@@ -15,8 +16,6 @@ const logos = [
 ];
 
 const ResearchNXT = () => {
-  // No useState or useEffect needed for a pure CSS animation
-
   return (
     <section className="py-16 px-4 bg-background">
       <div className="max-w-7xl mx-auto text-center">
@@ -25,39 +24,56 @@ const ResearchNXT = () => {
           a market intelligence firm trusted by 50+ global tech companies.
         </p>
         
-        {/* This outer div is the "viewport" that hides the overflowing content.
-          The mask-image provides a soft fade on the left and right edges 
-          so logos smoothly appear and disappear.
-        */}
-        <div 
-          className="w-full overflow-hidden"
-          style={{ 
-            maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
-          }}
-        >
-          {/* This inner div contains both sets of logos. 
-            'animate-scroll' is our custom animation.
-            'whitespace-nowrap' prevents logos from wrapping to the next line.
-          */}
-          <div className="flex whitespace-nowrap animate-scroll">
-            {/* We render the list of logos twice ([...logos, ...logos])
-              to create the seamless, infinite looping effect.
-            */}
-            {[...logos, ...logos].map((logo, index) => (
+        <div className="overflow-hidden relative">
+          <div className="flex animate-scroll">
+            {/* First set of logos */}
+            {logos.map((logo, index) => (
               <div
-                key={`${logo.alt}-${index}`} // Unique key for the duplicated list
-                className="flex-shrink-0 mx-4 md:mx-6" // Use margin for spacing
+                key={`logo-1-${index}`}
+                className="flex-shrink-0 mx-8 md:mx-12"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-8 md:h-10 object-contain grayscale"
+                  className="h-8 md:h-10 object-contain grayscale hover:grayscale-0 transition-all"
+                />
+              </div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {logos.map((logo, index) => (
+              <div
+                key={`logo-2-${index}`}
+                className="flex-shrink-0 mx-8 md:mx-12"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-8 md:h-10 object-contain grayscale hover:grayscale-0 transition-all"
                 />
               </div>
             ))}
           </div>
         </div>
       </div>
+      
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .animate-scroll {
+          animation: scroll 20s linear infinite;
+        }
+        
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };
