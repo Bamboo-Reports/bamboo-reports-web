@@ -20,7 +20,7 @@ const GCCMomentum = () => {
             <img 
               src={gccMomentumReport} 
               alt="GCC Momentum Report" 
-              className="w-full max-w-2xl rounded-lg shadow-lg"
+              className="w-full max-w-2xl"
             />
           </div>
         </div>
