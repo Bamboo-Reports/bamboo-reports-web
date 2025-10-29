@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import qyrusLogo from "@/assets/logos/qyrus.png";
 import ramcoLogo from "@/assets/logos/ramco.png";
+import qyrusLogo from "@/assets/logos/qyrus.png";
 import salesforceLogo from "@/assets/logos/salesforce.png";
 import slkLogo from "@/assets/logos/slk.png";
 import thoughtworksLogo from "@/assets/logos/thoughtworks.png";
@@ -16,23 +15,7 @@ const logos = [
 ];
 
 const ResearchNXT = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % logos.length);
-    }, 2000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const getVisibleLogos = () => {
-    const visible = [];
-    for (let i = 0; i < 5; i++) {
-      visible.push(logos[(currentIndex + i) % logos.length]);
-    }
-    return visible;
-  };
+  // No useState or useEffect needed for a pure CSS animation
 
   return (
     <section className="py-16 px-4 bg-background">
@@ -42,21 +25,33 @@ const ResearchNXT = () => {
           a market intelligence firm trusted by 50+ global tech companies.
         </p>
         
-        <div className="overflow-hidden">
-          <div className="flex justify-center items-center gap-8 md:gap-12">
-            {getVisibleLogos().map((logo, index) => (
+        {/* This outer div is the "viewport" that hides the overflowing content.
+          The mask-image provides a soft fade on the left and right edges 
+          so logos smoothly appear and disappear.
+        */}
+        <div 
+          className="w-full overflow-hidden"
+          style={{ 
+            maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+          }}
+        >
+          {/* This inner div contains both sets of logos. 
+            'animate-scroll' is our custom animation.
+            'whitespace-nowrap' prevents logos from wrapping to the next line.
+          */}
+          <div className="flex whitespace-nowrap animate-scroll">
+            {/* We render the list of logos twice ([...logos, ...logos])
+              to create the seamless, infinite looping effect.
+            */}
+            {[...logos, ...logos].map((logo, index) => (
               <div
-                key={`${logo.alt}-${index}`}
-                className="transition-all duration-1000 ease-in-out transform"
-                style={{
-                  opacity: index === 0 || index === 4 ? 0.3 : 1,
-                  transform: `scale(${index === 0 || index === 4 ? 0.8 : 1})`
-                }}
+                key={`${logo.alt}-${index}`} // Unique key for the duplicated list
+                className="flex-shrink-0 mx-4 md:mx-6" // Use margin for spacing
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-8 md:h-10 object-contain grayscale hover:grayscale-0 transition-all"
+                  className="h-8 md:h-10 object-contain grayscale"
                 />
               </div>
             ))}
