@@ -35,8 +35,9 @@ const Features = () => {
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
           Bamboo Reports is a research-backed intelligence solution designed to make the GCC opportunities in India more accessible and actionable.
         </p>
-        
-        <div className="grid md:grid-cols-2 gap-8">
+
+        {/* Added responsive padding for desktop */}
+        <div className="grid md:grid-cols-2 gap-8 md:px-8 lg:px-16">
           {features.map((feature, index) => (
             <div key={index} className="flex gap-4 items-start">
               <div className={`${feature.color} mt-1`}>
