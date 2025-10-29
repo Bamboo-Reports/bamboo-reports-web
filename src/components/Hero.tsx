@@ -1,74 +1,38 @@
 import { Button } from "@/components/ui/button";
 import gccIllustration from "@/assets/gcc-illustration.png";
-
 const Hero = () => {
-  return (
-    <section className="py-10 px-4 sm:py-14">
-      <div className="mx-auto max-w-7xl">
-        {/* Copy block */}
-        <div className="mx-auto max-w-2xl text-center">
-          {/* Eyebrow */}
-          <p className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold text-muted-foreground/90">
-            Actionable Insights On
-          </p>
-
-          {/* Mobile-first heading with deliberate breaks */}
-          <h1 className="mt-4 font-extrabold tracking-tight leading-[1.1]">
-            <span className="block text-4xl sm:text-5xl">
-              Global Capability
-            </span>
-            <span className="block text-4xl sm:text-5xl text-primary">
-              Centers
-            </span>
+  return <section className="py-16 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold mb-4 leading-tight">
+            <span className="text-foreground text-5xl font-bold block mb-2">Actionable Insights On</span>
+            <span className="text-primary text-6xl font-extrabold block">Global Capability Centers</span>
+            
           </h1>
-
-          {/* Subhead */}
-          <p className="mt-4 text-base sm:text-lg text-muted-foreground">
-            A platform with the largest repository to help you navigate the
-            thriving GCC/GIC opportunity
+          <p className="text-muted-foreground mb-8 font-normal text-lg">
+            A Platform With the Largest Repository to Help You Navigate the Thriving GCC/GIC Opportunity
           </p>
-
-          {/* CTA */}
-          <div className="mt-6">
-            <Button className="rounded-full px-7 py-6 text-base sm:text-lg font-extrabold bg-accent hover:bg-accent/90 text-accent-foreground">
-              Get a Demo
-            </Button>
-            <p className="mt-3 text-sm text-muted-foreground">
-              Get expert advice to supercharge your GCC strategy
-            </p>
-          </div>
+          <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 rounded-full mb-4 font-extrabold text-xl text-center">Get a Demo</Button>
+          <p className="text-sm text-muted-foreground">
+            Get expert advice to supercharge your GCC strategy
+          </p>
         </div>
 
-        {/* Illustration — stacked on mobile, side-by-side on md+ */}
-        <div className="mt-12 grid items-center gap-8 md:mt-16 md:grid-cols-2">
-          <div className="order-2 md:order-1">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-              What is GCC Intelligence?
-            </h2>
-            <p className="leading-relaxed mb-3">
-              GCC Intelligence is a structured, data-driven view of Global
-              Capability Centers — also known as Global In-house Centers —
-              covering strategic, operational, and innovation functions.
+        <div className="grid md:grid-cols-2 gap-12 items-center mt-20">
+          <div>
+            <h2 className="text-3xl font-bold mb-6">What is GCC Intelligence?</h2>
+            <p className="text-justify leading-relaxed mb-4">
+              GCC Intelligence refers to the structured, data-driven understanding of Global Capability Centers (GCCs), also known as Global In-house Centers (GICs). These are offshore operations of multinational companies and handle a wide range of strategic, operational, and innovation-driven functions.
             </p>
-            <p className="leading-relaxed">
-              India’s talent density and mature ecosystem make it a hub.
-              Modern GCCs go beyond cost to drive innovation, agility, and
-              business continuity.
+            <p className="text-justify leading-relaxed">
+              India has become a key destination for these centers, thanks to its talent density, mature ecosystems, and infrastructure. The role of GCCs has expanded well beyond cost efficiency to driving innovation, agility, and business continuity.
             </p>
           </div>
-
-          <div className="order-1 md:order-2 flex justify-center">
-            <img
-              src={gccIllustration}
-              alt="Illustration explaining GCC Intelligence"
-              className="w-full max-w-sm sm:max-w-md"
-              loading="lazy"
-            />
+          <div className="flex justify-center">
+            <img src={gccIllustration} alt="GCC Intelligence Illustration" className="w-full max-w-lg" />
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
