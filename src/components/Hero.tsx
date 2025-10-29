@@ -4,10 +4,9 @@ const Hero = () => {
   return <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-4">
-            <span className="text-foreground text-5xl font-bold">Actionable Insights On</span>
-            <br />
-            <span className="text-primary text-6xl font-extrabold">Global Capability Centers</span>
+          <h1 className="text-5xl font-bold mb-4 leading-tight">
+            <span className="text-foreground text-5xl font-bold block mb-2">Actionable Insights On</span>
+            <span className="text-primary text-6xl font-extrabold block">Global Capability Centers</span>
             
           </h1>
           <p className="text-muted-foreground mb-8 font-normal text-lg">
