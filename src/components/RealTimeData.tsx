@@ -30,7 +30,7 @@ const RealTimeData = () => {
           <div className="space-y-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex gap-4 items-start">
-                <div className="text-primary mt-1">
+                <div className="bg-primary/10 text-primary p-3 rounded-full flex-shrink-0">
                   <Check size={24} />
                 </div>
                 <div>
