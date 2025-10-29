@@ -37,7 +37,7 @@ const Features = () => {
         </p>
 
         {/* Added responsive padding for desktop */}
-        <div className="grid md:grid-cols-2 gap-8 md:px-8 lg:px-16">
+        <div className="grid md:grid-cols-2 gap-8 md:px-10 lg:px-20">
           {features.map((feature, index) => (
             <div key={index} className="flex gap-4 items-start">
               <div className={`${feature.color} mt-1`}>
