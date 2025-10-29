@@ -5,9 +5,9 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4">
-            <span className="text-foreground text-5xl">Actionable Insights On</span>
+            <span className="text-foreground text-5xl font-bold">Actionable Insights On</span>
             <br />
-            <span className="text-primary text-6xl">Global Capability Centers</span>
+            <span className="text-primary text-6xl font-extrabold">Global Capability Centers</span>
             
           </h1>
           <p className="text-muted-foreground mb-8 font-normal text-lg">
