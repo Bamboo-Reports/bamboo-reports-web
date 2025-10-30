@@ -499,18 +499,35 @@ const GCCList = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[80vh] flex flex-col shadow-2xl">
-            <div className="p-4 border-b flex justify-between items-center">
-              <strong className="text-lg">Quick form to unlock download</strong>
-              <button
-                onClick={() => setShowModal(false)}
-                className="text-xl hover:text-gray-600"
-              >
-                <X className="w-5 h-5" />
-              </button>
+        <div 
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setShowModal(false);
+            }
+          }}
+          style={{ opacity: showModal ? 1 : 0 }}
+        >
+          <div 
+            className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden transition-transform duration-300"
+            style={{ transform: showModal ? 'scale(1) translateY(0)' : 'scale(0.8) translateY(50px)' }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-all hover:rotate-90"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Form Header */}
+            <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
+              <h2 className="text-2xl font-bold mb-2">Download GCC Data</h2>
+              <p className="text-sm opacity-90">Fill out the form below to download your data</p>
             </div>
-            <div className="flex-1 overflow-hidden">
+
+            {/* Form Container */}
+            <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
               <iframe
                 key={showModal ? 'open' : 'closed'}
                 id="JotFormIFrame-253003277590454"
@@ -519,11 +536,6 @@ const GCCList = () => {
                 className="w-full h-full border-0"
                 allow="geolocation; microphone; camera; fullscreen; payment"
               />
-            </div>
-            <div className="p-3 border-t text-center">
-              <span className="text-sm text-muted-foreground">
-                After you submit the download starts automatically
-              </span>
             </div>
           </div>
         </div>
