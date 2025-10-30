@@ -42,7 +42,6 @@ const GCCList = () => {
   const [selectedKeys, setSelectedKeys] = useState(new Set());
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [downloadScope, setDownloadScope] = useState("filtered");
 
   const rowKey = (r) => {
     return [
@@ -223,24 +222,10 @@ const GCCList = () => {
     return cols.map(q).join(",") + "\n" + rows.map((r: any) => cols.map((c: string) => q(r[c])).join(",")).join("\n");
   };
 
-  const getScopeRows = (scope: string) => {
-    if (scope === "page") return currentPageData;
-    if (scope === "selected") {
-      const map = new Map(filteredData.map(r => [rowKey(r), r]));
-      const keep: any[] = [];
-      selectedKeys.forEach((k: string) => {
-        const item = map.get(k);
-        if (item) keep.push(item);
-      });
-      return keep;
-    }
-    return filteredData;
-  };
-
-  const triggerDownload = (scope) => {
-    const rows = getScopeRows(scope);
+  const triggerDownload = () => {
+    const rows = data; // Download entire dataset
     if (!rows.length) {
-      alert("No rows to download for the chosen scope.");
+      alert("No data available to download.");
       return;
     }
     const csv = toCSV(rows, columns);
@@ -248,7 +233,7 @@ const GCCList = () => {
     const ts = new Date().toISOString().replace(/[:.]/g, "-");
     const a = document.createElement("a");
     a.href = url;
-    a.download = `gcc-data-${scope}-${ts}.csv`;
+    a.download = `gcc-data-complete-${ts}.csv`;
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -261,7 +246,7 @@ const GCCList = () => {
 
   const handleFormSuccess = () => {
     setShowModal(false);
-    triggerDownload(downloadScope);
+    triggerDownload();
   };
 
   useEffect(() => {
@@ -297,7 +282,7 @@ const GCCList = () => {
 
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
-  }, [downloadScope]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -387,16 +372,6 @@ const GCCList = () => {
                 </div>
                 
                 <div className="flex flex-wrap gap-3 items-center justify-end">
-                  <label className="text-sm text-muted-foreground">Scope</label>
-                  <select
-                    value={downloadScope}
-                    onChange={(e) => setDownloadScope(e.target.value)}
-                    className="px-3 py-2 border rounded-lg text-sm"
-                  >
-                    <option value="filtered">All filtered</option>
-                    <option value="page">Current page</option>
-                    <option value="selected">Selected only</option>
-                  </select>
                   <button
                     onClick={handleDownloadClick}
                     className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50 flex items-center gap-2"
