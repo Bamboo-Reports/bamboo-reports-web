@@ -17,7 +17,7 @@ const Pricing = () => {
       name: "Base Layer",
       price: { USD: "1,299", INR: "1,09,999" }, // <-- Add your INR price
       originalPrice: { USD: "5,000", INR: "4,15,000" }, // <-- Add your INR price
-      priceSuffix: "/onetime",
+      // priceSuffix: "/onetime",
       features: [
         {
           title: "Standard Trends Report",
@@ -45,7 +45,7 @@ const Pricing = () => {
       name: "Custom Layer",
       price: { USD: "6,999", INR: "5,79,999" }, // <-- Add your INR price
       originalPrice: { USD: "15,000", INR: "12,50,000" }, // <-- Add your INR price
-      priceSuffix: "/onetime",
+      // priceSuffix: "/onetime",
       popular: true,
       features: [
         {
@@ -74,7 +74,7 @@ const Pricing = () => {
       name: "Consult Layer",
       price: "Custom", // Custom plan remains the same
       originalPrice: null,
-      priceSuffix: null,
+      // priceSuffix: null,
       features: [
         {
           title: "Everything from Base + Custom Layer",
