@@ -1,15 +1,22 @@
+import { useState } from "react"; // Import useState
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@/components/ui/toggle-group"; // Import ToggleGroup
 
 const Pricing = () => {
+  // State to manage the selected currency
+  const [currency, setCurrency] = useState("USD");
+
   const plans = [
     {
       name: "Base Layer",
-      price: "1299",
-      originalPrice: "5000",
-      priceUnit: "USD",
+      price: { USD: "1,299", INR: "1,09,999" }, // <-- Add your INR price
+      originalPrice: { USD: "5,000", INR: "4,15,000" }, // <-- Add your INR price
       priceSuffix: "/year",
       features: [
         {
@@ -36,9 +43,8 @@ const Pricing = () => {
     },
     {
       name: "Custom Layer",
-      price: "6999",
-      originalPrice: "15000",
-      priceUnit: "USD",
+      price: { USD: "6,999", INR: "5,79,999" }, // <-- Add your INR price
+      originalPrice: { USD: "15,000", INR: "12,50,000" }, // <-- Add your INR price
       priceSuffix: "/year",
       popular: true,
       features: [
@@ -66,9 +72,8 @@ const Pricing = () => {
     },
     {
       name: "Consult Layer",
-      price: "Custom",
+      price: "Custom", // Custom plan remains the same
       originalPrice: null,
-      priceUnit: null,
       priceSuffix: null,
       features: [
         {
@@ -99,13 +104,15 @@ const Pricing = () => {
     },
   ];
 
+  const currencySymbol = currency === "USD" ? "$" : "₹";
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       <main className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h1 className="text-5xl font-bold mb-4">
               Simple, Transparent Pricing
             </h1>
@@ -114,87 +121,119 @@ const Pricing = () => {
             </p>
           </div>
 
+          {/* --- Currency Switcher --- */}
+          <div className="flex justify-end mb-8">
+            <ToggleGroup
+              type="single"
+              value={currency}
+              onValueChange={(value) => {
+                if (value) setCurrency(value); // Set state only if value is selected
+              }}
+            >
+              <ToggleGroupItem value="USD" aria-label="Select US Dollars">
+                USD
+              </ToggleGroupItem>
+              <ToggleGroupItem value="INR" aria-label="Select Indian Rupees">
+                INR
+              </ToggleGroupItem>
+            </ToggleGroup>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8 items-start">
-            {plans.map((plan) => (
-              <div
-                key={plan.name}
-                className={`relative rounded-lg border p-8 flex flex-col ${
-                  plan.popular
-                    ? "border-primary shadow-lg scale-105"
-                    : "border-border"
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
+            {plans.map((plan) => {
+              const isCustom = plan.price === "Custom";
+              const currentPrice = !isCustom ? plan.price[currency] : null;
+              const currentOriginalPrice =
+                !isCustom && plan.originalPrice
+                  ? plan.originalPrice[currency]
+                  : null;
 
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
-                  <div className="flex flex-col">
-                    {plan.price === "Custom" ? (
-                      <span className="text-4xl font-bold">Custom</span>
-                    ) : (
-                      <>
-                        <div className="flex items-baseline gap-2">
-                          <span className="text-4xl font-bold">
-                            {plan.priceUnit} ${plan.price}
-                          </span>
-                          {plan.originalPrice && (
-                            <span className="text-xl text-muted-foreground line-through">
-                              ${plan.originalPrice}
+              return (
+                <div
+                  key={plan.name}
+                  className={`relative rounded-lg border p-8 flex flex-col ${
+                    plan.popular
+                      ? "border-primary shadow-lg scale-105"
+                      : "border-border"
+                  }`}
+                >
+                  {plan.popular && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                      <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
+                    <div className="flex flex-col">
+                      {isCustom ? (
+                        <span className="text-4xl font-bold">Custom</span>
+                      ) : (
+                        <>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-4xl font-bold">
+                              {currencySymbol}
+                              {currentPrice}
                             </span>
-                          )}
-                        </div>
-                        <span className="text-muted-foreground">
-                          {plan.priceSuffix}
-                        </span>
-                      </>
-                    )}
+                            {currentOriginalPrice && (
+                              <span className="text-xl text-muted-foreground line-through">
+                                {currencySymbol}
+                                {currentOriginalPrice}
+                              </span>
+                            )}
+                          </div>
+                          <span className="text-muted-foreground">
+                            {plan.priceSuffix}
+                          </span>
+                        </>
+                      )}
+                    </div>
                   </div>
-                </div>
 
-                <ul className="space-y-4 mb-8 flex-grow">
-                  {plan.features.map((feature) => (
-                    <li key={feature.title} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <div>
-                        <span className="font-medium">{feature.title}</span>
-                        <p className="text-sm text-muted-foreground">
-                          {feature.description}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="space-y-4 mb-8 flex-grow">
+                    {plan.features.map((feature) => (
+                      <li
+                        key={feature.title}
+                        className="flex items-start gap-3"
+                      >
+                        <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                        <div>
+                          <span className="font-medium">{feature.title}</span>
+                          <p className="text-sm text-muted-foreground">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
 
-                {plan.price === "Custom" ? (
-                  <Button
-                    asChild // Use asChild to pass props to the underlying <a> tag
-                    className="w-full"
-                    variant={plan.popular ? "default" : "outline"}
-                  >
-                    <a
-                      href="https://meetings-na2.hubspot.com/anam-khoja"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {isCustom ? (
+                    <Button
+                      asChild
+                      className="w-full"
+                      variant={plan.popular ? "default" : "outline"}
                     >
-                      Contact Sales
-                    </a>
-                  </Button>
-                ) : (
-                  <Button
-                    className="w-full"
-                    variant={plan.popular ? "default" : "outline"}
-                  >
-                    Get Started
-                  </Button>
-                )}
-              </div>
-            ))}
+                      <a
+                        href="https://meetings-na2.hubspot.com/anam-khoja"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Contact Sales
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button
+                      className="w-full"
+                      variant={plan.popular ? "default" : "outline"}
+                    >
+                      Get Started
+                    </Button>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </main>
