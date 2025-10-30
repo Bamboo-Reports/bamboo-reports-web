@@ -15,10 +15,10 @@ const GCCMomentum = () => {
     document.body.appendChild(script);
 
     script.onload = () => {
-      if (window.jotformEmbedHandler) {
+      if ((window as any).jotformEmbedHandler) {
         // Initialize the handler as soon as script loads
         setTimeout(() => {
-          window.jotformEmbedHandler(
+          (window as any).jotformEmbedHandler(
             "iframe[id='JotFormIFrame-251101747497459']",
             "https://form.jotform.com/"
           );
@@ -114,10 +114,8 @@ const GCCMomentum = () => {
         <iframe
           id="JotFormIFrame-251101747497459"
           title="[RNXT] Bamboo Reports Leads"
-          allowTransparency="true"
           allow="geolocation; microphone; camera; fullscreen; payment"
           src="https://form.jotform.com/251101747497459"
-          scrolling="no"
           onLoad={handleIframeLoad}
           className="w-full h-full border-0"
         />
@@ -161,10 +159,8 @@ const GCCMomentum = () => {
               <iframe
                 id="JotFormIFrame-251101747497459-visible"
                 title="[RNXT] Bamboo Reports Leads"
-                allowTransparency="true"
                 allow="geolocation; microphone; camera; fullscreen; payment"
                 src="https://form.jotform.com/251101747497459"
-                scrolling="no"
                 className="w-full h-full border-0"
               />
             </div>

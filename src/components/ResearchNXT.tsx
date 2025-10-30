@@ -56,7 +56,7 @@ const ResearchNXT = () => {
         </div>
       </div>
       
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -73,7 +73,7 @@ const ResearchNXT = () => {
         .animate-scroll:hover {
           animation-play-state: paused;
         }
-      `}</style>
+      `}} />
     </section>
   );
 };
