@@ -61,7 +61,7 @@ const Pricing = () => {
           description: "Detailed account information",
         },
         {
-          title: "Standard PD - Up to 1,200 Prospects",
+          title: "Standard Prospects Database - Up to 1,200 Verified Prospects",
           description: "Predefined prospect template",
         },
         {
@@ -93,7 +93,7 @@ const Pricing = () => {
           description: "Enhanced with exclusive filters",
         },
         {
-          title: "Custom PD - Up to 5,000 Prospects",
+          title: "Custom Prospects Database - Up to 1,200 Verified Prospects",
           description: "Tailored for your marketing campaigns",
         },
         {
