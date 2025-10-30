@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Search, Download, X, TrendingUp, Building2, Rocket } from "lucide-react";
@@ -32,6 +32,15 @@ const nameSearchCols = [
   "India Entity Name"
 ];
 
+// Moved toCSV outside the component to make it a stable, pure function
+const toCSV = (rows: any[], cols: string[]) => {
+  const q = (v: any) => {
+    const s = String(v ?? "");
+    return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  return cols.map(q).join(",") + "\n" + rows.map((r: any) => cols.map((c: string) => q(r[c])).join(",")).join("\n");
+};
+
 const GCCList = () => {
   const [data, setData] = useState<any[]>([]);
   const [columns, setColumns] = useState<string[]>([]);
@@ -39,23 +48,8 @@ const GCCList = () => {
   const [pageSize, setPageSize] = useState(10);
   const [nameSearch, setNameSearch] = useState("");
   const [facets, setFacets] = useState({});
-  const [selectedKeys, setSelectedKeys] = useState(new Set());
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [downloadScope, setDownloadScope] = useState("filtered");
-
-  const rowKey = (r) => {
-    return [
-      r["Account Global Legal Name"] ?? "",
-      r["India Entity Name"] ?? "",
-      r["HQ Country"] ?? "",
-      r["Center Type"] ?? "",
-      r["Primary Nature"] ?? "",
-      r["HQ Revenue Range"] ?? "",
-      r["HQ Employee Range"] ?? "",
-      r["India Head Count Range"] ?? ""
-    ].join(" | ");
-  };
 
   const parseCSV = (text) => {
     const rows = [];
@@ -181,66 +175,14 @@ const GCCList = () => {
     const cleared = {};
     Object.keys(facets).forEach(k => cleared[k] = "");
     setFacets(cleared);
-    setSelectedKeys(new Set());
     setPage(1);
   };
 
-  const handleToggleRow = (key) => {
-    const newSelected = new Set(selectedKeys);
-    if (newSelected.has(key)) {
-      newSelected.delete(key);
-    } else {
-      newSelected.add(key);
-    }
-    setSelectedKeys(newSelected);
-  };
-
-  const handleToggleAllPage = () => {
-    const newSelected = new Set(selectedKeys);
-    const allChecked = currentPageData.every(r => selectedKeys.has(rowKey(r)));
-    
-    if (allChecked) {
-      currentPageData.forEach(r => newSelected.delete(rowKey(r)));
-    } else {
-      currentPageData.forEach(r => newSelected.add(rowKey(r)));
-    }
-    setSelectedKeys(newSelected);
-  };
-
-  const masterCheckboxState = useMemo(() => {
-    if (currentPageData.length === 0) return { checked: false, indeterminate: false };
-    const checkedCount = currentPageData.filter(r => selectedKeys.has(rowKey(r))).length;
-    if (checkedCount === 0) return { checked: false, indeterminate: false };
-    if (checkedCount === currentPageData.length) return { checked: true, indeterminate: false };
-    return { checked: false, indeterminate: true };
-  }, [currentPageData, selectedKeys]);
-
-  const toCSV = (rows: any[], cols: string[]) => {
-    const q = (v: any) => {
-      const s = String(v ?? "");
-      return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
-    };
-    return cols.map(q).join(",") + "\n" + rows.map((r: any) => cols.map((c: string) => q(r[c])).join(",")).join("\n");
-  };
-
-  const getScopeRows = (scope: string) => {
-    if (scope === "page") return currentPageData;
-    if (scope === "selected") {
-      const map = new Map(filteredData.map(r => [rowKey(r), r]));
-      const keep: any[] = [];
-      selectedKeys.forEach((k: string) => {
-        const item = map.get(k);
-        if (item) keep.push(item);
-      });
-      return keep;
-    }
-    return filteredData;
-  };
-
-  const triggerDownload = (scope) => {
-    const rows = getScopeRows(scope);
+  // Downloads the ENTIRE original dataset
+  const triggerDownload = useCallback(() => {
+    const rows = data; // Use the original, unfiltered data
     if (!rows.length) {
-      alert("No rows to download for the chosen scope.");
+      alert("No rows to download.");
       return;
     }
     const csv = toCSV(rows, columns);
@@ -248,21 +190,21 @@ const GCCList = () => {
     const ts = new Date().toISOString().replace(/[:.]/g, "-");
     const a = document.createElement("a");
     a.href = url;
-    a.download = `gcc-data-${scope}-${ts}.csv`;
+    a.download = `gcc-data-all-${ts}.csv`; // Changed scope to 'all'
     document.body.appendChild(a);
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
-  };
+  }, [data, columns]); // Depends on the full dataset and columns
 
   const handleDownloadClick = () => {
     setShowModal(true);
   };
 
-  const handleFormSuccess = () => {
+  const handleFormSuccess = useCallback(() => {
     setShowModal(false);
-    triggerDownload(downloadScope);
-  };
+    triggerDownload();
+  }, [triggerDownload]); // Depends on the memoized triggerDownload
 
   useEffect(() => {
     const handleMessage = (event) => {
@@ -297,7 +239,7 @@ const GCCList = () => {
 
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
-  }, [downloadScope]);
+  }, [handleFormSuccess]); // Dependency on the memoized form success handler
 
   return (
     <div className="min-h-screen bg-background">
@@ -387,16 +329,7 @@ const GCCList = () => {
                 </div>
                 
                 <div className="flex flex-wrap gap-3 items-center justify-end">
-                  <label className="text-sm text-muted-foreground">Scope</label>
-                  <select
-                    value={downloadScope}
-                    onChange={(e) => setDownloadScope(e.target.value)}
-                    className="px-3 py-2 border rounded-lg text-sm"
-                  >
-                    <option value="filtered">All filtered</option>
-                    <option value="page">Current page</option>
-                    <option value="selected">Selected only</option>
-                  </select>
+                  {/* Scope and Selected count removed */}
                   <button
                     onClick={handleDownloadClick}
                     className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50 flex items-center gap-2"
@@ -404,9 +337,6 @@ const GCCList = () => {
                     <Download className="w-4 h-4" />
                     Download
                   </button>
-                  <span className="px-3 py-2 border rounded-full text-sm bg-white">
-                    Selected: <strong>{selectedKeys.size}</strong>
-                  </span>
                 </div>
               </div>
 
@@ -443,17 +373,7 @@ const GCCList = () => {
                 <table className="w-full text-sm">
                   <thead className="bg-slate-50 sticky top-0">
                     <tr>
-                      <th className="p-3 text-center border-b sticky left-0 bg-slate-50 z-10">
-                        <input
-                          type="checkbox"
-                          checked={masterCheckboxState.checked}
-                          ref={el => {
-                            if (el) el.indeterminate = masterCheckboxState.indeterminate;
-                          }}
-                          onChange={handleToggleAllPage}
-                          disabled={currentPageData.length === 0}
-                        />
-                      </th>
+                      {/* Checkbox TH removed */}
                       {columns.map(col => (
                         <th key={col} className="p-3 text-left border-b font-medium">
                           {col}
@@ -464,22 +384,16 @@ const GCCList = () => {
                   <tbody>
                     {currentPageData.length === 0 ? (
                       <tr>
-                        <td colSpan={columns.length + 1} className="p-8 text-center text-muted-foreground">
+                        {/* Updated colSpan */}
+                        <td colSpan={columns.length} className="p-8 text-center text-muted-foreground">
                           No results.
                         </td>
                       </tr>
                     ) : (
                       currentPageData.map((row: any, idx: number) => {
-                        const key = rowKey(row);
                         return (
                           <tr key={idx} className="hover:bg-slate-50">
-                            <td className="p-3 text-center border-b sticky left-0 bg-white">
-                              <input
-                                type="checkbox"
-                                checked={selectedKeys.has(key)}
-                                onChange={() => handleToggleRow(key)}
-                              />
-                            </td>
+                            {/* Checkbox TD removed */}
                             {columns.map((col: string) => (
                               <td key={col} className="p-3 border-b">
                                 {row[col] ?? ""}
