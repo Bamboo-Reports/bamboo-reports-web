@@ -20,7 +20,7 @@ const IntelligenceSpans = () => {
   return (
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-8 lg:mb-6">Our Intelligence Spans Across</h2>
+        <h2 className="text-4xl font-bold mb-8 lg:mb-4">Our Intelligence Spans Across</h2>
         
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
