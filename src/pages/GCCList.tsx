@@ -223,12 +223,11 @@ const GCCList = () => {
   };
 
   const triggerDownload = () => {
-    const rows = data; // Download entire dataset
-    if (!rows.length) {
-      alert("No data available to download.");
+    if (!data.length || !columns.length) {
+      alert("No data available to download. Please wait for data to load.");
       return;
     }
-    const csv = toCSV(rows, columns);
+    const csv = toCSV(data, columns);
     const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
     const ts = new Date().toISOString().replace(/[:.]/g, "-");
     const a = document.createElement("a");
@@ -241,6 +240,14 @@ const GCCList = () => {
   };
 
   const handleDownloadClick = () => {
+    if (loading) {
+      alert("Please wait for data to finish loading.");
+      return;
+    }
+    if (!data.length) {
+      alert("No data available to download.");
+      return;
+    }
     setShowModal(true);
   };
 
