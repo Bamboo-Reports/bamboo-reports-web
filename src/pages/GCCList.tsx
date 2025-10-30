@@ -1,7 +1,9 @@
 import { useState, useEffect, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Search, Download, X } from "lucide-react";
+import { Search, Download, X, TrendingUp, Building2, Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const CSV_URL = "https://files.catbox.moe/lp9nh3.csv";
 
@@ -31,8 +33,8 @@ const nameSearchCols = [
 ];
 
 const GCCList = () => {
-  const [data, setData] = useState([]);
-  const [columns, setColumns] = useState([]);
+  const [data, setData] = useState<any[]>([]);
+  const [columns, setColumns] = useState<string[]>([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [nameSearch, setNameSearch] = useState("");
@@ -165,7 +167,7 @@ const GCCList = () => {
     });
     const set = new Set();
     rows.forEach(r => set.add(String(r[targetCol] ?? "")));
-    return Array.from(set).filter(v => v.length).sort((a, b) => a.localeCompare(b));
+    return Array.from(set).filter((v: any) => v.length).sort((a: any, b: any) => a.localeCompare(b));
   };
 
   const totalPages = Math.max(1, Math.ceil(filteredData.length / pageSize));
@@ -213,21 +215,22 @@ const GCCList = () => {
     return { checked: false, indeterminate: true };
   }, [currentPageData, selectedKeys]);
 
-  const toCSV = (rows, cols) => {
-    const q = v => {
+  const toCSV = (rows: any[], cols: string[]) => {
+    const q = (v: any) => {
       const s = String(v ?? "");
       return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
     };
-    return cols.map(q).join(",") + "\n" + rows.map(r => cols.map(c => q(r[c])).join(",")).join("\n");
+    return cols.map(q).join(",") + "\n" + rows.map((r: any) => cols.map((c: string) => q(r[c])).join(",")).join("\n");
   };
 
-  const getScopeRows = (scope) => {
+  const getScopeRows = (scope: string) => {
     if (scope === "page") return currentPageData;
     if (scope === "selected") {
       const map = new Map(filteredData.map(r => [rowKey(r), r]));
-      const keep = [];
-      selectedKeys.forEach(k => {
-        if (map.has(k)) keep.push(map.get(k));
+      const keep: any[] = [];
+      selectedKeys.forEach((k: string) => {
+        const item = map.get(k);
+        if (item) keep.push(item);
       });
       return keep;
     }
@@ -302,7 +305,58 @@ const GCCList = () => {
       
       <main className="py-20 px-4">
         <div className="max-w-[1400px] mx-auto">
-          <h1 className="text-5xl font-bold mb-8">GCC List</h1>
+          {/* Hero Section */}
+          <div className="text-center mb-16">
+            <h1 className="mb-6">
+              Discover India's Global Capability Centers (GCCs) — The Engine of Global Innovation
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              India has evolved into the world's most dynamic hub for Global Capability Centers (GCCs) — strategic offshore units established by multinational corporations to drive innovation, digital transformation, and enterprise efficiency. Once viewed primarily as cost-optimization vehicles, today's GCCs are strategic value creators delivering advanced technology, analytics, product engineering, and end-to-end business capabilities for their global organizations.
+            </p>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto mt-4">
+              Explore the world's largest database of GCCs in India — uncover insights on their scale, focus areas, technologies, and expansion trends.
+            </p>
+          </div>
+
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="bg-white rounded-2xl p-8 border shadow-sm text-center">
+              <Building2 className="w-12 h-12 text-primary mx-auto mb-4" />
+              <div className="text-5xl font-bold text-primary mb-2">2400+</div>
+              <div className="text-muted-foreground">MNCs with Centers In India</div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 border shadow-sm text-center">
+              <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
+              <div className="text-5xl font-bold text-primary mb-2">5700+</div>
+              <div className="text-muted-foreground">Centers with in-depth insights</div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 border shadow-sm text-center">
+              <Rocket className="w-12 h-12 text-primary mx-auto mb-4" />
+              <div className="text-5xl font-bold text-primary mb-2">110+</div>
+              <div className="text-muted-foreground">Upcoming centers in india</div>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4 justify-center mb-16">
+            <Button 
+              size="lg" 
+              onClick={() => document.getElementById('gcc-table')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-primary hover:bg-primary/90"
+            >
+              Download Sample
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              asChild
+            >
+              <Link to="/pricing">Get Full Access</Link>
+            </Button>
+          </div>
+
+          {/* Table Section */}
+          <div id="gcc-table">
           
           {loading ? (
             <div className="text-xl text-muted-foreground">Loading data...</div>
@@ -375,7 +429,7 @@ const GCCList = () => {
                         className="px-3 py-1.5 border rounded-lg text-sm"
                       >
                         <option value="">All</option>
-                        {options.map(opt => (
+                        {options.map((opt: string) => (
                           <option key={opt} value={opt}>{opt}</option>
                         ))}
                       </select>
@@ -415,7 +469,7 @@ const GCCList = () => {
                         </td>
                       </tr>
                     ) : (
-                      currentPageData.map((row, idx) => {
+                      currentPageData.map((row: any, idx: number) => {
                         const key = rowKey(row);
                         return (
                           <tr key={idx} className="hover:bg-slate-50">
@@ -426,7 +480,7 @@ const GCCList = () => {
                                 onChange={() => handleToggleRow(key)}
                               />
                             </td>
-                            {columns.map(col => (
+                            {columns.map((col: string) => (
                               <td key={col} className="p-3 border-b">
                                 {row[col] ?? ""}
                               </td>
@@ -494,6 +548,56 @@ const GCCList = () => {
               </div>
             </div>
           )}
+          </div>
+
+          {/* Why GCCs Section */}
+          <div className="mt-32 mb-16">
+            <h2 className="text-center mb-16">
+              Why Do Companies Set Up GCCs in India?
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Card 1 */}
+              <div className="bg-white rounded-2xl p-8 border shadow-sm">
+                <h3 className="text-2xl font-semibold mb-4 text-primary">
+                  Access to World-Class Talent
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  India offers one of the largest and most diverse pools of engineering, finance, and digital professionals in the world — allowing companies to scale faster and innovate continuously.
+                </p>
+              </div>
+
+              {/* Card 2 */}
+              <div className="bg-white rounded-2xl p-8 border shadow-sm">
+                <h3 className="text-2xl font-semibold mb-4 text-primary">
+                  Cost Efficiency with Value Creation
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Originally started as cost-saving units, modern GCCs now deliver strategic value, driving transformation, innovation, and new revenue streams for their parent organizations.
+                </p>
+              </div>
+
+              {/* Card 3 */}
+              <div className="bg-white rounded-2xl p-8 border shadow-sm">
+                <h3 className="text-2xl font-semibold mb-4 text-primary">
+                  Innovation & Technology Leadership
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  India's GCCs are often the innovation labs for global enterprises — experimenting with AI, automation, data analytics, cloud, cybersecurity, and Industry 4.0 technologies.
+                </p>
+              </div>
+
+              {/* Card 4 */}
+              <div className="bg-white rounded-2xl p-8 border shadow-sm">
+                <h3 className="text-2xl font-semibold mb-4 text-primary">
+                  Global Operating Model
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  By setting up in India, companies achieve 24×7 operations, proximity to emerging markets, and resilience through distributed teams.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
