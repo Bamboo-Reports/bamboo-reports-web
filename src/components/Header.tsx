@@ -61,13 +61,6 @@ const Header = () => {
         <div className="flex items-center gap-3">
           <Button
             asChild
-            variant="outline"
-            className="rounded-full font-semibold"
-          >
-            <Link to="/gcc-list">Get Free GCC Data</Link>
-          </Button>
-          <Button
-            asChild
             className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold"
           >
             <a
@@ -77,6 +70,13 @@ const Header = () => {
             >
               Get a Demo
             </a>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="rounded-full font-semibold"
+          >
+            <Link to="/gcc-list">Get Free GCC Data</Link>
           </Button>
         </div>
       </div>
