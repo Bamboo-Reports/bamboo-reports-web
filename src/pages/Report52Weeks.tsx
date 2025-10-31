@@ -11,7 +11,7 @@ const Report52Weeks = () => {
 
     script.onload = () => {
       if ((window as any).jotformEmbedHandler) {
-        (window as any).jotformEmbedHandler("iframe[id='JotFormIFrame-251101747497459']", "https://form.jotform.com/");
+        (window as any).jotformEmbedHandler("iframe[id='JotFormIFrame-253031221972448']", "https://form.jotform.com/");
       }
     };
 
@@ -56,14 +56,14 @@ const Report52Weeks = () => {
                 <div className="rounded-lg border bg-card p-6">
                   <h3 className="text-2xl font-bold mb-4">Download Report</h3>
                   <iframe
-                    id="JotFormIFrame-251101747497459"
-                    title="[RNXT] Bamboo Reports Leads"
+                    id="JotFormIFrame-253031221972448"
+                    title="[ BR ] - 52 Weeks Leads"
                     onLoad={(e) => {
                       window.parent.scrollTo(0, 0);
                     }}
                     allowTransparency={true}
                     allow="geolocation; microphone; camera; fullscreen; payment"
-                    src="https://form.jotform.com/251101747497459"
+                    src="https://form.jotform.com/253031221972448"
                     frameBorder="0"
                     style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
                     scrolling="no"
