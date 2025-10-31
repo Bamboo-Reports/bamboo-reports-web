@@ -31,7 +31,7 @@ const SectionCTA = ({ title, description, primaryAction, secondaryAction }: Sect
           <Button
             asChild
             size="lg"
-            className="bg-accent hover:bg-accent/90 text-accent-foreground"
+            className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full"
           >
             <a
               href={primaryAction.href}
@@ -46,7 +46,7 @@ const SectionCTA = ({ title, description, primaryAction, secondaryAction }: Sect
           <Button
             asChild
             size="lg"
-            className="bg-accent hover:bg-accent/90 text-accent-foreground"
+            className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full"
           >
             <Link to={primaryAction.href}>
               {primaryAction.text}
@@ -57,7 +57,7 @@ const SectionCTA = ({ title, description, primaryAction, secondaryAction }: Sect
 
         {secondaryAction && (
           secondaryAction.external ? (
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="rounded-full">
               <a
                 href={secondaryAction.href}
                 target="_blank"
@@ -67,7 +67,7 @@ const SectionCTA = ({ title, description, primaryAction, secondaryAction }: Sect
               </a>
             </Button>
           ) : (
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="rounded-full">
               <Link to={secondaryAction.href}>
                 {secondaryAction.text}
               </Link>

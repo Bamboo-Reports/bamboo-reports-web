@@ -209,7 +209,7 @@ const Pricing = () => {
                   {isCustom ? (
                     <Button
                       asChild
-                      className="w-full"
+                      className="w-full rounded-full"
                       variant={plan.popular ? "default" : "outline"}
                     >
                       <a
@@ -222,7 +222,7 @@ const Pricing = () => {
                     </Button>
                   ) : (
                     <Button
-                      className="w-full"
+                      className="w-full rounded-full"
                       variant={plan.popular ? "default" : "outline"}
                     >
                       Get Started
@@ -239,7 +239,7 @@ const Pricing = () => {
               Not sure what to choose?
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="rounded-full">
                 <a
                   href="https://meetings-na2.hubspot.com/anam-khoja"
                   target="_blank"
@@ -248,7 +248,7 @@ const Pricing = () => {
                   Contact Sales
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="rounded-full">
                 <a href="/gcc-list">Get Free GCC Data</a>
               </Button>
             </div>

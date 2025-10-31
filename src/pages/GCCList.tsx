@@ -299,11 +299,11 @@ const GCCList = () => {
             <Button
               size="lg"
               onClick={() => setShowModal(true)}
-              className="bg-primary hover:bg-primary/90"
+              className="bg-primary hover:bg-primary/90 rounded-full"
             >
               Download Sample
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="outline" asChild className="rounded-full">
               <Link to="/pricing">Get Full Access</Link>
             </Button>
           </div>

@@ -86,7 +86,7 @@ const ExitIntentPopup = () => {
           <Button
             asChild
             size="lg"
-            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold"
+            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold rounded-full"
           >
             <Link to="/gcc-list" onClick={() => setIsVisible(false)}>
               Get the free GCC data
