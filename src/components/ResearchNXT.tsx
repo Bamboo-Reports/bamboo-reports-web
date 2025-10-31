@@ -5,6 +5,7 @@ import salesforceLogo from "@/assets/logos/salesforce.png";
 import slkLogo from "@/assets/logos/slk.png";
 import thoughtworksLogo from "@/assets/logos/thoughtworks.png";
 import vymoLogo from "@/assets/logos/vymo.png";
+import SectionCTA from "@/components/SectionCTA";
 
 const logos = [
   { src: ramcoLogo, alt: "Ramco" },
@@ -18,11 +19,13 @@ const logos = [
 const ResearchNXT = () => {
   return (
     <section className="py-16 px-4 bg-background">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-3">Bamboo Reports is built by Research NXT</h2>
-        <p className="text-muted-foreground mb-12">
-          a market intelligence firm trusted by 50+ global tech companies.
-        </p>
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold mb-3">Bamboo Reports is built by Research NXT</h2>
+          <p className="text-muted-foreground mb-12">
+            a market intelligence firm trusted by 50+ global tech companies.
+          </p>
+        </div>
         
         <div className="overflow-hidden relative">
           <div className="flex animate-scroll">
@@ -54,6 +57,19 @@ const ResearchNXT = () => {
             ))}
           </div>
         </div>
+
+        <SectionCTA
+          title="Backed by Trusted Market Intelligence"
+          description="Research NXT powers your decision-making with proven expertise and comprehensive data."
+          primaryAction={{
+            text: "Get Free GCC Data",
+            href: "/gcc-list"
+          }}
+          secondaryAction={{
+            text: "View Our Reports",
+            href: "/reports"
+          }}
+        />
       </div>
       
       <style dangerouslySetInnerHTML={{__html: `

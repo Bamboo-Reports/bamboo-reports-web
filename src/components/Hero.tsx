@@ -35,13 +35,13 @@ const Hero = () => {
               </a>
             </Button>
 
-            {/* --- New GCC Sample Button --- */}
+            {/* --- New GCC Data Button --- */}
             <Button
               asChild // Use asChild to render the Link
               variant="outline" // Use outline style
               className="px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
             >
-              <Link to="/gcc-list">Get GCC Sample</Link>
+              <Link to="/gcc-list">Get Free GCC Data</Link>
             </Button>
           </div>
           

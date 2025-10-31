@@ -1,5 +1,6 @@
 import { TrendingUp, Users, FileText, TrendingDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import SectionCTA from "@/components/SectionCTA";
 
 const beneficiaries = [
   {
@@ -52,6 +53,19 @@ const WhoBenefits = () => {
             </Card>
           ))}
         </div>
+
+        <SectionCTA
+          title="Join Industry Leaders Using Bamboo Reports"
+          description="Whether you're in sales, marketing, consulting, or investment—unlock the insights you need to stay ahead."
+          primaryAction={{
+            text: "Get Free GCC Data",
+            href: "/gcc-list"
+          }}
+          secondaryAction={{
+            text: "Explore Pricing",
+            href: "/pricing"
+          }}
+        />
       </div>
     </section>
   );

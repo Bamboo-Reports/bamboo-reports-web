@@ -1,4 +1,5 @@
 import { TrendingUp, Filter, Target, Lightbulb } from "lucide-react";
+import SectionCTA from "@/components/SectionCTA";
 
 const features = [
   {
@@ -53,6 +54,19 @@ const Features = () => {
             </div>
           ))}
         </div>
+
+        <SectionCTA
+          title="Ready to Unlock GCC Intelligence?"
+          description="Get instant access to our comprehensive GCC database and discover opportunities in India's fastest-growing market."
+          primaryAction={{
+            text: "Get Free GCC Data",
+            href: "/gcc-list"
+          }}
+          secondaryAction={{
+            text: "View All Reports",
+            href: "/reports"
+          }}
+        />
       </div>
     </section>
   );

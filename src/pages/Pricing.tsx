@@ -249,7 +249,7 @@ const Pricing = () => {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="/gcc-list">Get GCC Sample</a>
+                <a href="/gcc-list">Get Free GCC Data</a>
               </Button>
             </div>
           </div>
