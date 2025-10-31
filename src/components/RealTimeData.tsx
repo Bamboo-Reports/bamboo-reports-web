@@ -1,6 +1,5 @@
 import { Check } from "lucide-react";
 import dataHelpIllustration from "@/assets/data-help-illustration.png";
-import SectionCTA from "@/components/SectionCTA";
 
 const benefits = [
   {
@@ -46,19 +45,6 @@ const RealTimeData = () => {
             <img src={dataHelpIllustration} alt="Real-time Data Illustration" className="w-full max-w-2xl" />
           </div>
         </div>
-
-        <SectionCTA
-          title="Start Making Data-Driven Decisions Today"
-          description="Join hundreds of professionals leveraging our GCC intelligence to identify opportunities and mitigate risks."
-          primaryAction={{
-            text: "Get Free GCC Data",
-            href: "/gcc-list"
-          }}
-          secondaryAction={{
-            text: "View Pricing",
-            href: "/pricing"
-          }}
-        />
       </div>
     </section>
   );

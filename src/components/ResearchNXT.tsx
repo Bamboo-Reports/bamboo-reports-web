@@ -5,7 +5,6 @@ import salesforceLogo from "@/assets/logos/salesforce.png";
 import slkLogo from "@/assets/logos/slk.png";
 import thoughtworksLogo from "@/assets/logos/thoughtworks.png";
 import vymoLogo from "@/assets/logos/vymo.png";
-import SectionCTA from "@/components/SectionCTA";
 
 const logos = [
   { src: ramcoLogo, alt: "Ramco" },
@@ -57,19 +56,6 @@ const ResearchNXT = () => {
             ))}
           </div>
         </div>
-
-        <SectionCTA
-          title="Backed by Trusted Market Intelligence"
-          description="Research NXT powers your decision-making with proven expertise and comprehensive data."
-          primaryAction={{
-            text: "Get Free GCC Data",
-            href: "/gcc-list"
-          }}
-          secondaryAction={{
-            text: "View Our Reports",
-            href: "/reports"
-          }}
-        />
       </div>
       
       <style dangerouslySetInnerHTML={{__html: `

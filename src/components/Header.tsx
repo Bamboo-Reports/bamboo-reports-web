@@ -12,7 +12,7 @@ import {
 
 const Header = () => {
   return (
-    <header className="py-6 px-4 border-b">
+    <header className="sticky top-0 z-40 py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/">
           <img src={logo} alt="Bamboo Reports" className="h-12" />

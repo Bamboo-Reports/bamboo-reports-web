@@ -1,6 +1,5 @@
 import { Check } from "lucide-react";
 import indiaMap from "@/assets/india-map.png";
-import SectionCTA from "@/components/SectionCTA";
 
 const categories = [
   {
@@ -42,20 +41,6 @@ const IntelligenceSpans = () => {
             <img src={indiaMap} alt="GCC Intelligence Coverage Map" className="w-full max-w-2xl" />
           </div>
         </div>
-
-        <SectionCTA
-          title="Explore Comprehensive GCC Insights"
-          description="Access detailed intelligence across industries, functions, and geographies to make informed business decisions."
-          primaryAction={{
-            text: "Get Free GCC Data",
-            href: "/gcc-list"
-          }}
-          secondaryAction={{
-            text: "Schedule a Demo",
-            href: "https://meetings-na2.hubspot.com/anam-khoja",
-            external: true
-          }}
-        />
       </div>
     </section>
   );
