@@ -5,27 +5,35 @@ import { Link } from "react-router-dom";
 
 const ExitIntentPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hasShown, setHasShown] = useState(false);
 
   useEffect(() => {
+    // respect prior view this session
+    const seen = sessionStorage.getItem("exit_intent_seen");
+    if (seen) return;
+
     const handleMouseLeave = (e: MouseEvent) => {
-      // Check if mouse is leaving from the top of the page
-      if (e.clientY <= 0 && !hasShown) {
+      if (e.clientY <= 0) {
         setIsVisible(true);
-        setHasShown(true);
+        sessionStorage.setItem("exit_intent_seen", "1");
+        document.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
 
-    // Add a small delay before activating exit intent
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsVisible(false);
+    };
+
     const timer = setTimeout(() => {
       document.addEventListener("mouseleave", handleMouseLeave);
+      document.addEventListener("keydown", onKeyDown);
     }, 3000);
 
     return () => {
       clearTimeout(timer);
       document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("keydown", onKeyDown);
     };
-  }, [hasShown]);
+  }, []);
 
   if (!isVisible) return null;
 
@@ -41,9 +49,10 @@ const ExitIntentPopup = () => {
         </button>
 
         <div className="text-center">
-          <h3 className="text-3xl font-bold mb-4">Wait! Before You Go...</h3>
+          <h3 className="text-3xl font-bold mb-4">Wait, before you go…</h3>
           <p className="text-lg text-muted-foreground mb-6">
-            Download our free GCC database sample with 2,500+ centers and unlock valuable insights into India's Global Capability Centers.
+            Download our free GCC database with <span className="font-semibold">100+ verified India centers</span>.
+            See locations, functions, headcount ranges, and tech stack snapshots.
           </p>
 
           <div className="space-y-4 mb-6">
@@ -54,10 +63,11 @@ const ExitIntentPopup = () => {
                 </svg>
               </div>
               <div>
-                <p className="font-medium">2,500+ GCC Centers</p>
-                <p className="text-sm text-muted-foreground">Comprehensive database access</p>
+                <p className="font-medium">100+ India GCC centers</p>
+                <p className="text-sm text-muted-foreground">Verified entries ready to use</p>
               </div>
             </div>
+
             <div className="flex items-start gap-3 text-left">
               <div className="bg-primary/10 text-primary p-2 rounded-full flex-shrink-0 mt-1">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -65,8 +75,19 @@ const ExitIntentPopup = () => {
                 </svg>
               </div>
               <div>
-                <p className="font-medium">Instant Download</p>
-                <p className="text-sm text-muted-foreground">No credit card required</p>
+                <p className="font-medium">Instant download</p>
+                <p className="text-sm text-muted-foreground">Receive it immediately</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 text-left">
+              <div className="bg-primary/10 text-primary p-2 rounded-full flex-shrink-0 mt-1">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <p className="font-medium">No credit card required</p>
               </div>
             </div>
           </div>
@@ -77,7 +98,7 @@ const ExitIntentPopup = () => {
             className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold"
           >
             <Link to="/gcc-list" onClick={() => setIsVisible(false)}>
-              Get Free GCC Data Now
+              Get the free GCC data
             </Link>
           </Button>
 
@@ -85,7 +106,7 @@ const ExitIntentPopup = () => {
             onClick={() => setIsVisible(false)}
             className="mt-4 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            No thanks, I'll pass on this opportunity
+            No thanks
           </button>
         </div>
       </div>
