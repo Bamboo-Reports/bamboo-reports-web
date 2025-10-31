@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
 import Reports from "./pages/Reports";
+import Report52Weeks from "./pages/Report52Weeks";
+import ReportGCCSnapshotQ2 from "./pages/ReportGCCSnapshotQ2";
 import GCCList from "./pages/GCCList";
 import Insights from "./pages/Insights";
 import Articles from "./pages/Articles";
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/reports/52-weeks" element={<Report52Weeks />} />
+          <Route path="/reports/gcc-snapshot-q2" element={<ReportGCCSnapshotQ2 />} />
           <Route path="/gcc-list" element={<GCCList />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/articles" element={<Articles />} />
