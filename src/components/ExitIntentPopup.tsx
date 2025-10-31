@@ -7,7 +7,6 @@ const ExitIntentPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // respect prior view this session
     const seen = sessionStorage.getItem("exit_intent_seen");
     if (seen) return;
 
@@ -51,44 +50,38 @@ const ExitIntentPopup = () => {
         <div className="text-center">
           <h3 className="text-3xl font-bold mb-4">Wait, before you go…</h3>
           <p className="text-lg text-muted-foreground mb-6">
-            Download our free GCC database with <span className="font-semibold">100+ verified India centers</span>.
-            See account, indian entity name, revenue and headcount range.
+            Download our free GCC database with{" "}
+            <span className="font-semibold">100+ verified India centers</span>.
+            See account, Indian entity name, revenue, and headcount range.
           </p>
 
-          <div className="space-y-4 mb-6">
-            <div className="flex items-start gap-3 text-left">
-              <div className="bg-primary/10 text-primary p-2 rounded-full flex-shrink-0 mt-1">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <div>
-                <p className="font-medium">100+ India GCC centers</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 text-left">
-              <div className="bg-primary/10 text-primary p-2 rounded-full flex-shrink-0 mt-1">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <div>
-                <p className="font-medium">Instant download</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 text-left">
-              <div className="bg-primary/10 text-primary p-2 rounded-full flex-shrink-0 mt-1">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <div>
-                <p className="font-medium">No credit card required</p>
-              </div>
-            </div>
-          </div>
+          <ul className="space-y-4 mb-6 text-left mx-auto max-w-sm">
+            {[
+              "100+ India GCC centers",
+              "Instant download",
+              "No credit card required",
+            ].map((label) => (
+              <li key={label} className="flex items-center gap-3">
+                <span className="bg-primary/10 text-primary w-8 h-8 rounded-full grid place-items-center flex-shrink-0">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </span>
+                <span className="font-medium leading-snug">{label}</span>
+              </li>
+            ))}
+          </ul>
 
           <Button
             asChild
