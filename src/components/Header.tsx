@@ -99,7 +99,15 @@ const Header = () => {
           </SheetTrigger>
           <SheetContent side="right" className="w-full sm:w-[400px] p-0">
             <div className="flex flex-col h-full">
-              <nav className="flex-1 overflow-y-auto py-6">
+              {/* Logo at top */}
+              <div className="p-6 pb-4">
+                <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+                  <img src={logo} alt="Bamboo Reports" className="h-10" />
+                </Link>
+              </div>
+
+              {/* Navigation */}
+              <nav className="flex-1 overflow-y-auto">
                 <div className="px-6 space-y-1">
                   <Link
                     to="/pricing"
@@ -145,32 +153,35 @@ const Header = () => {
                     )}
                   </div>
                 </div>
-              </nav>
 
-              {/* Mobile CTAs */}
-              <div className="border-t p-6 space-y-3">
-                <Button
-                  asChild
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <a
-                    href="https://meetings-na2.hubspot.com/anam-khoja"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                {/* Separator */}
+                <div className="my-6 border-t" />
+
+                {/* CTAs */}
+                <div className="px-6 space-y-3 pb-6">
+                  <Button
+                    asChild
+                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
-                    Get a Demo
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full rounded-full font-semibold"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Link to="/gcc-list">Get Free GCC Data</Link>
-                </Button>
-              </div>
+                    <a
+                      href="https://meetings-na2.hubspot.com/anam-khoja"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get a Demo
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full rounded-full font-semibold"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Link to="/gcc-list">Get Free GCC Data</Link>
+                  </Button>
+                </div>
+              </nav>
             </div>
           </SheetContent>
         </Sheet>
