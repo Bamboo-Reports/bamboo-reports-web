@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
-import confetti from "canvas-confetti";
 
 const ReportGCCSnapshotQ2 = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -18,34 +17,8 @@ const ReportGCCSnapshotQ2 = () => {
           (typeof e.data === 'object' && (e.data.action === 'submission-completed' || e.data.type === 'form-submit'))
         )
       ) {
-        console.log('Form submitted! Showing thank you message and confetti');
+        console.log('Form submitted! Showing thank you message');
         setIsSubmitted(true);
-        
-        // Trigger confetti
-        const duration = 3000;
-        const end = Date.now() + duration;
-
-        const frame = () => {
-          confetti({
-            particleCount: 3,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 },
-            colors: ['#10b981', '#3b82f6', '#8b5cf6']
-          });
-          confetti({
-            particleCount: 3,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 },
-            colors: ['#10b981', '#3b82f6', '#8b5cf6']
-          });
-
-          if (Date.now() < end) {
-            requestAnimationFrame(frame);
-          }
-        };
-        frame();
       }
     };
 
@@ -110,10 +83,9 @@ const ReportGCCSnapshotQ2 = () => {
                   <h3 className="text-2xl font-bold mb-4">Download Report</h3>
                   {isSubmitted ? (
                     <div className="flex flex-col items-center justify-center py-16 animate-fade-in">
-                      <div className="text-6xl mb-4">🎉</div>
-                      <h4 className="text-2xl font-bold mb-2">Thank You!</h4>
+                      <h4 className="text-2xl font-bold mb-4">Thank You for Downloading!</h4>
                       <p className="text-muted-foreground text-center">
-                        Your report is on its way to your inbox.
+                        Your report will be sent to your email shortly.
                       </p>
                     </div>
                   ) : (
