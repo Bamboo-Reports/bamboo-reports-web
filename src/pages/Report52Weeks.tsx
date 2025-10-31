@@ -1,24 +1,44 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Report52Weeks = () => {
+  const [formKey, setFormKey] = useState(0);
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
     script.async = true;
     document.body.appendChild(script);
-
+    
     script.onload = () => {
       if ((window as any).jotformEmbedHandler) {
         (window as any).jotformEmbedHandler("iframe[id='JotFormIFrame-251101747497459']", "https://form.jotform.com/");
       }
     };
 
-    return () => {
-      document.body.removeChild(script);
+    // Listen for form submission completion
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data && typeof event.data === 'string') {
+        // JotForm sends various messages, we're looking for form submission
+        if (event.data.includes('submission-completed') || event.data.includes('formSubmit')) {
+          // Wait a bit for the download to start, then reload the form
+          setTimeout(() => {
+            setFormKey(prev => prev + 1);
+          }, 2000);
+        }
+      }
     };
-  }, []);
+
+    window.addEventListener('message', handleMessage);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+      window.removeEventListener('message', handleMessage);
+    };
+  }, [formKey]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -56,6 +76,7 @@ const Report52Weeks = () => {
                 <div className="rounded-lg border bg-card p-6">
                   <h3 className="text-2xl font-bold mb-4">Download Report</h3>
                   <iframe
+                    key={formKey}
                     id="JotFormIFrame-251101747497459"
                     title="[RNXT] Bamboo Reports Leads"
                     onLoad={(e) => {
@@ -74,7 +95,7 @@ const Report52Weeks = () => {
           </div>
         </div>
       </main>
-
+      
       <Footer />
     </div>
   );
