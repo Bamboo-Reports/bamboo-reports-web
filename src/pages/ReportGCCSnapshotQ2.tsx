@@ -8,7 +8,17 @@ const ReportGCCSnapshotQ2 = () => {
 
   useEffect(() => {
     const handleFormSubmit = (e: MessageEvent) => {
-      if (e.data && typeof e.data === 'string' && e.data.includes('formSubmit')) {
+      console.log('Message received:', e.data);
+      
+      // Check for various JotForm submission formats
+      if (
+        e.data && 
+        (
+          (typeof e.data === 'string' && (e.data.includes('formSubmit') || e.data.includes('submit'))) ||
+          (typeof e.data === 'object' && (e.data.action === 'submission-completed' || e.data.type === 'form-submit'))
+        )
+      ) {
+        console.log('Form submitted! Showing thank you message and confetti');
         setIsSubmitted(true);
         
         // Trigger confetti
@@ -110,13 +120,8 @@ const ReportGCCSnapshotQ2 = () => {
                     <iframe
                       id="JotFormIFrame-251101747497459"
                       title="[RNXT] Bamboo Reports Leads"
-                      onLoad={(e) => {
-                        window.parent.scrollTo(0, 0);
-                      }}
-                      allowTransparency={true}
                       allow="geolocation; microphone; camera; fullscreen; payment"
                       src="https://form.jotform.com/251101747497459"
-                      frameBorder="0"
                       style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
                       scrolling="no"
                     />
