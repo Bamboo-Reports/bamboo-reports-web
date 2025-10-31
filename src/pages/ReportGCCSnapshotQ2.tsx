@@ -57,7 +57,7 @@ const ReportGCCSnapshotQ2 = () => {
                   <h3 className="text-2xl font-bold mb-4">Download Report</h3>
                   <iframe
                     id="JotFormIFrame-251101747497459"
-                    title="[RNXT] Bamboo Reports Leads"
+                    title="[ BR ] - Q2 Snapshot Leads"
                     onLoad={(e) => {
                       window.parent.scrollTo(0, 0);
                     }}
