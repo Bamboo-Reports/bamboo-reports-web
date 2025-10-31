@@ -280,10 +280,10 @@ const GCCList = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 justify-center mb-16">
+          <div className="flex flex-wrap gap-4 justify-center">
             <Button 
               size="lg" 
-              onClick={() => document.getElementById('gcc-table')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={handleDownloadClick} // MODIFICATION: Changed onClick to trigger modal
               className="bg-primary hover:bg-primary/90"
             >
               Download Sample
@@ -296,6 +296,14 @@ const GCCList = () => {
               <Link to="/pricing">Get Full Access</Link>
             </Button>
           </div>
+          
+          {/* --- MODIFICATION: Added text below CTAs --- */}
+          <div className="text-center mt-6 mb-16">
+            <p className="text-muted-foreground font-semibold">OR</p>
+            <p className="text-muted-foreground mt-2">Play around with filters and find your TAM</p>
+          </div>
+          {/* --- End Modification --- */}
+
 
           {/* Table Section */}
           <div id="gcc-table">
@@ -304,10 +312,11 @@ const GCCList = () => {
             <div className="text-xl text-muted-foreground">Loading data...</div>
           ) : (
             <div className="bg-white rounded-2xl border shadow-sm overflow-hidden">
-              {/* Header */}
-              <div className="p-4 border-b grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-wrap gap-3 items-center">
-                  <div className="relative flex-1 min-w-[200px]">
+              {/* --- MODIFICATION: Header layout updated --- */}
+              <div className="p-4 border-b">
+                <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
+                  {/* Search Bar */}
+                  <div className="relative flex-grow w-full md:w-auto">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <input
                       type="text"
@@ -320,25 +329,16 @@ const GCCList = () => {
                       className="w-full pl-10 pr-4 py-2 border rounded-lg text-sm"
                     />
                   </div>
+                  {/* Clear Button */}
                   <button
                     onClick={handleClearFilters}
-                    className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50"
+                    className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50 w-full md:w-auto"
                   >
                     Clear
                   </button>
                 </div>
-                
-                <div className="flex flex-wrap gap-3 items-center justify-end">
-                  {/* Scope and Selected count removed */}
-                  <button
-                    onClick={handleDownloadClick}
-                    className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50 flex items-center gap-2"
-                  >
-                    <Download className="w-4 h-4" />
-                    Download
-                  </button>
-                </div>
               </div>
+              {/* --- End Modification --- */}
 
               {/* Filters */}
               <div className="p-4 border-b flex flex-wrap gap-4">
@@ -508,7 +508,7 @@ const GCCList = () => {
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
                   By setting up in India, companies achieve 24×7 operations, proximity to emerging markets, and resilience through distributed teams.
-                </p>
+                </D>
               </div>
             </div>
           </div>
