@@ -17,16 +17,36 @@ const Report52Weeks = () => {
       }
     };
 
-    // Listen for form submission completion
+    // Listen for JotForm submission events
     const handleMessage = (event: MessageEvent) => {
-      if (event.data && typeof event.data === 'string') {
-        // JotForm sends various messages, we're looking for form submission
-        if (event.data.includes('submission-completed') || event.data.includes('formSubmit')) {
-          // Wait a bit for the download to start, then reload the form
-          setTimeout(() => {
-            setFormKey(prev => prev + 1);
-          }, 500);
-        }
+      if (!event.origin.includes('jotform.com')) return;
+      
+      console.log('JotForm message received:', event.data);
+      
+      // JotForm sends different message formats
+      let isSubmission = false;
+      
+      if (typeof event.data === 'string') {
+        // String format messages
+        isSubmission = event.data.includes('submission-completed') ||
+                      event.data.includes('thank') ||
+                      event.data.includes('redirect');
+      } else if (typeof event.data === 'object' && event.data !== null) {
+        // Object format messages
+        isSubmission = event.data.action === 'submission-completed' ||
+                      event.data.action === 'redirect-to-url' ||
+                      event.data.type === 'form:submit' ||
+                      (event.data.formID && event.data.submission);
+      }
+      
+      if (isSubmission) {
+        console.log('✅ Form submission detected! Reloading form in 2 seconds...');
+        
+        // Give time for download to start, then reload
+        setTimeout(() => {
+          setFormKey(prev => prev + 1);
+          console.log('🔄 Form reloaded');
+        }, 2000);
       }
     };
 
