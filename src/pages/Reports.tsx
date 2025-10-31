@@ -1,19 +1,21 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
-import reportThumbnail from "@/assets/52-weeks-report-thumbnail.png";
+// import reportThumbnail from "@/assets/52-weeks-report-thumbnail.png";
+import reportThumbnail52weeks from "@/assets/52-weeks-report-thumbnail.png";
+import reportThumbnailgccsnapshot from "@/assets/indian-gcc-q2-report-thumbnail.png";
 
 const reports = [
   {
     id: "52-weeks",
     title: "52 Weeks Report - Bamboo Reports",
-    thumbnail: reportThumbnail,
+    thumbnail: reportThumbnail52weeks,
     description: "India's Global Capability Centers (GCCs) have entered a phase of unprecedented growth.",
   },
   {
     id: "gcc-snapshot-q2",
     title: "GCC Snapshot Q2 - Bamboo Reports",
-    thumbnail: reportThumbnail,
+    thumbnail: reportThumbnailgccsnapshot,
     description: "India's Global Capability Centers (GCCs) continue to be the engine room of multinational transformation.",
   },
 ];
