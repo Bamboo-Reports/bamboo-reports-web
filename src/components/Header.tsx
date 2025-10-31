@@ -37,9 +37,14 @@ const Header = () => {
                       Reports
                     </NavigationMenuLink>
                   </Link>
-                  <Link to="/gcc-list">
+                  <Link to="/insights">
                     <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                      GCC List
+                      Insights
+                    </NavigationMenuLink>
+                  </Link>
+                  <Link to="/articles">
+                    <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      Articles
                     </NavigationMenuLink>
                   </Link>
                 </div>

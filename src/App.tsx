@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
 import Reports from "./pages/Reports";
 import GCCList from "./pages/GCCList";
+import Insights from "./pages/Insights";
+import Articles from "./pages/Articles";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +24,8 @@ const App = () => (
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/gcc-list" element={<GCCList />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/articles" element={<Articles />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
