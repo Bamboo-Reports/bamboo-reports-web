@@ -52,7 +52,7 @@ const ExitIntentPopup = () => {
           <h3 className="text-3xl font-bold mb-4">Wait, before you go…</h3>
           <p className="text-lg text-muted-foreground mb-6">
             Download our free GCC database with <span className="font-semibold">100+ verified India centers</span>.
-            See locations, functions, headcount ranges, and tech stack snapshots.
+            See account, indian entity name, revenue and headcount range.
           </p>
 
           <div className="space-y-4 mb-6">
@@ -64,7 +64,6 @@ const ExitIntentPopup = () => {
               </div>
               <div>
                 <p className="font-medium">100+ India GCC centers</p>
-                <p className="text-sm text-muted-foreground">Verified entries ready to use</p>
               </div>
             </div>
 
@@ -76,7 +75,6 @@ const ExitIntentPopup = () => {
               </div>
               <div>
                 <p className="font-medium">Instant download</p>
-                <p className="text-sm text-muted-foreground">Receive it immediately</p>
               </div>
             </div>
 
