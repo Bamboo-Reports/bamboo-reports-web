@@ -27,18 +27,18 @@ const facetCols = [
   "India Head Count Range"
 ];
 
-const nameSearchCols = [
-  "Account Global Legal Name",
-  "India Entity Name"
-];
+const nameSearchCols = ["Account Global Legal Name", "India Entity Name"];
 
-// CSV utility
 const toCSV = (rows: any[], cols: string[]) => {
   const q = (v: any) => {
     const s = String(v ?? "");
     return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
-  return cols.map(q).join(",") + "\n" + rows.map((r: any) => cols.map((c: string) => q(r[c])).join(",")).join("\n");
+  return (
+    cols.map(q).join(",") +
+    "\n" +
+    rows.map((r: any) => cols.map((c: string) => q(r[c])).join(",")).join("\n")
+  );
 };
 
 const GCCList = () => {
@@ -59,10 +59,10 @@ const GCCList = () => {
       if (c === '"') {
         if (q && n === '"') { cur += '"'; i++; }
         else q = !q;
-      } else if (c === ',' && !q) {
+      } else if (c === "," && !q) {
         row.push(cur);
         cur = "";
-      } else if ((c === '\n' || c === '\r') && !q) {
+      } else if ((c === "\n" || c === "\r") && !q) {
         if (cur.length || row.length) {
           row.push(cur);
           rows.push(row);
@@ -83,11 +83,12 @@ const GCCList = () => {
   const rowsToObjects = (rows: string[][]) => {
     if (!rows.length) return [];
     const header = rows[0].map(h => h.trim());
-    return rows.slice(1)
+    return rows
+      .slice(1)
       .filter(r => r.some(x => String(x ?? "").trim().length))
       .map(r => {
         const o: any = {};
-        header.forEach((h, i) => o[h] = r[i] ?? "");
+        header.forEach((h, i) => (o[h] = r[i] ?? ""));
         return o;
       });
   };
@@ -100,7 +101,7 @@ const GCCList = () => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const text = await res.text();
         const objs = rowsToObjects(parseCSV(text));
-        
+
         if (!objs.length) {
           setData([]);
           setColumns([]);
@@ -109,21 +110,27 @@ const GCCList = () => {
 
         const cols = Object.keys(objs[0]).filter(Boolean);
         const ordered: string[] = [];
-        preferredOrder.forEach(k => { if (cols.includes(k)) ordered.push(k); });
-        cols.forEach(k => { if (!ordered.includes(k)) ordered.push(k); });
+        preferredOrder.forEach(k => {
+          if (cols.includes(k)) ordered.push(k);
+        });
+        cols.forEach(k => {
+          if (!ordered.includes(k)) ordered.push(k);
+        });
 
         setColumns(ordered);
-        setData(objs.map(o => {
-          const r: any = {};
-          ordered.forEach(k => r[k] = o[k] ?? "");
-          return r;
-        }));
+        setData(
+          objs.map(o => {
+            const r: any = {};
+            ordered.forEach(k => (r[k] = o[k] ?? ""));
+            return r;
+          })
+        );
 
         const initialFacets: any = {};
-        facetCols.forEach(c => initialFacets[c] = "");
+        facetCols.forEach(c => (initialFacets[c] = ""));
         setFacets(initialFacets);
       } catch (err) {
-        console.error('Load failed:', err);
+        console.error("Load failed:", err);
       } finally {
         setLoading(false);
       }
@@ -140,7 +147,9 @@ const GCCList = () => {
       }
       const q = nameSearch.trim().toLowerCase();
       if (!q) return true;
-      return nameSearchCols.some(c => String((r as any)[c] ?? "").toLowerCase().includes(q));
+      return nameSearchCols.some(c =>
+        String((r as any)[c] ?? "").toLowerCase().includes(q)
+      );
     });
   }, [data, facets, nameSearch]);
 
@@ -157,7 +166,9 @@ const GCCList = () => {
     });
     const set = new Set<string>();
     rows.forEach(r => set.add(String((r as any)[targetCol] ?? "")));
-    return Array.from(set).filter((v: any) => v.length).sort((a: any, b: any) => a.localeCompare(b));
+    return Array.from(set)
+      .filter((v: any) => v.length)
+      .sort((a: any, b: any) => a.localeCompare(b));
   };
 
   const totalPages = Math.max(1, Math.ceil(filteredData.length / pageSize));
@@ -169,12 +180,11 @@ const GCCList = () => {
   const handleClearFilters = () => {
     setNameSearch("");
     const cleared: any = {};
-    Object.keys(facets).forEach(k => cleared[k] = "");
+    Object.keys(facets).forEach(k => (cleared[k] = ""));
     setFacets(cleared);
     setPage(1);
   };
 
-  // Full dataset download on successful form submission
   const triggerDownload = useCallback(() => {
     const rows = data;
     if (!rows.length) {
@@ -182,7 +192,9 @@ const GCCList = () => {
       return;
     }
     const csv = toCSV(rows, columns);
-    const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    const url = URL.createObjectURL(
+      new Blob([csv], { type: "text/csv;charset=utf-8" })
+    );
     const ts = new Date().toISOString().replace(/[:.]/g, "-");
     const a = document.createElement("a");
     a.href = url;
@@ -203,24 +215,35 @@ const GCCList = () => {
       try {
         const d: any = event.data;
         const origin = String(event.origin || "");
-        const fromJot = /jotform/i.test(origin) || /jotform/i.test(String(d?.origin)) || /jotform/i.test(String(d?.url));
-        
+        const fromJot =
+          /jotform/i.test(origin) ||
+          /jotform/i.test(String(d?.origin)) ||
+          /jotform/i.test(String(d?.url));
+
         if (typeof d === "string") {
           const s = d.toLowerCase();
-          if (s.includes("submission-completed") || s.includes("thankyou") || s.includes("submission")) {
+          if (
+            s.includes("submission-completed") ||
+            s.includes("thankyou") ||
+            s.includes("submission")
+          ) {
             return handleFormSuccess();
           }
         }
-        
+
         if (fromJot && typeof d === "object" && d) {
           const ev = String(d.event || d.type || d.message || "").toLowerCase();
-          if (ev.includes("submission-completed") || ev.includes("thankyou") || 
-              ev.includes("form-submit-successful") || ev.includes("submission") || 
-              d?.action === "submission-completed") {
+          if (
+            ev.includes("submission-completed") ||
+            ev.includes("thankyou") ||
+            ev.includes("form-submit-successful") ||
+            ev.includes("submission") ||
+            d?.action === "submission-completed"
+          ) {
             return handleFormSuccess();
           }
         }
-        
+
         if (typeof d === "object" && d && d.type === "JOTFORM_OK") {
           return handleFormSuccess();
         }
@@ -233,18 +256,14 @@ const GCCList = () => {
     return () => window.removeEventListener("message", handleMessage);
   }, [handleFormSuccess]);
 
-  const scrollToTable = () => {
-    document.getElementById("gcc-table")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="py-20 px-4">
         <div className="max-w-[1400px] mx-auto">
-          {/* Hero Section */}
-          <div className="text-center mb-12 md:mb-16">
+          {/* Hero */}
+          <div className="text-center mb-10 md:mb-12">
             <h1 className="mb-6">
               Discover India's Global Capability Centers (GCCs) - The Engine of Global Innovation
             </h1>
@@ -256,33 +275,8 @@ const GCCList = () => {
             </p>
           </div>
 
-          {/* Top CTAs */}
-          <div className="flex flex-wrap gap-4 justify-center items-center mb-2">
-            <Button 
-              size="lg"
-              onClick={() => setShowModal(true)}
-              className="bg-primary hover:bg-primary/90"
-            >
-              Download Sample
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/pricing">Get Full Access</Link>
-            </Button>
-          </div>
-
-          {/* OR line + TAM helper */}
-          <div className="text-center mb-12">
-            <div className="text-sm text-muted-foreground mb-2">OR</div>
-            <button
-              onClick={scrollToTable}
-              className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary"
-            >
-              Play around with filters and find your TAM
-            </button>
-          </div>
-
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {/* STATS ON TOP */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-12">
             <div className="bg-white rounded-2xl p-8 border shadow-sm text-center">
               <Building2 className="w-12 h-12 text-primary mx-auto mb-4" />
               <div className="text-5xl font-bold text-primary mb-2">2400+</div>
@@ -300,15 +294,36 @@ const GCCList = () => {
             </div>
           </div>
 
-          {/* Table Section */}
+          {/* Top CTAs */}
+          <div className="flex flex-wrap gap-4 justify-center items-center mb-2">
+            <Button
+              size="lg"
+              onClick={() => setShowModal(true)}
+              className="bg-primary hover:bg-primary/90"
+            >
+              Download Sample
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link to="/pricing">Get Full Access</Link>
+            </Button>
+          </div>
+
+          {/* OR + plain grey helper line (no anchor) */}
+          <div className="text-center mb-12">
+            <div className="text-sm text-muted-foreground mb-2">OR</div>
+            <p className="text-muted-foreground">
+              Play around with filters and find your TAM
+            </p>
+          </div>
+
+          {/* Table */}
           <div id="gcc-table">
             {loading ? (
               <div className="text-xl text-muted-foreground">Loading data...</div>
             ) : (
               <div className="bg-white rounded-2xl border shadow-sm overflow-hidden">
-                {/* Table controls header */}
+                {/* Controls */}
                 <div className="p-4 border-b grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-center">
-                  {/* Search - stretched */}
                   <div className="flex items-center gap-3">
                     <div className="relative flex-1">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -323,7 +338,6 @@ const GCCList = () => {
                         className="w-full pl-10 pr-4 py-2 border rounded-lg text-sm"
                       />
                     </div>
-                    {/* Clear pushed to edge on larger screens, stacks on mobile */}
                     <button
                       onClick={handleClearFilters}
                       className="ml-auto md:ml-0 px-4 py-2 border border-blue-600 text-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50"
@@ -331,8 +345,6 @@ const GCCList = () => {
                       Clear
                     </button>
                   </div>
-
-                  {/* Right side controls removed, no download button here */}
                   <div className="hidden md:block" />
                 </div>
 
@@ -364,7 +376,7 @@ const GCCList = () => {
                   })}
                 </div>
 
-                {/* Table */}
+                {/* Data table */}
                 <div className="overflow-auto">
                   <table className="w-full text-sm">
                     <thead className="bg-slate-50 sticky top-0">
@@ -433,7 +445,7 @@ const GCCList = () => {
                       Last
                     </button>
                   </div>
-                  
+
                   <div className="flex gap-2 items-center">
                     <span className="text-sm">Rows</span>
                     <select
@@ -455,44 +467,30 @@ const GCCList = () => {
             )}
           </div>
 
-          {/* Why GCCs Section */}
+          {/* Why GCCs */}
           <div className="mt-32 mb-16">
-            <h2 className="text-center mb-16">
-              Why Do Companies Set Up GCCs in India?
-            </h2>
-            
+            <h2 className="text-center mb-16">Why Do Companies Set Up GCCs in India?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-2xl p-8 border shadow-sm">
-                <h3 className="text-2xl font-semibold mb-4 text-primary">
-                  Access to World Class Talent
-                </h3>
+                <h3 className="text-2xl font-semibold mb-4 text-primary">Access to World Class Talent</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   India offers one of the largest and most diverse pools of engineering, finance, and digital professionals in the world, allowing companies to scale faster and innovate continuously.
                 </p>
               </div>
-
               <div className="bg-white rounded-2xl p-8 border shadow-sm">
-                <h3 className="text-2xl font-semibold mb-4 text-primary">
-                  Cost Efficiency with Value Creation
-                </h3>
+                <h3 className="text-2xl font-semibold mb-4 text-primary">Cost Efficiency with Value Creation</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Originally started as cost saving units, modern GCCs now deliver strategic value, driving transformation, innovation, and new revenue streams for their parent organizations.
                 </p>
               </div>
-
               <div className="bg-white rounded-2xl p-8 border shadow-sm">
-                <h3 className="text-2xl font-semibold mb-4 text-primary">
-                  Innovation and Technology Leadership
-                </h3>
+                <h3 className="text-2xl font-semibold mb-4 text-primary">Innovation and Technology Leadership</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   India's GCCs are often the innovation labs for global enterprises, experimenting with AI, automation, data analytics, cloud, cybersecurity, and Industry 4.0 technologies.
                 </p>
               </div>
-
               <div className="bg-white rounded-2xl p-8 border shadow-sm">
-                <h3 className="text-2xl font-semibold mb-4 text-primary">
-                  Global Operating Model
-                </h3>
+                <h3 className="text-2xl font-semibold mb-4 text-primary">Global Operating Model</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   By setting up in India, companies achieve 24x7 operations, proximity to emerging markets, and resilience through distributed teams.
                 </p>
@@ -504,16 +502,16 @@ const GCCList = () => {
 
       {/* Modal */}
       {showModal && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300"
           onClick={(e) => {
             if (e.target === e.currentTarget) setShowModal(false);
           }}
           style={{ opacity: showModal ? 1 : 0 }}
         >
-          <div 
+          <div
             className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden transition-transform duration-300"
-            style={{ transform: showModal ? 'scale(1) translateY(0)' : 'scale(0.8) translateY(50px)' }}
+            style={{ transform: showModal ? "scale(1) translateY(0)" : "scale(0.8) translateY(50px)" }}
           >
             <button
               onClick={() => setShowModal(false)}
@@ -529,7 +527,7 @@ const GCCList = () => {
 
             <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
               <iframe
-                key={showModal ? 'open' : 'closed'}
+                key={showModal ? "open" : "closed"}
                 id="JotFormIFrame-253003277590454"
                 title="BR LD - Abhishek"
                 src="https://form.jotform.com/253003277590454"
