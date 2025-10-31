@@ -1,8 +1,51 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import confetti from "canvas-confetti";
 
 const ReportGCCSnapshotQ2 = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    const handleFormSubmit = (e: MessageEvent) => {
+      if (e.data && typeof e.data === 'string' && e.data.includes('formSubmit')) {
+        setIsSubmitted(true);
+        
+        // Trigger confetti
+        const duration = 3000;
+        const end = Date.now() + duration;
+
+        const frame = () => {
+          confetti({
+            particleCount: 3,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: ['#10b981', '#3b82f6', '#8b5cf6']
+          });
+          confetti({
+            particleCount: 3,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: ['#10b981', '#3b82f6', '#8b5cf6']
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        };
+        frame();
+      }
+    };
+
+    window.addEventListener('message', handleFormSubmit);
+
+    return () => {
+      window.removeEventListener('message', handleFormSubmit);
+    };
+  }, []);
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
@@ -55,19 +98,29 @@ const ReportGCCSnapshotQ2 = () => {
               <div className="sticky top-24">
                 <div className="rounded-lg border bg-card p-6">
                   <h3 className="text-2xl font-bold mb-4">Download Report</h3>
-                  <iframe
-                    id="JotFormIFrame-251101747497459"
-                    title="[RNXT] Bamboo Reports Leads"
-                    onLoad={(e) => {
-                      window.parent.scrollTo(0, 0);
-                    }}
-                    allowTransparency={true}
-                    allow="geolocation; microphone; camera; fullscreen; payment"
-                    src="https://form.jotform.com/251101747497459"
-                    frameBorder="0"
-                    style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
-                    scrolling="no"
-                  />
+                  {isSubmitted ? (
+                    <div className="flex flex-col items-center justify-center py-16 animate-fade-in">
+                      <div className="text-6xl mb-4">🎉</div>
+                      <h4 className="text-2xl font-bold mb-2">Thank You!</h4>
+                      <p className="text-muted-foreground text-center">
+                        Your report is on its way to your inbox.
+                      </p>
+                    </div>
+                  ) : (
+                    <iframe
+                      id="JotFormIFrame-251101747497459"
+                      title="[RNXT] Bamboo Reports Leads"
+                      onLoad={(e) => {
+                        window.parent.scrollTo(0, 0);
+                      }}
+                      allowTransparency={true}
+                      allow="geolocation; microphone; camera; fullscreen; payment"
+                      src="https://form.jotform.com/251101747497459"
+                      frameBorder="0"
+                      style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
+                      scrolling="no"
+                    />
+                  )}
                 </div>
               </div>
             </div>
