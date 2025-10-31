@@ -1,34 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Report52Weeks = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    const handleFormSubmit = (e: MessageEvent) => {
-      console.log('Message received:', e.data);
-      
-      // Check for various JotForm submission formats
-      if (
-        e.data && 
-        (
-          (typeof e.data === 'string' && (e.data.includes('formSubmit') || e.data.includes('submit'))) ||
-          (typeof e.data === 'object' && (e.data.action === 'submission-completed' || e.data.type === 'form-submit'))
-        )
-      ) {
-        console.log('Form submitted! Showing thank you message');
-        setIsSubmitted(true);
-      }
-    };
-
-    window.addEventListener('message', handleFormSubmit);
-
-    return () => {
-      window.removeEventListener('message', handleFormSubmit);
-    };
-  }, []);
-
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
@@ -81,23 +55,19 @@ const Report52Weeks = () => {
               <div className="sticky top-24">
                 <div className="rounded-lg border bg-card p-6">
                   <h3 className="text-2xl font-bold mb-4">Download Report</h3>
-                  {isSubmitted ? (
-                    <div className="flex flex-col items-center justify-center py-16 animate-fade-in">
-                      <h4 className="text-2xl font-bold mb-4">Thank You for Downloading!</h4>
-                      <p className="text-muted-foreground text-center">
-                        Your report will be sent to your email shortly.
-                      </p>
-                    </div>
-                  ) : (
-                    <iframe
-                      id="JotFormIFrame-251101747497459"
-                      title="[RNXT] Bamboo Reports Leads"
-                      allow="geolocation; microphone; camera; fullscreen; payment"
-                      src="https://form.jotform.com/251101747497459"
-                      style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
-                      scrolling="no"
-                    />
-                  )}
+                  <iframe
+                    id="JotFormIFrame-251101747497459"
+                    title="[RNXT] Bamboo Reports Leads"
+                    onLoad={(e) => {
+                      window.parent.scrollTo(0, 0);
+                    }}
+                    allowTransparency={true}
+                    allow="geolocation; microphone; camera; fullscreen; payment"
+                    src="https://form.jotform.com/251101747497459"
+                    frameBorder="0"
+                    style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
+                    scrolling="no"
+                  />
                 </div>
               </div>
             </div>
