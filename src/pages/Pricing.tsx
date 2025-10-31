@@ -139,27 +139,6 @@ const Pricing = () => {
             </ToggleGroup>
           </div>
 
-          {/* --- Not Sure Section --- */}
-          <div className="text-center mb-12 p-8 bg-muted/30 rounded-lg border border-border">
-            <h2 className="text-2xl font-semibold mb-6">
-              Not sure what to choose?
-            </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg">
-                <a
-                  href="https://meetings-na2.hubspot.com/anam-khoja"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Contact Sales
-                </a>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <a href="/gcc-list">Get GCC Sample</a>
-              </Button>
-            </div>
-          </div>
-
           <div className="grid md:grid-cols-3 gap-8 items-start">
             {plans.map((plan) => {
               const isCustom = plan.price === "Custom";
@@ -252,6 +231,27 @@ const Pricing = () => {
                 </div>
               );
             })}
+          </div>
+
+          {/* --- Not Sure Section --- */}
+          <div className="text-center mt-16 p-8 bg-muted/30 rounded-lg border border-border">
+            <h2 className="text-2xl font-semibold mb-6">
+              Not sure what to choose?
+            </h2>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg">
+                <a
+                  href="https://meetings-na2.hubspot.com/anam-khoja"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Contact Sales
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href="/gcc-list">Get GCC Sample</a>
+              </Button>
+            </div>
           </div>
         </div>
       </main>
