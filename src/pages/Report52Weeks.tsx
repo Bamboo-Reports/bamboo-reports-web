@@ -1,64 +1,24 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Report52Weeks = () => {
-  const [formKey, setFormKey] = useState(0);
-
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
     script.async = true;
     document.body.appendChild(script);
-    
+
     script.onload = () => {
       if ((window as any).jotformEmbedHandler) {
         (window as any).jotformEmbedHandler("iframe[id='JotFormIFrame-251101747497459']", "https://form.jotform.com/");
       }
     };
 
-    // Listen for JotForm submission events
-    const handleMessage = (event: MessageEvent) => {
-      if (!event.origin.includes('jotform.com')) return;
-      
-      console.log('JotForm message received:', event.data);
-      
-      // JotForm sends different message formats
-      let isSubmission = false;
-      
-      if (typeof event.data === 'string') {
-        // String format messages
-        isSubmission = event.data.includes('submission-completed') ||
-                      event.data.includes('thank') ||
-                      event.data.includes('redirect');
-      } else if (typeof event.data === 'object' && event.data !== null) {
-        // Object format messages
-        isSubmission = event.data.action === 'submission-completed' ||
-                      event.data.action === 'redirect-to-url' ||
-                      event.data.type === 'form:submit' ||
-                      (event.data.formID && event.data.submission);
-      }
-      
-      if (isSubmission) {
-        console.log('✅ Form submission detected! Reloading form in 2 seconds...');
-        
-        // Give time for download to start, then reload
-        setTimeout(() => {
-          setFormKey(prev => prev + 1);
-          console.log('🔄 Form reloaded');
-        }, 2000);
-      }
-    };
-
-    window.addEventListener('message', handleMessage);
-
     return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-      window.removeEventListener('message', handleMessage);
+      document.body.removeChild(script);
     };
-  }, [formKey]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -96,7 +56,6 @@ const Report52Weeks = () => {
                 <div className="rounded-lg border bg-card p-6">
                   <h3 className="text-2xl font-bold mb-4">Download Report</h3>
                   <iframe
-                    key={formKey}
                     id="JotFormIFrame-251101747497459"
                     title="[RNXT] Bamboo Reports Leads"
                     onLoad={(e) => {
@@ -115,7 +74,7 @@ const Report52Weeks = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );
