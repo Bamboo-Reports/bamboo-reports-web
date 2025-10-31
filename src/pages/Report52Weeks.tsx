@@ -25,7 +25,7 @@ const Report52Weeks = () => {
           // Wait a bit for the download to start, then reload the form
           setTimeout(() => {
             setFormKey(prev => prev + 1);
-          }, 2000);
+          }, 500);
         }
       }
     };
