@@ -1,31 +1,6 @@
 import { Button } from "@/components/ui/button";
 import gccIllustration from "@/assets/gcc-illustration.png";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-
-const ShimmerText = ({ text, className }: { text: string; className: string }) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  
-  return (
-    <span className={`${className} block`}>
-      {text.split("").map((char, index) => (
-        <span
-          key={index}
-          className="inline-block transition-all duration-300 cursor-default"
-          style={{
-            textShadow: hoveredIndex === index ? "0 0 20px currentColor, 0 0 40px currentColor" : "none",
-            transform: hoveredIndex === index ? "scale(1.1) translateY(-2px)" : "scale(1)",
-            filter: hoveredIndex === index ? "brightness(1.5)" : "brightness(1)",
-          }}
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
-          {char === " " ? "\u00A0" : char}
-        </span>
-      ))}
-    </span>
-  );
-};
+import { Link } from "react-router-dom"; // Import Link
 
 const Hero = () => {
   return (
@@ -33,14 +8,12 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h1 className="leading-tight mb-4 md:mb-6">
-            <ShimmerText 
-              text="Actionable Insights On" 
-              className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2"
-            />
-            <ShimmerText 
-              text="Global Capability Centers" 
-              className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
-            />
+            <span className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold block mb-2">
+              Actionable Insights On
+            </span>
+            <span className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold block">
+              Global Capability Centers
+            </span>
           </h1>
           <p className="text-muted-foreground mb-6 md:mb-8 font-normal text-sm sm:text-base md:text-lg px-2 max-w-3xl mx-auto leading-relaxed">
             A Platform With the Largest Repository to Help You Navigate the
