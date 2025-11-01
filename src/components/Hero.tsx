@@ -1,10 +1,26 @@
 import { Button } from "@/components/ui/button";
 import gccIllustration from "@/assets/gcc-illustration.png";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Hero = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMousePosition({ x, y });
+  };
+
   return (
-    <section className="py-8 md:py-16 px-4">
+    <section 
+      className="py-8 md:py-16 px-4 relative overflow-hidden"
+      onMouseMove={handleMouseMove}
+      style={{
+        background: `radial-gradient(circle 600px at ${mousePosition.x}% ${mousePosition.y}%, hsl(var(--primary) / 0.08), transparent 80%)`
+      }}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h1 className="leading-tight mb-4 md:mb-6">
