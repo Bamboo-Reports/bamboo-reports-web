@@ -26,7 +26,7 @@ const Header = () => {
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/">
+        <Link to="/" className="transition-transform duration-300 hover:scale-105">
           <img src={logo} alt="Bamboo Reports" className="h-10 md:h-12" />
         </Link>
 
@@ -47,17 +47,17 @@ const Header = () => {
                 <NavigationMenuContent>
                   <div className="w-48 p-2">
                     <Link to="/reports">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:translate-x-1 focus:bg-accent focus:text-accent-foreground">
                         Reports
                       </NavigationMenuLink>
                     </Link>
                     <Link to="/insights">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:translate-x-1 focus:bg-accent focus:text-accent-foreground">
                         Insights
                       </NavigationMenuLink>
                     </Link>
                     <Link to="/articles">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:translate-x-1 focus:bg-accent focus:text-accent-foreground">
                         Articles
                       </NavigationMenuLink>
                     </Link>
@@ -101,7 +101,7 @@ const Header = () => {
             <div className="flex flex-col h-full">
               {/* Logo at top */}
               <div className="p-6 pb-4">
-                <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/" onClick={() => setMobileMenuOpen(false)} className="inline-block transition-transform duration-300 hover:scale-105">
                   <img src={logo} alt="Bamboo Reports" className="h-10" />
                 </Link>
               </div>
