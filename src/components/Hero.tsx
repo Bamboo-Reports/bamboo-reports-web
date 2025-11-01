@@ -4,23 +4,8 @@ import { Link } from "react-router-dom"; // Import Link
 
 const Hero = () => {
   return (
-    <section className="relative py-8 md:py-16 px-4 overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-50 to-pink-100 dark:from-orange-950/30 dark:via-orange-900/20 dark:to-pink-950/30" />
-      
-      {/* Grid Pattern Overlay */}
-      <div 
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `linear-gradient(to right, hsl(var(--muted-foreground) / 0.1) 1px, transparent 1px),
-                           linear-gradient(to bottom, hsl(var(--muted-foreground) / 0.1) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      />
-
-      <div className="relative max-w-7xl mx-auto">
-        {/* Rounded Border Container */}
-        <div className="bg-background/60 backdrop-blur-sm rounded-3xl border-2 border-orange-200/50 dark:border-orange-800/50 p-8 md:p-12 shadow-2xl">
+    <section className="py-8 md:py-16 px-4">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h1 className="leading-tight mb-4 md:mb-6">
             <span className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold block mb-2">
@@ -91,7 +76,6 @@ const Hero = () => {
               className="w-full max-w-sm md:max-w-lg"
             />
           </div>
-        </div>
         </div>
       </div>
     </section>
