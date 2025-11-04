@@ -40,9 +40,8 @@ export const handler = async (event) => {
 
     // Send email using Resend
     const data = await resend.emails.send({
-      from: 'Bamboo Reports <noreply@your-domain.com>', // Update with your domain
+      from: 'Bamboo Reports <noreply@updates.bambooreports.io>',
       to: [customerEmail],
-      bcc: ['admin@your-domain.com'], // Optional: BCC to admin
       subject: `Payment Confirmation - ${planName}`,
       html: `
         <!DOCTYPE html>
@@ -105,14 +104,14 @@ export const handler = async (event) => {
               <p style="font-size: 16px;">If you have any questions, feel free to reply to this email or contact our support team.</p>
               
               <div style="text-align: center; margin-top: 30px;">
-                <a href="https://your-domain.com/reports" style="background: #667eea; color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; display: inline-block; font-weight: bold;">View Your Reports</a>
+                <a href="https://bambooreports.io/reports" style="background: #667eea; color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; display: inline-block; font-weight: bold;">View Your Reports</a>
               </div>
               
               <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;">
               
               <p style="font-size: 14px; color: #666; text-align: center;">
                 Bamboo Reports - GCC Intelligence Platform<br>
-                <a href="https://your-domain.com" style="color: #667eea; text-decoration: none;">www.your-domain.com</a>
+                <a href="https://bambooreports.io" style="color: #667eea; text-decoration: none;">www.bambooreports.io</a>
               </p>
             </div>
           </body>
@@ -141,7 +140,7 @@ What's Next?
 If you have any questions, feel free to reply to this email or contact our support team.
 
 Bamboo Reports - GCC Intelligence Platform
-www.your-domain.com
+www.bambooreports.io
       `,
     });
 
