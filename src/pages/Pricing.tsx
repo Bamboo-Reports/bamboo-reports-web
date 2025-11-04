@@ -1,4 +1,5 @@
 import { useState } from "react"; // Import useState
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,10 +8,21 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"; // Import ToggleGroup
+import { useToast } from "@/hooks/use-toast";
+import {
+  initiateRazorpayPayment,
+  convertToPaise,
+  getRazorpayKey,
+  type RazorpayResponse,
+} from "@/lib/razorpay";
 
 const Pricing = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  
   // State to manage the selected currency
   const [currency, setCurrency] = useState("USD");
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const plans = [
     {
@@ -105,6 +117,75 @@ const Pricing = () => {
   ];
 
   const currencySymbol = currency === "USD" ? "$" : "₹";
+
+  const handlePayment = async (
+    planName: string,
+    price: { USD: string; INR: string }
+  ) => {
+    try {
+      setIsProcessing(true);
+
+      // Get the current price based on selected currency
+      const currentPrice = price[currency as keyof typeof price];
+      const amountInPaise = convertToPaise(currentPrice);
+
+      // Get Razorpay key
+      const razorpayKey = getRazorpayKey();
+
+      // Initiate Razorpay payment
+      await initiateRazorpayPayment({
+        key: razorpayKey,
+        amount: amountInPaise,
+        currency: currency === "USD" ? "USD" : "INR",
+        name: "Bamboo Reports",
+        description: `${planName} - GCC Intelligence Platform`,
+        handler: (response: RazorpayResponse) => {
+          // Payment successful
+          console.log("Payment successful:", response);
+          
+          // Redirect to success page with payment details
+          navigate(
+            `/payment-success?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id || ""}&plan=${encodeURIComponent(planName)}`
+          );
+        },
+        prefill: {
+          name: "",
+          email: "",
+          contact: "",
+        },
+        theme: {
+          color: "#3b82f6", // Customize this to match your brand color
+        },
+        modal: {
+          ondismiss: () => {
+            setIsProcessing(false);
+            toast({
+              title: "Payment Cancelled",
+              description: "You cancelled the payment process.",
+              variant: "destructive",
+            });
+          },
+        },
+      });
+    } catch (error) {
+      console.error("Payment error:", error);
+      setIsProcessing(false);
+      
+      toast({
+        title: "Payment Failed",
+        description:
+          error instanceof Error
+            ? error.message
+            : "Unable to process payment. Please try again.",
+        variant: "destructive",
+      });
+
+      // Redirect to failure page
+      navigate(
+        `/payment-failure?error=${encodeURIComponent(error instanceof Error ? error.message : "Unknown error")}&plan=${encodeURIComponent(planName)}`
+      );
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -224,8 +305,10 @@ const Pricing = () => {
                     <Button
                       className="w-full rounded-full"
                       variant={plan.popular ? "default" : "outline"}
+                      onClick={() => handlePayment(plan.name, plan.price)}
+                      disabled={isProcessing}
                     >
-                      Get Started
+                      {isProcessing ? "Processing..." : "Get Started"}
                     </Button>
                   )}
                 </div>
