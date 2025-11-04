@@ -54,6 +54,60 @@ export const loadRazorpayScript = (): Promise<boolean> => {
   });
 };
 
+// Create order from backend
+export const createRazorpayOrder = async (
+  amount: number,
+  currency: string,
+  planName: string
+): Promise<{ orderId: string; amount: number; currency: string }> => {
+  // Use Netlify Functions in production, localhost in development
+  const API_URL = import.meta.env.VITE_API_URL || '/.netlify/functions';
+  
+  const response = await fetch(`${API_URL}/create-order`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ amount, currency, planName }),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message || 'Failed to create order');
+  }
+
+  return response.json();
+};
+
+// Verify payment on backend
+export const verifyRazorpayPayment = async (
+  razorpay_order_id: string,
+  razorpay_payment_id: string,
+  razorpay_signature: string
+): Promise<{ status: string; message: string }> => {
+  // Use Netlify Functions in production, localhost in development
+  const API_URL = import.meta.env.VITE_API_URL || '/.netlify/functions';
+  
+  const response = await fetch(`${API_URL}/verify-payment`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      razorpay_order_id,
+      razorpay_payment_id,
+      razorpay_signature,
+    }),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message || 'Payment verification failed');
+  }
+
+  return response.json();
+};
+
 // Initialize Razorpay payment
 export const initiateRazorpayPayment = async (
   options: RazorpayOptions
@@ -83,4 +137,3 @@ export const getRazorpayKey = (): string => {
   }
   return key;
 };
-
