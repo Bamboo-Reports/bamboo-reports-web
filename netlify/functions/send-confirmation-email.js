@@ -3,12 +3,12 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const handler = async (event) => {
-  console.log('🚀 send-confirmation-email function called');
-  console.log('📅 Timestamp:', new Date().toISOString());
+  console.log('[SEND-EMAIL] Function called');
+  console.log('[SEND-EMAIL] Timestamp:', new Date().toISOString());
   
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
-    console.log('❌ Wrong HTTP method:', event.httpMethod);
+    console.log('[SEND-EMAIL] Wrong HTTP method:', event.httpMethod);
     return {
       statusCode: 405,
       body: JSON.stringify({ error: 'Method not allowed' }),
@@ -16,8 +16,6 @@ export const handler = async (event) => {
   }
 
   try {
-    console.log('📦 Raw event body:', event.body);
-    
     const { 
       customerEmail, 
       customerName, 
@@ -28,21 +26,21 @@ export const handler = async (event) => {
       orderId 
     } = JSON.parse(event.body);
     
-    console.log('📧 Email details:');
-    console.log('  - To:', customerEmail);
-    console.log('  - Name:', customerName);
-    console.log('  - Plan:', planName);
-    console.log('  - Amount:', amount);
-    console.log('  - Currency:', currency);
-    console.log('  - Payment ID:', paymentId);
-    console.log('  - Order ID:', orderId);
+    console.log('[SEND-EMAIL] Email details:');
+    console.log('[SEND-EMAIL] To:', customerEmail);
+    console.log('[SEND-EMAIL] Name:', customerName);
+    console.log('[SEND-EMAIL] Plan:', planName);
+    console.log('[SEND-EMAIL] Amount:', amount);
+    console.log('[SEND-EMAIL] Currency:', currency);
+    console.log('[SEND-EMAIL] Payment ID:', paymentId);
+    console.log('[SEND-EMAIL] Order ID:', orderId);
 
     // Validate input
     if (!customerEmail || !planName || !paymentId) {
-      console.log('❌ Missing required fields!');
-      console.log('  - customerEmail:', customerEmail ? '✅' : '❌');
-      console.log('  - planName:', planName ? '✅' : '❌');
-      console.log('  - paymentId:', paymentId ? '✅' : '❌');
+      console.log('[SEND-EMAIL] Missing required fields');
+      console.log('[SEND-EMAIL] customerEmail:', customerEmail ? 'present' : 'missing');
+      console.log('[SEND-EMAIL] planName:', planName ? 'present' : 'missing');
+      console.log('[SEND-EMAIL] paymentId:', paymentId ? 'present' : 'missing');
       
       return {
         statusCode: 400,
@@ -60,12 +58,12 @@ export const handler = async (event) => {
 
     // Check API key
     if (!process.env.RESEND_API_KEY) {
-      console.log('❌ RESEND_API_KEY not found in environment variables!');
+      console.log('[SEND-EMAIL] RESEND_API_KEY not found in environment variables');
       throw new Error('RESEND_API_KEY not configured');
     }
     
-    console.log('✅ RESEND_API_KEY found:', process.env.RESEND_API_KEY.substring(0, 8) + '...');
-    console.log('📨 Attempting to send email via Resend...');
+    console.log('[SEND-EMAIL] RESEND_API_KEY found:', process.env.RESEND_API_KEY.substring(0, 8) + '...');
+    console.log('[SEND-EMAIL] Attempting to send email via Resend');
 
     // Send email using Resend
     const data = await resend.emails.send({
@@ -173,9 +171,9 @@ www.bambooreports.io
       `,
     });
 
-    console.log('✅ Email sent successfully!');
-    console.log('📬 Email ID:', data.id);
-    console.log('🎉 Function completed successfully');
+    console.log('[SEND-EMAIL] Email sent successfully');
+    console.log('[SEND-EMAIL] Email ID:', data.id);
+    console.log('[SEND-EMAIL] Function completed successfully');
 
     return {
       statusCode: 200,
@@ -190,17 +188,17 @@ www.bambooreports.io
       }),
     };
   } catch (error) {
-    console.error('❌❌❌ ERROR SENDING EMAIL ❌❌❌');
-    console.error('Error type:', error.name);
-    console.error('Error message:', error.message);
-    console.error('Full error:', error);
+    console.error('[SEND-EMAIL] ERROR SENDING EMAIL');
+    console.error('[SEND-EMAIL] Error type:', error.name);
+    console.error('[SEND-EMAIL] Error message:', error.message);
+    console.error('[SEND-EMAIL] Full error:', error);
     
     // Check for common issues
     if (error.message.includes('domain')) {
-      console.error('💡 TIP: Domain might not be verified in Resend dashboard');
+      console.error('[SEND-EMAIL] TIP: Domain might not be verified in Resend dashboard');
     }
     if (error.message.includes('API key') || error.message.includes('unauthorized')) {
-      console.error('💡 TIP: Check RESEND_API_KEY in Netlify environment variables');
+      console.error('[SEND-EMAIL] TIP: Check RESEND_API_KEY in Netlify environment variables');
     }
     
     return {
@@ -216,4 +214,3 @@ www.bambooreports.io
     };
   }
 };
-
