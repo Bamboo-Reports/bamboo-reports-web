@@ -22,7 +22,7 @@ const Pricing = () => {
   
   // State to manage the selected currency
   const [currency, setCurrency] = useState("USD");
-  const [isProcessing, setIsProcessing] = useState(false);
+  const [processingPlan, setProcessingPlan] = useState<string | null>(null);
 
   const plans = [
     {
@@ -123,7 +123,7 @@ const Pricing = () => {
     price: { USD: string; INR: string }
   ) => {
     try {
-      setIsProcessing(true);
+      setProcessingPlan(planName);
 
       // Get the current price based on selected currency
       const currentPrice = price[currency as keyof typeof price];
@@ -158,7 +158,7 @@ const Pricing = () => {
         },
         modal: {
           ondismiss: () => {
-            setIsProcessing(false);
+            setProcessingPlan(null);
             toast({
               title: "Payment Cancelled",
               description: "You cancelled the payment process.",
@@ -169,7 +169,7 @@ const Pricing = () => {
       });
     } catch (error) {
       console.error("Payment error:", error);
-      setIsProcessing(false);
+      setProcessingPlan(null);
       
       toast({
         title: "Payment Failed",
@@ -306,9 +306,9 @@ const Pricing = () => {
                       className="w-full rounded-full"
                       variant={plan.popular ? "default" : "outline"}
                       onClick={() => handlePayment(plan.name, plan.price)}
-                      disabled={isProcessing}
+                      disabled={processingPlan !== null}
                     >
-                      {isProcessing ? "Processing..." : "Get Started"}
+                      {processingPlan === plan.name ? "Processing..." : "Get Started"}
                     </Button>
                   )}
                 </div>
