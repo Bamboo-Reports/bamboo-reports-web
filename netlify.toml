@@ -1,0 +1,28 @@
+[build]
+  # Build command for your React/Vite app
+  command = "npm run build"
+  # Directory to publish (output of vite build)
+  publish = "dist"
+  # Functions directory
+  functions = "netlify/functions"
+
+# Redirect rules for SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables (set these in Netlify Dashboard)
+# VITE_RAZORPAY_KEY_ID - Your Razorpay Key ID
+# RAZORPAY_KEY_SECRET - Your Razorpay Key Secret (keep private!)
+
+# Build settings
+[build.environment]
+  NODE_VERSION = "18"
+
+# Function settings
+[functions]
+  # Directory for serverless functions
+  directory = "netlify/functions"
+  # Use ESM modules
+  node_bundler = "esbuild"
