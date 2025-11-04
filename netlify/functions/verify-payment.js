@@ -44,11 +44,21 @@ export const handler = async (event) => {
 
     // Verify signature
     if (razorpay_signature === expectedSign) {
+      console.log('✅ Payment signature verified successfully!');
+      
       // Payment is verified - send confirmation email
       if (customerEmail && planName) {
+        console.log('📧 Preparing to send confirmation email...');
+        console.log('  - Customer Email:', customerEmail);
+        console.log('  - Customer Name:', customerName);
+        console.log('  - Plan:', planName);
+        
         try {
+          const functionUrl = `${process.env.URL || 'http://localhost:8888'}/.netlify/functions/send-confirmation-email`;
+          console.log('🔗 Calling email function at:', functionUrl);
+          
           // Call the send-confirmation-email function
-          const emailResponse = await fetch(`${process.env.URL || 'http://localhost:8888'}/.netlify/functions/send-confirmation-email`, {
+          const emailResponse = await fetch(functionUrl, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -64,15 +74,26 @@ export const handler = async (event) => {
             }),
           });
           
+          console.log('📬 Email function response status:', emailResponse.status);
+          
           if (!emailResponse.ok) {
-            console.error('Failed to send confirmation email');
+            const errorData = await emailResponse.json();
+            console.error('❌ Failed to send confirmation email');
+            console.error('Error details:', errorData);
           } else {
-            console.log('Confirmation email sent successfully');
+            const successData = await emailResponse.json();
+            console.log('✅ Confirmation email sent successfully!');
+            console.log('Email ID:', successData.emailId);
           }
         } catch (emailError) {
           // Don't fail the payment verification if email fails
-          console.error('Error sending confirmation email:', emailError);
+          console.error('❌ Error calling email function:', emailError.message);
+          console.error('Full error:', emailError);
         }
+      } else {
+        console.log('⚠️ Skipping email - missing customer data:');
+        console.log('  - customerEmail:', customerEmail ? '✅' : '❌');
+        console.log('  - planName:', planName ? '✅' : '❌');
       }
 
       return {
