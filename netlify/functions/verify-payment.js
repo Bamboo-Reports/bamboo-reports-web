@@ -45,14 +45,14 @@ export const handler = async (event) => {
 
     // Verify signature
     if (razorpay_signature === expectedSign) {
-      console.log('✅ Payment signature verified successfully!');
+      console.log('[VERIFY] Payment signature verified successfully');
       
       // Fetch payment details from Razorpay to get customer email
       let actualCustomerEmail = customerEmail;
       let actualCustomerName = customerName;
       
       try {
-        console.log('🔍 Fetching payment details from Razorpay API...');
+        console.log('[VERIFY] Fetching payment details from Razorpay API');
         
         const razorpay = new Razorpay({
           key_id: process.env.VITE_RAZORPAY_KEY_ID,
@@ -60,7 +60,7 @@ export const handler = async (event) => {
         });
         
         const paymentDetails = await razorpay.payments.fetch(razorpay_payment_id);
-        console.log('📦 Payment details received:', {
+        console.log('[VERIFY] Payment details received:', {
           email: paymentDetails.email,
           contact: paymentDetails.contact,
           method: paymentDetails.method
@@ -69,7 +69,7 @@ export const handler = async (event) => {
         // Use email from Razorpay if available
         if (paymentDetails.email) {
           actualCustomerEmail = paymentDetails.email;
-          console.log('✅ Customer email found from Razorpay:', actualCustomerEmail);
+          console.log('[VERIFY] Customer email found:', actualCustomerEmail);
         }
         
         // Extract name from notes or use provided name
@@ -77,20 +77,20 @@ export const handler = async (event) => {
           actualCustomerName = paymentDetails.notes.name;
         }
       } catch (fetchError) {
-        console.error('⚠️ Could not fetch payment details:', fetchError.message);
-        console.log('   Will use email from request if available');
+        console.error('[VERIFY] Could not fetch payment details:', fetchError.message);
+        console.log('[VERIFY] Will use email from request if available');
       }
       
       // Payment is verified - send confirmation email
       if (actualCustomerEmail && planName) {
-        console.log('📧 Preparing to send confirmation email...');
-        console.log('  - Customer Email:', actualCustomerEmail);
-        console.log('  - Customer Name:', actualCustomerName);
-        console.log('  - Plan:', planName);
+        console.log('[EMAIL] Preparing to send confirmation email');
+        console.log('[EMAIL] Customer Email:', actualCustomerEmail);
+        console.log('[EMAIL] Customer Name:', actualCustomerName);
+        console.log('[EMAIL] Plan:', planName);
         
         try {
           const functionUrl = `${process.env.URL || 'http://localhost:8888'}/.netlify/functions/send-confirmation-email`;
-          console.log('🔗 Calling email function at:', functionUrl);
+          console.log('[EMAIL] Calling email function at:', functionUrl);
           
           // Call the send-confirmation-email function
           const emailResponse = await fetch(functionUrl, {
@@ -109,28 +109,28 @@ export const handler = async (event) => {
             }),
           });
           
-          console.log('📬 Email function response status:', emailResponse.status);
+          console.log('[EMAIL] Email function response status:', emailResponse.status);
           
           if (!emailResponse.ok) {
             const errorData = await emailResponse.json();
-            console.error('❌ Failed to send confirmation email');
-            console.error('Error details:', errorData);
+            console.error('[EMAIL] Failed to send confirmation email');
+            console.error('[EMAIL] Error details:', errorData);
           } else {
             const successData = await emailResponse.json();
-            console.log('✅ Confirmation email sent successfully!');
-            console.log('Email ID:', successData.emailId);
+            console.log('[EMAIL] Confirmation email sent successfully');
+            console.log('[EMAIL] Email ID:', successData.emailId);
           }
         } catch (emailError) {
           // Don't fail the payment verification if email fails
-          console.error('❌ Error calling email function:', emailError.message);
-          console.error('Full error:', emailError);
+          console.error('[EMAIL] Error calling email function:', emailError.message);
+          console.error('[EMAIL] Full error:', emailError);
         }
       } else {
-        console.log('⚠️ Skipping email - missing customer data:');
-        console.log('  - customerEmail:', actualCustomerEmail ? '✅' : '❌');
-        console.log('  - planName:', planName ? '✅' : '❌');
+        console.log('[EMAIL] Skipping email - missing customer data');
+        console.log('[EMAIL] customerEmail:', actualCustomerEmail ? 'present' : 'missing');
+        console.log('[EMAIL] planName:', planName ? 'present' : 'missing');
         if (!actualCustomerEmail) {
-          console.log('💡 TIP: Make sure to enter email in Razorpay payment form!');
+          console.log('[EMAIL] TIP: Make sure to enter email in Razorpay payment form');
         }
       }
 
@@ -175,4 +175,3 @@ export const handler = async (event) => {
     };
   }
 };
-
