@@ -3,8 +3,12 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const handler = async (event) => {
+  console.log('🚀 send-confirmation-email function called');
+  console.log('📅 Timestamp:', new Date().toISOString());
+  
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
+    console.log('❌ Wrong HTTP method:', event.httpMethod);
     return {
       statusCode: 405,
       body: JSON.stringify({ error: 'Method not allowed' }),
@@ -12,6 +16,8 @@ export const handler = async (event) => {
   }
 
   try {
+    console.log('📦 Raw event body:', event.body);
+    
     const { 
       customerEmail, 
       customerName, 
@@ -21,9 +27,23 @@ export const handler = async (event) => {
       paymentId, 
       orderId 
     } = JSON.parse(event.body);
+    
+    console.log('📧 Email details:');
+    console.log('  - To:', customerEmail);
+    console.log('  - Name:', customerName);
+    console.log('  - Plan:', planName);
+    console.log('  - Amount:', amount);
+    console.log('  - Currency:', currency);
+    console.log('  - Payment ID:', paymentId);
+    console.log('  - Order ID:', orderId);
 
     // Validate input
     if (!customerEmail || !planName || !paymentId) {
+      console.log('❌ Missing required fields!');
+      console.log('  - customerEmail:', customerEmail ? '✅' : '❌');
+      console.log('  - planName:', planName ? '✅' : '❌');
+      console.log('  - paymentId:', paymentId ? '✅' : '❌');
+      
       return {
         statusCode: 400,
         headers: {
@@ -37,6 +57,15 @@ export const handler = async (event) => {
     }
 
     const currencySymbol = currency === 'USD' ? '$' : '₹';
+
+    // Check API key
+    if (!process.env.RESEND_API_KEY) {
+      console.log('❌ RESEND_API_KEY not found in environment variables!');
+      throw new Error('RESEND_API_KEY not configured');
+    }
+    
+    console.log('✅ RESEND_API_KEY found:', process.env.RESEND_API_KEY.substring(0, 8) + '...');
+    console.log('📨 Attempting to send email via Resend...');
 
     // Send email using Resend
     const data = await resend.emails.send({
@@ -144,6 +173,10 @@ www.bambooreports.io
       `,
     });
 
+    console.log('✅ Email sent successfully!');
+    console.log('📬 Email ID:', data.id);
+    console.log('🎉 Function completed successfully');
+
     return {
       statusCode: 200,
       headers: {
@@ -157,7 +190,19 @@ www.bambooreports.io
       }),
     };
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('❌❌❌ ERROR SENDING EMAIL ❌❌❌');
+    console.error('Error type:', error.name);
+    console.error('Error message:', error.message);
+    console.error('Full error:', error);
+    
+    // Check for common issues
+    if (error.message.includes('domain')) {
+      console.error('💡 TIP: Domain might not be verified in Resend dashboard');
+    }
+    if (error.message.includes('API key') || error.message.includes('unauthorized')) {
+      console.error('💡 TIP: Check RESEND_API_KEY in Netlify environment variables');
+    }
+    
     return {
       statusCode: 500,
       headers: {
