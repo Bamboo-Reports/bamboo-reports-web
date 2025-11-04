@@ -158,11 +158,20 @@ const Pricing = () => {
         description: `${planName} - GCC Intelligence Platform`,
         handler: async (response: RazorpayResponse) => {
           try {
-            // Verify payment on backend
+            // Get customer details from Razorpay prefill (they enter this in the form)
+            const customerEmail = (response as any).email || "";
+            const customerName = (response as any).name || "";
+            
+            // Verify payment on backend and send confirmation email
             await verifyRazorpayPayment(
               response.razorpay_order_id || "",
               response.razorpay_payment_id,
-              response.razorpay_signature || ""
+              response.razorpay_signature || "",
+              customerEmail,
+              customerName,
+              planName,
+              order.amount,
+              order.currency
             );
             
             // Payment verified successfully
