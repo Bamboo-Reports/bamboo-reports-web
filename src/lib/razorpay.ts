@@ -18,6 +18,7 @@
     };
     modal?: {
       ondismiss?: () => void;
+      confirm_close?: boolean;
     };
     method?: {
       netbanking?: boolean;
@@ -105,7 +106,12 @@
   export const verifyRazorpayPayment = async (
     razorpay_order_id: string,
     razorpay_payment_id: string,
-    razorpay_signature: string
+    razorpay_signature: string,
+    customerEmail?: string,
+    customerName?: string,
+    planName?: string,
+    amount?: number,
+    currency?: string
   ): Promise<{ status: string; message: string }> => {
     // Use Netlify Functions in production, localhost in development
     const API_URL = import.meta.env.VITE_API_URL || '/.netlify/functions';
@@ -119,6 +125,11 @@
         razorpay_order_id,
         razorpay_payment_id,
         razorpay_signature,
+        customerEmail,
+        customerName,
+        planName,
+        amount,
+        currency,
       }),
     });
 
