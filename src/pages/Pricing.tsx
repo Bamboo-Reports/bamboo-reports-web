@@ -11,6 +11,8 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import {
   initiateRazorpayPayment,
+  createRazorpayOrder,
+  verifyRazorpayPayment,
   convertToPaise,
   getRazorpayKey,
   type RazorpayResponse,
@@ -128,25 +130,50 @@ const Pricing = () => {
       // Get the current price based on selected currency
       const currentPrice = price[currency as keyof typeof price];
       const amountInPaise = convertToPaise(currentPrice);
+      const selectedCurrency = currency === "USD" ? "USD" : "INR";
+
+      // Create order on backend first
+      const order = await createRazorpayOrder(
+        amountInPaise,
+        selectedCurrency,
+        planName
+      );
 
       // Get Razorpay key
       const razorpayKey = getRazorpayKey();
 
-      // Initiate Razorpay payment
+      // Initiate Razorpay payment with order_id
       await initiateRazorpayPayment({
         key: razorpayKey,
-        amount: amountInPaise,
-        currency: currency === "USD" ? "USD" : "INR",
+        amount: order.amount,
+        currency: order.currency,
+        order_id: order.orderId, // This ensures the correct currency
         name: "Bamboo Reports",
         description: `${planName} - GCC Intelligence Platform`,
-        handler: (response: RazorpayResponse) => {
-          // Payment successful
-          console.log("Payment successful:", response);
-          
-          // Redirect to success page with payment details
-          navigate(
-            `/payment-success?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id || ""}&plan=${encodeURIComponent(planName)}`
-          );
+        handler: async (response: RazorpayResponse) => {
+          try {
+            // Verify payment on backend
+            await verifyRazorpayPayment(
+              response.razorpay_order_id || "",
+              response.razorpay_payment_id,
+              response.razorpay_signature || ""
+            );
+            
+            // Payment verified successfully
+            console.log("Payment verified:", response);
+            
+            // Redirect to success page with payment details
+            navigate(
+              `/payment-success?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id || ""}&plan=${encodeURIComponent(planName)}`
+            );
+          } catch (verifyError) {
+            console.error("Payment verification failed:", verifyError);
+            toast({
+              title: "Verification Failed",
+              description: "Payment received but verification failed. Please contact support.",
+              variant: "destructive",
+            });
+          }
         },
         prefill: {
           name: "",
