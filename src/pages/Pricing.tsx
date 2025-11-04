@@ -1,4 +1,4 @@
-import { useState } from "react"; // Import useState
+import { useState, useEffect } from "react"; // Import useState and useEffect
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -15,12 +15,18 @@ import {
   verifyRazorpayPayment,
   convertToPaise,
   getRazorpayKey,
+  loadRazorpayScript,
   type RazorpayResponse,
 } from "@/lib/razorpay";
 
 const Pricing = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  
+  // Preload Razorpay script when component mounts
+  useEffect(() => {
+    loadRazorpayScript();
+  }, []);
   
   // State to manage the selected currency
   const [currency, setCurrency] = useState("USD");
@@ -182,6 +188,33 @@ const Pricing = () => {
         },
         theme: {
           color: "#3b82f6", // Customize this to match your brand color
+        },
+        // Enable all payment methods including UPI
+        method: {
+          netbanking: true,
+          card: true,
+          upi: true,
+          wallet: true,
+        },
+        // Configure display preferences to show UPI prominently
+        config: {
+          display: {
+            blocks: {
+              banks: {
+                name: "All payment methods",
+                instruments: [
+                  { method: "upi" },
+                  { method: "card" },
+                  { method: "netbanking" },
+                  { method: "wallet" },
+                ],
+              },
+            },
+            sequence: ["block.banks"],
+            preferences: {
+              show_default_blocks: true,
+            },
+          },
         },
         modal: {
           ondismiss: () => {
