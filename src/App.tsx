@@ -11,6 +11,8 @@ import ReportGCCSnapshotQ2 from "./pages/ReportGCCSnapshotQ2";
 import GCCList from "./pages/GCCList";
 import Insights from "./pages/Insights";
 import Articles from "./pages/Articles";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentFailure from "./pages/PaymentFailure";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/gcc-list" element={<GCCList />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/articles" element={<Articles />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/payment-failure" element={<PaymentFailure />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
