@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import Razorpay from 'razorpay';
 
 export const handler = async (event) => {
   // Only allow POST requests
@@ -46,11 +47,45 @@ export const handler = async (event) => {
     if (razorpay_signature === expectedSign) {
       console.log('✅ Payment signature verified successfully!');
       
+      // Fetch payment details from Razorpay to get customer email
+      let actualCustomerEmail = customerEmail;
+      let actualCustomerName = customerName;
+      
+      try {
+        console.log('🔍 Fetching payment details from Razorpay API...');
+        
+        const razorpay = new Razorpay({
+          key_id: process.env.VITE_RAZORPAY_KEY_ID,
+          key_secret: process.env.RAZORPAY_KEY_SECRET,
+        });
+        
+        const paymentDetails = await razorpay.payments.fetch(razorpay_payment_id);
+        console.log('📦 Payment details received:', {
+          email: paymentDetails.email,
+          contact: paymentDetails.contact,
+          method: paymentDetails.method
+        });
+        
+        // Use email from Razorpay if available
+        if (paymentDetails.email) {
+          actualCustomerEmail = paymentDetails.email;
+          console.log('✅ Customer email found from Razorpay:', actualCustomerEmail);
+        }
+        
+        // Extract name from notes or use provided name
+        if (paymentDetails.notes && paymentDetails.notes.name) {
+          actualCustomerName = paymentDetails.notes.name;
+        }
+      } catch (fetchError) {
+        console.error('⚠️ Could not fetch payment details:', fetchError.message);
+        console.log('   Will use email from request if available');
+      }
+      
       // Payment is verified - send confirmation email
-      if (customerEmail && planName) {
+      if (actualCustomerEmail && planName) {
         console.log('📧 Preparing to send confirmation email...');
-        console.log('  - Customer Email:', customerEmail);
-        console.log('  - Customer Name:', customerName);
+        console.log('  - Customer Email:', actualCustomerEmail);
+        console.log('  - Customer Name:', actualCustomerName);
         console.log('  - Plan:', planName);
         
         try {
@@ -64,8 +99,8 @@ export const handler = async (event) => {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              customerEmail,
-              customerName,
+              customerEmail: actualCustomerEmail,
+              customerName: actualCustomerName,
               planName,
               amount,
               currency,
@@ -92,8 +127,11 @@ export const handler = async (event) => {
         }
       } else {
         console.log('⚠️ Skipping email - missing customer data:');
-        console.log('  - customerEmail:', customerEmail ? '✅' : '❌');
+        console.log('  - customerEmail:', actualCustomerEmail ? '✅' : '❌');
         console.log('  - planName:', planName ? '✅' : '❌');
+        if (!actualCustomerEmail) {
+          console.log('💡 TIP: Make sure to enter email in Razorpay payment form!');
+        }
       }
 
       return {
