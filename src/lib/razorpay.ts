@@ -1,0 +1,86 @@
+// Razorpay configuration and utility functions
+
+export interface RazorpayOptions {
+  key: string;
+  amount: number;
+  currency: string;
+  name: string;
+  description: string;
+  order_id?: string;
+  handler: (response: RazorpayResponse) => void;
+  prefill?: {
+    name?: string;
+    email?: string;
+    contact?: string;
+  };
+  theme?: {
+    color?: string;
+  };
+  modal?: {
+    ondismiss?: () => void;
+  };
+}
+
+export interface RazorpayResponse {
+  razorpay_payment_id: string;
+  razorpay_order_id?: string;
+  razorpay_signature?: string;
+}
+
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
+
+// Load Razorpay script dynamically
+export const loadRazorpayScript = (): Promise<boolean> => {
+  return new Promise((resolve) => {
+    // Check if script is already loaded
+    if (window.Razorpay) {
+      resolve(true);
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = () => {
+      resolve(true);
+    };
+    script.onerror = () => {
+      resolve(false);
+    };
+    document.body.appendChild(script);
+  });
+};
+
+// Initialize Razorpay payment
+export const initiateRazorpayPayment = async (
+  options: RazorpayOptions
+): Promise<void> => {
+  const isLoaded = await loadRazorpayScript();
+
+  if (!isLoaded) {
+    throw new Error("Razorpay SDK failed to load. Please check your internet connection.");
+  }
+
+  const razorpayInstance = new window.Razorpay(options);
+  razorpayInstance.open();
+};
+
+// Convert price string to paise/smallest currency unit
+export const convertToPaise = (priceString: string): number => {
+  // Remove commas and convert to number, then multiply by 100 for paise
+  const price = parseFloat(priceString.replace(/,/g, ""));
+  return Math.round(price * 100);
+};
+
+// Get Razorpay key from environment
+export const getRazorpayKey = (): string => {
+  const key = import.meta.env.VITE_RAZORPAY_KEY_ID;
+  if (!key) {
+    throw new Error("Razorpay key is not configured. Please add VITE_RAZORPAY_KEY_ID to your .env file");
+  }
+  return key;
+};
+
