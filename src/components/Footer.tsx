@@ -12,6 +12,9 @@ const Footer = () => {
           © 2025 Research NXT. All Rights Reserved
         </div>
       </div>
+      <div className="text-center mt-4 text-sm text-muted-foreground">
+        Made with ❤️ In Pune
+      </div>
     </footer>
   );
 };
