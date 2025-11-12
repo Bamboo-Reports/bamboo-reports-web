@@ -1,11 +1,14 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Search, X, TrendingUp, Building2, Rocket } from "lucide-react";
+import { Search, X, TrendingUp, Building2, Rocket, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const CSV_URL = "https://files.catbox.moe/gpycyk.csv";
+const CACHE_KEY = "gcc_data_cache";
+const CACHE_VERSION = "v1";
+const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
 const preferredOrder = [
   "Account Global Legal Name",
@@ -97,6 +100,33 @@ const GCCList = () => {
     const loadCSV = async () => {
       try {
         setLoading(true);
+
+        // Try to load from cache first
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (cached) {
+          try {
+            const { version, timestamp, data: cachedData, columns: cachedColumns } = JSON.parse(cached);
+            const age = Date.now() - timestamp;
+
+            // Use cached data if version matches and not expired
+            if (version === CACHE_VERSION && age < CACHE_DURATION && cachedData?.length > 0) {
+              setColumns(cachedColumns);
+              setData(cachedData);
+
+              const initialFacets: any = {};
+              facetCols.forEach(c => (initialFacets[c] = ""));
+              setFacets(initialFacets);
+
+              setLoading(false);
+              return;
+            }
+          } catch (cacheErr) {
+            console.warn("Cache parse failed:", cacheErr);
+            localStorage.removeItem(CACHE_KEY);
+          }
+        }
+
+        // Fetch fresh data
         const res = await fetch(CSV_URL, { mode: "cors" });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const text = await res.text();
@@ -117,14 +147,26 @@ const GCCList = () => {
           if (!ordered.includes(k)) ordered.push(k);
         });
 
+        const processedData = objs.map(o => {
+          const r: any = {};
+          ordered.forEach(k => (r[k] = o[k] ?? ""));
+          return r;
+        });
+
         setColumns(ordered);
-        setData(
-          objs.map(o => {
-            const r: any = {};
-            ordered.forEach(k => (r[k] = o[k] ?? ""));
-            return r;
-          })
-        );
+        setData(processedData);
+
+        // Cache the data
+        try {
+          localStorage.setItem(CACHE_KEY, JSON.stringify({
+            version: CACHE_VERSION,
+            timestamp: Date.now(),
+            data: processedData,
+            columns: ordered
+          }));
+        } catch (storageErr) {
+          console.warn("Failed to cache data:", storageErr);
+        }
 
         const initialFacets: any = {};
         facetCols.forEach(c => (initialFacets[c] = ""));
@@ -319,7 +361,11 @@ const GCCList = () => {
           {/* Table */}
           <div id="gcc-table">
             {loading ? (
-              <div className="text-xl text-muted-foreground">Loading data...</div>
+              <div className="flex flex-col items-center justify-center py-20 space-y-4">
+                <Loader2 className="w-12 h-12 text-primary animate-spin" />
+                <div className="text-xl text-muted-foreground">Loading GCC data...</div>
+                <div className="text-sm text-muted-foreground">Please wait while we fetch the latest data</div>
+              </div>
             ) : (
               <div className="bg-white rounded-2xl border shadow-sm overflow-hidden">
                 {/* Controls */}
