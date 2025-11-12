@@ -22,12 +22,17 @@ import {
 const Pricing = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  
-  // Preload Razorpay script when component mounts
+
+  // Check if subscriptions are enabled via feature flag
+  const subscriptionsEnabled = import.meta.env.VITE_SUBSCRIPTIONS_ENABLED === 'true';
+
+  // Preload Razorpay script when component mounts (only if subscriptions are enabled)
   useEffect(() => {
-    loadRazorpayScript();
-  }, []);
-  
+    if (subscriptionsEnabled) {
+      loadRazorpayScript();
+    }
+  }, [subscriptionsEnabled]);
+
   // State to manage the selected currency
   const [currency, setCurrency] = useState("USD");
   const [processingPlan, setProcessingPlan] = useState<string | null>(null);
@@ -374,10 +379,14 @@ const Pricing = () => {
                     <Button
                       className="w-full rounded-full"
                       variant={plan.popular ? "default" : "outline"}
-                      onClick={() => handlePayment(plan.name, plan.price)}
-                      disabled={processingPlan !== null}
+                      onClick={() => subscriptionsEnabled ? handlePayment(plan.name, plan.price) : undefined}
+                      disabled={!subscriptionsEnabled || processingPlan !== null}
                     >
-                      {processingPlan === plan.name ? "Processing..." : "Get Started"}
+                      {!subscriptionsEnabled
+                        ? "Coming Soon"
+                        : processingPlan === plan.name
+                        ? "Processing..."
+                        : "Get Started"}
                     </Button>
                   )}
                 </div>
