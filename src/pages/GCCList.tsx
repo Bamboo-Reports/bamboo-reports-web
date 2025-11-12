@@ -284,12 +284,12 @@ const GCCList = () => {
             </div>
             <div className="bg-white rounded-2xl p-8 border shadow-sm text-center">
               <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
-              <div className="text-5xl font-bold text-primary mb-2">5700+</div>
+              <div className="text-5xl font-bold text-primary mb-2">5800+</div>
               <div className="text-muted-foreground">Centers with in-depth insights</div>
             </div>
             <div className="bg-white rounded-2xl p-8 border shadow-sm text-center">
               <Rocket className="w-12 h-12 text-primary mx-auto mb-4" />
-              <div className="text-5xl font-bold text-primary mb-2">110+</div>
+              <div className="text-5xl font-bold text-primary mb-2">109+</div>
               <div className="text-muted-foreground">Upcoming centers in India</div>
             </div>
           </div>
