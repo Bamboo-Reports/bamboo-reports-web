@@ -5,7 +5,7 @@ import { Search, X, TrendingUp, Building2, Rocket, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-const CSV_URL = "https://files.catbox.moe/gpycyk.csv";
+const CSV_URL = "https://files.catbox.moe/sss5jf.csv";
 const CACHE_KEY = "gcc_data_cache";
 const CACHE_VERSION = "v1";
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
