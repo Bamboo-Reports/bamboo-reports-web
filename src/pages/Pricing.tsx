@@ -22,12 +22,17 @@ import {
 const Pricing = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  
-  // Preload Razorpay script when component mounts
+
+  // Check if subscriptions are enabled via feature flag
+  const isSubscriptionEnabled = import.meta.env.VITE_SUBSCRIPTION_ENABLED === 'true';
+
+  // Preload Razorpay script when component mounts (only if subscriptions are enabled)
   useEffect(() => {
-    loadRazorpayScript();
-  }, []);
-  
+    if (isSubscriptionEnabled) {
+      loadRazorpayScript();
+    }
+  }, [isSubscriptionEnabled]);
+
   // State to manage the selected currency
   const [currency, setCurrency] = useState("USD");
   const [processingPlan, setProcessingPlan] = useState<string | null>(null);
@@ -369,6 +374,14 @@ const Pricing = () => {
                       >
                         Contact Sales
                       </a>
+                    </Button>
+                  ) : !isSubscriptionEnabled ? (
+                    <Button
+                      className="w-full rounded-full"
+                      variant="outline"
+                      disabled
+                    >
+                      Coming Soon
                     </Button>
                   ) : (
                     <Button
