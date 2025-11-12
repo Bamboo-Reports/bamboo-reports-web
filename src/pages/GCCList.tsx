@@ -5,7 +5,7 @@ import { Search, X, TrendingUp, Building2, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-const CSV_URL = "https://files.catbox.moe/lp9nh3.csv";
+const CSV_URL = "https://files.catbox.moe/gpycyk.csv";
 
 const preferredOrder = [
   "Account Global Legal Name",
