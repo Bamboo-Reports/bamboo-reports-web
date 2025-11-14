@@ -265,10 +265,13 @@ const Pricing = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold mb-4">
+      <main className="relative py-20 px-4 overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-12 animate-fade-in-up">
+            <h1 className="text-5xl font-bold mb-4 text-gradient">
               Simple, Transparent Pricing
             </h1>
             <p className="text-xl text-muted-foreground">
@@ -277,25 +280,26 @@ const Pricing = () => {
           </div>
 
           {/* --- Currency Switcher --- */}
-          <div className="flex justify-end mb-8">
+          <div className="flex justify-end mb-8 animate-fade-in-down animate-delay-200">
             <ToggleGroup
               type="single"
               value={currency}
               onValueChange={(value) => {
                 if (value) setCurrency(value); // Set state only if value is selected
               }}
+              className="glass p-1 shadow-md"
             >
-              <ToggleGroupItem value="USD" aria-label="Select US Dollars">
+              <ToggleGroupItem value="USD" aria-label="Select US Dollars" className="data-[state=on]:gradient-primary data-[state=on]:text-white">
                 USD
               </ToggleGroupItem>
-              <ToggleGroupItem value="INR" aria-label="Select Indian Rupees">
+              <ToggleGroupItem value="INR" aria-label="Select Indian Rupees" className="data-[state=on]:gradient-primary data-[state=on]:text-white">
                 INR
               </ToggleGroupItem>
             </ToggleGroup>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 items-start">
-            {plans.map((plan) => {
+            {plans.map((plan, index) => {
               const isCustom = plan.price === "Custom";
               const currentPrice = !isCustom ? plan.price[currency] : null;
               const currentOriginalPrice =
@@ -306,15 +310,16 @@ const Pricing = () => {
               return (
                 <div
                   key={plan.name}
-                  className={`relative rounded-lg border p-8 flex flex-col ${
+                  className={`relative rounded-2xl p-8 flex flex-col transition-all duration-500 animate-fade-in-up animate-hover-lift ${
                     plan.popular
-                      ? "border-primary shadow-lg scale-105"
-                      : "border-border"
+                      ? "glass-strong border-2 border-primary shadow-elegant scale-105 shadow-glow"
+                      : "glass border-0 shadow-depth"
                   }`}
+                  style={{ animationDelay: `${index * 150}ms` }}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                      <span className="gradient-primary text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg animate-smooth-bounce">
                         Most Popular
                       </span>
                     </div>
@@ -364,7 +369,9 @@ const Pricing = () => {
                   {isCustom ? (
                     <Button
                       asChild
-                      className="w-full rounded-full"
+                      className={`w-full rounded-full font-bold text-lg py-6 transition-all duration-300 ${
+                        plan.popular ? "gradient-primary text-white shadow-glow animate-hover-lift animate-press" : "border-2 hover:border-primary animate-hover-scale"
+                      }`}
                       variant={plan.popular ? "default" : "outline"}
                     >
                       <a
@@ -377,7 +384,7 @@ const Pricing = () => {
                     </Button>
                   ) : !isSubscriptionEnabled ? (
                     <Button
-                      className="w-full rounded-full"
+                      className="w-full rounded-full font-bold text-lg py-6"
                       variant="outline"
                       disabled
                     >
@@ -385,7 +392,9 @@ const Pricing = () => {
                     </Button>
                   ) : (
                     <Button
-                      className="w-full rounded-full"
+                      className={`w-full rounded-full font-bold text-lg py-6 transition-all duration-300 ${
+                        plan.popular ? "gradient-primary text-white shadow-glow animate-hover-lift animate-press" : "border-2 hover:border-primary animate-hover-scale"
+                      }`}
                       variant={plan.popular ? "default" : "outline"}
                       onClick={() => handlePayment(plan.name, plan.price)}
                       disabled={processingPlan !== null}
@@ -399,12 +408,15 @@ const Pricing = () => {
           </div>
 
           {/* --- Not Sure Section --- */}
-          <div className="text-center mt-16 p-8 bg-muted/30 rounded-lg border border-border">
-            <h2 className="text-2xl font-semibold mb-6">
+          <div className="text-center mt-16 p-10 glass-strong rounded-2xl shadow-elegant animate-fade-in-up animate-delay-500">
+            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
               Not sure what to choose?
             </h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Our team is here to help you find the perfect plan for your needs
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="rounded-full">
+              <Button asChild size="lg" className="rounded-full gradient-accent text-white font-bold shadow-elegant animate-hover-lift animate-press">
                 <a
                   href="https://meetings-na2.hubspot.com/anam-khoja"
                   target="_blank"
@@ -413,7 +425,7 @@ const Pricing = () => {
                   Contact Sales
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-full">
+              <Button asChild variant="outline" size="lg" className="rounded-full border-2 hover:border-primary animate-hover-scale font-bold">
                 <a href="/gcc-list">Get Free GCC Data</a>
               </Button>
             </div>

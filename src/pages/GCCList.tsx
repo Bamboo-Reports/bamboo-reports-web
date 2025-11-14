@@ -1,9 +1,10 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Search, X, TrendingUp, Building2, Rocket, Loader2 } from "lucide-react";
+import { Search, X, TrendingUp, Building2, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { SkeletonTable } from "@/components/ui/skeleton-card";
 
 const CSV_URL = "https://files.catbox.moe/sss5jf.csv";
 const CACHE_KEY = "gcc_data_cache";
@@ -305,8 +306,8 @@ const GCCList = () => {
       <main className="py-20 px-4">
         <div className="max-w-[1400px] mx-auto">
           {/* Hero */}
-          <div className="text-center mb-10 md:mb-12">
-            <h1 className="mb-6">
+          <div className="text-center mb-10 md:mb-12 animate-fade-in-up">
+            <h1 className="mb-6 text-gradient">
               Discover India's Global Capability Centers (GCCs) - The Engine of Global Innovation
             </h1>
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -319,40 +320,46 @@ const GCCList = () => {
 
           {/* STATS ON TOP */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-12">
-            <div className="bg-white rounded-2xl p-8 border shadow-sm text-center">
-              <Building2 className="w-12 h-12 text-primary mx-auto mb-4" />
-              <div className="text-5xl font-bold text-primary mb-2">2400+</div>
-              <div className="text-muted-foreground">MNCs with Centers In India</div>
+            <div className="glass-strong rounded-2xl p-8 shadow-depth text-center animate-hover-lift animate-fade-in-up transition-all duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Building2 className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-5xl font-bold text-gradient mb-2">2400+</div>
+              <div className="text-muted-foreground font-medium">MNCs with Centers In India</div>
             </div>
-            <div className="bg-white rounded-2xl p-8 border shadow-sm text-center">
-              <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
-              <div className="text-5xl font-bold text-primary mb-2">5800+</div>
-              <div className="text-muted-foreground">Centers with in-depth insights</div>
+            <div className="glass-strong rounded-2xl p-8 shadow-depth text-center animate-hover-lift animate-fade-in-up animate-delay-100 transition-all duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-5xl font-bold text-gradient mb-2">5800+</div>
+              <div className="text-muted-foreground font-medium">Centers with in-depth insights</div>
             </div>
-            <div className="bg-white rounded-2xl p-8 border shadow-sm text-center">
-              <Rocket className="w-12 h-12 text-primary mx-auto mb-4" />
-              <div className="text-5xl font-bold text-primary mb-2">109+</div>
-              <div className="text-muted-foreground">Upcoming centers in India</div>
+            <div className="glass-strong rounded-2xl p-8 shadow-depth text-center animate-hover-lift animate-fade-in-up animate-delay-200 transition-all duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Rocket className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-5xl font-bold text-gradient mb-2">109+</div>
+              <div className="text-muted-foreground font-medium">Upcoming centers in India</div>
             </div>
           </div>
 
           {/* Top CTAs */}
-          <div className="flex flex-wrap gap-4 justify-center items-center mb-2">
+          <div className="flex flex-wrap gap-4 justify-center items-center mb-2 animate-fade-in-up animate-delay-300">
             <Button
               size="lg"
               onClick={() => setShowModal(true)}
-              className="bg-primary hover:bg-primary/90 rounded-full"
+              className="gradient-accent text-white rounded-full font-bold shadow-elegant animate-hover-lift animate-press"
             >
               Download Sample
             </Button>
-            <Button size="lg" variant="outline" asChild className="rounded-full">
+            <Button size="lg" variant="outline" asChild className="rounded-full border-2 hover:border-primary animate-hover-scale font-bold">
               <Link to="/pricing">Get Full Access</Link>
             </Button>
           </div>
 
           {/* OR + plain grey helper line (no anchor) */}
-          <div className="text-center mb-12">
-            <div className="text-sm text-muted-foreground mb-2">OR</div>
+          <div className="text-center mb-12 animate-fade-in animate-delay-500">
+            <div className="text-sm font-bold text-muted-foreground mb-2">OR</div>
             <p className="text-muted-foreground">
               Play around with filters and find your TAM
             </p>
@@ -361,10 +368,12 @@ const GCCList = () => {
           {/* Table */}
           <div id="gcc-table">
             {loading ? (
-              <div className="flex flex-col items-center justify-center py-20 space-y-4">
-                <Loader2 className="w-12 h-12 text-primary animate-spin" />
-                <div className="text-xl text-muted-foreground">Loading GCC data...</div>
-                <div className="text-sm text-muted-foreground">Please wait while we fetch the latest data</div>
+              <div className="glass-strong rounded-2xl p-8 shadow-elegant animate-fade-in">
+                <div className="text-center mb-8">
+                  <div className="text-xl font-semibold text-muted-foreground mb-2">Loading GCC data...</div>
+                  <div className="text-sm text-muted-foreground">Please wait while we fetch the latest data</div>
+                </div>
+                <SkeletonTable rows={10} />
               </div>
             ) : (
               <div className="bg-white rounded-2xl border shadow-sm overflow-hidden">
@@ -515,28 +524,28 @@ const GCCList = () => {
 
           {/* Why GCCs */}
           <div className="mt-32 mb-16">
-            <h2 className="text-center mb-16">Why Do Companies Set Up GCCs in India?</h2>
+            <h2 className="text-center mb-16 text-gradient animate-fade-in-up">Why Do Companies Set Up GCCs in India?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-2xl p-8 border shadow-sm">
-                <h3 className="text-2xl font-semibold mb-4 text-primary">Access to World Class Talent</h3>
+              <div className="glass-strong rounded-2xl p-8 shadow-depth animate-hover-lift transition-all duration-300 animate-fade-in-up">
+                <h3 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Access to World Class Talent</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   India offers one of the largest and most diverse pools of engineering, finance, and digital professionals in the world, allowing companies to scale faster and innovate continuously.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-8 border shadow-sm">
-                <h3 className="text-2xl font-semibold mb-4 text-primary">Cost Efficiency with Value Creation</h3>
+              <div className="glass-strong rounded-2xl p-8 shadow-depth animate-hover-lift transition-all duration-300 animate-fade-in-up animate-delay-100">
+                <h3 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Cost Efficiency with Value Creation</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Originally started as cost saving units, modern GCCs now deliver strategic value, driving transformation, innovation, and new revenue streams for their parent organizations.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-8 border shadow-sm">
-                <h3 className="text-2xl font-semibold mb-4 text-primary">Innovation and Technology Leadership</h3>
+              <div className="glass-strong rounded-2xl p-8 shadow-depth animate-hover-lift transition-all duration-300 animate-fade-in-up animate-delay-200">
+                <h3 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Innovation and Technology Leadership</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   India's GCCs are often the innovation labs for global enterprises, experimenting with AI, automation, data analytics, cloud, cybersecurity, and Industry 4.0 technologies.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-8 border shadow-sm">
-                <h3 className="text-2xl font-semibold mb-4 text-primary">Global Operating Model</h3>
+              <div className="glass-strong rounded-2xl p-8 shadow-depth animate-hover-lift transition-all duration-300 animate-fade-in-up animate-delay-300">
+                <h3 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">Global Operating Model</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   By setting up in India, companies achieve 24x7 operations, proximity to emerging markets, and resilience through distributed teams.
                 </p>
