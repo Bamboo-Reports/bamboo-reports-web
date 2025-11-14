@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from "react";
 const ReportGCCSnapshotQ2 = () => {
   const [formKey, setFormKey] = useState(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const hasNavigatedRef = useRef(false);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -23,6 +24,23 @@ const ReportGCCSnapshotQ2 = () => {
     };
   }, [formKey]);
 
+  const handleIframeLoad = () => {
+    // Only check after initial load
+    if (!hasNavigatedRef.current) {
+      hasNavigatedRef.current = true;
+      return;
+    }
+
+    // If iframe has loaded again (navigated to download link), reset the form
+    console.log('Form navigated to download link, resetting form...');
+    hasNavigatedRef.current = false;
+
+    // Small delay to ensure download starts
+    setTimeout(() => {
+      setFormKey(prev => prev + 1);
+    }, 500);
+  };
+
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       // Check if message is from JotForm
@@ -36,34 +54,11 @@ const ReportGCCSnapshotQ2 = () => {
             data.type === 'form.submit' ||
             event.data.includes('submission-completed')
           ) {
-            console.log('Form submitted, will reset after download');
-
-            // Reset form after a short delay to allow download to start
-            setTimeout(() => {
-              setFormKey(prev => prev + 1);
-            }, 2000);
+            console.log('Form submission detected');
           }
         } catch (e) {
-          // If it's not JSON, check for other JotForm events
-          if (
-            event.data.includes('submission-completed') ||
-            event.data.includes('thank-you')
-          ) {
-            console.log('Form submitted, will reset after download');
-
-            // Reset form after a short delay
-            setTimeout(() => {
-              setFormKey(prev => prev + 1);
-            }, 2000);
-          }
+          // Not JSON, ignore
         }
-      }
-
-      // Handle iframe navigation to download link
-      if (event.data.type === 'hsFormCallback' || event.data.eventName === 'onFormSubmit') {
-        setTimeout(() => {
-          setFormKey(prev => prev + 1);
-        }, 2000);
       }
     };
 
@@ -116,6 +111,7 @@ const ReportGCCSnapshotQ2 = () => {
                     title="[ BR ] - Q2 Snapshot Leads"
                     onLoad={(e) => {
                       window.parent.scrollTo(0, 0);
+                      handleIframeLoad();
                     }}
                     allowTransparency={true}
                     allow="geolocation; microphone; camera; fullscreen; payment"
