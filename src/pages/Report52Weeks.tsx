@@ -1,8 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Report52Weeks = () => {
+  const [formKey, setFormKey] = useState(0);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const hasNavigatedRef = useRef(false);
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
@@ -17,6 +21,51 @@ const Report52Weeks = () => {
 
     return () => {
       document.body.removeChild(script);
+    };
+  }, [formKey]);
+
+  const handleIframeLoad = () => {
+    // Only check after initial load
+    if (!hasNavigatedRef.current) {
+      hasNavigatedRef.current = true;
+      return;
+    }
+
+    // If iframe has loaded again (navigated to download link), reset the form
+    console.log('Form navigated to download link, resetting form...');
+    hasNavigatedRef.current = false;
+
+    // Small delay to ensure download starts
+    setTimeout(() => {
+      setFormKey(prev => prev + 1);
+    }, 500);
+  };
+
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      // Check if message is from JotForm
+      if (typeof event.data === 'string') {
+        try {
+          const data = JSON.parse(event.data);
+
+          // Detect form submission completion
+          if (
+            data.action === 'submission-completed' ||
+            data.type === 'form.submit' ||
+            event.data.includes('submission-completed')
+          ) {
+            console.log('Form submission detected');
+          }
+        } catch (e) {
+          // Not JSON, ignore
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
     };
   }, []);
 
@@ -56,10 +105,13 @@ const Report52Weeks = () => {
                 <div className="rounded-lg border bg-card p-6">
                   <h3 className="text-2xl font-bold mb-4">Download Report</h3>
                   <iframe
+                    key={formKey}
+                    ref={iframeRef}
                     id="JotFormIFrame-253031221972448"
                     title="[ BR ] - 52 Weeks Leads"
                     onLoad={(e) => {
                       window.parent.scrollTo(0, 0);
+                      handleIframeLoad();
                     }}
                     allowTransparency={true}
                     allow="geolocation; microphone; camera; fullscreen; payment"
