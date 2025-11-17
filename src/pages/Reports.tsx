@@ -12,7 +12,7 @@ const reports = [
   },
   {
     id: "gcc-snapshot-q2",
-    title: "India GCC Snapshot Q2 (FY25-26)",
+    title: "India GCC Snapshot Q2 (FY25-26) - Bamboo Reports",
     thumbnail: "https://files.catbox.moe/r8f791.png",
     description: "India's Global Capability Centers (GCCs) continue to be the engine room of multinational transformation.",
   },
