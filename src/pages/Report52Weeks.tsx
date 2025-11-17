@@ -78,7 +78,7 @@ const Report52Weeks = () => {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content - 2 columns */}
             <div className="lg:col-span-2">
-              <h1 className="text-5xl font-bold mb-6">52 Weeks Report - Bamboo Reports</h1>
+              <h1 className="text-5xl font-bold mb-6">52 Weeks of GCC Momentum - Bamboo Reports</h1>
               
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">

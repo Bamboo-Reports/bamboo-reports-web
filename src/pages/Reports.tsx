@@ -8,13 +8,13 @@ import reportThumbnailgccsnapshot from "@/assets/indian-gcc-q2-report-thumbnail.
 const reports = [
   {
     id: "52-weeks",
-    title: "52 Weeks Report - Bamboo Reports",
+    title: "52 Weeks of GCC Momentum - Bamboo Reports",
     thumbnail: reportThumbnail52weeks,
     description: "India's Global Capability Centers (GCCs) have entered a phase of unprecedented growth.",
   },
   {
     id: "gcc-snapshot-q2",
-    title: "GCC Snapshot Q2 - Bamboo Reports",
+    title: "India GCC Snapshot Q2 (FY25-26)",
     thumbnail: reportThumbnailgccsnapshot,
     description: "India's Global Capability Centers (GCCs) continue to be the engine room of multinational transformation.",
   },
