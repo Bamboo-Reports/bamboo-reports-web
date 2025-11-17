@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 // import reportThumbnail from "@/assets/52-weeks-report-thumbnail.png";
-import reportThumbnailgccsnapshot from "@/assets/indian-gcc-q2-report-thumbnail.png";
 
 const reports = [
   {
@@ -14,7 +13,7 @@ const reports = [
   {
     id: "gcc-snapshot-q2",
     title: "India GCC Snapshot Q2 (FY25-26)",
-    thumbnail: reportThumbnailgccsnapshot,
+    thumbnail: "https://files.catbox.moe/r8f791.png",
     description: "India's Global Capability Centers (GCCs) continue to be the engine room of multinational transformation.",
   },
 ];
