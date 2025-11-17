@@ -78,7 +78,7 @@ const ReportGCCSnapshotQ2 = () => {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content - 2 columns */}
             <div className="lg:col-span-2">
-              <h1 className="text-5xl font-bold mb-6">GCC Snapshot Q2 - Bamboo Reports</h1>
+              <h1 className="text-5xl font-bold mb-6">India GCC Snapshot Q2 (FY25-26) - Bamboo Reports</h1>
               
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
