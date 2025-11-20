@@ -11,15 +11,18 @@ export const handler = async (event) => {
   }
 
   try {
-    const { 
-      razorpay_order_id, 
-      razorpay_payment_id, 
+    const {
+      razorpay_order_id,
+      razorpay_payment_id,
       razorpay_signature,
       customerEmail,
       customerName,
       planName,
       amount,
-      currency
+      currency,
+      userId,
+      productSlug,
+      customerPhone
     } = JSON.parse(event.body);
 
     // Validate input
@@ -132,6 +135,54 @@ export const handler = async (event) => {
         if (!actualCustomerEmail) {
           console.log('[EMAIL] TIP: Make sure to enter email in Razorpay payment form');
         }
+      }
+
+      // Save purchase to database if user is logged in
+      if (userId && productSlug && actualCustomerEmail) {
+        console.log('[PURCHASE] Saving purchase to database');
+        console.log('[PURCHASE] User ID:', userId);
+        console.log('[PURCHASE] Product:', productSlug);
+
+        try {
+          const savePurchaseUrl = `${process.env.URL || 'http://localhost:8888'}/.netlify/functions/save-purchase`;
+          console.log('[PURCHASE] Calling save-purchase function at:', savePurchaseUrl);
+
+          const purchaseResponse = await fetch(savePurchaseUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              userId,
+              productSlug,
+              razorpayOrderId: razorpay_order_id,
+              razorpayPaymentId: razorpay_payment_id,
+              amount,
+              currency,
+              customerEmail: actualCustomerEmail,
+              customerName: actualCustomerName,
+              customerPhone,
+            }),
+          });
+
+          console.log('[PURCHASE] Save purchase response status:', purchaseResponse.status);
+
+          if (!purchaseResponse.ok) {
+            const errorData = await purchaseResponse.json();
+            console.error('[PURCHASE] Failed to save purchase');
+            console.error('[PURCHASE] Error details:', errorData);
+          } else {
+            const successData = await purchaseResponse.json();
+            console.log('[PURCHASE] Purchase saved successfully');
+            console.log('[PURCHASE] Purchase ID:', successData.purchaseId);
+          }
+        } catch (purchaseError) {
+          // Don't fail the payment verification if database save fails
+          console.error('[PURCHASE] Error calling save-purchase function:', purchaseError.message);
+          console.error('[PURCHASE] Full error:', purchaseError);
+        }
+      } else {
+        console.log('[PURCHASE] Skipping database save - user not logged in or missing data');
       }
 
       return {

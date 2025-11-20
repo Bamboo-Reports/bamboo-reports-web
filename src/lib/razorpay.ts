@@ -111,11 +111,14 @@
     customerName?: string,
     planName?: string,
     amount?: number,
-    currency?: string
+    currency?: string,
+    userId?: string,
+    productSlug?: string,
+    customerPhone?: string
   ): Promise<{ status: string; message: string }> => {
     // Use Netlify Functions in production, localhost in development
     const API_URL = import.meta.env.VITE_API_URL || '/.netlify/functions';
-    
+
     const response = await fetch(`${API_URL}/verify-payment`, {
       method: 'POST',
       headers: {
@@ -130,6 +133,9 @@
         planName,
         amount,
         currency,
+        userId,
+        productSlug,
+        customerPhone,
       }),
     });
 

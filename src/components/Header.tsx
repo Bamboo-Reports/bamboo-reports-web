@@ -1,7 +1,7 @@
 import logo from "@/assets/bamboo-logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight } from "lucide-react";
+import { Menu, ChevronRight, User, ShoppingBag, LogOut } from "lucide-react";
 import { useState } from "react";
 import {
   Sheet,
@@ -17,10 +17,26 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const { user, signOut, loading } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
 
   return (
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -87,6 +103,56 @@ const Header = () => {
             >
               <Link to="/gcc-list">Get Free GCC Data</Link>
             </Button>
+
+            {/* User Authentication */}
+            {!loading && (
+              user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" size="icon" className="rounded-full">
+                      <User className="h-5 w-5" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-56">
+                    <DropdownMenuLabel>
+                      <div className="flex flex-col space-y-1">
+                        <p className="text-sm font-medium leading-none">{user.user_metadata?.full_name || 'My Account'}</p>
+                        <p className="text-xs leading-none text-muted-foreground">
+                          {user.email}
+                        </p>
+                      </div>
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link to="/profile" className="flex items-center cursor-pointer">
+                        <User className="mr-2 h-4 w-4" />
+                        <span>Profile</span>
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/purchases" className="flex items-center cursor-pointer">
+                        <ShoppingBag className="mr-2 h-4 w-4" />
+                        <span>My Purchases</span>
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
+                      <LogOut className="mr-2 h-4 w-4" />
+                      <span>Sign Out</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <>
+                  <Button asChild variant="ghost" className="rounded-full">
+                    <Link to="/signin">Sign In</Link>
+                  </Button>
+                  <Button asChild className="bg-bamboo hover:bg-bamboo-dark rounded-full">
+                    <Link to="/signup">Sign Up</Link>
+                  </Button>
+                </>
+              )
+            )}
           </div>
         </div>
 
@@ -180,6 +246,73 @@ const Header = () => {
                   >
                     <Link to="/gcc-list">Get Free GCC Data</Link>
                   </Button>
+
+                  {/* Mobile User Authentication */}
+                  {!loading && (
+                    user ? (
+                      <>
+                        <div className="border-t pt-3 mt-3">
+                          <p className="text-sm font-medium mb-2 px-2">{user.user_metadata?.full_name || 'My Account'}</p>
+                          <p className="text-xs text-muted-foreground mb-3 px-2">{user.email}</p>
+                          <div className="space-y-2">
+                            <Button
+                              asChild
+                              variant="outline"
+                              className="w-full justify-start"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <Link to="/profile">
+                                <User className="mr-2 h-4 w-4" />
+                                Profile
+                              </Link>
+                            </Button>
+                            <Button
+                              asChild
+                              variant="outline"
+                              className="w-full justify-start"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <Link to="/purchases">
+                                <ShoppingBag className="mr-2 h-4 w-4" />
+                                My Purchases
+                              </Link>
+                            </Button>
+                            <Button
+                              variant="outline"
+                              className="w-full justify-start"
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                handleSignOut();
+                              }}
+                            >
+                              <LogOut className="mr-2 h-4 w-4" />
+                              Sign Out
+                            </Button>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="border-t pt-3 mt-3 space-y-2">
+                          <Button
+                            asChild
+                            variant="outline"
+                            className="w-full rounded-full"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <Link to="/signin">Sign In</Link>
+                          </Button>
+                          <Button
+                            asChild
+                            className="w-full bg-bamboo hover:bg-bamboo-dark rounded-full"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <Link to="/signup">Sign Up</Link>
+                          </Button>
+                        </div>
+                      </>
+                    )
+                  )}
                 </div>
               </nav>
             </div>

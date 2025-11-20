@@ -9,6 +9,7 @@ import {
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"; // Import ToggleGroup
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   initiateRazorpayPayment,
   createRazorpayOrder,
@@ -22,6 +23,7 @@ import {
 const Pricing = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { user } = useAuth();
 
   // Check if subscriptions are enabled via feature flag
   const isSubscriptionEnabled = import.meta.env.VITE_SUBSCRIPTION_ENABLED === 'true';
@@ -131,6 +133,16 @@ const Pricing = () => {
 
   const currencySymbol = currency === "USD" ? "$" : "₹";
 
+  // Map plan names to product slugs
+  const getProductSlug = (planName: string): string => {
+    const slugMap: { [key: string]: string } = {
+      "Base Layer": "base-layer",
+      "Custom Layer": "custom-layer",
+      "Consult Layer": "consult-layer",
+    };
+    return slugMap[planName] || planName.toLowerCase().replace(/ /g, "-");
+  };
+
   const handlePayment = async (
     planName: string,
     price: { USD: string; INR: string }
@@ -166,7 +178,8 @@ const Pricing = () => {
             // Get customer details from Razorpay prefill (they enter this in the form)
             const customerEmail = (response as any).email || "";
             const customerName = (response as any).name || "";
-            
+            const customerPhone = (response as any).contact || "";
+
             // Verify payment on backend and send confirmation email
             await verifyRazorpayPayment(
               response.razorpay_order_id || "",
@@ -176,7 +189,10 @@ const Pricing = () => {
               customerName,
               planName,
               order.amount,
-              order.currency
+              order.currency,
+              user?.id, // Pass user ID if logged in
+              getProductSlug(planName), // Pass product slug
+              customerPhone // Pass customer phone
             );
             
             // Payment verified successfully
