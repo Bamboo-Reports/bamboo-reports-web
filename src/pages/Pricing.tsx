@@ -9,6 +9,7 @@ import {
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"; // Import ToggleGroup
 import { useToast } from "@/hooks/use-toast";
+import { usePageTitle } from "@/hooks/usePageTitle";
 import {
   initiateRazorpayPayment,
   createRazorpayOrder,
@@ -20,6 +21,7 @@ import {
 } from "@/lib/razorpay";
 
 const Pricing = () => {
+  usePageTitle("Pricing");
   const navigate = useNavigate();
   const { toast } = useToast();
 

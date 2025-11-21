@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const PaymentSuccess = () => {
+  usePageTitle("Payment Successful");
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   

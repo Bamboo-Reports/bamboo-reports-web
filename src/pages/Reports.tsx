@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import { usePageTitle } from "@/hooks/usePageTitle";
 // import reportThumbnail from "@/assets/52-weeks-report-thumbnail.png";
 
 const reports = [
@@ -19,6 +20,8 @@ const reports = [
 ];
 
 const Reports = () => {
+  usePageTitle("Reports");
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
