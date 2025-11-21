@@ -9,7 +9,7 @@ import {
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"; // Import ToggleGroup
 import { useToast } from "@/hooks/use-toast";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { useSEO } from "@/hooks/useSEO";
 import {
   initiateRazorpayPayment,
   createRazorpayOrder,
@@ -21,7 +21,11 @@ import {
 } from "@/lib/razorpay";
 
 const Pricing = () => {
-  usePageTitle("Pricing");
+  useSEO({
+    title: "Pricing - GCC Intelligence Platform Plans & Packages",
+    description: "Choose from flexible GCC Intelligence plans. Access GCC contact database, market intelligence, benchmarking data, and custom research packages. Transparent pricing for strategy intelligence platform.",
+    keywords: "GCC Intelligence Pricing, GCC Data Plans, Strategy intelligence platform, Market Intelligence India, GCC benchmarking, GCC Contact Database pricing, ABM research, Roundtable as a Service",
+  });
   const navigate = useNavigate();
   const { toast } = useToast();
 

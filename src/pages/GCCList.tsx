@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Search, X, TrendingUp, Building2, Rocket, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { useSEO } from "@/hooks/useSEO";
 
 const CSV_URL = "https://files.catbox.moe/sss5jf.csv";
 const CACHE_KEY = "gcc_data_cache";
@@ -46,7 +46,11 @@ const toCSV = (rows: any[], cols: string[]) => {
 };
 
 const GCCList = () => {
-  usePageTitle("GCC List");
+  useSEO({
+    title: "GCC Contact Database - Free India GCC Data & Company List",
+    description: "Access the largest free GCC database with 2400+ Global Capability Centers in India. Search and filter by company, industry, HQ country, and headcount. Download GCC contact data for ABM research and GTM planning.",
+    keywords: "GCC Contact Database, India GCC List, GCC Company Database, Global Capability Centers India, GCC Data Download, ABM research, GTM research India, GCC Intelligence, India GCC Research",
+  });
   const [data, setData] = useState<any[]>([]);
   const [columns, setColumns] = useState<string[]>([]);
   const [page, setPage] = useState(1);

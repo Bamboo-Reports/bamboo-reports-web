@@ -1,10 +1,14 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect, useState, useRef } from "react";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { useSEO } from "@/hooks/useSEO";
 
 const ReportGCCSnapshotQ2 = () => {
-  usePageTitle("India GCC Snapshot Q2 (FY25-26)");
+  useSEO({
+    title: "India GCC Snapshot Q2 FY25-26 - Quarterly GCC Intelligence Report",
+    description: "Q2 2025-26 snapshot of India's Global Capability Centers with data on 5,800+ centers and 2,400+ MNCs. Analyze GCC investment patterns, talent hotspots, and capability shifts for strategic GTM planning.",
+    keywords: "India GCC Snapshot, GCC Quarterly Report, GCC Intelligence, Global Capability Centers Q2, GCC Trends India, GCC Market Intelligence, GTM research India, India GCC Research",
+  });
   const [formKey, setFormKey] = useState(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const hasNavigatedRef = useRef(false);

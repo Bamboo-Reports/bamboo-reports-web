@@ -1,8 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
-import { usePageTitle } from "@/hooks/usePageTitle";
-// import reportThumbnail from "@/assets/52-weeks-report-thumbnail.png";
+import { useSEO } from "@/hooks/useSEO";
 
 const reports = [
   {
@@ -10,17 +9,23 @@ const reports = [
     title: "52 Weeks of GCC Momentum - Bamboo Reports",
     thumbnail: "https://files.catbox.moe/1brg2g.png",
     description: "India's Global Capability Centers (GCCs) have entered a phase of unprecedented growth.",
+    altText: "52 Weeks of GCC Momentum Report - India Global Capability Centers Trends Analysis",
   },
   {
     id: "gcc-snapshot-q2",
     title: "India GCC Snapshot Q2 (FY25-26) - Bamboo Reports",
     thumbnail: "https://files.catbox.moe/r8f791.png",
     description: "India's Global Capability Centers (GCCs) continue to be the engine room of multinational transformation.",
+    altText: "India GCC Q2 Snapshot Report - Quarterly Global Capability Centers Intelligence",
   },
 ];
 
 const Reports = () => {
-  usePageTitle("Reports");
+  useSEO({
+    title: "GCC Reports - India GCC Research & Market Intelligence",
+    description: "Download comprehensive GCC reports including India GCC trends, quarterly snapshots, and market intelligence. Get actionable insights on Global Capability Centers growth and benchmarking data.",
+    keywords: "GCC Reports, India GCC Research, GCC Trends, GCC Market Intelligence, Global Capability Centers Reports, GCC Insights, GCC benchmarking, India GCC Snapshot",
+  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -39,9 +44,9 @@ const Reports = () => {
               >
                 <div className="overflow-hidden rounded-lg border bg-card hover:shadow-lg transition-shadow">
                   <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={report.thumbnail} 
-                      alt={report.title}
+                    <img
+                      src={report.thumbnail}
+                      alt={report.altText}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

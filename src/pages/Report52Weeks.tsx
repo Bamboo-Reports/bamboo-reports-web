@@ -1,10 +1,14 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect, useState, useRef } from "react";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { useSEO } from "@/hooks/useSEO";
 
 const Report52Weeks = () => {
-  usePageTitle("52 Weeks of GCC Momentum");
+  useSEO({
+    title: "52 Weeks of GCC Momentum - India GCC Trends Report 2024-25",
+    description: "Comprehensive 52-week analysis of India's Global Capability Centers growth. Track GCC trends, city-wise expansion, sector analysis, and MNC investment patterns across Bengaluru, Hyderabad, Pune, Chennai, and NCR.",
+    keywords: "GCC Trends, India GCC Report, GCC Momentum, Global Capability Centers India, GCC Expansion, India GCC Research, GCC Market Intelligence, GCC benchmarking, MNC India Centers",
+  });
   const [formKey, setFormKey] = useState(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const hasNavigatedRef = useRef(false);
