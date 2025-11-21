@@ -3,8 +3,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { XCircle } from "lucide-react";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const PaymentFailure = () => {
+  usePageTitle("Payment Failed");
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   

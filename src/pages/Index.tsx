@@ -9,8 +9,11 @@ import GCCMomentum from "@/components/GCCMomentum";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const Index = () => {
+  usePageTitle(); // Uses default title for home page
+
   return (
     <div className="min-h-screen bg-background">
       <Header />

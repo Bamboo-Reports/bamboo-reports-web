@@ -1,8 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect, useState, useRef } from "react";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const ReportGCCSnapshotQ2 = () => {
+  usePageTitle("India GCC Snapshot Q2 (FY25-26)");
   const [formKey, setFormKey] = useState(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const hasNavigatedRef = useRef(false);

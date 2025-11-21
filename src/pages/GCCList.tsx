@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Search, X, TrendingUp, Building2, Rocket, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const CSV_URL = "https://files.catbox.moe/sss5jf.csv";
 const CACHE_KEY = "gcc_data_cache";
@@ -45,6 +46,7 @@ const toCSV = (rows: any[], cols: string[]) => {
 };
 
 const GCCList = () => {
+  usePageTitle("GCC List");
   const [data, setData] = useState<any[]>([]);
   const [columns, setColumns] = useState<string[]>([]);
   const [page, setPage] = useState(1);
