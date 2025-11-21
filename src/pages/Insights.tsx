@@ -1,9 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { useSEO } from "@/hooks/useSEO";
 
 const Insights = () => {
-  usePageTitle("Insights");
+  useSEO({
+    title: "GCC Insights - Global Capability Centers Analysis & Trends",
+    description: "Expert GCC insights and analysis on Global Capability Centers in India. Stay updated with the latest GCC trends, market intelligence, and strategic perspectives on India's GCC ecosystem.",
+    keywords: "GCC Insights, GCC Analysis, Global Capability Centers Insights, GCC Trends, India GCC Intelligence, Market Intelligence India, GCC Research",
+  });
 
   return (
     <div className="min-h-screen bg-background">

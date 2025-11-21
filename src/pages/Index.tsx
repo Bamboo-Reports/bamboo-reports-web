@@ -9,10 +9,14 @@ import GCCMomentum from "@/components/GCCMomentum";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { useSEO } from "@/hooks/useSEO";
 
 const Index = () => {
-  usePageTitle(); // Uses default title for home page
+  useSEO({
+    title: "Bamboo Reports - GCC Intelligence & Global Capability Centers Insights",
+    description: "Leading GCC Intelligence platform with comprehensive data on 2400+ Global Capability Centers in India. Access GCC insights, contact database, market intelligence, benchmarking, and GCC trends research.",
+    keywords: "GCC Intelligence, GCC Insights, Global Capability Centers, India GCC Research, GCC Trends, GCC Contact Database, Market Intelligence India, Strategy intelligence platform, GCC benchmarking, ABM research, GTM research India",
+  });
 
   return (
     <div className="min-h-screen bg-background">

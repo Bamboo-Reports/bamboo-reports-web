@@ -72,7 +72,7 @@ const Hero = () => {
           <div className="flex justify-center px-2">
             <img
               src={gccIllustration}
-              alt="GCC Intelligence Illustration"
+              alt="GCC Intelligence Platform - Global Capability Centers Data Analytics and Market Intelligence Illustration"
               className="w-full max-w-sm md:max-w-lg"
             />
           </div>
