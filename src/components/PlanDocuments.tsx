@@ -31,6 +31,7 @@ export function PlanDocuments({ planName, onNavigate }: PlanDocumentsProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
+  const [isPdfLoading, setIsPdfLoading] = useState(false);
 
   // Get current view from URL
   const currentView = searchParams.get('view');
@@ -70,13 +71,23 @@ export function PlanDocuments({ planName, onNavigate }: PlanDocumentsProps) {
   useEffect(() => {
     async function fetchPDFUrl() {
       if (currentView !== 'pdf' || !currentDocId) {
-        setPdfUrl(null);
+        // Only clear PDF URL if we're not viewing a PDF
+        if (currentView !== 'pdf') {
+          setPdfUrl(null);
+          setIsPdfLoading(false);
+        }
         return;
       }
 
       const document = documents.find(d => d.id === currentDocId);
       if (!document?.file_path || !document?.storage_bucket) {
+        setIsPdfLoading(false);
         return;
+      }
+
+      // Only set loading if we don't already have a URL or if the doc changed
+      if (!pdfUrl) {
+        setIsPdfLoading(true);
       }
 
       try {
@@ -91,6 +102,8 @@ export function PlanDocuments({ planName, onNavigate }: PlanDocumentsProps) {
       } catch (err) {
         console.error('Error fetching PDF URL:', err);
         setError(err instanceof Error ? err.message : 'Failed to load PDF');
+      } finally {
+        setIsPdfLoading(false);
       }
     }
 
@@ -99,6 +112,10 @@ export function PlanDocuments({ planName, onNavigate }: PlanDocumentsProps) {
 
   // Navigate to PDF view
   const handleView = (document: PlanDocument) => {
+    // Clear previous PDF URL and set loading state
+    setPdfUrl(null);
+    setIsPdfLoading(true);
+
     const params = new URLSearchParams(searchParams);
     params.set('view', 'pdf');
     params.set('doc', document.id);
@@ -148,17 +165,36 @@ export function PlanDocuments({ planName, onNavigate }: PlanDocumentsProps) {
     );
   }
 
-  // If viewing PDF
-  if (currentView === 'pdf' && pdfUrl && user?.email) {
-    const currentDoc = documents.find(d => d.id === currentDocId);
-    return (
-      <SecurePDFViewer
-        fileUrl={pdfUrl}
-        userEmail={user.email}
-        onClose={handleBack}
-        documentTitle={currentDoc?.title}
-      />
-    );
+  // If we're in PDF view mode, show PDF viewer or loading state
+  if (currentView === 'pdf') {
+    // Show loading while fetching PDF URL
+    if (isPdfLoading || !pdfUrl) {
+      return (
+        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+          <div className="text-center p-12 bg-zinc-950/50 backdrop-blur-xl rounded-2xl border border-zinc-800/50">
+            <div className="relative w-16 h-16 mx-auto mb-6">
+              <div className="absolute inset-0 rounded-full border-4 border-zinc-800"></div>
+              <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-emerald-500 animate-spin"></div>
+            </div>
+            <p className="text-zinc-300 font-medium">Loading document...</p>
+            <p className="text-zinc-500 text-sm mt-2">Please wait</p>
+          </div>
+        </div>
+      );
+    }
+
+    // Show PDF viewer when URL is ready
+    if (pdfUrl && user?.email) {
+      const currentDoc = documents.find(d => d.id === currentDocId);
+      return (
+        <SecurePDFViewer
+          fileUrl={pdfUrl}
+          userEmail={user.email}
+          onClose={handleBack}
+          documentTitle={currentDoc?.title}
+        />
+      );
+    }
   }
 
   // If viewing GCC table
