@@ -1,8 +1,18 @@
 import logo from "@/assets/bamboo-logo.svg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight } from "lucide-react";
+import { Menu, ChevronRight, User, LogOut } from "lucide-react";
 import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Sheet,
   SheetContent,
@@ -21,6 +31,23 @@ import {
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const { user, signOut } = useAuth();
+
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
+  const userFullName = user?.user_metadata?.full_name || 'User';
+  const avatarUrl = user?.user_metadata?.avatar_url;
 
   return (
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -87,6 +114,54 @@ const Header = () => {
             >
               <Link to="/gcc-list">Get Free GCC Data</Link>
             </Button>
+
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+                    <Avatar className="h-10 w-10">
+                      {avatarUrl && <AvatarImage src={avatarUrl} alt={userFullName} />}
+                      <AvatarFallback className="bg-primary text-primary-foreground">
+                        {getInitials(userFullName)}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56" align="end" forceMount>
+                  <DropdownMenuLabel className="font-normal">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        {userFullName}
+                      </p>
+                      <p className="text-xs leading-none text-muted-foreground">
+                        {user.email}
+                      </p>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile" className="cursor-pointer">
+                      <User className="mr-2 h-4 w-4" />
+                      Profile
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <>
+                <Button asChild variant="ghost" className="rounded-full">
+                  <Link to="/signin">Sign In</Link>
+                </Button>
+                <Button asChild className="rounded-full">
+                  <Link to="/signup">Sign Up</Link>
+                </Button>
+              </>
+            )}
           </div>
         </div>
 
@@ -180,6 +255,55 @@ const Header = () => {
                   >
                     <Link to="/gcc-list">Get Free GCC Data</Link>
                   </Button>
+
+                  {user ? (
+                    <>
+                      <div className="border-t pt-3">
+                        <Button
+                          asChild
+                          variant="ghost"
+                          className="w-full rounded-full font-semibold justify-start"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          <Link to="/profile">
+                            <User className="mr-2 h-4 w-4" />
+                            Profile
+                          </Link>
+                        </Button>
+                      </div>
+                      <Button
+                        variant="outline"
+                        className="w-full rounded-full font-semibold"
+                        onClick={() => {
+                          handleSignOut();
+                          setMobileMenuOpen(false);
+                        }}
+                      >
+                        <LogOut className="mr-2 h-4 w-4" />
+                        Sign Out
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <div className="border-t pt-3">
+                        <Button
+                          asChild
+                          variant="ghost"
+                          className="w-full rounded-full font-semibold"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          <Link to="/signin">Sign In</Link>
+                        </Button>
+                      </div>
+                      <Button
+                        asChild
+                        className="w-full rounded-full font-semibold"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <Link to="/signup">Sign Up</Link>
+                      </Button>
+                    </>
+                  )}
                 </div>
               </nav>
             </div>
