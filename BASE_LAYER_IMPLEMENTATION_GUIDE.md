@@ -311,12 +311,17 @@ VITE_SUBSCRIPTION_ENABLED=true
 3. If >0, check user has Base Layer purchase
 
 ### "Failed to load PDF" or PDF.js worker error
-**Cause:** PDF.js worker file not loading correctly
+**Cause:** PDF.js worker file not loading or version mismatch
 **Fix:**
-1. Ensure `public/pdf.worker.min.js` exists
-2. Verify SecurePDFViewer uses local worker: `pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js'`
-3. If missing, copy from node_modules: `cp node_modules/pdfjs-dist/build/pdf.worker.min.js public/`
-4. Rebuild the app: `npm run build`
+1. **Version mismatch error** (e.g., "API version 5.4.296 does not match Worker version 5.4.394"):
+   - Copy worker from react-pdf's dependency: `cp node_modules/react-pdf/node_modules/pdfjs-dist/build/pdf.worker.min.mjs public/`
+   - Update SecurePDFViewer to use: `pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs'`
+2. **Worker not found error**:
+   - Ensure `public/pdf.worker.min.mjs` exists
+   - Verify file is accessible at `/pdf.worker.min.mjs` in browser
+3. Rebuild the app: `npm run build`
+
+**Important:** Always use the worker file from `react-pdf/node_modules/pdfjs-dist`, not the standalone `pdfjs-dist` package, to ensure version compatibility.
 
 ### "Error loading content"
 **Cause:** Supabase connection issue or missing env variables
