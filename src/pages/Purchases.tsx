@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { CheckCircle2, Package, Calendar, CreditCard, IndianRupee, DollarSign, ChevronDown, ChevronUp, ArrowLeft } from "lucide-react";
+import { CheckCircle2, Package, Calendar, CreditCard, IndianRupee, DollarSign, ChevronDown, ChevronUp, ArrowLeft, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import usePageTitle from "@/hooks/usePageTitle";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -275,6 +275,18 @@ const Purchases = () => {
                                     </div>
                                   </div>
                                 ))}
+                              </div>
+
+                              {/* View Content Button */}
+                              <div className="mt-6">
+                                <Button
+                                  onClick={() => navigate("/my-content")}
+                                  size="lg"
+                                  className="w-full sm:w-auto"
+                                >
+                                  <FileText className="h-4 w-4 mr-2" />
+                                  Access Your Content
+                                </Button>
                               </div>
                             </div>
                           )}
