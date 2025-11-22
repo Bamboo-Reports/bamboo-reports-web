@@ -6,7 +6,7 @@ import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 
 // Configure PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 interface SecurePDFViewerProps {
   fileUrl: string;
@@ -27,7 +27,8 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose }: SecurePDFViewer
 
   function onDocumentLoadError(error: Error) {
     console.error('Error loading PDF:', error);
-    setError('Failed to load PDF. Please try again.');
+    console.error('PDF URL:', fileUrl);
+    setError(`Failed to load PDF: ${error.message}`);
   }
 
   const goToPrevPage = () => setPageNumber(prev => Math.max(1, prev - 1));
@@ -132,9 +133,20 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose }: SecurePDFViewer
           ) : (
             <>
               <Document
-                file={fileUrl}
+                file={{
+                  url: fileUrl,
+                  httpHeaders: {
+                    'Accept': 'application/pdf'
+                  },
+                  withCredentials: false
+                }}
                 onLoadSuccess={onDocumentLoadSuccess}
                 onLoadError={onDocumentLoadError}
+                options={{
+                  cMapUrl: 'https://unpkg.com/pdfjs-dist@3.11.174/cmaps/',
+                  cMapPacked: true,
+                  standardFontDataUrl: 'https://unpkg.com/pdfjs-dist@3.11.174/standard_fonts/',
+                }}
                 loading={
                   <div className="text-white text-center p-8">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
