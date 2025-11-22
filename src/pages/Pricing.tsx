@@ -143,6 +143,18 @@ const Pricing = () => {
     planName: string,
     price: { USD: string; INR: string }
   ) => {
+    // Check if user is authenticated
+    if (!user) {
+      toast({
+        title: "Authentication Required",
+        description: "Please sign in or create an account to make a purchase.",
+        variant: "default",
+      });
+      // Redirect to sign-in page with return URL
+      navigate("/signin?redirect=/pricing");
+      return;
+    }
+
     try {
       setProcessingPlan(planName);
 

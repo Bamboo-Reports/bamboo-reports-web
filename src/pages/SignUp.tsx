@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,6 +17,8 @@ const SignUp = () => {
   const { signUp } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const redirectTo = searchParams.get('redirect');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +58,9 @@ const SignUp = () => {
         description: 'Account created successfully. Please check your email to verify your account.',
       });
       setTimeout(() => {
-        navigate('/signin');
+        // Pass redirect parameter to signin page if it exists
+        const signinUrl = redirectTo ? `/signin?redirect=${encodeURIComponent(redirectTo)}` : '/signin';
+        navigate(signinUrl);
       }, 2000);
     }
   };
@@ -144,7 +148,10 @@ const SignUp = () => {
         <CardFooter className="flex flex-col space-y-4">
           <div className="text-sm text-center text-gray-600 dark:text-gray-400">
             Already have an account?{' '}
-            <Link to="/signin" className="text-primary hover:underline font-semibold">
+            <Link
+              to={redirectTo && redirectTo !== '/profile' ? `/signin?redirect=${encodeURIComponent(redirectTo)}` : '/signin'}
+              className="text-primary hover:underline font-semibold"
+            >
               Sign in
             </Link>
           </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,6 +15,8 @@ const SignIn = () => {
   const { signIn } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const redirectTo = searchParams.get('redirect') || '/profile';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,7 +36,7 @@ const SignIn = () => {
         title: 'Success!',
         description: 'Signed in successfully',
       });
-      navigate('/profile');
+      navigate(redirectTo);
     }
   };
 
@@ -99,7 +101,10 @@ const SignIn = () => {
         <CardFooter className="flex flex-col space-y-4">
           <div className="text-sm text-center text-gray-600 dark:text-gray-400">
             Don't have an account?{' '}
-            <Link to="/signup" className="text-primary hover:underline font-semibold">
+            <Link
+              to={redirectTo && redirectTo !== '/profile' ? `/signup?redirect=${encodeURIComponent(redirectTo)}` : '/signup'}
+              className="text-primary hover:underline font-semibold"
+            >
               Sign up
             </Link>
           </div>
