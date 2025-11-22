@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { FileText, Eye, Database } from 'lucide-react';
+import { FileText, Eye, Database, ArrowLeft } from 'lucide-react';
 import { GCCCompaniesTable } from './GCCCompaniesTable';
 import { SecurePDFViewer } from './SecurePDFViewer';
 
@@ -20,15 +21,20 @@ interface PlanDocument {
 
 interface PlanDocumentsProps {
   planName: string;
+  onNavigate?: (view: string, docId?: string) => void;
 }
 
-export function PlanDocuments({ planName }: PlanDocumentsProps) {
+export function PlanDocuments({ planName, onNavigate }: PlanDocumentsProps) {
   const { user } = useAuth();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [documents, setDocuments] = useState<PlanDocument[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [viewingTable, setViewingTable] = useState(false);
-  const [viewingPDF, setViewingPDF] = useState<{ url: string; title: string } | null>(null);
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null);
+
+  // Get current view from URL
+  const currentView = searchParams.get('view');
+  const currentDocId = searchParams.get('doc');
 
   // Fetch plan documents
   useEffect(() => {
@@ -60,35 +66,59 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
     fetchDocuments();
   }, [planName]);
 
-  // View PDF in secure viewer
-  const handleView = async (document: PlanDocument) => {
-    if (!document.file_path || !document.storage_bucket) {
-      console.error('Invalid document configuration');
-      return;
-    }
-
-    try {
-      // Get signed URL for the file (valid for 1 hour)
-      const { data, error } = await supabase.storage
-        .from(document.storage_bucket)
-        .createSignedUrl(document.file_path, 3600);
-
-      if (error) {
-        throw error;
+  // Fetch PDF URL when viewing a PDF
+  useEffect(() => {
+    async function fetchPDFUrl() {
+      if (currentView !== 'pdf' || !currentDocId) {
+        setPdfUrl(null);
+        return;
       }
 
-      if (data?.signedUrl) {
-        setViewingPDF({ url: data.signedUrl, title: document.title });
+      const document = documents.find(d => d.id === currentDocId);
+      if (!document?.file_path || !document?.storage_bucket) {
+        return;
       }
-    } catch (err) {
-      console.error('Error viewing document:', err);
-      alert(err instanceof Error ? err.message : 'Failed to view document');
+
+      try {
+        const { data, error } = await supabase.storage
+          .from(document.storage_bucket)
+          .createSignedUrl(document.file_path, 3600);
+
+        if (error) throw error;
+        if (data?.signedUrl) {
+          setPdfUrl(data.signedUrl);
+        }
+      } catch (err) {
+        console.error('Error fetching PDF URL:', err);
+        setError(err instanceof Error ? err.message : 'Failed to load PDF');
+      }
     }
+
+    fetchPDFUrl();
+  }, [currentView, currentDocId, documents]);
+
+  // Navigate to PDF view
+  const handleView = (document: PlanDocument) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('view', 'pdf');
+    params.set('doc', document.id);
+    setSearchParams(params);
   };
 
-  // Handle viewing GCC table
+  // Navigate to table view
   const handleViewTable = () => {
-    setViewingTable(true);
+    const params = new URLSearchParams(searchParams);
+    params.set('view', 'table');
+    params.delete('doc');
+    setSearchParams(params);
+  };
+
+  // Navigate back to document list
+  const handleBack = () => {
+    const params = new URLSearchParams(searchParams);
+    params.delete('view');
+    params.delete('doc');
+    setSearchParams(params);
   };
 
   if (isLoading) {
@@ -119,26 +149,29 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
   }
 
   // If viewing PDF
-  if (viewingPDF && user?.email) {
+  if (currentView === 'pdf' && pdfUrl && user?.email) {
+    const currentDoc = documents.find(d => d.id === currentDocId);
     return (
       <SecurePDFViewer
-        fileUrl={viewingPDF.url}
+        fileUrl={pdfUrl}
         userEmail={user.email}
-        onClose={() => setViewingPDF(null)}
+        onClose={handleBack}
+        documentTitle={currentDoc?.title}
       />
     );
   }
 
   // If viewing GCC table
-  if (viewingTable) {
+  if (currentView === 'table') {
     return (
       <div>
         <Button
           variant="outline"
-          onClick={() => setViewingTable(false)}
+          onClick={handleBack}
           className="mb-4"
         >
-          ← Back to Documents
+          <ArrowLeft className="h-4 w-4 mr-2" />
+          Back to Documents
         </Button>
         <GCCCompaniesTable />
       </div>

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Navigate, Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useUserPurchases } from '../hooks/usePurchaseAccess';
 import { PlanDocuments } from '../components/PlanDocuments';
@@ -18,9 +18,9 @@ import usePageTitle from '../hooks/usePageTitle';
 export default function MyContent() {
   usePageTitle("My Content");
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { user } = useAuth();
   const { purchases, isLoading, error } = useUserPurchases();
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
   // Redirect to sign-in if not authenticated
   if (!user) {
@@ -91,8 +91,14 @@ export default function MyContent() {
   // Get unique plan names
   const planNames = [...new Set(purchases.map(p => p.plan_name))];
 
-  // Select first plan by default
-  const activePlan = selectedPlan || planNames[0];
+  // Get plan from URL or use first plan as default
+  const urlPlan = searchParams.get('plan');
+  const activePlan = urlPlan && planNames.includes(urlPlan) ? urlPlan : planNames[0];
+
+  // Update plan in URL when changed
+  const handlePlanChange = (planName: string) => {
+    setSearchParams({ plan: planName });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -121,7 +127,7 @@ export default function MyContent() {
 
           {/* Plan Tabs */}
           {planNames.length > 1 ? (
-            <Tabs value={activePlan} onValueChange={setSelectedPlan} className="space-y-6">
+            <Tabs value={activePlan} onValueChange={handlePlanChange} className="space-y-6">
               <TabsList className="grid w-full max-w-md" style={{ gridTemplateColumns: `repeat(${planNames.length}, 1fr)` }}>
                 {planNames.map((planName) => (
                   <TabsTrigger key={planName} value={planName}>
@@ -133,14 +139,20 @@ export default function MyContent() {
               {planNames.map((planName) => (
                 <TabsContent key={planName} value={planName}>
                   <div className="bg-card border rounded-lg p-6">
-                    <PlanDocuments planName={planName} />
+                    <PlanDocuments
+                      planName={planName}
+                      onNavigate={(view, docId) => setSearchParams({ plan: planName, view, doc: docId || '' })}
+                    />
                   </div>
                 </TabsContent>
               ))}
             </Tabs>
           ) : (
             <div className="bg-card border rounded-lg p-6">
-              <PlanDocuments planName={planNames[0]} />
+              <PlanDocuments
+                planName={planNames[0]}
+                onNavigate={(view, docId) => setSearchParams({ plan: planNames[0], view, doc: docId || '' })}
+              />
             </div>
           )}
 

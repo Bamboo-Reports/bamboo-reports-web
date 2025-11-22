@@ -12,9 +12,10 @@ interface SecurePDFViewerProps {
   fileUrl: string;
   userEmail: string;
   onClose: () => void;
+  documentTitle?: string;
 }
 
-export function SecurePDFViewer({ fileUrl, userEmail, onClose }: SecurePDFViewerProps) {
+export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: SecurePDFViewerProps) {
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [scale, setScale] = useState<number>(1.0);
@@ -52,7 +53,12 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose }: SecurePDFViewer
     <div className="fixed inset-0 z-50 bg-black flex flex-col">
       {/* Modern Header with Glassmorphism */}
       <div className="bg-gradient-to-r from-zinc-950 to-black border-b border-zinc-800/50 backdrop-blur-xl px-6 py-4 flex items-center justify-between shadow-2xl">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 flex-1">
+          {documentTitle && (
+            <h2 className="text-zinc-300 font-semibold text-sm truncate max-w-xs">
+              {documentTitle}
+            </h2>
+          )}
           {/* Navigation Controls */}
           <div className="flex items-center gap-3 bg-zinc-900/50 rounded-xl px-4 py-2 border border-zinc-800/50">
             <Button
