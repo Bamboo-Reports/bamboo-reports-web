@@ -147,7 +147,9 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
     const params = new URLSearchParams(searchParams);
     params.delete('view');
     params.delete('doc');
-    setSearchParams(params);
+    // Use replace: true to avoid creating a new history entry
+    // This prevents the browser back button from reopening the PDF/table
+    setSearchParams(params, { replace: true });
   };
 
   if (isLoading) {
@@ -210,19 +212,8 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
 
   // If viewing GCC table
   if (currentView === 'table') {
-    return (
-      <div>
-        <Button
-          variant="outline"
-          onClick={handleBack}
-          className="mb-4"
-        >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back to Documents
-        </Button>
-        <GCCCompaniesTable />
-      </div>
-    );
+    // No back button here - parent page (MyContent) already has one
+    return <GCCCompaniesTable />;
   }
 
   return (
