@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <img src={logo} alt="Research NXT - GCC Intelligence Provider" className="h-12 mb-4 transition-transform duration-300 hover:scale-105" />
+            <img src={logo} alt="Research NXT - GCC Intelligence Provider" className="h-12 mb-4 transition-transform duration-micro ease-smooth hover:scale-[1.02]" />
             <p className="text-sm text-muted-foreground">
               Leading GCC Intelligence platform for Global Capability Centers research and market intelligence.
             </p>
@@ -20,17 +20,17 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/reports" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/reports" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
                   GCC Reports
                 </Link>
               </li>
               <li>
-                <Link to="/insights" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/insights" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
                   GCC Insights
                 </Link>
               </li>
               <li>
-                <Link to="/articles" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/articles" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
                   Articles
                 </Link>
               </li>
@@ -42,22 +42,22 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Products</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/gcc-list" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/gcc-list" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
                   GCC Contact Database
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/pricing" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
                   Pricing Plans
                 </Link>
               </li>
               <li>
-                <Link to="/reports/52-weeks" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/reports/52-weeks" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
                   52 Weeks GCC Report
                 </Link>
               </li>
               <li>
-                <Link to="/reports/gcc-snapshot-q2" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/reports/gcc-snapshot-q2" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
                   India GCC Snapshot Q2
                 </Link>
               </li>
@@ -73,13 +73,13 @@ const Footer = () => {
                   href="https://meetings-na2.hubspot.com/anam-khoja"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                 >
                   Book a Demo
                 </a>
               </li>
               <li>
-                <Link to="/gcc-list" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/gcc-list" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
                   Get Free GCC Data
                 </Link>
               </li>

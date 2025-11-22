@@ -26,15 +26,15 @@ const FloatingCTA = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-3">
+    <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-3 animate-modal-overlay">
       <Button
         asChild
         size="lg"
-        className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg px-6 py-6 rounded-full font-bold text-base animate-fade-in"
+        className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg px-6 py-6 rounded-full font-bold text-base"
       >
         <Link to="/gcc-list">Get Free GCC Data</Link>
       </Button>
-      
+
       <Button
         onClick={scrollToTop}
         size="icon"

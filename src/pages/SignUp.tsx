@@ -86,7 +86,7 @@ const SignUp = () => {
                 onChange={(e) => setFullName(e.target.value)}
                 required
                 disabled={isLoading}
-                className="transition-all"
+                
               />
             </div>
             <div className="space-y-2">
@@ -99,7 +99,7 @@ const SignUp = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={isLoading}
-                className="transition-all"
+                
               />
             </div>
             <div className="space-y-2">
@@ -112,7 +112,7 @@ const SignUp = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 disabled={isLoading}
-                className="transition-all"
+                
               />
             </div>
             <div className="space-y-2">
@@ -125,7 +125,7 @@ const SignUp = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 disabled={isLoading}
-                className="transition-all"
+                
               />
             </div>
             <Button

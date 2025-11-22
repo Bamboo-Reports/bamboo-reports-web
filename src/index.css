@@ -53,6 +53,11 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Unified Animation System */
+    --timing-micro: 200ms;
+    --timing-modal: 250ms;
+    --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
@@ -134,56 +139,76 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Micro animations */
-  .animate-hover-lift {
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  /* Unified Micro-Interaction System */
+
+  /* Button interactions - subtle scale on hover/active */
+  .animate-button {
+    transition: transform var(--timing-micro) var(--easing-smooth),
+                box-shadow var(--timing-micro) var(--easing-smooth);
   }
-  
-  .animate-hover-lift:hover {
-    transform: translateY(-2px);
-  }
-  
-  .animate-hover-scale {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .animate-hover-scale:hover {
+
+  .animate-button:hover {
     transform: scale(1.02);
   }
-  
-  .animate-press {
-    transition: transform 0.1s ease-out;
-  }
-  
-  .animate-press:active {
+
+  .animate-button:active {
     transform: scale(0.98);
   }
-  
-  .animate-fade-in-up {
-    animation: fadeInUp 0.5s ease-out;
+
+  /* Card/Container interactions - subtle lift */
+  .animate-card {
+    transition: transform var(--timing-micro) var(--easing-smooth),
+                box-shadow var(--timing-micro) var(--easing-smooth);
   }
-  
-  @keyframes fadeInUp {
+
+  .animate-card:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Link interactions - opacity change */
+  .animate-link {
+    transition: opacity var(--timing-micro) var(--easing-smooth);
+  }
+
+  .animate-link:hover {
+    opacity: 0.8;
+  }
+
+  /* Icon interactions - subtle scale */
+  .animate-icon {
+    transition: transform var(--timing-micro) var(--easing-smooth);
+  }
+
+  .animate-icon:hover {
+    transform: scale(1.05);
+  }
+
+  /* Modal/Overlay fade animations */
+  .animate-modal-overlay {
+    animation: fadeIn var(--timing-modal) var(--easing-smooth);
+  }
+
+  @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
     }
   }
-  
-  .animate-smooth-bounce {
-    animation: smoothBounce 0.6s ease-out;
+
+  .animate-modal-content {
+    animation: scaleIn var(--timing-modal) var(--easing-smooth);
   }
-  
-  @keyframes smoothBounce {
-    0%, 100% {
-      transform: translateY(0);
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
     }
-    50% {
-      transform: translateY(-5px);
+    to {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }

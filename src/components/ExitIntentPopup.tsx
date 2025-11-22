@@ -37,11 +37,11 @@ const ExitIntentPopup = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-background rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-scale-in">
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 animate-modal-overlay">
+      <div className="bg-background rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-modal-content">
         <button
           onClick={() => setIsVisible(false)}
-          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors duration-micro ease-smooth"
           aria-label="Close popup"
         >
           <X className="h-6 w-6" />
@@ -95,7 +95,7 @@ const ExitIntentPopup = () => {
 
           <button
             onClick={() => setIsVisible(false)}
-            className="mt-4 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="mt-4 text-sm text-muted-foreground hover:text-foreground transition-colors duration-micro ease-smooth"
           >
             No thanks
           </button>

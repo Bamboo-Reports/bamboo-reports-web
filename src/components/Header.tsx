@@ -53,7 +53,7 @@ const Header = () => {
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="transition-transform duration-300 hover:scale-105">
+        <Link to="/" className="transition-transform duration-micro ease-smooth hover:scale-[1.02]">
           <img src={logo} alt="Bamboo Reports" className="h-10 md:h-12" />
         </Link>
 
@@ -74,17 +74,17 @@ const Header = () => {
                 <NavigationMenuContent>
                   <div className="w-48 p-2">
                     <Link to="/reports">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:translate-x-1 focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         Reports
                       </NavigationMenuLink>
                     </Link>
                     <Link to="/insights">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:translate-x-1 focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         Insights
                       </NavigationMenuLink>
                     </Link>
                     <Link to="/articles">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:translate-x-1 focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         Articles
                       </NavigationMenuLink>
                     </Link>
@@ -182,7 +182,7 @@ const Header = () => {
             <div className="flex flex-col h-full">
               {/* Logo at top */}
               <div className="p-6 pb-4">
-                <Link to="/" onClick={() => setMobileMenuOpen(false)} className="inline-block transition-transform duration-300 hover:scale-105">
+                <Link to="/" onClick={() => setMobileMenuOpen(false)} className="inline-block transition-transform duration-micro ease-smooth hover:scale-[1.02]">
                   <img src={logo} alt="Bamboo Reports" className="h-10" />
                 </Link>
               </div>
@@ -192,7 +192,7 @@ const Header = () => {
                 <div className="px-6 space-y-1">
                   <Link
                     to="/pricing"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Pricing
@@ -202,30 +202,30 @@ const Header = () => {
                   <div className="border-t pt-1">
                     <button
                       onClick={() => setResourcesOpen(!resourcesOpen)}
-                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors"
+                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
                     >
                       Resources
-                      <ChevronRight className={`h-5 w-5 transition-transform ${resourcesOpen ? 'rotate-90' : ''}`} />
+                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${resourcesOpen ? 'rotate-90' : ''}`} />
                     </button>
                     {resourcesOpen && (
                       <div className="pl-4 space-y-1">
                         <Link
                           to="/reports"
-                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           Reports
                         </Link>
                         <Link
                           to="/insights"
-                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           Insights
                         </Link>
                         <Link
                           to="/articles"
-                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           Articles

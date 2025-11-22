@@ -107,7 +107,7 @@ export default function MyContent() {
               <Button
                 onClick={() => navigate("/pricing")}
                 size="lg"
-                className="rounded-full"
+                className="rounded-full hover:scale-100 active:scale-100"
               >
                 View Pricing Plans
               </Button>
@@ -196,7 +196,7 @@ export default function MyContent() {
               <Button
                 onClick={() => navigate("/pricing")}
                 size="lg"
-                className="rounded-full"
+                className="rounded-full hover:scale-100 active:scale-100"
               >
                 View Pricing Plans
               </Button>
@@ -204,7 +204,7 @@ export default function MyContent() {
                 variant="outline"
                 onClick={() => navigate("/purchases")}
                 size="lg"
-                className="rounded-full"
+                className="rounded-full hover:scale-100 active:scale-100"
               >
                 View Purchase History
               </Button>
