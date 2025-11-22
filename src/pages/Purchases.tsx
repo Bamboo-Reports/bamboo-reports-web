@@ -178,7 +178,7 @@ const Purchases = () => {
                 <Button
                   onClick={() => navigate("/pricing")}
                   size="lg"
-                  className="rounded-full"
+                  className="rounded-full hover:scale-100 active:scale-100"
                 >
                   View Pricing Plans
                 </Button>
@@ -282,7 +282,7 @@ const Purchases = () => {
                                 <Button
                                   onClick={() => navigate("/my-content")}
                                   size="lg"
-                                  className="w-full sm:w-auto"
+                                  className="w-full sm:w-auto hover:scale-100 active:scale-100"
                                 >
                                   <FileText className="h-4 w-4 mr-2" />
                                   Access Your Content
@@ -336,7 +336,7 @@ const Purchases = () => {
                 <Button
                   onClick={() => navigate("/pricing")}
                   size="lg"
-                  className="rounded-full"
+                  className="rounded-full hover:scale-100 active:scale-100"
                 >
                   View Pricing Plans
                 </Button>
@@ -344,7 +344,7 @@ const Purchases = () => {
                   variant="outline"
                   onClick={() => navigate("/reports")}
                   size="lg"
-                  className="rounded-full"
+                  className="rounded-full hover:scale-100 active:scale-100"
                 >
                   View Reports
                 </Button>
