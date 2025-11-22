@@ -32,9 +32,18 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   const [isPdfLoading, setIsPdfLoading] = useState(false);
 
-  // Get current view from URL
-  const currentView = searchParams.get('view');
-  const currentDocId = searchParams.get('doc');
+  // CRITICAL: Read URL params directly from window.location to avoid React Router sync issues
+  // This ensures we ALWAYS have the correct URL state, even during tab switches
+  const getUrlParams = () => {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      view: params.get('view'),
+      doc: params.get('doc')
+    };
+  };
+
+  // Get current view from URL - use direct URL reading as source of truth
+  const { view: currentView, doc: currentDocId } = getUrlParams();
 
   // Fetch plan documents
   useEffect(() => {
