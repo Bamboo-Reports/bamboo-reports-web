@@ -45,20 +45,8 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
   // Get current view from URL - use direct URL reading as source of truth
   const { view: currentView, doc: currentDocId } = getUrlParams();
 
-  // DEBUG: Log component render state
-  console.log('📄 [PlanDocuments] RENDER:', {
-    planName,
-    currentView,
-    currentDocId,
-    documentsCount: documents.length,
-    isLoading,
-    hasPdfUrl: !!pdfUrl,
-    timestamp: new Date().toISOString()
-  });
-
   // Fetch plan documents
   useEffect(() => {
-    console.log('🔄 [PlanDocuments] Fetch documents effect triggered for plan:', planName);
     async function fetchDocuments() {
       try {
         setIsLoading(true);
