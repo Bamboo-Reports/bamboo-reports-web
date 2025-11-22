@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
+import { useAuth } from '../contexts/AuthContext';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { FileText, Download, Eye, Database } from 'lucide-react';
+import { FileText, Eye, Database } from 'lucide-react';
 import { GCCCompaniesTable } from './GCCCompaniesTable';
+import { SecurePDFViewer } from './SecurePDFViewer';
 
 interface PlanDocument {
   id: string;
@@ -21,11 +23,12 @@ interface PlanDocumentsProps {
 }
 
 export function PlanDocuments({ planName }: PlanDocumentsProps) {
+  const { user } = useAuth();
   const [documents, setDocuments] = useState<PlanDocument[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [downloadingDoc, setDownloadingDoc] = useState<string | null>(null);
   const [viewingTable, setViewingTable] = useState(false);
+  const [viewingPDF, setViewingPDF] = useState<{ url: string; title: string } | null>(null);
 
   // Fetch plan documents
   useEffect(() => {
@@ -57,44 +60,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
     fetchDocuments();
   }, [planName]);
 
-  // Download PDF document
-  const handleDownload = async (document: PlanDocument) => {
-    if (!document.file_path || !document.storage_bucket) {
-      console.error('Invalid document configuration');
-      return;
-    }
-
-    try {
-      setDownloadingDoc(document.id);
-
-      // Download file from Supabase Storage
-      const { data, error: downloadError } = await supabase.storage
-        .from(document.storage_bucket)
-        .download(document.file_path);
-
-      if (downloadError) {
-        throw downloadError;
-      }
-
-      // Create a blob URL and trigger download
-      const blob = new Blob([data], { type: 'application/pdf' });
-      const url = window.URL.createObjectURL(blob);
-      const a = window.document.createElement('a');
-      a.href = url;
-      a.download = document.file_path.split('/').pop() || 'document.pdf';
-      window.document.body.appendChild(a);
-      a.click();
-      window.document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-    } catch (err) {
-      console.error('Error downloading document:', err);
-      alert(err instanceof Error ? err.message : 'Failed to download document');
-    } finally {
-      setDownloadingDoc(null);
-    }
-  };
-
-  // View PDF in new tab
+  // View PDF in secure viewer
   const handleView = async (document: PlanDocument) => {
     if (!document.file_path || !document.storage_bucket) {
       console.error('Invalid document configuration');
@@ -112,7 +78,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
       }
 
       if (data?.signedUrl) {
-        window.open(data.signedUrl, '_blank');
+        setViewingPDF({ url: data.signedUrl, title: document.title });
       }
     } catch (err) {
       console.error('Error viewing document:', err);
@@ -149,6 +115,17 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
         <p className="text-yellow-800">No documents available for {planName}</p>
       </div>
+    );
+  }
+
+  // If viewing PDF
+  if (viewingPDF && user?.email) {
+    return (
+      <SecurePDFViewer
+        fileUrl={viewingPDF.url}
+        userEmail={user.email}
+        onClose={() => setViewingPDF(null)}
+      />
     );
   }
 
@@ -195,24 +172,13 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
             </CardHeader>
             <CardContent>
               {document.document_type === 'pdf' ? (
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    className="flex-1"
-                    onClick={() => handleView(document)}
-                  >
-                    <Eye className="h-4 w-4 mr-2" />
-                    View
-                  </Button>
-                  <Button
-                    className="flex-1"
-                    onClick={() => handleDownload(document)}
-                    disabled={downloadingDoc === document.id}
-                  >
-                    <Download className="h-4 w-4 mr-2" />
-                    {downloadingDoc === document.id ? 'Downloading...' : 'Download'}
-                  </Button>
-                </div>
+                <Button
+                  className="w-full"
+                  onClick={() => handleView(document)}
+                >
+                  <Eye className="h-4 w-4 mr-2" />
+                  View Document
+                </Button>
               ) : (
                 <Button
                   className="w-full"
