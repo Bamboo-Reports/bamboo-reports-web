@@ -22,9 +22,40 @@ export default function MyContent() {
   const { user } = useAuth();
   const { purchases, isLoading, error } = useUserPurchases();
 
+  // CRITICAL: Read view parameter directly from URL to prevent flicker
+  // This ensures we show the correct loading screen even during component remounts
+  const getViewFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('view');
+  };
+  const currentView = getViewFromUrl();
+
   // Redirect to sign-in if not authenticated
   if (!user) {
     return <Navigate to="/signin" replace />;
+  }
+
+  // If viewing PDF or table, skip the loading screen and go straight to PlanDocuments
+  // This prevents flicker from light loading screen → dark PDF/table loading screen
+  if (isLoading && (currentView === 'pdf' || currentView === 'table')) {
+    // Get the plan from URL or default to first available (we'll show it once loaded)
+    const urlPlan = searchParams.get('plan');
+
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main className="py-20 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="bg-card border rounded-lg p-6">
+              {/* Render PlanDocuments immediately - it will show its own loading state */}
+              {/* This maintains visual consistency (dark loading screen for PDFs) */}
+              <PlanDocuments planName={urlPlan || ''} />
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
   }
 
   if (isLoading) {
