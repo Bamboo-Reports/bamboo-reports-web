@@ -102,13 +102,17 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
     }
 
     try {
-      // Get public URL for the file
-      const { data } = supabase.storage
+      // Get signed URL for the file (valid for 1 hour)
+      const { data, error } = await supabase.storage
         .from(document.storage_bucket)
-        .getPublicUrl(document.file_path);
+        .createSignedUrl(document.file_path, 3600);
 
-      if (data.publicUrl) {
-        window.open(data.publicUrl, '_blank');
+      if (error) {
+        throw error;
+      }
+
+      if (data?.signedUrl) {
+        window.open(data.signedUrl, '_blank');
       }
     } catch (err) {
       console.error('Error viewing document:', err);
