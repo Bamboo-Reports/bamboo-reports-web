@@ -10,6 +10,7 @@ import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import { LogOut, Mail, User, Calendar, Camera, Loader2, Trash2 } from 'lucide-react';
 import { format } from 'date-fns';
+import ImageCropDialog from '@/components/ImageCropDialog';
 
 const Profile = () => {
   const { user, signOut, updateProfile, updateEmail, updatePassword, uploadAvatar, deleteAvatar } = useAuth();
@@ -30,6 +31,9 @@ const Profile = () => {
   const [editingName, setEditingName] = useState(false);
   const [editingEmail, setEditingEmail] = useState(false);
   const [editingPassword, setEditingPassword] = useState(false);
+
+  const [cropDialogOpen, setCropDialogOpen] = useState(false);
+  const [selectedImageSrc, setSelectedImageSrc] = useState<string>('');
 
   const handleSignOut = async () => {
     await signOut();
@@ -143,12 +147,34 @@ const Profile = () => {
     setIsUpdatingPassword(false);
   };
 
-  const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      toast({
+        title: 'Error',
+        description: 'Please select an image file',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    // Create object URL for the crop dialog
+    const imageUrl = URL.createObjectURL(file);
+    setSelectedImageSrc(imageUrl);
+    setCropDialogOpen(true);
+
+    // Reset file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  const handleCroppedImage = async (croppedFile: File) => {
     setIsUploadingAvatar(true);
-    const { error, url } = await uploadAvatar(file);
+    const { error } = await uploadAvatar(croppedFile);
 
     if (error) {
       toast({
@@ -163,10 +189,14 @@ const Profile = () => {
       });
     }
     setIsUploadingAvatar(false);
+  };
 
-    // Reset file input
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+  const handleCloseCropDialog = () => {
+    setCropDialogOpen(false);
+    // Clean up the object URL
+    if (selectedImageSrc) {
+      URL.revokeObjectURL(selectedImageSrc);
+      setSelectedImageSrc('');
     }
   };
 
@@ -249,7 +279,7 @@ const Profile = () => {
                 <input
                   type="file"
                   ref={fileInputRef}
-                  onChange={handleAvatarUpload}
+                  onChange={handleImageSelect}
                   accept="image/*"
                   className="hidden"
                 />
@@ -510,6 +540,13 @@ const Profile = () => {
             </CardContent>
           </Card>
         </div>
+
+        <ImageCropDialog
+          open={cropDialogOpen}
+          imageSrc={selectedImageSrc}
+          onCropComplete={handleCroppedImage}
+          onClose={handleCloseCropDialog}
+        />
       </div>
     </div>
   );
