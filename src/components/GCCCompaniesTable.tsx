@@ -11,6 +11,7 @@ import {
   TableRow,
 } from './ui/table';
 import { Search, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 interface GCCCompany {
   id: string;
@@ -36,6 +37,7 @@ interface GCCCompany {
 const ITEMS_PER_PAGE = 25;
 
 export function GCCCompaniesTable() {
+  const { user } = useAuth();
   const [companies, setCompanies] = useState<GCCCompany[]>([]);
   const [filteredCompanies, setFilteredCompanies] = useState<GCCCompany[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -46,6 +48,24 @@ export function GCCCompaniesTable() {
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Prevent right-click (context menu)
+  const handleContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+    return false;
+  };
+
+  // Prevent text selection
+  const handleSelectStart = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    return false;
+  };
+
+  // Prevent copy
+  const handleCopy = (e: React.ClipboardEvent) => {
+    e.preventDefault();
+    return false;
+  };
 
   // Fetch companies from Supabase
   useEffect(() => {
@@ -131,7 +151,18 @@ export function GCCCompaniesTable() {
   }
 
   return (
-    <div className="space-y-6">
+    <div
+      className="space-y-6 select-none"
+      onContextMenu={handleContextMenu}
+      onSelectStart={handleSelectStart}
+      onCopy={handleCopy}
+      style={{
+        userSelect: 'none',
+        WebkitUserSelect: 'none',
+        MozUserSelect: 'none',
+        msUserSelect: 'none'
+      }}
+    >
       {/* Header */}
       <div>
         <h2 className="text-2xl font-bold mb-2">L1 List - 2,500+ GCCs</h2>
@@ -162,8 +193,23 @@ export function GCCCompaniesTable() {
         </div>
       </div>
 
-      {/* Table - Horizontally Scrollable */}
-      <div className="border rounded-lg overflow-hidden">
+      {/* Table - Horizontally Scrollable with Watermark */}
+      <div className="border rounded-lg overflow-hidden relative">
+        {/* Watermark Overlay */}
+        {user?.email && (
+          <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
+            <div
+              className="text-gray-200/20 text-4xl font-semibold transform -rotate-45 select-none"
+              style={{
+                textShadow: '0 0 20px rgba(255,255,255,0.8)',
+                letterSpacing: '0.1em'
+              }}
+            >
+              {user.email}
+            </div>
+          </div>
+        )}
+
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
@@ -281,6 +327,20 @@ export function GCCCompaniesTable() {
             Next
             <ChevronRight className="h-4 w-4 ml-2" />
           </Button>
+        </div>
+      )}
+
+      {/* Protection Notice */}
+      {user?.email && (
+        <div className="bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-lg px-6 py-3 text-center">
+          <p className="text-gray-500 text-xs font-medium">
+            <span className="inline-flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/50"></span>
+              Licensed to <span className="text-gray-700">{user.email}</span>
+              <span className="text-gray-400 mx-2">•</span>
+              Confidential & Protected
+            </span>
+          </p>
         </div>
       )}
     </div>
