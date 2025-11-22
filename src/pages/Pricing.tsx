@@ -333,10 +333,10 @@ const Pricing = () => {
               return (
                 <div
                   key={plan.name}
-                  className={`relative rounded-lg border p-8 flex flex-col ${
+                  className={`relative rounded-lg border p-8 flex flex-col transition-all duration-200 ${
                     plan.popular
-                      ? "border-primary shadow-lg scale-105"
-                      : "border-border"
+                      ? "border-primary shadow-lg"
+                      : "border-border hover:shadow-md"
                   }`}
                 >
                   {plan.popular && (

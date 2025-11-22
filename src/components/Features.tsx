@@ -42,12 +42,11 @@ const Features = () => {
         {/* Added responsive padding for desktop */}
         <div className="grid md:grid-cols-2 gap-8 md:px-10 lg:px-20">
           {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="flex gap-4 items-start group transition-all duration-300 hover:translate-x-1"
-              style={{ animationDelay: `${index * 100}ms` }}
+            <div
+              key={index}
+              className="flex gap-4 items-start group transition-all duration-200"
             >
-              <div className={`${feature.bgColor} ${feature.color} p-3 rounded-full flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+              <div className={`${feature.bgColor} ${feature.color} p-3 rounded-full flex-shrink-0 transition-transform duration-200 group-hover:scale-[1.05]`}>
                 <feature.icon size={24} />
               </div>
               <div>

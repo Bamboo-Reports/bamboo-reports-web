@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <img src={logo} alt="Research NXT - GCC Intelligence Provider" className="h-12 mb-4 transition-transform duration-300 hover:scale-105" />
+            <img src={logo} alt="Research NXT - GCC Intelligence Provider" className="h-12 mb-4 transition-transform duration-200 hover:scale-[1.02]" />
             <p className="text-sm text-muted-foreground">
               Leading GCC Intelligence platform for Global Capability Centers research and market intelligence.
             </p>

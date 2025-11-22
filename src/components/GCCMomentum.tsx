@@ -90,9 +90,9 @@ const GCCMomentum = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 A quick guide with insights on GCC growth over the past year and a snapshot of the latest quarter
               </p>
-              <Button 
+              <Button
                 onClick={openPopup}
-                className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg rounded-full transition-all hover:scale-105"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg rounded-full"
               >
                 GET YOUR REPORT NOW
               </Button>
