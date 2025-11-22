@@ -141,35 +141,22 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
     setSearchParams(params);
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center py-12">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading your content...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-        <p className="text-red-800">Error: {error}</p>
-      </div>
-    );
-  }
-
-  if (documents.length === 0) {
-    return (
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-        <p className="text-yellow-800">No documents available for {planName}</p>
-      </div>
-    );
-  }
-
   // If we're in PDF view mode, ALWAYS show PDF viewer or loading state (never document list)
   if (currentView === 'pdf' && currentDocId) {
+    if (error) {
+      return (
+        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+          <div className="text-center p-12 bg-zinc-950/50 backdrop-blur-xl rounded-2xl border border-zinc-800/50 max-w-md">
+            <p className="text-red-400 font-medium mb-4">Error: {error}</p>
+            <Button onClick={handleBack} variant="outline" className="border-red-500/50 text-red-100 hover:bg-red-950/30">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Documents
+            </Button>
+          </div>
+        </div>
+      );
+    }
+
     // If we have the PDF URL and user email, show the viewer
     if (pdfUrl && user?.email) {
       const currentDoc = documents.find(d => d.id === currentDocId);
@@ -201,6 +188,25 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
 
   // If viewing GCC table
   if (currentView === 'table') {
+    if (error) {
+      return (
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <p className="text-red-800">Error: {error}</p>
+        </div>
+      );
+    }
+
+    if (isLoading) {
+      return (
+        <div className="flex items-center justify-center py-12">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading your content...</p>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <Button
@@ -212,6 +218,33 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
           Back to Documents
         </Button>
         <GCCCompaniesTable />
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center py-12">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading your content...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+        <p className="text-red-800">Error: {error}</p>
+      </div>
+    );
+  }
+
+  if (documents.length === 0) {
+    return (
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <p className="text-yellow-800">No documents available for {planName}</p>
       </div>
     );
   }
