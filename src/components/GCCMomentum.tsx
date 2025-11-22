@@ -123,19 +123,19 @@ const GCCMomentum = () => {
 
       {/* Popup Overlay */}
       {isPopupOpen && (
-        <div 
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300"
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-200"
           onClick={handleOverlayClick}
           style={{ opacity: isPopupOpen ? 1 : 0 }}
         >
-          <div 
-            className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden transition-transform duration-300"
-            style={{ transform: isPopupOpen ? 'scale(1) translateY(0)' : 'scale(0.8) translateY(50px)' }}
+          <div
+            className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden transition-transform duration-200"
+            style={{ transform: isPopupOpen ? 'scale(1) translateY(0)' : 'scale(0.95) translateY(20px)' }}
           >
             {/* Close Button */}
             <button
               onClick={closePopup}
-              className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-all hover:rotate-90"
+              className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-all duration-200"
             >
               <X size={20} />
             </button>
