@@ -30,7 +30,9 @@ This application now includes a complete authentication system powered by Supaba
 2. Click on **API** in the left menu
 3. You'll see two important values:
    - **Project URL** (looks like: `https://xxxxxxxxxxxxx.supabase.co`)
-   - **anon/public key** (a long string starting with `eyJ...`)
+   - **Publishable Key** (starts with `sb_publishable_...`)
+
+**Note:** You may also see an "anon" key (JWT format starting with `eyJ...`) - this is the legacy format. Use the Publishable Key instead as it's the modern standard. Both work identically but Publishable Keys are recommended.
 
 ### 3. Configure Environment Variables
 
@@ -38,9 +40,11 @@ This application now includes a complete authentication system powered by Supaba
 2. Add your Supabase credentials:
 
 ```env
-VITE_SUPABASE_URL=https://your-project-id.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key-here
+VITE_SUPABASE_URL=https://kgilrj5xunb4ux5woohlug.supabase.co
+VITE_SUPABASE_ANON_KEY=sb_publishable_kGILRj5xuNh4UX5WoOHLUg_fhd-lyE4
 ```
+
+**Important:** Despite the variable name being `VITE_SUPABASE_ANON_KEY`, you should use your Publishable Key here. The variable name is kept for compatibility, but it accepts both the new Publishable Key format and the legacy anon key format.
 
 3. Save the file
 
