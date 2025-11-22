@@ -168,25 +168,9 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
     );
   }
 
-  // If we're in PDF view mode, show PDF viewer or loading state
-  if (currentView === 'pdf') {
-    // Show loading while fetching PDF URL
-    if (isPdfLoading || !pdfUrl) {
-      return (
-        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
-          <div className="text-center p-12 bg-zinc-950/50 backdrop-blur-xl rounded-2xl border border-zinc-800/50">
-            <div className="relative w-16 h-16 mx-auto mb-6">
-              <div className="absolute inset-0 rounded-full border-4 border-zinc-800"></div>
-              <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-emerald-500 animate-spin"></div>
-            </div>
-            <p className="text-zinc-300 font-medium">Loading document...</p>
-            <p className="text-zinc-500 text-sm mt-2">Please wait</p>
-          </div>
-        </div>
-      );
-    }
-
-    // Show PDF viewer when URL is ready
+  // If we're in PDF view mode, ALWAYS show PDF viewer or loading state (never document list)
+  if (currentView === 'pdf' && currentDocId) {
+    // If we have the PDF URL and user email, show the viewer
     if (pdfUrl && user?.email) {
       const currentDoc = documents.find(d => d.id === currentDocId);
       return (
@@ -198,6 +182,21 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
         />
       );
     }
+
+    // Otherwise, show loading screen (even if isPdfLoading is false)
+    // This ensures we NEVER show the document list when view=pdf is in URL
+    return (
+      <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+        <div className="text-center p-12 bg-zinc-950/50 backdrop-blur-xl rounded-2xl border border-zinc-800/50">
+          <div className="relative w-16 h-16 mx-auto mb-6">
+            <div className="absolute inset-0 rounded-full border-4 border-zinc-800"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-emerald-500 animate-spin"></div>
+          </div>
+          <p className="text-zinc-300 font-medium">Loading document...</p>
+          <p className="text-zinc-500 text-sm mt-2">Please wait</p>
+        </div>
+      </div>
+    );
   }
 
   // If viewing GCC table
