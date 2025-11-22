@@ -37,21 +37,21 @@ const Reports = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             {reports.map((report) => (
-              <Link 
-                key={report.id} 
+              <Link
+                key={report.id}
                 to={`/reports/${report.id}`}
                 className="group"
               >
-                <div className="overflow-hidden rounded-lg border bg-card hover:shadow-lg transition-shadow">
+                <div className="overflow-hidden rounded-lg border bg-card hover:shadow-lg transition-shadow duration-micro ease-smooth">
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={report.thumbnail}
                       alt={report.altText}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-micro ease-smooth"
                     />
                   </div>
                   <div className="p-6">
-                    <h2 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                    <h2 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-micro ease-smooth">
                       {report.title}
                     </h2>
                     <p className="text-muted-foreground">

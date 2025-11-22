@@ -90,9 +90,9 @@ const GCCMomentum = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 A quick guide with insights on GCC growth over the past year and a snapshot of the latest quarter
               </p>
-              <Button 
+              <Button
                 onClick={openPopup}
-                className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg rounded-full transition-all hover:scale-105"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg rounded-full"
               >
                 GET YOUR REPORT NOW
               </Button>
@@ -123,19 +123,17 @@ const GCCMomentum = () => {
 
       {/* Popup Overlay */}
       {isPopupOpen && (
-        <div 
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300"
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 animate-modal-overlay"
           onClick={handleOverlayClick}
-          style={{ opacity: isPopupOpen ? 1 : 0 }}
         >
-          <div 
-            className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden transition-transform duration-300"
-            style={{ transform: isPopupOpen ? 'scale(1) translateY(0)' : 'scale(0.8) translateY(50px)' }}
+          <div
+            className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden animate-modal-content"
           >
             {/* Close Button */}
             <button
               onClick={closePopup}
-              className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-all hover:rotate-90"
+              className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
             >
               <X size={20} />
             </button>

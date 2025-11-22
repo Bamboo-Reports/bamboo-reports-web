@@ -85,8 +85,15 @@ export default {
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        "accordion-down": "accordion-down 200ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "accordion-up": "accordion-up 200ms cubic-bezier(0.4, 0, 0.2, 1)",
+      },
+      transitionDuration: {
+        'micro': '200ms',
+        'modal': '250ms',
+      },
+      transitionTimingFunction: {
+        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
     },
   },

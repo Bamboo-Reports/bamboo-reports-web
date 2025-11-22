@@ -262,7 +262,7 @@ const Purchases = () => {
                                 {purchase.features.map((feature, index) => (
                                   <div
                                     key={index}
-                                    className="flex gap-3 p-3 rounded-lg border bg-card hover:bg-muted/50 transition-colors"
+                                    className="flex gap-3 p-3 rounded-lg border bg-card hover:bg-muted/50 transition-colors duration-micro ease-smooth"
                                   >
                                     <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                                     <div>

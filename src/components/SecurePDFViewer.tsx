@@ -95,7 +95,7 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: 
               size="sm"
               onClick={goToPrevPage}
               disabled={pageNumber <= 1}
-              className={`${theme.buttonBase} disabled:opacity-30 disabled:hover:bg-transparent transition-all duration-200 rounded-lg h-8 w-8 p-0`}
+              className={`${theme.buttonBase} disabled:opacity-30 disabled:hover:bg-transparent transition-all duration-micro ease-smooth rounded-lg h-8 w-8 p-0`}
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -107,7 +107,7 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: 
               size="sm"
               onClick={goToNextPage}
               disabled={pageNumber >= numPages}
-              className={`${theme.buttonBase} disabled:opacity-30 disabled:hover:bg-transparent transition-all duration-200 rounded-lg h-8 w-8 p-0`}
+              className={`${theme.buttonBase} disabled:opacity-30 disabled:hover:bg-transparent transition-all duration-micro ease-smooth rounded-lg h-8 w-8 p-0`}
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
@@ -120,7 +120,7 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: 
               size="sm"
               onClick={zoomOut}
               disabled={scale <= 0.5}
-              className={`${theme.buttonBase} disabled:opacity-30 disabled:hover:bg-transparent transition-all duration-200 rounded-lg h-8 w-8 p-0`}
+              className={`${theme.buttonBase} disabled:opacity-30 disabled:hover:bg-transparent transition-all duration-micro ease-smooth rounded-lg h-8 w-8 p-0`}
             >
               <ZoomOut className="h-4 w-4" />
             </Button>
@@ -132,7 +132,7 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: 
               size="sm"
               onClick={zoomIn}
               disabled={scale >= 2.0}
-              className={`${theme.buttonBase} disabled:opacity-30 disabled:hover:bg-transparent transition-all duration-200 rounded-lg h-8 w-8 p-0`}
+              className={`${theme.buttonBase} disabled:opacity-30 disabled:hover:bg-transparent transition-all duration-micro ease-smooth rounded-lg h-8 w-8 p-0`}
             >
               <ZoomIn className="h-4 w-4" />
             </Button>
@@ -143,7 +143,7 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: 
             variant="ghost"
             size="sm"
             onClick={toggleTheme}
-            className={`${theme.buttonBase} transition-all duration-200 rounded-lg h-10 w-10 p-0`}
+            className={`${theme.buttonBase} transition-all duration-micro ease-smooth rounded-lg h-10 w-10 p-0`}
             title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           >
             {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -155,7 +155,7 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: 
           variant="ghost"
           size="sm"
           onClick={onClose}
-          className={`${theme.buttonBase} hover:bg-red-950/30 hover:border-red-900/50 border border-transparent transition-all duration-200 rounded-lg h-10 w-10 p-0`}
+          className={`${theme.buttonBase} hover:bg-red-950/30 hover:border-red-900/50 border border-transparent transition-all duration-micro ease-smooth rounded-lg h-10 w-10 p-0`}
         >
           <X className="h-5 w-5" />
         </Button>
@@ -177,7 +177,7 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: 
               <p className="text-red-400 mb-6 text-sm leading-relaxed">{error}</p>
               <Button
                 onClick={onClose}
-                className="bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-700 rounded-lg transition-all duration-200"
+                className="bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-700 rounded-lg transition-all duration-micro ease-smooth"
               >
                 Close Viewer
               </Button>

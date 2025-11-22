@@ -62,7 +62,6 @@ const SignIn = () => {
                 required
                 disabled={isLoading}
                 autoComplete="email"
-                className="transition-all"
               />
             </div>
             <div className="space-y-2">
@@ -78,7 +77,6 @@ const SignIn = () => {
                 required
                 disabled={isLoading}
                 autoComplete="current-password"
-                className="transition-all"
               />
             </div>
             <Button
