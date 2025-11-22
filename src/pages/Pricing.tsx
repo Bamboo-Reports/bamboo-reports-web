@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/toggle-group"; // Import ToggleGroup
 import { useToast } from "@/hooks/use-toast";
 import { useSEO } from "@/hooks/useSEO";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   initiateRazorpayPayment,
   createRazorpayOrder,
@@ -28,6 +29,7 @@ const Pricing = () => {
   });
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { user } = useAuth();
 
   // Check if subscriptions are enabled via feature flag
   const isSubscriptionEnabled = import.meta.env.VITE_SUBSCRIPTION_ENABLED === 'true';
@@ -149,6 +151,10 @@ const Pricing = () => {
       const amountInPaise = convertToPaise(currentPrice);
       const selectedCurrency = currency === "USD" ? "USD" : "INR";
 
+      // Find the plan features
+      const selectedPlan = plans.find((plan) => plan.name === planName);
+      const planFeatures = selectedPlan?.features || [];
+
       // Create order on backend first
       const order = await createRazorpayOrder(
         amountInPaise,
@@ -172,7 +178,7 @@ const Pricing = () => {
             // Get customer details from Razorpay prefill (they enter this in the form)
             const customerEmail = (response as any).email || "";
             const customerName = (response as any).name || "";
-            
+
             // Verify payment on backend and send confirmation email
             await verifyRazorpayPayment(
               response.razorpay_order_id || "",
@@ -182,7 +188,10 @@ const Pricing = () => {
               customerName,
               planName,
               order.amount,
-              order.currency
+              order.currency,
+              user?.id,
+              planFeatures,
+              order.orderId
             );
             
             // Payment verified successfully

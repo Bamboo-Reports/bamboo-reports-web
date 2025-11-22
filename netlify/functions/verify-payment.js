@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
+import { createClient } from '@supabase/supabase-js';
 
 export const handler = async (event) => {
   // Only allow POST requests
@@ -11,15 +12,18 @@ export const handler = async (event) => {
   }
 
   try {
-    const { 
-      razorpay_order_id, 
-      razorpay_payment_id, 
+    const {
+      razorpay_order_id,
+      razorpay_payment_id,
       razorpay_signature,
       customerEmail,
       customerName,
       planName,
       amount,
-      currency
+      currency,
+      userId,
+      features,
+      orderId
     } = JSON.parse(event.body);
 
     // Validate input
@@ -46,11 +50,18 @@ export const handler = async (event) => {
     // Verify signature
     if (razorpay_signature === expectedSign) {
       console.log('[VERIFY] Payment signature verified successfully');
-      
+
+      // Initialize Supabase client with service role key for admin operations
+      const supabase = createClient(
+        process.env.VITE_SUPABASE_URL,
+        process.env.SUPABASE_SERVICE_ROLE_KEY // Service role key for bypassing RLS
+      );
+
       // Fetch payment details from Razorpay to get customer email
       let actualCustomerEmail = customerEmail;
       let actualCustomerName = customerName;
-      
+      let paymentMethod = null;
+
       try {
         console.log('[VERIFY] Fetching payment details from Razorpay API');
         
@@ -65,22 +76,72 @@ export const handler = async (event) => {
           contact: paymentDetails.contact,
           method: paymentDetails.method
         });
-        
+
         // Use email from Razorpay if available
         if (paymentDetails.email) {
           actualCustomerEmail = paymentDetails.email;
           console.log('[VERIFY] Customer email found:', actualCustomerEmail);
         }
-        
+
         // Extract name from notes or use provided name
         if (paymentDetails.notes && paymentDetails.notes.name) {
           actualCustomerName = paymentDetails.notes.name;
+        }
+
+        // Capture payment method
+        if (paymentDetails.method) {
+          paymentMethod = paymentDetails.method;
+          console.log('[VERIFY] Payment method:', paymentMethod);
         }
       } catch (fetchError) {
         console.error('[VERIFY] Could not fetch payment details:', fetchError.message);
         console.log('[VERIFY] Will use email from request if available');
       }
-      
+
+      // Insert purchase record into Supabase
+      if (userId) {
+        try {
+          console.log('[DB] Inserting purchase record into database');
+          console.log('[DB] User ID:', userId);
+          console.log('[DB] Plan:', planName);
+          console.log('[DB] Amount:', amount / 100); // Convert paise to rupees/dollars
+
+          const purchaseData = {
+            user_id: userId,
+            order_id: orderId || razorpay_order_id,
+            razorpay_order_id: razorpay_order_id,
+            razorpay_payment_id: razorpay_payment_id,
+            plan_name: planName,
+            amount: amount / 100, // Convert paise to rupees/dollars
+            currency: currency,
+            status: 'completed',
+            features: features || [],
+            payment_method: paymentMethod,
+            purchased_at: new Date().toISOString(),
+          };
+
+          const { data: purchase, error: dbError } = await supabase
+            .from('purchases')
+            .insert([purchaseData])
+            .select()
+            .single();
+
+          if (dbError) {
+            console.error('[DB] Error inserting purchase:', dbError);
+            // Don't fail the payment verification if database insert fails
+            // The payment was successful, we just couldn't record it
+          } else {
+            console.log('[DB] Purchase record created successfully');
+            console.log('[DB] Purchase ID:', purchase.id);
+          }
+        } catch (dbError) {
+          console.error('[DB] Exception while inserting purchase:', dbError);
+          // Don't fail the payment verification if database insert fails
+        }
+      } else {
+        console.log('[DB] Skipping purchase record - no user ID provided');
+      }
+
       // Payment is verified - send confirmation email
       if (actualCustomerEmail && planName) {
         console.log('[EMAIL] Preparing to send confirmation email');
