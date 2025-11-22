@@ -10,13 +10,6 @@ import {
   TableHeader,
   TableRow,
 } from './ui/table';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from './ui/select';
 import { Search, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 interface GCCCompany {
@@ -30,9 +23,14 @@ interface GCCCompany {
   category: string | null;
   total_centers: number | null;
   total_gcc_centers: number | null;
+  total_excl_gcc_centers: number | null;
+  aggregate_india_employees_range: string | null;
+  location: string | null;
+  years_established_in_india: string | null;
+  years_in_india: string | null;
   primary_city: string | null;
   secondary_city: string | null;
-  years_established_in_india: string | null;
+  services_offered: string | null;
 }
 
 const ITEMS_PER_PAGE = 25;
@@ -43,19 +41,11 @@ export function GCCCompaniesTable() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Filters and search
+  // Search only (filters removed as per user request)
   const [searchQuery, setSearchQuery] = useState('');
-  const [industryFilter, setIndustryFilter] = useState<string>('all');
-  const [categoryFilter, setCategoryFilter] = useState<string>('all');
-  const [countryFilter, setCountryFilter] = useState<string>('all');
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-
-  // Get unique values for filters
-  const [industries, setIndustries] = useState<string[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [countries, setCountries] = useState<string[]>([]);
 
   // Fetch companies from Supabase
   useEffect(() => {
@@ -75,17 +65,6 @@ export function GCCCompaniesTable() {
 
         setCompanies(data || []);
         setFilteredCompanies(data || []);
-
-        // Extract unique values for filters
-        if (data) {
-          const uniqueIndustries = [...new Set(data.map(c => c.industry).filter(Boolean))].sort();
-          const uniqueCategories = [...new Set(data.map(c => c.category).filter(Boolean))].sort();
-          const uniqueCountries = [...new Set(data.map(c => c.hq_country).filter(Boolean))].sort();
-
-          setIndustries(uniqueIndustries as string[]);
-          setCategories(uniqueCategories as string[]);
-          setCountries(uniqueCountries as string[]);
-        }
       } catch (err) {
         console.error('Error fetching GCC companies:', err);
         setError(err instanceof Error ? err.message : 'Failed to load GCC companies');
@@ -97,7 +76,7 @@ export function GCCCompaniesTable() {
     fetchCompanies();
   }, []);
 
-  // Apply filters and search
+  // Apply search
   useEffect(() => {
     let filtered = companies;
 
@@ -107,28 +86,16 @@ export function GCCCompaniesTable() {
       filtered = filtered.filter(company =>
         company.account_global_legal_name?.toLowerCase().includes(query) ||
         company.primary_city?.toLowerCase().includes(query) ||
-        company.industry?.toLowerCase().includes(query)
+        company.secondary_city?.toLowerCase().includes(query) ||
+        company.industry?.toLowerCase().includes(query) ||
+        company.hq_country?.toLowerCase().includes(query) ||
+        company.location?.toLowerCase().includes(query)
       );
     }
 
-    // Industry filter
-    if (industryFilter !== 'all') {
-      filtered = filtered.filter(company => company.industry === industryFilter);
-    }
-
-    // Category filter
-    if (categoryFilter !== 'all') {
-      filtered = filtered.filter(company => company.category === categoryFilter);
-    }
-
-    // Country filter
-    if (countryFilter !== 'all') {
-      filtered = filtered.filter(company => company.hq_country === countryFilter);
-    }
-
     setFilteredCompanies(filtered);
-    setCurrentPage(1); // Reset to first page when filters change
-  }, [searchQuery, industryFilter, categoryFilter, countryFilter, companies]);
+    setCurrentPage(1); // Reset to first page when search changes
+  }, [searchQuery, companies]);
 
   // Pagination
   const totalPages = Math.ceil(filteredCompanies.length / ITEMS_PER_PAGE);
@@ -142,13 +109,6 @@ export function GCCCompaniesTable() {
 
   const handleNextPage = () => {
     setCurrentPage(prev => Math.min(totalPages, prev + 1));
-  };
-
-  const resetFilters = () => {
-    setSearchQuery('');
-    setIndustryFilter('all');
-    setCategoryFilter('all');
-    setCountryFilter('all');
   };
 
   if (isLoading) {
@@ -175,10 +135,10 @@ export function GCCCompaniesTable() {
       {/* Header */}
       <div>
         <h2 className="text-2xl font-bold mb-2">L1 List - 2,500+ GCCs</h2>
-        <p className="text-gray-600">Limited view of GCC database with {companies.length} companies</p>
+        <p className="text-gray-600">Complete view of {companies.length} GCC companies</p>
       </div>
 
-      {/* Filters */}
+      {/* Search Only */}
       <div className="bg-white border rounded-lg p-4 space-y-4">
         <div className="flex flex-col md:flex-row gap-4">
           {/* Search */}
@@ -187,63 +147,13 @@ export function GCCCompaniesTable() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
               <Input
                 type="text"
-                placeholder="Search by company name, city, or industry..."
+                placeholder="Search by company name, city, industry, country..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
               />
             </div>
           </div>
-
-          {/* Industry Filter */}
-          <Select value={industryFilter} onValueChange={setIndustryFilter}>
-            <SelectTrigger className="w-full md:w-[200px]">
-              <SelectValue placeholder="Industry" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Industries</SelectItem>
-              {industries.map(industry => (
-                <SelectItem key={industry} value={industry}>
-                  {industry}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-
-          {/* Category Filter */}
-          <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-            <SelectTrigger className="w-full md:w-[200px]">
-              <SelectValue placeholder="Category" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Categories</SelectItem>
-              {categories.map(category => (
-                <SelectItem key={category} value={category}>
-                  {category}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-
-          {/* Country Filter */}
-          <Select value={countryFilter} onValueChange={setCountryFilter}>
-            <SelectTrigger className="w-full md:w-[200px]">
-              <SelectValue placeholder="Country" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Countries</SelectItem>
-              {countries.map(country => (
-                <SelectItem key={country} value={country}>
-                  {country}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-
-          {/* Reset Button */}
-          <Button variant="outline" onClick={resetFilters}>
-            Reset
-          </Button>
         </div>
 
         {/* Results count */}
@@ -252,27 +162,36 @@ export function GCCCompaniesTable() {
         </div>
       </div>
 
-      {/* Table */}
+      {/* Table - Horizontally Scrollable */}
       <div className="border rounded-lg overflow-hidden">
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Company Name</TableHead>
-                <TableHead>Industry</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>HQ Country</TableHead>
-                <TableHead>Primary City</TableHead>
-                <TableHead className="text-right">GCC Centers</TableHead>
-                <TableHead className="text-right">Est. Year</TableHead>
-                <TableHead>Website</TableHead>
+                <TableHead className="min-w-[250px]">Company Name</TableHead>
+                <TableHead className="min-w-[120px]">Revenue Range</TableHead>
+                <TableHead className="min-w-[150px]">HQ Country</TableHead>
+                <TableHead className="min-w-[150px]">HQ Region</TableHead>
+                <TableHead className="min-w-[150px]">Industry</TableHead>
+                <TableHead className="min-w-[100px]">Category</TableHead>
+                <TableHead className="min-w-[120px] text-right">Total Centers</TableHead>
+                <TableHead className="min-w-[120px] text-right">GCC Centers</TableHead>
+                <TableHead className="min-w-[140px] text-right">Excl GCC Centers</TableHead>
+                <TableHead className="min-w-[180px] text-right">India Employees</TableHead>
+                <TableHead className="min-w-[150px]">Primary City</TableHead>
+                <TableHead className="min-w-[200px]">Secondary Cities</TableHead>
+                <TableHead className="min-w-[200px]">Location</TableHead>
+                <TableHead className="min-w-[120px]">Est. Year</TableHead>
+                <TableHead className="min-w-[120px]">Years in India</TableHead>
+                <TableHead className="min-w-[300px]">Services Offered</TableHead>
+                <TableHead className="min-w-[100px]">Website</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {currentCompanies.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={8} className="text-center py-8 text-gray-500">
-                    No companies found matching your filters
+                  <TableCell colSpan={17} className="text-center py-8 text-gray-500">
+                    No companies found matching your search
                   </TableCell>
                 </TableRow>
               ) : (
@@ -281,15 +200,40 @@ export function GCCCompaniesTable() {
                     <TableCell className="font-medium">
                       {company.account_global_legal_name}
                     </TableCell>
+                    <TableCell>{company.revenue_range || '-'}</TableCell>
+                    <TableCell>{company.hq_country || '-'}</TableCell>
+                    <TableCell>{company.hq_region || '-'}</TableCell>
                     <TableCell>{company.industry || '-'}</TableCell>
                     <TableCell>{company.category || '-'}</TableCell>
-                    <TableCell>{company.hq_country || '-'}</TableCell>
-                    <TableCell>{company.primary_city || '-'}</TableCell>
+                    <TableCell className="text-right">
+                      {company.total_centers || '-'}
+                    </TableCell>
                     <TableCell className="text-right">
                       {company.total_gcc_centers || '-'}
                     </TableCell>
                     <TableCell className="text-right">
-                      {company.years_established_in_india || '-'}
+                      {company.total_excl_gcc_centers || '-'}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {company.aggregate_india_employees_range || '-'}
+                    </TableCell>
+                    <TableCell>{company.primary_city || '-'}</TableCell>
+                    <TableCell>
+                      <div className="whitespace-pre-line text-sm">
+                        {company.secondary_city || '-'}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="whitespace-pre-line text-sm">
+                        {company.location || '-'}
+                      </div>
+                    </TableCell>
+                    <TableCell>{company.years_established_in_india || '-'}</TableCell>
+                    <TableCell>{company.years_in_india || '-'}</TableCell>
+                    <TableCell>
+                      <div className="whitespace-pre-line text-sm max-w-[300px]">
+                        {company.services_offered || '-'}
+                      </div>
                     </TableCell>
                     <TableCell>
                       {company.website ? (
