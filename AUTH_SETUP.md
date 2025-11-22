@@ -6,9 +6,14 @@ This application now includes a complete authentication system powered by Supaba
 
 - **Sign Up** - New user registration with email and password
 - **Sign In** - Secure authentication for returning users
-- **Profile Page** - View user details and manage account
+- **Profile Page** - Complete profile management with:
+  - Profile picture upload (max 500KB)
+  - Update full name
+  - Update email address
+  - Change password
+  - View account details
 - **Protected Routes** - Automatic redirect to sign-in for unauthorized access
-- **Auth-Aware Navigation** - Dynamic header showing Sign In/Sign Up or user profile based on auth state
+- **Auth-Aware Navigation** - Dynamic header showing Sign In/Sign Up or user profile avatar based on auth state
 - **Sign Out** - Secure logout functionality
 - **Modern UI** - Clean, responsive design using shadcn/ui components
 
@@ -57,7 +62,49 @@ By default, Supabase requires email confirmation. For development, you can disab
 3. Toggle it OFF for easier development
 4. **Important:** Re-enable this in production for security
 
-### 5. Run the Application
+### 5. Set Up Supabase Storage for Profile Images
+
+To enable profile picture uploads, you need to create a storage bucket:
+
+1. In your Supabase dashboard, go to **Storage** in the left sidebar
+2. Click **New Bucket**
+3. Set the bucket name to: `profile-images`
+4. Set the bucket to **Public** (toggle the Public bucket option)
+5. Click **Create Bucket**
+
+**Set up storage policies:**
+
+1. Click on your `profile-images` bucket
+2. Go to the **Policies** tab
+3. Click **New Policy** and select **For full customization**
+4. Create a policy for **INSERT** (upload):
+   - Policy name: `Allow authenticated users to upload`
+   - Target roles: `authenticated`
+   - Policy definition:
+   ```sql
+   (bucket_id = 'profile-images'::text)
+   ```
+   - Click **Review** and **Save**
+
+5. Create a policy for **SELECT** (read):
+   - Policy name: `Public read access`
+   - Target roles: `public`
+   - Policy definition:
+   ```sql
+   (bucket_id = 'profile-images'::text)
+   ```
+   - Click **Review** and **Save**
+
+6. Create a policy for **DELETE** (remove):
+   - Policy name: `Allow users to delete their own images`
+   - Target roles: `authenticated`
+   - Policy definition:
+   ```sql
+   (bucket_id = 'profile-images'::text)
+   ```
+   - Click **Review** and **Save**
+
+### 6. Run the Application
 
 ```bash
 npm run dev

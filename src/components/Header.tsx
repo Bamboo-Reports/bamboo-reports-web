@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight, User, LogOut } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -45,6 +45,9 @@ const Header = () => {
   const handleSignOut = async () => {
     await signOut();
   };
+
+  const userFullName = user?.user_metadata?.full_name || 'User';
+  const avatarUrl = user?.user_metadata?.avatar_url;
 
   return (
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -117,8 +120,9 @@ const Header = () => {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                     <Avatar className="h-10 w-10">
+                      {avatarUrl && <AvatarImage src={avatarUrl} alt={userFullName} />}
                       <AvatarFallback className="bg-primary text-primary-foreground">
-                        {getInitials(user.user_metadata?.full_name || 'User')}
+                        {getInitials(userFullName)}
                       </AvatarFallback>
                     </Avatar>
                   </Button>
@@ -127,7 +131,7 @@ const Header = () => {
                   <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
                       <p className="text-sm font-medium leading-none">
-                        {user.user_metadata?.full_name || 'User'}
+                        {userFullName}
                       </p>
                       <p className="text-xs leading-none text-muted-foreground">
                         {user.email}
