@@ -95,9 +95,14 @@ export default function MyContent() {
   const urlPlan = searchParams.get('plan');
   const activePlan = urlPlan && planNames.includes(urlPlan) ? urlPlan : planNames[0];
 
-  // Update plan in URL when changed
+  // Update plan in URL when changed (preserve other params)
   const handlePlanChange = (planName: string) => {
-    setSearchParams({ plan: planName });
+    const params = new URLSearchParams(searchParams);
+    params.set('plan', planName);
+    // Clear view and doc when switching plans
+    params.delete('view');
+    params.delete('doc');
+    setSearchParams(params);
   };
 
   return (
@@ -139,20 +144,14 @@ export default function MyContent() {
               {planNames.map((planName) => (
                 <TabsContent key={planName} value={planName}>
                   <div className="bg-card border rounded-lg p-6">
-                    <PlanDocuments
-                      planName={planName}
-                      onNavigate={(view, docId) => setSearchParams({ plan: planName, view, doc: docId || '' })}
-                    />
+                    <PlanDocuments planName={planName} />
                   </div>
                 </TabsContent>
               ))}
             </Tabs>
           ) : (
             <div className="bg-card border rounded-lg p-6">
-              <PlanDocuments
-                planName={planNames[0]}
-                onNavigate={(view, docId) => setSearchParams({ plan: planNames[0], view, doc: docId || '' })}
-              />
+              <PlanDocuments planName={planNames[0]} />
             </div>
           )}
 

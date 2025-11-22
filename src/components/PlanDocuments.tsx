@@ -21,10 +21,9 @@ interface PlanDocument {
 
 interface PlanDocumentsProps {
   planName: string;
-  onNavigate?: (view: string, docId?: string) => void;
 }
 
-export function PlanDocuments({ planName, onNavigate }: PlanDocumentsProps) {
+export function PlanDocuments({ planName }: PlanDocumentsProps) {
   const { user } = useAuth();
   const [searchParams, setSearchParams] = useSearchParams();
   const [documents, setDocuments] = useState<PlanDocument[]>([]);
@@ -79,16 +78,20 @@ export function PlanDocuments({ planName, onNavigate }: PlanDocumentsProps) {
         return;
       }
 
+      // If documents aren't loaded yet, wait
+      if (documents.length === 0) {
+        setIsPdfLoading(true);
+        return;
+      }
+
       const document = documents.find(d => d.id === currentDocId);
       if (!document?.file_path || !document?.storage_bucket) {
         setIsPdfLoading(false);
         return;
       }
 
-      // Only set loading if we don't already have a URL or if the doc changed
-      if (!pdfUrl) {
-        setIsPdfLoading(true);
-      }
+      // Set loading state
+      setIsPdfLoading(true);
 
       try {
         const { data, error } = await supabase.storage
@@ -108,7 +111,7 @@ export function PlanDocuments({ planName, onNavigate }: PlanDocumentsProps) {
     }
 
     fetchPDFUrl();
-  }, [currentView, currentDocId, documents]);
+  }, [currentView, currentDocId, documents.length]);
 
   // Navigate to PDF view
   const handleView = (document: PlanDocument) => {
