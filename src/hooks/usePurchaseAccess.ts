@@ -79,14 +79,22 @@ export function useUserPurchases() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    console.log('🔄 [useUserPurchases] Effect triggered', {
+      hasUser: !!user,
+      userId: user?.id,
+      timestamp: new Date().toISOString()
+    });
+
     async function fetchPurchases() {
       if (!user) {
+        console.log('⚠️ [useUserPurchases] No user - clearing purchases');
         setPurchases([]);
         setIsLoading(false);
         return;
       }
 
       try {
+        console.log('📡 [useUserPurchases] Starting fetch...');
         setIsLoading(true);
         setError(null);
 
@@ -101,12 +109,16 @@ export function useUserPurchases() {
           throw fetchError;
         }
 
+        console.log('✅ [useUserPurchases] Fetch complete:', {
+          purchasesCount: data?.length || 0
+        });
         setPurchases(data || []);
       } catch (err) {
-        console.error('Error fetching purchases:', err);
+        console.error('❌ [useUserPurchases] Error fetching purchases:', err);
         setError(err instanceof Error ? err.message : 'Failed to fetch purchases');
       } finally {
         setIsLoading(false);
+        console.log('🏁 [useUserPurchases] Loading complete');
       }
     }
 

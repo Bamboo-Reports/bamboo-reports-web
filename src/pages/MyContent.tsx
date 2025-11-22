@@ -22,6 +22,14 @@ export default function MyContent() {
   const { user } = useAuth();
   const { purchases, isLoading, error } = useUserPurchases();
 
+  // DEBUG: Track component mount/unmount
+  useEffect(() => {
+    console.log('🟢 [MyContent] Component MOUNTED');
+    return () => {
+      console.log('🔴 [MyContent] Component UNMOUNTED');
+    };
+  }, []);
+
   // CRITICAL: Read view parameter directly from URL to prevent flicker
   // This ensures we show the correct loading screen even during component remounts
   const getViewFromUrl = () => {
@@ -30,14 +38,26 @@ export default function MyContent() {
   };
   const currentView = getViewFromUrl();
 
+  // DEBUG: Log component render state
+  console.log('🔍 [MyContent] RENDER:', {
+    timestamp: new Date().toISOString(),
+    isLoading,
+    currentView,
+    purchasesCount: purchases.length,
+    urlFull: window.location.href,
+    hasUser: !!user
+  });
+
   // Redirect to sign-in if not authenticated
   if (!user) {
+    console.log('❌ [MyContent] No user - redirecting to signin');
     return <Navigate to="/signin" replace />;
   }
 
   // If viewing PDF or table, skip the loading screen and go straight to PlanDocuments
   // This prevents flicker from light loading screen → dark PDF/table loading screen
   if (isLoading && (currentView === 'pdf' || currentView === 'table')) {
+    console.log('⚡ [MyContent] Loading + PDF/Table view - rendering PlanDocuments immediately');
     // Get the plan from URL or default to first available (we'll show it once loaded)
     const urlPlan = searchParams.get('plan');
 
@@ -59,6 +79,7 @@ export default function MyContent() {
   }
 
   if (isLoading) {
+    console.log('⏳ [MyContent] SHOWING LOADING SCREEN (this is the flicker!)');
     return (
       <div className="min-h-screen bg-background">
         <Header />
@@ -74,6 +95,7 @@ export default function MyContent() {
   }
 
   if (error) {
+    console.log('❌ [MyContent] Error state:', error);
     return (
       <div className="min-h-screen bg-background">
         <Header />

@@ -36,8 +36,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('🔐 [AuthContext] Initializing auth...');
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
+      console.log('🔐 [AuthContext] Initial session loaded:', {
+        hasSession: !!session,
+        userId: session?.user?.id,
+        timestamp: new Date().toISOString()
+      });
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
@@ -46,13 +53,22 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     // Listen for auth changes
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log('🔐 [AuthContext] Auth state changed:', {
+        event,
+        hasSession: !!session,
+        userId: session?.user?.id,
+        timestamp: new Date().toISOString()
+      });
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      console.log('🔐 [AuthContext] Cleaning up auth subscription');
+      subscription.unsubscribe();
+    };
   }, []);
 
   const signUp = async (email: string, password: string, fullName: string) => {
