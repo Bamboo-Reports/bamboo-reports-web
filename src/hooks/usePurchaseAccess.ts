@@ -63,7 +63,9 @@ export function usePurchaseAccess(planName: string): UsePurchaseAccessResult {
     }
 
     checkPurchase();
-  }, [user, planName]);
+    // CRITICAL FIX: Depend on user?.id instead of user object
+    // This prevents re-fetching when Supabase creates new user object references
+  }, [user?.id, planName]);
 
   return { hasPurchased, isLoading, error, purchases };
 }
@@ -123,7 +125,10 @@ export function useUserPurchases() {
     }
 
     fetchPurchases();
-  }, [user]);
+    // CRITICAL FIX: Depend on user?.id instead of user object
+    // This prevents re-fetching when Supabase creates new user object references
+    // during session validation (e.g., when switching tabs)
+  }, [user?.id]);
 
   return { purchases, isLoading, error };
 }
