@@ -162,6 +162,14 @@ All colors MUST be HSL.
   .animate-fade-in-up {
     animation: fadeInUp 0.5s ease-out;
   }
+
+  .animate-fade-in {
+    animation: fadeIn 0.25s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.25s ease-out;
+  }
   
   @keyframes fadeInUp {
     from {
@@ -171,6 +179,26 @@ All colors MUST be HSL.
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
     }
   }
   
@@ -184,6 +212,20 @@ All colors MUST be HSL.
     }
     50% {
       transform: translateY(-5px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-hover-lift,
+    .animate-hover-scale,
+    .animate-press,
+    .animate-fade-in-up,
+    .animate-fade-in,
+    .animate-scale-in,
+    .animate-smooth-bounce {
+      transition: none;
+      animation: none;
+      transform: none;
     }
   }
 }

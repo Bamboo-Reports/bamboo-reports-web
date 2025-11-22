@@ -102,6 +102,12 @@ const ResearchNXT = () => {
         .animate-scroll:hover {
           animation-play-state: paused;
         }
+
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scroll {
+            animation: none;
+          }
+        }
       `,
         }}
       />
