@@ -73,6 +73,14 @@ const PaymentSuccess = () => {
             <Button
               variant="outline"
               size="lg"
+              onClick={() => navigate("/purchases")}
+              className="rounded-full"
+            >
+              View My Purchases
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
               onClick={() => navigate("/reports")}
               className="rounded-full"
             >

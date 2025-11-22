@@ -1,7 +1,7 @@
 import logo from "@/assets/bamboo-logo.svg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight, User, LogOut } from "lucide-react";
+import { Menu, ChevronRight, User, LogOut, Package } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -145,6 +145,12 @@ const Header = () => {
                       Profile
                     </Link>
                   </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/purchases" className="cursor-pointer">
+                      <Package className="mr-2 h-4 w-4" />
+                      My Purchases
+                    </Link>
+                  </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
                     <LogOut className="mr-2 h-4 w-4" />
@@ -268,6 +274,17 @@ const Header = () => {
                           <Link to="/profile">
                             <User className="mr-2 h-4 w-4" />
                             Profile
+                          </Link>
+                        </Button>
+                        <Button
+                          asChild
+                          variant="ghost"
+                          className="w-full rounded-full font-semibold justify-start"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          <Link to="/purchases">
+                            <Package className="mr-2 h-4 w-4" />
+                            My Purchases
                           </Link>
                         </Button>
                       </div>
