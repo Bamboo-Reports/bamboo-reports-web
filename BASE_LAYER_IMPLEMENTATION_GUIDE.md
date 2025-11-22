@@ -33,27 +33,35 @@ The complete Base Layer pricing system is now implemented! Here's everything tha
 
 ### ✅ Frontend Components
 1. **GCC Companies Table** (`GCCCompaniesTable.tsx`)
-   - Displays 2,500+ companies
-   - Search by name, city, industry
-   - Filter by industry, category, country
+   - Displays all 17 columns for 2,500+ companies
+   - Search by name, city, industry, country, location
    - Pagination (25 per page)
-   - Sortable columns
+   - Horizontal scrolling for wide data
    - External links to company websites
 
-2. **Plan Documents** (`PlanDocuments.tsx`)
-   - Grid view of all purchased documents
-   - PDF viewer (opens in new tab)
-   - PDF download functionality
-   - GCC table access button
-   - Separate component for each document type
+2. **Secure PDF Viewer** (`SecurePDFViewer.tsx`)
+   - Custom PDF viewer with react-pdf
+   - View-only (no download or print buttons)
+   - User email watermark overlay
+   - Disabled right-click and text selection
+   - Navigation and zoom controls
+   - Uses local PDF.js worker file
 
-3. **My Content Page** (`MyContent.tsx`)
+3. **Plan Documents** (`PlanDocuments.tsx`)
+   - Grid view of all purchased documents
+   - Secure PDF viewer integration
+   - Signed URLs with 1-hour expiration
+   - GCC table access button
+   - Separate views for PDFs and database
+
+4. **My Content Page** (`MyContent.tsx`)
    - Main hub for purchased content
    - Tabs for multiple plans
+   - Header, Footer, and cohesive design
    - "Access Your Content" from purchases
    - Protected route (requires login)
 
-4. **Updated Purchases Page**
+5. **Updated Purchases Page**
    - Added "Access Your Content" button
    - Shows all 5 Base Layer items
    - Direct link to /my-content
@@ -301,6 +309,14 @@ VITE_SUBSCRIPTION_ENABLED=true
 1. Run: `SELECT COUNT(*) FROM gcc_companies;`
 2. If 0, run import script
 3. If >0, check user has Base Layer purchase
+
+### "Failed to load PDF" or PDF.js worker error
+**Cause:** PDF.js worker file not loading correctly
+**Fix:**
+1. Ensure `public/pdf.worker.min.js` exists
+2. Verify SecurePDFViewer uses local worker: `pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js'`
+3. If missing, copy from node_modules: `cp node_modules/pdfjs-dist/build/pdf.worker.min.js public/`
+4. Rebuild the app: `npm run build`
 
 ### "Error loading content"
 **Cause:** Supabase connection issue or missing env variables
