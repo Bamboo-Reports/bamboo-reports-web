@@ -233,7 +233,7 @@ const Purchases = () => {
                         <CollapsibleTrigger asChild>
                           <Button
                             variant="ghost"
-                            className="w-full mt-4 flex items-center justify-center gap-2"
+                            className="w-full mt-4 flex items-center justify-center gap-2 hover:scale-100 active:scale-100"
                           >
                             {isExpanded ? (
                               <>
