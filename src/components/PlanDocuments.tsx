@@ -244,7 +244,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
             <CardContent>
               {document.document_type === 'pdf' ? (
                 <Button
-                  className="w-full"
+                  className="w-full hover:scale-100 active:scale-100"
                   onClick={() => handleView(document)}
                 >
                   <Eye className="h-4 w-4 mr-2" />
@@ -252,7 +252,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
                 </Button>
               ) : (
                 <Button
-                  className="w-full"
+                  className="w-full hover:scale-100 active:scale-100"
                   onClick={handleViewTable}
                 >
                   <Database className="h-4 w-4 mr-2" />
