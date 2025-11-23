@@ -56,6 +56,11 @@ const Footer = () => {
                   Get Free GCC Data
                 </Link>
               </li>
+              <li>
+                <Link to="/pricing" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
+                  Pricing
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
