@@ -65,9 +65,6 @@ const Footer = () => {
           <div className="text-sm text-muted-foreground">
             © 2025 Research NXT. All Rights Reserved
           </div>
-          <div className="text-sm text-muted-foreground">
-            Made with love In Pune
-          </div>
         </div>
       </div>
     </footer>
