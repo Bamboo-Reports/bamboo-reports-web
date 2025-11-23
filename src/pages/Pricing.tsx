@@ -51,6 +51,7 @@ const Pricing = () => {
       price: { USD: "1,299", INR: "1,09,999" }, // <-- Add your INR price
       originalPrice: { USD: "5,000", INR: "4,15,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
+      popular: true,
       features: [
         {
           title: "Standard Trends Report",
@@ -79,7 +80,6 @@ const Pricing = () => {
       price: { USD: "6,999", INR: "5,79,999" }, // <-- Add your INR price
       originalPrice: { USD: "15,000", INR: "12,50,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
-      popular: true,
       features: [
         {
           title: "Everything from Base Layer",
@@ -205,10 +205,10 @@ const Pricing = () => {
               planFeatures,
               order.orderId
             );
-            
+
             // Payment verified successfully
             console.log("Payment verified:", response);
-            
+
             // Redirect to success page with payment details
             navigate(
               `/payment-success?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id || ""}&plan=${encodeURIComponent(planName)}`
@@ -271,7 +271,7 @@ const Pricing = () => {
     } catch (error) {
       console.error("Payment error:", error);
       setProcessingPlan(null);
-      
+
       toast({
         title: "Payment Failed",
         description:
@@ -333,11 +333,10 @@ const Pricing = () => {
               return (
                 <div
                   key={plan.name}
-                  className={`relative rounded-lg border p-8 flex flex-col ${
-                    plan.popular
+                  className={`relative rounded-lg border p-8 flex flex-col ${plan.popular
                       ? "border-primary shadow-lg scale-105"
                       : "border-border"
-                  }`}
+                    }`}
                 >
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">

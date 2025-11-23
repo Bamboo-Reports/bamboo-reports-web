@@ -17,6 +17,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { cn } from "@/lib/utils";
 
 interface PurchaseFeature {
   title: string;
@@ -233,19 +234,15 @@ const Purchases = () => {
                         <CollapsibleTrigger asChild>
                           <Button
                             variant="ghost"
-                            className="w-full mt-4 flex items-center justify-center gap-2"
+                            className="w-full mt-4 flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99]"
                           >
-                            {isExpanded ? (
-                              <>
-                                Hide Details
-                                <ChevronUp className="h-4 w-4" />
-                              </>
-                            ) : (
-                              <>
-                                View Details
-                                <ChevronDown className="h-4 w-4" />
-                              </>
-                            )}
+                            {isExpanded ? "Hide Details" : "View Details"}
+                            <ChevronDown
+                              className={cn(
+                                "h-4 w-4 transition-transform duration-micro ease-smooth",
+                                isExpanded && "rotate-180"
+                              )}
+                            />
                           </Button>
                         </CollapsibleTrigger>
                       </CardHeader>
