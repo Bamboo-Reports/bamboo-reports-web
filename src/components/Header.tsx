@@ -112,7 +112,7 @@ const Header = () => {
               variant="outline"
               className="rounded-full font-semibold"
             >
-              <Link to="/gcc-list">Get GCC Insights</Link>
+              <Link to="/gcc-list">Explore the Data</Link>
             </Button>
 
             {user ? (
@@ -259,7 +259,7 @@ const Header = () => {
                     className="w-full rounded-full font-semibold"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <Link to="/gcc-list">Get GCC Insights</Link>
+                    <Link to="/gcc-list">Explore the Data</Link>
                   </Button>
 
                   {user ? (
