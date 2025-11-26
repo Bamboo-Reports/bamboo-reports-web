@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="py-12 px-4 border-t bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="md:col-span-1">
             <img src={logo} alt="Research NXT - GCC Intelligence Provider" className="h-12 mb-4 transition-transform duration-micro ease-smooth hover:scale-[1.02]" />
@@ -59,6 +59,23 @@ const Footer = () => {
               <li>
                 <Link to="/pricing" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
                   Pricing
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="font-semibold mb-4">Legal</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms-conditions" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
+                  Terms & Conditions
                 </Link>
               </li>
             </ul>
