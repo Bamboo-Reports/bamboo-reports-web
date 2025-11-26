@@ -41,7 +41,7 @@ const Hero = () => {
               variant="outline" // Use outline style
               className="px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
             >
-              <Link to="/gcc-list">Get GCC Insights</Link>
+              <Link to="/gcc-list">Explore the Data</Link>
             </Button>
           </div>
 

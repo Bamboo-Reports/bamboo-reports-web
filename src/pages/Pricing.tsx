@@ -440,7 +440,7 @@ const Pricing = () => {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full">
-                <a href="/gcc-list">Get GCC Insights</a>
+                <a href="/gcc-list">Explore the Data</a>
               </Button>
             </div>
           </div>

@@ -32,7 +32,7 @@ const FloatingCTA = () => {
         size="lg"
         className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg px-6 py-6 rounded-full font-bold text-base"
       >
-        <Link to="/gcc-list">Get GCC Insights</Link>
+        <Link to="/gcc-list">Explore the Data</Link>
       </Button>
 
       <Button
