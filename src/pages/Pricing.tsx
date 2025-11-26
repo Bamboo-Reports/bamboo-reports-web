@@ -47,7 +47,7 @@ const Pricing = () => {
 
   const plans = [
     {
-      name: "Base Layer",
+      name: "Explorer",
       price: { USD: "1,299", INR: "1,09,999" }, // <-- Add your INR price
       originalPrice: { USD: "5,000", INR: "4,15,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
@@ -76,13 +76,13 @@ const Pricing = () => {
       ],
     },
     {
-      name: "Custom Layer",
+      name: "Navigator",
       price: { USD: "6,999", INR: "5,79,999" }, // <-- Add your INR price
       originalPrice: { USD: "15,000", INR: "12,50,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
       features: [
         {
-          title: "Everything from Base Layer",
+          title: "Everything from Explorer",
           description: "All base features included",
         },
         {
@@ -104,13 +104,13 @@ const Pricing = () => {
       ],
     },
     {
-      name: "Consult Layer",
+      name: "Enterprise Intelligence",
       price: "Custom", // Custom plan remains the same
       originalPrice: null,
       // priceSuffix: null,
       features: [
         {
-          title: "Everything from Base + Custom Layer",
+          title: "Everything from Explorer + Navigator",
           description: "All base and custom features",
         },
         {

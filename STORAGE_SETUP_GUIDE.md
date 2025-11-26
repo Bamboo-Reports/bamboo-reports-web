@@ -14,8 +14,8 @@
 
 ### ✅ Step 2: Upload Your PDFs
 1. Click on the `plan-documents` bucket
-2. Click **"Create folder"** → Name it `base-layer`
-3. Open the `base-layer` folder
+2. Click **"Create folder"** → Name it `explorer`
+3. Open the `explorer` folder
 4. Click **"Upload file"** and upload these PDFs with **exact names**:
 
 | PDF File | Upload As |
@@ -37,14 +37,14 @@
 This will:
 - Create the `plan_documents` metadata table
 - Set up Row Level Security (RLS) policies
-- Insert Base Layer document records
+- Insert Explorer document records
 - Create access control functions
 
 ### ✅ Step 4: Verify Setup
 Run this query in SQL Editor to verify:
 ```sql
 -- Check if documents are properly set up
-SELECT * FROM plan_documents WHERE plan_name = 'Base Layer';
+SELECT * FROM plan_documents WHERE plan_name = 'Explorer';
 
 -- Check if storage bucket exists
 SELECT * FROM storage.buckets WHERE name = 'plan-documents';
@@ -65,7 +65,7 @@ You should see:
 ### Current Structure:
 ```
 plan-documents/               ← Storage bucket
-└── base-layer/              ← Folder (matches plan name in lowercase-hyphenated)
+└── explorer/              ← Folder (matches plan name in lowercase-hyphenated)
     ├── standard-trends-report.pdf
     ├── annual-snapshot-2024-25.pdf
     ├── historic-view-3-years.pdf
@@ -75,8 +75,8 @@ plan-documents/               ← Storage bucket
 ### Why This Naming Convention?
 
 1. **Folder = Plan Name**
-   - `base-layer/` → "Base Layer" plan
-   - `custom-layer/` → "Custom Layer" plan (future)
+   - `explorer/` → "Explorer" plan
+   - `navigator/` → "Navigator" plan (future)
    - Pattern: Lowercase, hyphens instead of spaces
 
 2. **File Names = Descriptive + Kebab Case**
@@ -86,20 +86,20 @@ plan-documents/               ← Storage bucket
    - Example: `annual-snapshot-2024-25.pdf`
 
 3. **Access Control Logic**
-   - When user purchases "Base Layer"
-   - System checks: `purchases.plan_name = 'Base Layer'`
-   - Grants access to all files in `base-layer/` folder
+   - When user purchases "Explorer"
+   - System checks: `purchases.plan_name = 'Explorer'`
+   - Grants access to all files in `explorer/` folder
    - User can only download if purchase status = 'completed'
 
 ### Future Expansion:
 ```
 plan-documents/
-├── base-layer/
+├── explorer/
 │   ├── standard-trends-report.pdf
 │   ├── annual-snapshot-2024-25.pdf
 │   ├── historic-view-3-years.pdf
 │   └── quarterly-view.pdf
-├── custom-layer/
+├── navigator/
 │   ├── custom-trends-report.pdf
 │   ├── l2-accounts-database.pdf
 │   └── prospects-database.pdf
@@ -112,10 +112,10 @@ plan-documents/
 ## How Access Control Works
 
 ### Security Flow:
-1. **User purchases "Base Layer"** → Record created in `purchases` table
+1. **User purchases "Explorer"** → Record created in `purchases` table
 2. **User tries to download PDF** → System checks:
    ```sql
-   Does this user have a completed purchase for "Base Layer"?
+   Does this user have a completed purchase for "Explorer"?
    ```
 3. **If YES** → Download allowed ✅
 4. **If NO** → Access denied ❌
@@ -137,7 +137,7 @@ AND user_has_purchased_plan(auth.uid(), plan_name_from_path);
 // Should FAIL - no authentication
 const { data, error } = await supabase.storage
   .from('plan-documents')
-  .download('base-layer/standard-trends-report.pdf');
+  .download('explorer/standard-trends-report.pdf');
 
 // Expected: error = "Anonymous access denied"
 ```
@@ -147,17 +147,17 @@ const { data, error } = await supabase.storage
 // Should FAIL - no purchase record
 const { data, error } = await supabase.storage
   .from('plan-documents')
-  .download('base-layer/standard-trends-report.pdf');
+  .download('explorer/standard-trends-report.pdf');
 
 // Expected: error = "Access denied - no valid purchase"
 ```
 
-### Test 3: Logged In User (With Base Layer Purchase)
+### Test 3: Logged In User (With Explorer Purchase)
 ```javascript
 // Should SUCCESS - has completed purchase
 const { data, error } = await supabase.storage
   .from('plan-documents')
-  .download('base-layer/standard-trends-report.pdf');
+  .download('explorer/standard-trends-report.pdf');
 
 // Expected: data = PDF file blob
 ```
@@ -170,13 +170,13 @@ const { data, error } = await supabase.storage
 **Solution:**
 1. Check purchase status: `SELECT * FROM purchases WHERE user_id = 'YOUR_USER_ID'`
 2. Ensure `status = 'completed'`
-3. Ensure `plan_name = 'Base Layer'` (exact match, case-sensitive)
+3. Ensure `plan_name = 'Explorer'` (exact match, case-sensitive)
 
 ### Problem: "File not found"
 **Solution:**
 1. Verify file path in storage: `SELECT * FROM storage.objects WHERE bucket_id = 'plan-documents'`
 2. Check exact filename matches (case-sensitive)
-3. Ensure folder structure: `base-layer/filename.pdf`
+3. Ensure folder structure: `explorer/filename.pdf`
 
 ### Problem: RLS policy not working
 **Solution:**

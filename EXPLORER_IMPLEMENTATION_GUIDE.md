@@ -1,23 +1,23 @@
-# Base Layer Pricing Implementation - Complete Guide
+# Explorer Pricing Implementation - Complete Guide
 
 ## 🎉 What's Been Built
 
-The complete Base Layer pricing system is now implemented! Here's everything that was created:
+The complete Explorer pricing system is now implemented! Here's everything that was created:
 
 ### ✅ Database & Storage
 1. **PDF Storage Bucket** (`plan-documents`)
-   - Private storage for Base Layer PDFs
+   - Private storage for Explorer PDFs
    - Row Level Security (RLS) enabled
    - Only purchased users can access
 
 2. **GCC Companies Table** (`gcc_companies`)
    - 2,500+ GCC company records
    - Full-text search enabled
-   - RLS policies for Base Layer purchasers only
+   - RLS policies for Explorer purchasers only
 
 3. **Plan Documents Metadata** (`plan_documents`)
    - Links documents to plans
-   - Tracks 5 Base Layer deliverables
+   - Tracks 5 Explorer deliverables
    - Supports both PDFs and table views
 
 ### ✅ Backend Components
@@ -63,14 +63,14 @@ The complete Base Layer pricing system is now implemented! Here's everything tha
 
 5. **Updated Purchases Page**
    - Added "Access Your Content" button
-   - Shows all 5 Base Layer items
+   - Shows all 5 Explorer items
    - Direct link to /my-content
 
 ---
 
-## 🗂️ Base Layer Content Structure
+## 🗂️ Explorer Content Structure
 
-When a user purchases Base Layer ($1,299), they get access to:
+When a user purchases Explorer ($1,299), they get access to:
 
 | # | Item | Type | Location |
 |---|------|------|----------|
@@ -85,7 +85,7 @@ When a user purchases Base Layer ($1,299), they get access to:
 ## 🔐 Access Control Flow
 
 ```
-User purchases Base Layer
+User purchases Explorer
     ↓
 Record created in `purchases` table
     ↓
@@ -110,7 +110,7 @@ Users can download if they have a completed purchase for the plan
 
 **For GCC Data (Database):**
 ```sql
-Users can SELECT if they have a completed Base Layer purchase
+Users can SELECT if they have a completed Explorer purchase
 ```
 
 ---
@@ -146,7 +146,7 @@ bamboo-reports-web/
 **Check if tables exist:**
 ```sql
 -- Should return plan_documents table
-SELECT * FROM plan_documents WHERE plan_name = 'Base Layer';
+SELECT * FROM plan_documents WHERE plan_name = 'Explorer';
 
 -- Should return ~2,500 records
 SELECT COUNT(*) FROM gcc_companies;
@@ -170,7 +170,7 @@ SELECT * FROM storage.buckets WHERE name = 'plan-documents';
 
 **Option A: Use Razorpay Test Mode**
 1. Go to `/pricing`
-2. Click "Get Started" on Base Layer
+2. Click "Get Started" on Explorer
 3. Use Razorpay test card:
    - Card: `4111 1111 1111 1111`
    - CVV: Any 3 digits
@@ -191,7 +191,7 @@ INSERT INTO purchases (
 ) VALUES (
   'your-user-id-here',
   'test-order-' || gen_random_uuid(),
-  'Base Layer',
+  'Explorer',
   1299.00,
   'USD',
   'completed',
@@ -211,13 +211,13 @@ INSERT INTO purchases (
 After purchase:
 
 1. **Go to** `/purchases`
-   - ✅ Should show Base Layer purchase
+   - ✅ Should show Explorer purchase
    - ✅ Expand details shows 5 items
    - ✅ "Access Your Content" button visible
 
 2. **Click** "Access Your Content"
    - ✅ Redirects to `/my-content`
-   - ✅ Shows "Base Layer - Your Content"
+   - ✅ Shows "Explorer - Your Content"
    - ✅ Displays 5 document cards
 
 3. **Test PDF Documents:**
@@ -246,7 +246,7 @@ After purchase:
 **Direct PDF access (test RLS):**
 1. Try to access PDF directly via URL
    - ✅ Should be denied if no purchase
-   - ✅ Should work if Base Layer purchased
+   - ✅ Should work if Explorer purchased
 
 ---
 
@@ -274,11 +274,11 @@ VITE_SUBSCRIPTION_ENABLED=true
 
 ### Storage
 1. ✅ Create `plan-documents` bucket
-2. ✅ Upload all 4 Base Layer PDFs:
-   - `base-layer/standard-trends-report.pdf`
-   - `base-layer/annual-snapshot-2024-25.pdf`
-   - `base-layer/historic-view-3-years.pdf`
-   - `base-layer/quarterly-view.pdf`
+2. ✅ Upload all 4 Explorer PDFs:
+   - `explorer/standard-trends-report.pdf`
+   - `explorer/annual-snapshot-2024-25.pdf`
+   - `explorer/historic-view-3-years.pdf`
+   - `explorer/quarterly-view.pdf`
 3. ✅ Verify bucket is private
 4. ✅ Test RLS policies
 
@@ -299,7 +299,7 @@ VITE_SUBSCRIPTION_ENABLED=true
 ### "Access denied" when downloading PDF
 **Cause:** RLS policy not working or no purchase record
 **Fix:**
-1. Check user has `completed` purchase for `Base Layer`
+1. Check user has `completed` purchase for `Explorer`
 2. Verify RLS policies exist on `storage.objects`
 3. Check PDF file path matches exactly
 
@@ -308,7 +308,7 @@ VITE_SUBSCRIPTION_ENABLED=true
 **Fix:**
 1. Run: `SELECT COUNT(*) FROM gcc_companies;`
 2. If 0, run import script
-3. If >0, check user has Base Layer purchase
+3. If >0, check user has Explorer purchase
 
 ### "Failed to load PDF" or PDF.js worker error
 **Cause:** PDF.js worker file not loading or version mismatch
@@ -335,11 +335,11 @@ VITE_SUBSCRIPTION_ENABLED=true
 ## 📊 User Journey Example
 
 1. **User visits** `/pricing`
-2. **Clicks** "Get Started" on Base Layer ($1,299)
+2. **Clicks** "Get Started" on Explorer ($1,299)
 3. **Completes** Razorpay payment
 4. **Redirected to** `/payment-success`
 5. **Goes to** `/purchases`
-6. **Sees** Base Layer purchase with 5 items
+6. **Sees** Explorer purchase with 5 items
 7. **Clicks** "Access Your Content"
 8. **Lands on** `/my-content`
 9. **Sees** 5 document cards:
@@ -361,8 +361,8 @@ VITE_SUBSCRIPTION_ENABLED=true
 - [ ] Add email notifications when new reports are added
 
 ### Medium Term
-- [ ] Add Custom Layer content (L2 list, prospects database)
-- [ ] Add Consult Layer materials
+- [ ] Add Navigator content (L2 list, prospects database)
+- [ ] Add Enterprise Intelligence materials
 - [ ] Add analytics dashboard (views, downloads)
 - [ ] Add quarterly report auto-updates
 
@@ -387,9 +387,9 @@ If you encounter issues:
 
 ## ✅ Success Criteria
 
-Your Base Layer implementation is complete when:
+Your Explorer implementation is complete when:
 
-- ✅ User can purchase Base Layer plan
+- ✅ User can purchase Explorer plan
 - ✅ Purchase recorded in database
 - ✅ User can access /my-content after purchase
 - ✅ User can view/download all 4 PDFs
@@ -399,4 +399,4 @@ Your Base Layer implementation is complete when:
 - ✅ RLS policies prevent unauthorized access
 - ✅ All components load without errors
 
-**Congratulations! Your Base Layer pricing implementation is complete! 🎉**
+**Congratulations! Your Explorer pricing implementation is complete! 🎉**

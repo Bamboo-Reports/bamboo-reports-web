@@ -10,7 +10,7 @@
 
 This creates:
 - `gcc_companies` table with all required columns
-- RLS policies (only Base Layer purchasers can view)
+- RLS policies (only Explorer purchasers can view)
 - Search indexes for performance
 - Full-text search function
 
@@ -166,7 +166,7 @@ If your Excel column names don't match exactly, I can:
 **Solution:** Use OPTION 3 (script) to import in batches
 
 ### Issue: Data imported but shows as empty in app
-**Solution:** Check RLS policies - ensure your user has a Base Layer purchase record
+**Solution:** Check RLS policies - ensure your user has a Explorer purchase record
 
 ---
 
