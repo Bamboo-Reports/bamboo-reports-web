@@ -55,12 +55,12 @@ CREATE INDEX IF NOT EXISTS idx_gcc_companies_name_search
 -- =====================================================
 -- ROW LEVEL SECURITY (RLS)
 -- =====================================================
--- Only Base Layer purchasers can view GCC data
+-- Only Explorer purchasers can view GCC data
 
 ALTER TABLE gcc_companies ENABLE ROW LEVEL SECURITY;
 
--- Policy: Only users who purchased Base Layer can view GCC companies
-CREATE POLICY "Base Layer purchasers can view GCC companies"
+-- Policy: Only users who purchased Explorer can view GCC companies
+CREATE POLICY "Explorer purchasers can view GCC companies"
 ON gcc_companies
 FOR SELECT
 USING (
@@ -69,7 +69,7 @@ USING (
     FROM purchases
     WHERE purchases.user_id = auth.uid()
     AND purchases.status = 'completed'
-    AND purchases.plan_name = 'Base Layer'
+    AND purchases.plan_name = 'Explorer'
   )
 );
 

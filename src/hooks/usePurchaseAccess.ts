@@ -18,7 +18,7 @@ interface UsePurchaseAccessResult {
 
 /**
  * Hook to check if the current user has purchased a specific plan
- * @param planName - Name of the plan to check (e.g., "Base Layer")
+ * @param planName - Name of the plan to check (e.g., "Explorer")
  * @returns Object with purchase status and data
  */
 export function usePurchaseAccess(planName: string): UsePurchaseAccessResult {

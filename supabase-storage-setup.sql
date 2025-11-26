@@ -24,7 +24,7 @@ USING (
   bucket_id = 'plan-documents'
   AND (
     -- Check if user has purchased the plan that owns this document
-    -- Extract plan name from path: base-layer/doc.pdf -> base-layer
+    -- Extract plan name from path: explorer/doc.pdf -> explorer
     EXISTS (
       SELECT 1
       FROM purchases
@@ -51,7 +51,7 @@ WITH CHECK (bucket_id = 'plan-documents');
 
 CREATE TABLE IF NOT EXISTS plan_documents (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  plan_name TEXT NOT NULL, -- 'Base Layer', 'Custom Layer', etc.
+  plan_name TEXT NOT NULL, -- 'Explorer', 'Navigator', etc.
   document_type TEXT NOT NULL, -- 'pdf' or 'table'
   title TEXT NOT NULL, -- Display title
   description TEXT, -- Optional description
@@ -80,16 +80,16 @@ USING (true)
 WITH CHECK (true);
 
 -- =====================================================
--- INSERT BASE LAYER DOCUMENTS
+-- INSERT EXPLORER DOCUMENTS
 -- =====================================================
--- Add metadata for Base Layer documents
+-- Add metadata for Explorer documents
 
 INSERT INTO plan_documents (plan_name, document_type, title, description, file_path, storage_bucket, display_order) VALUES
-  ('Base Layer', 'pdf', 'Standard Trends Report', 'Comprehensive GCC market insights', 'base-layer/standard-trends-report.pdf', 'plan-documents', 1),
-  ('Base Layer', 'table', 'L1 List - 2,500+ GCCs', 'Limited view of GCC database', NULL, NULL, 2),
-  ('Base Layer', 'pdf', 'Annual Snapshot 2024-25', 'Free update in December', 'base-layer/annual-snapshot-2024-25.pdf', 'plan-documents', 3),
-  ('Base Layer', 'pdf', 'Historic View (3 Years)', 'GCC movement trends in India', 'base-layer/historic-view-3-years.pdf', 'plan-documents', 4),
-  ('Base Layer', 'pdf', 'Quarterly View', 'Latest quarter insights', 'base-layer/quarterly-view.pdf', 'plan-documents', 5);
+  ('Explorer', 'pdf', 'Standard Trends Report', 'Comprehensive GCC market insights', 'explorer/standard-trends-report.pdf', 'plan-documents', 1),
+  ('Explorer', 'table', 'L1 List - 2,500+ GCCs', 'Limited view of GCC database', NULL, NULL, 2),
+  ('Explorer', 'pdf', 'Annual Snapshot 2024-25', 'Free update in December', 'explorer/annual-snapshot-2024-25.pdf', 'plan-documents', 3),
+  ('Explorer', 'pdf', 'Historic View (3 Years)', 'GCC movement trends in India', 'explorer/historic-view-3-years.pdf', 'plan-documents', 4),
+  ('Explorer', 'pdf', 'Quarterly View', 'Latest quarter insights', 'explorer/quarterly-view.pdf', 'plan-documents', 5);
 
 -- =====================================================
 -- HELPER FUNCTION: Check if user has access to document

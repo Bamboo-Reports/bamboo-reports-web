@@ -5,7 +5,7 @@
 The purchases functionality has been successfully implemented! Users can now:
 - View their purchase history by clicking "My Purchases" in the profile menu
 - See all details about their purchases including plan features
-- Track Base Layer and Custom Layer purchases
+- Track Explorer and Navigator purchases
 
 ## What Was Implemented
 
@@ -67,7 +67,7 @@ Make sure your environment variables are set in Netlify:
 1. **Sign in** to your account
 2. **Make a test purchase** (use Razorpay test mode):
    - Go to /pricing
-   - Select Base Layer or Custom Layer
+   - Select Explorer or Navigator
    - Complete the payment flow
 3. **View your purchase**:
    - Click on your profile avatar in the header
@@ -91,15 +91,15 @@ Make sure your environment variables are set in Netlify:
 
 ## Features Included
 
-### Base Layer Features (displayed in purchases)
+### Explorer Features (displayed in purchases)
 - Standard Trends Report - Comprehensive GCC market insights
 - L1 List - 2,500+ GCCs - Limited view of GCC database
 - Annual Snapshot 2024-25 - Free update in December
 - Historic View (3 Years) - GCC movement trends in India
 - Quarterly View - Latest quarter insights
 
-### Custom Layer Features (displayed in purchases)
-- Everything from Base Layer - All base features included
+### Navigator Features (displayed in purchases)
+- Everything from Explorer - All base features included
 - Trends Report (Up to 3 Filters) - Customizable filtering options
 - Standard L2 - Up to 250 Accounts - Detailed account information
 - Standard Prospects Database - Up to 1,200 Verified Prospects
