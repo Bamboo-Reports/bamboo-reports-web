@@ -53,7 +53,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/gcc-list" className="text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth">
-                  Get Free GCC Data
+                  Get GCC Insights
                 </Link>
               </li>
               <li>

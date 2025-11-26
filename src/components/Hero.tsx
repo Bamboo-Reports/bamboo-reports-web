@@ -41,10 +41,10 @@ const Hero = () => {
               variant="outline" // Use outline style
               className="px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
             >
-              <Link to="/gcc-list">Get Free GCC Data</Link>
+              <Link to="/gcc-list">Get GCC Insights</Link>
             </Button>
           </div>
-          
+
           <p className="text-xs sm:text-sm text-muted-foreground px-4">
             Get expert advice to supercharge your GCC strategy
           </p>

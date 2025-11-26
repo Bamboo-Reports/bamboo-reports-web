@@ -68,7 +68,7 @@ const Header = () => {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              
+
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -112,7 +112,7 @@ const Header = () => {
               variant="outline"
               className="rounded-full font-semibold"
             >
-              <Link to="/gcc-list">Get Free GCC Data</Link>
+              <Link to="/gcc-list">Get GCC Insights</Link>
             </Button>
 
             {user ? (
@@ -259,7 +259,7 @@ const Header = () => {
                     className="w-full rounded-full font-semibold"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <Link to="/gcc-list">Get Free GCC Data</Link>
+                    <Link to="/gcc-list">Get GCC Insights</Link>
                   </Button>
 
                   {user ? (
