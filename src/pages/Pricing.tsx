@@ -334,8 +334,8 @@ const Pricing = () => {
                 <div
                   key={plan.name}
                   className={`relative rounded-lg border p-8 flex flex-col ${plan.popular
-                      ? "border-primary shadow-lg scale-105"
-                      : "border-border"
+                    ? "border-primary shadow-lg scale-105"
+                    : "border-border"
                     }`}
                 >
                   {plan.popular && (
@@ -440,7 +440,7 @@ const Pricing = () => {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full">
-                <a href="/gcc-list">Get Free GCC Data</a>
+                <a href="/gcc-list">Get GCC Insights</a>
               </Button>
             </div>
           </div>
