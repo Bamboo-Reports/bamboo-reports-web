@@ -30,6 +30,7 @@ import {
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const { user, signOut } = useAuth();
 
@@ -62,6 +63,29 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
+                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-48 p-2">
+                    <Link to="/products/explorer">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        Explorer
+                      </NavigationMenuLink>
+                    </Link>
+                    <Link to="/products/navigator">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        Navigator
+                      </NavigationMenuLink>
+                    </Link>
+                    <Link to="/products/custom">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        Custom
+                      </NavigationMenuLink>
+                    </Link>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
                 <Link to="/pricing">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Pricing
@@ -74,17 +98,17 @@ const Header = () => {
                 <NavigationMenuContent>
                   <div className="w-48 p-2">
                     <Link to="/reports">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         Reports
                       </NavigationMenuLink>
                     </Link>
                     <Link to="/insights">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         Insights
                       </NavigationMenuLink>
                     </Link>
                     <Link to="/articles">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         Articles
                       </NavigationMenuLink>
                     </Link>
@@ -190,6 +214,41 @@ const Header = () => {
               {/* Navigation */}
               <nav className="flex-1 overflow-y-auto">
                 <div className="px-6 space-y-1">
+                  <div className="border-b pb-1">
+                    <button
+                      onClick={() => setProductsOpen(!productsOpen)}
+                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
+                    >
+                      Products
+                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${productsOpen ? 'rotate-90' : ''}`} />
+                    </button>
+                    {productsOpen && (
+                      <div className="pl-4 space-y-1">
+                        <Link
+                          to="/products/explorer"
+                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          Explorer
+                        </Link>
+                        <Link
+                          to="/products/navigator"
+                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          Navigator
+                        </Link>
+                        <Link
+                          to="/products/custom"
+                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          Custom
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+
                   <Link
                     to="/pricing"
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
