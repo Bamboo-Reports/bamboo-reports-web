@@ -6,11 +6,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Eye, EyeOff } from 'lucide-react';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { signIn } = useAuth();
   const navigate = useNavigate();
@@ -42,9 +43,11 @@ const SignIn = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 px-4 py-12">
-      <Card className="w-full max-w-md shadow-xl">
+      <Card className="w-full max-w-md shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-500">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-3xl font-bold text-center">Welcome back</CardTitle>
+          <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Welcome back
+          </CardTitle>
           <CardDescription className="text-center">
             Sign in to your account to continue
           </CardDescription>
@@ -62,26 +65,42 @@ const SignIn = () => {
                 required
                 disabled={isLoading}
                 autoComplete="email"
+                className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
               />
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
               </div>
-              <Input
-                id="password"
-                placeholder="••••••••"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                disabled={isLoading}
-                autoComplete="current-password"
-              />
+              <div className="relative">
+                <Input
+                  id="password"
+                  placeholder="••••••••"
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  autoComplete="current-password"
+                  className="pr-10 transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  tabIndex={-1}
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4" />
+                  ) : (
+                    <Eye className="h-4 w-4" />
+                  )}
+                </button>
+              </div>
             </div>
             <Button
               type="submit"
-              className="w-full"
+              className="w-full transition-all duration-200 hover:scale-[1.02]"
               disabled={isLoading}
               size="lg"
             >
@@ -101,7 +120,7 @@ const SignIn = () => {
             Don't have an account?{' '}
             <Link
               to={redirectTo && redirectTo !== '/profile' ? `/signup?redirect=${encodeURIComponent(redirectTo)}` : '/signup'}
-              className="text-primary hover:underline font-semibold"
+              className="text-primary hover:underline font-semibold transition-all duration-200"
             >
               Sign up
             </Link>
