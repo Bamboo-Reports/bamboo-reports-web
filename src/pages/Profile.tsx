@@ -1,7 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
-import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
-import { LogOut, Mail, User, Calendar, Camera, Loader2, Trash2, FileText, ShoppingBag, DollarSign, TrendingUp, ArrowRight, Package } from 'lucide-react';
+import { LogOut, Mail, User, Calendar, Camera, Loader2, Trash2, FileText, ShoppingBag, DollarSign, TrendingUp, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
 import ImageCropDialog from '@/components/ImageCropDialog';
 
@@ -35,15 +34,6 @@ const Profile = () => {
 
   const [cropDialogOpen, setCropDialogOpen] = useState(false);
   const [selectedImageSrc, setSelectedImageSrc] = useState<string>('');
-
-  // Purchase statistics
-  const [purchaseStats, setPurchaseStats] = useState({
-    totalPurchases: 0,
-    activePlans: 0,
-    totalSpent: 0,
-    lastPurchaseDate: null as Date | null,
-  });
-  const [loadingStats, setLoadingStats] = useState(true);
 
   const handleSignOut = async () => {
     await signOut();
@@ -229,47 +219,6 @@ const Profile = () => {
     setIsUploadingAvatar(false);
   };
 
-  // Fetch purchase statistics
-  useEffect(() => {
-    const fetchPurchaseStats = async () => {
-      if (!user) {
-        setLoadingStats(false);
-        return;
-      }
-
-      try {
-        const { data, error } = await supabase
-          .from('purchases')
-          .select('*')
-          .eq('user_id', user.id)
-          .eq('status', 'completed')
-          .order('purchased_at', { ascending: false });
-
-        if (error) throw error;
-
-        if (data && data.length > 0) {
-          // Calculate statistics
-          const uniquePlans = new Set(data.map((p) => p.plan_name));
-          const totalAmount = data.reduce((sum, p) => sum + p.amount, 0);
-          const mostRecentPurchase = new Date(data[0].purchased_at);
-
-          setPurchaseStats({
-            totalPurchases: data.length,
-            activePlans: uniquePlans.size,
-            totalSpent: totalAmount,
-            lastPurchaseDate: mostRecentPurchase,
-          });
-        }
-      } catch (error) {
-        console.error('Error fetching purchase stats:', error);
-      } finally {
-        setLoadingStats(false);
-      }
-    };
-
-    fetchPurchaseStats();
-  }, [user]);
-
   if (!user) {
     return null;
   }
@@ -301,64 +250,6 @@ const Profile = () => {
             Back to Home
           </Button>
         </div>
-
-        {/* Account Overview - Show only if user has purchases */}
-        {!loadingStats && purchaseStats.totalPurchases > 0 && (
-          <Card className="shadow-lg border-primary/20">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-primary" />
-                Account Overview
-              </CardTitle>
-              <CardDescription>Your activity at a glance</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="p-4 rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800">
-                  <div className="flex items-center gap-2 text-blue-700 dark:text-blue-400 mb-2">
-                    <ShoppingBag className="h-4 w-4" />
-                    <p className="text-xs font-medium uppercase tracking-wide">Total Purchases</p>
-                  </div>
-                  <p className="text-2xl font-bold text-blue-900 dark:text-blue-300">
-                    {purchaseStats.totalPurchases}
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-lg bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border border-green-200 dark:border-green-800">
-                  <div className="flex items-center gap-2 text-green-700 dark:text-green-400 mb-2">
-                    <Package className="h-4 w-4" />
-                    <p className="text-xs font-medium uppercase tracking-wide">Active Plans</p>
-                  </div>
-                  <p className="text-2xl font-bold text-green-900 dark:text-green-300">
-                    {purchaseStats.activePlans}
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-lg bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 border border-purple-200 dark:border-purple-800">
-                  <div className="flex items-center gap-2 text-purple-700 dark:text-purple-400 mb-2">
-                    <DollarSign className="h-4 w-4" />
-                    <p className="text-xs font-medium uppercase tracking-wide">Total Spent</p>
-                  </div>
-                  <p className="text-2xl font-bold text-purple-900 dark:text-purple-300">
-                    ₹{purchaseStats.totalSpent.toLocaleString()}
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-lg bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border border-orange-200 dark:border-orange-800">
-                  <div className="flex items-center gap-2 text-orange-700 dark:text-orange-400 mb-2">
-                    <Calendar className="h-4 w-4" />
-                    <p className="text-xs font-medium uppercase tracking-wide">Last Purchase</p>
-                  </div>
-                  <p className="text-sm font-bold text-orange-900 dark:text-orange-300">
-                    {purchaseStats.lastPurchaseDate
-                      ? format(purchaseStats.lastPurchaseDate, 'MMM dd, yyyy')
-                      : 'N/A'}
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )}
 
         {/* Quick Actions */}
         <Card className="shadow-lg">
