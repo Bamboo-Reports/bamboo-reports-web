@@ -22,9 +22,10 @@ const reports = [
 
 const Reports = () => {
   useSEO({
-    title: "GCC Reports - India GCC Research & Market Intelligence",
-    description: "Download comprehensive GCC reports including India GCC trends, quarterly snapshots, and market intelligence. Get actionable insights on Global Capability Centers growth and benchmarking data.",
-    keywords: "GCC Reports, India GCC Research, GCC Trends, GCC Market Intelligence, Global Capability Centers Reports, GCC Insights, GCC benchmarking, India GCC Snapshot",
+    title: "India GCC Reports | GCC Intelligence & GTM Market Research | Bamboo Reports",
+    description: "Comprehensive India GCC Intelligence reports with GTM market research. Access India Global Capability Centers trends, quarterly snapshots, and strategic intelligence for GCC expansion in India.",
+    keywords: "India GCC Reports, GCC Intelligence India, India GCC research, GTM Intelligence India, Global Capability Centers India reports, India GCC Intelligence, GCC market intelligence India, India GCC trends, GTM market research India, GCC insights India, India GCC quarterly reports",
+    canonicalUrl: "https://www.bambooreports.com/reports",
   });
 
   return (
