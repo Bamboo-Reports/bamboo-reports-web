@@ -96,18 +96,18 @@ export default function MyContent() {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="py-20 px-4">
+        <main className="py-16 sm:py-20 px-3 sm:px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-card border rounded-lg p-12 text-center">
-              <ShoppingBag className="h-20 w-20 text-muted-foreground mx-auto mb-6" />
-              <h2 className="text-2xl font-semibold mb-2">No Purchases Yet</h2>
-              <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+            <div className="bg-card border rounded-lg p-8 sm:p-12 text-center">
+              <ShoppingBag className="h-16 w-16 sm:h-20 sm:w-20 text-muted-foreground mx-auto mb-4 sm:mb-6" />
+              <h2 className="text-xl sm:text-2xl font-semibold mb-2">No Purchases Yet</h2>
+              <p className="text-muted-foreground mb-6 sm:mb-8 max-w-md mx-auto text-sm sm:text-base">
                 You haven't purchased any plans yet. Browse our pricing to get started with GCC Intelligence Platform.
               </p>
               <Button
                 onClick={() => navigate("/pricing")}
                 size="lg"
-                className="rounded-full hover:scale-100 active:scale-100"
+                className="rounded-full hover:scale-100 active:scale-100 text-sm sm:text-base"
               >
                 View Pricing Plans
               </Button>
@@ -140,31 +140,32 @@ export default function MyContent() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="py-20 px-4">
+      <main className="py-16 sm:py-20 px-3 sm:px-4">
         <div className="max-w-7xl mx-auto">
           {/* Page Header with Back Button */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <Button
               variant="ghost"
               onClick={() => navigate(-1)}
-              className="mb-4 -ml-4"
+              className="mb-3 sm:mb-4 -ml-2 sm:-ml-4 text-xs sm:text-sm"
+              size="sm"
             >
-              <ArrowLeft className="mr-2 h-4 w-4" />
+              <ArrowLeft className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
               Back
             </Button>
-            <h1 className="text-4xl font-bold tracking-tight text-foreground flex items-center gap-3">
-              <FileText className="h-10 w-10 text-primary" />
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground flex items-center gap-2 sm:gap-3">
+              <FileText className="h-7 w-7 sm:h-9 sm:w-9 lg:h-10 lg:w-10 text-primary" />
               My Content
             </h1>
-            <p className="text-muted-foreground mt-2 text-lg">
+            <p className="text-muted-foreground mt-1 sm:mt-2 text-sm sm:text-base lg:text-lg">
               Access all your purchased reports, documents, and data
             </p>
           </div>
 
           {/* Plan Tabs */}
           {planNames.length > 1 ? (
-            <Tabs value={activePlan} onValueChange={handlePlanChange} className="space-y-6">
-              <TabsList className="grid w-full max-w-md" style={{ gridTemplateColumns: `repeat(${planNames.length}, 1fr)` }}>
+            <Tabs value={activePlan} onValueChange={handlePlanChange} className="space-y-4 sm:space-y-6">
+              <TabsList className="grid w-full max-w-md text-xs sm:text-sm" style={{ gridTemplateColumns: `repeat(${planNames.length}, 1fr)` }}>
                 {planNames.map((planName) => (
                   <TabsTrigger key={planName} value={planName}>
                     {planName}
@@ -174,29 +175,29 @@ export default function MyContent() {
 
               {planNames.map((planName) => (
                 <TabsContent key={planName} value={planName}>
-                  <div className="bg-card border rounded-lg p-6">
+                  <div className="bg-card border rounded-lg p-4 sm:p-6">
                     <PlanDocuments planName={planName} />
                   </div>
                 </TabsContent>
               ))}
             </Tabs>
           ) : (
-            <div className="bg-card border rounded-lg p-6">
+            <div className="bg-card border rounded-lg p-4 sm:p-6">
               <PlanDocuments planName={planNames[0]} />
             </div>
           )}
 
           {/* CTA Section */}
-          <div className="mt-12 bg-muted/30 rounded-lg border border-border p-8 text-center">
-            <h3 className="text-2xl font-semibold mb-2">Need More Intelligence?</h3>
-            <p className="text-muted-foreground mb-6">
+          <div className="mt-8 sm:mt-12 bg-muted/30 rounded-lg border border-border p-6 sm:p-8 text-center">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Need More Intelligence?</h3>
+            <p className="text-muted-foreground mb-4 sm:mb-6 text-sm sm:text-base">
               Explore our other plans to unlock more features and insights
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button
                 onClick={() => navigate("/pricing")}
                 size="lg"
-                className="rounded-full hover:scale-100 active:scale-100"
+                className="rounded-full hover:scale-100 active:scale-100 text-sm sm:text-base"
               >
                 View Pricing Plans
               </Button>
@@ -204,7 +205,7 @@ export default function MyContent() {
                 variant="outline"
                 onClick={() => navigate("/purchases")}
                 size="lg"
-                className="rounded-full hover:scale-100 active:scale-100"
+                className="rounded-full hover:scale-100 active:scale-100 text-sm sm:text-base"
               >
                 View Purchase History
               </Button>
