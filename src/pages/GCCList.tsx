@@ -47,9 +47,10 @@ const toCSV = (rows: any[], cols: string[]) => {
 
 const GCCList = () => {
   useSEO({
-    title: "GCC Contact Database - Free India GCC Data & Company List",
-    description: "Access the largest free GCC database with 2400+ Global Capability Centers in India. Search and filter by company, industry, HQ country, and headcount. Download GCC contact data for ABM research and GTM planning.",
-    keywords: "GCC Contact Database, India GCC List, GCC Company Database, Global Capability Centers India, GCC Data Download, ABM research, GTM research India, GCC Intelligence, India GCC Research",
+    title: "India GCC Database | 2400+ Global Capability Centers List | GCC Intelligence",
+    description: "Free India GCC database with 2400+ Global Capability Centers. Access GCC Intelligence, contact data, and GTM market intelligence for India. Search and filter GCC companies by industry, HQ country, and headcount.",
+    keywords: "India GCC Database, GCC Intelligence India, India GCC list, Global Capability Centers India, GCC contact database India, India GCC Intelligence, GTM Intelligence India, India GCC data, GCC market intelligence India, Global Capability Centers database India, India GCC companies, GCC India contact list",
+    canonicalUrl: "https://www.bambooreports.com/gcc-list",
   });
   const [data, setData] = useState<any[]>([]);
   const [columns, setColumns] = useState<string[]>([]);

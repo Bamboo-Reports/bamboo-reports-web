@@ -12,9 +12,9 @@ interface SEOConfig {
 }
 
 const DEFAULT_CONFIG: SEOConfig = {
-  title: "Bamboo Reports - Actionable Insights On Global Capability Centers",
-  description: "GCC Intelligence platform with the largest repository of Global Capability Centers data. Access India GCC research, GCC trends, contact database, benchmarking, and market intelligence.",
-  keywords: "GCC Intelligence, GCC Insights, GCC Contact Database, India GCC Research, GCC Trends, Market Intelligence India, Strategy intelligence platform, GCC benchmarking, ABM research, Roundtable as a Service, GTM research India, Global Capability Centers",
+  title: "GCC Intelligence India | GTM Market Intelligence | Bamboo Reports",
+  description: "India's leading GCC Intelligence platform with 2400+ Global Capability Centers data. GTM market intelligence, India GCC insights, and Go-to-market research for strategic GCC expansion in India.",
+  keywords: "GCC Intelligence India, GTM Intelligence, GCC India, India GCC Intelligence, Global Capability Centers India, GTM Market Intelligence, Go-to-market Intelligence India, India GCC market intelligence, GCC GTM strategy, India GCC expansion, GCC Intelligence platform, GTM research India",
   ogType: "website",
 };
 

@@ -10,16 +10,20 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { useSEO } from "@/hooks/useSEO";
+import StructuredData from "@/components/StructuredData";
 
 const Index = () => {
   useSEO({
-    title: "Bamboo Reports - GCC Intelligence & Global Capability Centers Insights",
-    description: "Leading GCC Intelligence platform with comprehensive data on 2400+ Global Capability Centers in India. Access GCC insights, contact database, market intelligence, benchmarking, and GCC trends research.",
-    keywords: "GCC Intelligence, GCC Insights, Global Capability Centers, India GCC Research, GCC Trends, GCC Contact Database, Market Intelligence India, Strategy intelligence platform, GCC benchmarking, ABM research, GTM research India",
+    title: "GCC Intelligence India | GTM Market Intelligence Platform | Bamboo Reports",
+    description: "India's leading GCC Intelligence platform with 2400+ Global Capability Centers data. GTM market intelligence, India GCC insights, and Go-to-market research for strategic GCC expansion in India.",
+    keywords: "GCC Intelligence India, GTM Intelligence, GCC India, India GCC Intelligence, Global Capability Centers India, GTM Market Intelligence, Go-to-market Intelligence India, India GCC market intelligence, GCC GTM strategy, India GCC expansion, GCC Intelligence platform, GTM research India, Global Capability Centers Intelligence, India GCC data, GCC market intelligence India",
+    canonicalUrl: "https://www.bambooreports.com",
   });
 
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData type="organization" />
+      <StructuredData type="product" />
       <Header />
       <Hero />
       <Features />
