@@ -25,6 +25,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
+import Explorer from "./pages/products/Explorer";
+import Navigator from "./pages/products/Navigator";
+import Custom from "./pages/products/Custom";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +40,9 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/products/explorer" element={<Explorer />} />
+            <Route path="/products/navigator" element={<Navigator />} />
+            <Route path="/products/custom" element={<Custom />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/reports/52-weeks" element={<Report52Weeks />} />
