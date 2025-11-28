@@ -183,14 +183,9 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <>
-                <Button asChild variant="ghost" className="rounded-full">
-                  <Link to="/signin">Sign In</Link>
-                </Button>
-                <Button asChild className="rounded-full">
-                  <Link to="/signup">Sign Up</Link>
-                </Button>
-              </>
+              <Button asChild variant="ghost" className="rounded-full">
+                <Link to="/signin">Sign In</Link>
+              </Button>
             )}
           </div>
         </div>
@@ -360,25 +355,16 @@ const Header = () => {
                       </Button>
                     </>
                   ) : (
-                    <>
-                      <div className="border-t pt-3">
-                        <Button
-                          asChild
-                          variant="ghost"
-                          className="w-full rounded-full font-semibold"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          <Link to="/signin">Sign In</Link>
-                        </Button>
-                      </div>
+                    <div className="border-t pt-3">
                       <Button
                         asChild
+                        variant="ghost"
                         className="w-full rounded-full font-semibold"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <Link to="/signup">Sign Up</Link>
+                        <Link to="/signin">Sign In</Link>
                       </Button>
-                    </>
+                    </div>
                   )}
                 </div>
               </nav>
