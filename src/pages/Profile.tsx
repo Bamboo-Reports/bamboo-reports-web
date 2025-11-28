@@ -237,22 +237,22 @@ const Profile = () => {
   const createdAt = user.created_at ? new Date(user.created_at) : new Date();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 px-4 py-12">
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div className="flex items-center justify-between">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 px-3 sm:px-4 py-8 sm:py-12">
+      <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
+        <div className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-4xl font-bold">Profile</h1>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Profile</h1>
+            <p className="text-gray-600 dark:text-gray-400 mt-1 sm:mt-2 text-sm sm:text-base">
               Manage your account settings and preferences
             </p>
           </div>
-          <Button variant="outline" onClick={() => navigate('/')}>
+          <Button variant="outline" onClick={() => navigate('/')} className="shrink-0 text-xs sm:text-sm">
             Back to Home
           </Button>
         </div>
 
         {/* 50/50 Split Layout */}
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 lg:grid-cols-2">
           {/* Left: Quick Actions */}
           <Card className="shadow-lg">
             <CardHeader>
@@ -264,16 +264,16 @@ const Profile = () => {
                 {/* My Content */}
                 <button
                   onClick={() => navigate('/my-content')}
-                  className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
+                  className="group relative p-4 sm:p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                      <FileText className="h-6 w-6" />
+                  <div className="flex items-start justify-between mb-2 sm:mb-3">
+                    <div className="p-2 sm:p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <FileText className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
-                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h3 className="font-semibold text-lg mb-1">My Content</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <h3 className="font-semibold text-base sm:text-lg mb-1">My Content</h3>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                     View your purchased reports and documents
                   </p>
                 </button>
@@ -281,16 +281,16 @@ const Profile = () => {
                 {/* My Purchases */}
                 <button
                   onClick={() => navigate('/purchases')}
-                  className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
+                  className="group relative p-4 sm:p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="p-3 rounded-lg bg-green-500/10 text-green-600 dark:text-green-400 group-hover:bg-green-500 group-hover:text-white transition-colors">
-                      <ShoppingBag className="h-6 w-6" />
+                  <div className="flex items-start justify-between mb-2 sm:mb-3">
+                    <div className="p-2 sm:p-3 rounded-lg bg-green-500/10 text-green-600 dark:text-green-400 group-hover:bg-green-500 group-hover:text-white transition-colors">
+                      <ShoppingBag className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
-                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h3 className="font-semibold text-lg mb-1">My Purchases</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <h3 className="font-semibold text-base sm:text-lg mb-1">My Purchases</h3>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                     View your purchase history and details
                   </p>
                 </button>
@@ -298,16 +298,16 @@ const Profile = () => {
                 {/* Browse Plans */}
                 <button
                   onClick={() => navigate('/pricing')}
-                  className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
+                  className="group relative p-4 sm:p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="p-3 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
-                      <DollarSign className="h-6 w-6" />
+                  <div className="flex items-start justify-between mb-2 sm:mb-3">
+                    <div className="p-2 sm:p-3 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                      <DollarSign className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
-                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h3 className="font-semibold text-lg mb-1">Browse Plans</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <h3 className="font-semibold text-base sm:text-lg mb-1">Browse Plans</h3>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                     Explore pricing and unlock more features
                   </p>
                 </button>
@@ -315,16 +315,16 @@ const Profile = () => {
                 {/* Explore Reports */}
                 <button
                   onClick={() => navigate('/reports')}
-                  className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
+                  className="group relative p-4 sm:p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="p-3 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                      <TrendingUp className="h-6 w-6" />
+                  <div className="flex items-start justify-between mb-2 sm:mb-3">
+                    <div className="p-2 sm:p-3 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                      <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
-                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h3 className="font-semibold text-lg mb-1">Explore Reports</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <h3 className="font-semibold text-base sm:text-lg mb-1">Explore Reports</h3>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                     Discover available reports and insights
                   </p>
                 </button>
@@ -338,11 +338,11 @@ const Profile = () => {
               <CardTitle>Account Information</CardTitle>
               <CardDescription>Update your personal details</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-4 sm:space-y-6">
               {/* Profile Picture Section */}
-              <div className="flex flex-col items-center space-y-4 pb-6 border-b">
+              <div className="flex flex-col items-center space-y-3 sm:space-y-4 pb-4 sm:pb-6 border-b">
                 <div className="relative">
-                  <Avatar className="h-32 w-32 text-2xl">
+                  <Avatar className="h-24 w-24 sm:h-32 sm:w-32 text-xl sm:text-2xl">
                     {avatarUrl && <AvatarImage src={avatarUrl} alt={fullName} />}
                     <AvatarFallback className="bg-primary text-primary-foreground">
                       {getInitials(fullName)}
@@ -355,8 +355,8 @@ const Profile = () => {
                   )}
                 </div>
                 <div className="text-center">
-                  <h3 className="text-xl font-semibold">{fullName}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{user.email}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold">{fullName}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 break-all">{user.email}</p>
                 </div>
                 <div className="flex flex-col gap-2 w-full">
                   <input
@@ -370,9 +370,10 @@ const Profile = () => {
                     variant="outline"
                     onClick={() => fileInputRef.current?.click()}
                     disabled={isUploadingAvatar}
-                    className="w-full"
+                    className="w-full text-xs sm:text-sm"
+                    size="sm"
                   >
-                    <Camera className="mr-2 h-4 w-4" />
+                    <Camera className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                     Upload Photo
                   </Button>
                   {avatarUrl && (
@@ -380,9 +381,10 @@ const Profile = () => {
                       variant="outline"
                       onClick={handleDeleteAvatar}
                       disabled={isUploadingAvatar}
-                      className="w-full text-red-600 hover:text-red-700"
+                      className="w-full text-red-600 hover:text-red-700 text-xs sm:text-sm"
+                      size="sm"
                     >
-                      <Trash2 className="mr-2 h-4 w-4" />
+                      <Trash2 className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                       Remove Photo
                     </Button>
                   )}
