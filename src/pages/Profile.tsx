@@ -251,147 +251,143 @@ const Profile = () => {
           </Button>
         </div>
 
-        {/* Quick Actions */}
-        <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle>Quick Actions</CardTitle>
-            <CardDescription>Navigate to different sections of your account</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* My Content */}
-              <button
-                onClick={() => navigate('/my-content')}
-                className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                    <FileText className="h-6 w-6" />
-                  </div>
-                  <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                </div>
-                <h3 className="font-semibold text-lg mb-1">My Content</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  View your purchased reports and documents
-                </p>
-              </button>
-
-              {/* My Purchases */}
-              <button
-                onClick={() => navigate('/purchases')}
-                className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div className="p-3 rounded-lg bg-green-500/10 text-green-600 dark:text-green-400 group-hover:bg-green-500 group-hover:text-white transition-colors">
-                    <ShoppingBag className="h-6 w-6" />
-                  </div>
-                  <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                </div>
-                <h3 className="font-semibold text-lg mb-1">My Purchases</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  View your purchase history and details
-                </p>
-              </button>
-
-              {/* Browse Plans */}
-              <button
-                onClick={() => navigate('/pricing')}
-                className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div className="p-3 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
-                    <DollarSign className="h-6 w-6" />
-                  </div>
-                  <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                </div>
-                <h3 className="font-semibold text-lg mb-1">Browse Plans</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Explore pricing and unlock more features
-                </p>
-              </button>
-
-              {/* Explore Reports */}
-              <button
-                onClick={() => navigate('/reports')}
-                className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div className="p-3 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                    <TrendingUp className="h-6 w-6" />
-                  </div>
-                  <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                </div>
-                <h3 className="font-semibold text-lg mb-1">Explore Reports</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Discover available reports and insights
-                </p>
-              </button>
-            </div>
-          </CardContent>
-        </Card>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          <Card className="md:col-span-1 shadow-lg">
+        {/* 50/50 Split Layout */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Left: Quick Actions */}
+          <Card className="shadow-lg">
             <CardHeader>
-              <CardTitle>Profile Picture</CardTitle>
-              <CardDescription>Upload a photo (max 500KB)</CardDescription>
+              <CardTitle>Quick Actions</CardTitle>
+              <CardDescription>Navigate to different sections of your account</CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-col items-center space-y-4">
-              <div className="relative">
-                <Avatar className="h-32 w-32 text-2xl">
-                  {avatarUrl && <AvatarImage src={avatarUrl} alt={fullName} />}
-                  <AvatarFallback className="bg-primary text-primary-foreground">
-                    {getInitials(fullName)}
-                  </AvatarFallback>
-                </Avatar>
-                {isUploadingAvatar && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-full">
-                    <Loader2 className="h-8 w-8 animate-spin text-white" />
-                  </div>
-                )}
-              </div>
-              <div className="text-center">
-                <h3 className="text-xl font-semibold">{fullName}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{user.email}</p>
-              </div>
-              <div className="flex flex-col gap-2 w-full">
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleImageSelect}
-                  accept="image/*"
-                  className="hidden"
-                />
-                <Button
-                  variant="outline"
-                  onClick={() => fileInputRef.current?.click()}
-                  disabled={isUploadingAvatar}
-                  className="w-full"
+            <CardContent>
+              <div className="grid grid-cols-1 gap-4">
+                {/* My Content */}
+                <button
+                  onClick={() => navigate('/my-content')}
+                  className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <Camera className="mr-2 h-4 w-4" />
-                  Upload Photo
-                </Button>
-                {avatarUrl && (
-                  <Button
-                    variant="outline"
-                    onClick={handleDeleteAvatar}
-                    disabled={isUploadingAvatar}
-                    className="w-full text-red-600 hover:text-red-700"
-                  >
-                    <Trash2 className="mr-2 h-4 w-4" />
-                    Remove Photo
-                  </Button>
-                )}
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <FileText className="h-6 w-6" />
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-1">My Content</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    View your purchased reports and documents
+                  </p>
+                </button>
+
+                {/* My Purchases */}
+                <button
+                  onClick={() => navigate('/purchases')}
+                  className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="p-3 rounded-lg bg-green-500/10 text-green-600 dark:text-green-400 group-hover:bg-green-500 group-hover:text-white transition-colors">
+                      <ShoppingBag className="h-6 w-6" />
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-1">My Purchases</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    View your purchase history and details
+                  </p>
+                </button>
+
+                {/* Browse Plans */}
+                <button
+                  onClick={() => navigate('/pricing')}
+                  className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="p-3 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                      <DollarSign className="h-6 w-6" />
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-1">Browse Plans</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Explore pricing and unlock more features
+                  </p>
+                </button>
+
+                {/* Explore Reports */}
+                <button
+                  onClick={() => navigate('/reports')}
+                  className="group relative p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-lg transition-all duration-200 text-left bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="p-3 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                      <TrendingUp className="h-6 w-6" />
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-1">Explore Reports</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Discover available reports and insights
+                  </p>
+                </button>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="md:col-span-2 shadow-lg">
+          {/* Right: Account Information + Profile Picture */}
+          <Card className="shadow-lg">
             <CardHeader>
               <CardTitle>Account Information</CardTitle>
               <CardDescription>Update your personal details</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
+              {/* Profile Picture Section */}
+              <div className="flex flex-col items-center space-y-4 pb-6 border-b">
+                <div className="relative">
+                  <Avatar className="h-32 w-32 text-2xl">
+                    {avatarUrl && <AvatarImage src={avatarUrl} alt={fullName} />}
+                    <AvatarFallback className="bg-primary text-primary-foreground">
+                      {getInitials(fullName)}
+                    </AvatarFallback>
+                  </Avatar>
+                  {isUploadingAvatar && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-full">
+                      <Loader2 className="h-8 w-8 animate-spin text-white" />
+                    </div>
+                  )}
+                </div>
+                <div className="text-center">
+                  <h3 className="text-xl font-semibold">{fullName}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{user.email}</p>
+                </div>
+                <div className="flex flex-col gap-2 w-full">
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleImageSelect}
+                    accept="image/*"
+                    className="hidden"
+                  />
+                  <Button
+                    variant="outline"
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={isUploadingAvatar}
+                    className="w-full"
+                  >
+                    <Camera className="mr-2 h-4 w-4" />
+                    Upload Photo
+                  </Button>
+                  {avatarUrl && (
+                    <Button
+                      variant="outline"
+                      onClick={handleDeleteAvatar}
+                      disabled={isUploadingAvatar}
+                      className="w-full text-red-600 hover:text-red-700"
+                    >
+                      <Trash2 className="mr-2 h-4 w-4" />
+                      Remove Photo
+                    </Button>
+                  )}
+                </div>
+              </div>
               {/* Full Name */}
               <div className="space-y-2">
                 <Label>Full Name</Label>
