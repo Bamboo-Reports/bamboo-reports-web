@@ -5,12 +5,12 @@ import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { BarChart3, Layers, ShieldCheck, Users, Sparkles } from "lucide-react";
 
-const Custom = () => {
+const Enterprise = () => {
   useSEO({
     title: "Enterprise Intelligence | Organization-Wide GCC Insights | Bamboo Reports",
     description: "Enterprise Intelligence delivers organization-wide GCC insights with benchmarks, scenario models, and analyst-grade custom research for multi-team activation.",
     keywords: "Enterprise Intelligence, GCC benchmarks, scenario models, custom GCC insights, multi-team access, Bamboo Reports enterprise",
-    canonicalUrl: "https://www.bambooreports.com/products/custom",
+    canonicalUrl: "https://www.bambooreports.com/products/enterprise",
   });
 
   return (
@@ -246,4 +246,4 @@ const Custom = () => {
   );
 };
 
-export default Custom;
+export default Enterprise;
