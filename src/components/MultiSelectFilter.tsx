@@ -1,7 +1,6 @@
 import * as React from "react";
-import { Check, PlusCircle } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
     Command,
@@ -17,7 +16,6 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
-import { Separator } from "@/components/ui/separator";
 
 interface MultiSelectFilterProps {
     title: string;
@@ -37,42 +35,14 @@ export function MultiSelectFilter({
     return (
         <Popover>
             <PopoverTrigger asChild>
-                <Button variant="outline" size="sm" className="h-8 border-dashed">
-                    <PlusCircle className="mr-2 h-4 w-4" />
-                    {title}
+                <Button variant="outline" className="h-10 px-3 font-normal">
+                    <span className="mr-2">{title}</span>
                     {selectedSet.size > 0 && (
-                        <>
-                            <Separator orientation="vertical" className="mx-2 h-4" />
-                            <Badge
-                                variant="secondary"
-                                className="rounded-sm px-1 font-normal lg:hidden"
-                            >
-                                {selectedSet.size}
-                            </Badge>
-                            <div className="hidden space-x-1 lg:flex">
-                                {selectedSet.size > 2 ? (
-                                    <Badge
-                                        variant="secondary"
-                                        className="rounded-sm px-1 font-normal"
-                                    >
-                                        {selectedSet.size} selected
-                                    </Badge>
-                                ) : (
-                                    options
-                                        .filter((option) => selectedSet.has(option))
-                                        .map((option) => (
-                                            <Badge
-                                                variant="secondary"
-                                                key={option}
-                                                className="rounded-sm px-1 font-normal"
-                                            >
-                                                {option}
-                                            </Badge>
-                                        ))
-                                )}
-                            </div>
-                        </>
+                        <span className="ml-1 rounded-sm bg-secondary px-1.5 py-0.5 text-xs font-medium text-secondary-foreground">
+                            {selectedSet.size}
+                        </span>
                     )}
+                    <ChevronDown className="ml-2 h-4 w-4 opacity-50" />
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[200px] p-0" align="start">
