@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/command";
 import {
     Popover,
-    PopoverContent,
+    PopoverContentWithoutAnimation,
     PopoverTrigger,
 } from "@/components/ui/popover";
 
@@ -45,7 +45,7 @@ export function MultiSelectFilter({
                     <ChevronDown className="ml-2 h-4 w-4 opacity-50" />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[200px] p-0" align="start">
+            <PopoverContentWithoutAnimation className="w-[200px] p-0" align="start">
                 <Command>
                     <CommandInput placeholder={title} />
                     <CommandList>
@@ -96,7 +96,7 @@ export function MultiSelectFilter({
                         )}
                     </CommandList>
                 </Command>
-            </PopoverContent>
+            </PopoverContentWithoutAnimation>
         </Popover>
     );
 }
