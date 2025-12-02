@@ -1,7 +1,7 @@
 import logo from "@/assets/bamboo-logo.svg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight, User, LogOut, Package } from "lucide-react";
+import { Menu, ChevronRight, ChevronDown, User, LogOut, Package } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -18,15 +18,6 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -60,63 +51,66 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-48 p-2">
-                    <Link to="/products/explorer">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Explorer
-                      </NavigationMenuLink>
-                    </Link>
-                    <Link to="/products/navigator">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Navigator
-                      </NavigationMenuLink>
-                    </Link>
-                    <Link to="/products/custom">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Custom
-                      </NavigationMenuLink>
-                    </Link>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link to="/pricing">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Pricing
-                  </NavigationMenuLink>
+          <div className="flex items-center gap-1">
+            {/* Products Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="rounded-full font-medium h-10 px-4 gap-1">
+                  Products
+                  <ChevronDown className="h-3 w-3" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-48 p-2">
+                <Link to="/products/explorer">
+                  <DropdownMenuItem className="rounded-full cursor-pointer">
+                    Explorer
+                  </DropdownMenuItem>
                 </Link>
-              </NavigationMenuItem>
+                <Link to="/products/navigator">
+                  <DropdownMenuItem className="rounded-full cursor-pointer">
+                    Navigator
+                  </DropdownMenuItem>
+                </Link>
+                <Link to="/products/custom">
+                  <DropdownMenuItem className="rounded-full cursor-pointer">
+                    Enterprise
+                  </DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-48 p-2">
-                    <Link to="/reports">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Reports
-                      </NavigationMenuLink>
-                    </Link>
-                    <Link to="/insights">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Insights
-                      </NavigationMenuLink>
-                    </Link>
-                    <Link to="/articles">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Articles
-                      </NavigationMenuLink>
-                    </Link>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+            {/* Pricing Link */}
+            <Button variant="ghost" asChild className="rounded-full font-medium h-10 px-4">
+              <Link to="/pricing">Pricing</Link>
+            </Button>
+
+            {/* Resources Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="rounded-full font-medium h-10 px-4 gap-1">
+                  Resources
+                  <ChevronDown className="h-3 w-3" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-48 p-2">
+                <Link to="/reports">
+                  <DropdownMenuItem className="rounded-full cursor-pointer">
+                    Reports
+                  </DropdownMenuItem>
+                </Link>
+                <Link to="/insights">
+                  <DropdownMenuItem className="rounded-full cursor-pointer">
+                    Insights
+                  </DropdownMenuItem>
+                </Link>
+                <Link to="/articles">
+                  <DropdownMenuItem className="rounded-full cursor-pointer">
+                    Articles
+                  </DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
 
           <div className="flex items-center gap-3">
             <Button
@@ -238,7 +232,7 @@ const Header = () => {
                           className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          Custom
+                          Enterprise
                         </Link>
                       </div>
                     )}
