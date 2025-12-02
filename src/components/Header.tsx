@@ -53,14 +53,24 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-8">
           <div className="flex items-center gap-1">
             {/* Products Dropdown */}
-            <DropdownMenu>
+            <DropdownMenu open={productsOpen} onOpenChange={setProductsOpen}>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="rounded-full font-medium h-10 px-4 gap-1">
+                <Button
+                  variant="ghost"
+                  className="rounded-full font-medium h-10 px-4 gap-1"
+                  onMouseEnter={() => setProductsOpen(true)}
+                  onMouseLeave={() => setProductsOpen(false)}
+                >
                   Products
                   <ChevronDown className="h-3 w-3" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-48 p-2">
+              <DropdownMenuContent
+                align="start"
+                className="w-48 p-2"
+                onMouseEnter={() => setProductsOpen(true)}
+                onMouseLeave={() => setProductsOpen(false)}
+              >
                 <Link to="/products/explorer">
                   <DropdownMenuItem className="rounded-full cursor-pointer">
                     Explorer
@@ -85,14 +95,24 @@ const Header = () => {
             </Button>
 
             {/* Resources Dropdown */}
-            <DropdownMenu>
+            <DropdownMenu open={resourcesOpen} onOpenChange={setResourcesOpen}>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="rounded-full font-medium h-10 px-4 gap-1">
+                <Button
+                  variant="ghost"
+                  className="rounded-full font-medium h-10 px-4 gap-1"
+                  onMouseEnter={() => setResourcesOpen(true)}
+                  onMouseLeave={() => setResourcesOpen(false)}
+                >
                   Resources
                   <ChevronDown className="h-3 w-3" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-48 p-2">
+              <DropdownMenuContent
+                align="start"
+                className="w-48 p-2"
+                onMouseEnter={() => setResourcesOpen(true)}
+                onMouseLeave={() => setResourcesOpen(false)}
+              >
                 <Link to="/reports">
                   <DropdownMenuItem className="rounded-full cursor-pointer">
                     Reports
