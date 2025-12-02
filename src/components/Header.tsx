@@ -84,6 +84,14 @@ const Header = () => {
           <NavigationMenu ref={navigationMenuRef} style={menuOffsetStyle}>
             <NavigationMenuList>
               <NavigationMenuItem>
+                <Link to="/pricing">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Pricing
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
                 <NavigationMenuTrigger
                   onMouseEnter={handleDesktopTriggerPosition}
                   onFocus={handleDesktopTriggerPosition}
@@ -109,14 +117,6 @@ const Header = () => {
                     </Link>
                   </div>
                 </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link to="/pricing">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Pricing
-                  </NavigationMenuLink>
-                </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -240,7 +240,16 @@ const Header = () => {
               {/* Navigation */}
               <nav className="flex-1 overflow-y-auto">
                 <div className="px-6 space-y-1">
-                  <div className="border-b pb-1">
+                  <Link
+                    to="/pricing"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Pricing
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
+
+                  <div className="border-t pt-1">
                     <button
                       onClick={() => setProductsOpen(!productsOpen)}
                       className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
@@ -274,15 +283,6 @@ const Header = () => {
                       </div>
                     )}
                   </div>
-
-                  <Link
-                    to="/pricing"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Pricing
-                    <ChevronRight className="h-5 w-5" />
-                  </Link>
 
                   <div className="border-t pt-1">
                     <button
