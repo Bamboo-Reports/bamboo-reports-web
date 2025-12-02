@@ -5,6 +5,7 @@ import { Search, X, TrendingUp, Building2, Rocket, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
+import { MultiSelectFilter } from "@/components/MultiSelectFilter";
 
 const CSV_URL = "https://files.catbox.moe/81e8i9.csv";
 const CACHE_KEY = "gcc_data_cache";
@@ -56,7 +57,7 @@ const GCCList = () => {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [nameSearch, setNameSearch] = useState("");
-  const [facets, setFacets] = useState<any>({});
+  const [facets, setFacets] = useState<Record<string, string[]>>({});
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
@@ -119,8 +120,8 @@ const GCCList = () => {
               setColumns(cachedColumns);
               setData(cachedData);
 
-              const initialFacets: any = {};
-              facetCols.forEach(c => (initialFacets[c] = ""));
+              const initialFacets: Record<string, string[]> = {};
+              facetCols.forEach(c => (initialFacets[c] = []));
               setFacets(initialFacets);
 
               setLoading(false);
@@ -174,8 +175,8 @@ const GCCList = () => {
           console.warn("Failed to cache data:", storageErr);
         }
 
-        const initialFacets: any = {};
-        facetCols.forEach(c => (initialFacets[c] = ""));
+        const initialFacets: Record<string, string[]> = {};
+        facetCols.forEach(c => (initialFacets[c] = []));
         setFacets(initialFacets);
       } catch (err) {
         console.error("Load failed:", err);
@@ -190,8 +191,8 @@ const GCCList = () => {
   const filteredData = useMemo(() => {
     return data.filter(r => {
       for (const [c, v] of Object.entries(facets)) {
-        if (!v) continue;
-        if (String((r as any)[c] ?? "") !== v) return false;
+        if (!v || v.length === 0) continue;
+        if (!v.includes(String((r as any)[c] ?? ""))) return false;
       }
       const q = nameSearch.trim().toLowerCase();
       if (!q) return true;
@@ -205,9 +206,9 @@ const GCCList = () => {
     const q = nameSearch.trim().toLowerCase();
     const rows = data.filter(r => {
       for (const [c, v] of Object.entries(facets)) {
-        if (!v) continue;
+        if (!v || v.length === 0) continue;
         if (c === targetCol) continue;
-        if (String((r as any)[c] ?? "") !== v) return false;
+        if (!v.includes(String((r as any)[c] ?? ""))) return false;
       }
       if (q && !nameSearchCols.some(c => String((r as any)[c] ?? "").toLowerCase().includes(q))) return false;
       return true;
@@ -227,8 +228,8 @@ const GCCList = () => {
 
   const handleClearFilters = () => {
     setNameSearch("");
-    const cleared: any = {};
-    Object.keys(facets).forEach(k => (cleared[k] = ""));
+    const cleared: Record<string, string[]> = {};
+    Object.keys(facets).forEach(k => (cleared[k] = []));
     setFacets(cleared);
     setPage(1);
   };
@@ -406,24 +407,16 @@ const GCCList = () => {
                     if (!columns.includes(col)) return null;
                     const options = optionSetForFacet(col);
                     return (
-                      <div key={col} className="flex gap-2 items-center">
-                        <label className="text-xs text-muted-foreground whitespace-nowrap">
-                          {col}
-                        </label>
-                        <select
-                          value={facets[col] || ""}
-                          onChange={(e) => {
-                            setFacets({ ...facets, [col]: e.target.value });
-                            setPage(1);
-                          }}
-                          className="px-3 py-1.5 border rounded-lg text-sm"
-                        >
-                          <option value="">All</option>
-                          {options.map((opt: string) => (
-                            <option key={opt} value={opt}>{opt}</option>
-                          ))}
-                        </select>
-                      </div>
+                      <MultiSelectFilter
+                        key={col}
+                        title={col}
+                        options={options}
+                        selectedValues={facets[col] || []}
+                        onSelectionChange={(values) => {
+                          setFacets({ ...facets, [col]: values });
+                          setPage(1);
+                        }}
+                      />
                     );
                   })}
                 </div>
