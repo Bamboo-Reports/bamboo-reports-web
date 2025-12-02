@@ -104,7 +104,7 @@ const Header = () => {
                     </Link>
                     <Link to="/products/custom">
                       <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Custom
+                        Enterprise
                       </NavigationMenuLink>
                     </Link>
                   </div>
@@ -269,7 +269,7 @@ const Header = () => {
                           className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          Custom
+                          Enterprise
                         </Link>
                       </div>
                     )}
