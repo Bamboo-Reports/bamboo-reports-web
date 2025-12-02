@@ -2,7 +2,7 @@ import logo from "@/assets/bamboo-logo.svg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight, User, LogOut, Package } from "lucide-react";
-import { useState } from "react";
+import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -32,6 +32,8 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const navigationMenuRef = useRef<HTMLDivElement | null>(null);
+  const [menuOffset, setMenuOffset] = useState(0);
   const { user, signOut } = useAuth();
 
   const getInitials = (name: string) => {
@@ -50,6 +52,25 @@ const Header = () => {
   const userFullName = user?.user_metadata?.full_name || 'User';
   const avatarUrl = user?.user_metadata?.avatar_url;
 
+  useEffect(() => {
+    const menuBounds = navigationMenuRef.current?.getBoundingClientRect();
+    if (menuBounds) {
+      setMenuOffset(menuBounds.width / 2);
+    }
+  }, []);
+
+  const handleDesktopTriggerPosition = (event: MouseEvent<HTMLButtonElement>) => {
+    const menuBounds = navigationMenuRef.current?.getBoundingClientRect();
+    const triggerBounds = event.currentTarget.getBoundingClientRect();
+
+    if (!menuBounds) return;
+
+    const triggerCenter = triggerBounds.left - menuBounds.left + triggerBounds.width / 2;
+    setMenuOffset(triggerCenter);
+  };
+
+  const menuOffsetStyle = { '--menu-trigger-offset': `${menuOffset}px` } as CSSProperties;
+
   return (
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -60,10 +81,15 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <NavigationMenu>
+          <NavigationMenu ref={navigationMenuRef} style={menuOffsetStyle}>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+                <NavigationMenuTrigger
+                  onMouseEnter={handleDesktopTriggerPosition}
+                  onFocus={handleDesktopTriggerPosition}
+                >
+                  Products
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-48 p-2">
                     <Link to="/products/explorer">
@@ -94,7 +120,12 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+                <NavigationMenuTrigger
+                  onMouseEnter={handleDesktopTriggerPosition}
+                  onFocus={handleDesktopTriggerPosition}
+                >
+                  Resources
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-48 p-2">
                     <Link to="/reports">
