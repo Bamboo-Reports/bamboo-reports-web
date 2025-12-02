@@ -6,32 +6,31 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
 
-const CSV_URL = "https://files.catbox.moe/sss5jf.csv";
+const CSV_URL = "https://files.catbox.moe/81e8i9.csv";
 const CACHE_KEY = "gcc_data_cache";
-const CACHE_VERSION = "v1";
+const CACHE_VERSION = "v2";
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
 const preferredOrder = [
   "Account Global Legal Name",
-  "India Entity Name",
   "Center Type",
+  "City",
   "HQ Country",
-  "Primary Nature",
+  "HQ Primary Nature",
   "HQ Revenue Range",
   "HQ Employee Range",
   "India Head Count Range"
 ];
 
 const facetCols = [
-  "Center Type",
   "HQ Country",
-  "Primary Nature",
+  "HQ Primary Nature",
   "HQ Revenue Range",
   "HQ Employee Range",
   "India Head Count Range"
 ];
 
-const nameSearchCols = ["Account Global Legal Name", "India Entity Name"];
+const nameSearchCols = ["Account Global Legal Name", "City"];
 
 const toCSV = (rows: any[], cols: string[]) => {
   const q = (v: any) => {
@@ -382,7 +381,7 @@ const GCCList = () => {
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                       <input
                         type="text"
-                        placeholder="Search Account or India Entity"
+                        placeholder="Search Account or City"
                         value={nameSearch}
                         onChange={(e) => {
                           setNameSearch(e.target.value);
