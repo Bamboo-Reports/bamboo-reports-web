@@ -4,6 +4,7 @@ import { useSEO } from "@/hooks/useSEO";
 import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Explorer = () => {
   useSEO({
@@ -58,7 +59,9 @@ const Explorer = () => {
                 </div>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button size="lg" className="rounded-full">Start with Explorer</Button>
+                <Button size="lg" className="rounded-full" asChild>
+                  <Link to="/pricing">Start with Explorer</Link>
+                </Button>
                 <Button size="lg" variant="outline" className="rounded-full" asChild>
                   <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a Demo</a>
                 </Button>
@@ -248,7 +251,9 @@ const Explorer = () => {
             <h2 className="text-3xl font-bold">Ready to explore India’s GCC landscape?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Activate the Explorer tier for fast, defensible GCC coverage—then graduate to Navigator or Enterprise when you’re ready for deeper customization.</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Button size="lg" className="rounded-full">Start with Explorer</Button>
+              <Button size="lg" className="rounded-full" asChild>
+                <Link to="/pricing">Start with Explorer</Link>
+              </Button>
               <Button size="lg" variant="outline" className="rounded-full" asChild>
                 <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a Demo</a>
               </Button>
