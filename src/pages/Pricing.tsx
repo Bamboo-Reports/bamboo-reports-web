@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"; // Import useState and useEffect
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -138,6 +138,76 @@ const Pricing = () => {
   ];
 
   const currencySymbol = currency === "USD" ? "$" : "₹";
+
+  const deliverables = [
+    {
+      category: "GCC coverage",
+      explorer: "L1 list: 2,400+ GCCs with sector, city, headcount",
+      navigator: "L1 + L2: leadership, signals, benchmarks",
+      enterprise: "Org-wide coverage + tailored cohorts",
+    },
+    {
+      category: "Signals & updates",
+      explorer: "Quarterly view, annual snapshot",
+      navigator: "Monthly signals: hiring, city moves, capability adds",
+      enterprise: "Signals + analyst validation and callouts",
+    },
+    {
+      category: "Exports & activation",
+      explorer: "Download-ready shortlists",
+      navigator: "Saved views, exports, CRM/Sheets push",
+      enterprise: "Custom delivery for GTM, PMO, HR, Finance",
+    },
+    {
+      category: "Benchmarks",
+      explorer: "Sector & city snapshots",
+      navigator: "Benchmarking by sector, headcount, maturity",
+      enterprise: "Executive-grade benchmarks with scenarios",
+    },
+    {
+      category: "Analyst time",
+      explorer: "Email support",
+      navigator: "Up to 6 hours included",
+      enterprise: "Program-level analyst hours and workshops",
+    },
+  ];
+
+  const addOns = [
+    {
+      title: "Prospect enrichment sprint",
+      description: "Custom prospect list aligned to your ICP and region focus.",
+      price: "Starts $2,000 / ₹1,65,000",
+    },
+    {
+      title: "Executive workshop",
+      description: "90-minute session on GCC signals, benchmarks, and next steps.",
+      price: "$1,200 / ₹99,000",
+    },
+    {
+      title: "CRM integration",
+      description: "Push Explorer/Navigator shortlists into your CRM/Sheets.",
+      price: "Quote on request",
+    },
+  ];
+
+  const faqs = [
+    {
+      question: "Do you refresh signals monthly?",
+      answer: "Navigator and Enterprise include monthly signal refreshes; Explorer is quarterly with an annual snapshot.",
+    },
+    {
+      question: "Can we pilot before Enterprise?",
+      answer: "Yes - most teams start with Navigator for 60-90 days, then scope an Enterprise program.",
+    },
+    {
+      question: "What is included in analyst hours?",
+      answer: "Analysts synthesize signals, validate accounts, and prepare short POVs or slides for leadership.",
+    },
+    {
+      question: "Do you support multi-team access?",
+      answer: "Enterprise programs include coordinated intake and tailored deliverables for GTM, PMO, HR/TA, and Finance.",
+    },
+  ];
 
   const handlePayment = async (
     planName: string,
@@ -424,23 +494,88 @@ const Pricing = () => {
             })}
           </div>
 
-          {/* --- Not Sure Section --- */}
-          <div className="text-center mt-16 p-8 bg-muted/30 rounded-lg border border-border">
-            <h2 className="text-2xl font-semibold mb-6">
-              Not sure what to choose?
-            </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="rounded-full">
-                <a
-                  href="https://meetings-na2.hubspot.com/anam-khoja"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Contact Sales
-                </a>
+          {/* --- Deliverables Table --- */}
+          <div className="mt-16 rounded-2xl border bg-muted/20 p-6 lg:p-8">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+              <div>
+                <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Deliverables</p>
+                <h2 className="text-2xl lg:text-3xl font-bold">What you get in each tier</h2>
+              </div>
+              <Button variant="outline" className="rounded-full" asChild>
+                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-full">
-                <a href="/gcc-list">Explore the Data</a>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b text-muted-foreground">
+                    <th className="py-3 pr-6 font-medium text-foreground">Deliverable</th>
+                    <th className="py-3 pr-6 font-medium">Explorer</th>
+                    <th className="py-3 pr-6 font-medium">Navigator</th>
+                    <th className="py-3 font-medium">Enterprise</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y">
+                  {deliverables.map((row) => (
+                    <tr key={row.category} className="align-top">
+                      <td className="py-4 pr-6 font-semibold text-foreground">{row.category}</td>
+                      <td className="py-4 pr-6 text-muted-foreground">{row.explorer}</td>
+                      <td className="py-4 pr-6 text-muted-foreground">{row.navigator}</td>
+                      <td className="py-4 text-muted-foreground">{row.enterprise}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* --- Add-ons --- */}
+          <div className="mt-12 rounded-2xl border bg-card p-6 lg:p-8">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+              <div>
+                <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Add-ons</p>
+                <h2 className="text-2xl lg:text-3xl font-bold">Layer on what your team needs</h2>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4">
+              {addOns.map((item) => (
+                <div key={item.title} className="rounded-xl border bg-muted/30 p-5 shadow-sm">
+                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-3">{item.description}</p>
+                  <p className="text-sm font-semibold text-primary">{item.price}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* --- FAQs --- */}
+          <div className="mt-12 rounded-2xl border bg-muted/20 p-6 lg:p-8">
+            <div className="flex flex-col gap-2 mb-6">
+              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">FAQs</p>
+              <h2 className="text-2xl lg:text-3xl font-bold">Answers to common questions</h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              {faqs.map((faq) => (
+                <div key={faq.question} className="rounded-xl border bg-background p-5 shadow-sm">
+                  <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* --- CTA Strip --- */}
+          <div className="mt-12 rounded-2xl border bg-gradient-to-r from-primary/15 via-primary/10 to-background p-6 lg:p-8 flex flex-col lg:flex-row items-center justify-between gap-4">
+            <div className="space-y-1 text-center lg:text-left">
+              <h3 className="text-2xl font-bold">Want a walkthrough of Explorer, Navigator, or Enterprise?</h3>
+              <p className="text-muted-foreground">Book a 20-min call and we will map the right deliverables to your team.</p>
+            </div>
+            <div className="flex flex-wrap justify-center lg:justify-end gap-3">
+              <Button size="lg" className="rounded-full" asChild>
+                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full" asChild>
+                <Link to="/products/explorer">View Explorer</Link>
               </Button>
             </div>
           </div>
