@@ -142,7 +142,7 @@ const Header = () => {
                           <span className="rounded-full bg-primary/10 text-primary p-2">
                             <product.icon className="h-4 w-4" />
                           </span>
-                          <div className="text-sm font-semibold leading-tight">{product.label}</div>
+                          <div className="text-sm leading-tight">{product.label}</div>
                         </NavigationMenuLink>
                       </Link>
                     ))}
@@ -165,7 +165,7 @@ const Header = () => {
                           <span className="rounded-full bg-primary/10 text-primary p-2">
                             <resource.icon className="h-4 w-4" />
                           </span>
-                          <div className="text-sm font-semibold leading-tight">{resource.label}</div>
+                          <div className="text-sm leading-tight">{resource.label}</div>
                         </NavigationMenuLink>
                       </Link>
                     ))}
