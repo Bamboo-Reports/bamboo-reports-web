@@ -5,6 +5,7 @@ import { Menu, ChevronRight, User, LogOut, Package } from "lucide-react";
 import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { featureItems } from "@/lib/featuresData";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,6 +33,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [featuresOpen, setFeaturesOpen] = useState(false);
   const navigationMenuRef = useRef<HTMLDivElement | null>(null);
   const [menuOffset, setMenuOffset] = useState(0);
   const { user, signOut } = useAuth();
@@ -89,6 +91,32 @@ const Header = () => {
                     Pricing
                   </NavigationMenuLink>
                 </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  onMouseEnter={handleDesktopTriggerPosition}
+                  onFocus={handleDesktopTriggerPosition}
+                >
+                  Features
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-[400px] p-3 grid gap-2">
+                    {featureItems.map((feature) => (
+                      <Link key={feature.id} to={feature.href}>
+                        <NavigationMenuLink className="flex items-start gap-3 rounded-2xl border bg-card p-3 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
+                          <span className="rounded-full bg-primary/10 text-primary p-2 mt-0.5">
+                            <feature.icon className="h-4 w-4" />
+                          </span>
+                          <div className="space-y-1">
+                            <div className="text-sm font-semibold leading-tight">{feature.title}</div>
+                            <p className="text-sm text-muted-foreground leading-snug line-clamp-2">{feature.summary}</p>
+                          </div>
+                        </NavigationMenuLink>
+                      </Link>
+                    ))}
+                  </div>
+                </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -248,6 +276,30 @@ const Header = () => {
                     Pricing
                     <ChevronRight className="h-5 w-5" />
                   </Link>
+
+                  <div className="border-t pt-1">
+                    <button
+                      onClick={() => setFeaturesOpen(!featuresOpen)}
+                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
+                    >
+                      Features
+                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${featuresOpen ? 'rotate-90' : ''}`} />
+                    </button>
+                    {featuresOpen && (
+                      <div className="pl-4 space-y-1">
+                        {featureItems.map((feature) => (
+                          <Link
+                            key={feature.id}
+                            to={feature.href}
+                            className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {feature.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
 
                   <div className="border-t pt-1">
                     <button

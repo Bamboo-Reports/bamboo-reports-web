@@ -28,6 +28,10 @@ import ContactUs from "./pages/ContactUs";
 import Explorer from "./pages/products/Explorer";
 import Navigator from "./pages/products/Navigator";
 import Enterprise from "./pages/products/Enterprise";
+import Coverage from "./pages/features/Coverage";
+import WhatIfScenarios from "./pages/features/WhatIfScenarios";
+import ProprietaryTAMSlicers from "./pages/features/ProprietaryTAMSlicers";
+import TailorMadeMarketInsights from "./pages/features/TailorMadeMarketInsights";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +60,10 @@ const App = () => (
             <Route path="/terms-conditions" element={<TermsConditions />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/features/coverage" element={<Coverage />} />
+            <Route path="/features/what-if-scenarios" element={<WhatIfScenarios />} />
+            <Route path="/features/proprietary-tam-slicers" element={<ProprietaryTAMSlicers />} />
+            <Route path="/features/tailor-made-market-insights" element={<TailorMadeMarketInsights />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
             <Route
