@@ -146,9 +146,6 @@ const Footer = () => {
             <Link to="/terms-conditions" className="transition-colors duration-micro ease-smooth hover:text-primary">
               Terms & Conditions
             </Link>
-            <Link to="/contact-us" className="transition-colors duration-micro ease-smooth hover:text-primary">
-              Support
-            </Link>
           </div>
         </div>
       </div>
