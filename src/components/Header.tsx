@@ -101,17 +101,14 @@ const Header = () => {
                   Features
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[400px] p-3 grid gap-2">
+                  <div className="w-[260px] p-3 grid gap-2">
                     {featureItems.map((feature) => (
                       <Link key={feature.id} to={feature.href}>
-                        <NavigationMenuLink className="flex items-start gap-3 rounded-2xl border bg-card p-3 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
-                          <span className="rounded-full bg-primary/10 text-primary p-2 mt-0.5">
+                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
+                          <span className="rounded-full bg-primary/10 text-primary p-2">
                             <feature.icon className="h-4 w-4" />
                           </span>
-                          <div className="space-y-1">
-                            <div className="text-sm font-semibold leading-tight">{feature.title}</div>
-                            <p className="text-sm text-muted-foreground leading-snug line-clamp-2">{feature.summary}</p>
-                          </div>
+                          <div className="text-sm font-semibold leading-tight">{feature.title}</div>
                         </NavigationMenuLink>
                       </Link>
                     ))}
