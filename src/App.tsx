@@ -32,6 +32,7 @@ import Coverage from "./pages/features/Coverage";
 import WhatIfScenarios from "./pages/features/WhatIfScenarios";
 import ProprietaryTAMSlicers from "./pages/features/ProprietaryTAMSlicers";
 import TailorMadeMarketInsights from "./pages/features/TailorMadeMarketInsights";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/products/explorer" element={<Explorer />} />
