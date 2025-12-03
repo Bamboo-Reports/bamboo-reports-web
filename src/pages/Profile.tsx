@@ -238,7 +238,7 @@ const Profile = () => {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-background via-primary/5 to-background px-4 py-10 sm:py-14">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.06),_transparent_45%),_radial-gradient(circle_at_bottom_right,_rgba(34,197,94,0.04),_transparent_35%)]" />
-      <div className="relative max-w-5xl mx-auto space-y-6">
+      <div className="relative max-w-6xl mx-auto space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="space-y-1">
             <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold">
@@ -257,10 +257,10 @@ const Profile = () => {
 
         <Card className="shadow-xl border bg-card/95 backdrop-blur">
           <div className="h-1 w-full bg-gradient-to-r from-primary via-emerald-400 to-primary/70 rounded-t-xl" />
-          <CardContent className="p-6 sm:p-8 space-y-8">
-            <div className="grid gap-8 lg:grid-cols-[320px,1fr]">
+          <CardContent className="p-7 sm:p-10 space-y-8">
+            <div className="grid gap-10 lg:grid-cols-[380px,1fr]">
               <div className="space-y-6">
-                <div className="rounded-xl border bg-muted/30 p-4 space-y-4">
+                <div className="rounded-xl border bg-muted/30 p-5 space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="relative">
                       <Avatar className="h-16 w-16 sm:h-20 sm:w-20">
@@ -333,7 +333,7 @@ const Profile = () => {
                     <button
                       type="button"
                       onClick={() => navigate('/my-content')}
-                      className="group flex items-center justify-between rounded-lg border bg-card/70 px-4 py-3 transition-colors hover:border-primary/40 hover:bg-primary/5"
+                      className="group flex items-center justify-between rounded-lg border bg-card/70 px-5 py-4 transition-colors hover:border-primary/40 hover:bg-primary/5"
                     >
                       <div className="flex items-center gap-3">
                         <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -349,7 +349,7 @@ const Profile = () => {
                     <button
                       type="button"
                       onClick={() => navigate('/purchases')}
-                      className="group flex items-center justify-between rounded-lg border bg-card/70 px-4 py-3 transition-colors hover:border-primary/40 hover:bg-primary/5"
+                      className="group flex items-center justify-between rounded-lg border bg-card/70 px-5 py-4 transition-colors hover:border-primary/40 hover:bg-primary/5"
                     >
                       <div className="flex items-center gap-3">
                         <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600">
@@ -365,7 +365,7 @@ const Profile = () => {
                     <button
                       type="button"
                       onClick={() => navigate('/pricing')}
-                      className="group flex items-center justify-between rounded-lg border bg-card/70 px-4 py-3 transition-colors hover:border-primary/40 hover:bg-primary/5"
+                      className="group flex items-center justify-between rounded-lg border bg-card/70 px-5 py-4 transition-colors hover:border-primary/40 hover:bg-primary/5"
                     >
                       <div className="flex items-center gap-3">
                         <div className="flex h-9 w-9 items-center justify-center rounded-full bg-purple-500/10 text-purple-600">
@@ -381,7 +381,7 @@ const Profile = () => {
                     <button
                       type="button"
                       onClick={() => navigate('/reports')}
-                      className="group flex items-center justify-between rounded-lg border bg-card/70 px-4 py-3 transition-colors hover:border-primary/40 hover:bg-primary/5"
+                      className="group flex items-center justify-between rounded-lg border bg-card/70 px-5 py-4 transition-colors hover:border-primary/40 hover:bg-primary/5"
                     >
                       <div className="flex items-center gap-3">
                         <div className="flex h-9 w-9 items-center justify-center rounded-full bg-orange-500/10 text-orange-600">
