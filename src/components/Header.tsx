@@ -119,7 +119,7 @@ const Header = () => {
                           <span className="rounded-full bg-primary/10 text-primary p-2">
                             <feature.icon className="h-4 w-4" />
                           </span>
-                          <div className="text-sm font-semibold leading-tight">{feature.title}</div>
+                          <div className="text-sm leading-tight">{feature.title}</div>
                         </NavigationMenuLink>
                       </Link>
                     ))}
@@ -289,9 +289,10 @@ const Header = () => {
                           <Link
                             key={feature.id}
                             to={feature.href}
-                            className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                             onClick={() => setMobileMenuOpen(false)}
                           >
+                            <feature.icon className="h-4 w-4 text-primary" />
                             {feature.title}
                           </Link>
                         ))}
