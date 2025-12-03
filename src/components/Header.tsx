@@ -86,7 +86,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-7xl mx-auto flex items-center gap-4 md:gap-8">
         {/* Logo */}
         <Link to="/" className="transition-transform duration-micro ease-smooth hover:scale-[1.02]">
           <img src={logo} alt="Bamboo Reports" className="h-10 md:h-12" />
@@ -175,7 +175,7 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 ml-auto">
             <Button
               asChild
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold"
