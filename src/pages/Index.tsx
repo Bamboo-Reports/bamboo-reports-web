@@ -7,7 +7,6 @@ import RealTimeData from "@/components/RealTimeData";
 import ResearchNXT from "@/components/ResearchNXT";
 import GCCMomentum from "@/components/GCCMomentum";
 import Footer from "@/components/Footer";
-import FloatingCTA from "@/components/FloatingCTA";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { useSEO } from "@/hooks/useSEO";
 import StructuredData from "@/components/StructuredData";
@@ -33,7 +32,6 @@ const Index = () => {
       <ResearchNXT />
       <GCCMomentum />
       <Footer />
-      <FloatingCTA />
       <ExitIntentPopup />
     </div>
   );
