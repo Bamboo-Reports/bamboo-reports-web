@@ -50,6 +50,7 @@ const Pricing = () => {
       name: "Explorer",
       icon: Compass,
       tagline: "Fast, defensible GCC coverage",
+      productPath: "/products/explorer",
       price: { USD: "1,299", INR: "1,09,999" }, // <-- Add your INR price
       originalPrice: { USD: "5,000", INR: "4,15,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
@@ -81,6 +82,7 @@ const Pricing = () => {
       name: "Navigator",
       icon: Map,
       tagline: "Signals and scenarios on tap",
+      productPath: "/products/navigator",
       price: { USD: "6,999", INR: "5,79,999" }, // <-- Add your INR price
       originalPrice: { USD: "15,000", INR: "12,50,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
@@ -111,6 +113,7 @@ const Pricing = () => {
       name: "Enterprise Intelligence",
       icon: Building2,
       tagline: "Program-level intelligence and support",
+      productPath: "/products/enterprise",
       price: "Custom", // Custom plan remains the same
       originalPrice: null,
       // priceSuffix: null,
@@ -470,38 +473,44 @@ const Pricing = () => {
                     ))}
                   </ul>
 
-                  {isCustom ? (
-                    <Button
-                      asChild
-                      className="w-full rounded-full"
-                      variant={plan.popular ? "default" : "outline"}
-                    >
-                      <a
-                        href="https://meetings-na2.hubspot.com/anam-khoja"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                  <div className="flex flex-col gap-2">
+                    {isCustom ? (
+                      <Button
+                        asChild
+                        className="w-full rounded-full"
+                        variant={plan.popular ? "default" : "outline"}
                       >
-                        Contact Sales
-                      </a>
+                        <a
+                          href="https://meetings-na2.hubspot.com/anam-khoja"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Contact Sales
+                        </a>
+                      </Button>
+                    ) : !isSubscriptionEnabled ? (
+                      <Button
+                        className="w-full rounded-full"
+                        variant="outline"
+                        disabled
+                      >
+                        Coming Soon
+                      </Button>
+                    ) : (
+                      <Button
+                        className="w-full rounded-full"
+                        variant={plan.popular ? "default" : "outline"}
+                        onClick={() => handlePayment(plan.name, plan.price)}
+                        disabled={processingPlan !== null}
+                      >
+                        {processingPlan === plan.name ? "Processing..." : "Get Started"}
+                      </Button>
+                    )}
+
+                    <Button asChild variant="ghost" className="w-full rounded-full">
+                      <Link to={plan.productPath}>View {plan.name}</Link>
                     </Button>
-                  ) : !isSubscriptionEnabled ? (
-                    <Button
-                      className="w-full rounded-full"
-                      variant="outline"
-                      disabled
-                    >
-                      Coming Soon
-                    </Button>
-                  ) : (
-                    <Button
-                      className="w-full rounded-full"
-                      variant={plan.popular ? "default" : "outline"}
-                      onClick={() => handlePayment(plan.name, plan.price)}
-                      disabled={processingPlan !== null}
-                    >
-                      {processingPlan === plan.name ? "Processing..." : "Get Started"}
-                    </Button>
-                  )}
+                  </div>
                 </div>
               );
             })}
