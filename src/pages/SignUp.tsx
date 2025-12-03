@@ -64,6 +64,57 @@ const SignUp = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const domain = email.split('@')[1]?.toLowerCase();
+    const freeDomains = new Set([
+      'gmail.com', 'googlemail.com', 'yahoo.com', 'yahoo.co.in', 'ymail.com', 'hotmail.com', 'hotmail.co.uk', 'outlook.com', 'live.com', 'msn.com', 'proton.me', 'protonmail.com', 'icloud.com', 'me.com', 'aol.com', 'mail.com', 'zoho.com', 'gmx.com'
+    ]);
+
+    if (!domain) {
+      toast({
+        title: 'Error',
+        description: 'Please enter a valid work email.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (freeDomains.has(domain)) {
+      toast({
+        title: 'Work email required',
+        description: 'Please use your company email (free providers are not allowed).',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    const checkDisposable = async () => {
+      const apiKey = import.meta.env.VITE_TEMPMAIL_CHECKER_API_KEY;
+      const apiUrl = import.meta.env.VITE_TEMPMAIL_CHECKER_API_URL;
+      if (!apiKey || !apiUrl) return false;
+
+      try {
+        const response = await fetch(`${apiUrl}?email=${encodeURIComponent(email)}`, {
+          headers: { 'x-api-key': apiKey }
+        });
+        if (!response.ok) return false;
+        const data = await response.json();
+        return data?.disposable === true || data?.is_disposable === true || data?.blocked === true;
+      } catch (error) {
+        console.warn('Tempmail checker unavailable', error);
+        return false;
+      }
+    };
+
+    const isDisposable = await checkDisposable();
+    if (isDisposable) {
+      toast({
+        title: 'Work email required',
+        description: 'Disposable or temporary emails are not allowed. Please use your company email.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     if (password !== confirmPassword) {
       toast({
         title: 'Error',
