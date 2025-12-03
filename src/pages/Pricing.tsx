@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Compass, Map, Building2 } from "lucide-react";
 import {
   ToggleGroup,
   ToggleGroupItem,
@@ -48,6 +48,8 @@ const Pricing = () => {
   const plans = [
     {
       name: "Explorer",
+      icon: Compass,
+      tagline: "Fast, defensible GCC coverage",
       price: { USD: "1,299", INR: "1,09,999" }, // <-- Add your INR price
       originalPrice: { USD: "5,000", INR: "4,15,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
@@ -77,6 +79,8 @@ const Pricing = () => {
     },
     {
       name: "Navigator",
+      icon: Map,
+      tagline: "Signals and scenarios on tap",
       price: { USD: "6,999", INR: "5,79,999" }, // <-- Add your INR price
       originalPrice: { USD: "15,000", INR: "12,50,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
@@ -105,6 +109,8 @@ const Pricing = () => {
     },
     {
       name: "Enterprise Intelligence",
+      icon: Building2,
+      tagline: "Program-level intelligence and support",
       price: "Custom", // Custom plan remains the same
       originalPrice: null,
       // priceSuffix: null,
@@ -137,7 +143,7 @@ const Pricing = () => {
     },
   ];
 
-  const currencySymbol = currency === "USD" ? "$" : "₹";
+  const currencySymbol = currency === "USD" ? "$" : "INR ";
 
   const deliverables = [
     {
@@ -176,12 +182,12 @@ const Pricing = () => {
     {
       title: "Prospect enrichment sprint",
       description: "Custom prospect list aligned to your ICP and region focus.",
-      price: "Starts $2,000 / ₹1,65,000",
+      price: "Starts $2,000 / INR 1,65,000",
     },
     {
       title: "Executive workshop",
       description: "90-minute session on GCC signals, benchmarks, and next steps.",
-      price: "$1,200 / ₹99,000",
+      price: "$1,200 / INR 99,000",
     },
     {
       title: "CRM integration",
@@ -403,44 +409,51 @@ const Pricing = () => {
               return (
                 <div
                   key={plan.name}
-                  className={`relative rounded-lg border p-8 flex flex-col ${plan.popular
-                    ? "border-primary shadow-lg scale-105"
+                  className={`relative rounded-2xl border bg-card/80 p-8 flex flex-col gap-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 ${plan.popular
+                    ? "border-primary/60 shadow-lg shadow-primary/10"
                     : "border-border"
                     }`}
                 >
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium shadow-sm">
                         Most Popular
                       </span>
                     </div>
                   )}
 
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
-                    <div className="flex flex-col">
-                      {isCustom ? (
-                        <span className="text-4xl font-bold">Custom</span>
-                      ) : (
-                        <>
-                          <div className="flex items-baseline gap-2">
-                            <span className="text-4xl font-bold">
-                              {currencySymbol}
-                              {currentPrice}
-                            </span>
-                            {currentOriginalPrice && (
-                              <span className="text-xl text-muted-foreground line-through">
-                                {currencySymbol}
-                                {currentOriginalPrice}
-                              </span>
-                            )}
-                          </div>
-                        </>
-                      )}
+                  <div className="flex items-start gap-3">
+                    <span className="rounded-full bg-primary/10 text-primary p-3">
+                      <plan.icon className="h-5 w-5" />
+                    </span>
+                    <div className="space-y-1">
+                      <h3 className="text-2xl font-bold">{plan.name}</h3>
+                      <p className="text-sm text-muted-foreground">{plan.tagline}</p>
                     </div>
                   </div>
 
-                  <ul className="space-y-4 mb-8 flex-grow">
+                  <div className="flex flex-col gap-2">
+                    {isCustom ? (
+                      <span className="text-4xl font-bold">Custom</span>
+                    ) : (
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-4xl font-bold">
+                          {currencySymbol}
+                          {currentPrice}
+                        </span>
+                        {currentOriginalPrice && (
+                          <span className="text-xl text-muted-foreground line-through">
+                            {currencySymbol}
+                            {currentOriginalPrice}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+                  <ul className="space-y-4 flex-grow">
                     {plan.features.map((feature) => (
                       <li
                         key={feature.title}
