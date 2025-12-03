@@ -289,11 +289,13 @@ const Header = () => {
                           <Link
                             key={feature.id}
                             to={feature.href}
-                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                            className="flex items-center gap-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                             onClick={() => setMobileMenuOpen(false)}
                           >
-                            <feature.icon className="h-4 w-4 text-primary" />
-                            {feature.title}
+                            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary flex-shrink-0">
+                              <feature.icon className="h-4 w-4" strokeWidth={2.2} />
+                            </span>
+                            <span className="leading-tight">{feature.title}</span>
                           </Link>
                         ))}
                       </div>
