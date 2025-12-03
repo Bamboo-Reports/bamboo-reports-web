@@ -1,10 +1,11 @@
 import logo from "@/assets/bamboo-logo.svg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight, User, LogOut, Package } from "lucide-react";
+import { Menu, ChevronRight, User, LogOut, Package, Compass, Map, Building2, FileBarChart2, Lightbulb, FileText } from "lucide-react";
 import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { featureItems } from "@/lib/featuresData";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,6 +33,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [featuresOpen, setFeaturesOpen] = useState(false);
   const navigationMenuRef = useRef<HTMLDivElement | null>(null);
   const [menuOffset, setMenuOffset] = useState(0);
   const { user, signOut } = useAuth();
@@ -70,6 +72,17 @@ const Header = () => {
   };
 
   const menuOffsetStyle = { '--menu-trigger-offset': `${menuOffset}px` } as CSSProperties;
+  const products = [
+    { label: "Explorer", href: "/products/explorer", icon: Compass },
+    { label: "Navigator", href: "/products/navigator", icon: Map },
+    { label: "Enterprise", href: "/products/enterprise", icon: Building2 }
+  ];
+
+  const resources = [
+    { label: "Reports", href: "/reports", icon: FileBarChart2 },
+    { label: "Insights", href: "/insights", icon: Lightbulb },
+    { label: "Articles", href: "/articles", icon: FileText }
+  ];
 
   return (
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -96,25 +109,43 @@ const Header = () => {
                   onMouseEnter={handleDesktopTriggerPosition}
                   onFocus={handleDesktopTriggerPosition}
                 >
+                  Features
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-[260px] p-3 grid gap-2">
+                    {featureItems.map((feature) => (
+                      <Link key={feature.id} to={feature.href}>
+                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
+                          <span className="rounded-full bg-primary/10 text-primary p-2">
+                            <feature.icon className="h-4 w-4" />
+                          </span>
+                          <div className="text-sm font-semibold leading-tight">{feature.title}</div>
+                        </NavigationMenuLink>
+                      </Link>
+                    ))}
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  onMouseEnter={handleDesktopTriggerPosition}
+                  onFocus={handleDesktopTriggerPosition}
+                >
                   Products
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-48 p-2">
-                    <Link to="/products/explorer">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Explorer
-                      </NavigationMenuLink>
-                    </Link>
-                    <Link to="/products/navigator">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Navigator
-                      </NavigationMenuLink>
-                    </Link>
-                    <Link to="/products/enterprise">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Enterprise
-                      </NavigationMenuLink>
-                    </Link>
+                  <div className="w-[260px] p-3 grid gap-2">
+                    {products.map((product) => (
+                      <Link key={product.href} to={product.href}>
+                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
+                          <span className="rounded-full bg-primary/10 text-primary p-2">
+                            <product.icon className="h-4 w-4" />
+                          </span>
+                          <div className="text-sm font-semibold leading-tight">{product.label}</div>
+                        </NavigationMenuLink>
+                      </Link>
+                    ))}
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -127,22 +158,17 @@ const Header = () => {
                   Resources
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-48 p-2">
-                    <Link to="/reports">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Reports
-                      </NavigationMenuLink>
-                    </Link>
-                    <Link to="/insights">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Insights
-                      </NavigationMenuLink>
-                    </Link>
-                    <Link to="/articles">
-                      <NavigationMenuLink className="block select-none space-y-1 rounded-full p-3 leading-none no-underline outline-none transition-all duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        Articles
-                      </NavigationMenuLink>
-                    </Link>
+                  <div className="w-[260px] p-3 grid gap-2">
+                    {resources.map((resource) => (
+                      <Link key={resource.href} to={resource.href}>
+                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
+                          <span className="rounded-full bg-primary/10 text-primary p-2">
+                            <resource.icon className="h-4 w-4" />
+                          </span>
+                          <div className="text-sm font-semibold leading-tight">{resource.label}</div>
+                        </NavigationMenuLink>
+                      </Link>
+                    ))}
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -251,6 +277,30 @@ const Header = () => {
 
                   <div className="border-t pt-1">
                     <button
+                      onClick={() => setFeaturesOpen(!featuresOpen)}
+                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
+                    >
+                      Features
+                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${featuresOpen ? 'rotate-90' : ''}`} />
+                    </button>
+                    {featuresOpen && (
+                      <div className="pl-4 space-y-1">
+                        {featureItems.map((feature) => (
+                          <Link
+                            key={feature.id}
+                            to={feature.href}
+                            className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {feature.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="border-t pt-1">
+                    <button
                       onClick={() => setProductsOpen(!productsOpen)}
                       className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
                     >
@@ -259,27 +309,17 @@ const Header = () => {
                     </button>
                     {productsOpen && (
                       <div className="pl-4 space-y-1">
-                        <Link
-                          to="/products/explorer"
-                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          Explorer
-                        </Link>
-                        <Link
-                          to="/products/navigator"
-                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          Navigator
-                        </Link>
-                        <Link
-                          to="/products/enterprise"
-                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          Enterprise
-                        </Link>
+                        {products.map((product) => (
+                          <Link
+                            key={product.href}
+                            to={product.href}
+                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <product.icon className="h-4 w-4 text-primary" />
+                            {product.label}
+                          </Link>
+                        ))}
                       </div>
                     )}
                   </div>
@@ -294,27 +334,17 @@ const Header = () => {
                     </button>
                     {resourcesOpen && (
                       <div className="pl-4 space-y-1">
-                        <Link
-                          to="/reports"
-                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          Reports
-                        </Link>
-                        <Link
-                          to="/insights"
-                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          Insights
-                        </Link>
-                        <Link
-                          to="/articles"
-                          className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          Articles
-                        </Link>
+                        {resources.map((resource) => (
+                          <Link
+                            key={resource.href}
+                            to={resource.href}
+                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <resource.icon className="h-4 w-4 text-primary" />
+                            {resource.label}
+                          </Link>
+                        ))}
                       </div>
                     )}
                   </div>

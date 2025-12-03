@@ -1,35 +1,4 @@
-import { TrendingUp, Filter, Target, Lightbulb } from "lucide-react";
-
-const features = [
-  {
-    icon: TrendingUp,
-    title: "90% More Center-Level Coverage",
-    description: "Our platform provides significantly more detailed information than most competitors, ensuring you have the complete picture.",
-    color: "text-blue-500",
-    bgColor: "bg-blue-50"
-  },
-  {
-    icon: Lightbulb,
-    title: "What If Scenarios",
-    description: "Simulate market shifts to forecast potential business impacts and opportunities.",
-    color: "text-blue-500",
-    bgColor: "bg-blue-50"
-  },
-  {
-    icon: Filter,
-    title: "Proprietary TAM Slicers",
-    description: "Align with your Go-to-Market strategies through highly customizable data filters.",
-    color: "text-blue-500",
-    bgColor: "bg-blue-50"
-  },
-  {
-    icon: Target,
-    title: "Tailor Made Market Insights",
-    description: "Customized intelligence aligned to your unique industry and growth strategy.",
-    color: "text-blue-500",
-    bgColor: "bg-blue-50"
-  }
-];
+import { featureItems } from "@/lib/featuresData";
 
 const Features = () => {
   return (
@@ -41,17 +10,17 @@ const Features = () => {
         </p>
         {/* Added responsive padding for desktop */}
         <div className="grid md:grid-cols-2 gap-8 md:px-10 lg:px-20">
-          {features.map((feature, index) => (
+          {featureItems.map((feature) => (
             <div
-              key={index}
+              key={feature.id}
               className="flex gap-4 items-start group"
             >
-              <div className={`${feature.bgColor} ${feature.color} p-3 rounded-full flex-shrink-0 transition-transform duration-micro ease-smooth group-hover:scale-105`}>
+              <div className="bg-primary/10 text-primary p-3 rounded-full flex-shrink-0 transition-transform duration-micro ease-smooth group-hover:scale-105">
                 <feature.icon size={24} />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                <p className="text-muted-foreground leading-relaxed">{feature.summary}</p>
               </div>
             </div>
           ))}
