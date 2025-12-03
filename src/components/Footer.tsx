@@ -1,5 +1,5 @@
 import logo from "@/assets/researchnxt-logo.png";
-import { ArrowUpRight, Linkedin, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -59,54 +59,29 @@ const Footer = () => {
         </div>
 
         {/* Main Footer */}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-5">
           <div className="space-y-4 md:col-span-2">
-            <div className="flex items-center gap-3">
-              <img
-                src={logo}
-                alt="Research NXT - GCC Intelligence Provider"
-                className="h-12 w-auto transition-transform duration-micro ease-smooth hover:scale-[1.02]"
-              />
-              <div className="text-sm font-medium text-foreground">Research NXT</div>
-            </div>
+            <img
+              src={logo}
+              alt="Research NXT - GCC Intelligence Provider"
+              className="h-12 w-auto transition-transform duration-micro ease-smooth hover:scale-[1.02]"
+            />
             <p className="max-w-xl text-sm text-muted-foreground">
               Leading GCC Intelligence platform for Global Capability Centers research, market intelligence, and executive-ready insights.
             </p>
-            <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
-              <span className="rounded-lg border bg-muted/60 px-3 py-2">Benchmarks by function & city</span>
-              <span className="rounded-lg border bg-muted/60 px-3 py-2">Location & talent signals</span>
-              <span className="rounded-lg border bg-muted/60 px-3 py-2">Deal room ready exports</span>
-            </div>
-            <div className="flex items-center gap-3 pt-2">
-              <a
-                href="https://www.linkedin.com/company/researchnxt/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition duration-micro ease-smooth hover:border-primary hover:text-primary"
-                aria-label="Research NXT on LinkedIn"
-              >
-                <Linkedin className="h-4 w-4" aria-hidden />
-              </a>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Phone className="h-4 w-4 text-primary" aria-hidden />
-                <a href="tel:+919619026927" className="hover:text-primary">
-                  +91 96190 26927
-                </a>
-              </div>
-            </div>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground">Platform</h3>
+            <h3 className="text-sm font-semibold text-foreground">Resources</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
                 <Link to="/reports" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                  GCC Reports
+                  Reports
                 </Link>
               </li>
               <li>
                 <Link to="/insights" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                  GCC Insights
+                  Insights
                 </Link>
               </li>
               <li>
@@ -114,9 +89,31 @@ const Footer = () => {
                   Articles
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold text-foreground">Get Started</h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li>
+                <a
+                  href="https://meetings-na2.hubspot.com/anam-khoja"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 transition-colors duration-micro ease-smooth hover:text-primary"
+                >
+                  Book a Demo
+                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+                </a>
+              </li>
               <li>
                 <Link to="/gcc-list" className="transition-colors duration-micro ease-smooth hover:text-primary">
                   Explore the Data
+                </Link>
+              </li>
+              <li>
+                <Link to="/pricing" className="transition-colors duration-micro ease-smooth hover:text-primary">
+                  Pricing
                 </Link>
               </li>
             </ul>
@@ -135,29 +132,13 @@ const Footer = () => {
                   Contact Us
                 </Link>
               </li>
-              <li>
-                <Link to="/pricing" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="https://meetings-na2.hubspot.com/anam-khoja"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 transition-colors duration-micro ease-smooth hover:text-primary"
-                >
-                  Book a Demo
-                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-                </a>
-              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="flex flex-col gap-4 border-t pt-6 md:flex-row md:items-center md:justify-between">
-          <div className="text-sm text-muted-foreground">(c) 2025 Research NXT. All rights reserved.</div>
+          <div className="text-sm text-muted-foreground">© 2025 Research NXT. All rights reserved.</div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <Link to="/privacy-policy" className="transition-colors duration-micro ease-smooth hover:text-primary">
               Privacy Policy
