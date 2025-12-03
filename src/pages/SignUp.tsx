@@ -88,17 +88,11 @@ const SignUp = () => {
     }
 
     const checkDisposable = async () => {
-      const apiKey = import.meta.env.VITE_TEMPMAIL_CHECKER_API_KEY;
-      const apiUrl = import.meta.env.VITE_TEMPMAIL_CHECKER_API_URL;
-      if (!apiKey || !apiUrl) return false;
-
       try {
-        const response = await fetch(`${apiUrl}?email=${encodeURIComponent(email)}`, {
-          headers: { 'x-api-key': apiKey }
-        });
+        const response = await fetch(`/.netlify/functions/check-tempmail?email=${encodeURIComponent(email)}`);
         if (!response.ok) return false;
         const data = await response.json();
-        return data?.disposable === true || data?.is_disposable === true || data?.blocked === true;
+        return data?.temp === true || data?.disposable === true;
       } catch (error) {
         console.warn('Tempmail checker unavailable', error);
         return false;
