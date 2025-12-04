@@ -147,6 +147,28 @@ const fetchInvoiceDetails = async (invoiceId) => {
   return response.json();
 };
 
+const notifyInvoiceByEmail = async (invoiceId) => {
+  const authHeader = getRazorpayAuthHeader();
+  const response = await fetch(
+    `https://api.razorpay.com/v1/invoices/${invoiceId}/notify_by/email`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: authHeader,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    const data = await response.json().catch(() => null);
+    const message =
+      data?.error?.description ||
+      data?.error?.reason ||
+      'Failed to trigger Razorpay invoice email';
+    throw new Error(message);
+  }
+};
+
 export const handler = async (event) => {
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
@@ -283,6 +305,13 @@ export const handler = async (event) => {
                 console.log('[INVOICE] Issued invoice details captured');
               } catch (detailError) {
                 console.error('[INVOICE] Could not fetch issued invoice details:', detailError.message);
+              }
+              // Ask Razorpay to email the invoice as a fallback
+              try {
+                console.log('[INVOICE] Triggering Razorpay invoice email:', invoice.id);
+                await notifyInvoiceByEmail(invoice.id);
+              } catch (notifyError) {
+                console.error('[INVOICE] Could not trigger Razorpay invoice email:', notifyError.message);
               }
             } catch (issueError) {
               console.error('[INVOICE] Failed to issue invoice:', issueError.message);
