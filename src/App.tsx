@@ -29,9 +29,13 @@ import Explorer from "./pages/products/Explorer";
 import Navigator from "./pages/products/Navigator";
 import Enterprise from "./pages/products/Enterprise";
 import GCCLeaders from "./pages/usecases/GCCLeaders";
+import GCCSiteLeaders from "./pages/usecases/GCCSiteLeaders";
 import PMO from "./pages/usecases/PMO";
 import GTMSellers from "./pages/usecases/GTMSellers";
 import EcosystemPartners from "./pages/usecases/EcosystemPartners";
+import EcosystemSellers from "./pages/usecases/EcosystemSellers";
+import GlobalPMO from "./pages/usecases/GlobalPMO";
+import IndiaLeadership from "./pages/usecases/IndiaLeadership";
 import Coverage from "./pages/features/Coverage";
 import WhatIfScenarios from "./pages/features/WhatIfScenarios";
 import ProprietaryTAMSlicers from "./pages/features/ProprietaryTAMSlicers";
@@ -71,9 +75,13 @@ const App = () => (
             <Route path="/features/proprietary-tam-slicers" element={<ProprietaryTAMSlicers />} />
             <Route path="/features/tailor-made-market-insights" element={<TailorMadeMarketInsights />} />
             <Route path="/use-cases/gcc-leaders" element={<GCCLeaders />} />
+            <Route path="/use-cases/gcc-site-leaders" element={<GCCSiteLeaders />} />
             <Route path="/use-cases/pmo" element={<PMO />} />
             <Route path="/use-cases/gtm-sellers" element={<GTMSellers />} />
             <Route path="/use-cases/ecosystem-partners" element={<EcosystemPartners />} />
+            <Route path="/use-cases/ecosystem-sellers" element={<EcosystemSellers />} />
+            <Route path="/use-cases/global-pmo" element={<GlobalPMO />} />
+            <Route path="/use-cases/india-leadership" element={<IndiaLeadership />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
             <Route
