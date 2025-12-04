@@ -106,18 +106,6 @@ const ReportGCCSnapshotQ2 = () => {
                   A quarterly checkpoint on India GCC growth: headcount, capability mix, leadership depth, and city momentum—ready for executive reviews and GTM planning.
                 </p>
               </div>
-              <div className="grid sm:grid-cols-3 gap-3 text-sm">
-                {[
-                  { label: "Pages", value: "60+" },
-                  { label: "Refresh", value: "Quarterly" },
-                  { label: "Format", value: "Deck + export" },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-2xl border bg-muted/40 px-4 py-3">
-                    <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{item.label}</div>
-                    <div className="text-base font-semibold">{item.value}</div>
-                  </div>
-                ))}
-              </div>
               <div className="space-y-2">
                 <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Why this report</p>
                 <div className="grid sm:grid-cols-2 gap-2">

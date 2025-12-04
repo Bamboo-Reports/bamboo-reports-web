@@ -106,18 +106,6 @@ const Report52Weeks = () => {
                   A full year of India GCC movements—new centers, capability ramps, hiring velocity, and leadership shifts—packaged for GTM, strategy, and delivery teams.
                 </p>
               </div>
-              <div className="grid sm:grid-cols-3 gap-3 text-sm">
-                {[
-                  { label: "Pages", value: "80+" },
-                  { label: "Refresh", value: "Weekly signals" },
-                  { label: "Format", value: "Deck + export" },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-2xl border bg-muted/40 px-4 py-3">
-                    <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{item.label}</div>
-                    <div className="text-base font-semibold">{item.value}</div>
-                  </div>
-                ))}
-              </div>
               <div className="space-y-2">
                 <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Why this report</p>
                 <div className="grid sm:grid-cols-2 gap-2">
