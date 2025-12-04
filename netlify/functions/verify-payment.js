@@ -123,6 +123,30 @@ const fetchInvoicePdfBase64 = async (invoiceId) => {
   return buffer.toString('base64');
 };
 
+const fetchInvoiceDetails = async (invoiceId) => {
+  const authHeader = getRazorpayAuthHeader();
+  const response = await fetch(
+    `https://api.razorpay.com/v1/invoices/${invoiceId}`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: authHeader,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    const data = await response.json().catch(() => null);
+    const message =
+      data?.error?.description ||
+      data?.error?.reason ||
+      'Failed to fetch Razorpay invoice details';
+    throw new Error(message);
+  }
+
+  return response.json();
+};
+
 export const handler = async (event) => {
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
@@ -249,6 +273,17 @@ export const handler = async (event) => {
             try {
               console.log('[INVOICE] Issuing invoice:', invoice.id);
               await issueInvoiceInRazorpay(invoice.id);
+              // Fetch issued invoice to capture short_url/invoice_number reliably
+              try {
+                const issuedInvoice = await fetchInvoiceDetails(invoice.id);
+                invoiceContext.invoiceNumber =
+                  issuedInvoice.invoice_number || invoiceContext.invoiceNumber;
+                invoiceContext.invoiceUrl =
+                  issuedInvoice.short_url || invoiceContext.invoiceUrl;
+                console.log('[INVOICE] Issued invoice details captured');
+              } catch (detailError) {
+                console.error('[INVOICE] Could not fetch issued invoice details:', detailError.message);
+              }
             } catch (issueError) {
               console.error('[INVOICE] Failed to issue invoice:', issueError.message);
             }

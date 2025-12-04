@@ -96,7 +96,7 @@ export const handler = async (event) => {
     }
 
     const invoiceHtmlBlock =
-      invoiceNumber || invoiceUrl || invoicePdfBase64
+      invoiceNumber || invoiceUrl || invoicePdfBase64 || invoiceId
         ? `
           <div style="background: #f0f4ff; padding: 15px; border-radius: 8px; margin: 20px 0;">
             <h3 style="margin-top: 0; color: #334155;">Invoice</h3>
