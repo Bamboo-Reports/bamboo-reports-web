@@ -28,6 +28,7 @@ const createInvoiceInRazorpay = async ({
 
   const payload = {
     type: 'invoice',
+    currency,
     description: `${planName} purchase`,
     partial_payment: false,
     customer: {
@@ -274,13 +275,14 @@ export const handler = async (event) => {
 
         // Attempt to create and fetch invoice PDF
         const invoiceAmount = amount || paymentDetails.amount;
-        if (invoiceAmount && actualCustomerEmail) {
+        const invoiceCurrency = currency || paymentDetails.currency;
+        if (invoiceAmount && invoiceCurrency && actualCustomerEmail) {
           try {
             console.log('[INVOICE] Creating invoice for payment:', razorpay_payment_id);
             const invoice = await createInvoiceInRazorpay({
               planName,
               amount: invoiceAmount,
-              currency: currency || paymentDetails.currency,
+              currency: invoiceCurrency,
               customerEmail: actualCustomerEmail,
               customerName: actualCustomerName,
               contact: customerContact,
@@ -328,7 +330,7 @@ export const handler = async (event) => {
             console.error('[INVOICE] Failed to create invoice:', invoiceError.message);
           }
         } else {
-          console.log('[INVOICE] Skipping invoice creation - missing amount or email');
+          console.log('[INVOICE] Skipping invoice creation - missing amount, currency, or email');
         }
       } catch (fetchError) {
         console.error('[VERIFY] Could not fetch payment details:', fetchError.message);

@@ -119,6 +119,11 @@ export const handler = async (event) => {
         : '';
 
     console.log('[SEND-EMAIL] Attempting to send email via Resend');
+    if (invoicePdfBase64) {
+      console.log('[SEND-EMAIL] Invoice PDF present, filename:', invoiceFileName);
+    } else {
+      console.log('[SEND-EMAIL] Invoice PDF not present in payload');
+    }
 
     // Send email using Resend
     const data = await resend.emails.send({
