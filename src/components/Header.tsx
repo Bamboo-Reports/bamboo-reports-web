@@ -174,7 +174,7 @@ const Header = () => {
                   onMouseEnter={handleDesktopTriggerPosition}
                   onFocus={handleDesktopTriggerPosition}
                 >
-                  ICP Pages
+                  ICP
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-[260px] p-3 grid gap-2">
@@ -395,7 +395,7 @@ const Header = () => {
                       onClick={() => setIcpOpen(!icpOpen)}
                       className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
                     >
-                      ICP Pages
+                      ICP
                       <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${icpOpen ? 'rotate-90' : ''}`} />
                     </button>
                     {icpOpen && (
