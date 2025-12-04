@@ -2,6 +2,28 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect, useState, useRef } from "react";
 import { useSEO } from "@/hooks/useSEO";
+import { Button } from "@/components/ui/button";
+
+const heroHighlights = [
+  "Week-by-week view of new centers, expansions, and exits",
+  "City and sector momentum tuned for GTM, strategy, and delivery",
+  "Leadership and hiring signals you can action immediately"
+];
+
+const whatsInside = [
+  "52-week timeline of every net-new center, expansion, and consolidation",
+  "City heatmaps with talent depth, hiring velocity, and capability mix",
+  "Leadership moves, succession signals, and role-level intent",
+  "Sector-wise build themes, from product engineering to platform ops",
+  "Export-ready slides and lists for board and steering updates"
+];
+
+const whoUsesIt = [
+  "Strategy and PMO teams planning city-capability bets",
+  "GTM leaders building territory and pursuit plays",
+  "Delivery and COE leads tracking execution risk and talent",
+  "Country leaders prepping exec and boardroom updates"
+];
 
 const Report52Weeks = () => {
   useSEO({
@@ -9,13 +31,14 @@ const Report52Weeks = () => {
     description: "Comprehensive 52-week analysis of India's Global Capability Centers growth. Track GCC trends, city-wise expansion, sector analysis, and MNC investment patterns across Bengaluru, Hyderabad, Pune, Chennai, and NCR.",
     keywords: "GCC Trends, India GCC Report, GCC Momentum, Global Capability Centers India, GCC Expansion, India GCC Research, GCC Market Intelligence, GCC benchmarking, MNC India Centers",
   });
+
   const [formKey, setFormKey] = useState(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const hasNavigatedRef = useRef(false);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
+    const script = document.createElement("script");
+    script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
     script.async = true;
     document.body.appendChild(script);
 
@@ -31,105 +54,140 @@ const Report52Weeks = () => {
   }, [formKey]);
 
   const handleIframeLoad = () => {
-    // Only check after initial load
     if (!hasNavigatedRef.current) {
       hasNavigatedRef.current = true;
       return;
     }
 
-    // If iframe has loaded again (navigated to download link), reset the form
-    console.log('Form navigated to download link, resetting form...');
     hasNavigatedRef.current = false;
-
-    // Small delay to ensure download starts
     setTimeout(() => {
-      setFormKey(prev => prev + 1);
+      setFormKey((prev) => prev + 1);
     }, 500);
   };
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      // Check if message is from JotForm
-      if (typeof event.data === 'string') {
+      if (typeof event.data === "string") {
         try {
           const data = JSON.parse(event.data);
-
-          // Detect form submission completion
           if (
-            data.action === 'submission-completed' ||
-            data.type === 'form.submit' ||
-            event.data.includes('submission-completed')
+            data.action === "submission-completed" ||
+            data.type === "form.submit" ||
+            event.data.includes("submission-completed")
           ) {
-            console.log('Form submission detected');
+            // Submission detected; keep page ready for reset.
           }
-        } catch (e) {
-          // Not JSON, ignore
+        } catch {
+          // Ignore non-JSON messages.
         }
       }
     };
 
-    window.addEventListener('message', handleMessage);
-
+    window.addEventListener("message", handleMessage);
     return () => {
-      window.removeEventListener('message', handleMessage);
+      window.removeEventListener("message", handleMessage);
     };
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
-      <main className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Main Content - 2 columns */}
-            <div className="lg:col-span-2">
-              <h1 className="text-5xl font-bold mb-6">52 Weeks of GCC Momentum - Bamboo Reports</h1>
-              
-              <div className="prose prose-lg max-w-none">
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  India's Global Capability Centers (GCCs) have entered a phase of unprecedented growth. Over the last 52 weeks, global enterprises have set up new innovation, R&D, and delivery hubs across India at a pace never seen before. From Bengaluru and Hyderabad leading the charge to emerging activity in Pune, Chennai, and NCR — the data paints a clear picture of India's strategic rise as the world's GCC powerhouse.
-                </p>
-                
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  This exclusive "52 Weeks – GCC Momentum" report by Bamboo Reports, Research NXT captures every wave of that expansion — week by week, city by city, and sector by sector. It uncovers how North American and European multinationals are recalibrating their India footprint, and how the nature of these centers is shifting from back-office operations to high-value innovation and product engineering.
-                </p>
-                
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Whether you're tracking industry peers, planning your next expansion, or evaluating the GCC landscape for opportunities, this report gives you a pulse on how the ecosystem evolved through FY 2024-25.
-                </p>
-                
-                <p className="text-lg font-semibold">
-                  📈 Explore the patterns, hotspots, and sectors that defined India's year of GCC acceleration — download your copy today.
+
+      <main className="py-16 lg:py-20 px-4">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <section className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+                Report • Updated weekly signals
+              </div>
+              <div className="space-y-3">
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight">52 Weeks of GCC Momentum</h1>
+                <p className="text-lg text-muted-foreground">
+                  A full year of India GCC movements—new centers, capability ramps, hiring velocity, and leadership shifts—packaged for GTM, strategy, and delivery teams.
                 </p>
               </div>
-            </div>
-            
-            {/* Sidebar Form - 1 column, sticky */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24">
-                <div className="rounded-lg border bg-card p-6">
-                  <h3 className="text-2xl font-bold mb-4">Download Report</h3>
-                  <iframe
-                    key={formKey}
-                    ref={iframeRef}
-                    id="JotFormIFrame-253031221972448"
-                    title="[ BR ] - 52 Weeks Leads"
-                    onLoad={(e) => {
-                      window.parent.scrollTo(0, 0);
-                      handleIframeLoad();
-                    }}
-                    allowTransparency={true}
-                    allow="geolocation; microphone; camera; fullscreen; payment"
-                    src="https://form.jotform.com/253031221972448"
-                    frameBorder="0"
-                    style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
-                    scrolling="no"
-                  />
+              <div className="grid sm:grid-cols-3 gap-3 text-sm">
+                {[
+                  { label: "Pages", value: "80+" },
+                  { label: "Refresh", value: "Weekly signals" },
+                  { label: "Format", value: "Deck + export" },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-2xl border bg-muted/40 px-4 py-3">
+                    <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{item.label}</div>
+                    <div className="text-base font-semibold">{item.value}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="space-y-2">
+                <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Why this report</p>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  {heroHighlights.map((item) => (
+                    <div key={item} className="rounded-2xl border bg-card px-4 py-3 text-sm text-muted-foreground flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
+              <div className="flex flex-wrap gap-3">
+                <Button size="lg" className="rounded-full" asChild>
+                  <a href="#download-form">Download the report</a>
+                </Button>
+                <Button size="lg" variant="outline" className="rounded-full" asChild>
+                  <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Walk me through it</a>
+                </Button>
+              </div>
             </div>
-          </div>
+
+            <div id="download-form" className="lg:sticky lg:top-24">
+              <div className="rounded-3xl border bg-card shadow-sm p-6">
+                <h3 className="text-2xl font-bold mb-3">Download report</h3>
+                <p className="text-sm text-muted-foreground mb-4">Get the full deck plus export-ready views.</p>
+                <iframe
+                  key={formKey}
+                  ref={iframeRef}
+                  id="JotFormIFrame-253031221972448"
+                  title="[ BR ] - 52 Weeks Leads"
+                  onLoad={() => {
+                    window.parent.scrollTo(0, 0);
+                    handleIframeLoad();
+                  }}
+                  allowTransparency={true}
+                  allow="geolocation; microphone; camera; fullscreen; payment"
+                  src="https://form.jotform.com/253031221972448"
+                  frameBorder="0"
+                  style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
+                  scrolling="no"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8">
+            <div className="space-y-4">
+              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">What's inside</p>
+              <h2 className="text-3xl font-bold">The definitive weekly pulse on India GCC momentum.</h2>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {whatsInside.map((item) => (
+                  <div key={item} className="rounded-2xl border bg-muted/40 px-4 py-3 text-sm leading-relaxed">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-4">
+              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Who uses it</p>
+              <h2 className="text-3xl font-bold">Built for teams that need defensible updates fast.</h2>
+              <div className="space-y-3">
+                {whoUsesIt.map((item) => (
+                  <div key={item} className="flex items-start gap-2 rounded-2xl border bg-card px-4 py-3 text-sm leading-relaxed">
+                    <span className="text-primary mt-1">•</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         </div>
       </main>
 
