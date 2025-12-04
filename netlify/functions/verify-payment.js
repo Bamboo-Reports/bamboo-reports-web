@@ -99,25 +99,32 @@ const issueInvoiceInRazorpay = async (invoiceId) => {
 };
 
 const fetchInvoicePdfBase64 = async (invoiceId) => {
-  const authHeader = getRazorpayAuthHeader();
-  const response = await fetch(
-    `https://api.razorpay.com/v1/invoices/${invoiceId}/pdf`,
-    {
-      method: 'GET',
-      headers: {
-        Authorization: authHeader,
-        Accept: 'application/pdf',
-      },
-    }
-  );
+  const key = process.env.VITE_RAZORPAY_KEY_ID;
+  const secret = process.env.RAZORPAY_KEY_SECRET;
+  if (!key || !secret) {
+    throw new Error('Missing Razorpay credentials for PDF fetch');
+  }
+
+  const url = `https://${encodeURIComponent(key)}:${encodeURIComponent(
+    secret
+  )}@api.razorpay.com/v1/invoices/${invoiceId}/pdf`;
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/pdf',
+    },
+  });
 
   if (!response.ok) {
-    const data = await response.json().catch(() => null);
-    const message =
-      data?.error?.description ||
-      data?.error?.reason ||
-      'Failed to fetch Razorpay invoice PDF';
-    throw new Error(message);
+    const status = response.status;
+    const body = await response.text().catch(() => '');
+    throw new Error(
+      `Failed to fetch Razorpay invoice PDF (status ${status}): ${body.slice(
+        0,
+        200
+      )}`
+    );
   }
 
   const buffer = Buffer.from(await response.arrayBuffer());
@@ -293,10 +300,16 @@ export const handler = async (event) => {
             invoiceContext.invoiceId = invoice.id;
             invoiceContext.invoiceNumber = invoice.invoice_number;
             invoiceContext.invoiceUrl = invoice.short_url;
+            const currentStatus = invoice.status;
+            console.log('[INVOICE] Created invoice status:', currentStatus);
 
             try {
-              console.log('[INVOICE] Issuing invoice:', invoice.id);
-              await issueInvoiceInRazorpay(invoice.id);
+              if (currentStatus !== 'issued') {
+                console.log('[INVOICE] Issuing invoice:', invoice.id);
+                await issueInvoiceInRazorpay(invoice.id);
+              } else {
+                console.log('[INVOICE] Invoice already issued, skipping issue call');
+              }
               // Fetch issued invoice to capture short_url/invoice_number reliably
               try {
                 const issuedInvoice = await fetchInvoiceDetails(invoice.id);
