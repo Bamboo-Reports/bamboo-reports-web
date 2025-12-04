@@ -6,6 +6,7 @@ import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { featureItems } from "@/lib/featuresData";
+import { useCaseItems } from "@/lib/useCasesData";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -34,6 +35,7 @@ const Header = () => {
   const [productsOpen, setProductsOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [featuresOpen, setFeaturesOpen] = useState(false);
+  const [useCasesOpen, setUseCasesOpen] = useState(false);
   const navigationMenuRef = useRef<HTMLDivElement | null>(null);
   const [menuOffset, setMenuOffset] = useState(0);
   const { user, signOut } = useAuth();
@@ -78,6 +80,12 @@ const Header = () => {
     { label: "Enterprise", href: "/products/enterprise", icon: Building2 }
   ];
 
+  const useCases = useCaseItems.map((useCase) => ({
+    label: useCase.title,
+    href: useCase.path,
+    icon: useCase.icon
+  }));
+
   const resources = [
     { label: "Reports", href: "/reports", icon: FileBarChart2 },
     { label: "Insights", href: "/insights", icon: Lightbulb },
@@ -120,6 +128,29 @@ const Header = () => {
                             <feature.icon className="h-4 w-4" />
                           </span>
                           <div className="text-sm leading-tight">{feature.title}</div>
+                        </NavigationMenuLink>
+                      </Link>
+                    ))}
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  onMouseEnter={handleDesktopTriggerPosition}
+                  onFocus={handleDesktopTriggerPosition}
+                >
+                  Use Cases
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-[260px] p-3 grid gap-2">
+                    {useCases.map((useCase) => (
+                      <Link key={useCase.href} to={useCase.href}>
+                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
+                          <span className="rounded-full bg-primary/10 text-primary p-2">
+                            <useCase.icon className="h-4 w-4" />
+                          </span>
+                          <div className="text-sm leading-tight">{useCase.label}</div>
                         </NavigationMenuLink>
                       </Link>
                     ))}
@@ -294,6 +325,31 @@ const Header = () => {
                           >
                             <feature.icon className="h-4 w-4 text-primary" />
                             {feature.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="border-t pt-1">
+                    <button
+                      onClick={() => setUseCasesOpen(!useCasesOpen)}
+                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
+                    >
+                      Use Cases
+                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${useCasesOpen ? 'rotate-90' : ''}`} />
+                    </button>
+                    {useCasesOpen && (
+                      <div className="pl-4 space-y-1">
+                        {useCases.map((useCase) => (
+                          <Link
+                            key={useCase.href}
+                            to={useCase.href}
+                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <useCase.icon className="h-4 w-4 text-primary" />
+                            {useCase.label}
                           </Link>
                         ))}
                       </div>
