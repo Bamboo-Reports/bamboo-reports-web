@@ -67,17 +67,6 @@ const Reports = () => {
                 <Link to="/gcc-list">Explore the data</Link>
               </Button>
             </div>
-            <div className="grid sm:grid-cols-3 gap-3 text-sm">
-              {[
-                "Built for strategy, GTM, and delivery teams",
-                "Exec-ready: deck format + export options",
-                "Signals refreshed weekly; snapshots quarterly"
-              ].map((item) => (
-                <div key={item} className="rounded-2xl border bg-background px-4 py-3 text-muted-foreground font-medium">
-                  {item}
-                </div>
-              ))}
-            </div>
           </section>
 
           <section className="space-y-6">
