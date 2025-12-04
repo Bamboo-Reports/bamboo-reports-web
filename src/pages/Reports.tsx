@@ -87,25 +87,20 @@ const Reports = () => {
                   to={`/reports/${report.id}`}
                   className="group"
                 >
-                  <div className="h-full rounded-3xl border bg-card shadow-sm transition-all duration-micro ease-smooth hover:shadow-lg hover:-translate-y-[2px] overflow-hidden">
-                    <div className="aspect-video overflow-hidden">
-                      <img
-                        src={report.thumbnail}
-                        alt={report.altText}
-                        className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
-                      />
-                    </div>
-                    <div className="p-6 space-y-3">
-                      <div className="flex items-center justify-between text-xs text-muted-foreground uppercase tracking-[0.18em]">
-                        <span>{report.meta.pages} pages</span>
-                        <span>{report.meta.updated}</span>
-                        <span>{report.meta.format}</span>
-                      </div>
-                      <div className="space-y-1">
-                        <h3 className="text-2xl font-bold leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
-                          {report.title}
-                        </h3>
-                        <p className="text-base text-muted-foreground">{report.subtitle}</p>
+              <div className="h-full rounded-3xl border bg-card shadow-sm transition-all duration-micro ease-smooth hover:shadow-lg hover:-translate-y-[2px] overflow-hidden">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={report.thumbnail}
+                    alt={report.altText}
+                    className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
+                  />
+                </div>
+                <div className="p-6 space-y-3">
+                  <div className="space-y-1">
+                    <h3 className="text-2xl font-bold leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
+                      {report.title}
+                    </h3>
+                    <p className="text-base text-muted-foreground">{report.subtitle}</p>
                       </div>
                       <p className="text-base text-foreground">{report.description}</p>
                       <div className="grid gap-2">
