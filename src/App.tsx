@@ -28,6 +28,10 @@ import ContactUs from "./pages/ContactUs";
 import Explorer from "./pages/products/Explorer";
 import Navigator from "./pages/products/Navigator";
 import Enterprise from "./pages/products/Enterprise";
+import GCCLeaders from "./pages/usecases/GCCLeaders";
+import PMO from "./pages/usecases/PMO";
+import GTMSellers from "./pages/usecases/GTMSellers";
+import EcosystemPartners from "./pages/usecases/EcosystemPartners";
 import Coverage from "./pages/features/Coverage";
 import WhatIfScenarios from "./pages/features/WhatIfScenarios";
 import ProprietaryTAMSlicers from "./pages/features/ProprietaryTAMSlicers";
@@ -66,6 +70,10 @@ const App = () => (
             <Route path="/features/what-if-scenarios" element={<WhatIfScenarios />} />
             <Route path="/features/proprietary-tam-slicers" element={<ProprietaryTAMSlicers />} />
             <Route path="/features/tailor-made-market-insights" element={<TailorMadeMarketInsights />} />
+            <Route path="/use-cases/gcc-leaders" element={<GCCLeaders />} />
+            <Route path="/use-cases/pmo" element={<PMO />} />
+            <Route path="/use-cases/gtm-sellers" element={<GTMSellers />} />
+            <Route path="/use-cases/ecosystem-partners" element={<EcosystemPartners />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
             <Route
