@@ -23,7 +23,12 @@ export const handler = async (event) => {
       amount, 
       currency, 
       paymentId, 
-      orderId 
+      orderId,
+      invoiceId,
+      invoiceNumber,
+      invoiceUrl,
+      invoicePdfBase64,
+      invoiceFileName,
     } = JSON.parse(event.body);
     
     console.log('[SEND-EMAIL] Email details:');
@@ -34,6 +39,10 @@ export const handler = async (event) => {
     console.log('[SEND-EMAIL] Currency:', currency);
     console.log('[SEND-EMAIL] Payment ID:', paymentId);
     console.log('[SEND-EMAIL] Order ID:', orderId);
+    console.log('[SEND-EMAIL] Invoice ID:', invoiceId);
+    console.log('[SEND-EMAIL] Invoice Number:', invoiceNumber);
+    console.log('[SEND-EMAIL] Invoice URL:', invoiceUrl);
+    console.log('[SEND-EMAIL] Invoice file:', invoiceFileName);
 
     // Validate input
     if (!customerEmail || !planName || !paymentId) {
@@ -54,7 +63,12 @@ export const handler = async (event) => {
       };
     }
 
-    const currencySymbol = currency === 'USD' ? '$' : '₹';
+    const currencySymbol =
+      currency === 'USD'
+        ? '$'
+        : currency === 'INR'
+        ? '₹'
+        : `${currency || ''} `;
 
     // Check API key
     if (!process.env.RESEND_API_KEY) {
@@ -63,6 +77,47 @@ export const handler = async (event) => {
     }
     
     console.log('[SEND-EMAIL] RESEND_API_KEY found:', process.env.RESEND_API_KEY.substring(0, 8) + '...');
+
+    const attachments =
+      invoicePdfBase64 && invoiceFileName
+        ? [
+            {
+              filename: invoiceFileName,
+              content: invoicePdfBase64,
+              type: 'application/pdf',
+            },
+          ]
+        : undefined;
+
+    if (attachments) {
+      console.log('[SEND-EMAIL] Attaching invoice PDF');
+    } else {
+      console.log('[SEND-EMAIL] No invoice attachment provided');
+    }
+
+    const invoiceHtmlBlock =
+      invoiceNumber || invoiceUrl || invoicePdfBase64
+        ? `
+          <div style="background: #f0f4ff; padding: 15px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="margin-top: 0; color: #334155;">Invoice</h3>
+            ${invoiceNumber ? `<p style="margin: 0 0 8px;">Invoice Number: <strong>${invoiceNumber}</strong></p>` : ''}
+            ${invoiceId ? `<p style="margin: 0 0 8px;">Invoice ID: <strong>${invoiceId}</strong></p>` : ''}
+            ${invoiceUrl ? `<p style="margin: 0 0 8px;">View online: <a href="${invoiceUrl}" style="color: #667eea; text-decoration: none;">${invoiceUrl}</a></p>` : ''}
+            ${invoicePdfBase64 ? `<p style="margin: 0;">A PDF copy is attached for your records.</p>` : ''}
+          </div>
+        `
+        : '';
+
+    const invoiceTextLines = [];
+    if (invoiceNumber) invoiceTextLines.push(`Invoice Number: ${invoiceNumber}`);
+    if (invoiceId) invoiceTextLines.push(`Invoice ID: ${invoiceId}`);
+    if (invoiceUrl) invoiceTextLines.push(`Invoice Link: ${invoiceUrl}`);
+    if (invoicePdfBase64) invoiceTextLines.push('Invoice PDF attached.');
+    const invoiceTextBlock =
+      invoiceTextLines.length > 0
+        ? `\nInvoice:\n${invoiceTextLines.map((line) => `- ${line}`).join('\n')}\n`
+        : '';
+
     console.log('[SEND-EMAIL] Attempting to send email via Resend');
 
     // Send email using Resend
@@ -70,6 +125,7 @@ export const handler = async (event) => {
       from: 'Bamboo Reports <noreply@updates.bambooreports.io>',
       to: [customerEmail],
       subject: `Payment Confirmation - ${planName}`,
+      attachments,
       html: `
         <!DOCTYPE html>
         <html>
@@ -80,7 +136,7 @@ export const handler = async (event) => {
           </head>
           <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-              <h1 style="color: white; margin: 0;">Payment Successful! 🎉</h1>
+              <h1 style="color: white; margin: 0;">Payment Successful!</h1>
             </div>
             
             <div style="background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px;">
@@ -127,6 +183,8 @@ export const handler = async (event) => {
                   <li>Contact us if you have any questions</li>
                 </ul>
               </div>
+
+              ${invoiceHtmlBlock}
               
               <p style="font-size: 16px;">If you have any questions, feel free to reply to this email or contact our support team.</p>
               
@@ -157,7 +215,7 @@ ${amount ? `- Amount: ${currencySymbol}${(amount / 100).toLocaleString()}` : ''}
 - Payment ID: ${paymentId}
 ${orderId ? `- Order ID: ${orderId}` : ''}
 - Date: ${new Date().toLocaleDateString()}
-
+${invoiceTextBlock}
 What's Next?
 - Our team will review your purchase
 - You'll receive access credentials within 24 hours

@@ -2,6 +2,127 @@ import crypto from 'crypto';
 import Razorpay from 'razorpay';
 import { createClient } from '@supabase/supabase-js';
 
+const getRazorpayAuthHeader = () => {
+  if (!process.env.VITE_RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+    throw new Error('Missing Razorpay credentials');
+  }
+
+  const token = Buffer.from(
+    `${process.env.VITE_RAZORPAY_KEY_ID}:${process.env.RAZORPAY_KEY_SECRET}`
+  ).toString('base64');
+
+  return `Basic ${token}`;
+};
+
+const createInvoiceInRazorpay = async ({
+  planName,
+  amount,
+  currency,
+  customerEmail,
+  customerName,
+  contact,
+  paymentId,
+  orderId,
+}) => {
+  const authHeader = getRazorpayAuthHeader();
+
+  const payload = {
+    type: 'invoice',
+    description: `${planName} purchase`,
+    partial_payment: false,
+    customer: {
+      name: customerName,
+      email: customerEmail,
+      contact: contact || undefined,
+    },
+    line_items: [
+      {
+        name: planName,
+        description: `${planName} (paid via ${paymentId})`,
+        amount,
+        currency,
+        quantity: 1,
+      },
+    ],
+    sms_notify: 0,
+    email_notify: 0,
+    notes: {
+      payment_id: paymentId,
+      razorpay_order_id: orderId,
+      plan_name: planName,
+    },
+  };
+
+  const response = await fetch('https://api.razorpay.com/v1/invoices', {
+    method: 'POST',
+    headers: {
+      Authorization: authHeader,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const data = await response.json();
+  if (!response.ok) {
+    const errorMessage =
+      data?.error?.description ||
+      data?.error?.reason ||
+      'Failed to create Razorpay invoice';
+    throw new Error(errorMessage);
+  }
+
+  return data;
+};
+
+const issueInvoiceInRazorpay = async (invoiceId) => {
+  const authHeader = getRazorpayAuthHeader();
+
+  const response = await fetch(
+    `https://api.razorpay.com/v1/invoices/${invoiceId}/issue`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: authHeader,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    const data = await response.json().catch(() => null);
+    const message =
+      data?.error?.description ||
+      data?.error?.reason ||
+      'Failed to issue Razorpay invoice';
+    throw new Error(message);
+  }
+};
+
+const fetchInvoicePdfBase64 = async (invoiceId) => {
+  const authHeader = getRazorpayAuthHeader();
+  const response = await fetch(
+    `https://api.razorpay.com/v1/invoices/${invoiceId}/pdf`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: authHeader,
+        Accept: 'application/pdf',
+      },
+    }
+  );
+
+  if (!response.ok) {
+    const data = await response.json().catch(() => null);
+    const message =
+      data?.error?.description ||
+      data?.error?.reason ||
+      'Failed to fetch Razorpay invoice PDF';
+    throw new Error(message);
+  }
+
+  const buffer = Buffer.from(await response.arrayBuffer());
+  return buffer.toString('base64');
+};
+
 export const handler = async (event) => {
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
@@ -61,10 +182,17 @@ export const handler = async (event) => {
       let actualCustomerEmail = customerEmail;
       let actualCustomerName = customerName;
       let paymentMethod = null;
+      let customerContact = null;
+      const invoiceContext = {
+        invoiceId: null,
+        invoiceNumber: null,
+        invoiceUrl: null,
+        invoicePdfBase64: null,
+      };
 
       try {
         console.log('[VERIFY] Fetching payment details from Razorpay API');
-        
+
         const razorpay = new Razorpay({
           key_id: process.env.VITE_RAZORPAY_KEY_ID,
           key_secret: process.env.RAZORPAY_KEY_SECRET,
@@ -92,6 +220,51 @@ export const handler = async (event) => {
         if (paymentDetails.method) {
           paymentMethod = paymentDetails.method;
           console.log('[VERIFY] Payment method:', paymentMethod);
+        }
+
+        if (paymentDetails.contact) {
+          customerContact = paymentDetails.contact;
+        }
+
+        // Attempt to create and fetch invoice PDF
+        const invoiceAmount = amount || paymentDetails.amount;
+        if (invoiceAmount && actualCustomerEmail) {
+          try {
+            console.log('[INVOICE] Creating invoice for payment:', razorpay_payment_id);
+            const invoice = await createInvoiceInRazorpay({
+              planName,
+              amount: invoiceAmount,
+              currency: currency || paymentDetails.currency,
+              customerEmail: actualCustomerEmail,
+              customerName: actualCustomerName,
+              contact: customerContact,
+              paymentId: razorpay_payment_id,
+              orderId: razorpay_order_id,
+            });
+
+            invoiceContext.invoiceId = invoice.id;
+            invoiceContext.invoiceNumber = invoice.invoice_number;
+            invoiceContext.invoiceUrl = invoice.short_url;
+
+            try {
+              console.log('[INVOICE] Issuing invoice:', invoice.id);
+              await issueInvoiceInRazorpay(invoice.id);
+            } catch (issueError) {
+              console.error('[INVOICE] Failed to issue invoice:', issueError.message);
+            }
+
+            try {
+              console.log('[INVOICE] Fetching invoice PDF for:', invoice.id);
+              invoiceContext.invoicePdfBase64 = await fetchInvoicePdfBase64(invoice.id);
+              console.log('[INVOICE] Invoice PDF fetched successfully');
+            } catch (pdfError) {
+              console.error('[INVOICE] Could not fetch invoice PDF:', pdfError.message);
+            }
+          } catch (invoiceError) {
+            console.error('[INVOICE] Failed to create invoice:', invoiceError.message);
+          }
+        } else {
+          console.log('[INVOICE] Skipping invoice creation - missing amount or email');
         }
       } catch (fetchError) {
         console.error('[VERIFY] Could not fetch payment details:', fetchError.message);
@@ -167,6 +340,16 @@ export const handler = async (event) => {
               currency,
               paymentId: razorpay_payment_id,
               orderId: razorpay_order_id,
+              invoiceId: invoiceContext.invoiceId,
+              invoiceNumber: invoiceContext.invoiceNumber,
+              invoiceUrl: invoiceContext.invoiceUrl,
+              invoicePdfBase64: invoiceContext.invoicePdfBase64,
+              invoiceFileName:
+                invoiceContext.invoiceNumber
+                  ? `${invoiceContext.invoiceNumber}.pdf`
+                  : invoiceContext.invoiceId
+                  ? `invoice-${invoiceContext.invoiceId}.pdf`
+                  : null,
             }),
           });
           
