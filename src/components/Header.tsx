@@ -36,6 +36,7 @@ const Header = () => {
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [useCasesOpen, setUseCasesOpen] = useState(false);
+  const [icpOpen, setIcpOpen] = useState(false);
   const navigationMenuRef = useRef<HTMLDivElement | null>(null);
   const [menuOffset, setMenuOffset] = useState(0);
   const { user, signOut } = useAuth();
@@ -80,11 +81,21 @@ const Header = () => {
     { label: "Enterprise", href: "/products/enterprise", icon: Building2 }
   ];
 
-  const useCases = useCaseItems.map((useCase) => ({
-    label: useCase.title,
-    href: useCase.path,
-    icon: useCase.icon
-  }));
+  const useCases = useCaseItems
+    .filter((useCase) => useCase.badge !== "ICP")
+    .map((useCase) => ({
+      label: useCase.title,
+      href: useCase.path,
+      icon: useCase.icon
+    }));
+
+  const icpPages = useCaseItems
+    .filter((useCase) => useCase.badge === "ICP")
+    .map((useCase) => ({
+      label: useCase.title,
+      href: useCase.path,
+      icon: useCase.icon
+    }));
 
   const resources = [
     { label: "Reports", href: "/reports", icon: FileBarChart2 },
@@ -151,6 +162,29 @@ const Header = () => {
                             <useCase.icon className="h-4 w-4" />
                           </span>
                           <div className="text-sm leading-tight">{useCase.label}</div>
+                        </NavigationMenuLink>
+                      </Link>
+                    ))}
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  onMouseEnter={handleDesktopTriggerPosition}
+                  onFocus={handleDesktopTriggerPosition}
+                >
+                  ICP
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="w-[260px] p-3 grid gap-2">
+                    {icpPages.map((icp) => (
+                      <Link key={icp.href} to={icp.href}>
+                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
+                          <span className="rounded-full bg-primary/10 text-primary p-2">
+                            <icp.icon className="h-4 w-4" />
+                          </span>
+                          <div className="text-sm leading-tight">{icp.label}</div>
                         </NavigationMenuLink>
                       </Link>
                     ))}
@@ -350,6 +384,31 @@ const Header = () => {
                           >
                             <useCase.icon className="h-4 w-4 text-primary" />
                             {useCase.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="border-t pt-1">
+                    <button
+                      onClick={() => setIcpOpen(!icpOpen)}
+                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
+                    >
+                      ICP
+                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${icpOpen ? 'rotate-90' : ''}`} />
+                    </button>
+                    {icpOpen && (
+                      <div className="pl-4 space-y-1">
+                        {icpPages.map((icp) => (
+                          <Link
+                            key={icp.href}
+                            to={icp.href}
+                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <icp.icon className="h-4 w-4 text-primary" />
+                            {icp.label}
                           </Link>
                         ))}
                       </div>
