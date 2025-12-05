@@ -31,7 +31,7 @@ const panelists = [
   {
     name: "Diptarup Chakrabarti",
     title: "Fractional CMO",
-    company: "ABC Ltd",
+    company: "",
     image: "https://files.catbox.moe/lsmp8f.jpg",
   },
   {
@@ -60,7 +60,7 @@ const panelists = [
   },
   {
     name: "Madhav Vemuri",
-    title: "Leader",
+    title: "",
     company: "Inpace / X ABB",
     image: "https://files.catbox.moe/45bruy.jpg",
   },
