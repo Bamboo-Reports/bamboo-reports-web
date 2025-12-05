@@ -123,6 +123,25 @@ const signalBullets = [
   "Outsourcing tax chatter has already triggered operating model redesigns toward India-led teams.",
 ];
 
+const galleryImages = [
+  "https://files.catbox.moe/izkjcs.jpg",
+  "https://files.catbox.moe/qpu0ox.jpg",
+  "https://files.catbox.moe/5f9ygp.jpg",
+  "https://files.catbox.moe/lx4inu.jpg",
+  "https://files.catbox.moe/scvja6.jpg",
+  "https://files.catbox.moe/81vn2k.jpg",
+  "https://files.catbox.moe/3bwsyy.jpg",
+  "https://files.catbox.moe/dwr10c.jpg",
+  "https://files.catbox.moe/3fyqxs.jpg",
+  "https://files.catbox.moe/2q7bs8.jpg",
+  "https://files.catbox.moe/dklbiw.jpg",
+  "https://files.catbox.moe/pcvg3e.jpg",
+  "https://files.catbox.moe/1du09p.jpg",
+  "https://files.catbox.moe/ey92ft.jpg",
+  "https://files.catbox.moe/pr2eof.jpg",
+  "https://files.catbox.moe/29fq8a.jpg",
+];
+
 const H1BStrategicReset = () => {
   useSEO({
     title: "H-1B Shock or Strategic Reset? Bengaluru Roundtable | Bamboo Reports",
@@ -222,6 +241,27 @@ const H1BStrategicReset = () => {
               {playbookPrompts.map((prompt) => (
                 <div key={prompt} className="rounded-2xl border bg-muted/40 px-4 py-3 text-base leading-relaxed text-foreground">
                   {prompt}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-3xl border bg-background p-8 lg:p-10 shadow-sm space-y-4">
+            <div className="space-y-2">
+              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Gallery</p>
+              <h3 className="text-2xl font-bold">Moments from the Bengaluru roundtable</h3>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                A quick look at the conversations, working sessions, and the leaders in the room.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {galleryImages.map((src, index) => (
+                <div key={src} className="rounded-2xl overflow-hidden border bg-muted/30">
+                  <img
+                    src={src}
+                    alt={`Roundtable gallery image ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               ))}
             </div>
