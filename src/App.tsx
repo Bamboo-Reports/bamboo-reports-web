@@ -13,6 +13,7 @@ import ReportGCCSnapshotQ2 from "./pages/ReportGCCSnapshotQ2";
 import GCCList from "./pages/GCCList";
 import Insights from "./pages/Insights";
 import Articles from "./pages/Articles";
+import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFailure from "./pages/PaymentFailure";
 import SignUp from "./pages/SignUp";
@@ -64,6 +65,7 @@ const App = () => (
             <Route path="/gcc-list" element={<GCCList />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/articles" element={<Articles />} />
+            <Route path="/articles/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/payment-failure" element={<PaymentFailure />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
