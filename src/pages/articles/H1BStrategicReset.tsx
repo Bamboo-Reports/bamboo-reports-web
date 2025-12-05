@@ -125,22 +125,22 @@ const signalBullets = [
 ];
 
 const galleryImages = [
-  "https://files.catbox.moe/izkjcs.jpg",
-  "https://files.catbox.moe/qpu0ox.jpg",
-  "https://files.catbox.moe/5f9ygp.jpg",
-  "https://files.catbox.moe/lx4inu.jpg",
-  "https://files.catbox.moe/scvja6.jpg",
-  "https://files.catbox.moe/81vn2k.jpg",
-  "https://files.catbox.moe/3bwsyy.jpg",
-  "https://files.catbox.moe/dwr10c.jpg",
-  "https://files.catbox.moe/3fyqxs.jpg",
-  "https://files.catbox.moe/2q7bs8.jpg",
-  "https://files.catbox.moe/dklbiw.jpg",
-  "https://files.catbox.moe/pcvg3e.jpg",
-  "https://files.catbox.moe/1du09p.jpg",
-  "https://files.catbox.moe/ey92ft.jpg",
-  "https://files.catbox.moe/pr2eof.jpg",
-  "https://files.catbox.moe/29fq8a.jpg",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3E6NpJNsuzPNnr3WpbQkUICE4LsfSK8YdAFwc",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh34rn0AFgx2ZSOAjhws8GeDCrLo9ydKXlQBM6i",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3xntYgm2VaSjoNHnAmYg7yO2GebWXZEk9Ls81",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3F9FgIQqG0at5nTZukps9wiUVMqQf2cS7ohjF",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh30SptXP6ughXnOLKxrVm6ZcokiW8b0AwP35D9",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3mIT7gW4R3TVP7HYKMELDqNsUauFk52v8X1fZ",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3Ss0D5Ty409HJNBGioTrRm7FYVWfxeZEk3hDz",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3wZNEx71KQpxn8gD4LHkqosTW7I3GCURa0iXP",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3JdP5tJQlUMv8tn0Hw3iDqQ2NWsGmAFPRor5k",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3svOfAMnVRhO0LNjsPY5Jdan26UwB4excEvWf",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh309WgiGM6ughXnOLKxrVm6ZcokiW8b0AwP35D",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh37EVso5dVMrsLhPKaF307ByAEcSedHTQkqRix",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3I3TjV2ZBzL1knKxc25AqhVMbJPTFlEjfXN4H",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh39NJkZujgaUkeoQrOmAW7yZKxRC8piBq4F1Ez",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3ZshjShObsSV4roe1jg58TnGNMk9cwxYuQviH",
+  "https://qnn0ns9j0r.ufs.sh/f/ekzjv9XP5Nh3z7xUQjEwIj8Uw23qpM0aONvSbizQ5AYGWdEh",
 ];
 
 const H1BStrategicReset = () => {
@@ -310,13 +310,17 @@ const H1BStrategicReset = () => {
                   key={src}
                   type="button"
                   onClick={() => openLightbox(index)}
-                  className="rounded-2xl overflow-hidden border bg-muted/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="group rounded-2xl overflow-hidden border bg-muted/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
-                  <img
-                    src={src}
-                    alt={`Roundtable gallery image ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+                  <div className="aspect-[4/3] w-full">
+                    <img
+                      src={src}
+                      alt={`Roundtable gallery image ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
+                    />
+                  </div>
                 </button>
               ))}
             </div>
