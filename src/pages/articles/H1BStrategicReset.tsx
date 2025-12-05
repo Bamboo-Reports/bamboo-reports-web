@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
+import { useState } from "react";
 
 const panelists = [
   {
@@ -151,6 +152,25 @@ const H1BStrategicReset = () => {
       "India GCC roundtable, GCC strategy India, H-1B impact India, Global Capability Centers insights, Bengaluru GCC event, GCC operating models India",
   });
 
+  const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
+
+  const openLightbox = (index: number) => setActiveImageIndex(index);
+  const closeLightbox = () => setActiveImageIndex(null);
+  const showPrev = () => {
+    if (activeImageIndex === null) return;
+    setActiveImageIndex((prev) => {
+      if (prev === null) return prev;
+      return prev === 0 ? galleryImages.length - 1 : prev - 1;
+    });
+  };
+  const showNext = () => {
+    if (activeImageIndex === null) return;
+    setActiveImageIndex((prev) => {
+      if (prev === null) return prev;
+      return prev === galleryImages.length - 1 ? 0 : prev + 1;
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -246,27 +266,6 @@ const H1BStrategicReset = () => {
             </div>
           </section>
 
-          <section className="rounded-3xl border bg-background p-8 lg:p-10 shadow-sm space-y-4">
-            <div className="space-y-2">
-              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Gallery</p>
-              <h3 className="text-2xl font-bold">Moments from the Bengaluru roundtable</h3>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                A quick look at the conversations, working sessions, and the leaders in the room.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {galleryImages.map((src, index) => (
-                <div key={src} className="rounded-2xl overflow-hidden border bg-muted/30">
-                  <img
-                    src={src}
-                    alt={`Roundtable gallery image ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </section>
-
           <section className="rounded-3xl border bg-muted/40 p-8 lg:p-10 shadow-sm space-y-6">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               <div>
@@ -297,6 +296,32 @@ const H1BStrategicReset = () => {
             </div>
           </section>
 
+          <section className="rounded-3xl border bg-background p-8 lg:p-10 shadow-sm space-y-4">
+            <div className="space-y-2">
+              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Gallery</p>
+              <h3 className="text-2xl font-bold">Moments from the Bengaluru roundtable</h3>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                A quick look at the conversations, working sessions, and the leaders in the room.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {galleryImages.map((src, index) => (
+                <button
+                  key={src}
+                  type="button"
+                  onClick={() => openLightbox(index)}
+                  className="rounded-2xl overflow-hidden border bg-muted/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
+                  <img
+                    src={src}
+                    alt={`Roundtable gallery image ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </section>
+
           <section className="rounded-3xl border bg-card p-8 lg:p-10 shadow-sm space-y-3">
             <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Final takeaway</p>
             <h3 className="text-2xl font-bold">Global capability centers are in India because capability is higher.</h3>
@@ -305,6 +330,41 @@ const H1BStrategicReset = () => {
             </p>
           </section>
         </div>
+
+        {activeImageIndex !== null && (
+          <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center px-4">
+            <button
+              type="button"
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 rounded-full bg-white/10 border border-white/20 text-white px-3 py-1.5 text-sm font-semibold hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              Close
+            </button>
+            <div className="relative w-full max-w-5xl flex items-center justify-center">
+              <button
+                type="button"
+                onClick={showPrev}
+                className="absolute left-0 md:-left-14 rounded-full bg-white/10 border border-white/20 text-white px-3 py-2 text-sm font-semibold hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                ‹ Prev
+              </button>
+              <div className="max-h-[80vh] w-full overflow-hidden rounded-2xl border border-white/15 bg-black">
+                <img
+                  src={galleryImages[activeImageIndex]}
+                  alt={`Roundtable gallery image ${activeImageIndex + 1}`}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <button
+                type="button"
+                onClick={showNext}
+                className="absolute right-0 md:-right-14 rounded-full bg-white/10 border border-white/20 text-white px-3 py-2 text-sm font-semibold hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                Next ›
+              </button>
+            </div>
+          </div>
+        )}
       </main>
 
       <Footer />
