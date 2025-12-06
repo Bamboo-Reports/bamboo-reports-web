@@ -11,6 +11,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { useSEO } from "@/hooks/useSEO";
 import { useAuth } from "@/contexts/AuthContext";
+import { useGeolocation } from "@/hooks/useGeolocation";
 import {
   initiateRazorpayPayment,
   createRazorpayOrder,
@@ -41,8 +42,41 @@ const Pricing = () => {
     }
   }, [isSubscriptionEnabled]);
 
+  // Detect user's location for automatic currency selection
+  const { countryCode, loading: geoLoading } = useGeolocation();
+
   // State to manage the selected currency
-  const [currency, setCurrency] = useState("USD");
+  // Auto-detect based on country: IN = INR, others = USD
+  const [currency, setCurrency] = useState(() => {
+    // Check if there's a manually selected currency in sessionStorage
+    const savedCurrency = sessionStorage.getItem("selectedCurrency");
+    if (savedCurrency) {
+      return savedCurrency;
+    }
+    // Default to USD while loading
+    return "USD";
+  });
+
+  // Update currency when geolocation is detected
+  useEffect(() => {
+    if (!geoLoading && countryCode) {
+      // Only auto-set if user hasn't manually selected a currency
+      const savedCurrency = sessionStorage.getItem("selectedCurrency");
+      if (!savedCurrency) {
+        const detectedCurrency = countryCode === "IN" ? "INR" : "USD";
+        setCurrency(detectedCurrency);
+      }
+    }
+  }, [countryCode, geoLoading]);
+
+  // Save currency selection when user manually changes it
+  const handleCurrencyChange = (value: string) => {
+    if (value) {
+      setCurrency(value);
+      sessionStorage.setItem("selectedCurrency", value);
+    }
+  };
+
   const [processingPlan, setProcessingPlan] = useState<string | null>(null);
 
   const plans = [
@@ -387,9 +421,7 @@ const Pricing = () => {
             <ToggleGroup
               type="single"
               value={currency}
-              onValueChange={(value) => {
-                if (value) setCurrency(value); // Set state only if value is selected
-              }}
+              onValueChange={handleCurrencyChange}
             >
               <ToggleGroupItem value="USD" aria-label="Select US Dollars">
                 USD
