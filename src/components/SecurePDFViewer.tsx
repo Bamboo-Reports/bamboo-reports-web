@@ -28,8 +28,7 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: 
   }
 
   function onDocumentLoadError(error: Error) {
-    console.error('Error loading PDF:', error);
-    console.error('PDF URL:', fileUrl);
+    // Error is displayed via error state in UI
     setError(`Failed to load PDF: ${error.message}`);
   }
 

@@ -54,7 +54,7 @@ export function usePurchaseAccess(planName: string): UsePurchaseAccessResult {
         setPurchases(data || []);
         setHasPurchased(data && data.length > 0);
       } catch (err) {
-        console.error('Error checking purchase access:', err);
+        // Error is handled via setError and returned to components
         setError(err instanceof Error ? err.message : 'Failed to check purchase access');
         setHasPurchased(false);
       } finally {
@@ -105,7 +105,7 @@ export function useUserPurchases() {
 
         setPurchases(data || []);
       } catch (err) {
-        console.error('Error fetching purchases:', err);
+        // Error is handled via setError and returned to components
         setError(err instanceof Error ? err.message : 'Failed to fetch purchases');
       } finally {
         setIsLoading(false);

@@ -86,7 +86,7 @@ export function GCCCompaniesTable() {
         setCompanies(data || []);
         setFilteredCompanies(data || []);
       } catch (err) {
-        console.error('Error fetching GCC companies:', err);
+        // Error is handled via setError and displayed in UI
         setError(err instanceof Error ? err.message : 'Failed to load GCC companies');
       } finally {
         setIsLoading(false);

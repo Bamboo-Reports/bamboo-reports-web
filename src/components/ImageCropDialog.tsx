@@ -47,7 +47,7 @@ const ImageCropDialog = ({ open, imageSrc, onCropComplete, onClose }: ImageCropD
       onCropComplete(croppedFile);
       onClose();
     } catch (error) {
-      console.error('Error cropping image:', error);
+      // Silently handle cropping errors - user can retry
     } finally {
       setIsProcessing(false);
     }
