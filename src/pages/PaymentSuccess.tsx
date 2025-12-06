@@ -10,17 +10,14 @@ const PaymentSuccess = () => {
   usePageTitle("Payment Successful");
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  
+
   const paymentId = searchParams.get("payment_id");
   const orderId = searchParams.get("order_id");
   const planName = searchParams.get("plan");
 
   useEffect(() => {
-    // You can send this data to your backend for verification
-    if (paymentId) {
-      console.log("Payment successful:", { paymentId, orderId, planName });
-      // TODO: Send payment details to backend for verification
-    }
+    // Payment details are already verified on the backend
+    // This page is only shown after successful verification
   }, [paymentId, orderId, planName]);
 
   return (
@@ -32,7 +29,7 @@ const PaymentSuccess = () => {
           <div className="mb-8 flex justify-center">
             <CheckCircle className="h-24 w-24 text-green-500" />
           </div>
-          
+
           <h1 className="text-4xl font-bold mb-4">Payment Successful!</h1>
           <p className="text-xl text-muted-foreground mb-8">
             Thank you for your purchase. Your payment has been processed successfully.
@@ -96,4 +93,3 @@ const PaymentSuccess = () => {
 };
 
 export default PaymentSuccess;
-
