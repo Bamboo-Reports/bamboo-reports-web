@@ -62,7 +62,7 @@ export const useGeolocation = (): GeolocationData => {
                     error: null,
                 });
             } catch (error) {
-                console.warn("Geolocation detection failed:", error);
+                // Geolocation detection failed - this is expected and handled gracefully
                 setData({
                     countryCode: null,
                     loading: false,

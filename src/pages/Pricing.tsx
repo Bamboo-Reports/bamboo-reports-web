@@ -319,8 +319,8 @@ const Pricing = () => {
               order.orderId
             );
 
+
             // Payment verified successfully
-            console.log("Payment verified:", response);
 
             // Redirect to success page with payment details
             navigate(

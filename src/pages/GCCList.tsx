@@ -127,7 +127,7 @@ const GCCList = () => {
               return;
             }
           } catch (cacheErr) {
-            console.warn("Cache parse failed:", cacheErr);
+            // Cache parse failed, will fetch fresh data
             localStorage.removeItem(CACHE_KEY);
           }
         }
@@ -171,14 +171,14 @@ const GCCList = () => {
             columns: ordered
           }));
         } catch (storageErr) {
-          console.warn("Failed to cache data:", storageErr);
+          // Failed to cache data (quota exceeded) - not critical, will fetch again next time
         }
 
         const initialFacets: any = {};
         facetCols.forEach(c => (initialFacets[c] = ""));
         setFacets(initialFacets);
       } catch (err) {
-        console.error("Load failed:", err);
+        // Data load failed - component will show empty state
       } finally {
         setLoading(false);
       }
@@ -296,7 +296,7 @@ const GCCList = () => {
           return handleFormSuccess();
         }
       } catch (e) {
-        console.error(e);
+        // Error parsing message - ignore non-JotForm messages
       }
     };
 
