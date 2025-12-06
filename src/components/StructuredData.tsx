@@ -1,9 +1,45 @@
 import { useEffect } from "react";
 
-interface StructuredDataProps {
-  type: "organization" | "product" | "faq" | "breadcrumb";
-  data?: any;
+// Type definitions for structured data schemas
+interface FAQQuestion {
+  question: string;
+  answer: string;
 }
+
+interface FAQData {
+  questions: FAQQuestion[];
+}
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface BreadcrumbData {
+  items: BreadcrumbItem[];
+}
+
+interface ProductRating {
+  value: number;
+  count: number;
+}
+
+interface ProductData {
+  name?: string;
+  description?: string;
+  price?: string;
+  rating?: ProductRating;
+  features?: string[];
+}
+
+// Discriminated union type for data prop based on type
+type StructuredDataType =
+  | { type: "organization"; data?: never }
+  | { type: "product"; data?: ProductData }
+  | { type: "faq"; data?: FAQData }
+  | { type: "breadcrumb"; data?: BreadcrumbData };
+
+type StructuredDataProps = StructuredDataType;
 
 export const StructuredData = ({ type, data }: StructuredDataProps) => {
   const getSchemaMarkup = () => {
@@ -75,7 +111,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
         return {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": data?.questions?.map((q: any) => ({
+          "mainEntity": data?.questions?.map((q) => ({
             "@type": "Question",
             "name": q.question,
             "acceptedAnswer": {
@@ -89,7 +125,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
         return {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": data?.items?.map((item: any, index: number) => ({
+          "itemListElement": data?.items?.map((item, index: number) => ({
             "@type": "ListItem",
             "position": index + 1,
             "name": item.name,

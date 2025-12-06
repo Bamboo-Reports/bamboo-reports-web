@@ -301,8 +301,8 @@ const Pricing = () => {
         handler: async (response: RazorpayResponse) => {
           try {
             // Get customer details from Razorpay prefill (they enter this in the form)
-            const customerEmail = (response as any).email || "";
-            const customerName = (response as any).name || "";
+            const customerEmail = response.email || "";
+            const customerName = response.name || "";
 
             // Verify payment on backend and send confirmation email
             await verifyRazorpayPayment(
@@ -327,7 +327,7 @@ const Pricing = () => {
               `/payment-success?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id || ""}&plan=${encodeURIComponent(planName)}`
             );
           } catch (verifyError) {
-            console.error("Payment verification failed:", verifyError);
+            // Payment error toast notification is shown to the user below
             toast({
               title: "Verification Failed",
               description: "Payment received but verification failed. Please contact support.",
@@ -382,7 +382,7 @@ const Pricing = () => {
         },
       });
     } catch (error) {
-      console.error("Payment error:", error);
+      // Payment error toast notification is shown to the user below
       setProcessingPlan(null);
 
       toast({

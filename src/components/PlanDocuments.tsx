@@ -65,7 +65,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
 
         setDocuments(data || []);
       } catch (err) {
-        console.error('Error fetching plan documents:', err);
+        // Error is handled via setError and displayed in UI
         setError(err instanceof Error ? err.message : 'Failed to load documents');
       } finally {
         setIsLoading(false);
@@ -112,7 +112,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
           setPdfUrl(data.signedUrl);
         }
       } catch (err) {
-        console.error('Error fetching PDF URL:', err);
+        // Error is handled via setError and displayed in UI
         setError(err instanceof Error ? err.message : 'Failed to load PDF');
       } finally {
         setIsPdfLoading(false);

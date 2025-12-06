@@ -66,7 +66,7 @@ const Purchases = () => {
 
         setPurchases(data || []);
       } catch (error) {
-        console.error("Error fetching purchases:", error);
+        // Error toast notification is shown to the user below
         toast({
           variant: "destructive",
           title: "Error loading purchases",

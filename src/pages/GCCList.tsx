@@ -32,15 +32,33 @@ const facetCols = [
 
 const nameSearchCols = ["Account Global Legal Name", "City"];
 
-const toCSV = (rows: any[], cols: string[]) => {
-  const q = (v: any) => {
+// Type definitions for GCC List
+interface CSVRow {
+  [key: string]: string;
+}
+
+interface FacetMap {
+  [key: string]: string;
+}
+
+interface JotFormMessageEvent {
+  origin?: string;
+  url?: string;
+  event?: string;
+  type?: string;
+  message?: string;
+  action?: string;
+}
+
+const toCSV = (rows: CSVRow[], cols: string[]) => {
+  const q = (v: string | undefined) => {
     const s = String(v ?? "");
     return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
   return (
     cols.map(q).join(",") +
     "\n" +
-    rows.map((r: any) => cols.map((c: string) => q(r[c])).join(",")).join("\n")
+    rows.map((r: CSVRow) => cols.map((c: string) => q(r[c])).join(",")).join("\n")
   );
 };
 
@@ -51,12 +69,12 @@ const GCCList = () => {
     keywords: "India GCC Database, GCC Intelligence India, India GCC list, Global Capability Centers India, GCC contact database India, India GCC Intelligence, GTM Intelligence India, India GCC data, GCC market intelligence India, Global Capability Centers database India, India GCC companies, GCC India contact list",
     canonicalUrl: "https://www.bambooreports.com/gcc-list",
   });
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<CSVRow[]>([]);
   const [columns, setColumns] = useState<string[]>([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [nameSearch, setNameSearch] = useState("");
-  const [facets, setFacets] = useState<any>({});
+  const [facets, setFacets] = useState<FacetMap>({});
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
@@ -96,7 +114,7 @@ const GCCList = () => {
       .slice(1)
       .filter(r => r.some(x => String(x ?? "").trim().length))
       .map(r => {
-        const o: any = {};
+        const o: CSVRow = {};
         header.forEach((h, i) => (o[h] = r[i] ?? ""));
         return o;
       });
@@ -119,7 +137,7 @@ const GCCList = () => {
               setColumns(cachedColumns);
               setData(cachedData);
 
-              const initialFacets: any = {};
+              const initialFacets: FacetMap = {};
               facetCols.forEach(c => (initialFacets[c] = ""));
               setFacets(initialFacets);
 
@@ -154,7 +172,7 @@ const GCCList = () => {
         });
 
         const processedData = objs.map(o => {
-          const r: any = {};
+          const r: CSVRow = {};
           ordered.forEach(k => (r[k] = o[k] ?? ""));
           return r;
         });
@@ -174,7 +192,7 @@ const GCCList = () => {
           // Failed to cache data (quota exceeded) - not critical, will fetch again next time
         }
 
-        const initialFacets: any = {};
+        const initialFacets: FacetMap = {};
         facetCols.forEach(c => (initialFacets[c] = ""));
         setFacets(initialFacets);
       } catch (err) {
@@ -215,8 +233,8 @@ const GCCList = () => {
     const set = new Set<string>();
     rows.forEach(r => set.add(String((r as any)[targetCol] ?? "")));
     return Array.from(set)
-      .filter((v: any) => v.length)
-      .sort((a: any, b: any) => a.localeCompare(b));
+      .filter((v: string) => v.length)
+      .sort((a: string, b: string) => a.localeCompare(b));
   };
 
   const totalPages = Math.max(1, Math.ceil(filteredData.length / pageSize));
@@ -227,7 +245,7 @@ const GCCList = () => {
 
   const handleClearFilters = () => {
     setNameSearch("");
-    const cleared: any = {};
+    const cleared: FacetMap = {};
     Object.keys(facets).forEach(k => (cleared[k] = ""));
     setFacets(cleared);
     setPage(1);
@@ -261,12 +279,14 @@ const GCCList = () => {
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       try {
-        const d: any = event.data;
+        const d: JotFormMessageEvent | string = event.data;
         const origin = String(event.origin || "");
         const fromJot =
           /jotform/i.test(origin) ||
-          /jotform/i.test(String(d?.origin)) ||
-          /jotform/i.test(String(d?.url));
+          (typeof d === 'object' && d && (
+            /jotform/i.test(String(d.origin)) ||
+            /jotform/i.test(String(d.url))
+          ));
 
         if (typeof d === "string") {
           const s = d.toLowerCase();
@@ -448,7 +468,7 @@ const GCCList = () => {
                           </td>
                         </tr>
                       ) : (
-                        currentPageData.map((row: any, idx: number) => (
+                        currentPageData.map((row: CSVRow, idx: number) => (
                           <tr key={idx} className="hover:bg-slate-50">
                             {columns.map((col: string) => (
                               <td key={col} className="p-3 border-b">
