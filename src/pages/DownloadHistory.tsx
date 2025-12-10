@@ -311,11 +311,11 @@ export default function DownloadHistory() {
                                         >
                                             <div className="flex items-start justify-between gap-4">
                                                 <div className="flex-1 min-w-0">
-                                                    <div className="flex items-center gap-2 mb-1">
-                                                        <FileText className="h-5 w-5 text-red-600 flex-shrink-0" />
-                                                        <h3 className="font-semibold truncate">{download.document_title}</h3>
+                                                    <div className="flex items-center gap-2 mb-1.5">
+                                                        <FileText className="h-4 w-4 text-red-600 flex-shrink-0" />
+                                                        <h3 className="font-medium text-sm truncate">{download.document_title}</h3>
                                                     </div>
-                                                    <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                                                    <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">{" "}
                                                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
                                                             {download.plan_name}
                                                         </span>
