@@ -1,7 +1,7 @@
 import logo from "@/assets/bamboo-logo.svg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight, User, LogOut, Package, Compass, Map, Building2, FileBarChart2, Lightbulb, FileText } from "lucide-react";
+import { Menu, ChevronRight, User, LogOut, Package, Compass, Map, Building2, FileBarChart2, Lightbulb, FileText, Download } from "lucide-react";
 import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -297,6 +297,12 @@ const Header = () => {
                       My Purchases
                     </Link>
                   </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/download-history" className="cursor-pointer">
+                      <Download className="mr-2 h-4 w-4" />
+                      Download History
+                    </Link>
+                  </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
                     <LogOut className="mr-2 h-4 w-4" />
@@ -518,6 +524,17 @@ const Header = () => {
                             My Purchases
                           </Link>
                         </Button>
+                        <Button
+                          asChild
+                          variant="ghost"
+                          className="w-full rounded-full font-semibold justify-start"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          <Link to="/download-history">
+                            <Download className="mr-2 h-4 w-4" />
+                            Download History
+                          </Link>
+                        </Button>
                       </div>
                       <Button
                         variant="outline"
@@ -547,9 +564,9 @@ const Header = () => {
               </nav>
             </div>
           </SheetContent>
-        </Sheet>
-      </div>
-    </header>
+        </Sheet >
+      </div >
+    </header >
   );
 };
 
