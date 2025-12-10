@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import { FileText, Eye, Database, ArrowLeft, Download } from 'lucide-react';
 import { GCCCompaniesTable } from './GCCCompaniesTable';
 import { SecurePDFViewer } from './SecurePDFViewer';
+import { DownloadConfirmationDialog } from './DownloadConfirmationDialog';
 import { generateDisclaimerPage } from '../utils/pdfDisclaimerGenerator';
 import { mergePDFWithDisclaimer, downloadPDF } from '../utils/pdfMerger';
 import { toast } from 'sonner';
@@ -36,6 +37,8 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
   const [isPdfLoading, setIsPdfLoading] = useState(false);
   const [downloadingDocId, setDownloadingDocId] = useState<string | null>(null);
   const [pdfWithDisclaimerUrl, setPdfWithDisclaimerUrl] = useState<string | null>(null);
+  const [showDownloadDialog, setShowDownloadDialog] = useState(false);
+  const [selectedDocument, setSelectedDocument] = useState<PlanDocument | null>(null);
 
   // CRITICAL: Read URL params directly from window.location to avoid React Router sync issues
   // This ensures we ALWAYS have the correct URL state, even during tab switches
@@ -174,15 +177,21 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
     setSearchParams(params);
   };
 
-  // Handle PDF download with disclaimer
-  const handleDownload = async (document: PlanDocument) => {
-    if (!user?.email || !document.file_path || !document.storage_bucket) {
+  // Show download confirmation dialog
+  const handleDownload = (document: PlanDocument) => {
+    setSelectedDocument(document);
+    setShowDownloadDialog(true);
+  };
+
+  // Handle actual PDF download after confirmation
+  const handleConfirmedDownload = async () => {
+    if (!selectedDocument || !user?.email || !selectedDocument.file_path || !selectedDocument.storage_bucket) {
       toast.error('Unable to download document');
       return;
     }
 
     try {
-      setDownloadingDocId(document.id);
+      setDownloadingDocId(selectedDocument.id);
       toast.info('Generating your personalized report...');
 
       // Get user's full name
@@ -197,7 +206,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
 
       // Generate disclaimer page
       const disclaimerBytes = await generateDisclaimerPage({
-        reportTitle: document.title,
+        reportTitle: selectedDocument.title,
         dateGenerated,
         userName,
         userEmail: user.email,
@@ -205,8 +214,8 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
 
       // Get signed URL for original PDF
       const { data, error: urlError } = await supabase.storage
-        .from(document.storage_bucket)
-        .createSignedUrl(document.file_path, 3600);
+        .from(selectedDocument.storage_bucket)
+        .createSignedUrl(selectedDocument.file_path, 3600);
 
       if (urlError || !data?.signedUrl) {
         throw new Error('Failed to access document');
@@ -219,12 +228,13 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
       );
 
       // Generate filename
-      const filename = `${document.title.replace(/[^a-z0-9]/gi, '_')}_${planName}.pdf`;
+      const filename = `${selectedDocument.title.replace(/[^a-z0-9]/gi, '_')}_${planName}.pdf`;
 
       // Download the merged PDF
       downloadPDF(mergedPdfBlob, filename);
 
       toast.success('Download complete!');
+      setShowDownloadDialog(false);
     } catch (err) {
       toast.error(err instanceof Error ? err.message : 'Failed to download document');
     } finally {
@@ -365,6 +375,15 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
           </Card>
         ))}
       </div>
+
+      {/* Download Confirmation Dialog */}
+      <DownloadConfirmationDialog
+        open={showDownloadDialog}
+        onOpenChange={setShowDownloadDialog}
+        onConfirm={handleConfirmedDownload}
+        documentTitle={selectedDocument?.title || ''}
+        isDownloading={downloadingDocId === selectedDocument?.id}
+      />
     </div>
   );
 }
