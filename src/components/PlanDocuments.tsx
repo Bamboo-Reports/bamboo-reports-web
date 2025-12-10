@@ -233,6 +233,20 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
       // Download the merged PDF
       downloadPDF(mergedPdfBlob, filename);
 
+      // Log the download
+      try {
+        await supabase.from('download_logs').insert({
+          user_id: user.id,
+          user_email: user.email,
+          document_id: selectedDocument.id,
+          document_title: selectedDocument.title,
+          plan_name: planName,
+        });
+      } catch (logError) {
+        // Don't block download if logging fails
+        console.error('Failed to log download:', logError);
+      }
+
       toast.success('Download complete!');
       setShowDownloadDialog(false);
     } catch (err) {

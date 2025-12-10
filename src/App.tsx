@@ -21,6 +21,7 @@ import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
 import Purchases from "./pages/Purchases";
 import MyContent from "./pages/MyContent";
+import DownloadHistory from "./pages/DownloadHistory";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
@@ -107,6 +108,14 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <MyContent />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/download-history"
+              element={
+                <ProtectedRoute>
+                  <DownloadHistory />
                 </ProtectedRoute>
               }
             />
