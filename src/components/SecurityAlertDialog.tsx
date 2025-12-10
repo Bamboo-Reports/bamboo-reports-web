@@ -20,6 +20,7 @@ interface SecurityAlertDialogProps {
         downloadedAt: string;
         device?: string;
         browser?: string;
+        ipAddress?: string;
     };
 }
 
@@ -75,6 +76,12 @@ export function SecurityAlertDialog({
                                 <div className="flex justify-between">
                                     <dt className="text-red-700">Browser:</dt>
                                     <dd className="font-medium text-red-900">{downloadInfo.browser}</dd>
+                                </div>
+                            )}
+                            {downloadInfo.ipAddress && (
+                                <div className="flex justify-between">
+                                    <dt className="text-red-700">IP Address:</dt>
+                                    <dd className="font-medium text-red-900">{downloadInfo.ipAddress}</dd>
                                 </div>
                             )}
                         </dl>

@@ -10,6 +10,7 @@ import { SecurePDFViewer } from './SecurePDFViewer';
 import { DownloadConfirmationDialog } from './DownloadConfirmationDialog';
 import { generateDisclaimerPage } from '../utils/pdfDisclaimerGenerator';
 import { mergePDFWithDisclaimer, downloadPDF } from '../utils/pdfMerger';
+import { getIPInfo } from '../utils/ipUtils';
 import { toast } from 'sonner';
 
 interface PlanDocument {
@@ -235,6 +236,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
 
       // Log the download
       try {
+        const ipInfo = await getIPInfo();
         await supabase.from('download_logs').insert({
           user_id: user.id,
           user_email: user.email,
@@ -242,6 +244,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
           document_title: selectedDocument.title,
           plan_name: planName,
           user_agent: navigator.userAgent,
+          ip_address: ipInfo?.ip || null,
         });
       } catch (logError) {
         // Don't block download if logging fails

@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
-import { ArrowLeft, Download, FileText, Search, TrendingUp, Files, Award, Monitor, Smartphone, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Download, FileText, Search, TrendingUp, Files, Award, Monitor, Smartphone, AlertTriangle, MapPin } from 'lucide-react';
 import { toast } from 'sonner';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -20,6 +20,7 @@ import {
 import { SecurityAlertDialog } from '../components/SecurityAlertDialog';
 import { generateDisclaimerPage } from '../utils/pdfDisclaimerGenerator';
 import { mergePDFWithDisclaimer, downloadPDF } from '../utils/pdfMerger';
+import { getIPInfo, formatLocation } from '../utils/ipUtils';
 import { supabase } from '../lib/supabase';
 
 export default function DownloadHistory() {
@@ -135,6 +136,7 @@ export default function DownloadHistory() {
 
             // Log the re-download
             try {
+                const ipInfo = await getIPInfo();
                 await supabase.from('download_logs').insert({
                     user_id: user.id,
                     user_email: user.email,
@@ -142,6 +144,7 @@ export default function DownloadHistory() {
                     document_title: download.document_title,
                     plan_name: download.plan_name,
                     user_agent: navigator.userAgent,
+                    ip_address: ipInfo?.ip || null,
                 });
             } catch (logError) {
                 console.error('Failed to log re-download:', logError);
@@ -331,6 +334,17 @@ export default function DownloadHistory() {
                                                                 </span>
                                                             </>
                                                         )}
+                                                        {download.ip_address && (
+                                                            <>
+                                                                <span>•</span>
+                                                                <span className="inline-flex items-center gap-1">
+                                                                    <MapPin className="h-3 w-3" />
+                                                                    <span className="text-xs" title={download.ip_address}>
+                                                                        {download.ip_address}
+                                                                    </span>
+                                                                </span>
+                                                            </>
+                                                        )}
                                                     </div>
                                                 </div>
                                                 <div className="flex gap-2 flex-shrink-0">
@@ -373,6 +387,7 @@ export default function DownloadHistory() {
                         downloadedAt: formatDownloadDate(selectedDownloadForReport.downloaded_at),
                         device: parseUserAgent(selectedDownloadForReport.user_agent).device,
                         browser: `${parseUserAgent(selectedDownloadForReport.user_agent).browser} on ${parseUserAgent(selectedDownloadForReport.user_agent).os}`,
+                        ipAddress: selectedDownloadForReport.ip_address || undefined,
                     }}
                 />
             )}
