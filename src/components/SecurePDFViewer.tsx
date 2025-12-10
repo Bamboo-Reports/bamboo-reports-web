@@ -13,9 +13,10 @@ interface SecurePDFViewerProps {
   userEmail: string;
   onClose: () => void;
   documentTitle?: string;
+  pdfWithDisclaimer?: string; // Optional: URL to PDF already merged with disclaimer
 }
 
-export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: SecurePDFViewerProps) {
+export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle, pdfWithDisclaimer }: SecurePDFViewerProps) {
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [scale, setScale] = useState<number>(1.0);
@@ -185,7 +186,7 @@ export function SecurePDFViewer({ fileUrl, userEmail, onClose, documentTitle }: 
             <>
               <Document
                 file={{
-                  url: fileUrl,
+                  url: pdfWithDisclaimer || fileUrl, // Use merged PDF if available, otherwise original
                   httpHeaders: {
                     'Accept': 'application/pdf'
                   },

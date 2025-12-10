@@ -4,9 +4,12 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { FileText, Eye, Database, ArrowLeft } from 'lucide-react';
+import { FileText, Eye, Database, ArrowLeft, Download } from 'lucide-react';
 import { GCCCompaniesTable } from './GCCCompaniesTable';
 import { SecurePDFViewer } from './SecurePDFViewer';
+import { generateDisclaimerPage } from '../utils/pdfDisclaimerGenerator';
+import { mergePDFWithDisclaimer, downloadPDF } from '../utils/pdfMerger';
+import { toast } from 'sonner';
 
 interface PlanDocument {
   id: string;
@@ -31,6 +34,8 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
   const [error, setError] = useState<string | null>(null);
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   const [isPdfLoading, setIsPdfLoading] = useState(false);
+  const [downloadingDocId, setDownloadingDocId] = useState<string | null>(null);
+  const [pdfWithDisclaimerUrl, setPdfWithDisclaimerUrl] = useState<string | null>(null);
 
   // CRITICAL: Read URL params directly from window.location to avoid React Router sync issues
   // This ensures we ALWAYS have the correct URL state, even during tab switches
@@ -83,6 +88,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
         if (currentView !== 'pdf') {
           setPdfUrl(null);
           setIsPdfLoading(false);
+          setPdfWithDisclaimerUrl(null);
         }
         return;
       }
@@ -110,6 +116,32 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
         if (error) throw error;
         if (data?.signedUrl) {
           setPdfUrl(data.signedUrl);
+
+          // Generate disclaimer and merge for web view
+          if (user?.email) {
+            const userName = user.user_metadata?.full_name || 'User';
+            const dateGenerated = new Date().toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            });
+
+            const disclaimerBytes = await generateDisclaimerPage({
+              reportTitle: document.title,
+              dateGenerated,
+              userName,
+              userEmail: user.email,
+            });
+
+            const mergedPdfBlob = await mergePDFWithDisclaimer(
+              disclaimerBytes,
+              data.signedUrl
+            );
+
+            // Create object URL for the merged PDF
+            const mergedUrl = URL.createObjectURL(mergedPdfBlob);
+            setPdfWithDisclaimerUrl(mergedUrl);
+          }
         }
       } catch (err) {
         // Error is handled via setError and displayed in UI
@@ -120,7 +152,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
     }
 
     fetchPDFUrl();
-  }, [currentView, currentDocId, documents.length]);
+  }, [currentView, currentDocId, documents.length, user?.email, user?.user_metadata?.full_name]);
 
   // Navigate to PDF view
   const handleView = (document: PlanDocument) => {
@@ -140,6 +172,64 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
     params.set('view', 'table');
     params.delete('doc');
     setSearchParams(params);
+  };
+
+  // Handle PDF download with disclaimer
+  const handleDownload = async (document: PlanDocument) => {
+    if (!user?.email || !document.file_path || !document.storage_bucket) {
+      toast.error('Unable to download document');
+      return;
+    }
+
+    try {
+      setDownloadingDocId(document.id);
+      toast.info('Generating your personalized report...');
+
+      // Get user's full name
+      const userName = user.user_metadata?.full_name || 'User';
+
+      // Generate current date
+      const dateGenerated = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+
+      // Generate disclaimer page
+      const disclaimerBytes = await generateDisclaimerPage({
+        reportTitle: document.title,
+        dateGenerated,
+        userName,
+        userEmail: user.email,
+      });
+
+      // Get signed URL for original PDF
+      const { data, error: urlError } = await supabase.storage
+        .from(document.storage_bucket)
+        .createSignedUrl(document.file_path, 3600);
+
+      if (urlError || !data?.signedUrl) {
+        throw new Error('Failed to access document');
+      }
+
+      // Merge disclaimer with original PDF
+      const mergedPdfBlob = await mergePDFWithDisclaimer(
+        disclaimerBytes,
+        data.signedUrl
+      );
+
+      // Generate filename
+      const filename = `${document.title.replace(/[^a-z0-9]/gi, '_')}_${planName}.pdf`;
+
+      // Download the merged PDF
+      downloadPDF(mergedPdfBlob, filename);
+
+      toast.success('Download complete!');
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'Failed to download document');
+    } finally {
+      setDownloadingDocId(null);
+    }
   };
 
   // Navigate back to document list
@@ -190,6 +280,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
           userEmail={user.email}
           onClose={handleBack}
           documentTitle={currentDoc?.title}
+          pdfWithDisclaimer={pdfWithDisclaimerUrl || undefined}
         />
       );
     }
@@ -243,13 +334,24 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
             </CardHeader>
             <CardContent>
               {document.document_type === 'pdf' ? (
-                <Button
-                  className="w-full hover:scale-[1.01] active:scale-[0.99]"
-                  onClick={() => handleView(document)}
-                >
-                  <Eye className="h-4 w-4 mr-2" />
-                  View Document
-                </Button>
+                <div className="flex gap-2">
+                  <Button
+                    className="flex-1 hover:scale-[1.01] active:scale-[0.99]"
+                    onClick={() => handleView(document)}
+                  >
+                    <Eye className="h-4 w-4 mr-2" />
+                    View
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="flex-1 hover:scale-[1.01] active:scale-[0.99]"
+                    onClick={() => handleDownload(document)}
+                    disabled={downloadingDocId === document.id}
+                  >
+                    <Download className="h-4 w-4 mr-2" />
+                    {downloadingDocId === document.id ? 'Downloading...' : 'Download'}
+                  </Button>
+                </div>
               ) : (
                 <Button
                   className="w-full hover:scale-[1.01] active:scale-[0.99]"
