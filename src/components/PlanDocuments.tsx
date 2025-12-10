@@ -241,6 +241,7 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
           document_id: selectedDocument.id,
           document_title: selectedDocument.title,
           plan_name: planName,
+          user_agent: navigator.userAgent,
         });
       } catch (logError) {
         // Don't block download if logging fails

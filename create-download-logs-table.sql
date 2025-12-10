@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS download_logs (
   
   -- Metadata
   downloaded_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  ip_address INET
+  ip_address INET,
+  user_agent TEXT
 );
 
 -- Create indexes for performance

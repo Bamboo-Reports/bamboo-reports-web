@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
-import { ArrowLeft, Download, FileText, Search, TrendingUp, Files, Award } from 'lucide-react';
+import { ArrowLeft, Download, FileText, Search, TrendingUp, Files, Award, Monitor, Smartphone, AlertTriangle } from 'lucide-react';
 import { toast } from 'sonner';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -14,8 +14,10 @@ import {
     fetchDownloadHistory,
     calculateDownloadStats,
     formatDownloadDate,
+    parseUserAgent,
     type DownloadLog,
 } from '../utils/downloadHistoryUtils';
+import { SecurityAlertDialog } from '../components/SecurityAlertDialog';
 import { generateDisclaimerPage } from '../utils/pdfDisclaimerGenerator';
 import { mergePDFWithDisclaimer, downloadPDF } from '../utils/pdfMerger';
 import { supabase } from '../lib/supabase';
@@ -28,6 +30,8 @@ export default function DownloadHistory() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [redownloadingId, setRedownloadingId] = useState<string | null>(null);
+    const [showSecurityAlert, setShowSecurityAlert] = useState(false);
+    const [selectedDownloadForReport, setSelectedDownloadForReport] = useState<DownloadLog | null>(null);
 
     // Filters
     const [searchQuery, setSearchQuery] = useState('');
@@ -137,6 +141,7 @@ export default function DownloadHistory() {
                     document_id: download.document_id,
                     document_title: download.document_title,
                     plan_name: download.plan_name,
+                    user_agent: navigator.userAgent,
                 });
             } catch (logError) {
                 console.error('Failed to log re-download:', logError);
@@ -148,6 +153,12 @@ export default function DownloadHistory() {
         } finally {
             setRedownloadingId(null);
         }
+    };
+
+    // Handle security report
+    const handleReportSuspicious = (download: DownloadLog) => {
+        setSelectedDownloadForReport(download);
+        setShowSecurityAlert(true);
     };
 
     return (
@@ -288,43 +299,83 @@ export default function DownloadHistory() {
                             </div>
                         ) : (
                             <div className="divide-y">
-                                {downloads.map((download) => (
-                                    <div
-                                        key={download.id}
-                                        className="p-4 sm:p-6 hover:bg-muted/50 transition-colors"
-                                    >
-                                        <div className="flex items-start justify-between gap-4">
-                                            <div className="flex-1 min-w-0">
-                                                <div className="flex items-center gap-2 mb-1">
-                                                    <FileText className="h-5 w-5 text-red-600 flex-shrink-0" />
-                                                    <h3 className="font-semibold truncate">{download.document_title}</h3>
+                                {downloads.map((download) => {
+                                    const deviceInfo = parseUserAgent(download.user_agent);
+                                    return (
+                                        <div
+                                            key={download.id}
+                                            className="p-4 sm:p-6 hover:bg-muted/50 transition-colors"
+                                        >
+                                            <div className="flex items-start justify-between gap-4">
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="flex items-center gap-2 mb-1">
+                                                        <FileText className="h-5 w-5 text-red-600 flex-shrink-0" />
+                                                        <h3 className="font-semibold truncate">{download.document_title}</h3>
+                                                    </div>
+                                                    <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                                                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                                                            {download.plan_name}
+                                                        </span>
+                                                        <span>•</span>
+                                                        <span>{formatDownloadDate(download.downloaded_at)}</span>
+                                                        {download.user_agent && (
+                                                            <>
+                                                                <span>•</span>
+                                                                <span className="inline-flex items-center gap-1">
+                                                                    {deviceInfo.device === 'Mobile' || deviceInfo.device === 'Tablet' ? (
+                                                                        <Smartphone className="h-3 w-3" />
+                                                                    ) : (
+                                                                        <Monitor className="h-3 w-3" />
+                                                                    )}
+                                                                    <span className="text-xs">{deviceInfo.browser} on {deviceInfo.os}</span>
+                                                                </span>
+                                                            </>
+                                                        )}
+                                                    </div>
                                                 </div>
-                                                <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                                                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                                                        {download.plan_name}
-                                                    </span>
-                                                    <span>•</span>
-                                                    <span>{formatDownloadDate(download.downloaded_at)}</span>
+                                                <div className="flex gap-2 flex-shrink-0">
+                                                    <Button
+                                                        variant="ghost"
+                                                        size="sm"
+                                                        onClick={() => handleReportSuspicious(download)}
+                                                        className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                                                        title="Report unauthorized access"
+                                                    >
+                                                        <AlertTriangle className="h-4 w-4" />
+                                                    </Button>
+                                                    <Button
+                                                        variant="outline"
+                                                        size="sm"
+                                                        onClick={() => handleRedownload(download)}
+                                                        disabled={redownloadingId === download.id}
+                                                    >
+                                                        <Download className="h-4 w-4 mr-2" />
+                                                        {redownloadingId === download.id ? 'Downloading...' : 'Download'}
+                                                    </Button>
                                                 </div>
                                             </div>
-                                            <Button
-                                                variant="outline"
-                                                size="sm"
-                                                onClick={() => handleRedownload(download)}
-                                                disabled={redownloadingId === download.id}
-                                                className="flex-shrink-0"
-                                            >
-                                                <Download className="h-4 w-4 mr-2" />
-                                                {redownloadingId === download.id ? 'Downloading...' : 'Download'}
-                                            </Button>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         )}
                     </div>
                 </div>
             </main>
+
+            {/* Security Alert Dialog */}
+            {selectedDownloadForReport && (
+                <SecurityAlertDialog
+                    open={showSecurityAlert}
+                    onOpenChange={setShowSecurityAlert}
+                    downloadInfo={{
+                        documentTitle: selectedDownloadForReport.document_title,
+                        downloadedAt: formatDownloadDate(selectedDownloadForReport.downloaded_at),
+                        device: parseUserAgent(selectedDownloadForReport.user_agent).device,
+                        browser: `${parseUserAgent(selectedDownloadForReport.user_agent).browser} on ${parseUserAgent(selectedDownloadForReport.user_agent).os}`,
+                    }}
+                />
+            )}
 
             <Footer />
         </div>

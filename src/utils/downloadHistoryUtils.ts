@@ -8,6 +8,8 @@ export interface DownloadLog {
     document_title: string;
     plan_name: string;
     downloaded_at: string;
+    ip_address?: string | null;
+    user_agent?: string | null;
 }
 
 export interface DownloadStats {
@@ -159,4 +161,57 @@ export function formatDownloadDate(timestamp: string): string {
         hour: '2-digit',
         minute: '2-digit',
     });
+}
+
+/**
+ * Parse user agent string to extract device and browser info
+ */
+export function parseUserAgent(userAgent: string | null | undefined): {
+    device: string;
+    browser: string;
+    os: string;
+} {
+    if (!userAgent) {
+        return { device: 'Unknown', browser: 'Unknown', os: 'Unknown' };
+    }
+
+    // Detect device type
+    let device = 'Desktop';
+    if (/Mobile|Android|iPhone|iPad|iPod/i.test(userAgent)) {
+        if (/iPad|Tablet/i.test(userAgent)) {
+            device = 'Tablet';
+        } else {
+            device = 'Mobile';
+        }
+    }
+
+    // Detect browser
+    let browser = 'Unknown';
+    if (userAgent.includes('Firefox')) {
+        browser = 'Firefox';
+    } else if (userAgent.includes('Edg')) {
+        browser = 'Edge';
+    } else if (userAgent.includes('Chrome')) {
+        browser = 'Chrome';
+    } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
+        browser = 'Safari';
+    } else if (userAgent.includes('Opera') || userAgent.includes('OPR')) {
+        browser = 'Opera';
+    }
+
+    // Detect OS
+    let os = 'Unknown';
+    if (userAgent.includes('Windows')) {
+        os = 'Windows';
+    } else if (userAgent.includes('Mac OS')) {
+        os = 'macOS';
+    } else if (userAgent.includes('Linux')) {
+        os = 'Linux';
+    } else if (userAgent.includes('Android')) {
+        os = 'Android';
+    } else if (userAgent.includes('iOS') || userAgent.includes('iPhone') || userAgent.includes('iPad')) {
+        os = 'iOS';
+    }
+
+    return { device, browser, os };
 }
