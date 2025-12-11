@@ -104,9 +104,9 @@ export function GCCCompaniesTable() {
 
         const { data, error: fetchError } = await supabase
           .from('gcc_companies')
-          .select('*')
+          .select('*', { count: 'exact', head: false })
           .order('account_global_legal_name', { ascending: true })
-          .range(0, 9999);
+          .limit(10000);
 
         if (fetchError) {
           throw fetchError;
