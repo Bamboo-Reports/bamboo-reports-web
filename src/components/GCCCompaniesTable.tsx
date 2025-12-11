@@ -338,6 +338,46 @@ export function GCCCompaniesTable() {
     return [Math.min(...values), Math.max(...values)];
   }, [getFilteredForRangeBounds, yearsInIndiaBounds]);
 
+  // Auto-clamp GCC Centers range when cascading bounds change
+  useEffect(() => {
+    const [minBound, maxBound] = cascadingGccCentersBounds;
+    const [currentMin, currentMax] = gccCentersRange;
+
+    // Clamp values to new bounds
+    const newMin = Math.max(minBound, Math.min(currentMin, maxBound));
+    const newMax = Math.min(maxBound, Math.max(currentMax, minBound));
+
+    if (newMin !== currentMin || newMax !== currentMax) {
+      setGccCentersRange([newMin, newMax]);
+    }
+  }, [cascadingGccCentersBounds]);
+
+  // Auto-clamp Total Centers range when cascading bounds change
+  useEffect(() => {
+    const [minBound, maxBound] = cascadingTotalCentersBounds;
+    const [currentMin, currentMax] = totalCentersRange;
+
+    const newMin = Math.max(minBound, Math.min(currentMin, maxBound));
+    const newMax = Math.min(maxBound, Math.max(currentMax, minBound));
+
+    if (newMin !== currentMin || newMax !== currentMax) {
+      setTotalCentersRange([newMin, newMax]);
+    }
+  }, [cascadingTotalCentersBounds]);
+
+  // Auto-clamp Years in India range when cascading bounds change
+  useEffect(() => {
+    const [minBound, maxBound] = cascadingYearsInIndiaBounds;
+    const [currentMin, currentMax] = yearsInIndiaRange;
+
+    const newMin = Math.max(minBound, Math.min(currentMin, maxBound));
+    const newMax = Math.min(maxBound, Math.max(currentMax, minBound));
+
+    if (newMin !== currentMin || newMax !== currentMax) {
+      setYearsInIndiaRange([newMin, newMax]);
+    }
+  }, [cascadingYearsInIndiaBounds]);
+
 
   // Pagination
   const totalPages = Math.ceil(filteredAndSortedCompanies.length / ITEMS_PER_PAGE);
