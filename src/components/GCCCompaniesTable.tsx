@@ -3,13 +3,6 @@ import { supabase } from '../lib/supabase';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from './ui/select';
-import {
   Table,
   TableBody,
   TableCell,
@@ -20,6 +13,8 @@ import {
 import { Search, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { CompanyDetailView } from './CompanyDetailView';
+import { MultiSelect } from './ui/multi-select';
+import { DualRangeSlider } from './ui/dual-range-slider';
 
 interface GCCCompany {
   id: string;
@@ -51,20 +46,22 @@ export function GCCCompaniesTable() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Filters
+  // Filters - Multi-select (arrays)
   const [searchQuery, setSearchQuery] = useState('');
-  const [revenueFilter, setRevenueFilter] = useState('');
-  const [countryFilter, setCountryFilter] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState('');
-  const [primaryCityFilter, setPrimaryCityFilter] = useState('');
+  const [revenueFilters, setRevenueFilters] = useState<string[]>([]);
+  const [countryFilters, setCountryFilters] = useState<string[]>([]);
+  const [categoryFilters, setCategoryFilters] = useState<string[]>([]);
+  const [primaryCityFilters, setPrimaryCityFilters] = useState<string[]>([]);
 
-  // Range filters
-  const [totalCentersMin, setTotalCentersMin] = useState('');
-  const [totalCentersMax, setTotalCentersMax] = useState('');
-  const [gccCentersMin, setGccCentersMin] = useState('');
-  const [gccCentersMax, setGccCentersMax] = useState('');
-  const [yearsInIndiaMin, setYearsInIndiaMin] = useState('');
-  const [yearsInIndiaMax, setYearsInIndiaMax] = useState('');
+  // Range filters - using tuples [min, max]
+  const [totalCentersRange, setTotalCentersRange] = useState<[number, number]>([0, 100]);
+  const [gccCentersRange, setGccCentersRange] = useState<[number, number]>([0, 50]);
+  const [yearsInIndiaRange, setYearsInIndiaRange] = useState<[number, number]>([0, 50]);
+
+  // Range bounds (computed from data)
+  const [totalCentersBounds, setTotalCentersBounds] = useState<[number, number]>([0, 100]);
+  const [gccCentersBounds, setGccCentersBounds] = useState<[number, number]>([0, 50]);
+  const [yearsInIndiaBounds, setYearsInIndiaBounds] = useState<[number, number]>([0, 50]);
 
   // Sorting
   const [sortField, setSortField] = useState<SortField>(null);
@@ -125,7 +122,6 @@ export function GCCCompaniesTable() {
           if (data && data.length > 0) {
             allData = [...allData, ...data];
             page++;
-            // If we got less than pageSize, we've reached the end
             hasMore = data.length === pageSize;
           } else {
             hasMore = false;
@@ -133,6 +129,22 @@ export function GCCCompaniesTable() {
         }
 
         setCompanies(allData);
+
+        // Calculate bounds for range filters
+        if (allData.length > 0) {
+          const maxTotalCenters = Math.max(...allData.map(c => c.total_centers ?? 0));
+          const maxGccCenters = Math.max(...allData.map(c => c.total_gcc_centers ?? 0));
+          const maxYears = Math.max(...allData.map(c => parseInt(c.years_in_india || '0')));
+
+          setTotalCentersBounds([0, maxTotalCenters || 100]);
+          setGccCentersBounds([0, maxGccCenters || 50]);
+          setYearsInIndiaBounds([0, maxYears || 50]);
+
+          // Initialize ranges to full bounds
+          setTotalCentersRange([0, maxTotalCenters || 100]);
+          setGccCentersRange([0, maxGccCenters || 50]);
+          setYearsInIndiaRange([0, maxYears || 50]);
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load GCC companies');
       } finally {
@@ -142,27 +154,6 @@ export function GCCCompaniesTable() {
 
     fetchCompanies();
   }, []);
-
-  // Get unique values for dropdown filters
-  const uniqueRevenues = useMemo(() => {
-    const values = new Set(companies.map(c => c.revenue_range).filter(Boolean));
-    return Array.from(values).sort();
-  }, [companies]);
-
-  const uniqueCountries = useMemo(() => {
-    const values = new Set(companies.map(c => c.hq_country).filter(Boolean));
-    return Array.from(values).sort();
-  }, [companies]);
-
-  const uniqueCategories = useMemo(() => {
-    const values = new Set(companies.map(c => c.category).filter(Boolean));
-    return Array.from(values).sort();
-  }, [companies]);
-
-  const uniqueCities = useMemo(() => {
-    const values = new Set(companies.map(c => c.primary_city).filter(Boolean));
-    return Array.from(values).sort();
-  }, [companies]);
 
   // Apply filters and sorting
   const filteredAndSortedCompanies = useMemo(() => {
@@ -176,45 +167,33 @@ export function GCCCompaniesTable() {
       );
     }
 
-    // Dropdown filters (skip if empty or 'all')
-    if (revenueFilter && revenueFilter !== 'all') {
-      filtered = filtered.filter(c => c.revenue_range === revenueFilter);
+    // Multi-select dropdown filters
+    if (revenueFilters.length > 0) {
+      filtered = filtered.filter(c => c.revenue_range && revenueFilters.includes(c.revenue_range));
     }
-    if (countryFilter && countryFilter !== 'all') {
-      filtered = filtered.filter(c => c.hq_country === countryFilter);
+    if (countryFilters.length > 0) {
+      filtered = filtered.filter(c => c.hq_country && countryFilters.includes(c.hq_country));
     }
-    if (categoryFilter && categoryFilter !== 'all') {
-      filtered = filtered.filter(c => c.category === categoryFilter);
+    if (categoryFilters.length > 0) {
+      filtered = filtered.filter(c => c.category && categoryFilters.includes(c.category));
     }
-    if (primaryCityFilter && primaryCityFilter !== 'all') {
-      filtered = filtered.filter(c => c.primary_city === primaryCityFilter);
+    if (primaryCityFilters.length > 0) {
+      filtered = filtered.filter(c => c.primary_city && primaryCityFilters.includes(c.primary_city));
     }
 
     // Range filters
-    if (totalCentersMin) {
-      filtered = filtered.filter(c => (c.total_centers ?? 0) >= parseInt(totalCentersMin));
-    }
-    if (totalCentersMax) {
-      filtered = filtered.filter(c => (c.total_centers ?? 0) <= parseInt(totalCentersMax));
-    }
-    if (gccCentersMin) {
-      filtered = filtered.filter(c => (c.total_gcc_centers ?? 0) >= parseInt(gccCentersMin));
-    }
-    if (gccCentersMax) {
-      filtered = filtered.filter(c => (c.total_gcc_centers ?? 0) <= parseInt(gccCentersMax));
-    }
-    if (yearsInIndiaMin) {
-      filtered = filtered.filter(c => {
-        const years = parseInt(c.years_in_india || '0');
-        return years >= parseInt(yearsInIndiaMin);
-      });
-    }
-    if (yearsInIndiaMax) {
-      filtered = filtered.filter(c => {
-        const years = parseInt(c.years_in_india || '0');
-        return years <= parseInt(yearsInIndiaMax);
-      });
-    }
+    filtered = filtered.filter(c => {
+      const centers = c.total_centers ?? 0;
+      return centers >= totalCentersRange[0] && centers <= totalCentersRange[1];
+    });
+    filtered = filtered.filter(c => {
+      const gccCenters = c.total_gcc_centers ?? 0;
+      return gccCenters >= gccCentersRange[0] && gccCenters <= gccCentersRange[1];
+    });
+    filtered = filtered.filter(c => {
+      const years = parseInt(c.years_in_india || '0');
+      return years >= yearsInIndiaRange[0] && years <= yearsInIndiaRange[1];
+    });
 
     // Apply sorting
     if (sortField && sortDirection) {
@@ -222,11 +201,9 @@ export function GCCCompaniesTable() {
         const aVal = a[sortField];
         const bVal = b[sortField];
 
-        // Handle null/undefined values
         if (aVal === null || aVal === undefined) return 1;
         if (bVal === null || bVal === undefined) return -1;
 
-        // Compare values
         let comparison = 0;
         if (typeof aVal === 'number' && typeof bVal === 'number') {
           comparison = aVal - bVal;
@@ -239,9 +216,73 @@ export function GCCCompaniesTable() {
     }
 
     return filtered;
-  }, [companies, searchQuery, revenueFilter, countryFilter, categoryFilter, primaryCityFilter,
-    totalCentersMin, totalCentersMax, gccCentersMin, gccCentersMax, yearsInIndiaMin, yearsInIndiaMax,
-    sortField, sortDirection]);
+  }, [companies, searchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters,
+    totalCentersRange, gccCentersRange, yearsInIndiaRange, sortField, sortDirection]);
+
+  // Cascading filter options - computed from filtered data (excluding current filter)
+  const getFilteredForCascade = (excludeFilter: string) => {
+    let filtered = companies;
+
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(company =>
+        company.account_global_legal_name?.toLowerCase().includes(query)
+      );
+    }
+
+    if (excludeFilter !== 'revenue' && revenueFilters.length > 0) {
+      filtered = filtered.filter(c => c.revenue_range && revenueFilters.includes(c.revenue_range));
+    }
+    if (excludeFilter !== 'country' && countryFilters.length > 0) {
+      filtered = filtered.filter(c => c.hq_country && countryFilters.includes(c.hq_country));
+    }
+    if (excludeFilter !== 'category' && categoryFilters.length > 0) {
+      filtered = filtered.filter(c => c.category && categoryFilters.includes(c.category));
+    }
+    if (excludeFilter !== 'city' && primaryCityFilters.length > 0) {
+      filtered = filtered.filter(c => c.primary_city && primaryCityFilters.includes(c.primary_city));
+    }
+
+    // Apply range filters for cascade
+    filtered = filtered.filter(c => {
+      const centers = c.total_centers ?? 0;
+      return centers >= totalCentersRange[0] && centers <= totalCentersRange[1];
+    });
+    filtered = filtered.filter(c => {
+      const gccCenters = c.total_gcc_centers ?? 0;
+      return gccCenters >= gccCentersRange[0] && gccCenters <= gccCentersRange[1];
+    });
+    filtered = filtered.filter(c => {
+      const years = parseInt(c.years_in_india || '0');
+      return years >= yearsInIndiaRange[0] && years <= yearsInIndiaRange[1];
+    });
+
+    return filtered;
+  };
+
+  const cascadingRevenues = useMemo(() => {
+    const filtered = getFilteredForCascade('revenue');
+    const values = new Set(filtered.map(c => c.revenue_range).filter(Boolean) as string[]);
+    return Array.from(values).sort();
+  }, [companies, searchQuery, countryFilters, categoryFilters, primaryCityFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
+
+  const cascadingCountries = useMemo(() => {
+    const filtered = getFilteredForCascade('country');
+    const values = new Set(filtered.map(c => c.hq_country).filter(Boolean) as string[]);
+    return Array.from(values).sort();
+  }, [companies, searchQuery, revenueFilters, categoryFilters, primaryCityFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
+
+  const cascadingCategories = useMemo(() => {
+    const filtered = getFilteredForCascade('category');
+    const values = new Set(filtered.map(c => c.category).filter(Boolean) as string[]);
+    return Array.from(values).sort();
+  }, [companies, searchQuery, revenueFilters, countryFilters, primaryCityFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
+
+  const cascadingCities = useMemo(() => {
+    const filtered = getFilteredForCascade('city');
+    const values = new Set(filtered.map(c => c.primary_city).filter(Boolean) as string[]);
+    return Array.from(values).sort();
+  }, [companies, searchQuery, revenueFilters, countryFilters, categoryFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
 
   // Pagination
   const totalPages = Math.ceil(filteredAndSortedCompanies.length / ITEMS_PER_PAGE);
@@ -252,8 +293,8 @@ export function GCCCompaniesTable() {
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, revenueFilter, countryFilter, categoryFilter, primaryCityFilter,
-    totalCentersMin, totalCentersMax, gccCentersMin, gccCentersMax, yearsInIndiaMin, yearsInIndiaMax]);
+  }, [searchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters,
+    totalCentersRange, gccCentersRange, yearsInIndiaRange]);
 
   const handlePreviousPage = () => {
     setCurrentPage(prev => Math.max(1, prev - 1));
@@ -265,7 +306,6 @@ export function GCCCompaniesTable() {
 
   const handleSort = (field: SortField) => {
     if (sortField === field) {
-      // Cycle through: asc -> desc -> null
       if (sortDirection === 'asc') {
         setSortDirection('desc');
       } else if (sortDirection === 'desc') {
@@ -290,16 +330,13 @@ export function GCCCompaniesTable() {
 
   const handleClearFilters = () => {
     setSearchQuery('');
-    setRevenueFilter('');
-    setCountryFilter('');
-    setCategoryFilter('');
-    setPrimaryCityFilter('');
-    setTotalCentersMin('');
-    setTotalCentersMax('');
-    setGccCentersMin('');
-    setGccCentersMax('');
-    setYearsInIndiaMin('');
-    setYearsInIndiaMax('');
+    setRevenueFilters([]);
+    setCountryFilters([]);
+    setCategoryFilters([]);
+    setPrimaryCityFilters([]);
+    setTotalCentersRange(totalCentersBounds);
+    setGccCentersRange(gccCentersBounds);
+    setYearsInIndiaRange(yearsInIndiaBounds);
   };
 
   const handleCompanyClick = (company: GCCCompany) => {
@@ -330,13 +367,11 @@ export function GCCCompaniesTable() {
     <div
       className="space-y-6 select-none"
       onContextMenu={handleContextMenu}
-      onSelectStart={handleSelectStart}
+      onSelect={handleSelectStart as unknown as React.ReactEventHandler}
       onCopy={handleCopy}
       style={{
         userSelect: 'none',
         WebkitUserSelect: 'none',
-        MozUserSelect: 'none',
-        msUserSelect: 'none'
       }}
     >
       {/* Header */}
@@ -365,127 +400,125 @@ export function GCCCompaniesTable() {
           </Button>
         </div>
 
-        {/* Dropdown Filters */}
+        {/* Multi-select Dropdown Filters */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="space-y-1.5">
             <label className="text-xs font-medium text-gray-600">Revenue Range</label>
-            <Select value={revenueFilter} onValueChange={setRevenueFilter}>
-              <SelectTrigger>
-                <SelectValue placeholder="All" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                {uniqueRevenues.map(rev => (
-                  <SelectItem key={rev} value={rev as string}>{rev}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <MultiSelect
+              options={cascadingRevenues}
+              selected={revenueFilters}
+              onChange={setRevenueFilters}
+              placeholder="All"
+            />
           </div>
 
           <div className="space-y-1.5">
             <label className="text-xs font-medium text-gray-600">HQ Country</label>
-            <Select value={countryFilter} onValueChange={setCountryFilter}>
-              <SelectTrigger>
-                <SelectValue placeholder="All" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                {uniqueCountries.map(country => (
-                  <SelectItem key={country} value={country as string}>{country}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <MultiSelect
+              options={cascadingCountries}
+              selected={countryFilters}
+              onChange={setCountryFilters}
+              placeholder="All"
+            />
           </div>
 
           <div className="space-y-1.5">
             <label className="text-xs font-medium text-gray-600">Category</label>
-            <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-              <SelectTrigger>
-                <SelectValue placeholder="All" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                {uniqueCategories.map(cat => (
-                  <SelectItem key={cat} value={cat as string}>{cat}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <MultiSelect
+              options={cascadingCategories}
+              selected={categoryFilters}
+              onChange={setCategoryFilters}
+              placeholder="All"
+            />
           </div>
 
           <div className="space-y-1.5">
             <label className="text-xs font-medium text-gray-600">Primary City</label>
-            <Select value={primaryCityFilter} onValueChange={setPrimaryCityFilter}>
-              <SelectTrigger>
-                <SelectValue placeholder="All" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                {uniqueCities.map(city => (
-                  <SelectItem key={city} value={city as string}>{city}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <MultiSelect
+              options={cascadingCities}
+              selected={primaryCityFilters}
+              onChange={setPrimaryCityFilters}
+              placeholder="All"
+            />
           </div>
         </div>
 
-        {/* Range Filters */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-600">Total Centers (Range)</label>
+        {/* Range Filters with Sliders */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+          <div className="space-y-3">
+            <label className="text-xs font-medium text-gray-600">Total Centers ({totalCentersRange[0]} - {totalCentersRange[1]})</label>
+            <DualRangeSlider
+              min={totalCentersBounds[0]}
+              max={totalCentersBounds[1]}
+              value={totalCentersRange}
+              onValueChange={(value) => setTotalCentersRange(value)}
+            />
             <div className="flex gap-2">
               <Input
                 type="number"
                 placeholder="Min"
-                value={totalCentersMin}
-                onChange={(e) => setTotalCentersMin(e.target.value)}
-                className="text-sm"
+                value={totalCentersRange[0]}
+                onChange={(e) => setTotalCentersRange([parseInt(e.target.value) || 0, totalCentersRange[1]])}
+                className="text-sm h-8"
               />
               <Input
                 type="number"
                 placeholder="Max"
-                value={totalCentersMax}
-                onChange={(e) => setTotalCentersMax(e.target.value)}
-                className="text-sm"
+                value={totalCentersRange[1]}
+                onChange={(e) => setTotalCentersRange([totalCentersRange[0], parseInt(e.target.value) || totalCentersBounds[1]])}
+                className="text-sm h-8"
               />
             </div>
           </div>
 
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-600">Total GCC Centers (Range)</label>
+          <div className="space-y-3">
+            <label className="text-xs font-medium text-gray-600">Total GCC Centers ({gccCentersRange[0]} - {gccCentersRange[1]})</label>
+            <DualRangeSlider
+              min={gccCentersBounds[0]}
+              max={gccCentersBounds[1]}
+              value={gccCentersRange}
+              onValueChange={(value) => setGccCentersRange(value)}
+            />
             <div className="flex gap-2">
               <Input
                 type="number"
                 placeholder="Min"
-                value={gccCentersMin}
-                onChange={(e) => setGccCentersMin(e.target.value)}
-                className="text-sm"
+                value={gccCentersRange[0]}
+                onChange={(e) => setGccCentersRange([parseInt(e.target.value) || 0, gccCentersRange[1]])}
+                className="text-sm h-8"
               />
               <Input
                 type="number"
                 placeholder="Max"
-                value={gccCentersMax}
-                onChange={(e) => setGccCentersMax(e.target.value)}
-                className="text-sm"
+                value={gccCentersRange[1]}
+                onChange={(e) => setGccCentersRange([gccCentersRange[0], parseInt(e.target.value) || gccCentersBounds[1]])}
+                className="text-sm h-8"
               />
             </div>
           </div>
 
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-600">Years in India (Range)</label>
+          <div className="space-y-3">
+            <label className="text-xs font-medium text-gray-600">Years in India ({yearsInIndiaRange[0]} - {yearsInIndiaRange[1]})</label>
+            <DualRangeSlider
+              min={yearsInIndiaBounds[0]}
+              max={yearsInIndiaBounds[1]}
+              value={yearsInIndiaRange}
+              onValueChange={(value) => setYearsInIndiaRange(value)}
+            />
             <div className="flex gap-2">
               <Input
                 type="number"
                 placeholder="Min"
-                value={yearsInIndiaMin}
-                onChange={(e) => setYearsInIndiaMin(e.target.value)}
-                className="text-sm"
+                value={yearsInIndiaRange[0]}
+                onChange={(e) => setYearsInIndiaRange([parseInt(e.target.value) || 0, yearsInIndiaRange[1]])}
+                className="text-sm h-8"
               />
               <Input
                 type="number"
                 placeholder="Max"
-                value={yearsInIndiaMax}
-                onChange={(e) => setYearsInIndiaMax(e.target.value)}
-                className="text-sm"
+                value={yearsInIndiaRange[1]}
+                onChange={(e) => setYearsInIndiaRange([yearsInIndiaRange[0], parseInt(e.target.value) || yearsInIndiaBounds[1]])}
+                className="text-sm h-8"
               />
             </div>
           </div>
