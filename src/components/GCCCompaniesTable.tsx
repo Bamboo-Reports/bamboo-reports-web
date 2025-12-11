@@ -311,18 +311,26 @@ export function GCCCompaniesTable() {
     return filtered;
   }, [companies, searchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters]);
 
-  // Cascading range bounds - dynamically update based on dropdown filters
+  // Cascading range bounds - dynamically update based on dropdown filters AND other range filters
   const cascadingTotalCentersBounds = useMemo((): [number, number] => {
     if (getFilteredForRangeBounds.length === 0) return totalCentersBounds;
     const values = getFilteredForRangeBounds.map(c => c.total_centers ?? 0);
     return [Math.min(...values), Math.max(...values)];
   }, [getFilteredForRangeBounds, totalCentersBounds]);
 
+  // GCC Centers max is capped by Total Centers max (can't have more GCC centers than total centers)
   const cascadingGccCentersBounds = useMemo((): [number, number] => {
     if (getFilteredForRangeBounds.length === 0) return gccCentersBounds;
     const values = getFilteredForRangeBounds.map(c => c.total_gcc_centers ?? 0);
-    return [Math.min(...values), Math.max(...values)];
-  }, [getFilteredForRangeBounds, gccCentersBounds]);
+    const baseMin = Math.min(...values);
+    const baseMax = Math.max(...values);
+
+    // GCC Centers cannot exceed Total Centers range max
+    const cappedMax = Math.min(baseMax, totalCentersRange[1]);
+    const cappedMin = Math.min(baseMin, cappedMax);
+
+    return [cappedMin, cappedMax];
+  }, [getFilteredForRangeBounds, gccCentersBounds, totalCentersRange]);
 
   const cascadingYearsInIndiaBounds = useMemo((): [number, number] => {
     if (getFilteredForRangeBounds.length === 0) return yearsInIndiaBounds;
