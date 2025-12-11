@@ -176,17 +176,17 @@ export function GCCCompaniesTable() {
       );
     }
 
-    // Dropdown filters
-    if (revenueFilter) {
+    // Dropdown filters (skip if empty or 'all')
+    if (revenueFilter && revenueFilter !== 'all') {
       filtered = filtered.filter(c => c.revenue_range === revenueFilter);
     }
-    if (countryFilter) {
+    if (countryFilter && countryFilter !== 'all') {
       filtered = filtered.filter(c => c.hq_country === countryFilter);
     }
-    if (categoryFilter) {
+    if (categoryFilter && categoryFilter !== 'all') {
       filtered = filtered.filter(c => c.category === categoryFilter);
     }
-    if (primaryCityFilter) {
+    if (primaryCityFilter && primaryCityFilter !== 'all') {
       filtered = filtered.filter(c => c.primary_city === primaryCityFilter);
     }
 
