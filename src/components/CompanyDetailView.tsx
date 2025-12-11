@@ -95,38 +95,38 @@ const getServiceIcon = (category: string) => {
     const categoryLower = category.toLowerCase();
 
     if (categoryLower.includes('it') || categoryLower.includes('information technology')) {
-        return <Code className="h-5 w-5 text-blue-600" />;
+        return <Code className="h-4 w-4 text-gray-600" />;
     }
     if (categoryLower.includes('er&d') || categoryLower.includes('engineering')) {
-        return <Settings className="h-5 w-5 text-purple-600" />;
+        return <Settings className="h-4 w-4 text-gray-600" />;
     }
     if (categoryLower.includes('fna') || categoryLower.includes('finance') || categoryLower.includes('accounting')) {
-        return <DollarSign className="h-5 w-5 text-green-600" />;
+        return <DollarSign className="h-4 w-4 text-gray-600" />;
     }
     if (categoryLower.includes('procurement') || categoryLower.includes('supply chain')) {
-        return <Package className="h-5 w-5 text-orange-600" />;
+        return <Package className="h-4 w-4 text-gray-600" />;
     }
     if (categoryLower.includes('sales') || categoryLower.includes('marketing')) {
-        return <TrendingUp className="h-5 w-5 text-pink-600" />;
+        return <TrendingUp className="h-4 w-4 text-gray-600" />;
     }
     if (categoryLower.includes('customer') || categoryLower.includes('support')) {
-        return <Headphones className="h-5 w-5 text-indigo-600" />;
+        return <Headphones className="h-4 w-4 text-gray-600" />;
     }
     if (categoryLower.includes('security') || categoryLower.includes('cyber')) {
-        return <Shield className="h-5 w-5 text-red-600" />;
+        return <Shield className="h-4 w-4 text-gray-600" />;
     }
     if (categoryLower.includes('data') || categoryLower.includes('analytics')) {
-        return <Database className="h-5 w-5 text-cyan-600" />;
+        return <Database className="h-4 w-4 text-gray-600" />;
     }
     if (categoryLower.includes('cloud')) {
-        return <Cloud className="h-5 w-5 text-sky-600" />;
+        return <Cloud className="h-4 w-4 text-gray-600" />;
     }
     if (categoryLower.includes('ai') || categoryLower.includes('artificial intelligence')) {
-        return <Cpu className="h-5 w-5 text-violet-600" />;
+        return <Cpu className="h-4 w-4 text-gray-600" />;
     }
 
     // Default icon
-    return <Briefcase className="h-5 w-5 text-gray-600" />;
+    return <Briefcase className="h-4 w-4 text-gray-600" />;
 };
 
 // Get background color for service category
@@ -174,7 +174,7 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+            <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle className="text-2xl font-bold flex items-center gap-3">
                         <Building2 className="h-6 w-6 text-primary" />
@@ -299,26 +299,25 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
                             <Separator />
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2">
-                                    <Briefcase className="h-5 w-5 text-primary" />
                                     <h3 className="text-lg font-semibold text-primary">Services Offered</h3>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-slate-50 p-5 rounded-lg border">
                                     {serviceCategories.map((service, index) => (
                                         <div
                                             key={index}
-                                            className={`p-4 rounded-lg border ${getServiceColor(service.category)} transition-all hover:shadow-md`}
+                                            className="space-y-2"
                                         >
-                                            <div className="flex items-center gap-2 mb-3">
+                                            <div className="flex items-center gap-2">
                                                 {getServiceIcon(service.category)}
-                                                <h4 className="font-semibold text-gray-900">{service.category}</h4>
+                                                <h4 className="text-xs font-medium text-muted-foreground">{service.category}</h4>
                                             </div>
 
                                             {service.items.length > 0 && (
-                                                <ul className="space-y-1.5">
+                                                <ul className="space-y-1">
                                                     {service.items.map((item, idx) => (
                                                         <li key={idx} className="text-sm text-gray-700 flex items-start gap-2">
-                                                            <span className="text-gray-400 mt-1">•</span>
+                                                            <span className="text-gray-400 mt-0.5">•</span>
                                                             <span>{item}</span>
                                                         </li>
                                                     ))}
