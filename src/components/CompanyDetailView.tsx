@@ -6,7 +6,24 @@ import {
     DialogTitle
 } from './ui/dialog';
 import { Badge } from './ui/badge';
-import { ExternalLink, Building2, MapPin, Globe, Briefcase } from 'lucide-react';
+import {
+    ExternalLink,
+    Building2,
+    MapPin,
+    Globe,
+    Briefcase,
+    Code,
+    Wrench,
+    DollarSign,
+    Package,
+    TrendingUp,
+    Headphones,
+    Shield,
+    Database,
+    Cloud,
+    Cpu,
+    Settings
+} from 'lucide-react';
 import { Separator } from './ui/separator';
 
 interface GCCCompany {
@@ -34,8 +51,126 @@ interface CompanyDetailViewProps {
     onOpenChange: (open: boolean) => void;
 }
 
+interface ServiceCategory {
+    category: string;
+    items: string[];
+}
+
+// Function to parse services from multi-line text format
+const parseServices = (servicesText: string | null): ServiceCategory[] => {
+    if (!servicesText) return [];
+
+    const lines = servicesText.split('\n').map(line => line.trim()).filter(Boolean);
+    const categories: ServiceCategory[] = [];
+    let currentCategory: ServiceCategory | null = null;
+
+    lines.forEach(line => {
+        // If line doesn't start with a dash, it's a category
+        if (!line.startsWith('-')) {
+            if (currentCategory) {
+                categories.push(currentCategory);
+            }
+            currentCategory = {
+                category: line,
+                items: []
+            };
+        } else {
+            // It's a sub-item, add to current category
+            if (currentCategory) {
+                currentCategory.items.push(line.substring(1).trim());
+            }
+        }
+    });
+
+    // Push the last category
+    if (currentCategory) {
+        categories.push(currentCategory);
+    }
+
+    return categories;
+};
+
+// Get icon for service category
+const getServiceIcon = (category: string) => {
+    const categoryLower = category.toLowerCase();
+
+    if (categoryLower.includes('it') || categoryLower.includes('information technology')) {
+        return <Code className="h-5 w-5 text-blue-600" />;
+    }
+    if (categoryLower.includes('er&d') || categoryLower.includes('engineering')) {
+        return <Settings className="h-5 w-5 text-purple-600" />;
+    }
+    if (categoryLower.includes('fna') || categoryLower.includes('finance') || categoryLower.includes('accounting')) {
+        return <DollarSign className="h-5 w-5 text-green-600" />;
+    }
+    if (categoryLower.includes('procurement') || categoryLower.includes('supply chain')) {
+        return <Package className="h-5 w-5 text-orange-600" />;
+    }
+    if (categoryLower.includes('sales') || categoryLower.includes('marketing')) {
+        return <TrendingUp className="h-5 w-5 text-pink-600" />;
+    }
+    if (categoryLower.includes('customer') || categoryLower.includes('support')) {
+        return <Headphones className="h-5 w-5 text-indigo-600" />;
+    }
+    if (categoryLower.includes('security') || categoryLower.includes('cyber')) {
+        return <Shield className="h-5 w-5 text-red-600" />;
+    }
+    if (categoryLower.includes('data') || categoryLower.includes('analytics')) {
+        return <Database className="h-5 w-5 text-cyan-600" />;
+    }
+    if (categoryLower.includes('cloud')) {
+        return <Cloud className="h-5 w-5 text-sky-600" />;
+    }
+    if (categoryLower.includes('ai') || categoryLower.includes('artificial intelligence')) {
+        return <Cpu className="h-5 w-5 text-violet-600" />;
+    }
+
+    // Default icon
+    return <Briefcase className="h-5 w-5 text-gray-600" />;
+};
+
+// Get background color for service category
+const getServiceColor = (category: string) => {
+    const categoryLower = category.toLowerCase();
+
+    if (categoryLower.includes('it') || categoryLower.includes('information technology')) {
+        return 'bg-blue-50 border-blue-200';
+    }
+    if (categoryLower.includes('er&d') || categoryLower.includes('engineering')) {
+        return 'bg-purple-50 border-purple-200';
+    }
+    if (categoryLower.includes('fna') || categoryLower.includes('finance') || categoryLower.includes('accounting')) {
+        return 'bg-green-50 border-green-200';
+    }
+    if (categoryLower.includes('procurement') || categoryLower.includes('supply chain')) {
+        return 'bg-orange-50 border-orange-200';
+    }
+    if (categoryLower.includes('sales') || categoryLower.includes('marketing')) {
+        return 'bg-pink-50 border-pink-200';
+    }
+    if (categoryLower.includes('customer') || categoryLower.includes('support')) {
+        return 'bg-indigo-50 border-indigo-200';
+    }
+    if (categoryLower.includes('security') || categoryLower.includes('cyber')) {
+        return 'bg-red-50 border-red-200';
+    }
+    if (categoryLower.includes('data') || categoryLower.includes('analytics')) {
+        return 'bg-cyan-50 border-cyan-200';
+    }
+    if (categoryLower.includes('cloud')) {
+        return 'bg-sky-50 border-sky-200';
+    }
+    if (categoryLower.includes('ai') || categoryLower.includes('artificial intelligence')) {
+        return 'bg-violet-50 border-violet-200';
+    }
+
+    return 'bg-gray-50 border-gray-200';
+};
+
 export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetailViewProps) {
     if (!company) return null;
+
+    const serviceCategories = parseServices(company.services_offered);
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
@@ -155,16 +290,46 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
                                 value={company.secondary_city}
                                 multiline
                             />
-
-                            <DetailItem
-                                icon={<Briefcase className="h-4 w-4" />}
-                                label="Services Offered"
-                                value={company.services_offered}
-                                multiline
-                                fullWidth
-                            />
                         </div>
                     </div>
+
+                    {/* Services Offered Section */}
+                    {serviceCategories.length > 0 && (
+                        <>
+                            <Separator />
+                            <div className="space-y-4">
+                                <div className="flex items-center gap-2">
+                                    <Briefcase className="h-5 w-5 text-primary" />
+                                    <h3 className="text-lg font-semibold text-primary">Services Offered</h3>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {serviceCategories.map((service, index) => (
+                                        <div
+                                            key={index}
+                                            className={`p-4 rounded-lg border ${getServiceColor(service.category)} transition-all hover:shadow-md`}
+                                        >
+                                            <div className="flex items-center gap-2 mb-3">
+                                                {getServiceIcon(service.category)}
+                                                <h4 className="font-semibold text-gray-900">{service.category}</h4>
+                                            </div>
+
+                                            {service.items.length > 0 && (
+                                                <ul className="space-y-1.5">
+                                                    {service.items.map((item, idx) => (
+                                                        <li key={idx} className="text-sm text-gray-700 flex items-start gap-2">
+                                                            <span className="text-gray-400 mt-1">•</span>
+                                                            <span>{item}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </>
+                    )}
                 </div>
             </DialogContent>
         </Dialog>
