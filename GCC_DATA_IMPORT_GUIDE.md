@@ -36,7 +36,7 @@ You have **3 options** to import your Excel data. Choose the one that works best
 Your CSV headers must match the database column names exactly. Open the CSV and ensure the first row has:
 
 ```csv
-account_global_legal_name,revenue_range,hq_country,hq_region,website,industry,category,total_centers,total_gcc_centers,total_excl_gcc_centers,aggregate_india_employees_range,location,years_established_in_india,years_in_india,primary_city,secondary_city,services_offered
+account_global_legal_name,revenue_range,hq_country,hq_region,website,industry,category,total_centers,total_gcc_centers,india_employees_range,established_in_india,years_in_india,primary_city,secondary_city,services_offered
 ```
 
 **Mapping your Excel columns:**
