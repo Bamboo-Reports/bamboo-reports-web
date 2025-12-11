@@ -284,6 +284,53 @@ export function GCCCompaniesTable() {
     return Array.from(values).sort();
   }, [companies, searchQuery, revenueFilters, countryFilters, categoryFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
 
+  // Get filtered data for range bounds (excluding range filters)
+  const getFilteredForRangeBounds = useMemo(() => {
+    let filtered = companies;
+
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(company =>
+        company.account_global_legal_name?.toLowerCase().includes(query)
+      );
+    }
+
+    if (revenueFilters.length > 0) {
+      filtered = filtered.filter(c => c.revenue_range && revenueFilters.includes(c.revenue_range));
+    }
+    if (countryFilters.length > 0) {
+      filtered = filtered.filter(c => c.hq_country && countryFilters.includes(c.hq_country));
+    }
+    if (categoryFilters.length > 0) {
+      filtered = filtered.filter(c => c.category && categoryFilters.includes(c.category));
+    }
+    if (primaryCityFilters.length > 0) {
+      filtered = filtered.filter(c => c.primary_city && primaryCityFilters.includes(c.primary_city));
+    }
+
+    return filtered;
+  }, [companies, searchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters]);
+
+  // Cascading range bounds - dynamically update based on dropdown filters
+  const cascadingTotalCentersBounds = useMemo((): [number, number] => {
+    if (getFilteredForRangeBounds.length === 0) return totalCentersBounds;
+    const values = getFilteredForRangeBounds.map(c => c.total_centers ?? 0);
+    return [Math.min(...values), Math.max(...values)];
+  }, [getFilteredForRangeBounds, totalCentersBounds]);
+
+  const cascadingGccCentersBounds = useMemo((): [number, number] => {
+    if (getFilteredForRangeBounds.length === 0) return gccCentersBounds;
+    const values = getFilteredForRangeBounds.map(c => c.total_gcc_centers ?? 0);
+    return [Math.min(...values), Math.max(...values)];
+  }, [getFilteredForRangeBounds, gccCentersBounds]);
+
+  const cascadingYearsInIndiaBounds = useMemo((): [number, number] => {
+    if (getFilteredForRangeBounds.length === 0) return yearsInIndiaBounds;
+    const values = getFilteredForRangeBounds.map(c => parseInt(c.years_in_india || '0'));
+    return [Math.min(...values), Math.max(...values)];
+  }, [getFilteredForRangeBounds, yearsInIndiaBounds]);
+
+
   // Pagination
   const totalPages = Math.ceil(filteredAndSortedCompanies.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -446,10 +493,10 @@ export function GCCCompaniesTable() {
         {/* Range Filters with Sliders */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
           <div className="space-y-3">
-            <label className="text-xs font-medium text-gray-600">Total Centers ({totalCentersRange[0]} - {totalCentersRange[1]})</label>
+            <label className="text-xs font-medium text-gray-600">Total Centers ({totalCentersRange[0]} - {totalCentersRange[1]}) <span className="text-gray-400">/ {cascadingTotalCentersBounds[0]}-{cascadingTotalCentersBounds[1]} available</span></label>
             <DualRangeSlider
-              min={totalCentersBounds[0]}
-              max={totalCentersBounds[1]}
+              min={cascadingTotalCentersBounds[0]}
+              max={cascadingTotalCentersBounds[1]}
               value={totalCentersRange}
               onValueChange={(value) => setTotalCentersRange(value)}
             />
@@ -465,17 +512,17 @@ export function GCCCompaniesTable() {
                 type="number"
                 placeholder="Max"
                 value={totalCentersRange[1]}
-                onChange={(e) => setTotalCentersRange([totalCentersRange[0], parseInt(e.target.value) || totalCentersBounds[1]])}
+                onChange={(e) => setTotalCentersRange([totalCentersRange[0], parseInt(e.target.value) || cascadingTotalCentersBounds[1]])}
                 className="text-sm h-8"
               />
             </div>
           </div>
 
           <div className="space-y-3">
-            <label className="text-xs font-medium text-gray-600">Total GCC Centers ({gccCentersRange[0]} - {gccCentersRange[1]})</label>
+            <label className="text-xs font-medium text-gray-600">Total GCC Centers ({gccCentersRange[0]} - {gccCentersRange[1]}) <span className="text-gray-400">/ {cascadingGccCentersBounds[0]}-{cascadingGccCentersBounds[1]} available</span></label>
             <DualRangeSlider
-              min={gccCentersBounds[0]}
-              max={gccCentersBounds[1]}
+              min={cascadingGccCentersBounds[0]}
+              max={cascadingGccCentersBounds[1]}
               value={gccCentersRange}
               onValueChange={(value) => setGccCentersRange(value)}
             />
@@ -491,17 +538,17 @@ export function GCCCompaniesTable() {
                 type="number"
                 placeholder="Max"
                 value={gccCentersRange[1]}
-                onChange={(e) => setGccCentersRange([gccCentersRange[0], parseInt(e.target.value) || gccCentersBounds[1]])}
+                onChange={(e) => setGccCentersRange([gccCentersRange[0], parseInt(e.target.value) || cascadingGccCentersBounds[1]])}
                 className="text-sm h-8"
               />
             </div>
           </div>
 
           <div className="space-y-3">
-            <label className="text-xs font-medium text-gray-600">Years in India ({yearsInIndiaRange[0]} - {yearsInIndiaRange[1]})</label>
+            <label className="text-xs font-medium text-gray-600">Years in India ({yearsInIndiaRange[0]} - {yearsInIndiaRange[1]}) <span className="text-gray-400">/ {cascadingYearsInIndiaBounds[0]}-{cascadingYearsInIndiaBounds[1]} available</span></label>
             <DualRangeSlider
-              min={yearsInIndiaBounds[0]}
-              max={yearsInIndiaBounds[1]}
+              min={cascadingYearsInIndiaBounds[0]}
+              max={cascadingYearsInIndiaBounds[1]}
               value={yearsInIndiaRange}
               onValueChange={(value) => setYearsInIndiaRange(value)}
             />
@@ -517,7 +564,7 @@ export function GCCCompaniesTable() {
                 type="number"
                 placeholder="Max"
                 value={yearsInIndiaRange[1]}
-                onChange={(e) => setYearsInIndiaRange([yearsInIndiaRange[0], parseInt(e.target.value) || yearsInIndiaBounds[1]])}
+                onChange={(e) => setYearsInIndiaRange([yearsInIndiaRange[0], parseInt(e.target.value) || cascadingYearsInIndiaBounds[1]])}
                 className="text-sm h-8"
               />
             </div>
