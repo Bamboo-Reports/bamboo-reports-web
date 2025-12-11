@@ -141,7 +141,7 @@ export default function MyContent() {
       <Header />
 
       <main className="py-16 sm:py-20 px-3 sm:px-4">
-        <div className="max-w-7xl mx-auto">
+        <div className={currentView === 'table' ? 'max-w-[1800px] mx-auto' : 'max-w-7xl mx-auto'}>
           {/* Page Header with Back Button */}
           <div className="mb-6 sm:mb-8">
             <Button

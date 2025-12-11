@@ -329,10 +329,13 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
     );
   }
 
-  // If viewing GCC table
+  // If viewing GCC table - use full width layout
   if (currentView === 'table') {
-    // No back button here - parent page (MyContent) already has one
-    return <GCCCompaniesTable />;
+    return (
+      <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8">
+        <GCCCompaniesTable />
+      </div>
+    );
   }
 
   return (
