@@ -371,7 +371,7 @@ function DetailItem({ icon, label, value, badge, link, multiline, fullWidth }: D
                         {displayValue}
                     </Badge>
                 ) : multiline && value ? (
-                    <div className="whitespace-pre-line text-sm leading-relaxed bg-white p-3 rounded border">
+                    <div className="whitespace-pre-line text-sm leading-relaxed text-gray-900">
                         {displayValue}
                     </div>
                 ) : (
