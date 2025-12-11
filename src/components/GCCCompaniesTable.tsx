@@ -102,17 +102,37 @@ export function GCCCompaniesTable() {
         setIsLoading(true);
         setError(null);
 
-        const { data, error: fetchError } = await supabase
-          .from('gcc_companies')
-          .select('*', { count: 'exact', head: false })
-          .order('account_global_legal_name', { ascending: true })
-          .limit(10000);
+        // Fetch all records using pagination to bypass Supabase max_rows limit
+        const pageSize = 1000;
+        let allData: GCCCompany[] = [];
+        let page = 0;
+        let hasMore = true;
 
-        if (fetchError) {
-          throw fetchError;
+        while (hasMore) {
+          const from = page * pageSize;
+          const to = from + pageSize - 1;
+
+          const { data, error: fetchError } = await supabase
+            .from('gcc_companies')
+            .select('*')
+            .order('account_global_legal_name', { ascending: true })
+            .range(from, to);
+
+          if (fetchError) {
+            throw fetchError;
+          }
+
+          if (data && data.length > 0) {
+            allData = [...allData, ...data];
+            page++;
+            // If we got less than pageSize, we've reached the end
+            hasMore = data.length === pageSize;
+          } else {
+            hasMore = false;
+          }
         }
 
-        setCompanies(data || []);
+        setCompanies(allData);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load GCC companies');
       } finally {
