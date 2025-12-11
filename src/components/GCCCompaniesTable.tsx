@@ -24,10 +24,8 @@ interface GCCCompany {
   category: string | null;
   total_centers: number | null;
   total_gcc_centers: number | null;
-  total_excl_gcc_centers: number | null;
-  aggregate_india_employees_range: string | null;
-  location: string | null;
-  years_established_in_india: string | null;
+  india_employees_range: string | null;
+  established_in_india: string | null;
   years_in_india: string | null;
   primary_city: string | null;
   secondary_city: string | null;
@@ -108,8 +106,7 @@ export function GCCCompaniesTable() {
         company.primary_city?.toLowerCase().includes(query) ||
         company.secondary_city?.toLowerCase().includes(query) ||
         company.industry?.toLowerCase().includes(query) ||
-        company.hq_country?.toLowerCase().includes(query) ||
-        company.location?.toLowerCase().includes(query)
+        company.hq_country?.toLowerCase().includes(query)
       );
     }
 
@@ -222,13 +219,11 @@ export function GCCCompaniesTable() {
                 <TableHead className="min-w-[100px]">Category</TableHead>
                 <TableHead className="min-w-[120px] text-right">Total Centers</TableHead>
                 <TableHead className="min-w-[120px] text-right">GCC Centers</TableHead>
-                <TableHead className="min-w-[140px] text-right">Excl GCC Centers</TableHead>
                 <TableHead className="min-w-[180px] text-right">India Employees</TableHead>
+                <TableHead className="min-w-[120px]">Established Year</TableHead>
+                <TableHead className="min-w-[120px]">Years in India</TableHead>
                 <TableHead className="min-w-[150px]">Primary City</TableHead>
                 <TableHead className="min-w-[200px]">Secondary Cities</TableHead>
-                <TableHead className="min-w-[200px]">Location</TableHead>
-                <TableHead className="min-w-[120px]">Est. Year</TableHead>
-                <TableHead className="min-w-[120px]">Years in India</TableHead>
                 <TableHead className="min-w-[300px]">Services Offered</TableHead>
                 <TableHead className="min-w-[100px]">Website</TableHead>
               </TableRow>
@@ -236,7 +231,7 @@ export function GCCCompaniesTable() {
             <TableBody>
               {currentCompanies.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={17} className="text-center py-8 text-gray-500">
+                  <TableCell colSpan={15} className="text-center py-8 text-gray-500">
                     No companies found matching your search
                   </TableCell>
                 </TableRow>
@@ -258,24 +253,16 @@ export function GCCCompaniesTable() {
                       {company.total_gcc_centers || '-'}
                     </TableCell>
                     <TableCell className="text-right">
-                      {company.total_excl_gcc_centers || '-'}
+                      {company.india_employees_range || '-'}
                     </TableCell>
-                    <TableCell className="text-right">
-                      {company.aggregate_india_employees_range || '-'}
-                    </TableCell>
+                    <TableCell>{company.established_in_india || '-'}</TableCell>
+                    <TableCell>{company.years_in_india || '-'}</TableCell>
                     <TableCell>{company.primary_city || '-'}</TableCell>
                     <TableCell>
                       <div className="whitespace-pre-line text-sm">
                         {company.secondary_city || '-'}
                       </div>
                     </TableCell>
-                    <TableCell>
-                      <div className="whitespace-pre-line text-sm">
-                        {company.location || '-'}
-                      </div>
-                    </TableCell>
-                    <TableCell>{company.years_established_in_india || '-'}</TableCell>
-                    <TableCell>{company.years_in_india || '-'}</TableCell>
                     <TableCell>
                       <div className="whitespace-pre-line text-sm max-w-[300px]">
                         {company.services_offered || '-'}
