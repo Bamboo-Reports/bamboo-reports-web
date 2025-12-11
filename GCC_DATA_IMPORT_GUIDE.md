@@ -51,11 +51,9 @@ account_global_legal_name,revenue_range,hq_country,hq_region,website,industry,ca
 | Industry | industry |
 | Category | category |
 | Total Centers | total_centers |
-| Totoal GCC Centers | total_gcc_centers |
-| Total Excl GCC Centers | total_excl_gcc_centers |
-| Aggregate India Employees Range | aggregate_india_employees_range |
-| Location | location |
-| Years Established in India | years_established_in_india |
+| Total GCC Centers | total_gcc_centers |
+| India Employees Range | india_employees_range |
+| Established In India | established_in_india |
 | Years in India | years_in_india |
 | Primary City | primary_city |
 | Secondary City | secondary_city |

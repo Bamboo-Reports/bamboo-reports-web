@@ -19,18 +19,16 @@ CREATE TABLE IF NOT EXISTS gcc_companies (
   -- Centers Information
   total_centers INTEGER,
   total_gcc_centers INTEGER,
-  total_excl_gcc_centers INTEGER,
 
   -- India Operations
-  aggregate_india_employees_range TEXT,
-  location TEXT, -- Multi-line: Bengaluru\nHyderabad
-  years_established_in_india TEXT,
+  india_employees_range TEXT,
+  established_in_india TEXT,
   years_in_india TEXT,
   primary_city TEXT,
   secondary_city TEXT, -- Multi-line: Hyderabad\nPune\nChennai
 
   -- Services
-  services_offered TEXT, -- Multi-line: IT\n-Hyderabad\nProcurement
+  services_offered TEXT, -- Multi-line: IT\n- Information Security\nER&D\n- Aerospace engineering
 
   -- Metadata
   created_at TIMESTAMPTZ DEFAULT NOW(),

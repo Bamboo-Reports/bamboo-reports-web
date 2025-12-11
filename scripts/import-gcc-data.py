@@ -44,11 +44,9 @@ COLUMN_MAPPING = {
     'Industry': 'industry',
     'Category': 'category',
     'Total Centers': 'total_centers',
-    'Totoal GCC Centers': 'total_gcc_centers',  # Note: Typo in original
-    'Total Excl GCC Centers': 'total_excl_gcc_centers',
-    'Aggregate India Employees Range': 'aggregate_india_employees_range',
-    'Location': 'location',
-    'Years Established in India ': 'years_established_in_india',
+    'Total GCC Centers': 'total_gcc_centers',
+    'India Employees Range': 'india_employees_range',
+    'Established In India': 'established_in_india',
     'Years in India': 'years_in_india',
     'Primary City': 'primary_city',
     'Secondary City': 'secondary_city',
@@ -56,7 +54,7 @@ COLUMN_MAPPING = {
 }
 
 # Numeric columns that should be converted to integers
-NUMERIC_COLUMNS = ['total_centers', 'total_gcc_centers', 'total_excl_gcc_centers']
+NUMERIC_COLUMNS = ['total_centers', 'total_gcc_centers']
 
 
 class GCCDataImporter:
@@ -145,10 +143,16 @@ class GCCDataImporter:
         cleaned_records = []
 
         for record in records:
-            cleaned_record = {
-                k: v for k, v in record.items()
-                if k in db_columns
-            }
+            cleaned_record = {}
+            for k, v in record.items():
+                if k in db_columns:
+                    # Handle NaN values - convert to None for JSON compatibility
+                    if pd.isna(v):
+                        cleaned_record[k] = None
+                    elif isinstance(v, float) and (v != v):  # Additional NaN check
+                        cleaned_record[k] = None
+                    else:
+                        cleaned_record[k] = v
             cleaned_records.append(cleaned_record)
 
         print(f"✅ Transformed {len(cleaned_records)} records\n")
@@ -253,6 +257,7 @@ class GCCDataImporter:
             'account_global_legal_name',
             'industry',
             'primary_city',
+            'india_employees_range',
             'total_gcc_centers'
         ]
 
