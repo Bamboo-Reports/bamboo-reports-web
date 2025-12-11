@@ -318,10 +318,17 @@ export function GCCCompaniesTable() {
     return [Math.min(...values), Math.max(...values)];
   }, [getFilteredForRangeBounds, totalCentersBounds]);
 
-  // GCC Centers max is capped by Total Centers max (can't have more GCC centers than total centers)
+  // GCC Centers bounds: filter by Total Centers range, then cap by Total Centers max
   const cascadingGccCentersBounds = useMemo((): [number, number] => {
-    if (getFilteredForRangeBounds.length === 0) return gccCentersBounds;
-    const values = getFilteredForRangeBounds.map(c => c.total_gcc_centers ?? 0);
+    // First, filter by Total Centers range to get companies within that range
+    let filtered = getFilteredForRangeBounds.filter(c => {
+      const centers = c.total_centers ?? 0;
+      return centers >= totalCentersRange[0] && centers <= totalCentersRange[1];
+    });
+
+    if (filtered.length === 0) return [0, totalCentersRange[1]];
+
+    const values = filtered.map(c => c.total_gcc_centers ?? 0);
     const baseMin = Math.min(...values);
     const baseMax = Math.max(...values);
 
