@@ -44,17 +44,15 @@ export function MultiSelect({
         }
     }, [open]);
 
-    const isAllSelected = selected.length === 0 || selected.length === options.length;
+    const isAllSelected = options.length > 0 && selected.length === options.length;
 
     const handleSelect = (value: string) => {
-        const base = selected.length === 0 ? options : selected;
-        const isSelected = selected.length === 0 || selected.includes(value);
-
-        if (isSelected) {
-            onChange(base.filter((item) => item !== value));
-        } else {
-            onChange([...selected, value]);
+        if (selected.includes(value)) {
+            onChange(selected.filter((item) => item !== value));
+            return;
         }
+
+        onChange([...selected, value]);
     };
 
     const handleSelectAll = () => {
@@ -86,7 +84,7 @@ export function MultiSelect({
                 >
                     <div className="flex flex-wrap gap-1 flex-1">
                         {selected.length === 0 ? (
-                            <span className="text-muted-foreground">All selected</span>
+                            <span className="text-muted-foreground">{placeholder}</span>
                         ) : selected.length <= 2 ? (
                             selected.map((item) => (
                                 <Badge key={item} variant="secondary" className="text-xs">
@@ -164,7 +162,7 @@ export function MultiSelect({
                             </p>
                         ) : (
                             filteredOptions.map((option) => {
-                                const isSelected = selected.length === 0 || selected.includes(option);
+                                const isSelected = selected.includes(option);
 
                                 return (
                                     <div
