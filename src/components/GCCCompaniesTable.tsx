@@ -13,7 +13,7 @@ import {
 import { Search, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { CompanyDetailView } from './CompanyDetailView';
-import { MultiSelect, IncludeExcludeFilter } from './ui/multi-select';
+import { MultiSelect } from './ui/multi-select';
 import { DualRangeSlider } from './ui/dual-range-slider';
 
 interface GCCCompany {
@@ -47,10 +47,10 @@ export function GCCCompaniesTable() {
 
   // Filters - Multi-select (arrays)
   const [searchQuery, setSearchQuery] = useState('');
-  const [revenueFilters, setRevenueFilters] = useState<IncludeExcludeFilter>({ include: [], exclude: [] });
-  const [countryFilters, setCountryFilters] = useState<IncludeExcludeFilter>({ include: [], exclude: [] });
-  const [categoryFilters, setCategoryFilters] = useState<IncludeExcludeFilter>({ include: [], exclude: [] });
-  const [primaryCityFilters, setPrimaryCityFilters] = useState<IncludeExcludeFilter>({ include: [], exclude: [] });
+  const [revenueFilters, setRevenueFilters] = useState<string[]>([]);
+  const [countryFilters, setCountryFilters] = useState<string[]>([]);
+  const [categoryFilters, setCategoryFilters] = useState<string[]>([]);
+  const [primaryCityFilters, setPrimaryCityFilters] = useState<string[]>([]);
 
   // Range filters - using tuples [min, max]
   const [totalCentersRange, setTotalCentersRange] = useState<[number, number]>([0, 100]);
@@ -73,19 +73,6 @@ export function GCCCompaniesTable() {
   const [selectedCompany, setSelectedCompany] = useState<GCCCompany | null>(null);
   const [detailViewOpen, setDetailViewOpen] = useState(false);
 
-  const matchesIncludeExclude = (value: string | null, filter: IncludeExcludeFilter) => {
-    const val = value ?? '';
-
-    if (filter.exclude.includes(val)) {
-      return false;
-    }
-
-    if (filter.include.length > 0) {
-      return filter.include.includes(val);
-    }
-
-    return true;
-  };
 
   // Prevent right-click (context menu)
   const handleContextMenu = (e: React.MouseEvent) => {
@@ -181,10 +168,18 @@ export function GCCCompaniesTable() {
     }
 
     // Multi-select dropdown filters
-    filtered = filtered.filter(c => matchesIncludeExclude(c.revenue_range, revenueFilters));
-    filtered = filtered.filter(c => matchesIncludeExclude(c.hq_country, countryFilters));
-    filtered = filtered.filter(c => matchesIncludeExclude(c.category, categoryFilters));
-    filtered = filtered.filter(c => matchesIncludeExclude(c.primary_city, primaryCityFilters));
+    if (revenueFilters.length > 0) {
+      filtered = filtered.filter(c => c.revenue_range && revenueFilters.includes(c.revenue_range));
+    }
+    if (countryFilters.length > 0) {
+      filtered = filtered.filter(c => c.hq_country && countryFilters.includes(c.hq_country));
+    }
+    if (categoryFilters.length > 0) {
+      filtered = filtered.filter(c => c.category && categoryFilters.includes(c.category));
+    }
+    if (primaryCityFilters.length > 0) {
+      filtered = filtered.filter(c => c.primary_city && primaryCityFilters.includes(c.primary_city));
+    }
 
     // Range filters
     filtered = filtered.filter(c => {
@@ -235,17 +230,17 @@ export function GCCCompaniesTable() {
       );
     }
 
-    if (excludeFilter !== 'revenue') {
-      filtered = filtered.filter(c => matchesIncludeExclude(c.revenue_range, revenueFilters));
+    if (excludeFilter !== 'revenue' && revenueFilters.length > 0) {
+      filtered = filtered.filter(c => c.revenue_range && revenueFilters.includes(c.revenue_range));
     }
-    if (excludeFilter !== 'country') {
-      filtered = filtered.filter(c => matchesIncludeExclude(c.hq_country, countryFilters));
+    if (excludeFilter !== 'country' && countryFilters.length > 0) {
+      filtered = filtered.filter(c => c.hq_country && countryFilters.includes(c.hq_country));
     }
-    if (excludeFilter !== 'category') {
-      filtered = filtered.filter(c => matchesIncludeExclude(c.category, categoryFilters));
+    if (excludeFilter !== 'category' && categoryFilters.length > 0) {
+      filtered = filtered.filter(c => c.category && categoryFilters.includes(c.category));
     }
-    if (excludeFilter !== 'city') {
-      filtered = filtered.filter(c => matchesIncludeExclude(c.primary_city, primaryCityFilters));
+    if (excludeFilter !== 'city' && primaryCityFilters.length > 0) {
+      filtered = filtered.filter(c => c.primary_city && primaryCityFilters.includes(c.primary_city));
     }
 
     // Apply range filters for cascade
@@ -300,10 +295,18 @@ export function GCCCompaniesTable() {
       );
     }
 
-    filtered = filtered.filter(c => matchesIncludeExclude(c.revenue_range, revenueFilters));
-    filtered = filtered.filter(c => matchesIncludeExclude(c.hq_country, countryFilters));
-    filtered = filtered.filter(c => matchesIncludeExclude(c.category, categoryFilters));
-    filtered = filtered.filter(c => matchesIncludeExclude(c.primary_city, primaryCityFilters));
+    if (revenueFilters.length > 0) {
+      filtered = filtered.filter(c => c.revenue_range && revenueFilters.includes(c.revenue_range));
+    }
+    if (countryFilters.length > 0) {
+      filtered = filtered.filter(c => c.hq_country && countryFilters.includes(c.hq_country));
+    }
+    if (categoryFilters.length > 0) {
+      filtered = filtered.filter(c => c.category && categoryFilters.includes(c.category));
+    }
+    if (primaryCityFilters.length > 0) {
+      filtered = filtered.filter(c => c.primary_city && primaryCityFilters.includes(c.primary_city));
+    }
 
     return filtered;
   }, [companies, searchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters]);
@@ -447,10 +450,10 @@ export function GCCCompaniesTable() {
 
   const handleClearFilters = () => {
     setSearchQuery('');
-    setRevenueFilters({ include: [], exclude: [] });
-    setCountryFilters({ include: [], exclude: [] });
-    setCategoryFilters({ include: [], exclude: [] });
-    setPrimaryCityFilters({ include: [], exclude: [] });
+    setRevenueFilters([]);
+    setCountryFilters([]);
+    setCategoryFilters([]);
+    setPrimaryCityFilters([]);
     setTotalCentersRange(totalCentersBounds);
     setGccCentersRange(gccCentersBounds);
     setYearsInIndiaRange(yearsInIndiaBounds);
@@ -523,7 +526,7 @@ export function GCCCompaniesTable() {
             <label className="text-xs font-medium text-gray-600">Revenue Range</label>
             <MultiSelect
               options={cascadingRevenues}
-              selection={revenueFilters}
+              selected={revenueFilters}
               onChange={setRevenueFilters}
               placeholder="All"
             />
@@ -533,7 +536,7 @@ export function GCCCompaniesTable() {
             <label className="text-xs font-medium text-gray-600">HQ Country</label>
             <MultiSelect
               options={cascadingCountries}
-              selection={countryFilters}
+              selected={countryFilters}
               onChange={setCountryFilters}
               placeholder="All"
             />
@@ -543,7 +546,7 @@ export function GCCCompaniesTable() {
             <label className="text-xs font-medium text-gray-600">Category</label>
             <MultiSelect
               options={cascadingCategories}
-              selection={categoryFilters}
+              selected={categoryFilters}
               onChange={setCategoryFilters}
               placeholder="All"
             />
@@ -553,7 +556,7 @@ export function GCCCompaniesTable() {
             <label className="text-xs font-medium text-gray-600">Primary City</label>
             <MultiSelect
               options={cascadingCities}
-              selection={primaryCityFilters}
+              selected={primaryCityFilters}
               onChange={setPrimaryCityFilters}
               placeholder="All"
             />
