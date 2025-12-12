@@ -28,6 +28,7 @@ export function MultiSelect({
 }: MultiSelectProps) {
     const [open, setOpen] = React.useState(false);
     const [searchTerm, setSearchTerm] = React.useState("");
+    const [showAllVisual, setShowAllVisual] = React.useState(selected.length === 0);
 
     const filteredOptions = React.useMemo(() => {
         const term = searchTerm.trim().toLowerCase();
@@ -44,37 +45,50 @@ export function MultiSelect({
         }
     }, [open]);
 
-    const isAllSelected = options.length > 0 && (selected.length === 0 || selected.length === options.length);
+    React.useEffect(() => {
+        if (selected.length > 0) {
+            setShowAllVisual(false);
+        }
+    }, [selected.length]);
+
+    const effectiveSelected = showAllVisual ? options : selected;
+    const isAllSelected = options.length > 0 && effectiveSelected.length === options.length;
 
     const handleSelect = (value: string) => {
-        if (selected.length === 0) {
-            onChange(options.filter((item) => item !== value));
-            return;
-        }
+        const base = showAllVisual ? options : selected;
+        const isSelected = base.includes(value);
+        const next = isSelected
+            ? base.filter((item) => item !== value)
+            : [...base, value];
 
-        if (selected.includes(value)) {
-            onChange(selected.filter((item) => item !== value));
-            return;
+        if (next.length === options.length) {
+            setShowAllVisual(true);
+            onChange([]);
+        } else {
+            setShowAllVisual(false);
+            onChange(next);
         }
-
-        onChange([...selected, value]);
     };
 
     const handleSelectAll = () => {
         if (isAllSelected) {
+            setShowAllVisual(false);
             onChange([]);
         } else {
-            onChange(options);
+            setShowAllVisual(true);
+            onChange([]);
         }
     };
 
     const handleClearAll = (e: React.MouseEvent) => {
         e.stopPropagation();
+        setShowAllVisual(false);
         onChange([]);
     };
 
     const handleClear = (e: React.MouseEvent) => {
         e.stopPropagation();
+        setShowAllVisual(false);
         onChange([]);
     };
 
@@ -88,7 +102,7 @@ export function MultiSelect({
                     className={cn("w-full justify-between font-normal h-auto min-h-10", className)}
                 >
                     <div className="flex flex-wrap gap-1 flex-1">
-                        {isAllSelected ? (
+                        {showAllVisual ? (
                             <span className="text-muted-foreground">All selected</span>
                         ) : selected.length <= 2 ? (
                             selected.map((item) => (
@@ -103,7 +117,7 @@ export function MultiSelect({
                         )}
                     </div>
                     <div className="flex items-center gap-1">
-                        {selected.length > 0 && (
+                        {(showAllVisual || selected.length > 0) && (
                             <X
                                 className="h-4 w-4 shrink-0 opacity-50 hover:opacity-100"
                                 onClick={handleClear}
@@ -158,7 +172,7 @@ export function MultiSelect({
                         size="sm"
                         className="h-8 text-xs px-2"
                         onClick={handleClearAll}
-                        disabled={options.length === 0 && selected.length === 0}
+                        disabled={options.length === 0 && selected.length === 0 && !showAllVisual}
                     >
                         Clear
                     </Button>
@@ -174,7 +188,7 @@ export function MultiSelect({
                             </p>
                         ) : (
                             filteredOptions.map((option) => {
-                                const isSelected = selected.length === 0 || selected.includes(option);
+                                const isSelected = effectiveSelected.includes(option);
 
                                 return (
                                     <div
