@@ -9,6 +9,7 @@ import {
 } from "./popover";
 import { Badge } from "./badge";
 import { ScrollArea } from "./scroll-area";
+import { Input } from "./input";
 
 interface MultiSelectProps {
     options: string[];
@@ -26,6 +27,22 @@ export function MultiSelect({
     className,
 }: MultiSelectProps) {
     const [open, setOpen] = React.useState(false);
+    const [searchTerm, setSearchTerm] = React.useState("");
+
+    const filteredOptions = React.useMemo(() => {
+        const term = searchTerm.trim().toLowerCase();
+        if (!term) return options;
+
+        return options.filter((option) =>
+            option.toLowerCase().includes(term)
+        );
+    }, [options, searchTerm]);
+
+    React.useEffect(() => {
+        if (!open) {
+            setSearchTerm("");
+        }
+    }, [open]);
 
     const handleSelect = (value: string) => {
         if (selected.includes(value)) {
@@ -76,12 +93,25 @@ export function MultiSelect({
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-full p-0" align="start">
-                <ScrollArea className="h-[200px]">
+                <div className="p-2 border-b">
+                    <Input
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        placeholder="Search options..."
+                        className="h-9 text-sm"
+                        aria-label="Search options"
+                    />
+                </div>
+                <ScrollArea className="max-h-60">
                     <div className="p-2">
-                        {options.length === 0 ? (
-                            <p className="text-sm text-muted-foreground text-center py-4">No options available</p>
+                        {filteredOptions.length === 0 ? (
+                            <p className="text-sm text-muted-foreground text-center py-4">
+                                {options.length === 0
+                                    ? "No options available"
+                                    : "No matches for your search"}
+                            </p>
                         ) : (
-                            options.map((option) => (
+                            filteredOptions.map((option) => (
                                 <div
                                     key={option}
                                     className={cn(
