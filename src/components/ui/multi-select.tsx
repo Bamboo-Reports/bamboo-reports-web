@@ -117,20 +117,10 @@ export function MultiSelect({
                         className="h-9 text-sm"
                         aria-label="Search options"
                     />
-                    <div className="flex justify-end mt-2">
-                        <Button
-                            variant="ghost"
-                            size="sm"
-                            className="h-8 text-xs px-2"
-                            onClick={handleClearAll}
-                        >
-                            Clear
-                        </Button>
-                    </div>
                 </div>
                 <div
                     className={cn(
-                        "flex items-center gap-2 px-2 py-1.5 border-b",
+                        "flex items-center justify-between gap-2 px-2 py-1.5 border-b",
                         "bg-white"
                     )}
                 >
@@ -158,6 +148,15 @@ export function MultiSelect({
                             Select all ({options.length})
                         </span>
                     </button>
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-8 text-xs px-2"
+                        onClick={handleClearAll}
+                        disabled={options.length === 0 && selected.length === 0}
+                    >
+                        Clear
+                    </Button>
                 </div>
 
                 <ScrollArea className="h-60">
