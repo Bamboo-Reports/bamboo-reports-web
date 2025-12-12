@@ -65,6 +65,11 @@ export function MultiSelect({
         }
     };
 
+    const handleClearAll = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        onChange([]);
+    };
+
     const handleClear = (e: React.MouseEvent) => {
         e.stopPropagation();
         onChange([]);
@@ -114,6 +119,16 @@ export function MultiSelect({
                         className="h-9 text-sm"
                         aria-label="Search options"
                     />
+                    <div className="flex justify-end mt-2">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            className="h-8 text-xs px-2"
+                            onClick={handleClearAll}
+                        >
+                            Clear
+                        </Button>
+                    </div>
                 </div>
                 <ScrollArea className="h-60">
                     <div className="p-2">
