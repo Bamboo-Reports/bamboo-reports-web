@@ -44,15 +44,24 @@ export function MultiSelect({
         }
     }, [open]);
 
+    const isAllSelected = selected.length === 0 || selected.length === options.length;
+
     const handleSelect = (value: string) => {
-        const isAllSelected = selected.length === 0;
-        const isSelected = isAllSelected || selected.includes(value);
+        const base = selected.length === 0 ? options : selected;
+        const isSelected = selected.length === 0 || selected.includes(value);
 
         if (isSelected) {
-            const base = isAllSelected ? options : selected;
             onChange(base.filter((item) => item !== value));
         } else {
             onChange([...selected, value]);
+        }
+    };
+
+    const handleSelectAll = () => {
+        if (isAllSelected) {
+            onChange([]);
+        } else {
+            onChange(options);
         }
     };
 
@@ -108,6 +117,30 @@ export function MultiSelect({
                 </div>
                 <ScrollArea className="h-60">
                     <div className="p-2">
+                        {options.length > 0 && (
+                            <div
+                                className={cn(
+                                    "flex items-center gap-2 px-2 py-1.5 rounded-sm cursor-pointer mb-1",
+                                    "hover:bg-slate-100",
+                                    isAllSelected && "bg-slate-100"
+                                )}
+                                onClick={handleSelectAll}
+                            >
+                                <div
+                                    className={cn(
+                                        "h-4 w-4 border rounded flex items-center justify-center",
+                                        isAllSelected
+                                            ? "bg-primary/10 border-primary"
+                                            : "border-input"
+                                    )}
+                                >
+                                    {isAllSelected && (
+                                        <Check className="h-3 w-3 text-primary" />
+                                    )}
+                                </div>
+                                <span className="text-sm">Select all</span>
+                            </div>
+                        )}
                         {filteredOptions.length === 0 ? (
                             <p className="text-sm text-muted-foreground text-center py-4">
                                 {options.length === 0
