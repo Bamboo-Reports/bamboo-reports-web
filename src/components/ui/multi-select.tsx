@@ -45,8 +45,12 @@ export function MultiSelect({
     }, [open]);
 
     const handleSelect = (value: string) => {
-        if (selected.includes(value)) {
-            onChange(selected.filter((item) => item !== value));
+        const isAllSelected = selected.length === 0;
+        const isSelected = isAllSelected || selected.includes(value);
+
+        if (isSelected) {
+            const base = isAllSelected ? options : selected;
+            onChange(base.filter((item) => item !== value));
         } else {
             onChange([...selected, value]);
         }
@@ -68,7 +72,7 @@ export function MultiSelect({
                 >
                     <div className="flex flex-wrap gap-1 flex-1">
                         {selected.length === 0 ? (
-                            <span className="text-muted-foreground">{placeholder}</span>
+                            <span className="text-muted-foreground">All selected</span>
                         ) : selected.length <= 2 ? (
                             selected.map((item) => (
                                 <Badge key={item} variant="secondary" className="text-xs">
@@ -102,7 +106,7 @@ export function MultiSelect({
                         aria-label="Search options"
                     />
                 </div>
-                <ScrollArea className="max-h-60">
+                <ScrollArea className="h-60">
                     <div className="p-2">
                         {filteredOptions.length === 0 ? (
                             <p className="text-sm text-muted-foreground text-center py-4">
@@ -111,30 +115,35 @@ export function MultiSelect({
                                     : "No matches for your search"}
                             </p>
                         ) : (
-                            filteredOptions.map((option) => (
-                                <div
-                                    key={option}
-                                    className={cn(
-                                        "flex items-center gap-2 px-2 py-1.5 rounded-sm cursor-pointer hover:bg-accent",
-                                        selected.includes(option) && "bg-accent"
-                                    )}
-                                    onClick={() => handleSelect(option)}
-                                >
+                            filteredOptions.map((option) => {
+                                const isSelected = selected.length === 0 || selected.includes(option);
+
+                                return (
                                     <div
+                                        key={option}
                                         className={cn(
-                                            "h-4 w-4 border rounded flex items-center justify-center",
-                                            selected.includes(option)
-                                                ? "bg-primary border-primary"
-                                                : "border-input"
+                                            "flex items-center gap-2 px-2 py-1.5 rounded-sm cursor-pointer",
+                                            "hover:bg-slate-100",
+                                            isSelected && "bg-slate-100"
                                         )}
+                                        onClick={() => handleSelect(option)}
                                     >
-                                        {selected.includes(option) && (
-                                            <Check className="h-3 w-3 text-primary-foreground" />
-                                        )}
+                                        <div
+                                            className={cn(
+                                                "h-4 w-4 border rounded flex items-center justify-center",
+                                                isSelected
+                                                    ? "bg-primary/10 border-primary"
+                                                    : "border-input"
+                                            )}
+                                        >
+                                            {isSelected && (
+                                                <Check className="h-3 w-3 text-primary" />
+                                            )}
+                                        </div>
+                                        <span className="text-sm">{option}</span>
                                     </div>
-                                    <span className="text-sm">{option}</span>
-                                </div>
-                            ))
+                                );
+                            })
                         )}
                     </div>
                 </ScrollArea>

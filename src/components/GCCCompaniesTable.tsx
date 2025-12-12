@@ -528,7 +528,7 @@ export function GCCCompaniesTable() {
               options={cascadingRevenues}
               selected={revenueFilters}
               onChange={setRevenueFilters}
-              placeholder="All"
+              placeholder="Select revenue range"
             />
           </div>
 
@@ -538,7 +538,7 @@ export function GCCCompaniesTable() {
               options={cascadingCountries}
               selected={countryFilters}
               onChange={setCountryFilters}
-              placeholder="All"
+              placeholder="Select HQ country"
             />
           </div>
 
@@ -548,7 +548,7 @@ export function GCCCompaniesTable() {
               options={cascadingCategories}
               selected={categoryFilters}
               onChange={setCategoryFilters}
-              placeholder="All"
+              placeholder="Select category"
             />
           </div>
 
@@ -558,7 +558,7 @@ export function GCCCompaniesTable() {
               options={cascadingCities}
               selected={primaryCityFilters}
               onChange={setPrimaryCityFilters}
-              placeholder="All"
+              placeholder="Select primary city"
             />
           </div>
         </div>
