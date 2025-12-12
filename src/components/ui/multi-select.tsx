@@ -44,9 +44,14 @@ export function MultiSelect({
         }
     }, [open]);
 
-    const isAllSelected = options.length > 0 && selected.length === options.length;
+    const isAllSelected = options.length > 0 && (selected.length === 0 || selected.length === options.length);
 
     const handleSelect = (value: string) => {
+        if (selected.length === 0) {
+            onChange(options.filter((item) => item !== value));
+            return;
+        }
+
         if (selected.includes(value)) {
             onChange(selected.filter((item) => item !== value));
             return;
@@ -83,8 +88,8 @@ export function MultiSelect({
                     className={cn("w-full justify-between font-normal h-auto min-h-10", className)}
                 >
                     <div className="flex flex-wrap gap-1 flex-1">
-                        {selected.length === 0 ? (
-                            <span className="text-muted-foreground">{placeholder}</span>
+                        {isAllSelected ? (
+                            <span className="text-muted-foreground">All selected</span>
                         ) : selected.length <= 2 ? (
                             selected.map((item) => (
                                 <Badge key={item} variant="secondary" className="text-xs">
@@ -169,7 +174,7 @@ export function MultiSelect({
                             </p>
                         ) : (
                             filteredOptions.map((option) => {
-                                const isSelected = selected.includes(option);
+                                const isSelected = selected.length === 0 || selected.includes(option);
 
                                 return (
                                     <div
