@@ -128,32 +128,40 @@ export function MultiSelect({
                         </Button>
                     </div>
                 </div>
+                <div
+                    className={cn(
+                        "flex items-center gap-2 px-2 py-1.5 border-b",
+                        "bg-white"
+                    )}
+                >
+                    <button
+                        type="button"
+                        onClick={handleSelectAll}
+                        className={cn(
+                            "flex items-center gap-2 rounded px-2 py-1 text-sm transition",
+                            "hover:bg-slate-100",
+                            isAllSelected && "bg-slate-100"
+                        )}
+                        disabled={options.length === 0}
+                    >
+                        <div
+                            className={cn(
+                                "h-4 w-4 border rounded flex items-center justify-center",
+                                isAllSelected
+                                    ? "bg-primary/10 border-primary"
+                                    : "border-input"
+                            )}
+                        >
+                            {isAllSelected && <Check className="h-3 w-3 text-primary" />}
+                        </div>
+                        <span className="text-sm">
+                            Select all ({options.length})
+                        </span>
+                    </button>
+                </div>
+
                 <ScrollArea className="h-60">
                     <div className="p-2">
-                        {options.length > 0 && (
-                            <div
-                                className={cn(
-                                    "flex items-center gap-2 px-2 py-1.5 rounded-sm cursor-pointer mb-1",
-                                    "hover:bg-slate-100",
-                                    isAllSelected && "bg-slate-100"
-                                )}
-                                onClick={handleSelectAll}
-                            >
-                                <div
-                                    className={cn(
-                                        "h-4 w-4 border rounded flex items-center justify-center",
-                                        isAllSelected
-                                            ? "bg-primary/10 border-primary"
-                                            : "border-input"
-                                    )}
-                                >
-                                    {isAllSelected && (
-                                        <Check className="h-3 w-3 text-primary" />
-                                    )}
-                                </div>
-                                <span className="text-sm">Select all</span>
-                            </div>
-                        )}
                         {filteredOptions.length === 0 ? (
                             <p className="text-sm text-muted-foreground text-center py-4">
                                 {options.length === 0
