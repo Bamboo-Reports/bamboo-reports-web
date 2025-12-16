@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Check, ChevronDown, X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
 import {
@@ -82,28 +82,21 @@ export function MultiSelect({
                             <p className="text-sm text-muted-foreground text-center py-4">No options available</p>
                         ) : (
                             options.map((option) => (
-                                <div
+                                <label
                                     key={option}
                                     className={cn(
                                         "flex items-center gap-2 px-2 py-1.5 rounded-sm cursor-pointer hover:bg-accent",
                                         selected.includes(option) && "bg-accent"
                                     )}
-                                    onClick={() => handleSelect(option)}
                                 >
-                                    <div
-                                        className={cn(
-                                            "h-4 w-4 border rounded flex items-center justify-center",
-                                            selected.includes(option)
-                                                ? "bg-primary border-primary"
-                                                : "border-input"
-                                        )}
-                                    >
-                                        {selected.includes(option) && (
-                                            <Check className="h-3 w-3 text-primary-foreground" />
-                                        )}
-                                    </div>
+                                    <input
+                                        type="checkbox"
+                                        checked={selected.includes(option)}
+                                        onChange={() => handleSelect(option)}
+                                        className="h-4 w-4 border rounded text-primary focus:ring-0 focus:outline-none"
+                                    />
                                     <span className="text-sm">{option}</span>
-                                </div>
+                                </label>
                             ))
                         )}
                     </div>
