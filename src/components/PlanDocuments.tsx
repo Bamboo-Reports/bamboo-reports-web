@@ -124,15 +124,28 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
           // Generate disclaimer and merge for web view
           if (user?.email) {
             const userName = user.user_metadata?.full_name || 'User';
-            const dateGenerated = new Date().toLocaleDateString('en-US', {
+            const now = new Date();
+            const dateGenerated = now.toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
+            });
+            const generatedAt = now.toLocaleString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              timeZoneName: 'short',
             });
 
             const disclaimerBytes = await generateDisclaimerPage({
               reportTitle: document.title,
               dateGenerated,
+              generatedAt,
+              planName,
+              documentId: document.id,
               userName,
               userEmail: user.email,
             });
@@ -199,16 +212,29 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
       const userName = user.user_metadata?.full_name || 'User';
 
       // Generate current date
-      const dateGenerated = new Date().toLocaleDateString('en-US', {
+      const now = new Date();
+      const dateGenerated = now.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
+      });
+      const generatedAt = now.toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZoneName: 'short',
       });
 
       // Generate disclaimer page
       const disclaimerBytes = await generateDisclaimerPage({
         reportTitle: selectedDocument.title,
         dateGenerated,
+        generatedAt,
+        planName,
+        documentId: selectedDocument.id,
         userName,
         userEmail: user.email,
       });

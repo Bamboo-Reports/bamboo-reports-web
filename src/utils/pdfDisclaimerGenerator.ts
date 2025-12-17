@@ -3,6 +3,9 @@ import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 interface DisclaimerData {
   reportTitle: string;
   dateGenerated: string;
+  generatedAt?: string;
+  planName?: string;
+  documentId?: string;
   userName: string;
   userEmail: string;
 }
@@ -130,7 +133,54 @@ export async function generateDisclaimerPage(data: DisclaimerData): Promise<Uint
     color: primaryColor,
   });
   
-  y -= 50;
+  y -= 24;
+
+  const generationDetails = [
+    { label: 'Generated Timestamp:', value: data.generatedAt },
+    { label: 'Plan Name:', value: data.planName },
+    { label: 'Document ID:', value: data.documentId },
+  ].filter((detail) => detail.value);
+
+  if (generationDetails.length > 0) {
+    y -= 20;
+    page.drawText('GENERATION DETAILS', {
+      x: margin + 40,
+      y: y,
+      size: 14,
+      font: boldFont,
+      color: primaryColor,
+    });
+
+    y -= 30;
+
+    for (const detail of generationDetails) {
+      page.drawText(detail.label, {
+        x: margin + 40,
+        y: y,
+        size: 11,
+        font: boldFont,
+        color: subtextColor,
+      });
+
+      y -= 18;
+
+      const valueLines = wrapText(detail.value!, maxWidth, 11, regularFont);
+      for (const line of valueLines) {
+        page.drawText(line, {
+          x: margin + 40,
+          y: y,
+          size: 11,
+          font: regularFont,
+          color: primaryColor,
+        });
+        y -= 16;
+      }
+
+      y -= 12;
+    }
+  }
+
+  y -= 20;
   
   // User License Information Section
   page.drawText('USER LICENSE INFORMATION', {
