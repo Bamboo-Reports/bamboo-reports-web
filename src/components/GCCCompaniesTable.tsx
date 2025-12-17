@@ -786,9 +786,14 @@ export function GCCCompaniesTable() {
                     <TableCell className="py-3 font-medium text-slate-900">
                       <button
                         onClick={() => handleCompanyClick(company)}
-                        className="text-slate-900 hover:text-slate-700 hover:underline underline-offset-4 text-left"
+                        className="group inline-flex items-center gap-2 text-left text-slate-900 hover:text-slate-700"
                       >
-                        {company.account_global_legal_name}
+                        <span className="underline-offset-4 group-hover:underline">
+                          {company.account_global_legal_name}
+                        </span>
+                        <span className="text-xs font-medium text-slate-500 border border-slate-200 rounded-full px-2 py-0.5 group-hover:bg-slate-100 group-hover:text-slate-700">
+                          Details
+                        </span>
                       </button>
                     </TableCell>
                     <TableCell className="py-3 text-slate-700">{company.revenue_range || '-'}</TableCell>
