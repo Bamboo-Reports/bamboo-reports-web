@@ -89,11 +89,6 @@ export default function DownloadHistory() {
 
             // Generate current date
             const now = new Date();
-            const dateGenerated = now.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-            });
             const generatedAt = now.toLocaleString('en-US', {
                 year: 'numeric',
                 month: 'long',
@@ -107,7 +102,6 @@ export default function DownloadHistory() {
             // Generate disclaimer page
             const disclaimerBytes = await generateDisclaimerPage({
                 reportTitle: download.document_title,
-                dateGenerated,
                 generatedAt,
                 planName: download.plan_name,
                 documentId: download.document_id,

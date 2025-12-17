@@ -125,11 +125,6 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
           if (user?.email) {
             const userName = user.user_metadata?.full_name || 'User';
             const now = new Date();
-            const dateGenerated = now.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            });
             const generatedAt = now.toLocaleString('en-US', {
               year: 'numeric',
               month: 'long',
@@ -142,7 +137,6 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
 
             const disclaimerBytes = await generateDisclaimerPage({
               reportTitle: document.title,
-              dateGenerated,
               generatedAt,
               planName,
               documentId: document.id,
@@ -213,11 +207,6 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
 
       // Generate current date
       const now = new Date();
-      const dateGenerated = now.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      });
       const generatedAt = now.toLocaleString('en-US', {
         year: 'numeric',
         month: 'long',
@@ -231,7 +220,6 @@ export function PlanDocuments({ planName }: PlanDocumentsProps) {
       // Generate disclaimer page
       const disclaimerBytes = await generateDisclaimerPage({
         reportTitle: selectedDocument.title,
-        dateGenerated,
         generatedAt,
         planName,
         documentId: selectedDocument.id,
