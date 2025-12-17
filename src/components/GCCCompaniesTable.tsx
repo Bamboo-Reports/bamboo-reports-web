@@ -10,12 +10,14 @@ import {
   TableHeader,
   TableRow,
 } from './ui/table';
-import { Search, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, X } from 'lucide-react';
+import { Search, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, X, Building2 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { CompanyDetailView } from './CompanyDetailView';
 import { MultiSelect } from './ui/multi-select';
 import { DualRangeSlider } from './ui/dual-range-slider';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+
+const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
 
 // Helper function to safely parse integers with bounds validation
 const parseIntSafe = (value: string, fallback: number, min?: number, max?: number): number => {
@@ -32,6 +34,18 @@ const parseYearsInIndia = (value: string | null): number => {
   if (!value) return 0;
   const parsed = parseInt(value, 10);
   return isNaN(parsed) ? 0 : parsed;
+};
+
+const getDomainFromWebsite = (website?: string | null): string | null => {
+  if (!website) return null;
+
+  try {
+    const normalized = website.startsWith('http') ? website : `https://${website}`;
+    const hostname = new URL(normalized).hostname;
+    return hostname.replace(/^www\./, '');
+  } catch {
+    return null;
+  }
 };
 
 interface GCCCompany {
@@ -781,32 +795,52 @@ export function GCCCompaniesTable() {
                   </TableCell>
                 </TableRow>
               ) : (
-                currentCompanies.map((company) => (
-                  <TableRow key={company.id} className="border-b last:border-b-0 hover:bg-slate-50/70">
-                    <TableCell className="py-3 font-medium text-slate-900">
-                      <button
-                        onClick={() => handleCompanyClick(company)}
-                        className="group inline-flex items-center gap-2 text-left text-slate-900 hover:text-slate-700"
-                      >
-                        <span className="underline-offset-4 group-hover:underline">
-                          {company.account_global_legal_name}
-                        </span>
-                        <ChevronRight className="h-4 w-4 text-slate-400 opacity-0 translate-x-[-2px] transition duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
-                      </button>
-                    </TableCell>
-                    <TableCell className="py-3 text-slate-700">{company.revenue_range || '-'}</TableCell>
-                    <TableCell className="py-3 text-slate-700">{company.hq_country || '-'}</TableCell>
-                    <TableCell className="py-3 text-slate-700">{company.category || '-'}</TableCell>
-                    <TableCell className="py-3 text-right text-slate-700">
-                      {company.total_centers ?? '-'}
-                    </TableCell>
-                    <TableCell className="py-3 text-right text-slate-700">
-                      {company.total_gcc_centers ?? '-'}
-                    </TableCell>
-                    <TableCell className="py-3 text-slate-700">{company.years_in_india || '-'}</TableCell>
-                    <TableCell className="py-3 text-slate-700">{company.primary_city || '-'}</TableCell>
-                  </TableRow>
-                ))
+                currentCompanies.map((company) => {
+                  const logoDomain = getDomainFromWebsite(company.website);
+
+                  return (
+                    <TableRow key={company.id} className="border-b last:border-b-0 hover:bg-slate-50/70">
+                      <TableCell className="py-3 font-medium text-slate-900">
+                        <div className="flex items-center gap-3">
+                          <div className="relative h-8 w-8 rounded-lg border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-400">
+                            <Building2 className="h-4 w-4" />
+                            {logoDomain && (
+                              <img
+                                src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}`}
+                                alt={`${company.account_global_legal_name} logo`}
+                                loading="lazy"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = 'none';
+                                }}
+                                className="absolute inset-0 h-full w-full object-contain p-1"
+                              />
+                            )}
+                          </div>
+                          <button
+                            onClick={() => handleCompanyClick(company)}
+                            className="group inline-flex items-center gap-2 text-left text-slate-900 hover:text-slate-700"
+                          >
+                            <span className="underline-offset-4 group-hover:underline">
+                              {company.account_global_legal_name}
+                            </span>
+                            <ChevronRight className="h-4 w-4 text-slate-400 opacity-0 translate-x-[-2px] transition duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
+                          </button>
+                        </div>
+                      </TableCell>
+                      <TableCell className="py-3 text-slate-700">{company.revenue_range || '-'}</TableCell>
+                      <TableCell className="py-3 text-slate-700">{company.hq_country || '-'}</TableCell>
+                      <TableCell className="py-3 text-slate-700">{company.category || '-'}</TableCell>
+                      <TableCell className="py-3 text-right text-slate-700">
+                        {company.total_centers ?? '-'}
+                      </TableCell>
+                      <TableCell className="py-3 text-right text-slate-700">
+                        {company.total_gcc_centers ?? '-'}
+                      </TableCell>
+                      <TableCell className="py-3 text-slate-700">{company.years_in_india || '-'}</TableCell>
+                      <TableCell className="py-3 text-slate-700">{company.primary_city || '-'}</TableCell>
+                    </TableRow>
+                  );
+                })
               )}
             </TableBody>
           </Table>
