@@ -88,16 +88,23 @@ export default function DownloadHistory() {
             const userName = user.user_metadata?.full_name || 'User';
 
             // Generate current date
-            const dateGenerated = new Date().toLocaleDateString('en-US', {
+            const now = new Date();
+            const generatedAt = now.toLocaleString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZoneName: 'short',
             });
 
             // Generate disclaimer page
             const disclaimerBytes = await generateDisclaimerPage({
                 reportTitle: download.document_title,
-                dateGenerated,
+                generatedAt,
+                planName: download.plan_name,
+                documentId: download.document_id,
                 userName,
                 userEmail: user.email!,
             });
