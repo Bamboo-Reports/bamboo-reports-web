@@ -26,6 +26,8 @@ import {
 } from 'lucide-react';
 import { Separator } from './ui/separator';
 
+const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
+
 interface GCCCompany {
     id: string;
     account_global_legal_name: string;
@@ -54,6 +56,30 @@ interface CompanyDetailViewProps {
 interface ServiceCategory {
     category: string;
     items: string[];
+}
+
+const getDomainFromWebsite = (website?: string | null): string | null => {
+    if (!website) return null;
+
+    try {
+        const normalized = website.startsWith('http') ? website : `https://${website}`;
+        const hostname = new URL(normalized).hostname;
+        return hostname.replace(/^www\./, '');
+    } catch {
+        return null;
+    }
+};
+
+function CompanyLogo({ domain, onError }: { domain: string; onError: () => void }) {
+    return (
+        <img
+            src={`https://img.logo.dev/${domain}?token=${LOGO_DEV_PUBLISHABLE_KEY}`}
+            alt={`${domain} logo`}
+            onError={onError}
+            loading="lazy"
+            className="h-10 w-10 rounded-lg border border-slate-200 bg-white object-contain p-1 shadow-sm"
+        />
+    );
 }
 
 // Function to parse services from multi-line text format
@@ -171,6 +197,9 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
     if (!company) return null;
 
     const serviceCategories = parseServices(company.services_offered);
+    const logoDomain = getDomainFromWebsite(company.website);
+    const [logoFailed, setLogoFailed] = React.useState(false);
+    const showLogo = !!logoDomain && !logoFailed;
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
@@ -178,8 +207,14 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
                 <div className="border-b border-slate-200/70 bg-slate-50/70 px-6 py-5">
                     <DialogHeader>
                         <DialogTitle className="text-2xl font-semibold text-slate-900 flex items-center gap-3">
-                            <Building2 className="h-6 w-6 text-slate-700" />
-                            {company.account_global_legal_name}
+                            {showLogo ? (
+                                <CompanyLogo domain={logoDomain} onError={() => setLogoFailed(true)} />
+                            ) : (
+                                <div className="h-10 w-10 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600">
+                                    <Building2 className="h-5 w-5" />
+                                </div>
+                            )}
+                            <span>{company.account_global_legal_name}</span>
                         </DialogTitle>
                     </DialogHeader>
                 </div>
