@@ -38,13 +38,12 @@ interface GCCCompany {
 type SortField = keyof GCCCompany | null;
 type SortDirection = 'asc' | 'desc' | null;
 
-const ITEMS_PER_PAGE = 10;
-
 export function GCCCompaniesTable() {
   const { user } = useAuth();
   const [companies, setCompanies] = useState<GCCCompany[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   // Filters - Multi-select (arrays)
   const [searchQuery, setSearchQuery] = useState('');
@@ -405,9 +404,9 @@ export function GCCCompaniesTable() {
 
 
   // Pagination
-  const totalPages = Math.ceil(filteredAndSortedCompanies.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const totalPages = Math.ceil(filteredAndSortedCompanies.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
   const currentCompanies = filteredAndSortedCompanies.slice(startIndex, endIndex);
 
   // Reset to first page when filters change
@@ -735,31 +734,48 @@ export function GCCCompaniesTable() {
       </div>
 
       {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex items-center justify-between">
-          <Button
-            variant="outline"
-            onClick={handlePreviousPage}
-            disabled={currentPage === 1}
-          >
-            <ChevronLeft className="h-4 w-4 mr-2" />
-            Previous
-          </Button>
+      <div className="flex items-center justify-between">
+        <Button
+          variant="outline"
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        >
+          <ChevronLeft className="h-4 w-4 mr-2" />
+          Previous
+        </Button>
 
+        <div className="flex items-center gap-4">
           <div className="text-sm text-gray-600">
-            Page {currentPage} of {totalPages}
+            Page {currentPage} of {totalPages || 1}
           </div>
-
-          <Button
-            variant="outline"
-            onClick={handleNextPage}
-            disabled={currentPage === totalPages}
-          >
-            Next
-            <ChevronRight className="h-4 w-4 ml-2" />
-          </Button>
+          <div className="flex items-center gap-2">
+            <label className="text-sm text-gray-600">Rows per page:</label>
+            <select
+              value={itemsPerPage}
+              onChange={(e) => {
+                const value = Math.min(20, Math.max(1, parseInt(e.target.value) || 10));
+                setItemsPerPage(value);
+                setCurrentPage(1);
+              }}
+              className="border rounded px-2 py-1 text-sm bg-white"
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+              <option value={20}>20</option>
+            </select>
+          </div>
         </div>
-      )}
+
+        <Button
+          variant="outline"
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages || totalPages === 0}
+        >
+          Next
+          <ChevronRight className="h-4 w-4 ml-2" />
+        </Button>
+      </div>
 
       {/* Protection Notice */}
       {user?.email && (
