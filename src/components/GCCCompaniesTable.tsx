@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { supabase } from '../lib/supabase';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
@@ -15,6 +15,24 @@ import { useAuth } from '../contexts/AuthContext';
 import { CompanyDetailView } from './CompanyDetailView';
 import { MultiSelect } from './ui/multi-select';
 import { DualRangeSlider } from './ui/dual-range-slider';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+
+// Helper function to safely parse integers with bounds validation
+const parseIntSafe = (value: string, fallback: number, min?: number, max?: number): number => {
+  const parsed = parseInt(value, 10);
+  if (isNaN(parsed)) return fallback;
+  let result = parsed;
+  if (min !== undefined) result = Math.max(min, result);
+  if (max !== undefined) result = Math.min(max, result);
+  return result;
+};
+
+// Helper to safely parse years_in_india (handles non-numeric strings)
+const parseYearsInIndia = (value: string | null): number => {
+  if (!value) return 0;
+  const parsed = parseInt(value, 10);
+  return isNaN(parsed) ? 0 : parsed;
+};
 
 interface GCCCompany {
   id: string;
@@ -38,16 +56,16 @@ interface GCCCompany {
 type SortField = keyof GCCCompany | null;
 type SortDirection = 'asc' | 'desc' | null;
 
-const ITEMS_PER_PAGE = 25;
-
 export function GCCCompaniesTable() {
   const { user } = useAuth();
   const [companies, setCompanies] = useState<GCCCompany[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   // Filters - Multi-select (arrays)
   const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
   const [revenueFilters, setRevenueFilters] = useState<string[]>([]);
   const [countryFilters, setCountryFilters] = useState<string[]>([]);
   const [categoryFilters, setCategoryFilters] = useState<string[]>([]);
@@ -134,7 +152,7 @@ export function GCCCompaniesTable() {
         if (allData.length > 0) {
           const maxTotalCenters = Math.max(...allData.map(c => c.total_centers ?? 0));
           const maxGccCenters = Math.max(...allData.map(c => c.total_gcc_centers ?? 0));
-          const maxYears = Math.max(...allData.map(c => parseInt(c.years_in_india || '0')));
+          const maxYears = Math.max(...allData.map(c => parseYearsInIndia(c.years_in_india)));
 
           setTotalCentersBounds([0, maxTotalCenters || 100]);
           setGccCentersBounds([0, maxGccCenters || 50]);
@@ -155,13 +173,21 @@ export function GCCCompaniesTable() {
     fetchCompanies();
   }, []);
 
+  // Debounce search query to prevent excessive filtering on every keystroke
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
+
   // Apply filters and sorting
   const filteredAndSortedCompanies = useMemo(() => {
     let filtered = companies;
 
-    // Search filter
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
+    // Search filter (using debounced query)
+    if (debouncedSearchQuery) {
+      const query = debouncedSearchQuery.toLowerCase();
       filtered = filtered.filter(company =>
         company.account_global_legal_name?.toLowerCase().includes(query)
       );
@@ -191,13 +217,21 @@ export function GCCCompaniesTable() {
       return gccCenters >= gccCentersRange[0] && gccCenters <= gccCentersRange[1];
     });
     filtered = filtered.filter(c => {
-      const years = parseInt(c.years_in_india || '0');
+      const years = parseYearsInIndia(c.years_in_india);
       return years >= yearsInIndiaRange[0] && years <= yearsInIndiaRange[1];
     });
 
     // Apply sorting
     if (sortField && sortDirection) {
       filtered = [...filtered].sort((a, b) => {
+        // Special handling for years_in_india - sort numerically
+        if (sortField === 'years_in_india') {
+          const aVal = parseYearsInIndia(a.years_in_india);
+          const bVal = parseYearsInIndia(b.years_in_india);
+          const comparison = aVal - bVal;
+          return sortDirection === 'asc' ? comparison : -comparison;
+        }
+
         const aVal = a[sortField];
         const bVal = b[sortField];
 
@@ -216,15 +250,15 @@ export function GCCCompaniesTable() {
     }
 
     return filtered;
-  }, [companies, searchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters,
+  }, [companies, debouncedSearchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters,
     totalCentersRange, gccCentersRange, yearsInIndiaRange, sortField, sortDirection]);
 
   // Cascading filter options - computed from filtered data (excluding current filter)
-  const getFilteredForCascade = (excludeFilter: string) => {
+  const getFilteredForCascade = useCallback((excludeFilter: string) => {
     let filtered = companies;
 
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
+    if (debouncedSearchQuery) {
+      const query = debouncedSearchQuery.toLowerCase();
       filtered = filtered.filter(company =>
         company.account_global_legal_name?.toLowerCase().includes(query)
       );
@@ -253,43 +287,43 @@ export function GCCCompaniesTable() {
       return gccCenters >= gccCentersRange[0] && gccCenters <= gccCentersRange[1];
     });
     filtered = filtered.filter(c => {
-      const years = parseInt(c.years_in_india || '0');
+      const years = parseYearsInIndia(c.years_in_india);
       return years >= yearsInIndiaRange[0] && years <= yearsInIndiaRange[1];
     });
 
     return filtered;
-  };
+  }, [companies, debouncedSearchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
 
   const cascadingRevenues = useMemo(() => {
     const filtered = getFilteredForCascade('revenue');
     const values = new Set(filtered.map(c => c.revenue_range).filter(Boolean) as string[]);
     return Array.from(values).sort();
-  }, [companies, searchQuery, countryFilters, categoryFilters, primaryCityFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
+  }, [getFilteredForCascade]);
 
   const cascadingCountries = useMemo(() => {
     const filtered = getFilteredForCascade('country');
     const values = new Set(filtered.map(c => c.hq_country).filter(Boolean) as string[]);
     return Array.from(values).sort();
-  }, [companies, searchQuery, revenueFilters, categoryFilters, primaryCityFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
+  }, [getFilteredForCascade]);
 
   const cascadingCategories = useMemo(() => {
     const filtered = getFilteredForCascade('category');
     const values = new Set(filtered.map(c => c.category).filter(Boolean) as string[]);
     return Array.from(values).sort();
-  }, [companies, searchQuery, revenueFilters, countryFilters, primaryCityFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
+  }, [getFilteredForCascade]);
 
   const cascadingCities = useMemo(() => {
     const filtered = getFilteredForCascade('city');
     const values = new Set(filtered.map(c => c.primary_city).filter(Boolean) as string[]);
     return Array.from(values).sort();
-  }, [companies, searchQuery, revenueFilters, countryFilters, categoryFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
+  }, [getFilteredForCascade]);
 
   // Get filtered data for range bounds (excluding range filters)
   const getFilteredForRangeBounds = useMemo(() => {
     let filtered = companies;
 
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
+    if (debouncedSearchQuery) {
+      const query = debouncedSearchQuery.toLowerCase();
       filtered = filtered.filter(company =>
         company.account_global_legal_name?.toLowerCase().includes(query)
       );
@@ -309,15 +343,15 @@ export function GCCCompaniesTable() {
     }
 
     return filtered;
-  }, [companies, searchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters]);
+  }, [companies, debouncedSearchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters]);
 
   // Cascading range bounds - each range considers the other two ranges for bidirectional cascading
 
   // Total Centers bounds: filter by GCC Centers and Years ranges
   const cascadingTotalCentersBounds = useMemo((): [number, number] => {
-    let filtered = getFilteredForRangeBounds.filter(c => {
+    const filtered = getFilteredForRangeBounds.filter(c => {
       const gccCenters = c.total_gcc_centers ?? 0;
-      const years = parseInt(c.years_in_india || '0');
+      const years = parseYearsInIndia(c.years_in_india);
       return gccCenters >= gccCentersRange[0] && gccCenters <= gccCentersRange[1] &&
         years >= yearsInIndiaRange[0] && years <= yearsInIndiaRange[1];
     });
@@ -329,9 +363,9 @@ export function GCCCompaniesTable() {
 
   // GCC Centers bounds: filter by Total Centers and Years ranges, cap by Total Centers max
   const cascadingGccCentersBounds = useMemo((): [number, number] => {
-    let filtered = getFilteredForRangeBounds.filter(c => {
+    const filtered = getFilteredForRangeBounds.filter(c => {
       const centers = c.total_centers ?? 0;
-      const years = parseInt(c.years_in_india || '0');
+      const years = parseYearsInIndia(c.years_in_india);
       return centers >= totalCentersRange[0] && centers <= totalCentersRange[1] &&
         years >= yearsInIndiaRange[0] && years <= yearsInIndiaRange[1];
     });
@@ -347,11 +381,11 @@ export function GCCCompaniesTable() {
     const cappedMin = Math.min(baseMin, cappedMax);
 
     return [cappedMin, cappedMax];
-  }, [getFilteredForRangeBounds, gccCentersBounds, totalCentersRange, yearsInIndiaRange]);
+  }, [getFilteredForRangeBounds, totalCentersRange, yearsInIndiaRange]);
 
   // Years in India bounds: filter by Total Centers and GCC Centers ranges
   const cascadingYearsInIndiaBounds = useMemo((): [number, number] => {
-    let filtered = getFilteredForRangeBounds.filter(c => {
+    const filtered = getFilteredForRangeBounds.filter(c => {
       const centers = c.total_centers ?? 0;
       const gccCenters = c.total_gcc_centers ?? 0;
       return centers >= totalCentersRange[0] && centers <= totalCentersRange[1] &&
@@ -359,7 +393,7 @@ export function GCCCompaniesTable() {
     });
 
     if (filtered.length === 0) return yearsInIndiaBounds;
-    const values = filtered.map(c => parseInt(c.years_in_india || '0'));
+    const values = filtered.map(c => parseYearsInIndia(c.years_in_india));
     return [Math.min(...values), Math.max(...values)];
   }, [getFilteredForRangeBounds, yearsInIndiaBounds, totalCentersRange, gccCentersRange]);
 
@@ -405,9 +439,9 @@ export function GCCCompaniesTable() {
 
 
   // Pagination
-  const totalPages = Math.ceil(filteredAndSortedCompanies.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const totalPages = Math.ceil(filteredAndSortedCompanies.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
   const currentCompanies = filteredAndSortedCompanies.slice(startIndex, endIndex);
 
   // Reset to first page when filters change
@@ -496,8 +530,8 @@ export function GCCCompaniesTable() {
     >
       {/* Header */}
       <div>
-        <h2 className="text-2xl font-bold mb-2">L1 List - 2,500+ GCCs</h2>
-        <p className="text-gray-600">Complete view of {companies.length} GCC companies</p>
+        <h2 className="text-2xl font-bold mb-2">L1 List - {companies.length.toLocaleString()}+ GCCs</h2>
+        <p className="text-gray-600">Complete view of {companies.length.toLocaleString()} GCC companies</p>
       </div>
 
       {/* Filters */}
@@ -578,14 +612,20 @@ export function GCCCompaniesTable() {
                 type="number"
                 placeholder="Min"
                 value={totalCentersRange[0]}
-                onChange={(e) => setTotalCentersRange([parseInt(e.target.value) || 0, totalCentersRange[1]])}
+                onChange={(e) => {
+                  const val = parseIntSafe(e.target.value, cascadingTotalCentersBounds[0], cascadingTotalCentersBounds[0], totalCentersRange[1]);
+                  setTotalCentersRange([val, totalCentersRange[1]]);
+                }}
                 className="text-sm h-8"
               />
               <Input
                 type="number"
                 placeholder="Max"
                 value={totalCentersRange[1]}
-                onChange={(e) => setTotalCentersRange([totalCentersRange[0], parseInt(e.target.value) || cascadingTotalCentersBounds[1]])}
+                onChange={(e) => {
+                  const val = parseIntSafe(e.target.value, cascadingTotalCentersBounds[1], totalCentersRange[0], cascadingTotalCentersBounds[1]);
+                  setTotalCentersRange([totalCentersRange[0], val]);
+                }}
                 className="text-sm h-8"
               />
             </div>
@@ -604,14 +644,20 @@ export function GCCCompaniesTable() {
                 type="number"
                 placeholder="Min"
                 value={gccCentersRange[0]}
-                onChange={(e) => setGccCentersRange([parseInt(e.target.value) || 0, gccCentersRange[1]])}
+                onChange={(e) => {
+                  const val = parseIntSafe(e.target.value, cascadingGccCentersBounds[0], cascadingGccCentersBounds[0], gccCentersRange[1]);
+                  setGccCentersRange([val, gccCentersRange[1]]);
+                }}
                 className="text-sm h-8"
               />
               <Input
                 type="number"
                 placeholder="Max"
                 value={gccCentersRange[1]}
-                onChange={(e) => setGccCentersRange([gccCentersRange[0], parseInt(e.target.value) || cascadingGccCentersBounds[1]])}
+                onChange={(e) => {
+                  const val = parseIntSafe(e.target.value, cascadingGccCentersBounds[1], gccCentersRange[0], cascadingGccCentersBounds[1]);
+                  setGccCentersRange([gccCentersRange[0], val]);
+                }}
                 className="text-sm h-8"
               />
             </div>
@@ -630,14 +676,20 @@ export function GCCCompaniesTable() {
                 type="number"
                 placeholder="Min"
                 value={yearsInIndiaRange[0]}
-                onChange={(e) => setYearsInIndiaRange([parseInt(e.target.value) || 0, yearsInIndiaRange[1]])}
+                onChange={(e) => {
+                  const val = parseIntSafe(e.target.value, cascadingYearsInIndiaBounds[0], cascadingYearsInIndiaBounds[0], yearsInIndiaRange[1]);
+                  setYearsInIndiaRange([val, yearsInIndiaRange[1]]);
+                }}
                 className="text-sm h-8"
               />
               <Input
                 type="number"
                 placeholder="Max"
                 value={yearsInIndiaRange[1]}
-                onChange={(e) => setYearsInIndiaRange([yearsInIndiaRange[0], parseInt(e.target.value) || cascadingYearsInIndiaBounds[1]])}
+                onChange={(e) => {
+                  const val = parseIntSafe(e.target.value, cascadingYearsInIndiaBounds[1], yearsInIndiaRange[0], cascadingYearsInIndiaBounds[1]);
+                  setYearsInIndiaRange([yearsInIndiaRange[0], val]);
+                }}
                 className="text-sm h-8"
               />
             </div>
@@ -651,7 +703,7 @@ export function GCCCompaniesTable() {
       </div>
 
       {/* Table */}
-      <div className="border rounded-lg overflow-hidden relative bg-white">
+      <div className="border rounded-lg relative bg-white">
         {/* Watermark Overlay */}
         {user?.email && (
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
@@ -667,32 +719,56 @@ export function GCCCompaniesTable() {
           </div>
         )}
 
-        <div className="overflow-x-auto">
+        <div className="overflow-auto max-h-[500px]">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="min-w-[250px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
+                <TableHead className="min-w-[250px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('account_global_legal_name')}>
                   Account Global Legal Name {getSortIcon('account_global_legal_name')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('revenue_range')}>
+                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('revenue_range')}>
                   Revenue Range {getSortIcon('revenue_range')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('hq_country')}>
+                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('hq_country')}>
                   HQ Country {getSortIcon('hq_country')}
                 </TableHead>
-                <TableHead className="min-w-[120px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('category')}>
+                <TableHead className="min-w-[120px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('category')}>
                   Category {getSortIcon('category')}
                 </TableHead>
-                <TableHead className="min-w-[120px] text-right cursor-pointer hover:bg-slate-100" onClick={() => handleSort('total_centers')}>
-                  Total Centers {getSortIcon('total_centers')}
+                <TableHead className="min-w-[120px] text-right cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('total_centers')}>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span className="cursor-help border-b border-dashed border-gray-400">
+                          Total Centers
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Number of centers established by the organization</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  {getSortIcon('total_centers')}
                 </TableHead>
-                <TableHead className="min-w-[140px] text-right cursor-pointer hover:bg-slate-100" onClick={() => handleSort('total_gcc_centers')}>
-                  Total GCC Centers {getSortIcon('total_gcc_centers')}
+                <TableHead className="min-w-[140px] text-right cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('total_gcc_centers')}>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span className="cursor-help border-b border-dashed border-gray-400">
+                          Total GCC Centers
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Number of centers established by organization excl. BPO, Sales & Marketing, & Manufacturing</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  {getSortIcon('total_gcc_centers')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
+                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('years_in_india')}>
                   Years in India {getSortIcon('years_in_india')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('primary_city')}>
+                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('primary_city')}>
                   Primary City {getSortIcon('primary_city')}
                 </TableHead>
               </TableRow>
@@ -719,10 +795,10 @@ export function GCCCompaniesTable() {
                     <TableCell>{company.hq_country || '-'}</TableCell>
                     <TableCell>{company.category || '-'}</TableCell>
                     <TableCell className="text-right">
-                      {company.total_centers || '-'}
+                      {company.total_centers ?? '-'}
                     </TableCell>
                     <TableCell className="text-right">
-                      {company.total_gcc_centers || '-'}
+                      {company.total_gcc_centers ?? '-'}
                     </TableCell>
                     <TableCell>{company.years_in_india || '-'}</TableCell>
                     <TableCell>{company.primary_city || '-'}</TableCell>
@@ -735,31 +811,48 @@ export function GCCCompaniesTable() {
       </div>
 
       {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex items-center justify-between">
-          <Button
-            variant="outline"
-            onClick={handlePreviousPage}
-            disabled={currentPage === 1}
-          >
-            <ChevronLeft className="h-4 w-4 mr-2" />
-            Previous
-          </Button>
+      <div className="flex items-center justify-between">
+        <Button
+          variant="outline"
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        >
+          <ChevronLeft className="h-4 w-4 mr-2" />
+          Previous
+        </Button>
 
+        <div className="flex items-center gap-4">
           <div className="text-sm text-gray-600">
-            Page {currentPage} of {totalPages}
+            Page {currentPage} of {totalPages || 1}
           </div>
-
-          <Button
-            variant="outline"
-            onClick={handleNextPage}
-            disabled={currentPage === totalPages}
-          >
-            Next
-            <ChevronRight className="h-4 w-4 ml-2" />
-          </Button>
+          <div className="flex items-center gap-2">
+            <label className="text-sm text-gray-600">Rows per page:</label>
+            <select
+              value={itemsPerPage}
+              onChange={(e) => {
+                const value = Math.min(20, Math.max(1, parseInt(e.target.value) || 10));
+                setItemsPerPage(value);
+                setCurrentPage(1);
+              }}
+              className="border rounded px-2 py-1 text-sm bg-white"
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+              <option value={20}>20</option>
+            </select>
+          </div>
         </div>
-      )}
+
+        <Button
+          variant="outline"
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages || totalPages === 0}
+        >
+          Next
+          <ChevronRight className="h-4 w-4 ml-2" />
+        </Button>
+      </div>
 
       {/* Protection Notice */}
       {user?.email && (
