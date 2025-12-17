@@ -23,6 +23,7 @@ export async function generateDisclaimerPage(data: DisclaimerData): Promise<Uint
   // Embed fonts
   const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
   const regularFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const italicFont = await pdfDoc.embedFont(StandardFonts.HelveticaOblique);
   const serifFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
 
   const { width, height } = page.getSize();
@@ -40,9 +41,6 @@ export async function generateDisclaimerPage(data: DisclaimerData): Promise<Uint
   const valueSize = 12;
   const lineHeight = 16;
 
-  // Current Y position (start from top with margin)
-  let y = height - 80;
-
   // Draw border/frame
   page.drawRectangle({
     x: margin,
@@ -54,30 +52,50 @@ export async function generateDisclaimerPage(data: DisclaimerData): Promise<Uint
   });
 
   // Company branding
+  const brandBandHeight = 90;
+  const brandBandY = height - margin - brandBandHeight;
+  page.drawRectangle({
+    x: margin + 1,
+    y: brandBandY,
+    width: width - (margin * 2) - 2,
+    height: brandBandHeight,
+    color: rgb(0.95, 0.98, 0.95),
+  });
+
   const brandTitle = 'BAMBOO REPORTS';
   const brandTitleSize = 28;
   const brandTitleWidth = boldFont.widthOfTextAtSize(brandTitle, brandTitleSize);
+  const brandTitleY = brandBandY + brandBandHeight - 38;
   page.drawText(brandTitle, {
     x: (width - brandTitleWidth) / 2,
-    y: y,
+    y: brandTitleY,
     size: brandTitleSize,
     font: boldFont,
     color: accentColor,
   });
 
-  y -= 15;
-  const brandSubtitle = 'ResearchNXT';
-  const brandSubtitleSize = 14;
-  const brandSubtitleWidth = regularFont.widthOfTextAtSize(brandSubtitle, brandSubtitleSize);
+  const brandSubtitle = 'by ResearchNXT';
+  const brandSubtitleSize = 13;
+  const brandSubtitleWidth = italicFont.widthOfTextAtSize(brandSubtitle, brandSubtitleSize);
+  const brandSubtitleY = brandTitleY - 18;
   page.drawText(brandSubtitle, {
     x: (width - brandSubtitleWidth) / 2,
-    y: y,
+    y: brandSubtitleY,
     size: brandSubtitleSize,
-    font: regularFont,
+    font: italicFont,
     color: subtextColor,
   });
 
-  y -= 60;
+  const accentLineY = brandSubtitleY - 12;
+  page.drawLine({
+    start: { x: width / 2 - 50, y: accentLineY },
+    end: { x: width / 2 + 50, y: accentLineY },
+    thickness: 2,
+    color: accentColor,
+  });
+
+  // Current Y position (start below branding band)
+  let y = brandBandY - 20;
 
   // Horizontal line
   page.drawLine({
