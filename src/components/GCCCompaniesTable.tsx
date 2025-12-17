@@ -651,7 +651,7 @@ export function GCCCompaniesTable() {
       </div>
 
       {/* Table */}
-      <div className="border rounded-lg overflow-hidden relative bg-white">
+      <div className="border rounded-lg overflow-hidden relative bg-white max-h-[600px] overflow-y-auto">
         {/* Watermark Overlay */}
         {user?.email && (
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
@@ -667,9 +667,9 @@ export function GCCCompaniesTable() {
           </div>
         )}
 
-        <div className="overflow-x-auto max-h-[600px] overflow-y-auto">
+        <div className="overflow-x-auto">
           <Table>
-            <TableHeader className="sticky top-0 bg-white z-20">
+            <TableHeader className="sticky top-0 bg-white z-20 shadow-sm">
               <TableRow>
                 <TableHead className="min-w-[250px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
                   Account Global Legal Name {getSortIcon('account_global_legal_name')}
