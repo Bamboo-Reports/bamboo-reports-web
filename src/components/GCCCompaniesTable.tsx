@@ -38,7 +38,7 @@ interface GCCCompany {
 type SortField = keyof GCCCompany | null;
 type SortDirection = 'asc' | 'desc' | null;
 
-const ITEMS_PER_PAGE = 25;
+const ITEMS_PER_PAGE = 10;
 
 export function GCCCompaniesTable() {
   const { user } = useAuth();
@@ -667,9 +667,9 @@ export function GCCCompaniesTable() {
           </div>
         )}
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto max-h-[600px] overflow-y-auto">
           <Table>
-            <TableHeader>
+            <TableHeader className="sticky top-0 bg-white z-20">
               <TableRow>
                 <TableHead className="min-w-[250px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
                   Account Global Legal Name {getSortIcon('account_global_legal_name')}
