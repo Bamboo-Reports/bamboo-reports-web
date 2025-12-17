@@ -651,7 +651,7 @@ export function GCCCompaniesTable() {
       </div>
 
       {/* Table */}
-      <div className="border rounded-lg overflow-hidden relative bg-white max-h-[600px] overflow-y-auto">
+      <div className="border rounded-lg relative bg-white">
         {/* Watermark Overlay */}
         {user?.email && (
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
@@ -667,32 +667,32 @@ export function GCCCompaniesTable() {
           </div>
         )}
 
-        <div className="overflow-x-auto">
+        <div className="overflow-auto max-h-[500px]">
           <Table>
-            <TableHeader className="sticky top-0 bg-white z-20 shadow-sm">
+            <TableHeader>
               <TableRow>
-                <TableHead className="min-w-[250px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
+                <TableHead className="min-w-[250px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('account_global_legal_name')}>
                   Account Global Legal Name {getSortIcon('account_global_legal_name')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('revenue_range')}>
+                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('revenue_range')}>
                   Revenue Range {getSortIcon('revenue_range')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('hq_country')}>
+                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('hq_country')}>
                   HQ Country {getSortIcon('hq_country')}
                 </TableHead>
-                <TableHead className="min-w-[120px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('category')}>
+                <TableHead className="min-w-[120px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('category')}>
                   Category {getSortIcon('category')}
                 </TableHead>
-                <TableHead className="min-w-[120px] text-right cursor-pointer hover:bg-slate-100" onClick={() => handleSort('total_centers')}>
+                <TableHead className="min-w-[120px] text-right cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('total_centers')}>
                   Total Centers {getSortIcon('total_centers')}
                 </TableHead>
-                <TableHead className="min-w-[140px] text-right cursor-pointer hover:bg-slate-100" onClick={() => handleSort('total_gcc_centers')}>
+                <TableHead className="min-w-[140px] text-right cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('total_gcc_centers')}>
                   Total GCC Centers {getSortIcon('total_gcc_centers')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
+                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('years_in_india')}>
                   Years in India {getSortIcon('years_in_india')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100" onClick={() => handleSort('primary_city')}>
+                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('primary_city')}>
                   Primary City {getSortIcon('primary_city')}
                 </TableHead>
               </TableRow>
