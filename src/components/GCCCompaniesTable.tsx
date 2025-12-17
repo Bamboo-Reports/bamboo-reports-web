@@ -791,9 +791,7 @@ export function GCCCompaniesTable() {
                         <span className="underline-offset-4 group-hover:underline">
                           {company.account_global_legal_name}
                         </span>
-                        <span className="text-xs font-medium text-slate-500 border border-slate-200 rounded-full px-2 py-0.5 group-hover:bg-slate-100 group-hover:text-slate-700">
-                          Details
-                        </span>
+                        <ChevronRight className="h-4 w-4 text-slate-400 opacity-0 translate-x-[-2px] transition duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
                       </button>
                     </TableCell>
                     <TableCell className="py-3 text-slate-700">{company.revenue_range || '-'}</TableCell>

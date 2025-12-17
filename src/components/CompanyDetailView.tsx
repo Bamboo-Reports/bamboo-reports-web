@@ -176,15 +176,11 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0 bg-white border border-slate-200/70 shadow-2xl">
                 <div className="border-b border-slate-200/70 bg-slate-50/70 px-6 py-5">
-                    <DialogHeader className="space-y-1">
+                    <DialogHeader>
                         <DialogTitle className="text-2xl font-semibold text-slate-900 flex items-center gap-3">
                             <Building2 className="h-6 w-6 text-slate-700" />
                             {company.account_global_legal_name}
                         </DialogTitle>
-                        <div className="text-sm text-slate-600">
-                            {company.hq_country || 'HQ location unavailable'}
-                            {company.category ? ` | ${company.category}` : ''}
-                        </div>
                     </DialogHeader>
                 </div>
 
