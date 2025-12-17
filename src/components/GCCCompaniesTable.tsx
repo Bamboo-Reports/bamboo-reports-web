@@ -10,12 +10,14 @@ import {
   TableHeader,
   TableRow,
 } from './ui/table';
-import { Search, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, X } from 'lucide-react';
+import { Search, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, X, Building2 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { CompanyDetailView } from './CompanyDetailView';
 import { MultiSelect } from './ui/multi-select';
 import { DualRangeSlider } from './ui/dual-range-slider';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+
+const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
 
 // Helper function to safely parse integers with bounds validation
 const parseIntSafe = (value: string, fallback: number, min?: number, max?: number): number => {
@@ -32,6 +34,18 @@ const parseYearsInIndia = (value: string | null): number => {
   if (!value) return 0;
   const parsed = parseInt(value, 10);
   return isNaN(parsed) ? 0 : parsed;
+};
+
+const getDomainFromWebsite = (website?: string | null): string | null => {
+  if (!website) return null;
+
+  try {
+    const normalized = website.startsWith('http') ? website : `https://${website}`;
+    const hostname = new URL(normalized).hostname;
+    return hostname.replace(/^www\./, '');
+  } catch {
+    return null;
+  }
 };
 
 interface GCCCompany {
@@ -703,7 +717,7 @@ export function GCCCompaniesTable() {
       </div>
 
       {/* Table */}
-      <div className="border rounded-lg relative bg-white">
+      <div className="border border-slate-200/80 rounded-xl shadow-sm relative bg-white overflow-hidden">
         {/* Watermark Overlay */}
         {user?.email && (
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
@@ -720,22 +734,22 @@ export function GCCCompaniesTable() {
         )}
 
         <div className="overflow-auto max-h-[500px]">
-          <Table>
+          <Table className="min-w-[900px] text-sm">
             <TableHeader>
               <TableRow>
-                <TableHead className="min-w-[250px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('account_global_legal_name')}>
+                <TableHead className="min-w-[250px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
                   Account Global Legal Name {getSortIcon('account_global_legal_name')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('revenue_range')}>
+                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('revenue_range')}>
                   Revenue Range {getSortIcon('revenue_range')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('hq_country')}>
+                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('hq_country')}>
                   HQ Country {getSortIcon('hq_country')}
                 </TableHead>
-                <TableHead className="min-w-[120px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('category')}>
+                <TableHead className="min-w-[120px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('category')}>
                   Category {getSortIcon('category')}
                 </TableHead>
-                <TableHead className="min-w-[120px] text-right cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('total_centers')}>
+                <TableHead className="min-w-[120px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_centers')}>
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -750,7 +764,7 @@ export function GCCCompaniesTable() {
                   </TooltipProvider>
                   {getSortIcon('total_centers')}
                 </TableHead>
-                <TableHead className="min-w-[140px] text-right cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('total_gcc_centers')}>
+                <TableHead className="min-w-[140px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_gcc_centers')}>
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -765,10 +779,10 @@ export function GCCCompaniesTable() {
                   </TooltipProvider>
                   {getSortIcon('total_gcc_centers')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('years_in_india')}>
+                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
                   Years in India {getSortIcon('years_in_india')}
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer hover:bg-slate-100 sticky top-0 bg-white z-20" onClick={() => handleSort('primary_city')}>
+                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('primary_city')}>
                   Primary City {getSortIcon('primary_city')}
                 </TableHead>
               </TableRow>
@@ -776,34 +790,57 @@ export function GCCCompaniesTable() {
             <TableBody>
               {currentCompanies.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={8} className="text-center py-8 text-gray-500">
+                  <TableCell colSpan={8} className="text-center py-8 text-slate-500">
                     No companies found matching your filters
                   </TableCell>
                 </TableRow>
               ) : (
-                currentCompanies.map((company) => (
-                  <TableRow key={company.id} className="hover:bg-slate-50">
-                    <TableCell className="font-medium">
-                      <button
-                        onClick={() => handleCompanyClick(company)}
-                        className="text-blue-600 hover:text-blue-800 hover:underline text-left"
-                      >
-                        {company.account_global_legal_name}
-                      </button>
-                    </TableCell>
-                    <TableCell>{company.revenue_range || '-'}</TableCell>
-                    <TableCell>{company.hq_country || '-'}</TableCell>
-                    <TableCell>{company.category || '-'}</TableCell>
-                    <TableCell className="text-right">
-                      {company.total_centers ?? '-'}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      {company.total_gcc_centers ?? '-'}
-                    </TableCell>
-                    <TableCell>{company.years_in_india || '-'}</TableCell>
-                    <TableCell>{company.primary_city || '-'}</TableCell>
-                  </TableRow>
-                ))
+                currentCompanies.map((company) => {
+                  const logoDomain = getDomainFromWebsite(company.website);
+
+                  return (
+                    <TableRow key={company.id} className="border-b last:border-b-0 hover:bg-slate-50/70">
+                      <TableCell className="py-3 font-medium text-slate-900">
+                        <div className="flex items-center gap-3">
+                          <div className="relative h-8 w-8 rounded-lg border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-400">
+                            <Building2 className="h-4 w-4" />
+                            {logoDomain && (
+                              <img
+                                src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}`}
+                                alt={`${company.account_global_legal_name} logo`}
+                                loading="lazy"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = 'none';
+                                }}
+                                className="absolute inset-0 h-full w-full object-contain p-1"
+                              />
+                            )}
+                          </div>
+                          <button
+                            onClick={() => handleCompanyClick(company)}
+                            className="group inline-flex items-center gap-2 text-left text-slate-900 hover:text-slate-700"
+                          >
+                            <span className="underline-offset-4 group-hover:underline">
+                              {company.account_global_legal_name}
+                            </span>
+                            <ChevronRight className="h-4 w-4 text-slate-400 opacity-0 translate-x-[-2px] transition duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
+                          </button>
+                        </div>
+                      </TableCell>
+                      <TableCell className="py-3 text-slate-700">{company.revenue_range || '-'}</TableCell>
+                      <TableCell className="py-3 text-slate-700">{company.hq_country || '-'}</TableCell>
+                      <TableCell className="py-3 text-slate-700">{company.category || '-'}</TableCell>
+                      <TableCell className="py-3 text-right text-slate-700">
+                        {company.total_centers ?? '-'}
+                      </TableCell>
+                      <TableCell className="py-3 text-right text-slate-700">
+                        {company.total_gcc_centers ?? '-'}
+                      </TableCell>
+                      <TableCell className="py-3 text-slate-700">{company.years_in_india || '-'}</TableCell>
+                      <TableCell className="py-3 text-slate-700">{company.primary_city || '-'}</TableCell>
+                    </TableRow>
+                  );
+                })
               )}
             </TableBody>
           </Table>

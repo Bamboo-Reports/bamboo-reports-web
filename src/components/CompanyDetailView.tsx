@@ -26,6 +26,8 @@ import {
 } from 'lucide-react';
 import { Separator } from './ui/separator';
 
+const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
+
 interface GCCCompany {
     id: string;
     account_global_legal_name: string;
@@ -54,6 +56,30 @@ interface CompanyDetailViewProps {
 interface ServiceCategory {
     category: string;
     items: string[];
+}
+
+const getDomainFromWebsite = (website?: string | null): string | null => {
+    if (!website) return null;
+
+    try {
+        const normalized = website.startsWith('http') ? website : `https://${website}`;
+        const hostname = new URL(normalized).hostname;
+        return hostname.replace(/^www\./, '');
+    } catch {
+        return null;
+    }
+};
+
+function CompanyLogo({ domain, onError }: { domain: string; onError: () => void }) {
+    return (
+        <img
+            src={`https://img.logo.dev/${domain}?token=${LOGO_DEV_PUBLISHABLE_KEY}`}
+            alt={`${domain} logo`}
+            onError={onError}
+            loading="lazy"
+            className="h-10 w-10 rounded-lg border border-slate-200 bg-white object-contain p-1 shadow-sm"
+        />
+    );
 }
 
 // Function to parse services from multi-line text format
@@ -171,25 +197,36 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
     if (!company) return null;
 
     const serviceCategories = parseServices(company.services_offered);
+    const logoDomain = getDomainFromWebsite(company.website);
+    const [logoFailed, setLogoFailed] = React.useState(false);
+    const showLogo = !!logoDomain && !logoFailed;
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
-                <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold flex items-center gap-3">
-                        <Building2 className="h-6 w-6 text-primary" />
-                        {company.account_global_legal_name}
-                    </DialogTitle>
-                </DialogHeader>
+            <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0 bg-white border border-slate-200/70 shadow-2xl">
+                <div className="border-b border-slate-200/70 bg-slate-50/70 px-6 py-5">
+                    <DialogHeader>
+                        <DialogTitle className="text-2xl font-semibold text-slate-900 flex items-center gap-3">
+                            {showLogo ? (
+                                <CompanyLogo domain={logoDomain} onError={() => setLogoFailed(true)} />
+                            ) : (
+                                <div className="h-10 w-10 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-slate-600">
+                                    <Building2 className="h-5 w-5" />
+                                </div>
+                            )}
+                            <span>{company.account_global_legal_name}</span>
+                        </DialogTitle>
+                    </DialogHeader>
+                </div>
 
-                <div className="space-y-6 mt-4">
+                <div className="space-y-6 px-6 py-6">
                     {/* Section A: Account Specific Details */}
                     <div className="space-y-4">
                         <div className="flex items-center gap-2">
-                            <h3 className="text-lg font-semibold text-primary">Account Specific Details</h3>
+                            <h3 className="text-base font-semibold text-slate-800">Account Specific Details</h3>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-5 rounded-lg border">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-5 rounded-xl border border-slate-200/70 shadow-sm">
                             <DetailItem
                                 icon={<Building2 className="h-4 w-4" />}
                                 label="Account Global Legal Name"
@@ -242,10 +279,10 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
                     {/* Section B: Account Center Specific Details */}
                     <div className="space-y-4">
                         <div className="flex items-center gap-2">
-                            <h3 className="text-lg font-semibold text-primary">Account Center Specific Details</h3>
+                            <h3 className="text-base font-semibold text-slate-800">Account Center Specific Details</h3>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-5 rounded-lg border">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-5 rounded-xl border border-slate-200/70 shadow-sm">
                             <DetailItem
                                 icon={<Building2 className="h-4 w-4" />}
                                 label="Total Centers"
@@ -299,18 +336,18 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
                             <Separator />
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2">
-                                    <h3 className="text-lg font-semibold text-primary">Services Offered</h3>
+                                    <h3 className="text-base font-semibold text-slate-800">Services Offered</h3>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-slate-50 p-5 rounded-lg border">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-white p-5 rounded-xl border border-slate-200/70 shadow-sm">
                                     {serviceCategories.map((service, index) => (
                                         <div
                                             key={index}
-                                            className="space-y-2"
+                                            className="space-y-2 rounded-lg border border-slate-200/70 bg-slate-50/60 p-4"
                                         >
                                             <div className="flex items-center gap-2">
                                                 {getServiceIcon(service.category)}
-                                                <h4 className="text-xs font-medium text-muted-foreground">{service.category}</h4>
+                                                <h4 className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{service.category}</h4>
                                             </div>
 
                                             {service.items.length > 0 && (
@@ -351,31 +388,31 @@ function DetailItem({ icon, label, value, badge, link, multiline, fullWidth }: D
 
     return (
         <div className={`space-y-1.5 ${colSpan}`}>
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium">
-                {icon}
+            <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-wide text-slate-500 font-semibold">
+                <span className="text-slate-400">{icon}</span>
                 <span>{label}</span>
             </div>
-            <div className="text-sm font-medium">
+            <div className="text-sm font-medium text-slate-900">
                 {link && value ? (
                     <a
                         href={value.startsWith('http') ? value : `https://${value}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 hover:underline"
+                        className="inline-flex items-center gap-1.5 text-slate-700 hover:text-slate-900 hover:underline"
                     >
                         {displayValue}
                         <ExternalLink className="h-3 w-3" />
                     </a>
                 ) : badge && value ? (
-                    <Badge variant="secondary" className="font-medium">
+                    <Badge variant="secondary" className="font-medium bg-slate-100 text-slate-700 border border-slate-200">
                         {displayValue}
                     </Badge>
                 ) : multiline && value ? (
-                    <div className="whitespace-pre-line text-sm leading-relaxed text-gray-900">
+                    <div className="whitespace-pre-line text-sm leading-relaxed text-slate-900">
                         {displayValue}
                     </div>
                 ) : (
-                    <span className="text-gray-900">{displayValue}</span>
+                    <span className="text-slate-900">{displayValue}</span>
                 )}
             </div>
         </div>
