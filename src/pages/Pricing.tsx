@@ -401,6 +401,57 @@ const Pricing = () => {
     }
   };
 
+  // TEST: Chargebee checkout handler
+  const handleChargebeeTest = async (planName: string) => {
+    try {
+      setProcessingPlan(planName);
+
+      // Map plan name + currency to Chargebee plan price ID
+      const priceIdMap: Record<string, string> = {
+        'Explorer-USD': 'explorer-usd-annual',
+        'Explorer-INR': 'explorer-inr-annual',
+        'Navigator-USD': 'navigator-usd-annual',
+        'Navigator-INR': 'navigator-inr-annual',
+      };
+
+      const planPriceId = priceIdMap[`${planName}-${currency}`];
+
+      if (!planPriceId) {
+        throw new Error(`No price configured for ${planName} in ${currency}`);
+      }
+
+      // Call our Netlify Function
+      const response = await fetch('/.netlify/functions/chargebee-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          planPriceId,
+          customerEmail: user?.email || `test-${Date.now()}@example.com`,
+          customerName: user?.user_metadata?.full_name || 'Test User',
+          userId: user?.id || 'test-user-id',
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to create checkout');
+      }
+
+      const { hostedPageUrl } = await response.json();
+
+      // Redirect to Chargebee hosted checkout
+      window.location.href = hostedPageUrl;
+    } catch (error: any) {
+      setProcessingPlan(null);
+      toast({
+        title: 'Checkout Failed',
+        description: error.message || 'Failed to initiate checkout',
+        variant: 'destructive',
+      });
+    }
+  };
+
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -529,14 +580,26 @@ const Pricing = () => {
                         Coming Soon
                       </Button>
                     ) : (
-                      <Button
-                        className="w-full rounded-full"
-                        variant={plan.popular ? "default" : "outline"}
-                        onClick={() => handlePayment(plan.name, plan.price)}
-                        disabled={processingPlan !== null}
-                      >
-                        {processingPlan === plan.name ? "Processing..." : "Get Started"}
-                      </Button>
+                      <>
+                        <Button
+                          className="w-full rounded-full"
+                          variant={plan.popular ? "default" : "outline"}
+                          onClick={() => handlePayment(plan.name, plan.price)}
+                          disabled={processingPlan !== null}
+                        >
+                          {processingPlan === plan.name ? "Processing..." : "Get Started"}
+                        </Button>
+
+                        {/* TEST: Chargebee Checkout Button */}
+                        <Button
+                          className="w-full rounded-full mt-2"
+                          variant="secondary"
+                          onClick={() => handleChargebeeTest(plan.name)}
+                          disabled={processingPlan !== null}
+                        >
+                          {processingPlan === plan.name ? "Processing..." : "🧪 Test Chargebee"}
+                        </Button>
+                      </>
                     )}
 
                     <Button asChild variant="ghost" className="w-full rounded-full">

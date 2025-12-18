@@ -42,6 +42,7 @@ import Coverage from "./pages/features/Coverage";
 import WhatIfScenarios from "./pages/features/WhatIfScenarios";
 import ProprietaryTAMSlicers from "./pages/features/ProprietaryTAMSlicers";
 import TailorMadeMarketInsights from "./pages/features/TailorMadeMarketInsights";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -69,6 +70,7 @@ const App = () => (
             <Route path="/articles/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/payment-failure" element={<PaymentFailure />} />
+            <Route path="/checkout-success" element={<CheckoutSuccess />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
             <Route path="/about-us" element={<AboutUs />} />
