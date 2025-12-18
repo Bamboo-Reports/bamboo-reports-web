@@ -28,7 +28,7 @@ exports.handler = async (event) => {
     }
 
     try {
-        const { planPriceId, customerEmail, customerName, userId } = JSON.parse(event.body || '{}');
+        const { planPriceId, customerEmail, customerName } = JSON.parse(event.body || '{}');
 
         if (!planPriceId) {
             return {
@@ -40,19 +40,35 @@ exports.handler = async (event) => {
 
         console.log('Creating checkout for:', { planPriceId, customerEmail });
 
-        // Create hosted checkout page - using snake_case for API params
-        const result = await chargebee.hostedPage.checkoutNewForItems({
+        // Build checkout params - start minimal
+        const checkoutParams = {
             subscription_items: [{
                 item_price_id: planPriceId,
                 quantity: 1,
             }],
-            customer: {
-                email: customerEmail || `test-${Date.now()}@example.com`,
-                first_name: customerName || 'Test User',
-            },
-            redirect_url: `${process.env.URL || 'http://localhost:8888'}/checkout-success`,
-            cancel_url: `${process.env.URL || 'http://localhost:8888'}/pricing`,
-        });
+        };
+
+        // Only add customer if email provided
+        if (customerEmail) {
+            checkoutParams.customer = {
+                email: customerEmail,
+            };
+            if (customerName) {
+                checkoutParams.customer.first_name = customerName;
+            }
+        }
+
+        // Only add redirect URLs if we have a valid URL env var
+        const baseUrl = process.env.URL;
+        if (baseUrl && !baseUrl.includes('localhost')) {
+            checkoutParams.redirect_url = `${baseUrl}/checkout-success`;
+            checkoutParams.cancel_url = `${baseUrl}/pricing`;
+        }
+
+        console.log('Checkout params:', JSON.stringify(checkoutParams, null, 2));
+
+        // Create hosted checkout page
+        const result = await chargebee.hostedPage.checkoutNewForItems(checkoutParams);
 
         console.log('Checkout created successfully:', result.hosted_page.id);
 
