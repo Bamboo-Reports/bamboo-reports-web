@@ -1,12 +1,11 @@
 const chargebee = require('chargebee');
 
-// Initialize Chargebee
-if (process.env.VITE_CHARGEBEE_SITE && process.env.CHARGEBEE_API_KEY) {
-    chargebee.configure({
-        site: process.env.VITE_CHARGEBEE_SITE,
-        api_key: process.env.CHARGEBEE_API_KEY,
-    });
-}
+// Initialize Chargebee - must be done at module level
+// Configure Chargebee instance
+const cbInstance = chargebee.configure({
+    site: process.env.VITE_CHARGEBEE_SITE || '',
+    api_key: process.env.CHARGEBEE_API_KEY || '',
+});
 
 exports.handler = async (event) => {
     // CORS headers
@@ -41,8 +40,8 @@ exports.handler = async (event) => {
 
         console.log('Creating checkout for:', { planPriceId, customerEmail });
 
-        // Create hosted checkout page
-        const result = await chargebee.hosted_page.checkout_new_for_items({
+        // Create hosted checkout page using the configured instance
+        const result = await cbInstance.hosted_page.checkout_new_for_items({
             subscription_items: [{
                 item_price_id: planPriceId,
                 quantity: 1,
