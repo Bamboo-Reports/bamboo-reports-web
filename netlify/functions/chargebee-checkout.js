@@ -40,28 +40,28 @@ exports.handler = async (event) => {
 
         console.log('Creating checkout for:', { planPriceId, customerEmail });
 
-        // Create hosted checkout page
+        // Create hosted checkout page - using snake_case for API params
         const result = await chargebee.hostedPage.checkoutNewForItems({
-            subscriptionItems: [{
-                itemPriceId: planPriceId,
+            subscription_items: [{
+                item_price_id: planPriceId,
                 quantity: 1,
             }],
             customer: {
                 email: customerEmail || `test-${Date.now()}@example.com`,
-                firstName: customerName || 'Test User',
+                first_name: customerName || 'Test User',
             },
-            redirectUrl: `${process.env.URL || 'http://localhost:8888'}/checkout-success`,
-            cancelUrl: `${process.env.URL || 'http://localhost:8888'}/pricing`,
+            redirect_url: `${process.env.URL || 'http://localhost:8888'}/checkout-success`,
+            cancel_url: `${process.env.URL || 'http://localhost:8888'}/pricing`,
         });
 
-        console.log('Checkout created successfully:', result.hostedPage.id);
+        console.log('Checkout created successfully:', result.hosted_page.id);
 
         return {
             statusCode: 200,
             headers,
             body: JSON.stringify({
-                hostedPageUrl: result.hostedPage.url,
-                hostedPageId: result.hostedPage.id,
+                hostedPageUrl: result.hosted_page.url,
+                hostedPageId: result.hosted_page.id,
             }),
         };
     } catch (error) {
@@ -71,7 +71,7 @@ exports.handler = async (event) => {
             headers,
             body: JSON.stringify({
                 error: error.message || 'Failed to create checkout session',
-                details: error.apiErrorCode || 'unknown',
+                details: error.api_error_code || 'unknown',
             }),
         };
     }
