@@ -72,12 +72,14 @@ exports.handler = async (event) => {
 
         console.log('Checkout created successfully:', result.hosted_page.id);
 
+        // Return the full hosted_page object for Chargebee.js
         return {
             statusCode: 200,
             headers,
             body: JSON.stringify({
                 hostedPageUrl: result.hosted_page.url,
                 hostedPageId: result.hosted_page.id,
+                hostedPage: result.hosted_page, // Full object for Chargebee.js
             }),
         };
     } catch (error) {

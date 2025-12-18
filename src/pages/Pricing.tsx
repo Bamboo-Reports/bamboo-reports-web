@@ -401,8 +401,11 @@ const Pricing = () => {
     }
   };
 
-  // TEST: Chargebee checkout handler
+  // TEST: Chargebee checkout handler using Chargebee.js
   const handleChargebeeTest = async (planName: string) => {
+    // Import dynamically to avoid loading script until needed
+    const { openChargebeeCheckout } = await import('@/lib/chargebee');
+
     try {
       setProcessingPlan(planName);
 
@@ -420,36 +423,47 @@ const Pricing = () => {
         throw new Error(`No price configured for ${planName} in ${currency}`);
       }
 
-      // Call our Netlify Function
-      const response = await fetch('/.netlify/functions/chargebee-checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      // Open Chargebee checkout modal
+      await openChargebeeCheckout(
+        {
           planPriceId,
-          customerEmail: user?.email || `test-${Date.now()}@example.com`,
-          customerName: user?.user_metadata?.full_name || 'Test User',
-          userId: user?.id || 'test-user-id',
-        }),
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Failed to create checkout');
-      }
-
-      const { hostedPageUrl } = await response.json();
-
-      // Redirect to Chargebee hosted checkout
-      window.location.href = hostedPageUrl;
-    } catch (error: any) {
+          customerEmail: user?.email,
+          customerName: user?.user_metadata?.full_name,
+          userId: user?.id,
+        },
+        {
+          onSuccess: (hostedPageId) => {
+            setProcessingPlan(null);
+            toast({
+              title: 'Payment Successful!',
+              description: 'Thank you for your purchase.',
+            });
+            navigate('/checkout-success?id=' + hostedPageId);
+          },
+          onClose: () => {
+            setProcessingPlan(null);
+          },
+          onError: (error) => {
+            setProcessingPlan(null);
+            toast({
+              title: 'Checkout Failed',
+              description: error.message || 'Failed to complete checkout',
+              variant: 'destructive',
+            });
+          },
+        }
+      );
+    } catch (error: unknown) {
       setProcessingPlan(null);
+      const errorMessage = error instanceof Error ? error.message : 'Failed to initiate checkout';
       toast({
         title: 'Checkout Failed',
-        description: error.message || 'Failed to initiate checkout',
+        description: errorMessage,
         variant: 'destructive',
       });
     }
   };
+
 
 
   return (
