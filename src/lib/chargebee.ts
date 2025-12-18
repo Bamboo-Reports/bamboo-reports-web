@@ -115,14 +115,9 @@ export const openChargebeeCheckout = async (
 
             const data = await response.json();
 
-            // Return the hosted page object for Chargebee.js
-            return {
-                id: data.hostedPageId,
-                type: 'checkout_new',
-                url: data.hostedPageUrl,
-                state: 'created',
-                embed: true,
-            };
+            // Return the full hosted page object from Chargebee
+            // Chargebee.js expects the exact format returned by the API
+            return data.hostedPage;
         },
         success: (hostedPageId: string) => {
             console.log('Checkout successful:', hostedPageId);
