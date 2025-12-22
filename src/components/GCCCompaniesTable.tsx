@@ -781,13 +781,13 @@ export function GCCCompaniesTable() {
                             <Building2 className="h-4 w-4" />
                             {logoDomain && (
                               <img
-                                src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}&format=webp&retina=true`}
+                                src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}&format=jpg&size=180`}
                                 alt={`${company.account_global_legal_name} logo`}
                                 loading="lazy"
                                 onError={(e) => {
                                   e.currentTarget.style.display = 'none';
                                 }}
-                                className="absolute inset-0 h-full w-full object-contain p-1"
+                                className="absolute inset-0 h-full w-full object-cover p-1"
                               />
                             )}
                           </div>
