@@ -10,7 +10,18 @@ import {
   TableHeader,
   TableRow,
 } from './ui/table';
-import { Search, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, X, Building2 } from 'lucide-react';
+import {
+  Search,
+  ChevronLeft,
+  ChevronRight,
+  ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
+  Building2,
+  Filter,
+  RefreshCcw,
+  Sparkles,
+} from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { CompanyDetailView } from './CompanyDetailView';
 import { MultiSelect } from './ui/multi-select';
@@ -349,6 +360,11 @@ export function GCCCompaniesTable() {
     }
   };
 
+  const handleSmartSort = () => {
+    setSortField('account_global_legal_name');
+    setSortDirection('asc');
+  };
+
   const getSortIcon = (field: SortField) => {
     if (sortField !== field) {
       return <ArrowUpDown className="h-4 w-4 opacity-40" />;
@@ -409,75 +425,97 @@ export function GCCCompaniesTable() {
       }}
     >
       {/* Header */}
-      <div>
-        <h2 className="text-2xl font-bold mb-2">L1 List - {companies.length.toLocaleString()}+ GCCs</h2>
+      <div className="flex flex-col gap-2">
+        <div className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-600 shadow-sm">
+          <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+          Curated dataset
+        </div>
+        <h2 className="text-3xl font-bold text-slate-900">L1 List - {companies.length.toLocaleString()}+ GCCs</h2>
         <p className="text-gray-600">Complete view of {companies.length.toLocaleString()} GCC companies</p>
       </div>
 
       {/* Filters */}
-      <div className="bg-white border rounded-lg p-6 space-y-4">
+      <div className="rounded-2xl border border-slate-200/80 bg-gradient-to-br from-slate-50 to-white p-6 shadow-sm space-y-4">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="inline-flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <Filter className="h-4 w-4 text-slate-500" />
+            Refine companies
+          </div>
+          <div className="text-xs text-slate-500">
+            Showing {filteredAndSortedCompanies.length.toLocaleString()} of {companies.length.toLocaleString()} companies
+          </div>
+        </div>
+
         {/* Search and Clear */}
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="relative flex-1">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
             <Input
               type="text"
               placeholder="Search by Account Global Legal Name..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
+              className="h-11 rounded-xl border-slate-200 bg-white pl-10 text-sm shadow-inner shadow-slate-100"
             />
           </div>
-          <Button variant="outline" onClick={handleClearFilters} className="gap-2">
-            <X className="h-4 w-4" />
-            Clear Filters
-          </Button>
+          <div className="flex gap-2">
+            <Button variant="outline" onClick={handleClearFilters} className="gap-2 rounded-xl border-slate-200 bg-white shadow-sm hover:border-slate-300 hover:bg-slate-50">
+              <RefreshCcw className="h-4 w-4" />
+              Reset filters
+            </Button>
+            <Button variant="default" onClick={handleSmartSort} className="gap-2 rounded-xl shadow-sm">
+              <Sparkles className="h-4 w-4" />
+              Smart sort
+            </Button>
+          </div>
         </div>
 
         {/* Multi-select Dropdown Filters */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-600">Revenue Range</label>
+            <label className="text-xs font-semibold uppercase tracking-wide text-gray-600">Revenue Range</label>
             <MultiSelect
               options={cascadingRevenues}
               selected={revenueFilters}
               onChange={setRevenueFilters}
               placeholder="All"
             />
+            <p className="text-[11px] text-slate-500">Selected {revenueFilters.length} / {cascadingRevenues.length}</p>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-600">HQ Country</label>
+            <label className="text-xs font-semibold uppercase tracking-wide text-gray-600">HQ Country</label>
             <MultiSelect
               options={cascadingCountries}
               selected={countryFilters}
               onChange={setCountryFilters}
               placeholder="All"
             />
+            <p className="text-[11px] text-slate-500">Selected {countryFilters.length} / {cascadingCountries.length}</p>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-600">Category</label>
+            <label className="text-xs font-semibold uppercase tracking-wide text-gray-600">Category</label>
             <MultiSelect
               options={cascadingCategories}
               selected={categoryFilters}
               onChange={setCategoryFilters}
               placeholder="All"
             />
+            <p className="text-[11px] text-slate-500">Selected {categoryFilters.length} / {cascadingCategories.length}</p>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-600">Primary City</label>
+            <label className="text-xs font-semibold uppercase tracking-wide text-gray-600">Primary City</label>
             <MultiSelect
               options={cascadingCities}
               selected={primaryCityFilters}
               onChange={setPrimaryCityFilters}
               placeholder="All"
             />
+            <p className="text-[11px] text-slate-500">Selected {primaryCityFilters.length} / {cascadingCities.length}</p>
           </div>
         </div>
-
-
 
         {/* Results count */}
         <div className="text-sm text-gray-600 pt-2 border-t">
@@ -486,7 +524,7 @@ export function GCCCompaniesTable() {
       </div>
 
       {/* Table */}
-      <div className="border border-slate-200/80 rounded-xl shadow-sm relative bg-white overflow-hidden">
+      <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-md">
         {/* Watermark Overlay */}
         {user?.email && (
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
@@ -503,45 +541,45 @@ export function GCCCompaniesTable() {
         )}
 
         <div className="overflow-auto max-h-[500px]">
-          <Table className="min-w-[900px] text-sm">
+          <Table className="min-w-[960px] text-sm">
             <TableHeader>
-              <TableRow>
-                <TableHead className="min-w-[250px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
+              <TableRow className="bg-slate-50/90 backdrop-blur sticky top-0 z-20">
+                <TableHead className="min-w-[250px] cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 transition hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
                   <div className="flex items-center gap-1">
                     Account Global Legal Name {getSortIcon('account_global_legal_name')}
                   </div>
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('revenue_range')}>
+                <TableHead className="min-w-[150px] cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 transition hover:bg-slate-100" onClick={() => handleSort('revenue_range')}>
                   <div className="flex items-center gap-1">
                     Revenue Range {getSortIcon('revenue_range')}
                   </div>
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('hq_country')}>
+                <TableHead className="min-w-[150px] cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 transition hover:bg-slate-100" onClick={() => handleSort('hq_country')}>
                   <div className="flex items-center gap-1">
                     HQ Country {getSortIcon('hq_country')}
                   </div>
                 </TableHead>
-                <TableHead className="min-w-[120px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('category')}>
+                <TableHead className="min-w-[120px] cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 transition hover:bg-slate-100" onClick={() => handleSort('category')}>
                   <div className="flex items-center gap-1">
                     Category {getSortIcon('category')}
                   </div>
                 </TableHead>
-                <TableHead className="min-w-[120px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_centers')}>
+                <TableHead className="min-w-[120px] text-right cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 transition hover:bg-slate-100" onClick={() => handleSort('total_centers')}>
                   <div className="flex items-center justify-end gap-1 whitespace-nowrap">
                     Total Centers {getSortIcon('total_centers')}
                   </div>
                 </TableHead>
-                <TableHead className="min-w-[140px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_gcc_centers')}>
+                <TableHead className="min-w-[140px] text-right cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 transition hover:bg-slate-100" onClick={() => handleSort('total_gcc_centers')}>
                   <div className="flex items-center justify-end gap-1 whitespace-nowrap">
                     Total GCC Centers {getSortIcon('total_gcc_centers')}
                   </div>
                 </TableHead>
-                <TableHead className="min-w-[150px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
+                <TableHead className="min-w-[150px] text-right cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 transition hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
                   <div className="flex items-center justify-end gap-1">
                     Years in India {getSortIcon('years_in_india')}
                   </div>
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('primary_city')}>
+                <TableHead className="min-w-[150px] cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 transition hover:bg-slate-100" onClick={() => handleSort('primary_city')}>
                   <div className="flex items-center gap-1">
                     Primary City {getSortIcon('primary_city')}
                   </div>
@@ -560,10 +598,10 @@ export function GCCCompaniesTable() {
                   const logoDomain = getDomainFromWebsite(company.website);
 
                   return (
-                    <TableRow key={company.id} className="border-b last:border-b-0 hover:bg-slate-50/70">
+                    <TableRow key={company.id} className="group border-b last:border-b-0 odd:bg-slate-50/40 hover:bg-slate-50/90 transition">
                       <TableCell className="py-3 font-medium text-slate-900">
                         <div className="flex items-center gap-3">
-                          <div className="relative h-8 w-8 shrink-0 rounded-full overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-400">
+                          <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-slate-50 shadow-inner shadow-slate-100 flex items-center justify-center text-slate-400">
                             <Building2 className="h-4 w-4" />
                             {logoDomain && (
                               <img
@@ -579,18 +617,40 @@ export function GCCCompaniesTable() {
                           </div>
                           <button
                             onClick={() => handleCompanyClick(company)}
-                            className="group inline-flex items-center gap-2 text-left text-slate-900 hover:text-slate-700"
+                            className="inline-flex items-center gap-2 rounded-lg px-1 text-left text-slate-900 transition hover:text-slate-800 hover:underline decoration-slate-300 decoration-2"
                           >
-                            <span className="underline-offset-4 group-hover:underline">
-                              {company.account_global_legal_name}
-                            </span>
-                            <ChevronRight className="h-4 w-4 text-slate-400 opacity-0 translate-x-[-2px] transition duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
+                            <span>{company.account_global_legal_name}</span>
+                            <ChevronRight className="h-4 w-4 text-slate-400 opacity-0 translate-x-[-2px] transition duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
                           </button>
                         </div>
                       </TableCell>
-                      <TableCell className="py-3 text-slate-700">{company.revenue_range || '-'}</TableCell>
-                      <TableCell className="py-3 text-slate-700">{company.hq_country || '-'}</TableCell>
-                      <TableCell className="py-3 text-slate-700">{company.category || '-'}</TableCell>
+                      <TableCell className="py-3 text-slate-700">
+                        {company.revenue_range ? (
+                          <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-100">
+                            {company.revenue_range}
+                          </span>
+                        ) : (
+                          <span className="text-slate-400">-</span>
+                        )}
+                      </TableCell>
+                      <TableCell className="py-3 text-slate-700">
+                        {company.hq_country ? (
+                          <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
+                            {company.hq_country}
+                          </span>
+                        ) : (
+                          <span className="text-slate-400">-</span>
+                        )}
+                      </TableCell>
+                      <TableCell className="py-3 text-slate-700">
+                        {company.category ? (
+                          <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-100">
+                            {company.category}
+                          </span>
+                        ) : (
+                          <span className="text-slate-400">-</span>
+                        )}
+                      </TableCell>
                       <TableCell className="py-3 text-right text-slate-700">
                         {company.total_centers ?? '-'}
                       </TableCell>
@@ -598,7 +658,15 @@ export function GCCCompaniesTable() {
                         {company.total_gcc_centers ?? '-'}
                       </TableCell>
                       <TableCell className="py-3 text-right text-slate-700">{company.years_in_india || '-'}</TableCell>
-                      <TableCell className="py-3 text-slate-700">{company.primary_city || '-'}</TableCell>
+                      <TableCell className="py-3 text-slate-700">
+                        {company.primary_city ? (
+                          <span className="inline-flex items-center rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 ring-1 ring-sky-100">
+                            {company.primary_city}
+                          </span>
+                        ) : (
+                          <span className="text-slate-400">-</span>
+                        )}
+                      </TableCell>
                     </TableRow>
                   );
                 })
@@ -609,13 +677,14 @@ export function GCCCompaniesTable() {
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between rounded-xl border border-slate-200/80 bg-white px-4 py-3 shadow-sm">
         <Button
           variant="outline"
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
+          className="gap-2 rounded-lg"
         >
-          <ChevronLeft className="h-4 w-4 mr-2" />
+          <ChevronLeft className="h-4 w-4" />
           Previous
         </Button>
 
@@ -632,7 +701,7 @@ export function GCCCompaniesTable() {
                 setItemsPerPage(value);
                 setCurrentPage(1);
               }}
-              className="border rounded px-2 py-1 text-sm bg-white"
+              className="rounded border border-slate-200 bg-white px-2 py-1 text-sm shadow-inner shadow-slate-100"
             >
               <option value={5}>5</option>
               <option value={10}>10</option>
@@ -646,9 +715,10 @@ export function GCCCompaniesTable() {
           variant="outline"
           onClick={handleNextPage}
           disabled={currentPage === totalPages || totalPages === 0}
+          className="gap-2 rounded-lg"
         >
           Next
-          <ChevronRight className="h-4 w-4 ml-2" />
+          <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
 
