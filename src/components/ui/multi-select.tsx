@@ -61,7 +61,7 @@ export function MultiSelect({
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
-                    className={cn("w-full justify-between font-normal h-auto min-h-10 rounded-md", className)}
+                    className={cn("w-full justify-between font-normal h-auto min-h-10 rounded-md hover:scale-100 active:scale-100", className)}
                 >
                     <div className="flex flex-wrap gap-1 flex-1">
                         {selected.length === 0 ? (
