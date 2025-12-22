@@ -17,15 +17,7 @@ import { MultiSelect } from './ui/multi-select';
 
 const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
 
-// Helper function to safely parse integers with bounds validation
-const parseIntSafe = (value: string, fallback: number, min?: number, max?: number): number => {
-  const parsed = parseInt(value, 10);
-  if (isNaN(parsed)) return fallback;
-  let result = parsed;
-  if (min !== undefined) result = Math.max(min, result);
-  if (max !== undefined) result = Math.min(max, result);
-  return result;
-};
+
 
 // Helper to safely parse years_in_india (handles non-numeric strings)
 const parseYearsInIndia = (value: string | null): number => {
@@ -83,15 +75,7 @@ export function GCCCompaniesTable() {
   const [categoryFilters, setCategoryFilters] = useState<string[]>([]);
   const [primaryCityFilters, setPrimaryCityFilters] = useState<string[]>([]);
 
-  // Range filters - using tuples [min, max]
-  const [totalCentersRange, setTotalCentersRange] = useState<[number, number]>([0, 100]);
-  const [gccCentersRange, setGccCentersRange] = useState<[number, number]>([0, 50]);
-  const [yearsInIndiaRange, setYearsInIndiaRange] = useState<[number, number]>([0, 50]);
 
-  // Range bounds (computed from data)
-  const [totalCentersBounds, setTotalCentersBounds] = useState<[number, number]>([0, 100]);
-  const [gccCentersBounds, setGccCentersBounds] = useState<[number, number]>([0, 50]);
-  const [yearsInIndiaBounds, setYearsInIndiaBounds] = useState<[number, number]>([0, 50]);
 
   // Sorting
   const [sortField, setSortField] = useState<SortField>(null);
@@ -162,18 +146,7 @@ export function GCCCompaniesTable() {
 
         // Calculate bounds for range filters
         if (allData.length > 0) {
-          const maxTotalCenters = Math.max(...allData.map(c => c.total_centers ?? 0));
-          const maxGccCenters = Math.max(...allData.map(c => c.total_gcc_centers ?? 0));
-          const maxYears = Math.max(...allData.map(c => parseYearsInIndia(c.years_in_india)));
-
-          setTotalCentersBounds([0, maxTotalCenters || 100]);
-          setGccCentersBounds([0, maxGccCenters || 50]);
-          setYearsInIndiaBounds([0, maxYears || 50]);
-
-          // Initialize ranges to full bounds
-          setTotalCentersRange([0, maxTotalCenters || 100]);
-          setGccCentersRange([0, maxGccCenters || 50]);
-          setYearsInIndiaRange([0, maxYears || 50]);
+          // No range bounds calculation needed
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load GCC companies');
@@ -219,19 +192,7 @@ export function GCCCompaniesTable() {
       filtered = filtered.filter(c => c.primary_city && primaryCityFilters.includes(c.primary_city));
     }
 
-    // Range filters
-    filtered = filtered.filter(c => {
-      const centers = c.total_centers ?? 0;
-      return centers >= totalCentersRange[0] && centers <= totalCentersRange[1];
-    });
-    filtered = filtered.filter(c => {
-      const gccCenters = c.total_gcc_centers ?? 0;
-      return gccCenters >= gccCentersRange[0] && gccCenters <= gccCentersRange[1];
-    });
-    filtered = filtered.filter(c => {
-      const years = parseYearsInIndia(c.years_in_india);
-      return years >= yearsInIndiaRange[0] && years <= yearsInIndiaRange[1];
-    });
+
 
     // Apply sorting
     if (sortField && sortDirection) {
@@ -263,7 +224,7 @@ export function GCCCompaniesTable() {
 
     return filtered;
   }, [companies, debouncedSearchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters,
-    totalCentersRange, gccCentersRange, yearsInIndiaRange, sortField, sortDirection]);
+    sortField, sortDirection]);
 
   // Cascading filter options - computed from filtered data (excluding current filter)
   const getFilteredForCascade = useCallback((excludeFilter: string) => {
@@ -289,22 +250,8 @@ export function GCCCompaniesTable() {
       filtered = filtered.filter(c => c.primary_city && primaryCityFilters.includes(c.primary_city));
     }
 
-    // Apply range filters for cascade
-    filtered = filtered.filter(c => {
-      const centers = c.total_centers ?? 0;
-      return centers >= totalCentersRange[0] && centers <= totalCentersRange[1];
-    });
-    filtered = filtered.filter(c => {
-      const gccCenters = c.total_gcc_centers ?? 0;
-      return gccCenters >= gccCentersRange[0] && gccCenters <= gccCentersRange[1];
-    });
-    filtered = filtered.filter(c => {
-      const years = parseYearsInIndia(c.years_in_india);
-      return years >= yearsInIndiaRange[0] && years <= yearsInIndiaRange[1];
-    });
-
     return filtered;
-  }, [companies, debouncedSearchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters, totalCentersRange, gccCentersRange, yearsInIndiaRange]);
+  }, [companies, debouncedSearchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters]);
 
   const cascadingRevenues = useMemo(() => {
     const filtered = getFilteredForCascade('revenue');
@@ -330,124 +277,7 @@ export function GCCCompaniesTable() {
     return Array.from(values).sort();
   }, [getFilteredForCascade]);
 
-  // Get filtered data for range bounds (excluding range filters)
-  const getFilteredForRangeBounds = useMemo(() => {
-    let filtered = companies;
 
-    if (debouncedSearchQuery) {
-      const query = debouncedSearchQuery.toLowerCase();
-      filtered = filtered.filter(company =>
-        company.account_global_legal_name?.toLowerCase().includes(query)
-      );
-    }
-
-    if (revenueFilters.length > 0) {
-      filtered = filtered.filter(c => c.revenue_range && revenueFilters.includes(c.revenue_range));
-    }
-    if (countryFilters.length > 0) {
-      filtered = filtered.filter(c => c.hq_country && countryFilters.includes(c.hq_country));
-    }
-    if (categoryFilters.length > 0) {
-      filtered = filtered.filter(c => c.category && categoryFilters.includes(c.category));
-    }
-    if (primaryCityFilters.length > 0) {
-      filtered = filtered.filter(c => c.primary_city && primaryCityFilters.includes(c.primary_city));
-    }
-
-    return filtered;
-  }, [companies, debouncedSearchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters]);
-
-  // Cascading range bounds - each range considers the other two ranges for bidirectional cascading
-
-  // Total Centers bounds: filter by GCC Centers and Years ranges
-  const cascadingTotalCentersBounds = useMemo((): [number, number] => {
-    const filtered = getFilteredForRangeBounds.filter(c => {
-      const gccCenters = c.total_gcc_centers ?? 0;
-      const years = parseYearsInIndia(c.years_in_india);
-      return gccCenters >= gccCentersRange[0] && gccCenters <= gccCentersRange[1] &&
-        years >= yearsInIndiaRange[0] && years <= yearsInIndiaRange[1];
-    });
-
-    if (filtered.length === 0) return totalCentersBounds;
-    const values = filtered.map(c => c.total_centers ?? 0);
-    return [Math.min(...values), Math.max(...values)];
-  }, [getFilteredForRangeBounds, totalCentersBounds, gccCentersRange, yearsInIndiaRange]);
-
-  // GCC Centers bounds: filter by Total Centers and Years ranges, cap by Total Centers max
-  const cascadingGccCentersBounds = useMemo((): [number, number] => {
-    const filtered = getFilteredForRangeBounds.filter(c => {
-      const centers = c.total_centers ?? 0;
-      const years = parseYearsInIndia(c.years_in_india);
-      return centers >= totalCentersRange[0] && centers <= totalCentersRange[1] &&
-        years >= yearsInIndiaRange[0] && years <= yearsInIndiaRange[1];
-    });
-
-    if (filtered.length === 0) return [0, totalCentersRange[1]];
-
-    const values = filtered.map(c => c.total_gcc_centers ?? 0);
-    const baseMin = Math.min(...values);
-    const baseMax = Math.max(...values);
-
-    // GCC Centers cannot exceed Total Centers range max
-    const cappedMax = Math.min(baseMax, totalCentersRange[1]);
-    const cappedMin = Math.min(baseMin, cappedMax);
-
-    return [cappedMin, cappedMax];
-  }, [getFilteredForRangeBounds, totalCentersRange, yearsInIndiaRange]);
-
-  // Years in India bounds: filter by Total Centers and GCC Centers ranges
-  const cascadingYearsInIndiaBounds = useMemo((): [number, number] => {
-    const filtered = getFilteredForRangeBounds.filter(c => {
-      const centers = c.total_centers ?? 0;
-      const gccCenters = c.total_gcc_centers ?? 0;
-      return centers >= totalCentersRange[0] && centers <= totalCentersRange[1] &&
-        gccCenters >= gccCentersRange[0] && gccCenters <= gccCentersRange[1];
-    });
-
-    if (filtered.length === 0) return yearsInIndiaBounds;
-    const values = filtered.map(c => parseYearsInIndia(c.years_in_india));
-    return [Math.min(...values), Math.max(...values)];
-  }, [getFilteredForRangeBounds, yearsInIndiaBounds, totalCentersRange, gccCentersRange]);
-
-  // Auto-clamp GCC Centers range when cascading bounds change
-  useEffect(() => {
-    const [minBound, maxBound] = cascadingGccCentersBounds;
-    const [currentMin, currentMax] = gccCentersRange;
-
-    // Clamp values to new bounds
-    const newMin = Math.max(minBound, Math.min(currentMin, maxBound));
-    const newMax = Math.min(maxBound, Math.max(currentMax, minBound));
-
-    if (newMin !== currentMin || newMax !== currentMax) {
-      setGccCentersRange([newMin, newMax]);
-    }
-  }, [cascadingGccCentersBounds]);
-
-  // Auto-clamp Total Centers range when cascading bounds change
-  useEffect(() => {
-    const [minBound, maxBound] = cascadingTotalCentersBounds;
-    const [currentMin, currentMax] = totalCentersRange;
-
-    const newMin = Math.max(minBound, Math.min(currentMin, maxBound));
-    const newMax = Math.min(maxBound, Math.max(currentMax, minBound));
-
-    if (newMin !== currentMin || newMax !== currentMax) {
-      setTotalCentersRange([newMin, newMax]);
-    }
-  }, [cascadingTotalCentersBounds]);
-
-  // Auto-clamp Years in India range when cascading bounds change
-  useEffect(() => {
-    const [minBound, maxBound] = cascadingYearsInIndiaBounds;
-    const [currentMin, currentMax] = yearsInIndiaRange;
-
-    const newMin = Math.max(minBound, Math.min(currentMin, maxBound));
-    const newMax = Math.min(maxBound, Math.max(currentMax, minBound));
-
-    if (newMin !== currentMin || newMax !== currentMax) {
-      setYearsInIndiaRange([newMin, newMax]);
-    }
-  }, [cascadingYearsInIndiaBounds]);
 
 
   // Pagination
@@ -459,8 +289,7 @@ export function GCCCompaniesTable() {
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters,
-    totalCentersRange, gccCentersRange, yearsInIndiaRange]);
+  }, [searchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters]);
 
   const handlePreviousPage = () => {
     setCurrentPage(prev => Math.max(1, prev - 1));
@@ -500,9 +329,6 @@ export function GCCCompaniesTable() {
     setCountryFilters([]);
     setCategoryFilters([]);
     setPrimaryCityFilters([]);
-    setTotalCentersRange(totalCentersBounds);
-    setGccCentersRange(gccCentersBounds);
-    setYearsInIndiaRange(yearsInIndiaBounds);
   };
 
   const handleCompanyClick = (company: GCCCompany) => {
@@ -609,86 +435,7 @@ export function GCCCompaniesTable() {
           </div>
         </div>
 
-        {/* Range Filters with Sliders */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-          <div className="space-y-3">
-            <label className="text-xs font-medium text-gray-600">Total Centers</label>
-            <div className="flex gap-2">
-              <Input
-                type="number"
-                placeholder="Min"
-                value={totalCentersRange[0]}
-                onChange={(e) => {
-                  const val = parseIntSafe(e.target.value, cascadingTotalCentersBounds[0], cascadingTotalCentersBounds[0], totalCentersRange[1]);
-                  setTotalCentersRange([val, totalCentersRange[1]]);
-                }}
-                className="text-sm h-8"
-              />
-              <Input
-                type="number"
-                placeholder="Max"
-                value={totalCentersRange[1]}
-                onChange={(e) => {
-                  const val = parseIntSafe(e.target.value, cascadingTotalCentersBounds[1], totalCentersRange[0], cascadingTotalCentersBounds[1]);
-                  setTotalCentersRange([totalCentersRange[0], val]);
-                }}
-                className="text-sm h-8"
-              />
-            </div>
-          </div>
 
-          <div className="space-y-3">
-            <label className="text-xs font-medium text-gray-600">Total GCC Centers</label>
-            <div className="flex gap-2">
-              <Input
-                type="number"
-                placeholder="Min"
-                value={gccCentersRange[0]}
-                onChange={(e) => {
-                  const val = parseIntSafe(e.target.value, cascadingGccCentersBounds[0], cascadingGccCentersBounds[0], gccCentersRange[1]);
-                  setGccCentersRange([val, gccCentersRange[1]]);
-                }}
-                className="text-sm h-8"
-              />
-              <Input
-                type="number"
-                placeholder="Max"
-                value={gccCentersRange[1]}
-                onChange={(e) => {
-                  const val = parseIntSafe(e.target.value, cascadingGccCentersBounds[1], gccCentersRange[0], cascadingGccCentersBounds[1]);
-                  setGccCentersRange([gccCentersRange[0], val]);
-                }}
-                className="text-sm h-8"
-              />
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <label className="text-xs font-medium text-gray-600">Years in India</label>
-            <div className="flex gap-2">
-              <Input
-                type="number"
-                placeholder="Min"
-                value={yearsInIndiaRange[0]}
-                onChange={(e) => {
-                  const val = parseIntSafe(e.target.value, cascadingYearsInIndiaBounds[0], cascadingYearsInIndiaBounds[0], yearsInIndiaRange[1]);
-                  setYearsInIndiaRange([val, yearsInIndiaRange[1]]);
-                }}
-                className="text-sm h-8"
-              />
-              <Input
-                type="number"
-                placeholder="Max"
-                value={yearsInIndiaRange[1]}
-                onChange={(e) => {
-                  const val = parseIntSafe(e.target.value, cascadingYearsInIndiaBounds[1], yearsInIndiaRange[0], cascadingYearsInIndiaBounds[1]);
-                  setYearsInIndiaRange([yearsInIndiaRange[0], val]);
-                }}
-                className="text-sm h-8"
-              />
-            </div>
-          </div>
-        </div>
 
         {/* Results count */}
         <div className="text-sm text-gray-600 pt-2 border-t">
