@@ -104,7 +104,7 @@ export function MultiSelect({
                     </div>
                 </div>
                 {/* Select All / Clear All Button */}
-                <div className="px-2 pb-2 border-b">
+                <div className="p-2 border-b">
                     <button
                         onClick={() => {
                             if (selected.length === options.length) {
