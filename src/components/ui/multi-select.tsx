@@ -102,38 +102,52 @@ export function MultiSelect({
                             className="w-full pl-8 pr-3 py-1.5 text-sm border rounded-md focus:outline-none focus:ring-1 focus:ring-gray-300"
                         />
                     </div>
-                </div>
-                <ScrollArea className="h-[200px]">
-                    <div className="p-2">
-                        {filteredOptions.length === 0 ? (
-                            <p className="text-sm text-muted-foreground text-center py-4">
-                                {options.length === 0 ? "No options available" : "No matches found"}
-                            </p>
-                        ) : (
-                            filteredOptions.map((option) => (
-                                <div
-                                    key={option}
-                                    className="flex items-center gap-2 px-2 py-1.5 rounded-sm cursor-pointer hover:bg-gray-50 transition-colors"
-                                    onClick={() => handleSelect(option)}
-                                >
-                                    <div
-                                        className={cn(
-                                            "h-4 w-4 border rounded flex items-center justify-center transition-colors",
-                                            selected.includes(option)
-                                                ? "bg-orange-500 border-orange-500"
-                                                : "border-gray-300 bg-white"
-                                        )}
-                                    >
-                                        {selected.includes(option) && (
-                                            <Check className="h-3 w-3 text-white" />
-                                        )}
-                                    </div>
-                                    <span className="text-sm text-gray-700">{option}</span>
-                                </div>
-                            ))
-                        )}
+                    {/* Select All / Clear All Button */}
+                    <div className="px-2 pb-2 border-b">
+                        <button
+                            onClick={() => {
+                                if (selected.length === options.length) {
+                                    onChange([]);
+                                } else {
+                                    onChange(options);
+                                }
+                            }}
+                            className="w-full text-sm py-1.5 px-3 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-gray-700 font-medium"
+                        >
+                            {selected.length === options.length ? 'Clear All' : 'Select All'}
+                        </button>
                     </div>
-                </ScrollArea>
+                    <ScrollArea className="h-[200px]">
+                        <div className="p-2">
+                            {filteredOptions.length === 0 ? (
+                                <p className="text-sm text-muted-foreground text-center py-4">
+                                    {options.length === 0 ? "No options available" : "No matches found"}
+                                </p>
+                            ) : (
+                                filteredOptions.map((option) => (
+                                    <div
+                                        key={option}
+                                        className="flex items-center gap-2 px-2 py-1.5 rounded-sm cursor-pointer hover:bg-gray-50 transition-colors"
+                                        onClick={() => handleSelect(option)}
+                                    >
+                                        <div
+                                            className={cn(
+                                                "h-4 w-4 border rounded flex items-center justify-center transition-colors",
+                                                selected.includes(option)
+                                                    ? "bg-orange-500 border-orange-500"
+                                                    : "border-gray-300 bg-white"
+                                            )}
+                                        >
+                                            {selected.includes(option) && (
+                                                <Check className="h-3 w-3 text-white" />
+                                            )}
+                                        </div>
+                                        <span className="text-sm text-gray-700">{option}</span>
+                                    </div>
+                                ))
+                            )}
+                        </div>
+                    </ScrollArea>
             </PopoverContent>
         </Popover>
     );
