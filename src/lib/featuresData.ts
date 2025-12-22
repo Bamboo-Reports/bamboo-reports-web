@@ -16,93 +16,100 @@ export const featureItems: FeatureItem[] = [
   {
     id: "coverage",
     title: "90% More Center-Level Coverage",
-    summary: "Our platform provides significantly more detailed information than most competitors, ensuring you have the complete picture.",
-    description: "Get the fullest GCC view in India with verified, site-level intelligence so GTM, strategy, and delivery teams can move faster with confidence.",
+    summary: "Get the deepest view of GCCs in India with verified, site-level intelligence.",
+    description: "Bamboo Reports tracks India's GCC ecosystem at the centre level, not just the company level. This gives you a clearer picture of where teams operate, how they are structured, and where real opportunities exist.",
     icon: TrendingUp,
     href: "/features/coverage",
     highlights: [
-      "Site-level visibility across Tier 1 and Tier 2 hubs",
-      "Leadership, hiring, and capability depth in one view",
-      "Change timelines to spot expansions, pivots, and exits"
+      "Site-level visibility across Tier 1 and Tier 2 hubs with clear context on location, size, and each city's role in the footprint.",
+      "Leadership and capability depth in one view so you can track centre heads, functional leaders, and delivery strengths without stitching sources.",
+      "Change timelines to spot expansions, pivots, and exits as centres expand, consolidate, add capabilities, or quietly scale down."
     ],
     outcomes: [
-      "Prioritize accounts with the richest context available",
-      "Equip executives with reliable, defensible narratives",
-      "Spot gaps in competitor coverage before they do"
+      "Prioritise accounts with the richest operational context.",
+      "Equip sales and leadership teams with defensible narratives.",
+      "Identify whitespace before competitors act.",
+      "Analyst-guided, not just data-heavy - every insight is validated so teams can act immediately."
     ],
     stats: [
-      { label: "Centers tracked", value: "2,400+", helper: "Verified India GCC locations" },
-      { label: "Datapoints / center", value: "30+", helper: "Leadership, hiring, capabilities" },
-      { label: "Signal refresh", value: "Weekly", helper: "Hiring and leadership moves" }
+      { label: "Centers tracked", value: "2,400+", helper: "Verified GCC locations across India" },
+      { label: "Datapoints per centre", value: "30+", helper: "Location, capabilities, functions, scale, operating model" },
+      { label: "Signal refresh", value: "Weekly", helper: "Expansions, new additions, structural changes" }
     ]
   },
   {
     id: "what-if-scenarios",
     title: "What If Scenarios",
-    summary: "Simulate market shifts to forecast potential business impacts and opportunities.",
-    description: "Stress-test your GCC plans against market movement scenarios so you can make the right bets before budgets lock.",
+    summary: "Model GCC decisions before you make them.",
+    description: "Run structured scenario comparisons using verified centre-level data so strategic decisions are grounded in reality, not spreadsheet assumptions or anecdotes.",
     icon: Lightbulb,
     href: "/features/what-if-scenarios",
     highlights: [
-      "Model headcount shifts by city, sector, or capability",
-      "See talent and hiring ripple effects in real time",
-      "Run expansion, consolidation, and risk simulations"
+      "Compare city choices using real GCC precedents across Bengaluru, Hyderabad, Pune, NCR, Chennai, and Tier 2 hubs - including scale, functions, and how they evolved.",
+      "Assess centre-type trade-offs between GCC, GBS, R&D, CoE, and hybrid setups to understand what each structure enables and constrains.",
+      "Pressure-test expansion and diversification plans such as opening a second city, adding new functions, or shifting from delivery-heavy to capability-led centres.",
+      "Identify hidden risks early by surfacing red flags on over-concentration, talent saturation, leadership dependency, or premature capability expansion."
     ],
     outcomes: [
-      "Choose city plays with clearer upside and risk visibility",
-      "Sequence GTM and delivery moves with data-backed confidence",
-      "Frame board conversations with forward-looking options"
+      "Choose expansion paths backed by observed GCC behaviour, not assumptions.",
+      "Align leadership, finance, and delivery teams on a shared fact base.",
+      "Reduce execution risk by learning from how similar centres scaled.",
+      "Analyst-contextualised scenarios with benchmarks and context that stand up in leadership and board discussions."
     ],
     stats: [
-      { label: "Scenario run time", value: "< 2 min", helper: "Pre-built templates for common moves" },
-      { label: "Variables to tweak", value: "15+", helper: "Cities, roles, sectors, growth curves" },
-      { label: "Export-ready views", value: "Slides & Sheets", helper: "Share outcomes instantly" }
+      { label: "Scenario build time", value: "Minutes", helper: "Analyst-curated inputs, no custom modelling required" },
+      { label: "Decision variables", value: "15+ levers", helper: "City mix, centre type, function mix, scale bands, maturity stage" },
+      { label: "Decision outputs", value: "Slides & tables", helper: "Narratives aligned to leadership expectations" }
     ]
   },
   {
     id: "proprietary-tam-slicers",
     title: "Proprietary TAM Slicers",
-    summary: "Align with your Go-to-Market strategies through highly customizable data filters.",
-    description: "Cut TAM the way your GTM motion works with filters tuned for India GCC reality - not generic templates.",
+    summary: "Build your TAM the way India GCCs actually operate.",
+    description: "Move from inflated top-down TAMs to precise, actionable account universes built on verified GCC presence, maturity, scale, and capability signals.",
     icon: Filter,
     href: "/features/proprietary-tam-slicers",
     highlights: [
-      "Layer sector, capability, and maturity signals together",
-      "Instant shortlists for ABM, pursuits, or partner plays",
-      "Benchmark cities and sectors with apples-to-apples logic"
+      "Slice TAM by real GCC maturity, not revenue bands - filter by centre age, scale bands, operating model, and evolution stage to focus on accounts that can actually buy.",
+      "Layer capability and function signals into one view using delivery mixes like IT, ER&D, CoEs, analytics, or platform teams instead of generic industry labels.",
+      "Segment by centre type and intent to differentiate GCCs, GBS units, R&D hubs, and hybrid centres so plays match buying behaviour and decision cycles.",
+      "Create GTM-ready shortlists in minutes to generate ABM, partner, or pursuit lists without manual stitching across spreadsheets or CRM exports."
     ],
     outcomes: [
-      "Land targeted plays with qualified account lists faster",
-      "Align marketing, sales, and delivery on the same TAM view",
-      "Swap filters to keep pace with shifting market focus"
+      "Focus sales effort on accounts with real delivery depth and buying readiness.",
+      "Align marketing, sales, and delivery teams on a single TAM definition.",
+      "Refresh slices quickly as priorities shift across cities, sectors, or functions.",
+      "Analyst-informed slicing - every slicer is grounded in how GCCs have historically built, scaled, and purchased similar solutions."
     ],
     stats: [
-      { label: "Preset filters", value: "25+", helper: "Built for GCC-specific GTM motions" },
-      { label: "Custom fields", value: "Unlimited", helper: "Save and reuse slices per team" },
-      { label: "Export formats", value: "CSV & CRM", helper: "Push lists where teams work" }
+      { label: "Preset GCC slicers", value: "25+", helper: "Built specifically for India GCC GTM motions" },
+      { label: "Custom slice logic", value: "Reusable", helper: "Create, save, and reuse slicers by team or region" },
+      { label: "Export formats", value: "CRM & CSV", helper: "Push lists directly into sales and marketing workflows" }
     ]
   },
   {
     id: "tailor-made-market-insights",
     title: "Tailor Made Market Insights",
-    summary: "Customized intelligence aligned to your unique industry and growth strategy.",
-    description: "Pair our data with analyst support to answer the exact questions your leadership, GTM, and delivery teams are asking.",
+    summary: "Analyst-led intelligence shaped to your market and GTM motion, built around your question - not a template dashboard.",
+    description: "Custom market insights designed around specific business questions using verified GCC data, analyst interpretation, and contextual narratives teams can act on immediately.",
     icon: Target,
     href: "/features/tailor-made-market-insights",
     highlights: [
-      "Analyst-crafted briefs on your target sectors and cities",
-      "Side-by-side competitor and capability comparisons",
-      "Executive-ready narratives with evidence trails"
+      "Custom market cuts aligned to your GTM focus with sector, city, or capability-specific views built around your target customer profile rather than generic reports.",
+      "Narratives that connect data to decisions with clear takeaways, implications, and recommended actions - not just charts and tables.",
+      "Competitive and whitespace intelligence to show where similar vendors are active, where demand is saturated, and where underserved opportunities exist.",
+      "Ongoing insight refinement as priorities shift without restarting or re-buying static reports."
     ],
     outcomes: [
-      "Show up with sharper stories in stakeholder and board reviews",
-      "De-risk expansion bets with context no one else surfaces",
-      "Turn bespoke asks into repeatable, data-backed workflows"
+      "Enter new sectors or cities with evidence-backed conviction.",
+      "Sharpen GTM messaging using real GCC behaviour and language.",
+      "Support board, investor, and leadership conversations with credible insight.",
+      "Analyst-led, not template-driven - every insight is reviewed, contextualised, and validated by analysts tracking the India GCC ecosystem."
     ],
     stats: [
-      { label: "Turnaround", value: "72 hrs", helper: "On custom research asks" },
-      { label: "Analyst touchpoints", value: "Bi-weekly", helper: "Working sessions included" },
-      { label: "Delivery format", value: "Decks & dashboards", helper: "Ready for leadership" }
+      { label: "Insight formats", value: "Flexible", helper: "Briefs, slides, tables, and narratives based on the use case" },
+      { label: "Custom dimensions", value: "Unlimited", helper: "Sector, city, capability, maturity, scale, centre type" },
+      { label: "Turnaround time", value: "Days, not quarters", helper: "Built for fast-moving GTM and strategy cycles" }
     ]
   }
 ];
