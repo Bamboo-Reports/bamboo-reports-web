@@ -69,7 +69,7 @@ export const useCaseItems: UseCaseItem[] = [
       "Consolidation, exits, and risk indicators"
     ],
     stats: [
-      { label: "Core decisions", value: "City · Capability · Budget", helper: "Benchmarked live for India GCCs" },
+      { label: "Core decisions", value: "City / Capability / Budget", helper: "Benchmarked live for India GCCs" },
       { label: "Review rhythms", value: "Monthly + Quarterly", helper: "Leadership and board ready" },
       { label: "Updates", value: "Real-time signals", helper: "Hiring, leadership, expansion" }
     ]
@@ -126,7 +126,7 @@ export const useCaseItems: UseCaseItem[] = [
       "Program milestone health against peer timelines"
     ],
     stats: [
-      { label: "Delivery focus", value: "Hiring · Vendors · Timelines", helper: "One verified source of truth" },
+      { label: "Delivery focus", value: "Hiring / Vendors / Timelines", helper: "One verified source of truth" },
       { label: "Cadence", value: "Weekly reviews", helper: "Program + leadership ready" },
       { label: "Risk view", value: "Early signals", helper: "Hiring, leadership, vendor dependency" }
     ]
@@ -183,7 +183,7 @@ export const useCaseItems: UseCaseItem[] = [
       "Second-city and scale-up activity"
     ],
     stats: [
-      { label: "Context depth", value: "City · Capability · Timing", helper: "Built into every pursuit" },
+      { label: "Context depth", value: "City / Capability / Timing", helper: "Built into every pursuit" },
       { label: "Signal focus", value: "Hiring & leadership", helper: "Used to time outreach" },
       { label: "Prep time", value: "Minutes", helper: "Export-ready briefs and lists" }
     ]
@@ -241,7 +241,7 @@ export const useCaseItems: UseCaseItem[] = [
     ],
     stats: [
       { label: "Engagement timing", value: "Pre-RFP", helper: "Show up before shortlists form" },
-      { label: "Positioning inputs", value: "Capability · City · Partner fit", helper: "Grounded in GCC signals" },
+      { label: "Positioning inputs", value: "Capability / City / Partner fit", helper: "Grounded in GCC signals" },
       { label: "Outcome", value: "Higher win rates", helper: "Better alignment and early entry" }
     ]
   },
@@ -250,57 +250,56 @@ export const useCaseItems: UseCaseItem[] = [
     title: "GCC Site Leaders",
     path: "/use-cases/gcc-site-leaders",
     badge: "ICP",
-    headline: "Keep every site decision defensible with live GCC intelligence.",
-    description: "Site leaders use Bamboo Reports to balance capability mix, city choices, and leadership depth with credible, export-ready numbers.",
-    audience: "India country heads, site leaders, and COOs balancing growth with operational resilience.",
+    headline: "Keep every site decision defensible with live GCC intelligence",
+    description: "Make city, capability, and leadership decisions with confidence. Bamboo Reports gives site leaders a clear external view of how comparable GCCs are scaling, staffing, and evolving across India.",
+    audience: "Site leaders and COOs balancing city, capability, and leadership choices with defensible evidence.",
     icon: Building2,
     objectives: [
-      "Pick the right city-capability split with talent, cost, and risk signals.",
-      "Benchmark operational footprint and leadership depth against peers.",
-      "Give HQ and boards transparent updates without ad hoc data hunts."
+      "Choose the right city and capability mix using peer benchmarks on talent depth, cost, and maturity.",
+      "Defend hiring plans, leadership additions, and footprint changes with credible, externally validated data.",
+      "Stay aligned with HQ and global leadership using transparent views of performance and plans."
     ],
     outcomes: [
-      "Rationalize expansions with side-by-side peer benchmarks and hiring velocity.",
-      "Spot leadership and delivery risks early with intent and rotation signals.",
-      "Ship executive-ready briefs faster across finance, HR, and facilities."
+      "Faster approvals for headcount and investments.",
+      "Fewer escalations driven by data gaps.",
+      "Stronger credibility in HQ and board discussions."
     ],
     playbook: [
       {
-        title: "City and capability planning",
+        title: "Quarterly business reviews",
         items: [
-          "Layer sector and capability filters to size talent depth by hub.",
-          "Model ramp timelines using peer maturity curves and hiring intent.",
-          "Export defensible narratives for steering committee sign-off."
+          "Bring hiring, leadership, and capability benchmarks into each review.",
+          "Show how comparable GCCs are scaling across cities and functions.",
+          "Highlight risks early so mitigations are aligned before escalation."
         ]
       },
       {
-        title: "Leadership and delivery assurance",
+        title: "Annual planning and budget cycles",
         items: [
-          "Track leadership rotations and succession risks by site.",
-          "Benchmark team mix and capability maturity against nearest peers.",
-          "Identify delivery hotspots before SLAs are at risk."
+          "Size city and capability options with talent depth and cost signals.",
+          "Back headcount and investment asks with verified external evidence.",
+          "Export defensible briefs for finance, HR, and HQ stakeholders."
         ]
       },
       {
-        title: "Quarterly reviews",
+        title: "City and capability expansion proposals",
         items: [
-          "Refresh KPIs with live signals—no spreadsheet merges.",
-          "Share unified views for finance, HR, and global partners.",
-          "Maintain a 30/60/90 action list that aligns every stakeholder."
+          "Compare ramp timelines and maturity curves against true peers.",
+          "Show leadership depth and succession risks before approvals.",
+          "Package expansion narratives with clear 30/60/90 actions."
         ]
       }
     ],
     signals: [
-      "City and capability momentum across Tier 1 and Tier 2 hubs",
-      "Leadership stability, rotations, and new appointments",
-      "Hiring velocity by function, seniority, and skill mix",
-      "Peer maturity, cost, and headcount benchmarks",
-      "Expansion, consolidation, and exit timelines"
+      "Hiring velocity by function and city",
+      "Leadership stability and succession risk",
+      "Capability mix versus peer GCCs",
+      "Expansion, consolidation, and exit activity"
     ],
     stats: [
-      { label: "Centers tracked", value: "2,400+", helper: "Verified India GCC coverage" },
-      { label: "Leadership roster", value: "2,500+", helper: "With recency signals" },
-      { label: "Signal refresh", value: "Weekly", helper: "Hiring and leadership moves" }
+      { label: "Decisions", value: "City / Capability / Leadership", helper: "Benchmarked against comparable GCCs" },
+      { label: "Cadence", value: "QBRs + Annual plans", helper: "Exec-ready briefs on demand" },
+      { label: "Signals", value: "Hiring / Leadership / Expansion", helper: "Continuously refreshed" }
     ]
   },
   {
@@ -308,57 +307,56 @@ export const useCaseItems: UseCaseItem[] = [
     title: "Ecosystem Sellers",
     path: "/use-cases/ecosystem-sellers",
     badge: "ICP",
-    headline: "Show up early with the right partners and GCC storyline.",
-    description: "SaaS, IT services, HR tech, and mobility sellers use Bamboo Reports to prioritize accounts with intent, align partners, and land relevant pitches.",
-    audience: "Regional and global sellers across SaaS, IT services, HR tech, and mobility targeting GCC accounts.",
+    headline: "Show up early with the right partners and the proper GCC storyline",
+    description: "Win relevance before shortlists form. Bamboo Reports helps ecosystem sellers identify GCCs with real intent, align the right partners, and lead with context buyers trust.",
+    audience: "SaaS, IT services, HR tech, and mobility sellers building partner-led GCC pursuits.",
     icon: Briefcase,
     objectives: [
-      "Prioritize territories with live hiring intent and capability launches.",
-      "Craft pitches anchored in city, talent, and capability context buyers trust.",
-      "Coordinate partner coalitions before RFPs formalize."
+      "Prioritise accounts with live intent signals such as hiring momentum, leadership changes, or capability launches.",
+      "Lead with buyer-relevant city, talent, and capability context instead of generic solution pitches.",
+      "Build partner coalitions before RFPs by knowing which partners already have presence and credibility."
     ],
     outcomes: [
-      "Higher win rates with outreach timed to hiring and leadership moves.",
-      "Proposal credibility built on talent depth, cost, and peer proof.",
-      "Reusable GTM plays that marketing and delivery can activate together."
+      "Higher response rates and earlier conversations.",
+      "Stronger partner-led positioning.",
+      "Better win rates through relevance and timing."
     ],
     playbook: [
       {
-        title: "Territory and pursuit focus",
+        title: "Territory and account prioritisation",
         items: [
-          "Filter accounts by sector, city momentum, and capability ramps.",
-          "Layer leadership moves to spot new sponsors for outreach.",
-          "Export CRM-ready lists with signals and contact angles."
+          "Shortlist GCCs showing hiring momentum, leadership changes, or capability launches.",
+          "Time outreach to intent signals instead of static account lists.",
+          "Export CRM-ready lists with city and capability angles."
         ]
       },
       {
-        title: "Partner-aligned proposals",
+        title: "Pre-meeting and discovery prep",
         items: [
-          "Map ecosystem partners by capability and region coverage.",
-          "Assemble joint value props tuned to target city and skill mix.",
-          "Track partner wins, exits, or shifts to keep proposals fresh."
+          "Lead with buyer-relevant city, talent, and capability context.",
+          "Use leadership and sponsor changes to tailor the storyline.",
+          "Walk in with live org and hiring focus rather than static decks."
         ]
       },
       {
-        title: "Meeting prep at speed",
+        title: "Partner alignment and co-sell planning",
         items: [
-          "Pull org context, hiring focus, and capability mix per site.",
-          "Anchor demos in the buyer’s city-capability constraints.",
-          "Share action lists with marketing and solution teams instantly."
+          "Map delivery, staffing, or tech partners already present in target GCCs.",
+          "Align coalition roles and value propositions before shortlists finalize.",
+          "Go to market early with credible, data-backed positioning."
         ]
       }
     ],
     signals: [
-      "Hiring velocity and role mix by capability and city",
-      "Leadership and sponsor changes in target accounts",
-      "Net-new centers and capability launches",
-      "City momentum heatmaps and sector growth",
-      "Partner ecosystem depth by capability and region"
+      "Hiring velocity and role mix by city",
+      "New capability launches and scale-up plans",
+      "Leadership and sponsor changes",
+      "Partner footprint and delivery depth by location"
     ],
     stats: [
-      { label: "Accounts with live intent", value: "1,000+", helper: "Hiring or leadership movement" },
-      { label: "Partner profiles", value: "150+", helper: "Delivery and ecosystem partners" },
-      { label: "Time to shortlist", value: "< 10 min", helper: "Signals built for GCC GTM" }
+      { label: "Engagement timing", value: "Pre-shortlist", helper: "Intent-led outreach windows" },
+      { label: "Partner view", value: "Delivery / Staffing / Tech", helper: "Mapped by city and capability" },
+      { label: "Prep time", value: "Minutes", helper: "Exportable briefs for co-sell teams" }
     ]
   },
   {
@@ -366,57 +364,56 @@ export const useCaseItems: UseCaseItem[] = [
     title: "Global PMO",
     path: "/use-cases/global-pmo",
     badge: "ICP",
-    headline: "Keep global GCC programs on one verifiable spine.",
-    description: "Global PMO teams align multi-country GCC builds using live India signals—talent, partners, and peer timelines—to reduce slippage.",
-    audience: "Global and regional PMOs coordinating multi-site GCC programs with India as a hub.",
+    headline: "Keep global GCC programs on one verifiable spine",
+    description: "Run India GCC programs with the same control, predictability, and visibility as any global hub. Bamboo Reports gives Global PMOs a single, trusted view of talent, partners, and progress across India.",
+    audience: "Global and regional PMOs coordinating multi-site GCC programs with India as a core hub.",
     icon: Globe2,
     objectives: [
-      "Anchor India workstreams to realistic talent and partner capacity.",
-      "Sequence milestones with peer timelines and risk buffers.",
-      "Give steering committees a unified view of progress and blockers."
+      "Anchor plans to India-specific reality by aligning global timelines to hiring velocity, partner capacity, and leadership depth across Indian cities.",
+      "Reduce surprises across functions by tracking talent, vendors, and site readiness in one trusted place.",
+      "Keep steering committees aligned with a unified, fact-based view of progress, risks, and dependencies."
     ],
     outcomes: [
-      "Fewer surprises on hiring, vendor, and facility tracks with weekly refreshes.",
-      "Steering decks grounded in market signals, not anecdote.",
-      "Ready alternates for city or capability pivots when constraints hit."
+      "Fewer last-minute escalations.",
+      "More predictable program delivery.",
+      "Stronger confidence in India as a scale hub."
     ],
     playbook: [
       {
-        title: "Program orchestration",
+        title: "Global program reviews",
         items: [
-          "Tie milestones to hiring capacity and talent depth per city.",
-          "Use peer ramp curves to set realistic transition and go-live dates.",
-          "Share export-ready status with finance, HR, and facilities globally."
+          "Anchor timelines to India-specific hiring pace and partner capacity.",
+          "Show milestone health against peer timelines for similar transitions.",
+          "Keep finance, HR, and facilities aligned to one verifiable spine."
         ]
       },
       {
-        title: "Vendor and partner governance",
+        title: "Cross-region dependency planning",
         items: [
-          "Assess suppliers by capability depth, region, and stability.",
-          "Rationalize partner lists with evidence on delivery footprints.",
-          "Track shifts, exits, or performance signals to stay ahead."
+          "Track talent, vendor, and site readiness in one view instead of fragmented updates.",
+          "Model alternates when constraints hit specific cities or capabilities.",
+          "Share risk and dependency views across regions to prevent slippage."
         ]
       },
       {
-        title: "Risk and mitigation",
+        title: "Steering committee and exec updates",
         items: [
-          "Flag hiring slowdowns, leadership churn, and attrition signals.",
-          "Model alternate city-capability paths with impact estimates.",
-          "Maintain a 30/60/90 mitigation play visible to leadership."
+          "Present a unified, fact-based view of progress, risks, and dependencies.",
+          "Include mitigation paths for hiring, vendor, or leadership slowdowns.",
+          "Maintain predictability and confidence in India as a scale hub."
         ]
       }
     ],
     signals: [
-      "Talent depth and hiring pace by city and capability",
-      "Partner and supplier footprint across regions",
-      "Peer ramp timelines for similar transitions",
-      "Leadership stability and succession signals",
-      "Program milestone health with risk callouts"
+      "Hiring pace and skill availability by city",
+      "Partner footprint and delivery stability",
+      "Leadership continuity and succession risk",
+      "Program milestone health versus peer timelines"
     ],
     stats: [
-      { label: "Programs guided", value: "200+", helper: "Global GCC builds and expansions" },
-      { label: "Partners tracked", value: "150+", helper: "Ecosystem depth and stability" },
-      { label: "Update cadence", value: "Weekly", helper: "Signals + milestone health" }
+      { label: "Control focus", value: "Talent / Partners / Milestones", helper: "One verifiable spine" },
+      { label: "Cadence", value: "Global reviews", helper: "Exec-ready India signal packs" },
+      { label: "Risk view", value: "Hiring / Vendor / Leadership", helper: "Early warnings baked in" }
     ]
   },
   {
@@ -424,57 +421,56 @@ export const useCaseItems: UseCaseItem[] = [
     title: "India Leadership",
     path: "/use-cases/india-leadership",
     badge: "ICP",
-    headline: "India leadership clarity without hunting for slides.",
-    description: "Country leaders stay ahead of GCC momentum, city shifts, and capability ramps with export-ready briefs and peer benchmarks.",
-    audience: "India country leaders, strategy, and finance partners supporting GCC growth.",
+    headline: "India GCC clarity without hunting for slides",
+    description: "Stay ahead of GCC momentum, city shifts, and capability ramps with decision-ready insight. Bamboo Reports gives India leadership a clear, current view of how GCCs are scaling across cities, sectors, and functions.",
+    audience: "India country leaders, strategy teams, and finance partners supporting GCC growth and governance.",
     icon: Users,
     objectives: [
-      "Get an executive-ready view of GCC momentum across India.",
-      "Benchmark growth, talent, and capability mix against peers.",
-      "Equip leadership reviews with fresh, defensible numbers."
+      "Get a single view of India GCC momentum - capacity, hiring, and capability shifts across Tier 1 and Tier 2 hubs.",
+      "Ground investment, funding, and headcount decisions in verified benchmarks instead of fragmented inputs.",
+      "Lead board, HQ, and steering reviews with fresh, defensible numbers that stand up to scrutiny."
     ],
     outcomes: [
-      "Board and steering updates land faster with credible sourcing.",
-      "Budget and investment calls grounded in city-capability evidence.",
-      "Sharper stakeholder narratives on risk, opportunity, and timing."
+      "Faster, cleaner leadership alignment.",
+      "Stronger credibility in HQ and board forums.",
+      "Better-timed investment and growth decisions."
     ],
     playbook: [
       {
-        title: "Executive briefing",
+        title: "Executive and board updates",
         items: [
-          "Pull India-wide momentum heatmaps and sector trends.",
-          "Show peer benchmarks for maturity, growth, and cost.",
-          "Share concise briefs for finance, HR, and government partners."
+          "Share India-wide GCC momentum across cities, sectors, and functions.",
+          "Use verified benchmarks for maturity, growth, and cost instead of anecdote.",
+          "Keep decks current without chasing multiple teams for data."
         ]
       },
       {
-        title: "Growth prioritization",
+        title: "Annual operating plans and budgets",
         items: [
-          "Rank cities by talent depth, cost, and leadership availability.",
-          "Spot capability launches and hiring spikes for next-wave bets.",
-          "Align investments with verified peer trajectories."
+          "Anchor funding and headcount asks in benchmarked city and capability evidence.",
+          "Size capacity across Tier 1 and Tier 2 hubs using hiring and cost signals.",
+          "Export decision-ready packs for finance and HQ stakeholders."
         ]
       },
       {
-        title: "Risk and governance",
+        title: "Strategic reviews with global stakeholders",
         items: [
-          "Track leadership churn, attrition signals, and delivery hotspots.",
-          "Identify consolidation or exit timelines affecting ecosystems.",
-          "Maintain scenario-ready alternates for capacity planning."
+          "Align on risk, opportunity, and timing using fresh GCC signals.",
+          "Track leadership and sponsor moves that shape governance.",
+          "Keep scenario-ready alternates visible for capacity planning."
         ]
       }
     ],
     signals: [
-      "City and sector momentum across India",
+      "City and capability momentum across India",
       "Leadership moves and sponsor changes",
-      "Hiring velocity and capability mix trends",
-      "Peer maturity and cost benchmarks",
+      "Hiring velocity and cost pressure signals",
       "Expansion, consolidation, and exit activity"
     ],
     stats: [
-      { label: "Cities covered", value: "25+", helper: "Tier 1 and Tier 2 hubs" },
-      { label: "Leadership roster", value: "2,500+", helper: "With recency and role signals" },
-      { label: "Brief turnaround", value: "48 hrs", helper: "Analyst-backed exec packs" }
+      { label: "Coverage", value: "Tier 1 + Tier 2 hubs", helper: "City, sector, and capability shifts" },
+      { label: "Leadership lens", value: "Sponsors and moves", helper: "Refreshed with current signals" },
+      { label: "Decision rhythm", value: "Boards / HQ / AOP", helper: "Export-ready, defensible packs" }
     ]
   }
 ];
