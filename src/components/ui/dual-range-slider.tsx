@@ -15,17 +15,22 @@ const DualRangeSlider = React.forwardRef<
     React.ElementRef<typeof SliderPrimitive.Root>,
     DualRangeSliderProps
 >(({ className, min, max, step = 1, value, onValueChange, ...props }, ref) => {
-    const initialMax = max === min ? max + step : max;
+    const isSingleValue = min === max;
+    // If single value, center the thumbs by effectively making the range [min-step, max+step]
+    // The value stays at 'min' (which is center), but visual range is wider.
+    const renderMin = isSingleValue ? min - step : min;
+    const renderMax = isSingleValue ? max + step : max;
 
     return (
         <SliderPrimitive.Root
             ref={ref}
             className={cn("relative flex w-full touch-none select-none items-center", className)}
-            min={min}
-            max={initialMax}
+            min={renderMin}
+            max={renderMax}
             step={step}
             value={value}
             onValueChange={onValueChange}
+            disabled={isSingleValue || props.disabled}
             {...props}
         >
             <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
