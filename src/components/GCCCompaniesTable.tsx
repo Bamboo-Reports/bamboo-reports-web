@@ -793,7 +793,7 @@ export function GCCCompaniesTable() {
                     <TableRow key={company.id} className="border-b last:border-b-0 hover:bg-slate-50/70">
                       <TableCell className="py-3 font-medium text-slate-900">
                         <div className="flex items-center gap-3">
-                          <div className="relative h-8 w-8 rounded-full overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-400">
+                          <div className="relative h-8 w-8 shrink-0 rounded-full overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-400">
                             <Building2 className="h-4 w-4" />
                             {logoDomain && (
                               <img
