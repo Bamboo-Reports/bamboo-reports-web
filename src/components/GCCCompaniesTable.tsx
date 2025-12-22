@@ -15,7 +15,6 @@ import { useAuth } from '../contexts/AuthContext';
 import { CompanyDetailView } from './CompanyDetailView';
 import { MultiSelect } from './ui/multi-select';
 import { DualRangeSlider } from './ui/dual-range-slider';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
 
@@ -750,34 +749,10 @@ export function GCCCompaniesTable() {
                   Category {getSortIcon('category')}
                 </TableHead>
                 <TableHead className="min-w-[120px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_centers')}>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <span className="cursor-help border-b border-dashed border-gray-400">
-                          Total Centers
-                        </span>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Number of centers established by the organization</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  {getSortIcon('total_centers')}
+                  Total Centers {getSortIcon('total_centers')}
                 </TableHead>
                 <TableHead className="min-w-[140px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_gcc_centers')}>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <span className="cursor-help border-b border-dashed border-gray-400">
-                          Total GCC Centers
-                        </span>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Number of centers established by organization excl. BPO, Sales & Marketing, & Manufacturing</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  {getSortIcon('total_gcc_centers')}
+                  Total GCC Centers {getSortIcon('total_gcc_centers')}
                 </TableHead>
                 <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
                   Years in India {getSortIcon('years_in_india')}
