@@ -547,8 +547,10 @@ export function GCCCompaniesTable() {
         <p className="text-gray-600">Complete view of {companies.length.toLocaleString()} GCC companies</p>
       </div>
 
-      {/* Filters */}
-      <div className="bg-white border rounded-lg p-6 space-y-4">
+      <div className="flex flex-col lg:flex-row gap-6 items-start">
+        {/* Filters */}
+        <div className="w-full lg:w-80 lg:sticky lg:top-4">
+          <div className="bg-white border rounded-lg p-6 space-y-4 shadow-sm">
         {/* Search and Clear */}
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="flex-1 relative">
@@ -568,7 +570,7 @@ export function GCCCompaniesTable() {
         </div>
 
         {/* Multi-select Dropdown Filters */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 gap-3">
           <div className="space-y-1.5">
             <label className="text-xs font-medium text-gray-600">Revenue Range</label>
             <MultiSelect
@@ -611,7 +613,7 @@ export function GCCCompaniesTable() {
         </div>
 
         {/* Range Filters with Sliders */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+        <div className="grid grid-cols-1 gap-6 pt-2">
           <div className="space-y-3">
             <label className="text-xs font-medium text-gray-600">Total Centers ({totalCentersRange[0]} - {totalCentersRange[1]}) <span className="text-gray-400">/ {cascadingTotalCentersBounds[0]}-{cascadingTotalCentersBounds[1]} available</span></label>
             <DualRangeSlider
@@ -713,172 +715,176 @@ export function GCCCompaniesTable() {
         <div className="text-sm text-gray-600 pt-2 border-t">
           Showing {filteredAndSortedCompanies.length === 0 ? 0 : startIndex + 1}-{Math.min(endIndex, filteredAndSortedCompanies.length)} of {filteredAndSortedCompanies.length} companies
         </div>
+        </div>
       </div>
+      {/* Data + Pagination */}
+      <div className="flex-1 w-full space-y-4 overflow-hidden">
+          {/* Table */}
+          <div className="border border-slate-200/80 rounded-xl shadow-sm relative bg-white overflow-hidden">
+            {/* Watermark Overlay */}
+            {user?.email && (
+              <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
+                <div
+                  className="text-gray-200/20 text-4xl font-semibold transform -rotate-45 select-none"
+                  style={{
+                    textShadow: '0 0 20px rgba(255,255,255,0.8)',
+                    letterSpacing: '0.1em'
+                  }}
+                >
+                  {user.email}
+                </div>
+              </div>
+            )}
 
-      {/* Table */}
-      <div className="border border-slate-200/80 rounded-xl shadow-sm relative bg-white overflow-hidden">
-        {/* Watermark Overlay */}
-        {user?.email && (
-          <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
-            <div
-              className="text-gray-200/20 text-4xl font-semibold transform -rotate-45 select-none"
-              style={{
-                textShadow: '0 0 20px rgba(255,255,255,0.8)',
-                letterSpacing: '0.1em'
-              }}
-            >
-              {user.email}
+            <div className="overflow-auto max-h-[520px]">
+              <Table className="min-w-[1200px] w-full text-sm">
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="min-w-[250px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
+                      Account Global Legal Name {getSortIcon('account_global_legal_name')}
+                    </TableHead>
+                    <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('revenue_range')}>
+                      Revenue Range {getSortIcon('revenue_range')}
+                    </TableHead>
+                    <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('hq_country')}>
+                      HQ Country {getSortIcon('hq_country')}
+                    </TableHead>
+                    <TableHead className="min-w-[140px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('category')}>
+                      Category {getSortIcon('category')}
+                    </TableHead>
+                    <TableHead className="min-w-[140px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_centers')}>
+                      Total Centers {getSortIcon('total_centers')}
+                    </TableHead>
+                    <TableHead className="min-w-[170px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_gcc_centers')}>
+                      Total GCC Centers {getSortIcon('total_gcc_centers')}
+                    </TableHead>
+                    <TableHead className="min-w-[170px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
+                      Years in India {getSortIcon('years_in_india')}
+                    </TableHead>
+                    <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('primary_city')}>
+                      Primary City {getSortIcon('primary_city')}
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {currentCompanies.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={8} className="text-center py-8 text-slate-500">
+                        No companies found matching your filters
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    currentCompanies.map((company) => {
+                      const logoDomain = getDomainFromWebsite(company.website);
+
+                      return (
+                        <TableRow key={company.id} className="border-b last:border-b-0 hover:bg-slate-50/70">
+                          <TableCell className="py-3 font-medium text-slate-900">
+                            <div className="flex items-center gap-3">
+                              <div className="relative h-8 w-8 rounded-full overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-400">
+                                <Building2 className="h-4 w-4" />
+                                {logoDomain && (
+                                  <img
+                                    src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}&format=jpg&size=180`}
+                                    alt={`${company.account_global_legal_name} logo`}
+                                    loading="lazy"
+                                    onError={(e) => {
+                                      e.currentTarget.style.display = 'none';
+                                    }}
+                                    className="absolute inset-0 h-full w-full object-cover p-1"
+                                  />
+                                )}
+                              </div>
+                              <button
+                                onClick={() => handleCompanyClick(company)}
+                                className="group inline-flex items-center gap-2 text-left text-slate-900 hover:text-slate-700"
+                              >
+                                <span className="underline-offset-4 group-hover:underline">
+                                  {company.account_global_legal_name}
+                                </span>
+                                <ChevronRight className="h-4 w-4 text-slate-400 opacity-0 translate-x-[-2px] transition duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
+                              </button>
+                            </div>
+                          </TableCell>
+                          <TableCell className="py-3 text-slate-700">{company.revenue_range || '-'}</TableCell>
+                          <TableCell className="py-3 text-slate-700">{company.hq_country || '-'}</TableCell>
+                          <TableCell className="py-3 text-slate-700">{company.category || '-'}</TableCell>
+                          <TableCell className="py-3 text-right text-slate-700">
+                            {company.total_centers ?? '-'}
+                          </TableCell>
+                          <TableCell className="py-3 text-right text-slate-700">
+                            {company.total_gcc_centers ?? '-'}
+                          </TableCell>
+                          <TableCell className="py-3 text-slate-700">{company.years_in_india || '-'}</TableCell>
+                          <TableCell className="py-3 text-slate-700">{company.primary_city || '-'}</TableCell>
+                        </TableRow>
+                      );
+                    })
+                  )}
+                </TableBody>
+              </Table>
             </div>
           </div>
-        )}
 
-        <div className="overflow-auto max-h-[500px]">
-          <Table className="min-w-[900px] text-sm">
-            <TableHeader>
-              <TableRow>
-                <TableHead className="min-w-[250px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
-                  Account Global Legal Name {getSortIcon('account_global_legal_name')}
-                </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('revenue_range')}>
-                  Revenue Range {getSortIcon('revenue_range')}
-                </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('hq_country')}>
-                  HQ Country {getSortIcon('hq_country')}
-                </TableHead>
-                <TableHead className="min-w-[120px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('category')}>
-                  Category {getSortIcon('category')}
-                </TableHead>
-                <TableHead className="min-w-[120px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_centers')}>
-                  Total Centers {getSortIcon('total_centers')}
-                </TableHead>
-                <TableHead className="min-w-[140px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_gcc_centers')}>
-                  Total GCC Centers {getSortIcon('total_gcc_centers')}
-                </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
-                  Years in India {getSortIcon('years_in_india')}
-                </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('primary_city')}>
-                  Primary City {getSortIcon('primary_city')}
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {currentCompanies.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={8} className="text-center py-8 text-slate-500">
-                    No companies found matching your filters
-                  </TableCell>
-                </TableRow>
-              ) : (
-                currentCompanies.map((company) => {
-                  const logoDomain = getDomainFromWebsite(company.website);
-
-                  return (
-                    <TableRow key={company.id} className="border-b last:border-b-0 hover:bg-slate-50/70">
-                      <TableCell className="py-3 font-medium text-slate-900">
-                        <div className="flex items-center gap-3">
-                          <div className="relative h-8 w-8 rounded-full overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-400">
-                            <Building2 className="h-4 w-4" />
-                            {logoDomain && (
-                              <img
-                                src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}&format=jpg&size=180`}
-                                alt={`${company.account_global_legal_name} logo`}
-                                loading="lazy"
-                                onError={(e) => {
-                                  e.currentTarget.style.display = 'none';
-                                }}
-                                className="absolute inset-0 h-full w-full object-cover p-1"
-                              />
-                            )}
-                          </div>
-                          <button
-                            onClick={() => handleCompanyClick(company)}
-                            className="group inline-flex items-center gap-2 text-left text-slate-900 hover:text-slate-700"
-                          >
-                            <span className="underline-offset-4 group-hover:underline">
-                              {company.account_global_legal_name}
-                            </span>
-                            <ChevronRight className="h-4 w-4 text-slate-400 opacity-0 translate-x-[-2px] transition duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
-                          </button>
-                        </div>
-                      </TableCell>
-                      <TableCell className="py-3 text-slate-700">{company.revenue_range || '-'}</TableCell>
-                      <TableCell className="py-3 text-slate-700">{company.hq_country || '-'}</TableCell>
-                      <TableCell className="py-3 text-slate-700">{company.category || '-'}</TableCell>
-                      <TableCell className="py-3 text-right text-slate-700">
-                        {company.total_centers ?? '-'}
-                      </TableCell>
-                      <TableCell className="py-3 text-right text-slate-700">
-                        {company.total_gcc_centers ?? '-'}
-                      </TableCell>
-                      <TableCell className="py-3 text-slate-700">{company.years_in_india || '-'}</TableCell>
-                      <TableCell className="py-3 text-slate-700">{company.primary_city || '-'}</TableCell>
-                    </TableRow>
-                  );
-                })
-              )}
-            </TableBody>
-          </Table>
-        </div>
-      </div>
-
-      {/* Pagination */}
-      <div className="flex items-center justify-between">
-        <Button
-          variant="outline"
-          onClick={handlePreviousPage}
-          disabled={currentPage === 1}
-        >
-          <ChevronLeft className="h-4 w-4 mr-2" />
-          Previous
-        </Button>
-
-        <div className="flex items-center gap-4">
-          <div className="text-sm text-gray-600">
-            Page {currentPage} of {totalPages || 1}
-          </div>
-          <div className="flex items-center gap-2">
-            <label className="text-sm text-gray-600">Rows per page:</label>
-            <select
-              value={itemsPerPage}
-              onChange={(e) => {
-                const value = Math.min(20, Math.max(1, parseInt(e.target.value) || 10));
-                setItemsPerPage(value);
-                setCurrentPage(1);
-              }}
-              className="border rounded px-2 py-1 text-sm bg-white"
+          {/* Pagination */}
+          <div className="flex items-center justify-between">
+            <Button
+              variant="outline"
+              onClick={handlePreviousPage}
+              disabled={currentPage === 1}
             >
-              <option value={5}>5</option>
-              <option value={10}>10</option>
-              <option value={15}>15</option>
-              <option value={20}>20</option>
-            </select>
+              <ChevronLeft className="h-4 w-4 mr-2" />
+              Previous
+            </Button>
+
+            <div className="flex items-center gap-4">
+              <div className="text-sm text-gray-600">
+                Page {currentPage} of {totalPages || 1}
+              </div>
+              <div className="flex items-center gap-2">
+                <label className="text-sm text-gray-600">Rows per page:</label>
+                <select
+                  value={itemsPerPage}
+                  onChange={(e) => {
+                    const value = Math.min(20, Math.max(1, parseInt(e.target.value) || 10));
+                    setItemsPerPage(value);
+                    setCurrentPage(1);
+                  }}
+                  className="border rounded px-2 py-1 text-sm bg-white"
+                >
+                  <option value={5}>5</option>
+                  <option value={10}>10</option>
+                  <option value={15}>15</option>
+                  <option value={20}>20</option>
+                </select>
+              </div>
+            </div>
+
+            <Button
+              variant="outline"
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages || totalPages === 0}
+            >
+              Next
+              <ChevronRight className="h-4 w-4 ml-2" />
+            </Button>
           </div>
-        </div>
 
-        <Button
-          variant="outline"
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages || totalPages === 0}
-        >
-          Next
-          <ChevronRight className="h-4 w-4 ml-2" />
-        </Button>
+          {/* Protection Notice */}
+          {user?.email && (
+            <div className="bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-lg px-6 py-3 text-center">
+              <p className="text-gray-500 text-xs font-medium">
+                <span className="inline-flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/50"></span>
+                  Licensed to <span className="text-gray-700">{user.email}</span>
+                  <span className="text-gray-400 mx-2">•</span>
+                  Confidential & Protected
+                </span>
+              </p>
+            </div>
+          )}
+        </div>
       </div>
-
-      {/* Protection Notice */}
-      {user?.email && (
-        <div className="bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-lg px-6 py-3 text-center">
-          <p className="text-gray-500 text-xs font-medium">
-            <span className="inline-flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/50"></span>
-              Licensed to <span className="text-gray-700">{user.email}</span>
-              <span className="text-gray-400 mx-2">•</span>
-              Confidential & Protected
-            </span>
-          </p>
-        </div>
-      )}
 
       {/* Detail View Modal */}
       <CompanyDetailView
