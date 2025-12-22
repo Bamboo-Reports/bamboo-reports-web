@@ -419,7 +419,6 @@ export function GCCCompaniesTable() {
           Curated dataset
         </div>
         <h2 className="text-3xl font-bold text-slate-900">L1 List - {companies.length.toLocaleString()}+ GCCs</h2>
-        <p className="text-gray-600">Complete view of {companies.length.toLocaleString()} GCC companies</p>
       </div>
 
       {/* Filters */}
@@ -468,7 +467,6 @@ export function GCCCompaniesTable() {
               onChange={setRevenueFilters}
               placeholder="All"
             />
-            <p className="text-[11px] text-slate-500">Selected {revenueFilters.length} / {cascadingRevenues.length}</p>
           </div>
 
           <div className="space-y-1.5">
@@ -479,7 +477,6 @@ export function GCCCompaniesTable() {
               onChange={setCountryFilters}
               placeholder="All"
             />
-            <p className="text-[11px] text-slate-500">Selected {countryFilters.length} / {cascadingCountries.length}</p>
           </div>
 
           <div className="space-y-1.5">
@@ -490,7 +487,6 @@ export function GCCCompaniesTable() {
               onChange={setCategoryFilters}
               placeholder="All"
             />
-            <p className="text-[11px] text-slate-500">Selected {categoryFilters.length} / {cascadingCategories.length}</p>
           </div>
 
           <div className="space-y-1.5">
@@ -501,7 +497,6 @@ export function GCCCompaniesTable() {
               onChange={setPrimaryCityFilters}
               placeholder="All"
             />
-            <p className="text-[11px] text-slate-500">Selected {primaryCityFilters.length} / {cascadingCities.length}</p>
           </div>
         </div>
 
