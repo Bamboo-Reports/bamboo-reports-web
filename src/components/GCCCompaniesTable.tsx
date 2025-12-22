@@ -15,7 +15,6 @@ import { useAuth } from '../contexts/AuthContext';
 import { CompanyDetailView } from './CompanyDetailView';
 import { MultiSelect } from './ui/multi-select';
 import { DualRangeSlider } from './ui/dual-range-slider';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
 
@@ -750,34 +749,10 @@ export function GCCCompaniesTable() {
                   Category {getSortIcon('category')}
                 </TableHead>
                 <TableHead className="min-w-[120px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_centers')}>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <span className="cursor-help border-b border-dashed border-gray-400">
-                          Total Centers
-                        </span>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Number of centers established by the organization</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  {getSortIcon('total_centers')}
+                  Total Centers {getSortIcon('total_centers')}
                 </TableHead>
                 <TableHead className="min-w-[140px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_gcc_centers')}>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <span className="cursor-help border-b border-dashed border-gray-400">
-                          Total GCC Centers
-                        </span>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Number of centers established by organization excl. BPO, Sales & Marketing, & Manufacturing</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                  {getSortIcon('total_gcc_centers')}
+                  Total GCC Centers {getSortIcon('total_gcc_centers')}
                 </TableHead>
                 <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
                   Years in India {getSortIcon('years_in_india')}
@@ -802,17 +777,17 @@ export function GCCCompaniesTable() {
                     <TableRow key={company.id} className="border-b last:border-b-0 hover:bg-slate-50/70">
                       <TableCell className="py-3 font-medium text-slate-900">
                         <div className="flex items-center gap-3">
-                          <div className="relative h-8 w-8 rounded-lg border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-400">
+                          <div className="relative h-8 w-8 rounded-full overflow-hidden border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-400">
                             <Building2 className="h-4 w-4" />
                             {logoDomain && (
                               <img
-                                src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}`}
+                                src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}&format=jpg&size=180`}
                                 alt={`${company.account_global_legal_name} logo`}
                                 loading="lazy"
                                 onError={(e) => {
                                   e.currentTarget.style.display = 'none';
                                 }}
-                                className="absolute inset-0 h-full w-full object-contain p-1"
+                                className="absolute inset-0 h-full w-full object-cover p-1"
                               />
                             )}
                           </div>
