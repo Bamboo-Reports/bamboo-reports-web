@@ -14,7 +14,6 @@ import { Search, ChevronLeft, ChevronRight, ArrowUpDown, ArrowUp, ArrowDown, X, 
 import { useAuth } from '../contexts/AuthContext';
 import { CompanyDetailView } from './CompanyDetailView';
 import { MultiSelect } from './ui/multi-select';
-import { DualRangeSlider } from './ui/dual-range-slider';
 
 const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
 
@@ -614,12 +613,6 @@ export function GCCCompaniesTable() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
           <div className="space-y-3">
             <label className="text-xs font-medium text-gray-600">Total Centers</label>
-            <DualRangeSlider
-              min={cascadingTotalCentersBounds[0]}
-              max={cascadingTotalCentersBounds[1]}
-              value={totalCentersRange}
-              onValueChange={(value) => setTotalCentersRange(value)}
-            />
             <div className="flex gap-2">
               <Input
                 type="number"
@@ -646,12 +639,6 @@ export function GCCCompaniesTable() {
 
           <div className="space-y-3">
             <label className="text-xs font-medium text-gray-600">Total GCC Centers</label>
-            <DualRangeSlider
-              min={cascadingGccCentersBounds[0]}
-              max={cascadingGccCentersBounds[1]}
-              value={gccCentersRange}
-              onValueChange={(value) => setGccCentersRange(value)}
-            />
             <div className="flex gap-2">
               <Input
                 type="number"
@@ -678,12 +665,6 @@ export function GCCCompaniesTable() {
 
           <div className="space-y-3">
             <label className="text-xs font-medium text-gray-600">Years in India</label>
-            <DualRangeSlider
-              min={cascadingYearsInIndiaBounds[0]}
-              max={cascadingYearsInIndiaBounds[1]}
-              value={yearsInIndiaRange}
-              onValueChange={(value) => setYearsInIndiaRange(value)}
-            />
             <div className="flex gap-2">
               <Input
                 type="number"
