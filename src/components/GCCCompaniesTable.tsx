@@ -144,9 +144,17 @@ export function GCCCompaniesTable() {
 
         setCompanies(allData);
 
-        // Calculate bounds for range filters
+        // Initialize filters to "All Selected" state
         if (allData.length > 0) {
-          // No range bounds calculation needed
+          const allRevenues = Array.from(new Set(allData.map(c => c.revenue_range).filter(Boolean) as string[])).sort();
+          const allCountries = Array.from(new Set(allData.map(c => c.hq_country).filter(Boolean) as string[])).sort();
+          const allCategories = Array.from(new Set(allData.map(c => c.category).filter(Boolean) as string[])).sort();
+          const allCities = Array.from(new Set(allData.map(c => c.primary_city).filter(Boolean) as string[])).sort();
+
+          setRevenueFilters(allRevenues);
+          setCountryFilters(allCountries);
+          setCategoryFilters(allCategories);
+          setPrimaryCityFilters(allCities);
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load GCC companies');
@@ -325,10 +333,16 @@ export function GCCCompaniesTable() {
 
   const handleClearFilters = () => {
     setSearchQuery('');
-    setRevenueFilters([]);
-    setCountryFilters([]);
-    setCategoryFilters([]);
-    setPrimaryCityFilters([]);
+    // Reset filters to "All Selected" (all available options)
+    const allRevenues = Array.from(new Set(companies.map(c => c.revenue_range).filter(Boolean) as string[])).sort();
+    const allCountries = Array.from(new Set(companies.map(c => c.hq_country).filter(Boolean) as string[])).sort();
+    const allCategories = Array.from(new Set(companies.map(c => c.category).filter(Boolean) as string[])).sort();
+    const allCities = Array.from(new Set(companies.map(c => c.primary_city).filter(Boolean) as string[])).sort();
+
+    setRevenueFilters(allRevenues);
+    setCountryFilters(allCountries);
+    setCategoryFilters(allCategories);
+    setPrimaryCityFilters(allCities);
   };
 
   const handleCompanyClick = (company: GCCCompany) => {
