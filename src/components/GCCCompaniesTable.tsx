@@ -613,7 +613,7 @@ export function GCCCompaniesTable() {
         {/* Range Filters with Sliders */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
           <div className="space-y-3">
-            <label className="text-xs font-medium text-gray-600">Total Centers ({totalCentersRange[0]} - {totalCentersRange[1]}) <span className="text-gray-400">/ {cascadingTotalCentersBounds[0]}-{cascadingTotalCentersBounds[1]} available</span></label>
+            <label className="text-xs font-medium text-gray-600">Total Centers</label>
             <DualRangeSlider
               min={cascadingTotalCentersBounds[0]}
               max={cascadingTotalCentersBounds[1]}
@@ -645,7 +645,7 @@ export function GCCCompaniesTable() {
           </div>
 
           <div className="space-y-3">
-            <label className="text-xs font-medium text-gray-600">Total GCC Centers ({gccCentersRange[0]} - {gccCentersRange[1]}) <span className="text-gray-400">/ {cascadingGccCentersBounds[0]}-{cascadingGccCentersBounds[1]} available</span></label>
+            <label className="text-xs font-medium text-gray-600">Total GCC Centers</label>
             <DualRangeSlider
               min={cascadingGccCentersBounds[0]}
               max={cascadingGccCentersBounds[1]}
@@ -677,7 +677,7 @@ export function GCCCompaniesTable() {
           </div>
 
           <div className="space-y-3">
-            <label className="text-xs font-medium text-gray-600">Years in India ({yearsInIndiaRange[0]} - {yearsInIndiaRange[1]}) <span className="text-gray-400">/ {cascadingYearsInIndiaBounds[0]}-{cascadingYearsInIndiaBounds[1]} available</span></label>
+            <label className="text-xs font-medium text-gray-600">Years in India</label>
             <DualRangeSlider
               min={cascadingYearsInIndiaBounds[0]}
               max={cascadingYearsInIndiaBounds[1]}
