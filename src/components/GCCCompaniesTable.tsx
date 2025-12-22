@@ -285,6 +285,34 @@ export function GCCCompaniesTable() {
     return Array.from(values).sort();
   }, [getFilteredForCascade]);
 
+  // Sync selected filters with cascading options - remove selected values that are no longer available
+  useEffect(() => {
+    const validRevenues = revenueFilters.filter(r => cascadingRevenues.includes(r));
+    if (validRevenues.length !== revenueFilters.length) {
+      setRevenueFilters(validRevenues);
+    }
+  }, [cascadingRevenues]);
+
+  useEffect(() => {
+    const validCountries = countryFilters.filter(c => cascadingCountries.includes(c));
+    if (validCountries.length !== countryFilters.length) {
+      setCountryFilters(validCountries);
+    }
+  }, [cascadingCountries]);
+
+  useEffect(() => {
+    const validCategories = categoryFilters.filter(c => cascadingCategories.includes(c));
+    if (validCategories.length !== categoryFilters.length) {
+      setCategoryFilters(validCategories);
+    }
+  }, [cascadingCategories]);
+
+  useEffect(() => {
+    const validCities = primaryCityFilters.filter(c => cascadingCities.includes(c));
+    if (validCities.length !== primaryCityFilters.length) {
+      setPrimaryCityFilters(validCities);
+    }
+  }, [cascadingCities]);
 
 
 
