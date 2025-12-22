@@ -79,7 +79,7 @@ const UseCasePageTemplate = ({ useCaseId }: UseCasePageTemplateProps) => {
             <div className="space-y-3">
               {useCase.outcomes.map((item) => (
                 <div key={item} className="flex gap-3 items-start">
-                  <span className="mt-1 text-primary">•</span>
+                  <span className="mt-1 text-primary">-</span>
                   <p className="text-base leading-relaxed text-foreground">{item}</p>
                 </div>
               ))}
