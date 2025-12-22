@@ -781,7 +781,7 @@ export function GCCCompaniesTable() {
                             <Building2 className="h-4 w-4" />
                             {logoDomain && (
                               <img
-                                src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}`}
+                                src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}&format=webp&retina=true`}
                                 alt={`${company.account_global_legal_name} logo`}
                                 loading="lazy"
                                 onError={(e) => {
