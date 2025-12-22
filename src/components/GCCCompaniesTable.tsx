@@ -736,7 +736,7 @@ export function GCCCompaniesTable() {
               </div>
             )}
 
-            <div className="overflow-auto max-h-[520px]">
+            <div className="overflow-auto max-h-[900px] min-h-[640px]">
               <Table className="min-w-[1200px] w-full text-sm">
                 <TableHeader>
                   <TableRow>
