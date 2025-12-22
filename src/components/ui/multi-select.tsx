@@ -61,7 +61,7 @@ export function MultiSelect({
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
-                    className={cn("w-full justify-between font-normal h-auto min-h-10", className)}
+                    className={cn("w-full justify-between font-normal h-auto min-h-10 rounded-md hover:scale-100 active:scale-100", className)}
                 >
                     <div className="flex flex-wrap gap-1 flex-1">
                         {selected.length === 0 ? (
@@ -102,6 +102,21 @@ export function MultiSelect({
                             className="w-full pl-8 pr-3 py-1.5 text-sm border rounded-md focus:outline-none focus:ring-1 focus:ring-gray-300"
                         />
                     </div>
+                </div>
+                {/* Select All / Clear All Button */}
+                <div className="px-2 pb-2 border-b">
+                    <button
+                        onClick={() => {
+                            if (selected.length === options.length) {
+                                onChange([]);
+                            } else {
+                                onChange(options);
+                            }
+                        }}
+                        className="w-full text-sm py-1.5 px-3 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-gray-700 font-medium"
+                    >
+                        {selected.length === options.length ? 'Clear All' : 'Select All'}
+                    </button>
                 </div>
                 <ScrollArea className="h-[200px]">
                     <div className="p-2">
