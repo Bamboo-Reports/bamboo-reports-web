@@ -766,8 +766,8 @@ export function GCCCompaniesTable() {
                     Total GCC Centers {getSortIcon('total_gcc_centers')}
                   </div>
                 </TableHead>
-                <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
-                  <div className="flex items-center gap-1">
+                <TableHead className="min-w-[150px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
+                  <div className="flex items-center justify-end gap-1">
                     Years in India {getSortIcon('years_in_india')}
                   </div>
                 </TableHead>
@@ -827,7 +827,7 @@ export function GCCCompaniesTable() {
                       <TableCell className="py-3 text-right text-slate-700">
                         {company.total_gcc_centers ?? '-'}
                       </TableCell>
-                      <TableCell className="py-3 text-slate-700">{company.years_in_india || '-'}</TableCell>
+                      <TableCell className="py-3 text-right text-slate-700">{company.years_in_india || '-'}</TableCell>
                       <TableCell className="py-3 text-slate-700">{company.primary_city || '-'}</TableCell>
                     </TableRow>
                   );
