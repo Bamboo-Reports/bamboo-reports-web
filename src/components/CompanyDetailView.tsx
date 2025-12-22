@@ -27,6 +27,8 @@ import {
 import { Separator } from './ui/separator';
 
 const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
+const hasValue = (value: string | number | null | undefined) =>
+    value !== null && value !== undefined && value !== '';
 
 interface GCCCompany {
     id: string;
@@ -201,6 +203,26 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
     const [logoFailed, setLogoFailed] = React.useState(false);
     const showLogo = !!logoDomain && !logoFailed;
 
+    const accountDetails = [
+        { icon: <Building2 className="h-4 w-4" />, label: 'Account Global Legal Name', value: company.account_global_legal_name },
+        { icon: <Briefcase className="h-4 w-4" />, label: 'Revenue Range', value: company.revenue_range, badge: true },
+        { icon: <MapPin className="h-4 w-4" />, label: 'HQ Country', value: company.hq_country },
+        { icon: <Globe className="h-4 w-4" />, label: 'HQ Region', value: company.hq_region },
+        { icon: <Globe className="h-4 w-4" />, label: 'Website', value: company.website, link: true },
+        { icon: <Briefcase className="h-4 w-4" />, label: 'Industry', value: company.industry },
+        { icon: <Building2 className="h-4 w-4" />, label: 'Category', value: company.category, badge: true },
+    ].filter((item) => hasValue(item.value));
+
+    const centerDetails = [
+        { icon: <Building2 className="h-4 w-4" />, label: 'Total Centers', value: company.total_centers?.toString(), badge: true },
+        { icon: <Building2 className="h-4 w-4" />, label: 'Total GCC Centers', value: company.total_gcc_centers?.toString(), badge: true },
+        { icon: <Briefcase className="h-4 w-4" />, label: 'India Employees Range', value: company.india_employees_range },
+        { icon: <Building2 className="h-4 w-4" />, label: 'Established In India', value: company.established_in_india },
+        { icon: <Building2 className="h-4 w-4" />, label: 'Years in India', value: company.years_in_india },
+        { icon: <MapPin className="h-4 w-4" />, label: 'Primary City', value: company.primary_city },
+        { icon: <MapPin className="h-4 w-4" />, label: 'Secondary City', value: company.secondary_city, multiline: true },
+    ].filter((item) => hasValue(item.value));
+
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0 bg-white border border-slate-200/70 shadow-2xl">
@@ -221,114 +243,36 @@ export function CompanyDetailView({ company, open, onOpenChange }: CompanyDetail
 
                 <div className="space-y-6 px-6 py-6">
                     {/* Section A: Account Specific Details */}
-                    <div className="space-y-4">
-                        <div className="flex items-center gap-2">
-                            <h3 className="text-base font-semibold text-slate-800">Account Specific Details</h3>
+                    {accountDetails.length > 0 && (
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-2">
+                                <h3 className="text-base font-semibold text-slate-800">Account Specific Details</h3>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-5 rounded-xl border border-slate-200/70 shadow-sm">
+                                {accountDetails.map((detail, index) => (
+                                    <DetailItem key={index} {...detail} />
+                                ))}
+                            </div>
                         </div>
+                    )}
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-5 rounded-xl border border-slate-200/70 shadow-sm">
-                            <DetailItem
-                                icon={<Building2 className="h-4 w-4" />}
-                                label="Account Global Legal Name"
-                                value={company.account_global_legal_name}
-                            />
-
-                            <DetailItem
-                                icon={<Briefcase className="h-4 w-4" />}
-                                label="Revenue Range"
-                                value={company.revenue_range}
-                                badge
-                            />
-
-                            <DetailItem
-                                icon={<MapPin className="h-4 w-4" />}
-                                label="HQ Country"
-                                value={company.hq_country}
-                            />
-
-                            <DetailItem
-                                icon={<Globe className="h-4 w-4" />}
-                                label="HQ Region"
-                                value={company.hq_region}
-                            />
-
-                            <DetailItem
-                                icon={<Globe className="h-4 w-4" />}
-                                label="Website"
-                                value={company.website}
-                                link
-                            />
-
-                            <DetailItem
-                                icon={<Briefcase className="h-4 w-4" />}
-                                label="Industry"
-                                value={company.industry}
-                            />
-
-                            <DetailItem
-                                icon={<Building2 className="h-4 w-4" />}
-                                label="Category"
-                                value={company.category}
-                                badge
-                            />
-                        </div>
-                    </div>
-
-                    <Separator />
+                    {accountDetails.length > 0 && centerDetails.length > 0 && <Separator />}
 
                     {/* Section B: Account Center Specific Details */}
-                    <div className="space-y-4">
-                        <div className="flex items-center gap-2">
-                            <h3 className="text-base font-semibold text-slate-800">Account Center Specific Details</h3>
+                    {centerDetails.length > 0 && (
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-2">
+                                <h3 className="text-base font-semibold text-slate-800">Account Center Specific Details</h3>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-5 rounded-xl border border-slate-200/70 shadow-sm">
+                                {centerDetails.map((detail, index) => (
+                                    <DetailItem key={index} {...detail} />
+                                ))}
+                            </div>
                         </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-5 rounded-xl border border-slate-200/70 shadow-sm">
-                            <DetailItem
-                                icon={<Building2 className="h-4 w-4" />}
-                                label="Total Centers"
-                                value={company.total_centers?.toString()}
-                                badge
-                            />
-
-                            <DetailItem
-                                icon={<Building2 className="h-4 w-4" />}
-                                label="Total GCC Centers"
-                                value={company.total_gcc_centers?.toString()}
-                                badge
-                            />
-
-                            <DetailItem
-                                icon={<Briefcase className="h-4 w-4" />}
-                                label="India Employees Range"
-                                value={company.india_employees_range}
-                            />
-
-                            <DetailItem
-                                icon={<Building2 className="h-4 w-4" />}
-                                label="Established In India"
-                                value={company.established_in_india}
-                            />
-
-                            <DetailItem
-                                icon={<Building2 className="h-4 w-4" />}
-                                label="Years in India"
-                                value={company.years_in_india}
-                            />
-
-                            <DetailItem
-                                icon={<MapPin className="h-4 w-4" />}
-                                label="Primary City"
-                                value={company.primary_city}
-                            />
-
-                            <DetailItem
-                                icon={<MapPin className="h-4 w-4" />}
-                                label="Secondary City"
-                                value={company.secondary_city}
-                                multiline
-                            />
-                        </div>
-                    </div>
+                    )}
 
                     {/* Services Offered Section */}
                     {serviceCategories.length > 0 && (
@@ -383,7 +327,8 @@ interface DetailItemProps {
 }
 
 function DetailItem({ icon, label, value, badge, link, multiline, fullWidth }: DetailItemProps) {
-    const displayValue = value || '-';
+    if (!hasValue(value)) return null;
+    const displayValue = value as string;
     const colSpan = fullWidth ? 'md:col-span-2' : '';
 
     return (

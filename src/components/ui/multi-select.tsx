@@ -113,7 +113,7 @@ export function MultiSelect({
                                 onChange(options);
                             }
                         }}
-                        className="w-full text-sm py-1.5 px-3 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-gray-700 font-medium"
+                        className="flex h-10 w-full items-center justify-center gap-2 rounded-md bg-gray-100 px-3 py-0 text-sm font-medium leading-none text-gray-700 transition-colors hover:bg-gray-200"
                     >
                         {selected.length === options.length ? 'Clear All' : 'Select All'}
                     </button>
