@@ -487,12 +487,12 @@ export function GCCCompaniesTable() {
 
   const getSortIcon = (field: SortField) => {
     if (sortField !== field) {
-      return <ArrowUpDown className="h-4 w-4 ml-1 inline opacity-40" />;
+      return <ArrowUpDown className="h-4 w-4 opacity-40" />;
     }
     if (sortDirection === 'asc') {
-      return <ArrowUp className="h-4 w-4 ml-1 inline text-primary" />;
+      return <ArrowUp className="h-4 w-4 text-primary" />;
     }
-    return <ArrowDown className="h-4 w-4 ml-1 inline text-primary" />;
+    return <ArrowDown className="h-4 w-4 text-primary" />;
   };
 
   const handleClearFilters = () => {
@@ -737,28 +737,44 @@ export function GCCCompaniesTable() {
             <TableHeader>
               <TableRow>
                 <TableHead className="min-w-[250px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
-                  Account Global Legal Name {getSortIcon('account_global_legal_name')}
+                  <div className="flex items-center gap-1">
+                    Account Global Legal Name {getSortIcon('account_global_legal_name')}
+                  </div>
                 </TableHead>
                 <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('revenue_range')}>
-                  Revenue Range {getSortIcon('revenue_range')}
+                  <div className="flex items-center gap-1">
+                    Revenue Range {getSortIcon('revenue_range')}
+                  </div>
                 </TableHead>
                 <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('hq_country')}>
-                  HQ Country {getSortIcon('hq_country')}
+                  <div className="flex items-center gap-1">
+                    HQ Country {getSortIcon('hq_country')}
+                  </div>
                 </TableHead>
                 <TableHead className="min-w-[120px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('category')}>
-                  Category {getSortIcon('category')}
+                  <div className="flex items-center gap-1">
+                    Category {getSortIcon('category')}
+                  </div>
                 </TableHead>
                 <TableHead className="min-w-[120px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_centers')}>
-                  Total Centers {getSortIcon('total_centers')}
+                  <div className="flex items-center justify-end gap-1 whitespace-nowrap">
+                    Total Centers {getSortIcon('total_centers')}
+                  </div>
                 </TableHead>
                 <TableHead className="min-w-[140px] text-right cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('total_gcc_centers')}>
-                  Total GCC Centers {getSortIcon('total_gcc_centers')}
+                  <div className="flex items-center justify-end gap-1 whitespace-nowrap">
+                    Total GCC Centers {getSortIcon('total_gcc_centers')}
+                  </div>
                 </TableHead>
                 <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('years_in_india')}>
-                  Years in India {getSortIcon('years_in_india')}
+                  <div className="flex items-center gap-1">
+                    Years in India {getSortIcon('years_in_india')}
+                  </div>
                 </TableHead>
                 <TableHead className="min-w-[150px] cursor-pointer sticky top-0 z-20 bg-slate-50/95 backdrop-blur text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 hover:bg-slate-100" onClick={() => handleSort('primary_city')}>
-                  Primary City {getSortIcon('primary_city')}
+                  <div className="flex items-center gap-1">
+                    Primary City {getSortIcon('primary_city')}
+                  </div>
                 </TableHead>
               </TableRow>
             </TableHeader>
