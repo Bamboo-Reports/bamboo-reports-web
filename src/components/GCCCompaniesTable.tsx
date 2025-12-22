@@ -249,13 +249,6 @@ export function GCCCompaniesTable() {
   const getFilteredForCascade = useCallback((excludeFilter: string) => {
     let filtered = companies;
 
-    if (debouncedSearchQuery) {
-      const query = debouncedSearchQuery.toLowerCase();
-      filtered = filtered.filter(company =>
-        company.account_global_legal_name?.toLowerCase().includes(query)
-      );
-    }
-
     if (excludeFilter !== 'revenue' && revenueFilters.length > 0) {
       filtered = filtered.filter(c => c.revenue_range && revenueFilters.includes(c.revenue_range));
     }
@@ -270,7 +263,7 @@ export function GCCCompaniesTable() {
     }
 
     return filtered;
-  }, [companies, debouncedSearchQuery, revenueFilters, countryFilters, categoryFilters, primaryCityFilters]);
+  }, [companies, revenueFilters, countryFilters, categoryFilters, primaryCityFilters]);
 
   const cascadingRevenues = useMemo(() => {
     const filtered = getFilteredForCascade('revenue');
@@ -358,11 +351,6 @@ export function GCCCompaniesTable() {
       setSortField(field);
       setSortDirection('asc');
     }
-  };
-
-  const handleSmartSort = () => {
-    setSortField('account_global_legal_name');
-    setSortDirection('asc');
   };
 
   const getSortIcon = (field: SortField) => {
@@ -459,13 +447,13 @@ export function GCCCompaniesTable() {
             />
           </div>
           <div className="flex gap-2">
-            <Button variant="outline" onClick={handleClearFilters} className="gap-2 rounded-xl border-slate-200 bg-white shadow-sm hover:border-slate-300 hover:bg-slate-50">
+            <Button
+              variant="outline"
+              onClick={handleClearFilters}
+              className="gap-2 rounded-xl border-slate-200 bg-white text-slate-700 shadow-sm hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
+            >
               <RefreshCcw className="h-4 w-4" />
               Reset filters
-            </Button>
-            <Button variant="default" onClick={handleSmartSort} className="gap-2 rounded-xl shadow-sm">
-              <Sparkles className="h-4 w-4" />
-              Smart sort
             </Button>
           </div>
         </div>
