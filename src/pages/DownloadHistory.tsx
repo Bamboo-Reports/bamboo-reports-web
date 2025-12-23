@@ -3,9 +3,9 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
-import { ArrowLeft, Download, FileText, Search, TrendingUp, Files, Award, Monitor, Smartphone, AlertTriangle, MapPin, Clock } from 'lucide-react';
+import { ArrowLeft, Download, FileText, Search, TrendingUp, Award, Monitor, Smartphone, AlertTriangle, MapPin, Clock } from 'lucide-react';
 import { toast } from 'sonner';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -193,13 +193,13 @@ export default function DownloadHistory() {
                             Download History
                         </h1>
                         <p className="text-muted-foreground mt-1 sm:mt-2 text-sm sm:text-base lg:text-lg">
-                            Track all your downloaded reports and documents
+                            Track reports and data exports in one place
                         </p>
                     </div>
 
                     {/* Stats Cards */}
                     {!isLoading && downloads.length > 0 && (
-                        <div className="grid gap-4 md:grid-cols-3 mb-6">
+                        <div className="grid gap-4 md:grid-cols-2 mb-6">
                             <Card>
                                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                     <CardTitle className="text-sm font-medium">Total Downloads</CardTitle>
@@ -207,24 +207,13 @@ export default function DownloadHistory() {
                                 </CardHeader>
                                 <CardContent>
                                     <div className="text-2xl font-bold">{stats.totalDownloads}</div>
-                                    <p className="text-xs text-muted-foreground">All time</p>
+                                    <p className="text-xs text-muted-foreground">Reports and exports</p>
                                 </CardContent>
                             </Card>
 
                             <Card>
                                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                    <CardTitle className="text-sm font-medium">Unique Documents</CardTitle>
-                                    <Files className="h-4 w-4 text-muted-foreground" />
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="text-2xl font-bold">{stats.uniqueDocuments}</div>
-                                    <p className="text-xs text-muted-foreground">Different reports</p>
-                                </CardContent>
-                            </Card>
-
-                            <Card>
-                                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                    <CardTitle className="text-sm font-medium">Most Downloaded</CardTitle>
+                                    <CardTitle className="text-sm font-medium">Most Accessed Item</CardTitle>
                                     <Award className="h-4 w-4 text-muted-foreground" />
                                 </CardHeader>
                                 <CardContent>
@@ -232,7 +221,7 @@ export default function DownloadHistory() {
                                         {stats.mostDownloaded?.title || '-'}
                                     </div>
                                     <p className="text-xs text-muted-foreground">
-                                        {stats.mostDownloaded ? `${stats.mostDownloaded.count} times` : 'No downloads yet'}
+                                        {stats.mostDownloaded ? `${stats.mostDownloaded.count} times` : 'No activity yet'}
                                     </p>
                                 </CardContent>
                             </Card>
@@ -246,7 +235,7 @@ export default function DownloadHistory() {
                             <div className="relative">
                                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                                 <Input
-                                    placeholder="Search documents..."
+                                    placeholder="Search reports and exports..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     className="pl-9"
@@ -301,7 +290,7 @@ export default function DownloadHistory() {
                                 <Download className="h-16 w-16 text-muted-foreground mx-auto mb-4 opacity-50" />
                                 <h3 className="text-lg font-semibold mb-2">No Downloads Yet</h3>
                                 <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                                    You haven't downloaded any documents yet. Visit your content page to download reports.
+                                    You haven't downloaded any reports or data exports yet. Visit your content page to get started.
                                 </p>
                                 <Button onClick={() => navigate('/my-content')}>
                                     Browse Documents
