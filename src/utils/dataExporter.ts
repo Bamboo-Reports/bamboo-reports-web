@@ -116,18 +116,6 @@ export function exportToXLSX(
         // Add the worksheet to the workbook
         XLSX.utils.book_append_sheet(workbook, worksheet, 'GCC Companies');
 
-        // Create a metadata sheet
-        const metadata = [
-            { Field: 'Export Date', Value: exportDate.toLocaleString() },
-            { Field: 'Total Records', Value: recordCount },
-            { Field: 'Scope', Value: scopeLabel },
-            { Field: 'Licensee', Value: licenseeEmail },
-            { Field: 'Source', Value: exportSource },
-            { Field: 'Format', Value: 'XLSX' },
-        ];
-        const metadataSheet = XLSX.utils.json_to_sheet(metadata);
-        XLSX.utils.book_append_sheet(workbook, metadataSheet, 'Export Info');
-
         workbook.Workbook = {
             Views: [{ activeTab: 0 }],
         };

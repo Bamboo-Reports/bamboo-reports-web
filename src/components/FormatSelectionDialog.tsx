@@ -70,7 +70,7 @@ export function FormatSelectionDialog({
                             <div className="flex-1">
                                 <div className="font-semibold text-sm mb-1 text-slate-900">Excel (XLSX)</div>
                                 <div className="text-xs text-slate-600">
-                                    Best for analysis with a metadata tab and a Disclaimer sheet up front.
+                                    Best for analysis with a Disclaimer sheet up front.
                                 </div>
                             </div>
                             <span className="mt-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold uppercase text-emerald-700">
