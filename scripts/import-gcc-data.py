@@ -2,15 +2,15 @@
 """
 GCC Companies Data Import Script (Python)
 
-This script imports GCC companies data from Excel or JSON into Supabase.
+This script imports GCC companies data from Google Sheets into Supabase.
+The Google Sheet URL and sheet name are hardcoded in the script.
 
 Usage:
-    python scripts/import-gcc-data.py --file gcc-companies.xlsx
-    python scripts/import-gcc-data.py --file gcc-companies.json
-    python scripts/import-gcc-data.py --file gcc-companies.csv
+    python scripts/import-gcc-data.py
+    python scripts/import-gcc-data.py --clear
+    python scripts/import-gcc-data.py --dry-run
 
 Options:
-    --file FILE         Path to your data file (Excel, JSON, or CSV)
     --clear             Clear existing data before import
     --batch-size N      Number of records per batch (default: 100)
     --dry-run           Preview data without importing
@@ -22,10 +22,13 @@ Requirements:
 import argparse
 import json
 import os
+import re
 import sys
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
+import gspread
+from google.oauth2.service_account import Credentials
 import pandas as pd
 from supabase import create_client, Client
 from dotenv import load_dotenv
@@ -33,6 +36,11 @@ from tqdm import tqdm
 
 # Load environment variables
 load_dotenv()
+
+# Google Sheet Configuration
+GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/1iYd86Mjo_F_vi0Is17UTj0gRkIvS4aUOfSbyaRXNyPY"
+GOOGLE_SHEET_NAME = "L1 - WEB"
+SERVICE_ACCOUNT_FILE = "service_account.json"
 
 # Column mapping: Excel columns → Database columns
 COLUMN_MAPPING = {
@@ -54,7 +62,7 @@ COLUMN_MAPPING = {
 }
 
 # Numeric columns that should be converted to integers
-NUMERIC_COLUMNS = ['total_centers', 'total_gcc_centers']
+NUMERIC_COLUMNS = ['total_centers', 'total_gcc_centers', 'established_in_india', 'years_in_india']
 
 
 class GCCDataImporter:
@@ -76,40 +84,69 @@ class GCCDataImporter:
         self.supabase: Client = create_client(self.supabase_url, self.supabase_key)
         print("✅ Connected to Supabase\n")
 
-    def load_data(self, file_path: str) -> pd.DataFrame:
+    def load_from_google_sheets(self) -> pd.DataFrame:
         """
-        Load data from Excel, JSON, or CSV file.
-
-        Args:
-            file_path: Path to the data file
+        Load data from Google Sheets using service account.
+        Uses hardcoded configuration: GOOGLE_SHEET_URL and GOOGLE_SHEET_NAME.
 
         Returns:
             DataFrame with the loaded data
         """
-        file_path = Path(file_path)
+        print(f"📊 Loading data from Google Sheets...")
+        print(f"   Sheet: {GOOGLE_SHEET_NAME}")
 
-        if not file_path.exists():
-            print(f"❌ Error: File not found: {file_path}")
+        try:
+            # Extract spreadsheet ID from URL
+            match = re.search(r'/spreadsheets/d/([a-zA-Z0-9-_]+)', GOOGLE_SHEET_URL)
+            if not match:
+                print(f"❌ Error: Invalid Google Sheets URL: {GOOGLE_SHEET_URL}")
+                sys.exit(1)
+            
+            spreadsheet_id = match.group(1)
+            print(f"   Spreadsheet ID: {spreadsheet_id}")
+
+            # Setup credentials
+            scopes = [
+                'https://www.googleapis.com/auth/spreadsheets.readonly',
+                'https://www.googleapis.com/auth/drive.readonly'
+            ]
+            
+            credentials = Credentials.from_service_account_file(
+                SERVICE_ACCOUNT_FILE,
+                scopes=scopes
+            )
+
+            # Connect to Google Sheets
+            client = gspread.authorize(credentials)
+            spreadsheet = client.open_by_key(spreadsheet_id)
+            worksheet = spreadsheet.worksheet(GOOGLE_SHEET_NAME)
+
+            # Get all values
+            data = worksheet.get_all_values()
+            
+            if not data:
+                print("❌ Error: No data found in the sheet")
+                sys.exit(1)
+
+            # Convert to DataFrame (first row is headers)
+            df = pd.DataFrame(data[1:], columns=data[0])
+            
+            print(f"✅ Loaded Google Sheet: {len(df)} records\n")
+            return df
+
+        except gspread.exceptions.WorksheetNotFound:
+            print(f"❌ Error: Sheet '{GOOGLE_SHEET_NAME}' not found in the spreadsheet")
+            print("   Available sheets:")
+            try:
+                spreadsheet = client.open_by_key(spreadsheet_id)
+                for sheet in spreadsheet.worksheets():
+                    print(f"     - {sheet.title}")
+            except:
+                pass
             sys.exit(1)
-
-        print(f"📂 Loading data from: {file_path.name}")
-
-        # Determine file type and load accordingly
-        if file_path.suffix in ['.xlsx', '.xls']:
-            df = pd.read_excel(file_path)
-            print(f"✅ Loaded Excel file: {len(df)} records\n")
-        elif file_path.suffix == '.json':
-            df = pd.read_json(file_path)
-            print(f"✅ Loaded JSON file: {len(df)} records\n")
-        elif file_path.suffix == '.csv':
-            df = pd.read_csv(file_path)
-            print(f"✅ Loaded CSV file: {len(df)} records\n")
-        else:
-            print(f"❌ Error: Unsupported file type: {file_path.suffix}")
-            print("Supported: .xlsx, .xls, .json, .csv")
+        except Exception as e:
+            print(f"❌ Error loading Google Sheet: {e}")
             sys.exit(1)
-
-        return df
 
     def transform_dataframe(self, df: pd.DataFrame) -> List[Dict[str, Any]]:
         """
@@ -274,22 +311,17 @@ class GCCDataImporter:
 def main():
     """Main entry point for the script."""
     parser = argparse.ArgumentParser(
-        description='Import GCC companies data into Supabase',
+        description='Import GCC companies data from Google Sheets into Supabase',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python scripts/import-gcc-data.py --file data.xlsx
-  python scripts/import-gcc-data.py --file data.json --clear
-  python scripts/import-gcc-data.py --file data.csv --batch-size 50
-  python scripts/import-gcc-data.py --file data.xlsx --dry-run
+  python scripts/import-gcc-data.py
+  python scripts/import-gcc-data.py --clear
+  python scripts/import-gcc-data.py --dry-run
+  python scripts/import-gcc-data.py --batch-size 50
         """
     )
 
-    parser.add_argument(
-        '--file',
-        required=True,
-        help='Path to data file (Excel, JSON, or CSV)'
-    )
     parser.add_argument(
         '--clear',
         action='store_true',
@@ -317,8 +349,10 @@ Examples:
     # Initialize importer
     importer = GCCDataImporter()
 
-    # Load data
-    df = importer.load_data(args.file)
+    # Load data from Google Sheets
+    print(f"📍 Using Google Sheet: {GOOGLE_SHEET_URL}")
+    print(f"📄 Sheet Name: {GOOGLE_SHEET_NAME}\n")
+    df = importer.load_from_google_sheets()
 
     # Transform data
     records = importer.transform_dataframe(df)

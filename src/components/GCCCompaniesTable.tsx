@@ -21,10 +21,18 @@ import {
   Filter,
   RefreshCcw,
   Sparkles,
+  Download,
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { CompanyDetailView } from './CompanyDetailView';
 import { MultiSelect } from './ui/multi-select';
+import { Checkbox } from './ui/checkbox';
+import { DownloadTypeSelectionDialog } from './DownloadTypeSelectionDialog';
+import { FormatSelectionDialog } from './FormatSelectionDialog';
+import { DataExportDisclaimerDialog } from './DataExportDisclaimerDialog';
+import { exportToXLSX, exportToCSV, generateExportFilename } from '../utils/dataExporter';
+import { getIPInfo } from '../utils/ipUtils';
+import { toast } from 'sonner';
 
 const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
 
@@ -98,6 +106,15 @@ export function GCCCompaniesTable() {
   // Detail view
   const [selectedCompany, setSelectedCompany] = useState<GCCCompany | null>(null);
   const [detailViewOpen, setDetailViewOpen] = useState(false);
+
+  // Selection and Export state
+  const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set());
+  const [showDownloadTypeDialog, setShowDownloadTypeDialog] = useState(false);
+  const [showFormatDialog, setShowFormatDialog] = useState(false);
+  const [showDisclaimerDialog, setShowDisclaimerDialog] = useState(false);
+  const [downloadType, setDownloadType] = useState<'all' | 'selected'>('all');
+  const [exportFormat, setExportFormat] = useState<'xlsx' | 'csv'>('xlsx');
+  const [isExporting, setIsExporting] = useState(false);
 
   // Prevent right-click (context menu)
   const handleContextMenu = (e: React.MouseEvent) => {
@@ -382,6 +399,135 @@ export function GCCCompaniesTable() {
     setDetailViewOpen(true);
   };
 
+  // Checkbox selection handlers
+  const handleSelectAll = (checked: boolean) => {
+    if (checked) {
+      const allIds = new Set(currentCompanies.map(c => c.id));
+      setSelectedRows(allIds);
+    } else {
+      setSelectedRows(new Set());
+    }
+  };
+
+  const handleRowSelect = (companyId: string, checked: boolean) => {
+    const newSelection = new Set(selectedRows);
+    if (checked) {
+      newSelection.add(companyId);
+    } else {
+      newSelection.delete(companyId);
+    }
+    setSelectedRows(newSelection);
+  };
+
+  // Download flow handlers
+  const handleDownloadClick = () => {
+    setShowDownloadTypeDialog(true);
+  };
+
+  const handleSelectDownloadAll = () => {
+    setDownloadType('all');
+    setShowDownloadTypeDialog(false);
+    setShowFormatDialog(true);
+  };
+
+  const handleSelectDownloadSelected = () => {
+    if (selectedRows.size === 0) {
+      toast.error('Please select at least one company to export');
+      return;
+    }
+    setDownloadType('selected');
+    setShowDownloadTypeDialog(false);
+    setShowFormatDialog(true);
+  };
+
+  const handleSelectXLSX = () => {
+    setExportFormat('xlsx');
+    setShowFormatDialog(false);
+    setShowDisclaimerDialog(true);
+  };
+
+  const handleSelectCSV = () => {
+    setExportFormat('csv');
+    setShowFormatDialog(false);
+    setShowDisclaimerDialog(true);
+  };
+
+  const handleBackToDownloadType = () => {
+    setShowFormatDialog(false);
+    setShowDownloadTypeDialog(true);
+  };
+
+  const handleBackToFormat = () => {
+    setShowDisclaimerDialog(false);
+    setShowFormatDialog(true);
+  };
+
+  // Actual export handler
+  const handleConfirmedExport = async () => {
+    if (!user?.email) {
+      toast.error('User email not found');
+      return;
+    }
+
+    try {
+      setIsExporting(true);
+      toast.info('Preparing your export...');
+
+      // Determine which data to export
+      const dataToExport = downloadType === 'all'
+        ? filteredAndSortedCompanies
+        : filteredAndSortedCompanies.filter(c => selectedRows.has(c.id));
+
+      if (dataToExport.length === 0) {
+        toast.error('No data to export');
+        return;
+      }
+
+      // Generate filename
+      const scopeName = downloadType === 'all' ? 'All_Filtered' : 'Selected';
+      const filename = generateExportFilename(exportFormat, scopeName);
+
+      // Export based on format
+      if (exportFormat === 'xlsx') {
+        exportToXLSX(dataToExport, filename);
+      } else {
+        exportToCSV(dataToExport, filename);
+      }
+
+      // Log the export
+      try {
+        const ipInfo = await getIPInfo();
+        await supabase.from('download_logs').insert({
+          user_id: user.id,
+          user_email: user.email,
+          document_type: 'data_export',
+          document_title: `GCC Companies Export (${exportFormat.toUpperCase()})`,
+          plan_name: 'L1 List',
+          export_scope: downloadType,
+          export_format: exportFormat,
+          row_count: dataToExport.length,
+          user_agent: navigator.userAgent,
+          ip_address: ipInfo?.ip || null,
+        });
+      } catch (logError) {
+        console.error('Failed to log export:', logError);
+      }
+
+      toast.success(`Successfully exported ${dataToExport.length} ${dataToExport.length === 1 ? 'company' : 'companies'}!`);
+      setShowDisclaimerDialog(false);
+
+      // Clear selection after export if it was a selected export
+      if (downloadType === 'selected') {
+        setSelectedRows(new Set());
+      }
+    } catch (error) {
+      console.error('Export error:', error);
+      toast.error(error instanceof Error ? error.message : 'Failed to export data');
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-12">
@@ -453,6 +599,19 @@ export function GCCCompaniesTable() {
             >
               <RefreshCcw className="h-4 w-4" />
               Reset filters
+            </Button>
+            <Button
+              variant="default"
+              onClick={handleDownloadClick}
+              className="gap-2 rounded-xl shadow-sm relative"
+            >
+              <Download className="h-4 w-4" />
+              Download Data
+              {selectedRows.size > 0 && (
+                <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
+                  {selectedRows.size}
+                </span>
+              )}
             </Button>
           </div>
         </div>
@@ -527,6 +686,15 @@ export function GCCCompaniesTable() {
           <Table className="min-w-[960px] text-sm">
             <TableHeader>
               <TableRow className="bg-slate-50/90 backdrop-blur sticky top-0 z-20">
+                <TableHead className="w-[50px] text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200">
+                  <div className="flex items-center justify-center">
+                    <Checkbox
+                      checked={currentCompanies.length > 0 && currentCompanies.every(c => selectedRows.has(c.id))}
+                      onCheckedChange={(checked) => handleSelectAll(checked === true)}
+                      aria-label="Select all companies on this page"
+                    />
+                  </div>
+                </TableHead>
                 <TableHead className="min-w-[250px] cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 transition hover:bg-slate-100" onClick={() => handleSort('account_global_legal_name')}>
                   <div className="flex items-center gap-1">
                     Account Global Legal Name {getSortIcon('account_global_legal_name')}
@@ -572,7 +740,7 @@ export function GCCCompaniesTable() {
             <TableBody>
               {currentCompanies.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={8} className="text-center py-8 text-slate-500">
+                  <TableCell colSpan={9} className="text-center py-8 text-slate-500">
                     No companies found matching your filters
                   </TableCell>
                 </TableRow>
@@ -581,7 +749,20 @@ export function GCCCompaniesTable() {
                   const logoDomain = getDomainFromWebsite(company.website);
 
                   return (
-                    <TableRow key={company.id} className="group border-b last:border-b-0 odd:bg-slate-50/40 hover:bg-slate-50/90 transition">
+                    <TableRow
+                      key={company.id}
+                      className={`group border-b last:border-b-0 odd:bg-slate-50/40 hover:bg-slate-50/90 transition ${selectedRows.has(company.id) ? 'bg-blue-50/30' : ''
+                        }`}
+                    >
+                      <TableCell className="py-3">
+                        <div className="flex items-center justify-center">
+                          <Checkbox
+                            checked={selectedRows.has(company.id)}
+                            onCheckedChange={(checked) => handleRowSelect(company.id, checked === true)}
+                            aria-label={`Select ${company.account_global_legal_name}`}
+                          />
+                        </div>
+                      </TableCell>
                       <TableCell className="py-3 font-medium text-slate-900">
                         <div className="flex items-center gap-3">
                           <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-slate-50 shadow-inner shadow-slate-100 flex items-center justify-center text-slate-400">
@@ -724,6 +905,34 @@ export function GCCCompaniesTable() {
         company={selectedCompany}
         open={detailViewOpen}
         onOpenChange={setDetailViewOpen}
+      />
+
+      {/* Export Dialogs */}
+      <DownloadTypeSelectionDialog
+        open={showDownloadTypeDialog}
+        onOpenChange={setShowDownloadTypeDialog}
+        onSelectAll={handleSelectDownloadAll}
+        onSelectSelected={handleSelectDownloadSelected}
+        totalCount={filteredAndSortedCompanies.length}
+        selectedCount={selectedRows.size}
+      />
+
+      <FormatSelectionDialog
+        open={showFormatDialog}
+        onOpenChange={setShowFormatDialog}
+        onSelectXLSX={handleSelectXLSX}
+        onSelectCSV={handleSelectCSV}
+        onBack={handleBackToDownloadType}
+      />
+
+      <DataExportDisclaimerDialog
+        open={showDisclaimerDialog}
+        onOpenChange={setShowDisclaimerDialog}
+        onConfirm={handleConfirmedExport}
+        onBack={handleBackToFormat}
+        exportCount={downloadType === 'all' ? filteredAndSortedCompanies.length : selectedRows.size}
+        exportFormat={exportFormat}
+        isExporting={isExporting}
       />
     </div>
   );
