@@ -49,7 +49,14 @@ export function DataExportDisclaimerDialog({
 
     return (
         <Dialog open={open} onOpenChange={handleOpenChange}>
-            <DialogContent className="sm:max-w-md">
+            <DialogContent className="sm:max-w-lg">
+                <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 font-semibold text-primary">
+                        Step 3 of 3
+                    </span>
+                    <span>License</span>
+                </div>
+
                 <DialogHeader>
                     <div className="flex items-center gap-3 mb-2">
                         <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -63,6 +70,17 @@ export function DataExportDisclaimerDialog({
                         </div>
                     </div>
                 </DialogHeader>
+
+                <div className="rounded-lg border bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
+                    <div className="flex items-center justify-between">
+                        <span>Records</span>
+                        <span className="font-semibold text-foreground">{exportCount.toLocaleString()}</span>
+                    </div>
+                    <div className="mt-1 flex items-center justify-between">
+                        <span>Format</span>
+                        <span className="font-semibold text-foreground">{exportFormat.toUpperCase()}</span>
+                    </div>
+                </div>
 
                 <div className="space-y-4 py-4">
                     {/* Important Notice */}

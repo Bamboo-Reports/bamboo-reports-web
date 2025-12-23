@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
-import { ArrowLeft, Download, FileText, Search, TrendingUp, Files, Award, Monitor, Smartphone, AlertTriangle, MapPin } from 'lucide-react';
+import { ArrowLeft, Download, FileText, Search, TrendingUp, Files, Award, Monitor, Smartphone, AlertTriangle, MapPin, Clock } from 'lucide-react';
 import { toast } from 'sonner';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -20,7 +20,7 @@ import {
 import { SecurityAlertDialog } from '../components/SecurityAlertDialog';
 import { generateDisclaimerPage } from '../utils/pdfDisclaimerGenerator';
 import { mergePDFWithDisclaimer, downloadPDF } from '../utils/pdfMerger';
-import { getIPInfo, formatLocation } from '../utils/ipUtils';
+import { getIPInfo } from '../utils/ipUtils';
 import { supabase } from '../lib/supabase';
 
 export default function DownloadHistory() {
@@ -311,59 +311,64 @@ export default function DownloadHistory() {
                             <div className="divide-y">
                                 {downloads.map((download) => {
                                     const deviceInfo = parseUserAgent(download.user_agent);
+                                    const deviceLabel = download.user_agent
+                                        ? `${deviceInfo.browser} on ${deviceInfo.os}`
+                                        : 'Device info unavailable';
+                                    const showMobileIcon = deviceInfo.device === 'Mobile' || deviceInfo.device === 'Tablet';
                                     return (
                                         <div
                                             key={download.id}
                                             className="p-4 sm:p-6 hover:bg-muted/50 transition-colors"
                                         >
-                                            <div className="flex items-start justify-between gap-4">
-                                                <div className="flex-1 min-w-0">
-                                                    <div className="flex items-center gap-2 mb-1.5">
+                                            <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                                                <div className="flex-1 min-w-0 space-y-3">
+                                                    <div className="flex items-center gap-2">
                                                         <FileText className="h-4 w-4 text-red-600 flex-shrink-0" />
                                                         <h3 className="font-medium text-sm truncate">{download.document_title}</h3>
                                                     </div>
-                                                    <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">{" "}
+                                                    <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                                                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
                                                             {download.plan_name}
                                                         </span>
-                                                        <span>•</span>
-                                                        <span>{formatDownloadDate(download.downloaded_at)}</span>
-                                                        {download.user_agent && (
-                                                            <>
-                                                                <span>•</span>
-                                                                <span className="inline-flex items-center gap-1">
-                                                                    {deviceInfo.device === 'Mobile' || deviceInfo.device === 'Tablet' ? (
-                                                                        <Smartphone className="h-3 w-3" />
-                                                                    ) : (
-                                                                        <Monitor className="h-3 w-3" />
-                                                                    )}
-                                                                    <span className="text-xs">{deviceInfo.browser} on {deviceInfo.os}</span>
-                                                                </span>
-                                                            </>
-                                                        )}
-                                                        {download.ip_address && (
-                                                            <>
-                                                                <span>•</span>
-                                                                <span className="inline-flex items-center gap-1">
-                                                                    <MapPin className="h-3 w-3" />
-                                                                    <span className="text-xs" title={download.ip_address}>
-                                                                        {download.ip_address}
-                                                                    </span>
-                                                                </span>
-                                                            </>
-                                                        )}
+                                                        <span className="inline-flex items-center gap-1">
+                                                            <Clock className="h-3 w-3" />
+                                                            <span>{formatDownloadDate(download.downloaded_at)}</span>
+                                                        </span>
                                                     </div>
                                                 </div>
-                                                <div className="flex gap-2 flex-shrink-0">
-                                                    <Button
-                                                        variant="ghost"
-                                                        size="sm"
-                                                        onClick={() => handleReportSuspicious(download)}
-                                                        className="text-red-600 hover:text-red-700 hover:bg-red-50"
-                                                        title="Report unauthorized access"
-                                                    >
-                                                        <AlertTriangle className="h-4 w-4" />
-                                                    </Button>
+                                                <div className="w-full lg:w-72 xl:w-80">
+                                                    <div className="rounded-lg border bg-muted/40 p-3">
+                                                        <div className="flex items-center justify-between text-xs font-semibold text-foreground">
+                                                            <span>Access details</span>
+                                                            <span className="text-[10px] uppercase tracking-wide text-muted-foreground">Logged</span>
+                                                        </div>
+                                                        <div className="mt-3 space-y-2 text-xs text-muted-foreground">
+                                                            <div className="flex items-center gap-2">
+                                                                {showMobileIcon ? (
+                                                                    <Smartphone className="h-3.5 w-3.5" />
+                                                                ) : (
+                                                                    <Monitor className="h-3.5 w-3.5" />
+                                                                )}
+                                                                <span>{deviceLabel}</span>
+                                                            </div>
+                                                            <div className="flex items-center gap-2">
+                                                                <MapPin className="h-3.5 w-3.5" />
+                                                                <span className="truncate" title={download.ip_address || undefined}>
+                                                                    {download.ip_address || 'IP address unavailable'}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <Button
+                                                            variant="ghost"
+                                                            size="sm"
+                                                            onClick={() => handleReportSuspicious(download)}
+                                                            className="mt-3 w-full justify-center gap-2 text-red-600 hover:text-red-700 hover:bg-red-50"
+                                                            title="Report unauthorized access"
+                                                        >
+                                                            <AlertTriangle className="h-4 w-4" />
+                                                            Report issue
+                                                        </Button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

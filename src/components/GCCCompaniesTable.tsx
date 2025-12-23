@@ -921,6 +921,8 @@ export function GCCCompaniesTable() {
         onSelectXLSX={handleSelectXLSX}
         onSelectCSV={handleSelectCSV}
         onBack={handleBackToDownloadType}
+        exportCount={downloadType === 'all' ? filteredAndSortedCompanies.length : selectedRows.size}
+        exportScopeLabel={downloadType === 'all' ? 'filtered companies' : 'selected companies'}
       />
 
       <DataExportDisclaimerDialog
