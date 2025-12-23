@@ -4,7 +4,7 @@ export interface DownloadLog {
     id: string;
     user_id: string;
     user_email: string;
-    document_id: string;
+    document_id: string | null;
     document_title: string;
     plan_name: string;
     downloaded_at: string;
@@ -14,11 +14,8 @@ export interface DownloadLog {
 
 export interface DownloadStats {
     totalDownloads: number;
-    uniqueDocuments: number;
-    mostDownloaded: {
-        title: string;
-        count: number;
-    } | null;
+    totalReports: number;
+    totalExports: number;
 }
 
 /**
@@ -88,43 +85,14 @@ export async function fetchDownloadHistory(
  * Calculate download statistics
  */
 export function calculateDownloadStats(downloads: DownloadLog[]): DownloadStats {
-    if (downloads.length === 0) {
-        return {
-            totalDownloads: 0,
-            uniqueDocuments: 0,
-            mostDownloaded: null,
-        };
-    }
-
-    // Total downloads
     const totalDownloads = downloads.length;
-
-    // Unique documents
-    const uniqueDocIds = new Set(downloads.map((d) => d.document_id));
-    const uniqueDocuments = uniqueDocIds.size;
-
-    // Most downloaded document
-    const downloadCounts = downloads.reduce(
-        (acc, download) => {
-            const key = download.document_id;
-            if (!acc[key]) {
-                acc[key] = { title: download.document_title, count: 0 };
-            }
-            acc[key].count++;
-            return acc;
-        },
-        {} as Record<string, { title: string; count: number }>
-    );
-
-    const mostDownloaded = Object.values(downloadCounts).reduce(
-        (max, current) => (current.count > (max?.count || 0) ? current : max),
-        null as { title: string; count: number } | null
-    );
+    const totalExports = downloads.filter((download) => !download.document_id).length;
+    const totalReports = totalDownloads - totalExports;
 
     return {
         totalDownloads,
-        uniqueDocuments,
-        mostDownloaded,
+        totalReports,
+        totalExports,
     };
 }
 

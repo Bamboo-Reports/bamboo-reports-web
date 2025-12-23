@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
-import { ArrowLeft, Download, FileText, Search, TrendingUp, Award, Monitor, Smartphone, AlertTriangle, MapPin, Clock } from 'lucide-react';
+import { ArrowLeft, Download, FileText, Search, TrendingUp, Monitor, Smartphone, AlertTriangle, MapPin, Clock } from 'lucide-react';
 import { toast } from 'sonner';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -199,7 +199,7 @@ export default function DownloadHistory() {
 
                     {/* Stats Cards */}
                     {!isLoading && downloads.length > 0 && (
-                        <div className="grid gap-4 md:grid-cols-2 mb-6">
+                        <div className="grid gap-4 md:grid-cols-3 mb-6">
                             <Card>
                                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                     <CardTitle className="text-sm font-medium">Total Downloads</CardTitle>
@@ -213,16 +213,23 @@ export default function DownloadHistory() {
 
                             <Card>
                                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                    <CardTitle className="text-sm font-medium">Most Accessed Item</CardTitle>
-                                    <Award className="h-4 w-4 text-muted-foreground" />
+                                    <CardTitle className="text-sm font-medium">Total Reports</CardTitle>
+                                    <FileText className="h-4 w-4 text-muted-foreground" />
                                 </CardHeader>
                                 <CardContent>
-                                    <div className="text-sm font-bold truncate">
-                                        {stats.mostDownloaded?.title || '-'}
-                                    </div>
-                                    <p className="text-xs text-muted-foreground">
-                                        {stats.mostDownloaded ? `${stats.mostDownloaded.count} times` : 'No activity yet'}
-                                    </p>
+                                    <div className="text-2xl font-bold">{stats.totalReports}</div>
+                                    <p className="text-xs text-muted-foreground">Report downloads</p>
+                                </CardContent>
+                            </Card>
+
+                            <Card>
+                                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                    <CardTitle className="text-sm font-medium">Total Data Exports</CardTitle>
+                                    <Download className="h-4 w-4 text-muted-foreground" />
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="text-2xl font-bold">{stats.totalExports}</div>
+                                    <p className="text-xs text-muted-foreground">Explorer exports</p>
                                 </CardContent>
                             </Card>
                         </div>
