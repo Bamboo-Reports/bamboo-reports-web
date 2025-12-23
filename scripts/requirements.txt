@@ -7,6 +7,10 @@ supabase==2.3.4
 pandas==2.1.4
 openpyxl==3.1.2  # For Excel file support
 
+# Google Sheets API
+gspread==6.0.0
+google-auth==2.25.2
+
 # Environment variables
 python-dotenv==1.0.0
 
