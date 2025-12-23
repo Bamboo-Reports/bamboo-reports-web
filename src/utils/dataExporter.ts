@@ -22,6 +22,13 @@ interface GCCCompany {
     updated_at?: string;
 }
 
+interface ExportDisclaimerOptions {
+    licenseeEmail?: string;
+    scopeLabel?: string;
+    recordCount?: number;
+    exportSource?: string;
+}
+
 /**
  * Format company data for export with human-readable column names
  */
@@ -59,13 +66,38 @@ export function generateExportFilename(format: 'xlsx' | 'csv', scope: string): s
 /**
  * Export company data to XLSX format
  */
-export function exportToXLSX(data: GCCCompany[], filename: string): void {
+export function exportToXLSX(
+    data: GCCCompany[],
+    filename: string,
+    options?: ExportDisclaimerOptions
+): void {
     try {
         // Format the data
         const formattedData = formatCompanyDataForExport(data);
+        const exportDate = new Date();
+        const recordCount = options?.recordCount ?? data.length;
+        const scopeLabel = options?.scopeLabel ?? 'All Filtered';
+        const exportSource = options?.exportSource ?? 'Bamboo Reports - L1 List';
+        const licenseeEmail = options?.licenseeEmail ?? 'Authorized user';
 
         // Create a new workbook
         const workbook = XLSX.utils.book_new();
+
+        // Create disclaimer sheet (first tab)
+        const disclaimer = [
+            {
+                Field: 'Notice',
+                Value: 'This data export is licensed for your personal use only. Unauthorized sharing, distribution, or commercial use is prohibited.',
+            },
+            { Field: 'Exported By', Value: licenseeEmail },
+            { Field: 'Export Date', Value: exportDate.toLocaleString() },
+            { Field: 'Scope', Value: scopeLabel },
+            { Field: 'Records', Value: recordCount },
+            { Field: 'Source', Value: exportSource },
+        ];
+        const disclaimerSheet = XLSX.utils.json_to_sheet(disclaimer);
+        disclaimerSheet['!cols'] = [{ wch: 20 }, { wch: 110 }];
+        XLSX.utils.book_append_sheet(workbook, disclaimerSheet, 'Disclaimer');
 
         // Create the main data worksheet
         const worksheet = XLSX.utils.json_to_sheet(formattedData);
@@ -86,13 +118,19 @@ export function exportToXLSX(data: GCCCompany[], filename: string): void {
 
         // Create a metadata sheet
         const metadata = [
-            { Field: 'Export Date', Value: new Date().toLocaleString() },
-            { Field: 'Total Records', Value: data.length },
-            { Field: 'Source', Value: 'Bamboo Reports - L1 List' },
+            { Field: 'Export Date', Value: exportDate.toLocaleString() },
+            { Field: 'Total Records', Value: recordCount },
+            { Field: 'Scope', Value: scopeLabel },
+            { Field: 'Licensee', Value: licenseeEmail },
+            { Field: 'Source', Value: exportSource },
             { Field: 'Format', Value: 'XLSX' },
         ];
         const metadataSheet = XLSX.utils.json_to_sheet(metadata);
         XLSX.utils.book_append_sheet(workbook, metadataSheet, 'Export Info');
+
+        workbook.Workbook = {
+            Views: [{ activeTab: 0 }],
+        };
 
         // Generate the file and trigger download
         XLSX.writeFile(workbook, filename);

@@ -97,6 +97,12 @@ export function DataExportDisclaimerDialog({
                         </div>
                     </div>
 
+                    <div className="text-xs text-muted-foreground">
+                        {exportFormat === 'xlsx'
+                            ? 'Your XLSX export includes a Disclaimer sheet as the first tab.'
+                            : 'CSV exports are delivered as raw data; keep this confirmation for compliance.'}
+                    </div>
+
                     {/* Terms Acknowledgment */}
                     <div className="flex items-start space-x-3 p-4 bg-muted/50 rounded-lg border">
                         <Checkbox
