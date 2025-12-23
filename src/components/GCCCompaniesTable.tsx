@@ -485,11 +485,17 @@ export function GCCCompaniesTable() {
 
       // Generate filename
       const scopeName = downloadType === 'all' ? 'All_Filtered' : 'Selected';
+      const scopeLabel = downloadType === 'all' ? 'All Filtered Companies' : 'Selected Companies';
       const filename = generateExportFilename(exportFormat, scopeName);
 
       // Export based on format
       if (exportFormat === 'xlsx') {
-        exportToXLSX(dataToExport, filename);
+        exportToXLSX(dataToExport, filename, {
+          licenseeEmail: user.email,
+          scopeLabel,
+          recordCount: dataToExport.length,
+          exportSource: 'Bamboo Reports - GCC Explorer',
+        });
       } else {
         exportToCSV(dataToExport, filename);
       }
@@ -921,6 +927,8 @@ export function GCCCompaniesTable() {
         onSelectXLSX={handleSelectXLSX}
         onSelectCSV={handleSelectCSV}
         onBack={handleBackToDownloadType}
+        exportCount={downloadType === 'all' ? filteredAndSortedCompanies.length : selectedRows.size}
+        exportScopeLabel={downloadType === 'all' ? 'filtered companies' : 'selected companies'}
       />
 
       <DataExportDisclaimerDialog
