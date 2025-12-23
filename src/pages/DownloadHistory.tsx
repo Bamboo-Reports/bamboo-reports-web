@@ -364,15 +364,18 @@ export default function DownloadHistory() {
                                                     >
                                                         <AlertTriangle className="h-4 w-4" />
                                                     </Button>
-                                                    <Button
-                                                        variant="outline"
-                                                        size="sm"
-                                                        onClick={() => handleRedownload(download)}
-                                                        disabled={redownloadingId === download.id}
-                                                    >
-                                                        <Download className="h-4 w-4 mr-2" />
-                                                        {redownloadingId === download.id ? 'Downloading...' : 'Download'}
-                                                    </Button>
+                                                    {/* Only show download button for PDF documents, not data exports */}
+                                                    {download.document_id && (
+                                                        <Button
+                                                            variant="outline"
+                                                            size="sm"
+                                                            onClick={() => handleRedownload(download)}
+                                                            disabled={redownloadingId === download.id}
+                                                        >
+                                                            <Download className="h-4 w-4 mr-2" />
+                                                            {redownloadingId === download.id ? 'Downloading...' : 'Download'}
+                                                        </Button>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>
