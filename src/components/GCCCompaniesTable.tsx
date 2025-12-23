@@ -500,12 +500,9 @@ export function GCCCompaniesTable() {
         await supabase.from('download_logs').insert({
           user_id: user.id,
           user_email: user.email,
-          document_type: 'data_export',
-          document_title: `GCC Companies Export (${exportFormat.toUpperCase()})`,
-          plan_name: 'L1 List',
-          export_scope: downloadType,
-          export_format: exportFormat,
-          row_count: dataToExport.length,
+          document_id: `gcc-export-${Date.now()}`, // Unique ID for this export
+          document_title: `GCC Companies Export - ${downloadType === 'all' ? 'All Filtered' : 'Selected'} (${exportFormat.toUpperCase()}) - ${dataToExport.length} records`,
+          plan_name: 'Explorer',
           user_agent: navigator.userAgent,
           ip_address: ipInfo?.ip || null,
         });
