@@ -43,38 +43,38 @@ export function FormatSelectionDialog({
 
                 <div className="space-y-3 py-4">
                     {/* XLSX Option */}
-                    <Button
-                        variant="outline"
-                        className="w-full h-auto flex items-start gap-3 p-4 hover:bg-primary/5 hover:border-primary transition-all"
+                    <button
+                        type="button"
+                        className="w-full flex items-start gap-3 p-4 rounded-lg border-2 border-slate-200 bg-white hover:bg-slate-50 hover:border-primary transition-all cursor-pointer"
                         onClick={onSelectXLSX}
                     >
                         <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
                             <FileSpreadsheet className="h-5 w-5 text-emerald-600" />
                         </div>
                         <div className="flex-1 text-left">
-                            <div className="font-semibold text-sm mb-1">Excel (XLSX)</div>
-                            <div className="text-xs text-muted-foreground">
+                            <div className="font-semibold text-sm mb-1 text-slate-900">Excel (XLSX)</div>
+                            <div className="text-xs text-slate-600">
                                 Recommended format with metadata sheet and auto-sized columns
                             </div>
                         </div>
-                    </Button>
+                    </button>
 
                     {/* CSV Option */}
-                    <Button
-                        variant="outline"
-                        className="w-full h-auto flex items-start gap-3 p-4 hover:bg-primary/5 hover:border-primary transition-all"
+                    <button
+                        type="button"
+                        className="w-full flex items-start gap-3 p-4 rounded-lg border-2 border-slate-200 bg-white hover:bg-slate-50 hover:border-primary transition-all cursor-pointer"
                         onClick={onSelectCSV}
                     >
                         <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                             <FileText className="h-5 w-5 text-blue-600" />
                         </div>
                         <div className="flex-1 text-left">
-                            <div className="font-semibold text-sm mb-1">CSV (Comma-Separated)</div>
-                            <div className="text-xs text-muted-foreground">
+                            <div className="font-semibold text-sm mb-1 text-slate-900">CSV (Comma-Separated)</div>
+                            <div className="text-xs text-slate-600">
                                 Universal format, compatible with all spreadsheet software
                             </div>
                         </div>
-                    </Button>
+                    </button>
                 </div>
 
                 <DialogFooter className="flex-col sm:flex-row gap-2">

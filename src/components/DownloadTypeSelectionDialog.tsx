@@ -45,26 +45,26 @@ export function DownloadTypeSelectionDialog({
 
                 <div className="space-y-3 py-4">
                     {/* Download All Option */}
-                    <Button
-                        variant="outline"
-                        className="w-full h-auto flex items-start gap-3 p-4 hover:bg-primary/5 hover:border-primary transition-all"
+                    <button
+                        type="button"
+                        className="w-full flex items-start gap-3 p-4 rounded-lg border-2 border-slate-200 bg-white hover:bg-slate-50 hover:border-primary transition-all cursor-pointer"
                         onClick={onSelectAll}
                     >
                         <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                             <Download className="h-5 w-5 text-blue-600" />
                         </div>
                         <div className="flex-1 text-left">
-                            <div className="font-semibold text-sm mb-1">Download All Filtered</div>
-                            <div className="text-xs text-muted-foreground">
+                            <div className="font-semibold text-sm mb-1 text-slate-900">Download All Filtered</div>
+                            <div className="text-xs text-slate-600">
                                 Export all {totalCount.toLocaleString()} companies matching current filters
                             </div>
                         </div>
-                    </Button>
+                    </button>
 
                     {/* Download Selected Option */}
-                    <Button
-                        variant="outline"
-                        className="w-full h-auto flex items-start gap-3 p-4 hover:bg-primary/5 hover:border-primary transition-all disabled:opacity-50"
+                    <button
+                        type="button"
+                        className="w-full flex items-start gap-3 p-4 rounded-lg border-2 border-slate-200 bg-white hover:bg-slate-50 hover:border-primary transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-slate-200"
                         onClick={onSelectSelected}
                         disabled={selectedCount === 0}
                     >
@@ -72,14 +72,14 @@ export function DownloadTypeSelectionDialog({
                             <ListChecks className="h-5 w-5 text-emerald-600" />
                         </div>
                         <div className="flex-1 text-left">
-                            <div className="font-semibold text-sm mb-1">Download Selected</div>
-                            <div className="text-xs text-muted-foreground">
+                            <div className="font-semibold text-sm mb-1 text-slate-900">Download Selected</div>
+                            <div className="text-xs text-slate-600">
                                 {selectedCount === 0
                                     ? 'No companies selected'
                                     : `Export ${selectedCount.toLocaleString()} selected ${selectedCount === 1 ? 'company' : 'companies'}`}
                             </div>
                         </div>
-                    </Button>
+                    </button>
                 </div>
 
                 <DialogFooter>
