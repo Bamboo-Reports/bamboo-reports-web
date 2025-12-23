@@ -497,10 +497,14 @@ export function GCCCompaniesTable() {
       // Log the export
       try {
         const ipInfo = await getIPInfo();
+        // Use fixed document_id that references the placeholder entry in plan_documents
+        // This placeholder must be created in Supabase first (see add-data-export-placeholder.sql)
+        const DATA_EXPORT_DOCUMENT_ID = '00000000-0000-0000-0000-000000000001';
+
         await supabase.from('download_logs').insert({
           user_id: user.id,
           user_email: user.email,
-          document_id: `gcc-export-${Date.now()}`, // Unique ID for this export
+          document_id: DATA_EXPORT_DOCUMENT_ID,
           document_title: `GCC Companies Export - ${downloadType === 'all' ? 'All Filtered' : 'Selected'} (${exportFormat.toUpperCase()}) - ${dataToExport.length} records`,
           plan_name: 'Explorer',
           user_agent: navigator.userAgent,
