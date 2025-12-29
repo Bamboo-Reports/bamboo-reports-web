@@ -263,7 +263,7 @@ export async function generateDisclaimerPage(data: DisclaimerData): Promise<Uint
 
   // Footer
   y = margin + 30;
-  const footerText = 'Confidential Document | Bamboo Reports Ac 2024';
+  const footerText = 'Confidential Document | Bamboo Reports';
   const footerSize = 9;
   const footerWidth = regularFont.widthOfTextAtSize(footerText, footerSize);
   page.drawText(footerText, {
