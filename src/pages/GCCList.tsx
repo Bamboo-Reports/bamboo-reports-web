@@ -1,10 +1,25 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Search, X, TrendingUp, Building2, Rocket, Loader2 } from "lucide-react";
+import { Search, X, TrendingUp, Building2, Rocket, Loader2, ChevronRight, Lock, ChevronLeft, RefreshCcw, Filter, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
 
@@ -83,6 +98,8 @@ const GCCList = () => {
     keywords: "India GCC Database, GCC Intelligence India, India GCC list, Global Capability Centers India, GCC contact database India, India GCC Intelligence, GTM Intelligence India, India GCC data, GCC market intelligence India, Global Capability Centers database India, India GCC companies, GCC India contact list",
     canonicalUrl: "https://www.bambooreports.com/gcc-list",
   });
+
+  const navigate = useNavigate();
   const [data, setData] = useState<CSVRow[]>([]);
   const [columns, setColumns] = useState<string[]>([]);
   const [page, setPage] = useState(1);
@@ -91,6 +108,8 @@ const GCCList = () => {
   const [facets, setFacets] = useState<FacetMap>({});
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [showPricingDialog, setShowPricingDialog] = useState(false);
+  const [selectedCompany, setSelectedCompany] = useState<CSVRow | null>(null);
 
   const parseCSV = (text: string) => {
     const rows: string[][] = [];
@@ -265,6 +284,11 @@ const GCCList = () => {
     setPage(1);
   };
 
+  const handleCompanyClick = (company: CSVRow) => {
+    setSelectedCompany(company);
+    setShowPricingDialog(true);
+  };
+
   const triggerDownload = useCallback(() => {
     const rows = data;
     if (!rows.length) {
@@ -399,7 +423,7 @@ const GCCList = () => {
           </div>
 
           {/* Table */}
-          <div id="gcc-table">
+          <div id="gcc-table" className="space-y-6">
             {loading ? (
               <div className="flex flex-col items-center justify-center py-20 space-y-4">
                 <Loader2 className="w-12 h-12 text-primary animate-spin" />
@@ -407,155 +431,216 @@ const GCCList = () => {
                 <div className="text-sm text-muted-foreground">Please wait while we fetch the latest data</div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl border shadow-sm overflow-hidden">
-                {/* Controls */}
-                <div className="p-4 border-b grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-center">
-                  <div className="flex items-center gap-3">
+              <>
+                {/* Filters Card */}
+                <div className="rounded-2xl border border-slate-200/80 bg-gradient-to-br from-slate-50 to-white p-6 shadow-sm space-y-4">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="inline-flex items-center gap-2 text-sm font-semibold text-slate-800">
+                      <Filter className="h-4 w-4 text-slate-500" />
+                      Refine companies
+                    </div>
+                    <div className="text-xs text-slate-500">
+                      Showing {filteredData.length.toLocaleString()} of {data.length.toLocaleString()} companies
+                    </div>
+                  </div>
+
+                  {/* Search and Clear */}
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                     <div className="relative flex-1">
-                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                       <input
                         type="text"
-                        placeholder="Search Account or City"
+                        placeholder="Search by Account or City..."
                         value={nameSearch}
                         onChange={(e) => {
                           setNameSearch(e.target.value);
                           setPage(1);
                         }}
-                        className="w-full pl-10 pr-4 py-2 border rounded-lg text-sm"
+                        className="h-11 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 text-sm shadow-inner shadow-slate-100"
                       />
                     </div>
-                    <button
+                    <Button
+                      variant="outline"
                       onClick={handleClearFilters}
-                      className="ml-auto md:ml-0 px-4 py-2 border border-blue-600 text-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-50"
+                      className="gap-2 rounded-xl border-slate-200 bg-white text-slate-700 shadow-sm hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
                     >
-                      Clear
-                    </button>
+                      <RefreshCcw className="h-4 w-4" />
+                      Reset filters
+                    </Button>
                   </div>
-                  <div className="hidden md:block" />
-                </div>
 
-                {/* Filters */}
-                <div className="p-4 border-b flex flex-wrap gap-4">
-                  {facetCols.map(col => {
-                    if (!columns.includes(col)) return null;
-                    const options = optionSetForFacet(col);
-                    return (
-                      <div key={col} className="flex gap-2 items-center">
-                        <label className="text-xs text-muted-foreground whitespace-nowrap">
-                          {col}
-                        </label>
-                        <select
-                          value={facets[col] || ""}
-                          onChange={(e) => {
-                            setFacets({ ...facets, [col]: e.target.value });
-                            setPage(1);
-                          }}
-                          className="px-3 py-1.5 border rounded-lg text-sm"
-                        >
-                          <option value="">All</option>
-                          {options.map((opt: string) => (
-                            <option key={opt} value={opt}>{opt}</option>
-                          ))}
-                        </select>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Data table */}
-                <div className="overflow-auto">
-                  <table className="w-full text-sm">
-                    <thead className="bg-slate-50 sticky top-0">
-                      <tr>
-                        {columns.filter(col => col !== "Website").map(col => (
-                          <th key={col} className="p-3 text-left border-b font-medium uppercase text-xs tracking-wide">
+                  {/* Dropdown Filters */}
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+                    {facetCols.map(col => {
+                      if (!columns.includes(col)) return null;
+                      const options = optionSetForFacet(col);
+                      return (
+                        <div key={col} className="space-y-1.5">
+                          <label className="text-xs font-semibold uppercase tracking-wide text-gray-600">
                             {col}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {currentPageData.length === 0 ? (
-                        <tr>
-                          <td colSpan={columns.length} className="p-8 text-center text-muted-foreground">
-                            No results.
-                          </td>
-                        </tr>
-                      ) : (
-                        currentPageData.map((row: CSVRow, idx: number) => {
-                          const logoDomain = getDomainFromWebsite(row["Website"]);
-                          return (
-                            <tr key={idx} className="hover:bg-slate-50">
-                              {columns.filter(col => col !== "Website").map((col: string) => (
-                                <td key={col} className="p-3 border-b">
-                                  {col === "Account Global Legal Name" ? (
-                                    <div className="flex items-center gap-3">
-                                      <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-slate-50 shadow-inner shadow-slate-100 flex items-center justify-center text-slate-400">
-                                        <Building2 className="h-4 w-4" />
-                                        {logoDomain && (
-                                          <img
-                                            src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}&format=jpg&size=180`}
-                                            alt={`${row[col]} logo`}
-                                            loading="lazy"
-                                            onError={(e) => {
-                                              e.currentTarget.style.display = 'none';
-                                            }}
-                                            className="absolute inset-0 h-full w-full object-cover p-1"
-                                          />
-                                        )}
+                          </label>
+                          <select
+                            value={facets[col] || ""}
+                            onChange={(e) => {
+                              setFacets({ ...facets, [col]: e.target.value });
+                              setPage(1);
+                            }}
+                            className="w-full h-10 rounded-xl border border-slate-200 bg-white px-3 text-sm shadow-inner shadow-slate-100"
+                          >
+                            <option value="">All</option>
+                            {options.map((opt: string) => (
+                              <option key={opt} value={opt}>{opt}</option>
+                            ))}
+                          </select>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Results count */}
+                  <div className="text-sm text-gray-600 pt-2 border-t">
+                    Showing {filteredData.length === 0 ? 0 : startIdx + 1}-{endIdx} of {filteredData.length} companies
+                  </div>
+                </div>
+
+                {/* Table Card */}
+                <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-md">
+                  <div className="overflow-auto max-h-[500px]">
+                    <Table className="min-w-[960px] text-sm">
+                      <TableHeader>
+                        <TableRow className="bg-slate-50/90 backdrop-blur sticky top-0 z-20">
+                          {columns.filter(col => col !== "Website").map(col => (
+                            <TableHead key={col} className="min-w-[120px] text-xs font-semibold uppercase tracking-wide text-slate-600 border-b border-slate-200 py-4">
+                              {col}
+                            </TableHead>
+                          ))}
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {currentPageData.length === 0 ? (
+                          <TableRow>
+                            <TableCell colSpan={columns.filter(col => col !== "Website").length} className="text-center py-8 text-slate-500">
+                              No companies found matching your filters
+                            </TableCell>
+                          </TableRow>
+                        ) : (
+                          currentPageData.map((row: CSVRow, idx: number) => {
+                            const logoDomain = getDomainFromWebsite(row["Website"]);
+                            return (
+                              <TableRow
+                                key={idx}
+                                className="group border-b last:border-b-0 odd:bg-slate-50/40 hover:bg-slate-50/90 transition cursor-pointer"
+                                onClick={() => handleCompanyClick(row)}
+                              >
+                                {columns.filter(col => col !== "Website").map((col: string) => (
+                                  <TableCell key={col} className="py-3 text-slate-700">
+                                    {col === "Account Global Legal Name" ? (
+                                      <div className="flex items-center gap-3">
+                                        <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-slate-50 shadow-inner shadow-slate-100 flex items-center justify-center text-slate-400">
+                                          <Building2 className="h-4 w-4" />
+                                          {logoDomain && (
+                                            <img
+                                              src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}&format=jpg&size=180`}
+                                              alt={`${row[col]} logo`}
+                                              loading="lazy"
+                                              onError={(e) => {
+                                                e.currentTarget.style.display = 'none';
+                                              }}
+                                              className="absolute inset-0 h-full w-full object-cover p-1"
+                                            />
+                                          )}
+                                        </div>
+                                        <span className="inline-flex items-center gap-2 font-medium text-slate-900 transition hover:text-slate-800">
+                                          {row[col] ?? ""}
+                                          <ChevronRight className="h-4 w-4 text-slate-400 opacity-0 translate-x-[-2px] transition duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
+                                        </span>
                                       </div>
-                                      <span>{row[col] ?? ""}</span>
-                                    </div>
-                                  ) : (
-                                    row[col] ?? ""
-                                  )}
-                                </td>
-                              ))}
-                            </tr>
-                          );
-                        })
-                      )}
-                    </tbody>
-                  </table>
+                                    ) : col === "HQ Country" ? (
+                                      row[col] ? (
+                                        <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
+                                          {row[col]}
+                                        </span>
+                                      ) : (
+                                        <span className="text-slate-400">-</span>
+                                      )
+                                    ) : col === "HQ Primary Nature" ? (
+                                      row[col] ? (
+                                        <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-100">
+                                          {row[col]}
+                                        </span>
+                                      ) : (
+                                        <span className="text-slate-400">-</span>
+                                      )
+                                    ) : col === "HQ Revenue Range" ? (
+                                      row[col] ? (
+                                        <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-100">
+                                          {row[col]}
+                                        </span>
+                                      ) : (
+                                        <span className="text-slate-400">-</span>
+                                      )
+                                    ) : col === "City" ? (
+                                      row[col] ? (
+                                        <span className="inline-flex items-center rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 ring-1 ring-sky-100">
+                                          {row[col]}
+                                        </span>
+                                      ) : (
+                                        <span className="text-slate-400">-</span>
+                                      )
+                                    ) : col === "Center Type" ? (
+                                      row[col] ? (
+                                        <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-100">
+                                          {row[col]}
+                                        </span>
+                                      ) : (
+                                        <span className="text-slate-400">-</span>
+                                      )
+                                    ) : (
+                                      row[col] || <span className="text-slate-400">-</span>
+                                    )}
+                                  </TableCell>
+                                ))}
+                              </TableRow>
+                            );
+                          })
+                        )}
+                      </TableBody>
+                    </Table>
+                  </div>
                 </div>
 
                 {/* Pagination */}
-                <div className="p-4 border-t flex flex-wrap gap-4 justify-between items-center">
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setPage(1)}
-                      disabled={currentPage === 1}
-                      className="px-3 py-1.5 border rounded-lg text-sm disabled:opacity-50"
-                    >
-                      First
-                    </button>
-                    <button
-                      onClick={() => setPage(p => Math.max(1, p - 1))}
-                      disabled={currentPage === 1}
-                      className="px-3 py-1.5 border rounded-lg text-sm disabled:opacity-50"
-                    >
-                      Prev
-                    </button>
-                    <span className="px-3 py-1.5 text-sm">
-                      Page {currentPage} of {totalPages} • {filteredData.length === 0 ? 0 : startIdx + 1}-{endIdx} of {filteredData.length}
-                    </span>
-                    <button
-                      onClick={() => setPage(p => Math.min(totalPages, p + 1))}
-                      disabled={currentPage === totalPages}
-                      className="px-3 py-1.5 border rounded-lg text-sm disabled:opacity-50"
-                    >
-                      Next
-                    </button>
-                    <button
-                      onClick={() => setPage(totalPages)}
-                      disabled={currentPage === totalPages}
-                      className="px-3 py-1.5 border rounded-lg text-sm disabled:opacity-50"
-                    >
-                      Last
-                    </button>
+                <div className="flex items-center justify-between rounded-xl border border-slate-200/80 bg-white px-4 py-3 shadow-sm">
+                  <Button
+                    variant="outline"
+                    onClick={() => setPage(p => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                    className="gap-2 rounded-lg"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                    Previous
+                  </Button>
+
+                  <div className="flex items-center gap-4">
+                    <div className="text-sm text-gray-600">
+                      Page {currentPage} of {totalPages || 1}
+                    </div>
+                    <div className="text-sm text-gray-500">
+                      {filteredData.length === 0 ? 0 : startIdx + 1}-{endIdx} of {filteredData.length} companies
+                    </div>
                   </div>
+
+                  <Button
+                    variant="outline"
+                    onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages || totalPages === 0}
+                    className="gap-2 rounded-lg"
+                  >
+                    Next
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
                 </div>
-              </div>
+              </>
             )}
           </div>
 
@@ -591,6 +676,48 @@ const GCCList = () => {
           </div>
         </div>
       </main>
+
+      {/* Pricing Dialog */}
+      <Dialog open={showPricingDialog} onOpenChange={setShowPricingDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-amber-100 to-orange-100">
+              <Lock className="h-8 w-8 text-amber-600" />
+            </div>
+            <DialogTitle className="text-center text-xl">
+              Unlock Full Company Details
+            </DialogTitle>
+            <DialogDescription className="text-center pt-2">
+              {selectedCompany && (
+                <span className="block font-semibold text-slate-800 mb-3">
+                  {selectedCompany["Account Global Legal Name"]}
+                </span>
+              )}
+              <span className="text-slate-600">
+                To view more details about this company and access our complete GCC database with advanced insights, please purchase one of our plans.
+              </span>
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex flex-col gap-3 mt-4">
+            <Button
+              onClick={() => {
+                setShowPricingDialog(false);
+                navigate("/pricing");
+              }}
+              className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold py-3 rounded-xl shadow-lg"
+            >
+              View Pricing
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => setShowPricingDialog(false)}
+              className="w-full rounded-xl"
+            >
+              Maybe Later
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Modal */}
       {showModal && (
