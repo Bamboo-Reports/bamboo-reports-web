@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
 
-const CSV_URL = "https://files.catbox.moe/81e8i9.csv";
+const CSV_URL = "https://files.catbox.moe/9iaq9z.csv";
 const CACHE_KEY = "gcc_data_cache";
 const CACHE_VERSION = "v2";
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
