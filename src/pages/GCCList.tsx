@@ -6,6 +6,20 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
 
+const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
+
+const getDomainFromWebsite = (website?: string | null): string | null => {
+  if (!website) return null;
+
+  try {
+    const normalized = website.startsWith('http') ? website : `https://${website}`;
+    const hostname = new URL(normalized).hostname;
+    return hostname.replace(/^www\./, '');
+  } catch {
+    return null;
+  }
+};
+
 const CSV_URL = "https://files.catbox.moe/9iaq9z.csv";
 const CACHE_KEY = "gcc_data_cache";
 const CACHE_VERSION = "v2";
@@ -453,7 +467,7 @@ const GCCList = () => {
                   <table className="w-full text-sm">
                     <thead className="bg-slate-50 sticky top-0">
                       <tr>
-                        {columns.map(col => (
+                        {columns.filter(col => col !== "Website").map(col => (
                           <th key={col} className="p-3 text-left border-b font-medium">
                             {col}
                           </th>
@@ -468,15 +482,38 @@ const GCCList = () => {
                           </td>
                         </tr>
                       ) : (
-                        currentPageData.map((row: CSVRow, idx: number) => (
-                          <tr key={idx} className="hover:bg-slate-50">
-                            {columns.map((col: string) => (
-                              <td key={col} className="p-3 border-b">
-                                {row[col] ?? ""}
-                              </td>
-                            ))}
-                          </tr>
-                        ))
+                        currentPageData.map((row: CSVRow, idx: number) => {
+                          const logoDomain = getDomainFromWebsite(row["Website"]);
+                          return (
+                            <tr key={idx} className="hover:bg-slate-50">
+                              {columns.filter(col => col !== "Website").map((col: string) => (
+                                <td key={col} className="p-3 border-b">
+                                  {col === "Account Global Legal Name" ? (
+                                    <div className="flex items-center gap-3">
+                                      <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-slate-50 shadow-inner shadow-slate-100 flex items-center justify-center text-slate-400">
+                                        <Building2 className="h-4 w-4" />
+                                        {logoDomain && (
+                                          <img
+                                            src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}&format=jpg&size=180`}
+                                            alt={`${row[col]} logo`}
+                                            loading="lazy"
+                                            onError={(e) => {
+                                              e.currentTarget.style.display = 'none';
+                                            }}
+                                            className="absolute inset-0 h-full w-full object-cover p-1"
+                                          />
+                                        )}
+                                      </div>
+                                      <span>{row[col] ?? ""}</span>
+                                    </div>
+                                  ) : (
+                                    row[col] ?? ""
+                                  )}
+                                </td>
+                              ))}
+                            </tr>
+                          );
+                        })
                       )}
                     </tbody>
                   </table>
