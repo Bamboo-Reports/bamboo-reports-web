@@ -50,6 +50,20 @@ interface JotFormMessageEvent {
   action?: string;
 }
 
+const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
+
+const getDomainFromWebsite = (website?: string | null): string | null => {
+  if (!website) return null;
+
+  try {
+    const normalized = website.startsWith('http') ? website : `https://${website}`;
+    const hostname = new URL(normalized).hostname;
+    return hostname.replace(/^www\./, '');
+  } catch {
+    return null;
+  }
+};
+
 const toCSV = (rows: CSVRow[], cols: string[]) => {
   const q = (v: string | undefined) => {
     const s = String(v ?? "");
@@ -162,7 +176,7 @@ const GCCList = () => {
           return;
         }
 
-        const cols = Object.keys(objs[0]).filter(Boolean);
+        const cols = Object.keys(objs[0]).filter(Boolean).filter(c => c !== "Website");
         const ordered: string[] = [];
         preferredOrder.forEach(k => {
           if (cols.includes(k)) ordered.push(k);
@@ -472,7 +486,33 @@ const GCCList = () => {
                           <tr key={idx} className="hover:bg-slate-50">
                             {columns.map((col: string) => (
                               <td key={col} className="p-3 border-b">
-                                {row[col] ?? ""}
+                                {col === "Account Global Legal Name" ? (
+                                  <div className="flex items-center gap-3">
+                                    <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-slate-50 shadow-inner shadow-slate-100 flex items-center justify-center text-slate-400">
+                                      <Building2 className="h-4 w-4" />
+                                      {(() => {
+                                        const logoDomain = getDomainFromWebsite(row["Website"]);
+                                        if (logoDomain) {
+                                          return (
+                                            <img
+                                              src={`https://img.logo.dev/${logoDomain}?token=${LOGO_DEV_PUBLISHABLE_KEY}&format=jpg&size=180`}
+                                              alt={`${row[col]} logo`}
+                                              loading="lazy"
+                                              onError={(e) => {
+                                                e.currentTarget.style.display = 'none';
+                                              }}
+                                              className="absolute inset-0 h-full w-full object-cover p-1"
+                                            />
+                                          );
+                                        }
+                                        return null;
+                                      })()}
+                                    </div>
+                                    <span className="font-medium text-slate-900">{row[col] ?? ""}</span>
+                                  </div>
+                                ) : (
+                                  row[col] ?? ""
+                                )}
                               </td>
                             ))}
                           </tr>
