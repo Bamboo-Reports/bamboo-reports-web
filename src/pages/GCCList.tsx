@@ -468,7 +468,7 @@ const GCCList = () => {
                     <thead className="bg-slate-50 sticky top-0">
                       <tr>
                         {columns.filter(col => col !== "Website").map(col => (
-                          <th key={col} className="p-3 text-left border-b font-medium">
+                          <th key={col} className="p-3 text-left border-b font-medium uppercase text-xs tracking-wide">
                             {col}
                           </th>
                         ))}
