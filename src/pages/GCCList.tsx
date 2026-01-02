@@ -555,46 +555,6 @@ const GCCList = () => {
                                           <ChevronRight className="h-4 w-4 text-slate-400 opacity-0 translate-x-[-2px] transition duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
                                         </span>
                                       </div>
-                                    ) : col === "HQ Country" ? (
-                                      row[col] ? (
-                                        <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
-                                          {row[col]}
-                                        </span>
-                                      ) : (
-                                        <span className="text-slate-400">-</span>
-                                      )
-                                    ) : col === "HQ Primary Nature" ? (
-                                      row[col] ? (
-                                        <span className="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-100">
-                                          {row[col]}
-                                        </span>
-                                      ) : (
-                                        <span className="text-slate-400">-</span>
-                                      )
-                                    ) : col === "HQ Revenue Range" ? (
-                                      row[col] ? (
-                                        <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-100">
-                                          {row[col]}
-                                        </span>
-                                      ) : (
-                                        <span className="text-slate-400">-</span>
-                                      )
-                                    ) : col === "City" ? (
-                                      row[col] ? (
-                                        <span className="inline-flex items-center rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 ring-1 ring-sky-100">
-                                          {row[col]}
-                                        </span>
-                                      ) : (
-                                        <span className="text-slate-400">-</span>
-                                      )
-                                    ) : col === "Center Type" ? (
-                                      row[col] ? (
-                                        <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-100">
-                                          {row[col]}
-                                        </span>
-                                      ) : (
-                                        <span className="text-slate-400">-</span>
-                                      )
                                     ) : (
                                       row[col] || <span className="text-slate-400">-</span>
                                     )}
