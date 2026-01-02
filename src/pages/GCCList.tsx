@@ -86,7 +86,7 @@ const GCCList = () => {
   const [data, setData] = useState<CSVRow[]>([]);
   const [columns, setColumns] = useState<string[]>([]);
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize] = useState(7);
   const [nameSearch, setNameSearch] = useState("");
   const [facets, setFacets] = useState<FacetMap>({});
   const [loading, setLoading] = useState(true);
@@ -553,23 +553,6 @@ const GCCList = () => {
                     >
                       Last
                     </button>
-                  </div>
-
-                  <div className="flex gap-2 items-center">
-                    <span className="text-sm">Rows</span>
-                    <select
-                      value={pageSize}
-                      onChange={(e) => {
-                        setPageSize(parseInt(e.target.value));
-                        setPage(1);
-                      }}
-                      className="px-3 py-1.5 border rounded-lg text-sm"
-                    >
-                      <option value="5">5</option>
-                      <option value="10">10</option>
-                      <option value="25">25</option>
-                      <option value="50">50</option>
-                    </select>
                   </div>
                 </div>
               </div>
