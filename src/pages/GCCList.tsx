@@ -93,9 +93,9 @@ const toCSV = (rows: CSVRow[], cols: string[]) => {
 
 const GCCList = () => {
   useSEO({
-    title: "India GCC Database | 2400+ Global Capability Centers List | GCC Intelligence",
-    description: "Free India GCC database with 2400+ Global Capability Centers. Access GCC Intelligence, contact data, and GTM market intelligence for India. Search and filter GCC companies by industry, HQ country, and headcount.",
-    keywords: "India GCC Database, GCC Intelligence India, India GCC list, Global Capability Centers India, GCC contact database India, India GCC Intelligence, GTM Intelligence India, India GCC data, GCC market intelligence India, Global Capability Centers database India, India GCC companies, GCC India contact list",
+    title: "India GCC Database | Download Global Capability Centers Data",
+    description: "India GCC database with 2,400+ Global Capability Centers. Download GCC data in CSV format and filter by HQ country, industry, city, and India headcount.",
+    keywords: "India GCC database, India GCC data, India GCC data download, GCC database India, Global Capability Centers database India, GCC list India, GCC data CSV India, India GCC companies list",
     canonicalUrl: "https://www.bambooreports.com/gcc-list",
   });
 
@@ -371,13 +371,13 @@ const GCCList = () => {
           {/* Hero */}
           <div className="text-center mb-10 md:mb-12">
             <h1 className="mb-6">
-              Discover India's Global Capability Centers (GCCs) - The Engine of Global Innovation
+              India GCC Database — 2,400+ Global Capability Centers
             </h1>
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              India has evolved into the world's most dynamic hub for Global Capability Centers (GCCs), strategic offshore units established by multinational corporations to drive innovation, digital transformation, and enterprise efficiency. Once viewed primarily as cost-optimization vehicles, today's GCCs are strategic value creators delivering advanced technology, analytics, product engineering, and end to end business capabilities for their global organizations.
+              The India GCC database built for market sizing, GTM targeting, and competitive research. Download GCC data in CSV format and filter by HQ country, industry, city, and India headcount.
             </p>
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto mt-4">
-              Explore the world's largest database of GCCs in India, uncover insights on their scale, focus areas, technologies, and expansion trends.
+              Start with a sample download or unlock the full India GCC database for deeper segmentation and analysis.
             </p>
           </div>
 
@@ -407,10 +407,10 @@ const GCCList = () => {
               onClick={() => setShowModal(true)}
               className="bg-primary hover:bg-primary/90 rounded-full"
             >
-              Download Sample
+              Download India GCC Database (Sample)
             </Button>
             <Button size="lg" variant="outline" asChild className="rounded-full">
-              <Link to="/pricing">Get Full Access</Link>
+              <Link to="/pricing">Get Full India GCC Database</Link>
             </Button>
           </div>
 
@@ -418,7 +418,7 @@ const GCCList = () => {
           <div className="text-center mb-12">
             <div className="text-sm text-muted-foreground mb-2">OR</div>
             <p className="text-muted-foreground">
-              Play around with filters and find your TAM
+              Filter the India GCC database, then download.
             </p>
           </div>
 
@@ -698,8 +698,8 @@ const GCCList = () => {
             </button>
 
             <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
-              <h2 className="text-2xl font-bold mb-2">Download GCC Data</h2>
-              <p className="text-sm opacity-90">Fill out the form below to download your data</p>
+              <h2 className="text-2xl font-bold mb-2">Download India GCC Data</h2>
+              <p className="text-sm opacity-90">Fill out the form below to download the sample database</p>
             </div>
 
             <div className="h-[600px] lg:h-[539px] overflow-hidden relative">

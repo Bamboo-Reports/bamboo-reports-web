@@ -359,10 +359,10 @@ export default function DownloadHistory() {
                                                             size="sm"
                                                             onClick={() => handleReportSuspicious(download)}
                                                             className="mt-3 w-full justify-center gap-2 text-red-600 hover:text-red-700 hover:bg-red-50"
-                                                            title="Report unauthorized access"
+                                                            title="This wasn't me"
                                                         >
                                                             <AlertTriangle className="h-4 w-4" />
-                                                            Report issue
+                                                            This Wasn't Me
                                                         </Button>
                                                     </div>
                                                 </div>

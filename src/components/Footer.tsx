@@ -3,6 +3,7 @@ import { ArrowUpRight, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="relative overflow-hidden border-t bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="pointer-events-none absolute inset-x-0 -top-32 h-64 bg-gradient-to-br from-primary/20 via-transparent to-accent/10 blur-3xl opacity-70" />
@@ -138,7 +139,9 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col gap-4 border-t pt-6 md:flex-row md:items-center md:justify-between">
-          <div className="text-sm text-muted-foreground">© 2025 Research NXT. All rights reserved.</div>
+          <div className="text-sm text-muted-foreground">
+            &copy; {currentYear} Research NXT. All rights reserved.
+          </div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <Link to="/privacy-policy" className="transition-colors duration-micro ease-smooth hover:text-primary">
               Privacy Policy
