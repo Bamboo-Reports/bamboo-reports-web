@@ -46,9 +46,9 @@ export function SecurityAlertDialog({
                             <AlertTriangle className="h-6 w-6 text-red-600" />
                         </div>
                         <div>
-                            <AlertDialogTitle>This wasn't me</AlertDialogTitle>
+                            <AlertDialogTitle>Details</AlertDialogTitle>
                             <AlertDialogDescription className="text-xs mt-1">
-                                Report a download you don't recognize
+                                Review the access details below.
                             </AlertDialogDescription>
                         </div>
                     </div>
