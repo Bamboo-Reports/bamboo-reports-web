@@ -6,6 +6,20 @@ import { Button } from "@/components/ui/button";
 
 const reports = [
   {
+    id: "state-of-gccs-2026",
+    title: "State of GCCs in India - A 2026 Report",
+    subtitle: "Agentic AI, ownership, and the rise of tier-2 hubs.",
+    thumbnail: "https://files.catbox.moe/d0kgo3.png",
+    description: "The 2026 reset on India GCCs: autonomous AI adoption, end-to-end ownership, and the market signals reshaping expansion strategy.",
+    altText: "State of GCCs in India 2026 Report - India GCC Market Intelligence",
+    highlights: [
+      "Agentic AI shift across GCC decision systems",
+      "Tier-2 city advantage and capability playbooks",
+      "2026 market opportunity signals for leaders"
+    ],
+    meta: { pages: "2026 edition", updated: "January 2026", format: "Report + highlights" }
+  },
+  {
     id: "52-weeks",
     title: "52 Weeks of GCC Momentum",
     subtitle: "India’s GCC expansion mapped week by week.",
