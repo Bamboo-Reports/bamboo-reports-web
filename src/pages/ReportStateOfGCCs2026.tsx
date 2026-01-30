@@ -101,21 +101,12 @@ const ReportStateOfGCCs2026 = () => {
               <div className="inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
                 Report &bull; January 2026 update
               </div>
-              <div className="space-y-4">
-                <div className="overflow-hidden rounded-3xl border bg-card shadow-sm">
-                  <img
-                    src="https://files.catbox.moe/d0kgo3.png"
-                    alt="State of GCCs in India 2026 report banner"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="space-y-3">
-                  <h1 className="text-4xl lg:text-5xl font-bold leading-tight">State of GCCs in India - A 2026 Report</h1>
-                  <p className="text-lg text-muted-foreground">
-                    The 2026 reset on India GCCs: agentic AI adoption, ownership of the product lifecycle, and a shift toward
-                    tier-2 hubs that are redefining cost, talent, and speed.
-                  </p>
-                </div>
+              <div className="space-y-3">
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight">State of GCCs in India - A 2026 Report</h1>
+                <p className="text-lg text-muted-foreground">
+                  The 2026 reset on India GCCs: agentic AI adoption, ownership of the product lifecycle, and a shift toward
+                  tier-2 hubs that are redefining cost, talent, and speed.
+                </p>
               </div>
               <div className="space-y-2">
                 <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Why this report</p>
