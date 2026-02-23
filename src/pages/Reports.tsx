@@ -3,13 +3,16 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
+import type { SyntheticEvent } from "react";
+
+const REPORT_THUMBNAIL_FALLBACK = "/placeholder.svg";
 
 const reports = [
   {
     id: "state-of-gccs-2026",
     title: "State of GCCs in India - A 2026 Report",
     subtitle: "Agentic AI, ownership, and the rise of tier-2 hubs.",
-    thumbnail: "https://files.catbox.moe/d0kgo3.png",
+    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvqt4DyIQYfah4CDjOn37lSb01A2cpw68eykxz",
     description: "The 2026 reset on India GCCs: autonomous AI adoption, end-to-end ownership, and the market signals reshaping expansion strategy.",
     altText: "State of GCCs in India 2026 Report - India GCC Market Intelligence",
     highlights: [
@@ -23,7 +26,7 @@ const reports = [
     id: "52-weeks",
     title: "52 Weeks of GCC Momentum",
     subtitle: "India’s GCC expansion mapped week by week.",
-    thumbnail: "https://files.catbox.moe/1brg2g.png",
+    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvNNPnQh6JMprQjEy7dL5OqGWNfYBeuV4HlIzK",
     description: "A full year of India GCC movements—new centers, capability ramps, and leadership shifts—packaged for GTM, strategy, and delivery teams.",
     altText: "52 Weeks of GCC Momentum Report - India Global Capability Centers Trends Analysis",
     highlights: [
@@ -37,7 +40,7 @@ const reports = [
     id: "gcc-snapshot-q1",
     title: "India GCC Snapshot Q1 (FY25-26)",
     subtitle: "Quarterly view of India GCC maturity and momentum.",
-    thumbnail: "https://files.catbox.moe/r8f791.png",
+    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvgXdKglTMytEzAd5jcKVQJC81krLZXpRH72bx",
     description: "A quarterly checkpoint on where India GCC growth is headedâ€”headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
     altText: "India GCC Q1 Snapshot Report - Quarterly Global Capability Centers Intelligence",
     highlights: [
@@ -51,7 +54,7 @@ const reports = [
     id: "gcc-snapshot-q2",
     title: "India GCC Snapshot Q2 (FY25-26)",
     subtitle: "Quarterly view of India GCC maturity and momentum.",
-    thumbnail: "https://files.catbox.moe/r8f791.png",
+    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvmuUxXGnoI5sEOcLKqMDN4Sdb3xQRZFC9gtu1",
     description: "A quarterly checkpoint on where India GCC growth is headed—headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
     altText: "India GCC Q2 Snapshot Report - Quarterly Global Capability Centers Intelligence",
     highlights: [
@@ -65,7 +68,7 @@ const reports = [
     id: "gcc-snapshot-q3",
     title: "India GCC Snapshot Q3 (FY25-26)",
     subtitle: "Quarterly view of India GCC maturity and momentum.",
-    thumbnail: "https://files.catbox.moe/r8f791.png",
+    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvpZK9crebFq8yla9WYurNK7GUmowcBkPOXgxD",
     description: "A quarterly checkpoint on where India GCC growth is headedâ€”headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
     altText: "India GCC Q3 Snapshot Report - Quarterly Global Capability Centers Intelligence",
     highlights: [
@@ -80,6 +83,12 @@ const reports = [
 const sortedReports = [...reports].sort((a, b) => a.title.localeCompare(b.title));
 
 const Reports = () => {
+  const handleThumbnailError = (event: SyntheticEvent<HTMLImageElement>) => {
+    const img = event.currentTarget;
+    img.onerror = null;
+    img.src = REPORT_THUMBNAIL_FALLBACK;
+  };
+
   useSEO({
     title: "India GCC Reports | GCC Intelligence & GTM Market Research | Bamboo Reports",
     description: "Comprehensive India GCC Intelligence reports with GTM market research. Access India Global Capability Centers trends, quarterly snapshots, and strategic intelligence for GCC expansion in India.",
@@ -136,6 +145,7 @@ const Reports = () => {
                   <img
                     src={report.thumbnail}
                     alt={report.altText}
+                    onError={handleThumbnailError}
                     className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
                   />
                 </div>
