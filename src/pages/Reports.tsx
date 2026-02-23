@@ -34,6 +34,20 @@ const reports = [
     meta: { pages: "80+", updated: "Weekly signals", format: "Deck + export" }
   },
   {
+    id: "gcc-snapshot-q1",
+    title: "India GCC Snapshot Q1 (FY25-26)",
+    subtitle: "Quarterly view of India GCC maturity and momentum.",
+    thumbnail: "https://files.catbox.moe/r8f791.png",
+    description: "A quarterly checkpoint on where India GCC growth is headedâ€”headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
+    altText: "India GCC Q1 Snapshot Report - Quarterly Global Capability Centers Intelligence",
+    highlights: [
+      "Quarterly benchmark of headcount, capability mix, and city shifts",
+      "Peer comparisons for scale, maturity, and hiring velocity",
+      "Signals and commentary ready for executive decks"
+    ],
+    meta: { pages: "60+", updated: "Quarterly", format: "Deck + export" }
+  },
+  {
     id: "gcc-snapshot-q2",
     title: "India GCC Snapshot Q2 (FY25-26)",
     subtitle: "Quarterly view of India GCC maturity and momentum.",
@@ -47,7 +61,23 @@ const reports = [
     ],
     meta: { pages: "60+", updated: "Quarterly", format: "Deck + export" }
   },
+  {
+    id: "gcc-snapshot-q3",
+    title: "India GCC Snapshot Q3 (FY25-26)",
+    subtitle: "Quarterly view of India GCC maturity and momentum.",
+    thumbnail: "https://files.catbox.moe/r8f791.png",
+    description: "A quarterly checkpoint on where India GCC growth is headedâ€”headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
+    altText: "India GCC Q3 Snapshot Report - Quarterly Global Capability Centers Intelligence",
+    highlights: [
+      "Quarterly benchmark of headcount, capability mix, and city shifts",
+      "Peer comparisons for scale, maturity, and hiring velocity",
+      "Signals and commentary ready for executive decks"
+    ],
+    meta: { pages: "60+", updated: "Quarterly", format: "Deck + export" }
+  },
 ];
+
+const sortedReports = [...reports].sort((a, b) => a.title.localeCompare(b.title));
 
 const Reports = () => {
   useSEO({
@@ -95,7 +125,7 @@ const Reports = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {reports.map((report) => (
+              {sortedReports.map((report) => (
                 <Link
                   key={report.id}
                   to={`/reports/${report.id}`}
