@@ -41,7 +41,7 @@ const reports = [
     title: "India GCC Snapshot Q1 (FY25-26)",
     subtitle: "Quarterly view of India GCC maturity and momentum.",
     thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvgXdKglTMytEzAd5jcKVQJC81krLZXpRH72bx",
-    description: "A quarterly checkpoint on where India GCC growth is headedâ€”headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
+    description: "A quarterly checkpoint on where India GCC growth is headed: headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
     altText: "India GCC Q1 Snapshot Report - Quarterly Global Capability Centers Intelligence",
     highlights: [
       "Quarterly benchmark of headcount, capability mix, and city shifts",
@@ -55,7 +55,7 @@ const reports = [
     title: "India GCC Snapshot Q2 (FY25-26)",
     subtitle: "Quarterly view of India GCC maturity and momentum.",
     thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvmuUxXGnoI5sEOcLKqMDN4Sdb3xQRZFC9gtu1",
-    description: "A quarterly checkpoint on where India GCC growth is headed—headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
+    description: "A quarterly checkpoint on where India GCC growth is headed: headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
     altText: "India GCC Q2 Snapshot Report - Quarterly Global Capability Centers Intelligence",
     highlights: [
       "Quarterly benchmark of headcount, capability mix, and city shifts",
@@ -69,7 +69,7 @@ const reports = [
     title: "India GCC Snapshot Q3 (FY25-26)",
     subtitle: "Quarterly view of India GCC maturity and momentum.",
     thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvpZK9crebFq8yla9WYurNK7GUmowcBkPOXgxD",
-    description: "A quarterly checkpoint on where India GCC growth is headedâ€”headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
+    description: "A quarterly checkpoint on where India GCC growth is headed: headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
     altText: "India GCC Q3 Snapshot Report - Quarterly Global Capability Centers Intelligence",
     highlights: [
       "Quarterly benchmark of headcount, capability mix, and city shifts",
@@ -80,7 +80,24 @@ const reports = [
   },
 ];
 
-const sortedReports = [...reports].sort((a, b) => a.title.localeCompare(b.title));
+const reportDisplayOrder = [
+  "state-of-gccs-2026",
+  "gcc-snapshot-q3",
+  "gcc-snapshot-q2",
+  "52-weeks",
+  "gcc-snapshot-q1",
+];
+
+const sortedReports = [...reports].sort((a, b) => {
+  const aIndex = reportDisplayOrder.indexOf(a.id);
+  const bIndex = reportDisplayOrder.indexOf(b.id);
+
+  // Keep unknown/new ids at the end in their original relative order.
+  if (aIndex === -1 && bIndex === -1) return 0;
+  if (aIndex === -1) return 1;
+  if (bIndex === -1) return -1;
+  return aIndex - bIndex;
+});
 
 const Reports = () => {
   const handleThumbnailError = (event: SyntheticEvent<HTMLImageElement>) => {
