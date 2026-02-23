@@ -9,7 +9,9 @@ import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
 import Reports from "./pages/Reports";
 import Report52Weeks from "./pages/Report52Weeks";
+import ReportGCCSnapshotQ1 from "./pages/ReportGCCSnapshotQ1";
 import ReportGCCSnapshotQ2 from "./pages/ReportGCCSnapshotQ2";
+import ReportGCCSnapshotQ3 from "./pages/ReportGCCSnapshotQ3";
 import ReportStateOfGCCs2026 from "./pages/ReportStateOfGCCs2026";
 import GCCList from "./pages/GCCList";
 import Insights from "./pages/Insights";
@@ -63,7 +65,9 @@ const App = () => (
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/reports/52-weeks" element={<Report52Weeks />} />
+            <Route path="/reports/gcc-snapshot-q1" element={<ReportGCCSnapshotQ1 />} />
             <Route path="/reports/gcc-snapshot-q2" element={<ReportGCCSnapshotQ2 />} />
+            <Route path="/reports/gcc-snapshot-q3" element={<ReportGCCSnapshotQ3 />} />
             <Route path="/reports/state-of-gccs-2026" element={<ReportStateOfGCCs2026 />} />
             <Route path="/gcc-list" element={<GCCList />} />
             <Route path="/insights" element={<Insights />} />
