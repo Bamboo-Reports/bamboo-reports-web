@@ -122,7 +122,7 @@ const ReportGCCSnapshotQ3 = () => {
                   <a href="#download-form">Download the report</a>
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full" asChild>
-                  <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Walk me through it</a>
+                  <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Walk me through it</a>
                 </Button>
               </div>
             </div>

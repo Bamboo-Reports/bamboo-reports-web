@@ -63,7 +63,7 @@ const Explorer = () => {
                   <Link to="/pricing">Start with Explorer</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full" asChild>
-                  <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+                  <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a Demo</a>
                 </Button>
               </div>
             </div>
@@ -187,7 +187,7 @@ const Explorer = () => {
               <h2 className="text-3xl font-bold">What Explorer looks like</h2>
             </div>
             <Button variant="outline" className="rounded-full" asChild>
-              <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Walk me through a deck</a>
+              <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Walk me through a deck</a>
             </Button>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -255,7 +255,7 @@ const Explorer = () => {
                 <Link to="/pricing">Start with Explorer</Link>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a Demo</a>
               </Button>
             </div>
           </div>

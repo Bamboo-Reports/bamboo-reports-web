@@ -38,7 +38,7 @@ const UseCasePageTemplate = ({ useCaseId }: UseCasePageTemplateProps) => {
               </div>
               <div className="flex flex-wrap gap-3">
                 <Button size="lg" className="rounded-full" asChild>
-                  <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a demo</a>
+                  <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a demo</a>
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full" asChild>
                   <Link to="/gcc-list">Explore the data</Link>
@@ -97,7 +97,7 @@ const UseCasePageTemplate = ({ useCaseId }: UseCasePageTemplateProps) => {
               <h3 className="text-2xl lg:text-3xl font-bold">How we run this with you</h3>
             </div>
             <Button variant="outline" className="rounded-full" asChild>
-              <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Schedule a walkthrough</a>
+              <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Schedule a walkthrough</a>
             </Button>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -140,7 +140,7 @@ const UseCasePageTemplate = ({ useCaseId }: UseCasePageTemplateProps) => {
             <p className="text-base text-muted-foreground">Share your priority sectors, cities, and workflows. We will tailor a walkthrough of Bamboo Reports for your team and leave you with an export-ready view.</p>
             <div className="flex flex-wrap gap-3">
               <Button className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Talk to us</a>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Talk to us</a>
               </Button>
               <Button variant="outline" className="rounded-full" asChild>
                 <Link to="/pricing">Compare plans</Link>

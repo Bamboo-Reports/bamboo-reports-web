@@ -599,7 +599,7 @@ const Pricing = () => {
                 <h2 className="text-2xl lg:text-3xl font-bold">What you get in each tier</h2>
               </div>
               <Button variant="outline" className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
               </Button>
             </div>
             <div className="overflow-x-auto">
@@ -669,7 +669,7 @@ const Pricing = () => {
             </div>
             <div className="flex flex-wrap justify-center lg:justify-end gap-3">
               <Button size="lg" className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
               </Button>
             </div>
           </div>

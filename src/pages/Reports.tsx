@@ -131,7 +131,7 @@ const Reports = () => {
             </div>
             <div className="flex flex-wrap gap-3">
               <Button size="lg" className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a walkthrough</a>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a walkthrough</a>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full" asChild>
                 <Link to="/gcc-list">Explore the data</Link>
@@ -146,7 +146,7 @@ const Reports = () => {
                 <h2 className="text-3xl font-bold">Pick the report that fits your next review.</h2>
               </div>
               <Button variant="outline" className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Need a custom cut?</a>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Need a custom cut?</a>
               </Button>
             </div>
 
@@ -200,7 +200,7 @@ const Reports = () => {
               <p className="text-base text-muted-foreground">Share the exact questions your leadership needs answered. We’ll re-cut the data and leave you with an export-ready deck and shortlist.</p>
               <div className="flex flex-wrap gap-3">
                 <Button className="rounded-full" asChild>
-                  <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Talk to us</a>
+                  <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Talk to us</a>
                 </Button>
                 <Button variant="outline" className="rounded-full" asChild>
                   <Link to="/pricing">Compare plans</Link>
