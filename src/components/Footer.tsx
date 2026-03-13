@@ -35,7 +35,7 @@ const Footer = () => {
 
             <div className="flex w-full flex-col gap-3 md:w-auto">
               <a
-                href="https://meetings-na2.hubspot.com/anam-khoja"
+                href="https://calendar.app.google/QNXWripJexzXLHqGA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition duration-micro ease-smooth hover:shadow-md"
@@ -98,7 +98,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
                 <a
-                  href="https://meetings-na2.hubspot.com/anam-khoja"
+                  href="https://calendar.app.google/QNXWripJexzXLHqGA"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 transition-colors duration-micro ease-smooth hover:text-primary"

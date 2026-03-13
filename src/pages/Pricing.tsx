@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"; // Import useState and useEffect
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, Compass, Map, Building2 } from "lucide-react";
+import { Check, Compass, Map, Building2, X } from "lucide-react";
 import {
   ToggleGroup,
   ToggleGroupItem,
@@ -78,13 +78,67 @@ const Pricing = () => {
   };
 
   const [processingPlan, setProcessingPlan] = useState<string | null>(null);
+  const [isInquiryPopupOpen, setIsInquiryPopupOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isInquiryPopupOpen || isSubscriptionEnabled) return;
+
+    const initializeJotform = () => {
+      if ((window as any).jotformEmbedHandler) {
+        (window as any).jotformEmbedHandler(
+          "iframe[id='JotFormIFrame-260714112843450']",
+          "https://form.jotform.com/"
+        );
+      }
+    };
+
+    if ((window as any).jotformEmbedHandler) {
+      initializeJotform();
+      return;
+    }
+
+    let script = document.querySelector<HTMLScriptElement>(
+      "script[data-jotform-embed='true']"
+    );
+
+    if (!script) {
+      script = document.createElement("script");
+      script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
+      script.async = true;
+      script.setAttribute("data-jotform-embed", "true");
+      document.body.appendChild(script);
+    }
+
+    script.addEventListener("load", initializeJotform);
+
+    return () => {
+      script?.removeEventListener("load", initializeJotform);
+    };
+  }, [isInquiryPopupOpen, isSubscriptionEnabled]);
+
+  useEffect(() => {
+    if (!isInquiryPopupOpen) return;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsInquiryPopupOpen(false);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = "auto";
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isInquiryPopupOpen]);
 
   const plans = [
     {
       name: "Explorer",
       icon: Compass,
       tagline: "Fast, defensible GCC coverage",
-      productPath: "/products/explorer",
       price: { USD: "1,299", INR: "1,09,999" }, // <-- Add your INR price
       originalPrice: { USD: "5,000", INR: "4,15,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
@@ -98,6 +152,20 @@ const Pricing = () => {
           title: "L1 List - 2,500+ GCCs",
           description: "Limited view of GCC database",
         },
+      ],
+    },
+    {
+      name: "Navigator",
+      icon: Map,
+      tagline: "Signals and scenarios on tap",
+      price: { USD: "6,999", INR: "5,79,999" }, // <-- Add your INR price
+      originalPrice: { USD: "15,000", INR: "12,50,000" }, // <-- Add your INR price
+      // priceSuffix: "/onetime",
+      features: [
+        {
+          title: "Everything from Explorer",
+          description: "All base features included",
+        },
         {
           title: "Annual Snapshot 2024-25",
           description: "Free update in December",
@@ -109,21 +177,6 @@ const Pricing = () => {
         {
           title: "Quarterly View",
           description: "Latest quarter insights",
-        },
-      ],
-    },
-    {
-      name: "Navigator",
-      icon: Map,
-      tagline: "Signals and scenarios on tap",
-      productPath: "/products/navigator",
-      price: { USD: "6,999", INR: "5,79,999" }, // <-- Add your INR price
-      originalPrice: { USD: "15,000", INR: "12,50,000" }, // <-- Add your INR price
-      // priceSuffix: "/onetime",
-      features: [
-        {
-          title: "Everything from Explorer",
-          description: "All base features included",
         },
         {
           title: "Trends Report (Up to 3 Filters)",
@@ -147,7 +200,6 @@ const Pricing = () => {
       name: "Enterprise Intelligence",
       icon: Building2,
       tagline: "Program-level intelligence and support",
-      productPath: "/products/enterprise",
       price: "Custom", // Custom plan remains the same
       originalPrice: null,
       // priceSuffix: null,
@@ -508,25 +560,19 @@ const Pricing = () => {
                   <div className="flex flex-col gap-2">
                     {isCustom ? (
                       <Button
-                        asChild
                         className="w-full rounded-full"
                         variant={plan.popular ? "default" : "outline"}
+                        onClick={() => setIsInquiryPopupOpen(true)}
                       >
-                        <a
-                          href="https://meetings-na2.hubspot.com/anam-khoja"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Contact Sales
-                        </a>
+                        Get Started
                       </Button>
                     ) : !isSubscriptionEnabled ? (
                       <Button
                         className="w-full rounded-full"
-                        variant="outline"
-                        disabled
+                        variant={plan.popular ? "default" : "outline"}
+                        onClick={() => setIsInquiryPopupOpen(true)}
                       >
-                        Coming Soon
+                        Get Started
                       </Button>
                     ) : (
                       <Button
@@ -539,9 +585,6 @@ const Pricing = () => {
                       </Button>
                     )}
 
-                    <Button asChild variant="ghost" className="w-full rounded-full">
-                      <Link to={plan.productPath}>View {plan.name}</Link>
-                    </Button>
                   </div>
                 </div>
               );
@@ -556,7 +599,7 @@ const Pricing = () => {
                 <h2 className="text-2xl lg:text-3xl font-bold">What you get in each tier</h2>
               </div>
               <Button variant="outline" className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
               </Button>
             </div>
             <div className="overflow-x-auto">
@@ -626,15 +669,52 @@ const Pricing = () => {
             </div>
             <div className="flex flex-wrap justify-center lg:justify-end gap-3">
               <Button size="lg" className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full" asChild>
-                <Link to="/products/explorer">View Explorer</Link>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
               </Button>
             </div>
           </div>
         </div>
       </main>
+
+      {isInquiryPopupOpen && (
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 animate-modal-overlay"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              setIsInquiryPopupOpen(false);
+            }
+          }}
+        >
+          <div className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden animate-modal-content">
+            <button
+              onClick={() => setIsInquiryPopupOpen(false)}
+              className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
+              aria-label="Close inquiry form"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
+              <h2 className="text-2xl font-bold mb-2">Bamboo Reports</h2>
+              <p className="text-sm opacity-90">Fill out the form below to get started</p>
+            </div>
+
+            <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
+              <iframe
+                id="JotFormIFrame-260714112843450"
+                title="[ BR ] - Inquiry"
+                onLoad={() => window.parent.scrollTo(0, 0)}
+                allow="geolocation; microphone; camera; fullscreen; payment"
+                src="https://form.jotform.com/260714112843450"
+                frameBorder="0"
+                style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
+                scrolling="no"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>

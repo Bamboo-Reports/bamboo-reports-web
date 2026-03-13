@@ -62,7 +62,7 @@ const PaymentFailure = () => {
               className="rounded-full"
             >
               <a
-                href="https://meetings-na2.hubspot.com/anam-khoja"
+                href="https://calendar.app.google/QNXWripJexzXLHqGA"
                 target="_blank"
                 rel="noopener noreferrer"
               >

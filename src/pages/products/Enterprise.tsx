@@ -59,10 +59,10 @@ const Enterprise = () => {
               </div>
               <div className="flex flex-wrap gap-3">
                 <Button size="lg" className="rounded-full" asChild>
-                  <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Request Proposal</a>
+                  <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Request Proposal</a>
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full" asChild>
-                  <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Talk to an Analyst</a>
+                  <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Talk to an Analyst</a>
                 </Button>
               </div>
             </div>
@@ -232,10 +232,10 @@ const Enterprise = () => {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Let us scope a program with benchmarks, scenarios, and analyst hours tailored to your leadership, GTM, PMO, HR, and Finance teams.</p>
             <div className="flex flex-wrap justify-center gap-3">
               <Button size="lg" className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Request Proposal</a>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Request Proposal</a>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Talk to an Analyst</a>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Talk to an Analyst</a>
               </Button>
             </div>
           </div>

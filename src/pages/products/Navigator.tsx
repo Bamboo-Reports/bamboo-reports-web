@@ -63,7 +63,7 @@ const Navigator = () => {
                   <Link to="/pricing">Start with Navigator</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full" asChild>
-                  <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+                  <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a Demo</a>
                 </Button>
               </div>
             </div>
@@ -258,7 +258,7 @@ const Navigator = () => {
                 <Link to="/pricing">Start with Navigator</Link>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full" asChild>
-                <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a Demo</a>
               </Button>
             </div>
           </div>
