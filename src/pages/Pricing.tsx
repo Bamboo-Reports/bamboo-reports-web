@@ -539,9 +539,6 @@ const Pricing = () => {
                       </Button>
                     )}
 
-                    <Button asChild variant="ghost" className="w-full rounded-full">
-                      <Link to={plan.productPath}>View {plan.name}</Link>
-                    </Button>
                   </div>
                 </div>
               );
