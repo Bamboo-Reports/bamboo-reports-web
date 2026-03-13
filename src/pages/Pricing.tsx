@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, Compass, Map, Building2 } from "lucide-react";
+import { Check, Compass, Map, Building2, X } from "lucide-react";
 import {
   ToggleGroup,
   ToggleGroupItem,
@@ -78,6 +78,61 @@ const Pricing = () => {
   };
 
   const [processingPlan, setProcessingPlan] = useState<string | null>(null);
+  const [isInquiryPopupOpen, setIsInquiryPopupOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isInquiryPopupOpen || isSubscriptionEnabled) return;
+
+    const initializeJotform = () => {
+      if ((window as any).jotformEmbedHandler) {
+        (window as any).jotformEmbedHandler(
+          "iframe[id='JotFormIFrame-260714112843450']",
+          "https://form.jotform.com/"
+        );
+      }
+    };
+
+    if ((window as any).jotformEmbedHandler) {
+      initializeJotform();
+      return;
+    }
+
+    let script = document.querySelector<HTMLScriptElement>(
+      "script[data-jotform-embed='true']"
+    );
+
+    if (!script) {
+      script = document.createElement("script");
+      script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
+      script.async = true;
+      script.setAttribute("data-jotform-embed", "true");
+      document.body.appendChild(script);
+    }
+
+    script.addEventListener("load", initializeJotform);
+
+    return () => {
+      script?.removeEventListener("load", initializeJotform);
+    };
+  }, [isInquiryPopupOpen, isSubscriptionEnabled]);
+
+  useEffect(() => {
+    if (!isInquiryPopupOpen) return;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsInquiryPopupOpen(false);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = "auto";
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isInquiryPopupOpen]);
 
   const plans = [
     {
@@ -523,10 +578,10 @@ const Pricing = () => {
                     ) : !isSubscriptionEnabled ? (
                       <Button
                         className="w-full rounded-full"
-                        variant="outline"
-                        disabled
+                        variant={plan.popular ? "default" : "outline"}
+                        onClick={() => setIsInquiryPopupOpen(true)}
                       >
-                        Coming Soon
+                        Get Started
                       </Button>
                     ) : (
                       <Button
@@ -632,6 +687,46 @@ const Pricing = () => {
           </div>
         </div>
       </main>
+
+      {isInquiryPopupOpen && (
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 animate-modal-overlay"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              setIsInquiryPopupOpen(false);
+            }
+          }}
+        >
+          <div className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden animate-modal-content">
+            <button
+              onClick={() => setIsInquiryPopupOpen(false)}
+              className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
+              aria-label="Close inquiry form"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
+              <h2 className="text-2xl font-bold mb-2">Bamboo Reports</h2>
+              <p className="text-sm opacity-90">Fill out the form below to get started</p>
+            </div>
+
+            <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
+              <iframe
+                id="JotFormIFrame-260714112843450"
+                title="[ BR ] - Inquiry"
+                onLoad={() => window.parent.scrollTo(0, 0)}
+                allow="geolocation; microphone; camera; fullscreen; payment"
+                src="https://form.jotform.com/260714112843450"
+                frameBorder="0"
+                style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
+                scrolling="no"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>
