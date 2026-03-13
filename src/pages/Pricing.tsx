@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"; // Import useState and useEffect
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -139,7 +139,6 @@ const Pricing = () => {
       name: "Explorer",
       icon: Compass,
       tagline: "Fast, defensible GCC coverage",
-      productPath: "/products/explorer",
       price: { USD: "1,299", INR: "1,09,999" }, // <-- Add your INR price
       originalPrice: { USD: "5,000", INR: "4,15,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
@@ -159,7 +158,6 @@ const Pricing = () => {
       name: "Navigator",
       icon: Map,
       tagline: "Signals and scenarios on tap",
-      productPath: "/products/navigator",
       price: { USD: "6,999", INR: "5,79,999" }, // <-- Add your INR price
       originalPrice: { USD: "15,000", INR: "12,50,000" }, // <-- Add your INR price
       // priceSuffix: "/onetime",
@@ -202,7 +200,6 @@ const Pricing = () => {
       name: "Enterprise Intelligence",
       icon: Building2,
       tagline: "Program-level intelligence and support",
-      productPath: "/products/enterprise",
       price: "Custom", // Custom plan remains the same
       originalPrice: null,
       // priceSuffix: null,
@@ -563,17 +560,11 @@ const Pricing = () => {
                   <div className="flex flex-col gap-2">
                     {isCustom ? (
                       <Button
-                        asChild
                         className="w-full rounded-full"
                         variant={plan.popular ? "default" : "outline"}
+                        onClick={() => setIsInquiryPopupOpen(true)}
                       >
-                        <a
-                          href="https://meetings-na2.hubspot.com/anam-khoja"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Contact Sales
-                        </a>
+                        Get Started
                       </Button>
                     ) : !isSubscriptionEnabled ? (
                       <Button
@@ -679,9 +670,6 @@ const Pricing = () => {
             <div className="flex flex-wrap justify-center lg:justify-end gap-3">
               <Button size="lg" className="rounded-full" asChild>
                 <a href="https://meetings-na2.hubspot.com/anam-khoja" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full" asChild>
-                <Link to="/products/explorer">View Explorer</Link>
               </Button>
             </div>
           </div>

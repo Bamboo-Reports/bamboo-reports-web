@@ -217,7 +217,7 @@ const Header = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold"
             >
               <a
-                href="https://meetings-na2.hubspot.com/anam-khoja"
+                href="https://calendar.app.google/QNXWripJexzXLHqGA"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -429,7 +429,7 @@ const Header = () => {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <a
-                      href="https://meetings-na2.hubspot.com/anam-khoja"
+                      href="https://calendar.app.google/QNXWripJexzXLHqGA"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

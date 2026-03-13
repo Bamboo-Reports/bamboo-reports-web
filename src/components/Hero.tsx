@@ -27,7 +27,7 @@ const Hero = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
             >
               <a
-                href="https://meetings-na2.hubspot.com/anam-khoja"
+                href="https://calendar.app.google/QNXWripJexzXLHqGA"
                 target="_blank"
                 rel="noopener noreferrer"
               >
