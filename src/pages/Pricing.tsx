@@ -98,18 +98,6 @@ const Pricing = () => {
           title: "L1 List - 2,500+ GCCs",
           description: "Limited view of GCC database",
         },
-        {
-          title: "Annual Snapshot 2024-25",
-          description: "Free update in December",
-        },
-        {
-          title: "Historic View (3 Years)",
-          description: "GCC movement trends in India",
-        },
-        {
-          title: "Quarterly View",
-          description: "Latest quarter insights",
-        },
       ],
     },
     {
@@ -124,6 +112,18 @@ const Pricing = () => {
         {
           title: "Everything from Explorer",
           description: "All base features included",
+        },
+        {
+          title: "Annual Snapshot 2024-25",
+          description: "Free update in December",
+        },
+        {
+          title: "Historic View (3 Years)",
+          description: "GCC movement trends in India",
+        },
+        {
+          title: "Quarterly View",
+          description: "Latest quarter insights",
         },
         {
           title: "Trends Report (Up to 3 Filters)",

@@ -1,7 +1,7 @@
 import logo from "@/assets/bamboo-logo.svg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight, User, LogOut, Package, Compass, Map, Building2, FileBarChart2, Lightbulb, FileText, Download } from "lucide-react";
+import { Menu, ChevronRight, User, LogOut, Package, FileBarChart2, Lightbulb, FileText, Download } from "lucide-react";
 import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -32,7 +32,6 @@ import {
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [useCasesOpen, setUseCasesOpen] = useState(false);
@@ -75,11 +74,6 @@ const Header = () => {
   };
 
   const menuOffsetStyle = { '--menu-trigger-offset': `${menuOffset}px` } as CSSProperties;
-  const products = [
-    { label: "Explorer", href: "/products/explorer", icon: Compass },
-    { label: "Navigator", href: "/products/navigator", icon: Map },
-    { label: "Enterprise", href: "/products/enterprise", icon: Building2 }
-  ];
 
   const useCases = useCaseItems
     .filter((useCase) => useCase.badge !== "ICP")
@@ -185,29 +179,6 @@ const Header = () => {
                             <icp.icon className="h-4 w-4" />
                           </span>
                           <div className="text-sm leading-tight">{icp.label}</div>
-                        </NavigationMenuLink>
-                      </Link>
-                    ))}
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  onMouseEnter={handleDesktopTriggerPosition}
-                  onFocus={handleDesktopTriggerPosition}
-                >
-                  Products
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[260px] p-3 grid gap-2">
-                    {products.map((product) => (
-                      <Link key={product.href} to={product.href}>
-                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
-                          <span className="rounded-full bg-primary/10 text-primary p-2">
-                            <product.icon className="h-4 w-4" />
-                          </span>
-                          <div className="text-sm leading-tight">{product.label}</div>
                         </NavigationMenuLink>
                       </Link>
                     ))}
@@ -415,31 +386,6 @@ const Header = () => {
                           >
                             <icp.icon className="h-4 w-4 text-primary" />
                             {icp.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="border-t pt-1">
-                    <button
-                      onClick={() => setProductsOpen(!productsOpen)}
-                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
-                    >
-                      Products
-                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${productsOpen ? 'rotate-90' : ''}`} />
-                    </button>
-                    {productsOpen && (
-                      <div className="pl-4 space-y-1">
-                        {products.map((product) => (
-                          <Link
-                            key={product.href}
-                            to={product.href}
-                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            <product.icon className="h-4 w-4 text-primary" />
-                            {product.label}
                           </Link>
                         ))}
                       </div>
