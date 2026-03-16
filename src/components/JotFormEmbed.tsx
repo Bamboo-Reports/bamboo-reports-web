@@ -21,6 +21,15 @@ const JotFormEmbed = ({
 }: JotFormEmbedProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const embedSrc = `https://form.jotform.com/${formId}?isIframeEmbed=1`;
+
+  const resetForm = () => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    setIsLoaded(false);
+    iframe.src = `${embedSrc}&_ts=${Date.now()}`;
+  };
 
   useEffect(() => {
     ensureJotformEmbedHandler().then(() => {
@@ -32,6 +41,61 @@ const JotFormEmbed = ({
       }
     });
   }, [formId]);
+
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      const origin = String(event.origin || "").toLowerCase();
+      const data = event.data;
+
+      if (!origin.includes("jotform")) return;
+
+      if (typeof data === "string") {
+        const message = data.toLowerCase();
+        if (
+          message.includes("submission-completed") ||
+          message.includes("thankyou") ||
+          message.includes("form-submit")
+        ) {
+          setTimeout(resetForm, 1200);
+        }
+        return;
+      }
+
+      if (typeof data === "object" && data) {
+        const payload = data as {
+          type?: string;
+          event?: string;
+          action?: string;
+          message?: string;
+        };
+        const signal = String(
+          payload.event || payload.type || payload.action || payload.message || ""
+        ).toLowerCase();
+
+        if (
+          signal.includes("submission-completed") ||
+          signal.includes("thankyou") ||
+          signal.includes("form-submit")
+        ) {
+          setTimeout(resetForm, 1200);
+        }
+      }
+    };
+
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        resetForm();
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, [embedSrc]);
 
   const handleLoad = () => {
     // Small delay so the form has a moment to render its content
@@ -79,7 +143,7 @@ const JotFormEmbed = ({
         title={title}
         allowTransparency={true}
         allow="geolocation; microphone; camera; fullscreen; payment"
-        src={`https://form.jotform.com/${formId}`}
+        src={embedSrc}
         frameBorder="0"
         style={{
           minWidth: "100%",
