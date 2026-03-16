@@ -1,12 +1,10 @@
 import logo from "@/assets/bamboo-logo.svg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight, User, LogOut, Package, FileBarChart2, Lightbulb, FileText, Download } from "lucide-react";
-import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
+import { Menu, ChevronRight, User, LogOut, Package, Download } from "lucide-react";
+import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { featureItems } from "@/lib/featuresData";
-import { useCaseItems } from "@/lib/useCasesData";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,22 +20,14 @@ import {
 } from "@/components/ui/sheet";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
-  const [featuresOpen, setFeaturesOpen] = useState(false);
-  const [useCasesOpen, setUseCasesOpen] = useState(false);
-  const [icpOpen, setIcpOpen] = useState(false);
-  const navigationMenuRef = useRef<HTMLDivElement | null>(null);
-  const [menuOffset, setMenuOffset] = useState(0);
   const { user, signOut } = useAuth();
 
   const getInitials = (name: string) => {
@@ -56,47 +46,6 @@ const Header = () => {
   const userFullName = user?.user_metadata?.full_name || 'User';
   const avatarUrl = user?.user_metadata?.avatar_url;
 
-  useEffect(() => {
-    const menuBounds = navigationMenuRef.current?.getBoundingClientRect();
-    if (menuBounds) {
-      setMenuOffset(menuBounds.width / 2);
-    }
-  }, []);
-
-  const handleDesktopTriggerPosition = (event: MouseEvent<HTMLButtonElement>) => {
-    const menuBounds = navigationMenuRef.current?.getBoundingClientRect();
-    const triggerBounds = event.currentTarget.getBoundingClientRect();
-
-    if (!menuBounds) return;
-
-    const triggerCenter = triggerBounds.left - menuBounds.left + triggerBounds.width / 2;
-    setMenuOffset(triggerCenter);
-  };
-
-  const menuOffsetStyle = { '--menu-trigger-offset': `${menuOffset}px` } as CSSProperties;
-
-  const useCases = useCaseItems
-    .filter((useCase) => useCase.badge !== "ICP")
-    .map((useCase) => ({
-      label: useCase.title,
-      href: useCase.path,
-      icon: useCase.icon
-    }));
-
-  const icpPages = useCaseItems
-    .filter((useCase) => useCase.badge === "ICP")
-    .map((useCase) => ({
-      label: useCase.title,
-      href: useCase.path,
-      icon: useCase.icon
-    }));
-
-  const resources = [
-    { label: "Reports", href: "/reports", icon: FileBarChart2 },
-    { label: "Insights", href: "/insights", icon: Lightbulb },
-    { label: "Articles", href: "/articles", icon: FileText }
-  ];
-
   return (
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -107,7 +56,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <NavigationMenu ref={navigationMenuRef} style={menuOffsetStyle}>
+          <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
                 <Link to="/pricing">
@@ -118,95 +67,35 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  onMouseEnter={handleDesktopTriggerPosition}
-                  onFocus={handleDesktopTriggerPosition}
-                >
-                  Features
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[260px] p-3 grid gap-2">
-                    {featureItems.map((feature) => (
-                      <Link key={feature.id} to={feature.href}>
-                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
-                          <span className="rounded-full bg-primary/10 text-primary p-2">
-                            <feature.icon className="h-4 w-4" />
-                          </span>
-                          <div className="text-sm leading-tight">{feature.title}</div>
-                        </NavigationMenuLink>
-                      </Link>
-                    ))}
-                  </div>
-                </NavigationMenuContent>
+                <Link to="/features">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Features
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  onMouseEnter={handleDesktopTriggerPosition}
-                  onFocus={handleDesktopTriggerPosition}
-                >
-                  Use Cases
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[260px] p-3 grid gap-2">
-                    {useCases.map((useCase) => (
-                      <Link key={useCase.href} to={useCase.href}>
-                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
-                          <span className="rounded-full bg-primary/10 text-primary p-2">
-                            <useCase.icon className="h-4 w-4" />
-                          </span>
-                          <div className="text-sm leading-tight">{useCase.label}</div>
-                        </NavigationMenuLink>
-                      </Link>
-                    ))}
-                  </div>
-                </NavigationMenuContent>
+                <Link to="/use-cases">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Use Cases
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  onMouseEnter={handleDesktopTriggerPosition}
-                  onFocus={handleDesktopTriggerPosition}
-                >
-                  ICP
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[260px] p-3 grid gap-2">
-                    {icpPages.map((icp) => (
-                      <Link key={icp.href} to={icp.href}>
-                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
-                          <span className="rounded-full bg-primary/10 text-primary p-2">
-                            <icp.icon className="h-4 w-4" />
-                          </span>
-                          <div className="text-sm leading-tight">{icp.label}</div>
-                        </NavigationMenuLink>
-                      </Link>
-                    ))}
-                  </div>
-                </NavigationMenuContent>
+                <Link to="/icp">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    ICP
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  onMouseEnter={handleDesktopTriggerPosition}
-                  onFocus={handleDesktopTriggerPosition}
-                >
-                  Resources
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[260px] p-3 grid gap-2">
-                    {resources.map((resource) => (
-                      <Link key={resource.href} to={resource.href}>
-                        <NavigationMenuLink className="flex items-center gap-3 rounded-full border bg-card px-3 py-2 transition-all duration-micro ease-smooth hover:border-primary/40 hover:shadow-sm">
-                          <span className="rounded-full bg-primary/10 text-primary p-2">
-                            <resource.icon className="h-4 w-4" />
-                          </span>
-                          <div className="text-sm leading-tight">{resource.label}</div>
-                        </NavigationMenuLink>
-                      </Link>
-                    ))}
-                  </div>
-                </NavigationMenuContent>
+                <Link to="/resources">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Resources
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -317,105 +206,41 @@ const Header = () => {
                     <ChevronRight className="h-5 w-5" />
                   </Link>
 
-                  <div className="border-t pt-1">
-                    <button
-                      onClick={() => setFeaturesOpen(!featuresOpen)}
-                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
-                    >
-                      Features
-                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${featuresOpen ? 'rotate-90' : ''}`} />
-                    </button>
-                    {featuresOpen && (
-                      <div className="pl-4 space-y-1">
-                        {featureItems.map((feature) => (
-                          <Link
-                            key={feature.id}
-                            to={feature.href}
-                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            <feature.icon className="h-4 w-4 text-primary" />
-                            {feature.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <Link
+                    to="/features"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-t pt-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Features
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
 
-                  <div className="border-t pt-1">
-                    <button
-                      onClick={() => setUseCasesOpen(!useCasesOpen)}
-                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
-                    >
-                      Use Cases
-                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${useCasesOpen ? 'rotate-90' : ''}`} />
-                    </button>
-                    {useCasesOpen && (
-                      <div className="pl-4 space-y-1">
-                        {useCases.map((useCase) => (
-                          <Link
-                            key={useCase.href}
-                            to={useCase.href}
-                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            <useCase.icon className="h-4 w-4 text-primary" />
-                            {useCase.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <Link
+                    to="/use-cases"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-t pt-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Use Cases
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
 
-                  <div className="border-t pt-1">
-                    <button
-                      onClick={() => setIcpOpen(!icpOpen)}
-                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
-                    >
-                      ICP
-                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${icpOpen ? 'rotate-90' : ''}`} />
-                    </button>
-                    {icpOpen && (
-                      <div className="pl-4 space-y-1">
-                        {icpPages.map((icp) => (
-                          <Link
-                            key={icp.href}
-                            to={icp.href}
-                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            <icp.icon className="h-4 w-4 text-primary" />
-                            {icp.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <Link
+                    to="/icp"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-t pt-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    ICP
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
 
-                  <div className="border-t pt-1">
-                    <button
-                      onClick={() => setResourcesOpen(!resourcesOpen)}
-                      className="w-full flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
-                    >
-                      Resources
-                      <ChevronRight className={`h-5 w-5 transition-transform duration-micro ease-smooth ${resourcesOpen ? 'rotate-90' : ''}`} />
-                    </button>
-                    {resourcesOpen && (
-                      <div className="pl-4 space-y-1">
-                        {resources.map((resource) => (
-                          <Link
-                            key={resource.href}
-                            to={resource.href}
-                            className="flex items-center gap-2 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            <resource.icon className="h-4 w-4 text-primary" />
-                            {resource.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <Link
+                    to="/resources"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-t pt-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Resources
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
                 </div>
 
                 {/* Separator */}

@@ -26,11 +26,6 @@ const Footer = () => {
                   See how Research NXT keeps you ahead with verified GCC data, benchmarks, and weekly insight drops tailored to strategy, location, and talent teams.
                 </p>
               </div>
-              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                <span className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1">2k+ GCC profiles</span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1">Curated insights weekly</span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1">Analyst support included</span>
-              </div>
             </div>
 
             <div className="flex w-full flex-col gap-3 md:w-auto">
@@ -81,13 +76,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/insights" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                  Insights
-                </Link>
-              </li>
-              <li>
                 <Link to="/articles" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                  Articles
+                  Blogs
                 </Link>
               </li>
             </ul>

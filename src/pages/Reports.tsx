@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
-import { Button } from "@/components/ui/button";
 import type { SyntheticEvent } from "react";
 
 const REPORT_THUMBNAIL_FALLBACK = "/placeholder.svg";
@@ -13,70 +12,35 @@ const reports = [
     title: "State of GCCs in India - A 2026 Report",
     subtitle: "Agentic AI, ownership, and the rise of tier-2 hubs.",
     thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvqt4DyIQYfah4CDjOn37lSb01A2cpw68eykxz",
-    description: "The 2026 reset on India GCCs: autonomous AI adoption, end-to-end ownership, and the market signals reshaping expansion strategy.",
-    altText: "State of GCCs in India 2026 Report - India GCC Market Intelligence",
-    highlights: [
-      "Agentic AI shift across GCC decision systems",
-      "Tier-2 city advantage and capability playbooks",
-      "2026 market opportunity signals for leaders"
-    ],
-    meta: { pages: "2026 edition", updated: "January 2026", format: "Report + highlights" }
+    altText: "State of GCCs in India 2026 Report",
   },
   {
     id: "52-weeks",
     title: "52 Weeks of GCC Momentum",
-    subtitle: "India’s GCC expansion mapped week by week.",
+    subtitle: "India's GCC expansion mapped week by week.",
     thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvNNPnQh6JMprQjEy7dL5OqGWNfYBeuV4HlIzK",
-    description: "A full year of India GCC movements—new centers, capability ramps, and leadership shifts—packaged for GTM, strategy, and delivery teams.",
-    altText: "52 Weeks of GCC Momentum Report - India Global Capability Centers Trends Analysis",
-    highlights: [
-      "Weekly signals on new centers, expansions, and exits",
-      "City and sector heatmaps tuned for GTM & delivery",
-      "Leadership moves with intent signals you can action"
-    ],
-    meta: { pages: "80+", updated: "Weekly signals", format: "Deck + export" }
+    altText: "52 Weeks of GCC Momentum Report",
   },
   {
     id: "gcc-snapshot-q1",
     title: "India GCC Snapshot Q1 (FY25-26)",
     subtitle: "Quarterly view of India GCC maturity and momentum.",
     thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvgXdKglTMytEzAd5jcKVQJC81krLZXpRH72bx",
-    description: "A quarterly checkpoint on where India GCC growth is headed: headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
-    altText: "India GCC Q1 Snapshot Report - Quarterly Global Capability Centers Intelligence",
-    highlights: [
-      "Quarterly benchmark of headcount, capability mix, and city shifts",
-      "Peer comparisons for scale, maturity, and hiring velocity",
-      "Signals and commentary ready for executive decks"
-    ],
-    meta: { pages: "60+", updated: "Quarterly", format: "Deck + export" }
+    altText: "India GCC Q1 Snapshot Report",
   },
   {
     id: "gcc-snapshot-q2",
     title: "India GCC Snapshot Q2 (FY25-26)",
     subtitle: "Quarterly view of India GCC maturity and momentum.",
     thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvmuUxXGnoI5sEOcLKqMDN4Sdb3xQRZFC9gtu1",
-    description: "A quarterly checkpoint on where India GCC growth is headed: headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
-    altText: "India GCC Q2 Snapshot Report - Quarterly Global Capability Centers Intelligence",
-    highlights: [
-      "Quarterly benchmark of headcount, capability mix, and city shifts",
-      "Peer comparisons for scale, maturity, and hiring velocity",
-      "Signals and commentary ready for executive decks"
-    ],
-    meta: { pages: "60+", updated: "Quarterly", format: "Deck + export" }
+    altText: "India GCC Q2 Snapshot Report",
   },
   {
     id: "gcc-snapshot-q3",
     title: "India GCC Snapshot Q3 (FY25-26)",
     subtitle: "Quarterly view of India GCC maturity and momentum.",
     thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvpZK9crebFq8yla9WYurNK7GUmowcBkPOXgxD",
-    description: "A quarterly checkpoint on where India GCC growth is headed: headcount, capabilities, leadership depth, and city momentum in one defensible pack.",
-    altText: "India GCC Q3 Snapshot Report - Quarterly Global Capability Centers Intelligence",
-    highlights: [
-      "Quarterly benchmark of headcount, capability mix, and city shifts",
-      "Peer comparisons for scale, maturity, and hiring velocity",
-      "Signals and commentary ready for executive decks"
-    ],
-    meta: { pages: "60+", updated: "Quarterly", format: "Deck + export" }
+    altText: "India GCC Q3 Snapshot Report",
   },
 ];
 
@@ -91,8 +55,6 @@ const reportDisplayOrder = [
 const sortedReports = [...reports].sort((a, b) => {
   const aIndex = reportDisplayOrder.indexOf(a.id);
   const bIndex = reportDisplayOrder.indexOf(b.id);
-
-  // Keep unknown/new ids at the end in their original relative order.
   if (aIndex === -1 && bIndex === -1) return 0;
   if (aIndex === -1) return 1;
   if (bIndex === -1) return -1;
@@ -108,56 +70,44 @@ const Reports = () => {
 
   useSEO({
     title: "India GCC Reports | GCC Intelligence & GTM Market Research | Bamboo Reports",
-    description: "Comprehensive India GCC Intelligence reports with GTM market research. Access India Global Capability Centers trends, quarterly snapshots, and strategic intelligence for GCC expansion in India.",
-    keywords: "India GCC Reports, GCC Intelligence India, India GCC research, GTM Intelligence India, Global Capability Centers India reports, India GCC Intelligence, GCC market intelligence India, India GCC trends, GTM market research India, GCC insights India, India GCC quarterly reports",
+    description:
+      "Comprehensive India GCC Intelligence reports with GTM market research. Access India Global Capability Centers trends, quarterly snapshots, and strategic intelligence for GCC expansion in India.",
+    keywords:
+      "India GCC Reports, GCC Intelligence India, India GCC research, GTM Intelligence India, Global Capability Centers India reports, India GCC Intelligence, GCC market intelligence India, India GCC trends, GTM market research India",
     canonicalUrl: "https://www.bambooreports.com/reports",
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <main className="py-16 lg:py-20 px-4">
-        <div className="max-w-6xl mx-auto space-y-12">
-          <section className="rounded-3xl border bg-gradient-to-br from-primary/10 via-primary/5 to-background p-8 lg:p-12 space-y-6 shadow-sm">
-            <div className="inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-              Reports Library
-            </div>
-            <div className="space-y-3">
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">GCC intelligence you can lift straight into exec decks.</h1>
-              <p className="text-lg text-muted-foreground max-w-3xl">
-                Curated reports combining verified GCC data, live hiring signals, and analyst commentary. Use them to brief leadership, prioritize GTM plays, and de-risk delivery timelines.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" className="rounded-full" asChild>
-                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a walkthrough</a>
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full" asChild>
-                <Link to="/gcc-list">Explore the data</Link>
-              </Button>
-            </div>
-          </section>
+      <main className="flex-1">
+        <section className="relative overflow-hidden border-b">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,hsl(var(--accent)/0.16),transparent_30%),radial-gradient(circle_at_88%_12%,hsl(var(--primary)/0.16),transparent_36%),linear-gradient(140deg,hsl(var(--background))_0%,hsl(var(--muted)/0.42)_100%)]" />
+          <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(90deg,hsl(var(--foreground))_1px,transparent_1px),linear-gradient(180deg,hsl(var(--foreground))_1px,transparent_1px)] bg-[size:44px_44px]" />
 
-          <section className="space-y-6">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-              <div>
-                <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Latest releases</p>
-                <h2 className="text-3xl font-bold">Pick the report that fits your next review.</h2>
-              </div>
-              <Button variant="outline" className="rounded-full" asChild>
-                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Need a custom cut?</a>
-              </Button>
-            </div>
+          <div className="relative max-w-6xl mx-auto px-4 py-16 lg:py-24 space-y-4">
+            <h1 className="text-4xl lg:text-6xl font-black leading-[1.03] tracking-tight animate-fade-in">Reports</h1>
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl animate-fade-in">
+              GCC intelligence reports you can drop directly into leadership reviews.
+            </p>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {sortedReports.map((report) => (
-                <Link
-                  key={report.id}
-                  to={`/reports/${report.id}`}
-                  className="group"
-                >
-              <div className="h-full rounded-3xl border bg-card shadow-sm transition-all duration-micro ease-smooth hover:shadow-lg hover:-translate-y-[2px] overflow-hidden">
+        <section className="relative max-w-6xl mx-auto px-4 py-14 lg:py-20 space-y-6">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Library</p>
+            <h2 className="text-3xl lg:text-4xl font-black">Latest Reports</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {sortedReports.map((report) => (
+              <Link
+                key={report.id}
+                to={`/reports/${report.id}`}
+                className="group relative h-full rounded-3xl border bg-gradient-to-br from-background to-muted/50 shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] overflow-hidden"
+              >
+                <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={report.thumbnail}
@@ -166,61 +116,16 @@ const Reports = () => {
                     className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
                   />
                 </div>
-                <div className="p-6 space-y-3">
-                  <div className="space-y-1">
-                    <h3 className="text-2xl font-bold leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
-                      {report.title}
-                    </h3>
-                    <p className="text-base text-muted-foreground">{report.subtitle}</p>
-                      </div>
-                      <p className="text-base text-foreground">{report.description}</p>
-                      <div className="grid gap-2">
-                        {report.highlights.map((item) => (
-                          <div key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <span className="text-primary">•</span>
-                            <span>{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="flex items-center gap-2 text-sm font-semibold text-primary">
-                        View report
-                        <span aria-hidden="true">→</span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-
-          <section className="rounded-3xl border bg-muted/40 p-8 lg:p-10 grid lg:grid-cols-[1.05fr_0.95fr] gap-6 items-center">
-            <div className="space-y-3">
-              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Need a different slice?</p>
-              <h3 className="text-2xl lg:text-3xl font-bold">We can tailor the deck to your sector, city list, or capability focus.</h3>
-              <p className="text-base text-muted-foreground">Share the exact questions your leadership needs answered. We’ll re-cut the data and leave you with an export-ready deck and shortlist.</p>
-              <div className="flex flex-wrap gap-3">
-                <Button className="rounded-full" asChild>
-                  <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Talk to us</a>
-                </Button>
-                <Button variant="outline" className="rounded-full" asChild>
-                  <Link to="/pricing">Compare plans</Link>
-                </Button>
-              </div>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-3">
-              {[
-                "Deck, spreadsheet, or CRM export options",
-                "Analyst notes for context you can defend",
-                "Turnaround in 48–72 hours for custom cuts",
-                "City, sector, and capability-specific deep dives"
-              ].map((item) => (
-                <div key={item} className="rounded-2xl border bg-background px-4 py-3 text-sm font-medium leading-relaxed text-foreground">
-                  {item}
+                <div className="relative p-6 space-y-2">
+                  <h3 className="text-2xl font-black leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
+                    {report.title}
+                  </h3>
+                  <p className="text-base text-muted-foreground">{report.subtitle}</p>
                 </div>
-              ))}
-            </div>
-          </section>
-        </div>
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />
