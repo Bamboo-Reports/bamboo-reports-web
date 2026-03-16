@@ -20,6 +20,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import JotFormEmbed from "@/components/JotFormEmbed";
 
 const LOGO_DEV_PUBLISHABLE_KEY = import.meta.env.VITE_LOGO_DEV_PUBLISHABLE_KEY ?? 'LOGO_DEV_PUBLISHABLE_KEY';
 
@@ -680,41 +681,41 @@ const GCCList = () => {
       </Dialog>
 
       {/* Modal */}
-      {showModal && (
+      <div
+        className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-200 ${
+          showModal ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) setShowModal(false);
+        }}
+        aria-hidden={!showModal}
+      >
         <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 animate-modal-overlay"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) setShowModal(false);
-          }}
+          className={`bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden ${
+            showModal ? "animate-modal-content" : ""
+          }`}
         >
-          <div
-            className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden animate-modal-content"
+          <button
+            onClick={() => setShowModal(false)}
+            className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
           >
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
-            >
-              <X size={20} />
-            </button>
+            <X size={20} />
+          </button>
 
-            <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
-              <h2 className="text-2xl font-bold mb-2">Download India GCC Data</h2>
-              <p className="text-sm opacity-90">Fill out the form below to download the sample database</p>
-            </div>
+          <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
+            <h2 className="text-2xl font-bold mb-2">Download India GCC Data</h2>
+            <p className="text-sm opacity-90">Fill out the form below to download the sample database</p>
+          </div>
 
-            <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
-              <iframe
-                key={showModal ? "open" : "closed"}
-                id="JotFormIFrame-253003277590454"
-                title="BR LD - Abhishek"
-                src="https://form.jotform.com/253003277590454"
-                className="w-full h-full border-0"
-                allow="geolocation; microphone; camera; fullscreen; payment"
-              />
-            </div>
+          <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
+            <JotFormEmbed
+              formId="253003277590454"
+              title="BR LD - Abhishek"
+              height="539px"
+            />
           </div>
         </div>
-      )}
+      </div>
 
       <Footer />
     </div>

@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useEffect, useState, useRef } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
+import JotFormEmbed from "@/components/JotFormEmbed";
 
 const heroHighlights = [
   "The Agentic AI shift redefining GCC ownership and autonomy",
@@ -33,62 +33,9 @@ const ReportStateOfGCCs2026 = () => {
     canonicalUrl: "https://www.bambooreports.com/reports/state-of-gccs-2026",
   });
 
-  const [formKey, setFormKey] = useState(0);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const hasNavigatedRef = useRef(false);
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
-    script.async = true;
-    document.body.appendChild(script);
 
-    script.onload = () => {
-      if ((window as any).jotformEmbedHandler) {
-        (window as any).jotformEmbedHandler("iframe[id='JotFormIFrame-260291234006446']", "https://form.jotform.com/");
-      }
-    };
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [formKey]);
-
-  const handleIframeLoad = () => {
-    if (!hasNavigatedRef.current) {
-      hasNavigatedRef.current = true;
-      return;
-    }
-
-    hasNavigatedRef.current = false;
-    setTimeout(() => {
-      setFormKey((prev) => prev + 1);
-    }, 500);
-  };
-
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      if (typeof event.data === "string") {
-        try {
-          const data = JSON.parse(event.data);
-          if (
-            data.action === "submission-completed" ||
-            data.type === "form.submit" ||
-            event.data.includes("submission-completed")
-          ) {
-            // Submission detected; keep page ready for reset.
-          }
-        } catch {
-          // Ignore non-JSON messages.
-        }
-      }
-    };
-
-    window.addEventListener("message", handleMessage);
-    return () => {
-      window.removeEventListener("message", handleMessage);
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -133,21 +80,9 @@ const ReportStateOfGCCs2026 = () => {
               <div className="rounded-3xl border bg-card shadow-sm p-6">
                 <h3 className="text-2xl font-bold mb-3">Download report</h3>
                 <p className="text-sm text-muted-foreground mb-4">Get the full report and executive-ready highlights.</p>
-                <iframe
-                  key={formKey}
-                  ref={iframeRef}
-                  id="JotFormIFrame-260291234006446"
+                <JotFormEmbed
+                  formId="260291234006446"
                   title="State of GCCs in India - A 2026 Report"
-                  onLoad={() => {
-                    window.parent.scrollTo(0, 0);
-                    handleIframeLoad();
-                  }}
-                  allowTransparency={true}
-                  allow="geolocation; microphone; camera; fullscreen; payment"
-                  src="https://form.jotform.com/260291234006446"
-                  frameBorder="0"
-                  style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
-                  scrolling="no"
                 />
               </div>
             </div>

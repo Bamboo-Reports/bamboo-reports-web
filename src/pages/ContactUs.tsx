@@ -25,7 +25,7 @@ const ContactUs = () => {
                         <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
                             <h2 className="text-xl font-semibold mb-3">📬 General Enquiries</h2>
                             <p className="text-sm text-muted-foreground mb-2">For product information, demo requests, or research collaboration:</p>
-                            <a href="mailto:hello@researchnxt.com" className="text-primary font-medium hover:underline">✉️ hello@researchnxt.com</a>
+                            <a href="mailto:enquiry@researchnxt.com" className="text-primary font-medium hover:underline">✉️ enquiry@researchnxt.com</a>
                         </div>
 
                         <div className="bg-card p-6 rounded-lg border border-border shadow-sm">

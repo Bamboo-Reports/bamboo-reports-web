@@ -86,7 +86,7 @@ const AboutUs = () => {
                     <h2 className="text-2xl font-semibold mt-8 mb-4">🚀 Let’s Work Together</h2>
                     <p className="text-base text-muted-foreground leading-relaxed mb-4">
                         To explore subscriptions, custom data packs, or collaboration:<br />
-                        📧 <a href="mailto:hello@researchnxt.com" className="text-primary hover:underline">hello@researchnxt.com</a><br />
+                        📧 <a href="mailto:enquiry@researchnxt.com" className="text-primary hover:underline">enquiry@researchnxt.com</a><br />
                         🌐 <a href="https://www.bambooreports.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">www.bambooreports.com</a>
                     </p>
                 </div>
