@@ -51,8 +51,8 @@ const Footer = () => {
               </Link>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" aria-hidden />
-                <a href="mailto:hello@researchnxt.com" className="hover:text-primary">
-                  hello@researchnxt.com
+                <a href="mailto:enquiry@researchnxt.com" className="hover:text-primary">
+                  enquiry@researchnxt.com
                 </a>
               </div>
             </div>

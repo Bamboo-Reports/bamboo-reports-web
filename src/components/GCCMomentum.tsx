@@ -2,36 +2,10 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import gccMomentumReport from "@/assets/gcc-momentum-report.png";
+import JotFormEmbed from "@/components/JotFormEmbed";
 
 const GCCMomentum = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [isFormLoaded, setIsFormLoaded] = useState(false);
-
-  useEffect(() => {
-    // Load JotForm script immediately on component mount (not waiting for popup to open)
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      if ((window as any).jotformEmbedHandler) {
-        // Initialize the handler as soon as script loads
-        setTimeout(() => {
-          (window as any).jotformEmbedHandler(
-            "iframe[id='JotFormIFrame-251101747497459']",
-            "https://form.jotform.com/"
-          );
-        }, 100);
-      }
-    };
-
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
 
   useEffect(() => {
     // Handle escape key
@@ -74,10 +48,6 @@ const GCCMomentum = () => {
     }
   };
 
-  const handleIframeLoad = () => {
-    setIsFormLoaded(true);
-  };
-
   return (
     <>
       <section className="py-16 px-4 bg-secondary/20">
@@ -109,62 +79,43 @@ const GCCMomentum = () => {
         </div>
       </section>
 
-      {/* Hidden iframe to preload form */}
-      <div className="hidden">
-        <iframe
-          id="JotFormIFrame-251101747497459"
-          title="[RNXT] Bamboo Reports Leads"
-          allow="geolocation; microphone; camera; fullscreen; payment"
-          src="https://form.jotform.com/251101747497459"
-          onLoad={handleIframeLoad}
-          className="w-full h-full border-0"
-        />
-      </div>
-
       {/* Popup Overlay */}
-      {isPopupOpen && (
+      <div
+        className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-200 ${
+          isPopupOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={handleOverlayClick}
+        aria-hidden={!isPopupOpen}
+      >
         <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 animate-modal-overlay"
-          onClick={handleOverlayClick}
+          className={`bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden ${
+            isPopupOpen ? "animate-modal-content" : ""
+          }`}
         >
-          <div
-            className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden animate-modal-content"
+          {/* Close Button */}
+          <button
+            onClick={closePopup}
+            className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
           >
-            {/* Close Button */}
-            <button
-              onClick={closePopup}
-              className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
-            >
-              <X size={20} />
-            </button>
+            <X size={20} />
+          </button>
 
-            {/* Form Header */}
-            <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
-              <h2 className="text-2xl font-bold mb-2">Bamboo Reports</h2>
-              <p className="text-sm opacity-90">Fill out the form below to download your report</p>
-            </div>
+          {/* Form Header */}
+          <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
+            <h2 className="text-2xl font-bold mb-2">Bamboo Reports</h2>
+            <p className="text-sm opacity-90">Fill out the form below to download your report</p>
+          </div>
 
-            {/* Form Container */}
-            <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
-              {/* Loading spinner */}
-              {!isFormLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-white">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#f39122]"></div>
-                </div>
-              )}
-              
-              {/* Move the hidden iframe here when popup opens */}
-              <iframe
-                id="JotFormIFrame-251101747497459-visible"
-                title="[RNXT] Bamboo Reports Leads"
-                allow="geolocation; microphone; camera; fullscreen; payment"
-                src="https://form.jotform.com/251101747497459"
-                className="w-full h-full border-0"
-              />
-            </div>
+          {/* Form Container */}
+          <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
+            <JotFormEmbed
+              formId="251101747497459"
+              title="[RNXT] Bamboo Reports Leads"
+              height="539px"
+            />
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };

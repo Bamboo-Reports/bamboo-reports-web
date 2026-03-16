@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useEffect, useState, useRef } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
+import JotFormEmbed from "@/components/JotFormEmbed";
 
 const heroHighlights = [
   "Quarterly benchmark of headcount, capability mix, and city shifts",
@@ -32,62 +32,9 @@ const ReportGCCSnapshotQ1 = () => {
     keywords: "India GCC Snapshot, GCC Quarterly Report, GCC Intelligence, Global Capability Centers Q1, GCC Trends India, GCC Market Intelligence, GTM research India, India GCC Research",
   });
 
-  const [formKey, setFormKey] = useState(0);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const hasNavigatedRef = useRef(false);
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
-    script.async = true;
-    document.body.appendChild(script);
 
-    script.onload = () => {
-      if ((window as any).jotformEmbedHandler) {
-        (window as any).jotformEmbedHandler("iframe[id='JotFormIFrame-260531831450449']", "https://form.jotform.com/");
-      }
-    };
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [formKey]);
-
-  const handleIframeLoad = () => {
-    if (!hasNavigatedRef.current) {
-      hasNavigatedRef.current = true;
-      return;
-    }
-
-    hasNavigatedRef.current = false;
-    setTimeout(() => {
-      setFormKey((prev) => prev + 1);
-    }, 500);
-  };
-
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      if (typeof event.data === "string") {
-        try {
-          const data = JSON.parse(event.data);
-          if (
-            data.action === "submission-completed" ||
-            data.type === "form.submit" ||
-            event.data.includes("submission-completed")
-          ) {
-            // Submission detected; keep page ready for reset.
-          }
-        } catch {
-          // Ignore non-JSON messages.
-        }
-      }
-    };
-
-    window.addEventListener("message", handleMessage);
-    return () => {
-      window.removeEventListener("message", handleMessage);
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -131,21 +78,9 @@ const ReportGCCSnapshotQ1 = () => {
               <div className="rounded-3xl border bg-card shadow-sm p-6">
                 <h3 className="text-2xl font-bold mb-3">Download report</h3>
                 <p className="text-sm text-muted-foreground mb-4">Get the full deck plus export-ready views.</p>
-                <iframe
-                  key={formKey}
-                  ref={iframeRef}
-                  id="JotFormIFrame-260531831450449"
+                <JotFormEmbed
+                  formId="260531831450449"
                   title="[ BR ] - Q1 Snapshot Leads"
-                  onLoad={() => {
-                    window.parent.scrollTo(0, 0);
-                    handleIframeLoad();
-                  }}
-                  allowTransparency={true}
-                  allow="geolocation; microphone; camera; fullscreen; payment"
-                  src="https://form.jotform.com/260531831450449"
-                  frameBorder="0"
-                  style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
-                  scrolling="no"
                 />
               </div>
             </div>

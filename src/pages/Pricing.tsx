@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useSEO } from "@/hooks/useSEO";
 import { useAuth } from "@/contexts/AuthContext";
 import { useGeolocation } from "@/hooks/useGeolocation";
+import JotFormEmbed from "@/components/JotFormEmbed";
 import {
   initiateRazorpayPayment,
   createRazorpayOrder,
@@ -80,41 +81,7 @@ const Pricing = () => {
   const [processingPlan, setProcessingPlan] = useState<string | null>(null);
   const [isInquiryPopupOpen, setIsInquiryPopupOpen] = useState(false);
 
-  useEffect(() => {
-    if (!isInquiryPopupOpen || isSubscriptionEnabled) return;
 
-    const initializeJotform = () => {
-      if ((window as any).jotformEmbedHandler) {
-        (window as any).jotformEmbedHandler(
-          "iframe[id='JotFormIFrame-260714112843450']",
-          "https://form.jotform.com/"
-        );
-      }
-    };
-
-    if ((window as any).jotformEmbedHandler) {
-      initializeJotform();
-      return;
-    }
-
-    let script = document.querySelector<HTMLScriptElement>(
-      "script[data-jotform-embed='true']"
-    );
-
-    if (!script) {
-      script = document.createElement("script");
-      script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
-      script.async = true;
-      script.setAttribute("data-jotform-embed", "true");
-      document.body.appendChild(script);
-    }
-
-    script.addEventListener("load", initializeJotform);
-
-    return () => {
-      script?.removeEventListener("load", initializeJotform);
-    };
-  }, [isInquiryPopupOpen, isSubscriptionEnabled]);
 
   useEffect(() => {
     if (!isInquiryPopupOpen) return;
@@ -234,75 +201,6 @@ const Pricing = () => {
 
   const currencySymbol = currency === "USD" ? "$" : "INR ";
 
-  const deliverables = [
-    {
-      category: "GCC coverage",
-      explorer: "L1 list: 2,400+ GCCs with sector, city, headcount",
-      navigator: "L1 + L2: leadership, signals, benchmarks",
-      enterprise: "Org-wide coverage + tailored cohorts",
-    },
-    {
-      category: "Signals & updates",
-      explorer: "Quarterly view, annual snapshot",
-      navigator: "Monthly signals: hiring, city moves, capability adds",
-      enterprise: "Signals + analyst validation and callouts",
-    },
-    {
-      category: "Exports & activation",
-      explorer: "Download-ready shortlists",
-      navigator: "Saved views, exports, CRM/Sheets push",
-      enterprise: "Custom delivery for GTM, PMO, HR, Finance",
-    },
-    {
-      category: "Benchmarks",
-      explorer: "Sector & city snapshots",
-      navigator: "Benchmarking by sector, headcount, maturity",
-      enterprise: "Executive-grade benchmarks with scenarios",
-    },
-    {
-      category: "Analyst time",
-      explorer: "Email support",
-      navigator: "Up to 6 hours included",
-      enterprise: "Program-level analyst hours and workshops",
-    },
-  ];
-
-  const addOns = [
-    {
-      title: "Prospect enrichment sprint",
-      description: "Custom prospect list aligned to your ICP and region focus.",
-      price: "Starts $2,000 / INR 1,65,000",
-    },
-    {
-      title: "Executive workshop",
-      description: "90-minute session on GCC signals, benchmarks, and next steps.",
-      price: "$1,200 / INR 99,000",
-    },
-    {
-      title: "CRM integration",
-      description: "Push Explorer/Navigator shortlists into your CRM/Sheets.",
-      price: "Quote on request",
-    },
-  ];
-
-  const faqs = [
-    {
-      question: "Do you refresh signals monthly?",
-      answer: "Navigator and Enterprise include monthly signal refreshes; Explorer is quarterly with an annual snapshot.",
-    },
-    {
-      question: "Can we pilot before Enterprise?",
-      answer: "Yes - most teams start with Navigator for 60-90 days, then scope an Enterprise program.",
-    },
-    {
-      question: "What is included in analyst hours?",
-      answer: "Analysts synthesize signals, validate accounts, and prepare short POVs or slides for leadership.",
-    },
-    {
-      question: "Do you support multi-team access?",
-      answer: "Enterprise programs include coordinated intake and tailored deliverables for GTM, PMO, HR/TA, and Finance.",
-    },
-  ];
 
   const handlePayment = async (
     planName: string,
@@ -591,130 +489,46 @@ const Pricing = () => {
             })}
           </div>
 
-          {/* --- Deliverables Table --- */}
-          <div className="mt-16 rounded-2xl border bg-muted/20 p-6 lg:p-8">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
-              <div>
-                <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Deliverables</p>
-                <h2 className="text-2xl lg:text-3xl font-bold">What you get in each tier</h2>
-              </div>
-              <Button variant="outline" className="rounded-full" asChild>
-                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
-              </Button>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm">
-                <thead>
-                  <tr className="border-b text-muted-foreground">
-                    <th className="py-3 pr-6 font-medium text-foreground">Deliverable</th>
-                    <th className="py-3 pr-6 font-medium">Explorer</th>
-                    <th className="py-3 pr-6 font-medium">Navigator</th>
-                    <th className="py-3 font-medium">Enterprise</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y">
-                  {deliverables.map((row) => (
-                    <tr key={row.category} className="align-top">
-                      <td className="py-4 pr-6 font-semibold text-foreground">{row.category}</td>
-                      <td className="py-4 pr-6 text-muted-foreground">{row.explorer}</td>
-                      <td className="py-4 pr-6 text-muted-foreground">{row.navigator}</td>
-                      <td className="py-4 text-muted-foreground">{row.enterprise}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
 
-          {/* --- Add-ons --- */}
-          <div className="mt-12 rounded-2xl border bg-card p-6 lg:p-8">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
-              <div>
-                <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Add-ons</p>
-                <h2 className="text-2xl lg:text-3xl font-bold">Layer on what your team needs</h2>
-              </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-4">
-              {addOns.map((item) => (
-                <div key={item.title} className="rounded-xl border bg-muted/30 p-5 shadow-sm">
-                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{item.description}</p>
-                  <p className="text-sm font-semibold text-primary">{item.price}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* --- FAQs --- */}
-          <div className="mt-12 rounded-2xl border bg-muted/20 p-6 lg:p-8">
-            <div className="flex flex-col gap-2 mb-6">
-              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">FAQs</p>
-              <h2 className="text-2xl lg:text-3xl font-bold">Answers to common questions</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              {faqs.map((faq) => (
-                <div key={faq.question} className="rounded-xl border bg-background p-5 shadow-sm">
-                  <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* --- CTA Strip --- */}
-          <div className="mt-12 rounded-2xl border bg-gradient-to-r from-primary/15 via-primary/10 to-background p-6 lg:p-8 flex flex-col lg:flex-row items-center justify-between gap-4">
-            <div className="space-y-1 text-center lg:text-left">
-              <h3 className="text-2xl font-bold">Want a walkthrough of Explorer, Navigator, or Enterprise?</h3>
-              <p className="text-muted-foreground">Book a 20-min call and we will map the right deliverables to your team.</p>
-            </div>
-            <div className="flex flex-wrap justify-center lg:justify-end gap-3">
-              <Button size="lg" className="rounded-full" asChild>
-                <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a 20-min call</a>
-              </Button>
-            </div>
-          </div>
         </div>
       </main>
 
-      {isInquiryPopupOpen && (
-        <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 animate-modal-overlay"
-          onClick={(event) => {
-            if (event.target === event.currentTarget) {
-              setIsInquiryPopupOpen(false);
-            }
-          }}
-        >
-          <div className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden animate-modal-content">
-            <button
-              onClick={() => setIsInquiryPopupOpen(false)}
-              className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
-              aria-label="Close inquiry form"
-            >
-              <X size={20} />
-            </button>
+      <div
+        className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-200 ${
+          isInquiryPopupOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) {
+            setIsInquiryPopupOpen(false);
+          }
+        }}
+        aria-hidden={!isInquiryPopupOpen}
+      >
+        <div className={`bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden ${
+          isInquiryPopupOpen ? "animate-modal-content" : ""
+        }`}>
+          <button
+            onClick={() => setIsInquiryPopupOpen(false)}
+            className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
+            aria-label="Close inquiry form"
+          >
+            <X size={20} />
+          </button>
 
-            <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
-              <h2 className="text-2xl font-bold mb-2">Bamboo Reports</h2>
-              <p className="text-sm opacity-90">Fill out the form below to get started</p>
-            </div>
+          <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
+            <h2 className="text-2xl font-bold mb-2">Bamboo Reports</h2>
+            <p className="text-sm opacity-90">Fill out the form below to get started</p>
+          </div>
 
-            <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
-              <iframe
-                id="JotFormIFrame-260714112843450"
-                title="[ BR ] - Inquiry"
-                onLoad={() => window.parent.scrollTo(0, 0)}
-                allow="geolocation; microphone; camera; fullscreen; payment"
-                src="https://form.jotform.com/260714112843450"
-                frameBorder="0"
-                style={{ minWidth: "100%", maxWidth: "100%", height: "539px", border: "none" }}
-                scrolling="no"
-                className="w-full h-full"
-              />
-            </div>
+          <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
+            <JotFormEmbed
+              formId="260714112843450"
+              title="[ BR ] - Inquiry"
+              height="539px"
+            />
           </div>
         </div>
-      )}
+      </div>
 
       <Footer />
     </div>
