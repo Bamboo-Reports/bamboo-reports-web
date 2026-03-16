@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
 
-const articles = [
+const blogs = [
   {
     slug: "h1b-shock-strategic-reset",
     title: "H-1B Shock or Strategic Reset? Bengaluru Roundtable",
@@ -18,84 +18,72 @@ const articles = [
 
 const Articles = () => {
   useSEO({
-    title: "GCC Articles - Global Capability Centers News & Updates",
+    title: "GCC Blogs - Global Capability Centers News & Updates",
     description:
-      "Read articles on Global Capability Centers, India GCC ecosystem, market trends, and industry analysis. Expert perspectives on GCC strategy, benchmarking, and GTM research.",
+      "Read blogs on Global Capability Centers, India GCC ecosystem, market trends, and industry analysis. Expert perspectives on GCC strategy, benchmarking, and GTM research.",
     keywords:
-      "GCC Articles, Global Capability Centers News, GCC Industry Analysis, India GCC Updates, GCC Strategy, GCC benchmarking, GTM research India",
+      "GCC Blogs, Global Capability Centers News, GCC Industry Analysis, India GCC Updates, GCC Strategy, GCC benchmarking, GTM research India",
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <main className="py-16 lg:py-20 px-4">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <section className="rounded-3xl border bg-gradient-to-br from-primary/10 via-primary/5 to-background p-8 lg:p-12 space-y-6 shadow-sm text-center">
-            <div className="inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-              Articles
-            </div>
-            <div className="space-y-3">
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">Resources and roundtables from Bamboo Reports.</h1>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Analyst-grade takes on India’s GCC evolution—operating models, capability shifts, and GTM plays for teams building in-market.
-              </p>
-            </div>
-          </section>
+      <main className="flex-1">
+        <section className="relative overflow-hidden border-b">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,hsl(var(--accent)/0.16),transparent_30%),radial-gradient(circle_at_88%_12%,hsl(var(--primary)/0.16),transparent_36%),linear-gradient(140deg,hsl(var(--background))_0%,hsl(var(--muted)/0.42)_100%)]" />
+          <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(90deg,hsl(var(--foreground))_1px,transparent_1px),linear-gradient(180deg,hsl(var(--foreground))_1px,transparent_1px)] bg-[size:44px_44px]" />
 
-          <section className="space-y-4">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-              <div>
-                <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Latest</p>
-                <h2 className="text-3xl font-bold">Pick an article to dive in.</h2>
-              </div>
-            </div>
+          <div className="relative max-w-6xl mx-auto px-4 py-16 lg:py-24 space-y-4">
+            <h1 className="text-4xl lg:text-6xl font-black leading-[1.03] tracking-tight animate-fade-in">Blogs</h1>
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl animate-fade-in">
+              Analyst-grade takes on India GCC evolution, operating models, and GTM moves.
+            </p>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {articles.map((article) => (
-                <Link
-                  key={article.slug}
-                  to={`/articles/${article.slug}`}
-                  className="group h-full rounded-3xl border bg-card shadow-sm transition-all duration-micro ease-smooth hover:shadow-lg hover:-translate-y-[2px] overflow-hidden"
-                >
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={article.thumbnail}
-                      alt={article.title}
-                      className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
-                    />
+        <section className="relative max-w-6xl mx-auto px-4 py-14 lg:py-20 space-y-6">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Library</p>
+            <h2 className="text-3xl lg:text-4xl font-black">Recent Blogs</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {blogs.map((blog) => (
+              <Link
+                key={blog.slug}
+                to={`/articles/${blog.slug}`}
+                className="group relative h-full rounded-3xl border bg-gradient-to-br from-background to-muted/50 shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] overflow-hidden"
+              >
+                <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={blog.thumbnail}
+                    alt={blog.title}
+                    className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
+                  />
+                </div>
+                <div className="relative p-6 space-y-3">
+                  <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                    {blog.tags.map((tag) => (
+                      <span key={tag} className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                  <div className="p-6 space-y-3">
-                    <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-                      {article.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="text-2xl font-bold leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
-                        {article.title}
-                      </h3>
-                      <p className="text-base text-muted-foreground">{article.summary}</p>
-                    </div>
-                    <div className="flex flex-wrap gap-3 text-sm font-semibold text-primary">
-                      <span className="rounded-full bg-primary/10 px-3 py-1 border border-primary/30">{article.date}</span>
-                      <span className="rounded-full bg-primary/10 px-3 py-1 border border-primary/30">{article.location}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm font-semibold text-primary">
-                      Read article
-                      <span aria-hidden="true">›</span>
-                    </div>
+                  <h3 className="text-2xl font-black leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
+                    {blog.title}
+                  </h3>
+                  <p className="text-base text-muted-foreground">{blog.summary}</p>
+                  <div className="flex flex-wrap gap-3 text-sm font-semibold text-primary">
+                    <span className="rounded-full bg-primary/10 px-3 py-1 border border-primary/30">{blog.date}</span>
+                    <span className="rounded-full bg-primary/10 px-3 py-1 border border-primary/30">{blog.location}</span>
                   </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />

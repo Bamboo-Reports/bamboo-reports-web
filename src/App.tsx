@@ -18,6 +18,7 @@ import GCCList from "./pages/GCCList";
 import Insights from "./pages/Insights";
 import Articles from "./pages/Articles";
 import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
+import Resources from "./pages/Resources";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFailure from "./pages/PaymentFailure";
 import SignUp from "./pages/SignUp";
@@ -46,6 +47,9 @@ import Coverage from "./pages/features/Coverage";
 import WhatIfScenarios from "./pages/features/WhatIfScenarios";
 import ProprietaryTAMSlicers from "./pages/features/ProprietaryTAMSlicers";
 import TailorMadeMarketInsights from "./pages/features/TailorMadeMarketInsights";
+import Features from "./pages/Features";
+import UseCases from "./pages/UseCases";
+import ICP from "./pages/ICP";
 import ScrollToTop from "./components/ScrollToTop";
 import { ensureJotformEmbedHandler } from "@/lib/jotform";
 
@@ -79,13 +83,19 @@ const App = () => {
             <Route path="/gcc-list" element={<GCCList />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/articles" element={<Articles />} />
+            <Route path="/blogs" element={<Articles />} />
+            <Route path="/blog" element={<Articles />} />
             <Route path="/articles/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/payment-failure" element={<PaymentFailure />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/use-cases" element={<UseCases />} />
+            <Route path="/icp" element={<ICP />} />
             <Route path="/features/coverage" element={<Coverage />} />
             <Route path="/features/what-if-scenarios" element={<WhatIfScenarios />} />
             <Route path="/features/proprietary-tam-slicers" element={<ProprietaryTAMSlicers />} />
