@@ -1,80 +1,134 @@
 import { Button } from "@/components/ui/button";
 import gccIllustration from "@/assets/gcc-illustration.png";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
+import { ArrowRight, Building2, Globe, TrendingUp } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="py-8 md:py-16 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 md:mb-12">
-          <h1 className="leading-tight mb-4 md:mb-6">
-            <span className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold block mb-2">
-              Actionable Insights On
-            </span>
-            <span className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold block">
-              Global Capability Centers
-            </span>
-          </h1>
-          <p className="text-muted-foreground mb-6 md:mb-8 font-normal text-sm sm:text-base md:text-lg px-2 max-w-3xl mx-auto leading-relaxed">
-            A Platform With the Largest Repository to Help You Navigate the
-            Thriving GCC/GIC Opportunity
-          </p>
+    <section className="relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-accent/[0.03]" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/[0.04] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
 
-          {/* --- Button Wrapper --- */}
-          <div className="flex items-center justify-center gap-4 mb-3 md:mb-4">
+      <div className="relative enterprise-section">
+        <div className="max-w-7xl mx-auto">
+          {/* Enterprise badge */}
+          <div className="text-center mb-8">
+            <span className="enterprise-badge">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+              Enterprise Intelligence Platform
+            </span>
+          </div>
+
+          {/* Main headline */}
+          <div className="text-center mb-10 max-w-4xl mx-auto">
+            <h1 className="mb-6">
+              <span className="text-foreground block mb-2">
+                Actionable Insights On
+              </span>
+              <span className="enterprise-gradient-text block">
+                Global Capability Centers
+              </span>
+            </h1>
+            <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+              The largest intelligence platform helping enterprise teams navigate
+              India's thriving GCC ecosystem with verified, center-level data.
+            </p>
+          </div>
+
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <Button
-              asChild // Use asChild to render the anchor tag
-              className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
+              asChild
+              size="lg"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 rounded-lg font-semibold text-base shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/25 transition-all"
             >
               <a
                 href="https://calendar.app.google/QNXWripJexzXLHqGA"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Get a Demo
+                Schedule a Demo
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
 
-            {/* --- New GCC Data Button --- */}
             <Button
-              asChild // Use asChild to render the Link
-              variant="outline" // Use outline style
-              className="px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
+              asChild
+              variant="outline"
+              size="lg"
+              className="px-8 py-6 rounded-lg font-semibold text-base border-border/80 hover:border-accent/40 hover:bg-accent/5 transition-all"
             >
               <Link to="/gcc-list">Explore the Data</Link>
             </Button>
           </div>
 
-          <p className="text-xs sm:text-sm text-muted-foreground px-4">
-            Get expert advice to supercharge your GCC strategy
+          <p className="text-center text-sm text-muted-foreground mb-16">
+            No credit card required. Get expert advice to supercharge your GCC strategy.
           </p>
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
-          <div className="px-2">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-              What is GCC Intelligence?
-            </h2>
-            <p className="text-justify leading-relaxed mb-4 text-sm md:text-base">
-              GCC Intelligence refers to the structured, data-driven
-              understanding of Global Capability Centers (GCCs), also known as
-              Global In-house Centers (GICs). These are offshore operations of
-              multinational companies and handle a wide range of strategic,
-              operational, and innovation-driven functions.
-            </p>
-            <p className="text-justify leading-relaxed text-sm md:text-base">
-              India has become a key destination for these centers, thanks to
-              its talent density, mature ecosystems, and infrastructure. The
-              role of GCCs has expanded well beyond cost efficiency to driving
-              innovation, agility, and business continuity.
-            </p>
+          {/* Trust stats bar */}
+          <div className="max-w-3xl mx-auto">
+            <div className="grid grid-cols-3 divide-x divide-border">
+              <div className="enterprise-stat">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Building2 className="h-5 w-5 text-accent" />
+                </div>
+                <div className="enterprise-stat-value">2,400+</div>
+                <div className="enterprise-stat-label">GCC Centers Tracked</div>
+              </div>
+              <div className="enterprise-stat">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Globe className="h-5 w-5 text-accent" />
+                </div>
+                <div className="enterprise-stat-value">55+</div>
+                <div className="enterprise-stat-label">Countries Covered</div>
+              </div>
+              <div className="enterprise-stat">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <TrendingUp className="h-5 w-5 text-accent" />
+                </div>
+                <div className="enterprise-stat-value">Weekly</div>
+                <div className="enterprise-stat-label">Data Refreshes</div>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-center px-2">
-            <img
-              src={gccIllustration}
-              alt="GCC Intelligence Platform - Global Capability Centers Data Analytics and Market Intelligence Illustration"
-              className="w-full max-w-sm md:max-w-lg"
-            />
+        </div>
+      </div>
+
+      {/* What is GCC Intelligence - moved below with enterprise styling */}
+      <div className="enterprise-section-alt">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <span className="enterprise-badge mb-6 inline-flex">About GCC Intelligence</span>
+              <h2 className="mb-6">
+                What is GCC Intelligence?
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4 text-base md:text-lg">
+                GCC Intelligence refers to the structured, data-driven
+                understanding of Global Capability Centers (GCCs), also known as
+                Global In-house Centers (GICs). These are offshore operations of
+                multinational companies and handle a wide range of strategic,
+                operational, and innovation-driven functions.
+              </p>
+              <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+                India has become a key destination for these centers, thanks to
+                its talent density, mature ecosystems, and infrastructure. The
+                role of GCCs has expanded well beyond cost efficiency to driving
+                innovation, agility, and business continuity.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl blur-xl" />
+                <img
+                  src={gccIllustration}
+                  alt="GCC Intelligence Platform - Global Capability Centers Data Analytics and Market Intelligence Illustration"
+                  className="relative w-full max-w-sm md:max-w-lg rounded-xl"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

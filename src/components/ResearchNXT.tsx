@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import amperaLogo from "@/assets/logos/Ampera.png";
 import cytviaLogo from "@/assets/logos/Cytvia.png";
 import hcltechLogo from "@/assets/logos/HCL_Tech.png";
@@ -40,42 +38,45 @@ const logos = [
 
 const ResearchNXT = () => {
   return (
-    <section className="py-16 px-4 bg-background">
+    <section className="py-20 px-4 bg-background border-y border-border/50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold mb-3">
-            Bamboo Reports is built by Research NXT
-          </h2>
-          <p className="text-muted-foreground mb-12">
-            a market intelligence firm trusted by 50+ global tech companies.
+        <div className="text-center mb-12">
+          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
+            Built by Research NXT
           </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">
+            Trusted by 50+ Global Technology Companies
+          </h2>
+          <div className="enterprise-divider" />
         </div>
 
-        <div className="overflow-hidden relative">
-          <div className="flex animate-scroll">
-            {/* First set of logos */}
+        {/* Logo carousel with fade edges */}
+        <div className="relative overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+
+          <div className="flex animate-scroll items-center">
             {logos.map((logo, index) => (
               <div
                 key={`logo-1-${index}`}
-                className="flex-shrink-0 mx-8 md:mx-12"
+                className="flex-shrink-0 mx-8 md:mx-12 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-12 md:h-16 object-contain"
+                  className="h-10 md:h-12 object-contain"
                 />
               </div>
             ))}
-            {/* Duplicate set for seamless loop */}
             {logos.map((logo, index) => (
               <div
                 key={`logo-2-${index}`}
-                className="flex-shrink-0 mx-8 md:mx-12"
+                className="flex-shrink-0 mx-8 md:mx-12 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-12 md:h-16 object-contain"
+                  className="h-10 md:h-12 object-contain"
                 />
               </div>
             ))}
@@ -96,7 +97,7 @@ const ResearchNXT = () => {
         }
 
         .animate-scroll {
-          animation: scroll 25s linear infinite;
+          animation: scroll 30s linear infinite;
         }
 
         .animate-scroll:hover {

@@ -22,6 +22,8 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        "surface-elevated": "hsl(var(--surface-elevated))",
+        "surface-sunken": "hsl(var(--surface-sunken))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
