@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { Search, X, TrendingUp, Building2, Rocket, Loader2, ChevronRight, Lock, ChevronLeft, RefreshCcw, Filter, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
@@ -101,6 +102,7 @@ const GCCList = () => {
   });
 
   const navigate = useNavigate();
+  const { openInquiryForm } = useInquiryForm();
   const [data, setData] = useState<CSVRow[]>([]);
   const [columns, setColumns] = useState<string[]>([]);
   const [page, setPage] = useState(1);
@@ -410,8 +412,8 @@ const GCCList = () => {
             >
               Download India GCC Database (Sample)
             </Button>
-            <Button size="lg" variant="outline" asChild className="rounded-full">
-              <Link to="/pricing">Get Full India GCC Database</Link>
+            <Button size="lg" variant="outline" className="rounded-full" onClick={openInquiryForm}>
+              Get Full India GCC Database
             </Button>
           </div>
 
@@ -663,7 +665,7 @@ const GCCList = () => {
             <Button
               onClick={() => {
                 setShowPricingDialog(false);
-                navigate("/pricing");
+                openInquiryForm();
               }}
               className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold py-3 rounded-xl shadow-lg"
             >

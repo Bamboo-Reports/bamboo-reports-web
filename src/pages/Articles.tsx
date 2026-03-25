@@ -18,11 +18,11 @@ const blogs = [
 
 const Articles = () => {
   useSEO({
-    title: "GCC Blogs - Global Capability Centers News & Updates",
+    title: "GCC Roundtable - Bamboo Reports",
     description:
-      "Read blogs on Global Capability Centers, India GCC ecosystem, market trends, and industry analysis. Expert perspectives on GCC strategy, benchmarking, and GTM research.",
+      "Explore roundtables hosted by Bamboo Reports on Global Capability Centers, India GCC ecosystem, strategy, and industry insights.",
     keywords:
-      "GCC Blogs, Global Capability Centers News, GCC Industry Analysis, India GCC Updates, GCC Strategy, GCC benchmarking, GTM research India",
+      "GCC Roundtable, Bamboo Reports Roundtable, Global Capability Centers, GCC Strategy, GCC benchmarking, GTM research India",
   });
 
   return (
@@ -35,9 +35,9 @@ const Articles = () => {
           <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(90deg,hsl(var(--foreground))_1px,transparent_1px),linear-gradient(180deg,hsl(var(--foreground))_1px,transparent_1px)] bg-[size:44px_44px]" />
 
           <div className="relative max-w-6xl mx-auto px-4 py-16 lg:py-24 space-y-4">
-            <h1 className="text-4xl lg:text-6xl font-black leading-[1.03] tracking-tight animate-fade-in">Blogs</h1>
+            <h1 className="text-4xl lg:text-6xl font-black leading-[1.03] tracking-tight animate-fade-in">Roundtables</h1>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl animate-fade-in">
-              Analyst-grade takes on India GCC evolution, operating models, and GTM moves.
+              Curated discussions with GCC leaders on strategy, operating models, and what's shaping the ecosystem.
             </p>
           </div>
         </section>
@@ -45,14 +45,14 @@ const Articles = () => {
         <section className="relative max-w-6xl mx-auto px-4 py-14 lg:py-20 space-y-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Library</p>
-            <h2 className="text-3xl lg:text-4xl font-black">Recent Blogs</h2>
+            <h2 className="text-3xl lg:text-4xl font-black">Recent Roundtables</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {blogs.map((blog) => (
               <Link
                 key={blog.slug}
-                to={`/articles/${blog.slug}`}
+                to={`/roundtables/${blog.slug}`}
                 className="group relative h-full rounded-3xl border bg-gradient-to-br from-background to-muted/50 shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] overflow-hidden"
               >
                 <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />

@@ -35,14 +35,15 @@ const Hero = () => {
               </a>
             </Button>
 
-            {/* --- New GCC Data Button --- */}
-            <Button
-              asChild // Use asChild to render the Link
-              variant="outline" // Use outline style
-              className="px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
-            >
-              <Link to="/gcc-list">Explore the Data</Link>
-            </Button>
+            {import.meta.env.VITE_EXPLORE_DATA_ENABLED === "true" && (
+              <Button
+                asChild
+                variant="outline"
+                className="px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
+              >
+                <Link to="/gcc-list">Explore the Data</Link>
+              </Button>
+            )}
           </div>
 
           <p className="text-xs sm:text-sm text-muted-foreground px-4">

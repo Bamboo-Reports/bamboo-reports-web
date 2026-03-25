@@ -22,7 +22,7 @@ const UseCases = () => {
           <div className="relative max-w-6xl mx-auto px-4 py-16 lg:py-24 space-y-10">
             <div className="space-y-4 max-w-5xl">
               <h1 className="text-4xl lg:text-6xl font-black leading-[1.03] tracking-tight animate-fade-in">
-                Four use cases. One decision spine.
+                Real use cases. One decision spine.
               </h1>
               <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl animate-fade-in">
                 From leadership planning to pre-RFP ecosystem alignment, Bamboo Reports helps teams move earlier with stronger market context.

@@ -4,12 +4,14 @@ import { Button } from "@/components/ui/button";
 import { featureItems, FeatureItem } from "@/lib/featuresData";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "react-router-dom";
+import { useInquiryForm } from "@/contexts/InquiryFormContext";
 
 type FeaturePageTemplateProps = {
   featureId: FeatureItem["id"];
 };
 
 const FeaturePageTemplate = ({ featureId }: FeaturePageTemplateProps) => {
+  const { openInquiryForm } = useInquiryForm();
   const feature = featureItems.find((item) => item.id === featureId);
 
   if (!feature) {
@@ -36,8 +38,8 @@ const FeaturePageTemplate = ({ featureId }: FeaturePageTemplateProps) => {
               <p className="text-lg text-muted-foreground">{feature.description}</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Button size="lg" className="rounded-full" asChild>
-                <Link to="/pricing">See plans</Link>
+              <Button size="lg" className="rounded-full" onClick={openInquiryForm}>
+                See plans
               </Button>
               <Button size="lg" variant="outline" className="rounded-full" asChild>
                 <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a demo</a>
@@ -100,8 +102,8 @@ const FeaturePageTemplate = ({ featureId }: FeaturePageTemplateProps) => {
                 <Button size="lg" className="rounded-full" asChild>
                   <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Talk to us</a>
                 </Button>
-                <Button size="lg" variant="outline" className="rounded-full" asChild>
-                  <Link to="/pricing">Compare plans</Link>
+                <Button size="lg" variant="outline" className="rounded-full" onClick={openInquiryForm}>
+                  Compare plans
                 </Button>
               </div>
             </div>

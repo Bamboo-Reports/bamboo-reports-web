@@ -1,5 +1,4 @@
 import { Check } from "lucide-react";
-import indiaMap from "@/assets/india-map.png";
 
 const categories = [
   {
@@ -38,7 +37,7 @@ const IntelligenceSpans = () => {
           </div>
           
           <div className="flex justify-center">
-            <img src={indiaMap} alt="GCC Intelligence Coverage Map" className="w-full max-w-2xl" />
+            <img src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvbn8WFnAQvWRArTlmYgPXpwxqzU7feIJDiFH1" alt="GCC Intelligence Coverage Map" className="w-full max-w-2xl" />
           </div>
         </div>
       </div>

@@ -1,122 +1,36 @@
-import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
-import gccMomentumReport from "@/assets/gcc-momentum-report.png";
-import JotFormEmbed from "@/components/JotFormEmbed";
+import { Link } from "react-router-dom";
 
 const GCCMomentum = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  useEffect(() => {
-    // Handle escape key
-    const handleEscape = (e) => {
-      if (e.key === 'Escape' && isPopupOpen) {
-        setIsPopupOpen(false);
-      }
-    };
-
-    // Handle form submission message
-    const handleMessage = (event) => {
-      if (event.origin === 'https://form.jotform.com' && event.data.type === 'form-submit') {
-        setTimeout(() => {
-          setIsPopupOpen(false);
-        }, 2000);
-      }
-    };
-
-    if (isPopupOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleEscape);
-      window.addEventListener('message', handleMessage);
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-      window.removeEventListener('keydown', handleEscape);
-      window.removeEventListener('message', handleMessage);
-    };
-  }, [isPopupOpen]);
-
-  const openPopup = () => setIsPopupOpen(true);
-  const closePopup = () => setIsPopupOpen(false);
-
-  const handleOverlayClick = (e) => {
-    if (e.target === e.currentTarget) {
-      closePopup();
-    }
-  };
-
   return (
-    <>
-      <section className="py-16 px-4 bg-secondary/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-6">
-                Ride the Wave of India's GCC Momentum
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                A quick guide with insights on GCC growth over the past year and a snapshot of the latest quarter
-              </p>
-              <Button
-                onClick={openPopup}
-                className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg rounded-full"
-              >
-                GET YOUR REPORT NOW
-              </Button>
-            </div>
-            
-            <div className="flex justify-center">
-              <img 
-                src={gccMomentumReport} 
-                alt="GCC Momentum Report" 
-                className="w-full max-w-2xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Popup Overlay */}
-      <div
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-200 ${
-          isPopupOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        onClick={handleOverlayClick}
-        aria-hidden={!isPopupOpen}
-      >
-        <div
-          className={`bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden ${
-            isPopupOpen ? "animate-modal-content" : ""
-          }`}
-        >
-          {/* Close Button */}
-          <button
-            onClick={closePopup}
-            className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
-          >
-            <X size={20} />
-          </button>
-
-          {/* Form Header */}
-          <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
-            <h2 className="text-2xl font-bold mb-2">Bamboo Reports</h2>
-            <p className="text-sm opacity-90">Fill out the form below to download your report</p>
+    <section className="py-16 px-4 bg-secondary/20">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-4xl font-bold mb-6">
+              Which cities are winning the next wave of GCC mandates?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Our Q3 snapshot tracks the shifts in headcount, capability mix, and leadership depth across India's GCC landscape — so you can spot the signals before your competitors do.
+            </p>
+            <Button
+              asChild
+              className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg rounded-full"
+            >
+              <Link to="/reports/gcc-snapshot-q3">GET THE REPORT</Link>
+            </Button>
           </div>
 
-          {/* Form Container */}
-          <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
-            <JotFormEmbed
-              formId="251101747497459"
-              title="[RNXT] Bamboo Reports Leads"
-              height="539px"
+          <div className="flex justify-center">
+            <img
+              src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvpZK9crebFq8yla9WYurNK7GUmowcBkPOXgxD"
+              alt="India GCC Q3 Snapshot Report"
+              className="w-full max-w-2xl rounded-2xl shadow-lg"
             />
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

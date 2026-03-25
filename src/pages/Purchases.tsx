@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/lib/supabase";
 import Header from "@/components/Header";
@@ -41,6 +42,7 @@ interface Purchase {
 const Purchases = () => {
   usePageTitle("My Purchases");
   const navigate = useNavigate();
+  const { openInquiryForm } = useInquiryForm();
   const { user } = useAuth();
   const { toast } = useToast();
   const [purchases, setPurchases] = useState<Purchase[]>([]);
@@ -178,7 +180,7 @@ const Purchases = () => {
                   You haven't made any purchases yet. Check out our pricing plans to get started with GCC Intelligence Platform.
                 </p>
                 <Button
-                  onClick={() => navigate("/pricing")}
+                  onClick={openInquiryForm}
                   size="lg"
                   className="rounded-full hover:scale-100 active:scale-100"
                 >
@@ -333,7 +335,7 @@ const Purchases = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button
-                  onClick={() => navigate("/pricing")}
+                  onClick={openInquiryForm}
                   size="lg"
                   className="rounded-full hover:scale-100 active:scale-100 text-sm sm:text-base"
                 >

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
+import { useInquiryForm } from '@/contexts/InquiryFormContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useUserPurchases } from '../hooks/usePurchaseAccess';
 import { PlanDocuments } from '../components/PlanDocuments';
@@ -18,6 +19,7 @@ import usePageTitle from '../hooks/usePageTitle';
 export default function MyContent() {
   usePageTitle("My Content");
   const navigate = useNavigate();
+  const { openInquiryForm } = useInquiryForm();
   const [searchParams, setSearchParams] = useSearchParams();
   const { user } = useAuth();
   const { purchases, isLoading, error } = useUserPurchases();
@@ -105,7 +107,7 @@ export default function MyContent() {
                 You haven't purchased any plans yet. Browse our pricing to get started with GCC Intelligence Platform.
               </p>
               <Button
-                onClick={() => navigate("/pricing")}
+                onClick={openInquiryForm}
                 size="lg"
                 className="rounded-full hover:scale-100 active:scale-100 text-sm sm:text-base"
               >
@@ -195,7 +197,7 @@ export default function MyContent() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button
-                onClick={() => navigate("/pricing")}
+                onClick={openInquiryForm}
                 size="lg"
                 className="rounded-full hover:scale-100 active:scale-100 text-sm sm:text-base"
               >

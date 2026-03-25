@@ -22,7 +22,7 @@ const ICP = () => {
           <div className="relative max-w-6xl mx-auto px-4 py-16 lg:py-24 space-y-10">
             <div className="space-y-4 max-w-5xl">
               <h1 className="text-4xl lg:text-6xl font-black leading-[1.03] tracking-tight animate-fade-in">
-                Four ICP lenses. One market view.
+                Every ICP lens. One market view.
               </h1>
               <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl animate-fade-in">
                 A focused view for site leaders, ecosystem sellers, global PMOs, and India leadership teams planning GCC growth.

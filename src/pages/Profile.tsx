@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useInquiryForm } from '@/contexts/InquiryFormContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,6 +15,7 @@ import ImageCropDialog from '@/components/ImageCropDialog';
 const Profile = () => {
   const { user, signOut, updateProfile, updateEmail, updatePassword, uploadAvatar, deleteAvatar } = useAuth();
   const navigate = useNavigate();
+  const { openInquiryForm } = useInquiryForm();
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -364,7 +366,7 @@ const Profile = () => {
                     </button>
                     <button
                       type="button"
-                      onClick={() => navigate('/pricing')}
+                      onClick={openInquiryForm}
                       className="group flex items-center justify-between rounded-lg border bg-card/70 px-5 py-4 transition-colors hover:border-primary/40 hover:bg-primary/5"
                     >
                       <div className="flex items-center gap-3">
