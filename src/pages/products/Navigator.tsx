@@ -5,8 +5,10 @@ import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Check, Compass, SignalHigh, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useInquiryForm } from "@/contexts/InquiryFormContext";
 
 const Navigator = () => {
+  const { openInquiryForm } = useInquiryForm();
   useSEO({
     title: "GCC Navigator | GTM, PMO & Strategy Intelligence | Bamboo Reports",
     description: "Navigator equips GTM, PMO, and Strategy teams with account-level intelligence, hiring signals, and analyst hours to activate the right GCC plays faster.",
@@ -59,8 +61,8 @@ const Navigator = () => {
                 </div>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button size="lg" className="rounded-full" asChild>
-                  <Link to="/pricing">Start with Navigator</Link>
+                <Button size="lg" className="rounded-full" onClick={openInquiryForm}>
+                  Start with Navigator
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full" asChild>
                   <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a Demo</a>
@@ -254,8 +256,8 @@ const Navigator = () => {
             <h2 className="text-3xl font-bold">Move from research to activation with Navigator.</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Layer signals, leadership intel, and analyst hours on top of your Explorer base to move faster on GTM, PMO, and strategy decisions.</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Button size="lg" className="rounded-full" asChild>
-                <Link to="/pricing">Start with Navigator</Link>
+              <Button size="lg" className="rounded-full" onClick={openInquiryForm}>
+                Start with Navigator
               </Button>
               <Button size="lg" variant="outline" className="rounded-full" asChild>
                 <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Book a Demo</a>

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { InquiryFormProvider } from "@/contexts/InquiryFormContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
@@ -63,6 +64,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <InquiryFormProvider>
         <TooltipProvider>
           <Toaster />
           <Sonner />
@@ -82,9 +84,11 @@ const App = () => {
             <Route path="/reports/state-of-gccs-2026" element={<ReportStateOfGCCs2026 />} />
             <Route path="/gcc-list" element={<GCCList />} />
             <Route path="/insights" element={<Insights />} />
+            <Route path="/roundtables" element={<Articles />} />
             <Route path="/articles" element={<Articles />} />
             <Route path="/blogs" element={<Articles />} />
             <Route path="/blog" element={<Articles />} />
+            <Route path="/roundtables/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
             <Route path="/articles/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/payment-success" element={<PaymentSuccess />} />
@@ -147,6 +151,7 @@ const App = () => {
             </Routes>
           </BrowserRouter>
         </TooltipProvider>
+        </InquiryFormProvider>
       </AuthProvider>
     </QueryClientProvider>
   );

@@ -1,4 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ const PaymentFailure = () => {
   usePageTitle("Payment Failed");
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { openInquiryForm } = useInquiryForm();
   
   const error = searchParams.get("error");
   const planName = searchParams.get("plan");
@@ -50,7 +52,7 @@ const PaymentFailure = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              onClick={() => navigate("/pricing")} 
+              onClick={openInquiryForm}
               className="rounded-full"
             >
               Try Again

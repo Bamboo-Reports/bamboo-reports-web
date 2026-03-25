@@ -1,8 +1,10 @@
 import logo from "@/assets/researchnxt-logo.png";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useInquiryForm } from "@/contexts/InquiryFormContext";
 
 const Footer = () => {
+  const { openInquiryForm } = useInquiryForm();
   const currentYear = new Date().getFullYear();
   return (
     <footer className="relative overflow-hidden border-t bg-gradient-to-b from-background via-muted/20 to-background">
@@ -38,12 +40,12 @@ const Footer = () => {
                 Book a demo
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
               </a>
-              <Link
-                to="/pricing"
+              <button
+                onClick={openInquiryForm}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition duration-micro ease-smooth hover:border-primary hover:text-primary"
               >
                 View pricing
-              </Link>
+              </button>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" aria-hidden />
                 <a href="mailto:enquiry@researchnxt.com" className="hover:text-primary">
@@ -76,8 +78,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/articles" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                  Blogs
+                <Link to="/roundtables" className="transition-colors duration-micro ease-smooth hover:text-primary">
+                  Roundtables
                 </Link>
               </li>
             </ul>
@@ -97,15 +99,17 @@ const Footer = () => {
                   <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
                 </a>
               </li>
+              {import.meta.env.VITE_EXPLORE_DATA_ENABLED === "true" && (
+                <li>
+                  <Link to="/gcc-list" className="transition-colors duration-micro ease-smooth hover:text-primary">
+                    Explore the Data
+                  </Link>
+                </li>
+              )}
               <li>
-                <Link to="/gcc-list" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                  Explore the Data
-                </Link>
-              </li>
-              <li>
-                <Link to="/pricing" className="transition-colors duration-micro ease-smooth hover:text-primary">
+                <button onClick={openInquiryForm} className="transition-colors duration-micro ease-smooth hover:text-primary">
                   Pricing
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

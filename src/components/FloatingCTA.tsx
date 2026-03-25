@@ -27,13 +27,15 @@ const FloatingCTA = () => {
 
   return (
     <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-3 animate-modal-overlay">
-      <Button
-        asChild
-        size="lg"
-        className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg px-6 py-6 rounded-full font-bold text-base"
-      >
-        <Link to="/gcc-list">Explore the Data</Link>
-      </Button>
+      {import.meta.env.VITE_EXPLORE_DATA_ENABLED === "true" && (
+        <Button
+          asChild
+          size="lg"
+          className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg px-6 py-6 rounded-full font-bold text-base"
+        >
+          <Link to="/gcc-list">Explore the Data</Link>
+        </Button>
+      )}
 
       <Button
         onClick={scrollToTop}

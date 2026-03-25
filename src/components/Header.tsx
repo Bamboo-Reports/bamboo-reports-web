@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight, User, LogOut, Package, Download } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -29,6 +30,7 @@ import {
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, signOut } = useAuth();
+  const { openInquiryForm } = useInquiryForm();
 
   const getInitials = (name: string) => {
     return name
@@ -59,11 +61,12 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link to="/pricing">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Pricing
-                  </NavigationMenuLink>
-                </Link>
+                <NavigationMenuLink
+                  className={navigationMenuTriggerStyle() + " cursor-pointer"}
+                  onClick={() => openInquiryForm()}
+                >
+                  Pricing
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -113,13 +116,15 @@ const Header = () => {
                 Get a Demo
               </a>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full font-semibold"
-            >
-              <Link to="/gcc-list">Explore the Data</Link>
-            </Button>
+            {import.meta.env.VITE_EXPLORE_DATA_ENABLED === "true" && (
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full font-semibold"
+              >
+                <Link to="/gcc-list">Explore the Data</Link>
+              </Button>
+            )}
 
             {user ? (
               <DropdownMenu>
@@ -197,14 +202,16 @@ const Header = () => {
               {/* Navigation */}
               <nav className="flex-1 overflow-y-auto">
                 <div className="px-6 space-y-1">
-                  <Link
-                    to="/pricing"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth"
-                    onClick={() => setMobileMenuOpen(false)}
+                  <button
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth w-full"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      openInquiryForm();
+                    }}
                   >
                     Pricing
                     <ChevronRight className="h-5 w-5" />
-                  </Link>
+                  </button>
 
                   <Link
                     to="/features"
@@ -261,14 +268,16 @@ const Header = () => {
                       Get a Demo
                     </a>
                   </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full rounded-full font-semibold"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <Link to="/gcc-list">Explore the Data</Link>
-                  </Button>
+                  {import.meta.env.VITE_EXPLORE_DATA_ENABLED === "true" && (
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="w-full rounded-full font-semibold"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <Link to="/gcc-list">Explore the Data</Link>
+                    </Button>
+                  )}
 
                   {user ? (
                     <>

@@ -4,12 +4,14 @@ import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 import { useCaseItems, UseCaseItem } from "@/lib/useCasesData";
 import { Link } from "react-router-dom";
+import { useInquiryForm } from "@/contexts/InquiryFormContext";
 
 type UseCasePageTemplateProps = {
   useCaseId: UseCaseItem["id"];
 };
 
 const UseCasePageTemplate = ({ useCaseId }: UseCasePageTemplateProps) => {
+  const { openInquiryForm } = useInquiryForm();
   const useCase = useCaseItems.find((item) => item.id === useCaseId);
 
   if (!useCase) {
@@ -142,8 +144,8 @@ const UseCasePageTemplate = ({ useCaseId }: UseCasePageTemplateProps) => {
               <Button className="rounded-full" asChild>
                 <a href="https://calendar.app.google/QNXWripJexzXLHqGA" target="_blank" rel="noopener noreferrer">Talk to us</a>
               </Button>
-              <Button variant="outline" className="rounded-full" asChild>
-                <Link to="/pricing">Compare plans</Link>
+              <Button variant="outline" className="rounded-full" onClick={openInquiryForm}>
+                Compare plans
               </Button>
             </div>
           </div>
