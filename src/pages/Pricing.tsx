@@ -80,8 +80,18 @@ const Pricing = () => {
 
   const [processingPlan, setProcessingPlan] = useState<string | null>(null);
   const [isInquiryPopupOpen, setIsInquiryPopupOpen] = useState(false);
+  // Always show the inquiry form overlay when visiting /pricing directly
+  const [showPricingGate] = useState(true);
 
-
+  // Lock body scroll when the pricing gate is shown
+  useEffect(() => {
+    if (showPricingGate) {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "auto";
+      };
+    }
+  }, [showPricingGate]);
 
   useEffect(() => {
     if (!isInquiryPopupOpen) return;
@@ -355,7 +365,7 @@ const Pricing = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="py-20 px-4">
+      <main className={`py-20 px-4 ${showPricingGate ? "blur-md pointer-events-none select-none" : ""}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold mb-4">
@@ -493,6 +503,29 @@ const Pricing = () => {
         </div>
       </main>
 
+      {/* Pricing gate overlay - non-closeable form shown on direct /pricing visits */}
+      {showPricingGate && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+        >
+          <div className="bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden animate-modal-content">
+            <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
+              <h2 className="text-2xl font-bold mb-2">Bamboo Reports</h2>
+              <p className="text-sm opacity-90">Fill out the form below to get started</p>
+            </div>
+
+            <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
+              <JotFormEmbed
+                formId="260714112843450"
+                title="[ BR ] - Inquiry"
+                height="539px"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Inquiry popup - closeable, triggered by CTA buttons */}
       <div
         className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-200 ${
           isInquiryPopupOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
