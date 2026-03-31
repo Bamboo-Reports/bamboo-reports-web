@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { InquiryFormProvider } from "@/contexts/InquiryFormContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
@@ -15,7 +15,6 @@ import ReportGCCSnapshotQ1 from "./pages/ReportGCCSnapshotQ1";
 import ReportGCCSnapshotQ2 from "./pages/ReportGCCSnapshotQ2";
 import ReportGCCSnapshotQ3 from "./pages/ReportGCCSnapshotQ3";
 import ReportStateOfGCCs2026 from "./pages/ReportStateOfGCCs2026";
-import GCCList from "./pages/GCCList";
 import Insights from "./pages/Insights";
 import Articles from "./pages/Articles";
 import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
@@ -31,23 +30,6 @@ import DownloadHistory from "./pages/DownloadHistory";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
-import AboutUs from "./pages/AboutUs";
-import ContactUs from "./pages/ContactUs";
-import Explorer from "./pages/products/Explorer";
-import Navigator from "./pages/products/Navigator";
-import Enterprise from "./pages/products/Enterprise";
-import GCCLeaders from "./pages/usecases/GCCLeaders";
-import GCCSiteLeaders from "./pages/usecases/GCCSiteLeaders";
-import PMO from "./pages/usecases/PMO";
-import GTMSellers from "./pages/usecases/GTMSellers";
-import EcosystemPartners from "./pages/usecases/EcosystemPartners";
-import EcosystemSellers from "./pages/usecases/EcosystemSellers";
-import GlobalPMO from "./pages/usecases/GlobalPMO";
-import IndiaLeadership from "./pages/usecases/IndiaLeadership";
-import Coverage from "./pages/features/Coverage";
-import WhatIfScenarios from "./pages/features/WhatIfScenarios";
-import ProprietaryTAMSlicers from "./pages/features/ProprietaryTAMSlicers";
-import TailorMadeMarketInsights from "./pages/features/TailorMadeMarketInsights";
 import Features from "./pages/Features";
 import UseCases from "./pages/UseCases";
 import ICP from "./pages/ICP";
@@ -72,9 +54,9 @@ const App = () => {
             <ScrollToTop />
             <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/products/explorer" element={<Explorer />} />
-            <Route path="/products/navigator" element={<Navigator />} />
-            <Route path="/products/enterprise" element={<Enterprise />} />
+            <Route path="/products/explorer" element={<Navigate to="/pricing" replace />} />
+            <Route path="/products/navigator" element={<Navigate to="/pricing" replace />} />
+            <Route path="/products/enterprise" element={<Navigate to="/pricing" replace />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/reports/52-weeks" element={<Report52Weeks />} />
@@ -82,7 +64,7 @@ const App = () => {
             <Route path="/reports/gcc-snapshot-q2" element={<ReportGCCSnapshotQ2 />} />
             <Route path="/reports/gcc-snapshot-q3" element={<ReportGCCSnapshotQ3 />} />
             <Route path="/reports/state-of-gccs-2026" element={<ReportStateOfGCCs2026 />} />
-            <Route path="/gcc-list" element={<GCCList />} />
+            <Route path="/gcc-list" element={<Navigate to="/pricing" replace />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/roundtables" element={<Articles />} />
             <Route path="/articles" element={<Articles />} />
@@ -95,23 +77,23 @@ const App = () => {
             <Route path="/payment-failure" element={<PaymentFailure />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/about-us" element={<Navigate to="/" replace />} />
+            <Route path="/contact-us" element={<Navigate to="/" replace />} />
             <Route path="/features" element={<Features />} />
             <Route path="/use-cases" element={<UseCases />} />
             <Route path="/icp" element={<ICP />} />
-            <Route path="/features/coverage" element={<Coverage />} />
-            <Route path="/features/what-if-scenarios" element={<WhatIfScenarios />} />
-            <Route path="/features/proprietary-tam-slicers" element={<ProprietaryTAMSlicers />} />
-            <Route path="/features/tailor-made-market-insights" element={<TailorMadeMarketInsights />} />
-            <Route path="/use-cases/gcc-leaders" element={<GCCLeaders />} />
-            <Route path="/use-cases/gcc-site-leaders" element={<GCCSiteLeaders />} />
-            <Route path="/use-cases/pmo" element={<PMO />} />
-            <Route path="/use-cases/gtm-sellers" element={<GTMSellers />} />
-            <Route path="/use-cases/ecosystem-partners" element={<EcosystemPartners />} />
-            <Route path="/use-cases/ecosystem-sellers" element={<EcosystemSellers />} />
-            <Route path="/use-cases/global-pmo" element={<GlobalPMO />} />
-            <Route path="/use-cases/india-leadership" element={<IndiaLeadership />} />
+            <Route path="/features/coverage" element={<Navigate to="/pricing" replace />} />
+            <Route path="/features/what-if-scenarios" element={<Navigate to="/pricing" replace />} />
+            <Route path="/features/proprietary-tam-slicers" element={<Navigate to="/pricing" replace />} />
+            <Route path="/features/tailor-made-market-insights" element={<Navigate to="/pricing" replace />} />
+            <Route path="/use-cases/gcc-leaders" element={<Navigate to="/pricing" replace />} />
+            <Route path="/use-cases/gcc-site-leaders" element={<Navigate to="/pricing" replace />} />
+            <Route path="/use-cases/pmo" element={<Navigate to="/pricing" replace />} />
+            <Route path="/use-cases/gtm-sellers" element={<Navigate to="/pricing" replace />} />
+            <Route path="/use-cases/ecosystem-partners" element={<Navigate to="/pricing" replace />} />
+            <Route path="/use-cases/ecosystem-sellers" element={<Navigate to="/pricing" replace />} />
+            <Route path="/use-cases/global-pmo" element={<Navigate to="/pricing" replace />} />
+            <Route path="/use-cases/india-leadership" element={<Navigate to="/pricing" replace />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
             <Route
