@@ -27,6 +27,7 @@ import Profile from "./pages/Profile";
 import Purchases from "./pages/Purchases";
 import MyContent from "./pages/MyContent";
 import DownloadHistory from "./pages/DownloadHistory";
+import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
@@ -75,6 +76,7 @@ const App = () => {
             <Route path="/resources" element={<Resources />} />
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/payment-failure" element={<PaymentFailure />} />
+            <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
             <Route path="/about-us" element={<Navigate to="/" replace />} />
