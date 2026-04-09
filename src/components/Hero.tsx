@@ -9,16 +9,19 @@ const Hero = () => {
         <div className="text-center mb-8 md:mb-12">
           <h1 className="leading-tight mb-4 md:mb-6">
             <span className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold block mb-2">
-              Actionable Insights On
+              Your Trusted Partner for
             </span>
             <span className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold block">
-              Global Capability Centers
+              GCC GTM Enablement
             </span>
           </h1>
-          <p className="text-muted-foreground mb-6 md:mb-8 font-normal text-sm sm:text-base md:text-lg px-2 max-w-3xl mx-auto leading-relaxed">
-            A Platform With the Largest Repository to Help You Navigate the
-            Thriving GCC/GIC Opportunity
-          </p>
+          <ul className="text-muted-foreground mb-6 md:mb-8 font-bold text-sm sm:text-base md:text-lg px-2 max-w-3xl mx-auto leading-relaxed list-disc list-inside flex flex-col sm:flex-row sm:list-none gap-1 sm:gap-4 justify-center items-center">
+            <li>GCC Prospect Data</li>
+            <li className="hidden sm:block">•</li>
+            <li>Account & Market Intelligence</li>
+            <li className="hidden sm:block">•</li>
+            <li>GCC Focused ABM</li>
+          </ul>
 
           {/* --- Button Wrapper --- */}
           <div className="flex items-center justify-center gap-4 mb-3 md:mb-4">

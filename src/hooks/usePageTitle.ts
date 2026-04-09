@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const DEFAULT_TITLE = "Bamboo Reports - Actionable Insights On Global Capability Centers";
+const DEFAULT_TITLE = "Bamboo Reports - Your Trusted Partner for GCC GTM Enablement";
 
 export const usePageTitle = (title?: string) => {
   useEffect(() => {
