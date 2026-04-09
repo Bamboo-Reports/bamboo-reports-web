@@ -99,13 +99,6 @@ const Footer = () => {
                   <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
                 </a>
               </li>
-              {import.meta.env.VITE_EXPLORE_DATA_ENABLED === "true" && (
-                <li>
-                  <Link to="/gcc-list" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                    Explore the Data
-                  </Link>
-                </li>
-              )}
               <li>
                 <button onClick={openInquiryForm} className="transition-colors duration-micro ease-smooth hover:text-primary">
                   Pricing

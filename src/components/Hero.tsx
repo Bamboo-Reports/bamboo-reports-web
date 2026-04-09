@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import gccIllustration from "@/assets/gcc-illustration.png";
-import { Link } from "react-router-dom"; // Import Link
 
 const Hero = () => {
   return (
@@ -37,16 +36,6 @@ const Hero = () => {
                 Get a Demo
               </a>
             </Button>
-
-            {import.meta.env.VITE_EXPLORE_DATA_ENABLED === "true" && (
-              <Button
-                asChild
-                variant="outline"
-                className="px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
-              >
-                <Link to="/gcc-list">Explore the Data</Link>
-              </Button>
-            )}
           </div>
 
           <p className="text-xs sm:text-sm text-muted-foreground px-4">

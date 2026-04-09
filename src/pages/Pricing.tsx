@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react"; // Import useState and useEffect
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,21 +6,10 @@ import { Check, Compass, Map, Building2, X } from "lucide-react";
 import {
   ToggleGroup,
   ToggleGroupItem,
-} from "@/components/ui/toggle-group"; // Import ToggleGroup
-import { useToast } from "@/hooks/use-toast";
+} from "@/components/ui/toggle-group";
 import { useSEO } from "@/hooks/useSEO";
-import { useAuth } from "@/contexts/AuthContext";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import JotFormEmbed from "@/components/JotFormEmbed";
-import {
-  initiateRazorpayPayment,
-  createRazorpayOrder,
-  verifyRazorpayPayment,
-  convertToPaise,
-  getRazorpayKey,
-  loadRazorpayScript,
-  type RazorpayResponse,
-} from "@/lib/razorpay";
 
 const Pricing = () => {
   useSEO({
@@ -29,19 +17,6 @@ const Pricing = () => {
     description: "Choose from flexible GCC Intelligence plans. Access GCC contact database, market intelligence, benchmarking data, and custom research packages. Transparent pricing for strategy intelligence platform.",
     keywords: "GCC Intelligence Pricing, GCC Data Plans, Strategy intelligence platform, Market Intelligence India, GCC benchmarking, GCC Contact Database pricing, ABM research, Roundtable as a Service",
   });
-  const navigate = useNavigate();
-  const { toast } = useToast();
-  const { user } = useAuth();
-
-  // Check if subscriptions are enabled via feature flag
-  const isSubscriptionEnabled = import.meta.env.VITE_SUBSCRIPTION_ENABLED === 'true';
-
-  // Preload Razorpay script when component mounts (only if subscriptions are enabled)
-  useEffect(() => {
-    if (isSubscriptionEnabled) {
-      loadRazorpayScript();
-    }
-  }, [isSubscriptionEnabled]);
 
   // Detect user's location for automatic currency selection
   const { countryCode, loading: geoLoading } = useGeolocation();
@@ -49,19 +24,16 @@ const Pricing = () => {
   // State to manage the selected currency
   // Auto-detect based on country: IN = INR, others = USD
   const [currency, setCurrency] = useState(() => {
-    // Check if there's a manually selected currency in sessionStorage
     const savedCurrency = sessionStorage.getItem("selectedCurrency");
     if (savedCurrency) {
       return savedCurrency;
     }
-    // Default to USD while loading
     return "USD";
   });
 
   // Update currency when geolocation is detected
   useEffect(() => {
     if (!geoLoading && countryCode) {
-      // Only auto-set if user hasn't manually selected a currency
       const savedCurrency = sessionStorage.getItem("selectedCurrency");
       if (!savedCurrency) {
         const detectedCurrency = countryCode === "IN" ? "INR" : "USD";
@@ -78,7 +50,6 @@ const Pricing = () => {
     }
   };
 
-  const [processingPlan, setProcessingPlan] = useState<string | null>(null);
   const [isInquiryPopupOpen, setIsInquiryPopupOpen] = useState(false);
   // Always show the inquiry form overlay when visiting /pricing directly
   const [showPricingGate] = useState(true);
@@ -116,9 +87,8 @@ const Pricing = () => {
       name: "Explorer",
       icon: Compass,
       tagline: "Fast, defensible GCC coverage",
-      price: { USD: "1,299", INR: "1,09,999" }, // <-- Add your INR price
-      originalPrice: { USD: "5,000", INR: "4,15,000" }, // <-- Add your INR price
-      // priceSuffix: "/onetime",
+      price: { USD: "1,299", INR: "1,09,999" },
+      originalPrice: { USD: "5,000", INR: "4,15,000" },
       popular: true,
       features: [
         {
@@ -135,9 +105,8 @@ const Pricing = () => {
       name: "Navigator",
       icon: Map,
       tagline: "Signals and scenarios on tap",
-      price: { USD: "6,999", INR: "5,79,999" }, // <-- Add your INR price
-      originalPrice: { USD: "15,000", INR: "12,50,000" }, // <-- Add your INR price
-      // priceSuffix: "/onetime",
+      price: { USD: "6,999", INR: "5,79,999" },
+      originalPrice: { USD: "15,000", INR: "12,50,000" },
       features: [
         {
           title: "Everything from Explorer",
@@ -177,9 +146,8 @@ const Pricing = () => {
       name: "Enterprise Intelligence",
       icon: Building2,
       tagline: "Program-level intelligence and support",
-      price: "Custom", // Custom plan remains the same
+      price: "Custom" as const,
       originalPrice: null,
-      // priceSuffix: null,
       features: [
         {
           title: "Everything from Explorer + Navigator",
@@ -210,156 +178,6 @@ const Pricing = () => {
   ];
 
   const currencySymbol = currency === "USD" ? "$" : "INR ";
-
-
-  const handlePayment = async (
-    planName: string,
-    price: { USD: string; INR: string }
-  ) => {
-    // Check if user is authenticated
-    if (!user) {
-      toast({
-        title: "Authentication Required",
-        description: "Please sign in or create an account to make a purchase.",
-        variant: "default",
-      });
-      // Redirect to sign-in page with return URL
-      navigate("/signin?redirect=/pricing");
-      return;
-    }
-
-    try {
-      setProcessingPlan(planName);
-
-      // Get the current price based on selected currency
-      const currentPrice = price[currency as keyof typeof price];
-      const amountInPaise = convertToPaise(currentPrice);
-      const selectedCurrency = currency === "USD" ? "USD" : "INR";
-
-      // Find the plan features
-      const selectedPlan = plans.find((plan) => plan.name === planName);
-      const planFeatures = selectedPlan?.features || [];
-
-      // Create order on backend first
-      const order = await createRazorpayOrder(
-        amountInPaise,
-        selectedCurrency,
-        planName
-      );
-
-      // Get Razorpay key
-      const razorpayKey = getRazorpayKey();
-
-      // Initiate Razorpay payment with order_id
-      await initiateRazorpayPayment({
-        key: razorpayKey,
-        amount: order.amount,
-        currency: order.currency,
-        order_id: order.orderId, // This ensures the correct currency
-        name: "Bamboo Reports",
-        description: `${planName} - GCC Intelligence Platform`,
-        handler: async (response: RazorpayResponse) => {
-          try {
-            // Get customer details from Razorpay prefill (they enter this in the form)
-            const customerEmail = response.email || "";
-            const customerName = response.name || "";
-
-            // Verify payment on backend and send confirmation email
-            await verifyRazorpayPayment(
-              response.razorpay_order_id || "",
-              response.razorpay_payment_id,
-              response.razorpay_signature || "",
-              customerEmail,
-              customerName,
-              planName,
-              order.amount,
-              order.currency,
-              user?.id,
-              planFeatures,
-              order.orderId
-            );
-
-
-            // Payment verified successfully
-
-            // Redirect to success page with payment details
-            navigate(
-              `/payment-success?payment_id=${response.razorpay_payment_id}&order_id=${response.razorpay_order_id || ""}&plan=${encodeURIComponent(planName)}`
-            );
-          } catch (verifyError) {
-            // Payment error toast notification is shown to the user below
-            toast({
-              title: "Verification Failed",
-              description: "Payment received but verification failed. Please contact support.",
-              variant: "destructive",
-            });
-          }
-        },
-        prefill: {
-          name: "",
-          email: "",
-          contact: "",
-        },
-        theme: {
-          color: "#3b82f6", // Customize this to match your brand color
-        },
-        // Enable all payment methods including UPI
-        method: {
-          netbanking: true,
-          card: true,
-          upi: true,
-          wallet: true,
-        },
-        // Configure display preferences to show UPI prominently
-        config: {
-          display: {
-            blocks: {
-              banks: {
-                name: "All payment methods",
-                instruments: [
-                  { method: "upi" },
-                  { method: "card" },
-                  { method: "netbanking" },
-                  { method: "wallet" },
-                ],
-              },
-            },
-            sequence: ["block.banks"],
-            preferences: {
-              show_default_blocks: true,
-            },
-          },
-        },
-        modal: {
-          ondismiss: () => {
-            setProcessingPlan(null);
-            toast({
-              title: "Payment Cancelled",
-              description: "You cancelled the payment process.",
-              variant: "destructive",
-            });
-          },
-        },
-      });
-    } catch (error) {
-      // Payment error toast notification is shown to the user below
-      setProcessingPlan(null);
-
-      toast({
-        title: "Payment Failed",
-        description:
-          error instanceof Error
-            ? error.message
-            : "Unable to process payment. Please try again.",
-        variant: "destructive",
-      });
-
-      // Redirect to failure page
-      navigate(
-        `/payment-failure?error=${encodeURIComponent(error instanceof Error ? error.message : "Unknown error")}&plan=${encodeURIComponent(planName)}`
-      );
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -395,7 +213,7 @@ const Pricing = () => {
           <div className="grid md:grid-cols-3 gap-8 items-start">
             {plans.map((plan) => {
               const isCustom = plan.price === "Custom";
-              const currentPrice = !isCustom ? plan.price[currency] : null;
+              const currentPrice = !isCustom ? (plan.price as { USD: string; INR: string })[currency] : null;
               const currentOriginalPrice =
                 !isCustom && plan.originalPrice
                   ? plan.originalPrice[currency]
@@ -466,33 +284,13 @@ const Pricing = () => {
                   </ul>
 
                   <div className="flex flex-col gap-2">
-                    {isCustom ? (
-                      <Button
-                        className="w-full rounded-full"
-                        variant={plan.popular ? "default" : "outline"}
-                        onClick={() => setIsInquiryPopupOpen(true)}
-                      >
-                        Get Started
-                      </Button>
-                    ) : !isSubscriptionEnabled ? (
-                      <Button
-                        className="w-full rounded-full"
-                        variant={plan.popular ? "default" : "outline"}
-                        onClick={() => setIsInquiryPopupOpen(true)}
-                      >
-                        Get Started
-                      </Button>
-                    ) : (
-                      <Button
-                        className="w-full rounded-full"
-                        variant={plan.popular ? "default" : "outline"}
-                        onClick={() => handlePayment(plan.name, plan.price)}
-                        disabled={processingPlan !== null}
-                      >
-                        {processingPlan === plan.name ? "Processing..." : "Get Started"}
-                      </Button>
-                    )}
-
+                    <Button
+                      className="w-full rounded-full"
+                      variant={plan.popular ? "default" : "outline"}
+                      onClick={() => setIsInquiryPopupOpen(true)}
+                    >
+                      Get Started
+                    </Button>
                   </div>
                 </div>
               );

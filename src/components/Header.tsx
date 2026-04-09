@@ -1,7 +1,7 @@
 import logo from "@/assets/bamboo-logo.svg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight, User, LogOut, Package, Download } from "lucide-react";
+import { Menu, ChevronRight, User, LogOut } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
@@ -116,15 +116,6 @@ const Header = () => {
                 Get a Demo
               </a>
             </Button>
-            {import.meta.env.VITE_EXPLORE_DATA_ENABLED === "true" && (
-              <Button
-                asChild
-                variant="outline"
-                className="rounded-full font-semibold"
-              >
-                <Link to="/gcc-list">Explore the Data</Link>
-              </Button>
-            )}
 
             {user ? (
               <DropdownMenu>
@@ -154,18 +145,6 @@ const Header = () => {
                     <Link to="/profile" className="cursor-pointer">
                       <User className="mr-2 h-4 w-4" />
                       Profile
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/purchases" className="cursor-pointer">
-                      <Package className="mr-2 h-4 w-4" />
-                      My Purchases
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/download-history" className="cursor-pointer">
-                      <Download className="mr-2 h-4 w-4" />
-                      Download History
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
@@ -268,17 +247,6 @@ const Header = () => {
                       Get a Demo
                     </a>
                   </Button>
-                  {import.meta.env.VITE_EXPLORE_DATA_ENABLED === "true" && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full rounded-full font-semibold"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <Link to="/gcc-list">Explore the Data</Link>
-                    </Button>
-                  )}
-
                   {user ? (
                     <>
                       <div className="border-t pt-3">
@@ -291,28 +259,6 @@ const Header = () => {
                           <Link to="/profile">
                             <User className="mr-2 h-4 w-4" />
                             Profile
-                          </Link>
-                        </Button>
-                        <Button
-                          asChild
-                          variant="ghost"
-                          className="w-full rounded-full font-semibold justify-start"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          <Link to="/purchases">
-                            <Package className="mr-2 h-4 w-4" />
-                            My Purchases
-                          </Link>
-                        </Button>
-                        <Button
-                          asChild
-                          variant="ghost"
-                          className="w-full rounded-full font-semibold justify-start"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          <Link to="/download-history">
-                            <Download className="mr-2 h-4 w-4" />
-                            Download History
                           </Link>
                         </Button>
                       </div>
