@@ -12,10 +12,6 @@
   to = "/index.html"
   status = 200
 
-# Environment variables (set these in Netlify Dashboard)
-# VITE_RAZORPAY_KEY_ID - Your Razorpay Key ID
-# RAZORPAY_KEY_SECRET - Your Razorpay Key Secret (keep private!)
-
 # Build settings
 [build.environment]
   NODE_VERSION = "18"

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronUp } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const FloatingCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,16 +26,6 @@ const FloatingCTA = () => {
 
   return (
     <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-3 animate-modal-overlay">
-      {import.meta.env.VITE_EXPLORE_DATA_ENABLED === "true" && (
-        <Button
-          asChild
-          size="lg"
-          className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg px-6 py-6 rounded-full font-bold text-base"
-        >
-          <Link to="/gcc-list">Explore the Data</Link>
-        </Button>
-      )}
-
       <Button
         onClick={scrollToTop}
         size="icon"

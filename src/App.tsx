@@ -19,14 +19,9 @@ import Insights from "./pages/Insights";
 import Articles from "./pages/Articles";
 import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
 import Resources from "./pages/Resources";
-import PaymentSuccess from "./pages/PaymentSuccess";
-import PaymentFailure from "./pages/PaymentFailure";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
-import Purchases from "./pages/Purchases";
-import MyContent from "./pages/MyContent";
-import DownloadHistory from "./pages/DownloadHistory";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -65,17 +60,10 @@ const App = () => {
             <Route path="/reports/gcc-snapshot-q2" element={<ReportGCCSnapshotQ2 />} />
             <Route path="/reports/gcc-snapshot-q3" element={<ReportGCCSnapshotQ3 />} />
             <Route path="/reports/state-of-gccs-2026" element={<ReportStateOfGCCs2026 />} />
-            <Route path="/gcc-list" element={<Navigate to="/pricing" replace />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/roundtables" element={<Articles />} />
-            <Route path="/articles" element={<Articles />} />
-            <Route path="/blogs" element={<Articles />} />
-            <Route path="/blog" element={<Articles />} />
             <Route path="/roundtables/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
-            <Route path="/articles/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
             <Route path="/resources" element={<Resources />} />
-            <Route path="/payment-success" element={<PaymentSuccess />} />
-            <Route path="/payment-failure" element={<PaymentFailure />} />
             <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
@@ -103,30 +91,6 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <Profile />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/purchases"
-              element={
-                <ProtectedRoute>
-                  <Purchases />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/my-content"
-              element={
-                <ProtectedRoute>
-                  <MyContent />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/download-history"
-              element={
-                <ProtectedRoute>
-                  <DownloadHistory />
                 </ProtectedRoute>
               }
             />
