@@ -102,7 +102,7 @@ netlify/
 - `/insights` — Insights
 - `/resources` — Resources
 - `/reports` — Reports index
-- `/reports/52-weeks`, `/reports/gcc-snapshot-q1`, `/reports/gcc-snapshot-q2`, `/reports/gcc-snapshot-q3`, `/reports/state-of-gccs-2026` — individual reports
+- `/reports/52-weeks`, `/reports/gcc-snapshot-q1`, `/reports/gcc-snapshot-q2`, `/reports/gcc-snapshot-q3`, `/reports/gcc-snapshot-q4`, `/reports/state-of-gccs-2026` — individual reports
 - `/roundtables` — Roundtables index
 - `/roundtables/h1b-shock-strategic-reset` — H1B article
 - `/thank-you`, `/privacy-policy`, `/terms-conditions` — legal/transactional

@@ -14,6 +14,7 @@ import Report52Weeks from "./pages/Report52Weeks";
 import ReportGCCSnapshotQ1 from "./pages/ReportGCCSnapshotQ1";
 import ReportGCCSnapshotQ2 from "./pages/ReportGCCSnapshotQ2";
 import ReportGCCSnapshotQ3 from "./pages/ReportGCCSnapshotQ3";
+import ReportGCCSnapshotQ4 from "./pages/ReportGCCSnapshotQ4";
 import ReportStateOfGCCs2026 from "./pages/ReportStateOfGCCs2026";
 import Insights from "./pages/Insights";
 import Articles from "./pages/Articles";
@@ -59,6 +60,7 @@ const App = () => {
             <Route path="/reports/gcc-snapshot-q1" element={<ReportGCCSnapshotQ1 />} />
             <Route path="/reports/gcc-snapshot-q2" element={<ReportGCCSnapshotQ2 />} />
             <Route path="/reports/gcc-snapshot-q3" element={<ReportGCCSnapshotQ3 />} />
+            <Route path="/reports/gcc-snapshot-q4" element={<ReportGCCSnapshotQ4 />} />
             <Route path="/reports/state-of-gccs-2026" element={<ReportStateOfGCCs2026 />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/roundtables" element={<Articles />} />

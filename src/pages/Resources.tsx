@@ -38,10 +38,17 @@ const reports = [
     subtitle: "Quarterly view of India GCC maturity and momentum.",
     thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvpZK9crebFq8yla9WYurNK7GUmowcBkPOXgxD",
   },
+  {
+    id: "gcc-snapshot-q4",
+    title: "India GCC Snapshot Q4 (FY25-26)",
+    subtitle: "Quarterly view of India GCC maturity and momentum.",
+    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvJxynEBxTSsyCtN4UrElocuAhdMjDkZBHnO0R",
+  },
 ];
 
 const reportDisplayOrder = [
   "state-of-gccs-2026",
+  "gcc-snapshot-q4",
   "gcc-snapshot-q3",
   "gcc-snapshot-q2",
   "52-weeks",
