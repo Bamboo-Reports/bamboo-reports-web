@@ -11,20 +11,20 @@ const GCCMomentum = () => {
               Which cities are winning the next wave of GCC mandates?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Our Q3 snapshot tracks the shifts in headcount, capability mix, and leadership depth across India's GCC landscape — so you can spot the signals before your competitors do.
+              Our Q4 snapshot tracks the shifts in headcount, capability mix, and leadership depth across India's GCC landscape — so you can spot the signals before your competitors do.
             </p>
             <Button
               asChild
               className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg rounded-full"
             >
-              <Link to="/reports/gcc-snapshot-q3">GET THE REPORT</Link>
+              <Link to="/reports/gcc-snapshot-q4">GET THE REPORT</Link>
             </Button>
           </div>
 
           <div className="flex justify-center">
             <img
-              src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvpZK9crebFq8yla9WYurNK7GUmowcBkPOXgxD"
-              alt="India GCC Q3 Snapshot Report"
+              src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvJxynEBxTSsyCtN4UrElocuAhdMjDkZBHnO0R"
+              alt="India GCC Q4 Snapshot Report"
               className="w-full max-w-2xl rounded-2xl shadow-lg"
             />
           </div>

@@ -10,7 +10,7 @@ const ReportGCCSnapshotQ1 = () => {
   return (
     <ReportPageTemplate
       title="India GCC Snapshot Q1 (FY25-26)"
-      description="A quarterly checkpoint on India GCC growth: headcount, capability mix, leadership depth, and city momentum - ready for executive reviews and GTM planning."
+      description="A quarterly checkpoint on India GCC growth - ready for executive reviews and GTM planning."
       formId="260531831450449"
       formTitle="Download report"
       formDescription="Get the full deck plus export-ready views."
