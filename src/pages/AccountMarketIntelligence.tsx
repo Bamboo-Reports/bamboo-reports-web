@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -15,13 +14,17 @@ import {
   TrendingUp,
   Briefcase,
   Landmark,
+  LayoutDashboard,
+  Map,
+  Sparkles,
+  UserCog,
 } from "lucide-react";
 
 const AccountMarketIntelligence = () => {
   useSEO({
     title: "Account & Market Intelligence | India GCC Research | Bamboo Reports",
     description:
-      "Structured, data-backed views of India's GCC ecosystem — by city, sector, function, or company. From quick snapshots to deep-dive research.",
+      "Structured, data-backed views of India's GCC ecosystem by city, sector, function, or company. From quick snapshots to deep-dive research.",
     keywords:
       "GCC market intelligence, India GCC research, account intelligence, city GCC report, sector snapshot",
   });
@@ -37,14 +40,14 @@ const AccountMarketIntelligence = () => {
       num: "02",
       icon: BarChart3,
       title: "Sector Snapshot Reports",
-      body: "Fast intelligence on high-priority verticals — BFSI, Technology, Pharma, Retail, Manufacturing. Covers centre counts, top employers, function breakdown, and city spread. Ideal for product teams, sales leaders, and consultants targeting a specific vertical.",
+      body: "Fast intelligence on high-priority verticals: BFSI, Technology, Pharma, Retail, Manufacturing. Covers centre counts, top employers, function breakdown, and city spread. Ideal for product teams, sales leaders, and consultants targeting a specific vertical.",
     },
     {
       num: "03",
       icon: PieChart,
       title: "Function-Mix Intelligence",
       badge: "Exclusive",
-      body: "Understand how GCCs are staffing themselves across functions — Engineering vs. Finance vs. Legal vs. HR. Identify white spaces. Benchmark your accounts. No one else produces this.",
+      body: "Understand how GCCs are staffing themselves across functions: Engineering vs. Finance vs. Legal vs. HR. Identify white spaces. Benchmark your accounts. No one else produces this.",
     },
     {
       num: "04",
@@ -91,9 +94,9 @@ const AccountMarketIntelligence = () => {
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg md:text-xl text-primary-foreground/80 leading-relaxed">
-            Bamboo Reports' Account &amp; Market Intelligence products give you structured,
-            data-backed views of India's GCC ecosystem — by city, sector, function, or company. From
-            quick snapshots to deep-dive research.
+            A dataset refreshed weekly, sliceable by city, sector, function, or company, with 3
+            years of historical movement built in and tech-adoption trends at individual GCC level.
+            Not a survey report. Not a parent-level snapshot. Structured, centre-level intelligence.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -101,22 +104,13 @@ const AccountMarketIntelligence = () => {
               asChild
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
-              <Link to="/reports">
-                Explore Reports
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full font-semibold px-7 py-6 text-base bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-            >
               <a
                 href="https://calendar.app.google/QNXWripJexzXLHqGA"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Request a Custom Brief
+                Talk to Us
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>
@@ -136,13 +130,13 @@ const AccountMarketIntelligence = () => {
           </div>
           <div className="md:col-span-7 md:pt-4">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              India's GCC market is growing, shifting, and fragmenting by sector, city, and
-              function. Enterprise decisions — market entry, product positioning, account
-              prioritisation — can't be made on instinct or analyst surveys.
+              Published reports track GCCs at parent-company level and go stale in months. Consulting
+              decks arrive weeks later as 80-page PDFs. Neither answers what a specific centre
+              actually does, or how your sector is moving right now.
             </p>
             <p className="text-xl md:text-2xl font-semibold leading-snug">
               You need ground-truth intelligence:{" "}
-              <span className="text-primary">structured, specific, and actionable.</span>
+              <span className="text-primary">centre-level, structured, and queryable.</span>
             </p>
           </div>
         </div>
@@ -192,6 +186,95 @@ const AccountMarketIntelligence = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PLATFORM IN ACTION */}
+      <section className="py-20 md:py-28 px-4 border-b">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-14">
+            <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-4">
+              / Platform In Action
+            </div>
+            <h2 className="leading-tight">Live Intelligence, Not Static PDFs.</h2>
+            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+              Filter to Pharma + Hyderabad and see 41 accounts, 57 centres in seconds. Click into
+              Bayer AG and drill to 18 centres across India, headcount, full tech stack, and 3 years
+              of historical movement. This is what centre-level, queryable intelligence looks like.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-border border rounded-2xl overflow-hidden">
+            {[
+              {
+                icon: LayoutDashboard,
+                title: "Interactive Dashboards",
+                desc: "Real-time analytics across accounts, centres, and functions with instant filtering.",
+              },
+              {
+                icon: Map,
+                title: "Geospatial Intelligence",
+                desc: "WebGL-rendered maps with thousands of GCC data points, clustered by any attribute.",
+              },
+              {
+                icon: Sparkles,
+                title: "AI-Powered Insights",
+                desc: "Generate tailored intelligence for any meeting via AI prompts. Weeks to minutes.",
+              },
+              {
+                icon: UserCog,
+                title: "My BambooReports©",
+                desc: "Personalised workspace: your target accounts, your ICP, your watermarked views.",
+              },
+            ].map((c) => (
+              <div key={c.title} className="bg-background p-8 md:p-10">
+                <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-5">
+                  <c.icon className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">{c.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-14 grid md:grid-cols-2 gap-6">
+            <div className="p-8 border rounded-2xl bg-secondary/30">
+              <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-3">
+                / What-If Scenario Intelligence
+              </div>
+              <ul className="space-y-3 text-base md:text-lg leading-relaxed">
+                <li className="flex gap-3"><span className="text-primary">→</span> How do we compare against peer GCCs in our sector and size band?</li>
+                <li className="flex gap-3"><span className="text-primary">→</span> Which cities offer the right talent for a new capability centre?</li>
+                <li className="flex gap-3"><span className="text-primary">→</span> What functions are peers expanding or consolidating right now?</li>
+                <li className="flex gap-3"><span className="text-primary">→</span> Where should we add a new practice, and what does hiring look like?</li>
+              </ul>
+            </div>
+            <div className="p-8 border rounded-2xl bg-primary text-primary-foreground">
+              <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3">
+                / Measurable Impact
+              </div>
+              <div className="space-y-5">
+                <div>
+                  <div className="text-3xl font-bold text-accent">6 months → under 1 month</div>
+                  <div className="text-primary-foreground/80 text-sm mt-1">
+                    GCC discovery cycle for a leading global IT services firm.
+                  </div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-accent">Weeks → minutes</div>
+                  <div className="text-primary-foreground/80 text-sm mt-1">
+                    Strategy-meeting intelligence via AI-powered custom insights.
+                  </div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-accent">₹30–50L saved</div>
+                  <div className="text-primary-foreground/80 text-sm mt-1">
+                    vs. stitching GCC intelligence from fragmented sources.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -269,10 +352,10 @@ const AccountMarketIntelligence = () => {
             </p>
             <ul className="space-y-5 mb-12">
               {[
-                "Built from the largest structured GCC database in India.",
-                "Sliceable by city, sector, function, size, and centre status.",
-                "Updated continuously — not annually.",
-                "Produced at a fraction of what large analyst firms charge.",
+                "Built bottom-up from 2,500+ accounts and 5,900+ centres. 260+ man-months of structured research.",
+                "Sliceable by city, sector, function, size, tech stack, and centre status.",
+                "AI-augmented weekly refresh, not an annual survey report.",
+                "Exclusive datasets: service-mix, function-mix, and software vendor market share at centre level.",
               ].map((t, i) => (
                 <li key={i} className="flex gap-4 items-start">
                   <span className="font-mono text-sm text-accent pt-1.5 w-8 flex-shrink-0">
@@ -307,22 +390,13 @@ const AccountMarketIntelligence = () => {
               asChild
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
-              <Link to="/reports">
-                Download a Sample Report
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full font-semibold px-7 py-6 text-base border-foreground/20"
-            >
               <a
                 href="https://calendar.app.google/QNXWripJexzXLHqGA"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Request a Brief
+                Talk to Us
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>

@@ -32,13 +32,13 @@ const GCCABM = () => {
       num: "Step 1",
       icon: Target,
       title: "Account Selection",
-      body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database — with full context on each centre's size, age, parent company, and leadership.",
+      body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database, with full context on each centre's size, age, parent company, and leadership.",
     },
     {
       num: "Step 2",
       icon: UserCheck,
       title: "Contact Targeting",
-      body: "From our verified decision-maker contact pool, we build your target list — the right function heads, at the right centres, in the right geographies. No duplication. No guesswork.",
+      body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies. No duplication. No guesswork.",
     },
     {
       num: "Step 3",
@@ -50,7 +50,7 @@ const GCCABM = () => {
       num: "Step 4",
       icon: HandshakeIcon,
       title: "MQL Handoff",
-      body: "We deliver qualified leads — contacts who've engaged with your content, attended your events, or raised their hand. Not raw lists. Not cold traffic.",
+      body: "We deliver qualified leads: contacts who've engaged with your content, attended your events, or raised their hand. Not raw lists. Not cold traffic.",
     },
   ];
 
@@ -106,14 +106,14 @@ const GCCABM = () => {
 
           <h1 className="leading-[1.05] max-w-5xl">
             <span className="block">Account-Based Marketing</span>
-            <span className="block">for the India GCC Market —</span>
+            <span className="block">for the India GCC Market,</span>
             <span className="block text-primary">Built on the Best Data in the Business.</span>
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Bamboo Reports runs end-to-end ABM campaigns targeting decision-makers inside India's
-            Global Capability Centres. We bring the data, the audience, and the execution. You
-            bring the story.
+            End-to-end ABM campaigns powered by 250K+ verified decision-makers across 5,900+
+            centres. Account targeting, contact selection, execution, and guaranteed MQL
+            handoff, built on proprietary GCC data, not licensed lists.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -121,22 +121,13 @@ const GCCABM = () => {
               asChild
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
-              <a href="#how-it-works">
-                See How It Works
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full font-semibold px-7 py-6 text-base border-foreground/20 hover:bg-foreground hover:text-background"
-            >
               <a
                 href="https://calendar.app.google/QNXWripJexzXLHqGA"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Get a Campaign Proposal
+                Talk to Us
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>
@@ -240,22 +231,59 @@ const GCCABM = () => {
 
       {/* PROVEN RESULTS */}
       <section className="py-20 md:py-28 px-4 bg-primary text-primary-foreground border-b">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-          <div className="md:col-span-5">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
-              / Proven Results
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center mb-14">
+            <div className="md:col-span-5">
+              <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+                / Proven Results
+              </div>
+              <h2 className="leading-tight text-primary-foreground">
+                Qualified Pipeline. Measurable Outcomes.
+              </h2>
             </div>
-            <h2 className="leading-tight text-primary-foreground">
-              Qualified Pipeline. Measurable Outcomes.
-            </h2>
+            <div className="md:col-span-7">
+              <p className="text-lg md:text-xl leading-relaxed text-primary-foreground/90">
+                ABM campaigns for SaaS vendors, enterprise software, and professional services
+                firms, delivered across India's top GCC cities with{" "}
+                <span className="text-accent font-semibold">
+                  guaranteed MQL outcomes, not just impressions.
+                </span>
+              </p>
+            </div>
           </div>
-          <div className="md:col-span-7">
-            <p className="text-lg md:text-xl leading-relaxed text-primary-foreground/90">
-              Our ABM campaigns have delivered qualified pipeline for SaaS vendors, enterprise
-              software companies, and professional services firms — across India's top GCC cities.
-              Clients see measurable MQL and SQL outcomes,{" "}
-              <span className="text-accent font-semibold">not just impressions.</span>
-            </p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-8 rounded-2xl bg-primary-foreground/10 border border-primary-foreground/15">
+              <div className="text-5xl font-bold text-accent leading-none">250+</div>
+              <div className="mt-3 text-sm text-primary-foreground/70 font-mono uppercase tracking-wider">
+                MQLs, single campaign
+              </div>
+              <p className="mt-4 text-primary-foreground/90 leading-relaxed">
+                One enterprise software client, one GCC-native ABM programme.
+              </p>
+            </div>
+            <div className="p-8 rounded-2xl bg-primary-foreground/10 border border-primary-foreground/15">
+              <div className="text-5xl font-bold text-accent leading-none">
+                600+ <span className="text-3xl">/ 40+</span>
+              </div>
+              <div className="mt-3 text-sm text-primary-foreground/70 font-mono uppercase tracking-wider">
+                MQLs / SQLs, enterprise client
+              </div>
+              <p className="mt-4 text-primary-foreground/90 leading-relaxed">
+                Multi-quarter programme into a named GCC account list.
+              </p>
+            </div>
+            <div className="p-8 rounded-2xl bg-primary-foreground/10 border border-primary-foreground/15">
+              <div className="text-5xl font-bold text-accent leading-none">
+                1,050 <span className="text-3xl">/ 364</span>
+              </div>
+              <div className="mt-3 text-sm text-primary-foreground/70 font-mono uppercase tracking-wider">
+                BFSI GCCs profiled / contacts mapped
+              </div>
+              <p className="mt-4 text-primary-foreground/90 leading-relaxed">
+                4-year ongoing BFSI GCC programme for a leading global IT services firm.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -308,26 +336,26 @@ const GCCABM = () => {
 
           <p className="text-lg md:text-xl text-background/80 leading-relaxed max-w-3xl mb-12">
             Most ABM agencies build your list, send your emails, and call it done. We're different
-            because the data is ours — built and maintained by us, not licensed from a third party.
+            because the data is ours, built and maintained by us, not licensed from a third party.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
                 icon: ShieldCheck,
-                text: "No data middlemen. No stale records.",
+                text: "No data middlemen. No stale records. 260+ man-months of structured research, AI-refreshed weekly.",
               },
               {
                 icon: Layers,
-                text: "Campaigns that reflect actual GCC org structures.",
+                text: "Campaigns that reflect actual centre-level org structures: service-mix, function splits, tech stacks.",
               },
               {
                 icon: Crosshair,
-                text: "Audience segments no one else can replicate.",
+                text: "Audience segments no competitor can replicate. 21x more structured data per GCC than the nearest alternative.",
               },
               {
                 icon: Megaphone,
-                text: "Context that makes your messaging land.",
+                text: "Messaging context from the same team publishing the India GCC intelligence layer.",
               },
             ].map((item, i) => (
               <div
@@ -360,21 +388,8 @@ const GCCABM = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Get a Campaign Proposal
+                Talk to Us
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full font-semibold px-7 py-6 text-base border-foreground/20"
-            >
-              <a
-                href="https://calendar.app.google/QNXWripJexzXLHqGA"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Talk to Our Team
               </a>
             </Button>
           </div>

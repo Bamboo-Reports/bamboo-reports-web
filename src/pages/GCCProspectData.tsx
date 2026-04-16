@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -21,7 +20,7 @@ const GCCProspectData = () => {
   useSEO({
     title: "GCC Prospect Data | Verified India GCC Decision-Makers | Bamboo Reports",
     description:
-      "The most complete, structured contact intelligence on India's GCC ecosystem. Verified decision-makers across thousands of centres — ready to power your outreach.",
+      "The most complete, structured contact intelligence on India's GCC ecosystem. Verified decision-makers across thousands of centres, ready to power your outreach.",
     keywords:
       "GCC prospect data, India GCC contacts, GCC decision makers, GCC contact database, India GCC leaders",
   });
@@ -56,9 +55,27 @@ const GCCProspectData = () => {
 
           <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
             Bamboo Reports gives you the most complete, structured contact intelligence on India's
-            Global Capability Centre ecosystem — verified decision-makers across thousands of
-            centres, ready to power your outreach.
+            Global Capability Centre ecosystem: 250K+ verified decision-makers across 5,900+
+            centres, continuously refreshed and ready to power your outreach.
           </p>
+
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 max-w-3xl border-t border-b py-6">
+            {[
+              { v: "2,500+", l: "Accounts" },
+              { v: "5,900+", l: "Centres" },
+              { v: "250K+", l: "Decision-Makers" },
+              { v: "4.9M", l: "Workforce Data" },
+            ].map((s) => (
+              <div key={s.l}>
+                <div className="text-2xl md:text-3xl font-bold text-foreground leading-none">
+                  {s.v}
+                </div>
+                <div className="mt-2 text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                  {s.l}
+                </div>
+              </div>
+            ))}
+          </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
             <Button
@@ -70,21 +87,8 @@ const GCCProspectData = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Get a Sample
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full font-semibold px-7 py-6 text-base border-foreground/20 hover:bg-foreground hover:text-background"
-            >
-              <a
-                href="https://calendar.app.google/QNXWripJexzXLHqGA"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
                 Talk to Us
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>
@@ -105,12 +109,14 @@ const GCCProspectData = () => {
           <div className="md:col-span-7 md:pt-4">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               India's GCC market is moving fast. New centres open every quarter. Leaders change
-              roles. Generic databases hand you stale contacts, wrong titles, and zero GCC context.
+              roles. Scraped databases hand you stale contacts, wrong titles, parent-company-only
+              records, and zero centre-level context.
             </p>
             <p className="text-xl md:text-2xl font-semibold leading-snug">
               Most lists give you names.{" "}
-              <span className="text-accent">We give you the right names</span> — in the right roles,
-              at the right companies, with enough context to actually start a conversation.
+              <span className="text-accent">We give you the right names</span>, mapped to the right
+              centre, in the right role, with the service-mix and tech-stack context you need to
+              start a conversation.
             </p>
           </div>
         </div>
@@ -130,33 +136,33 @@ const GCCProspectData = () => {
             {[
               {
                 icon: Users,
-                title: "Decision-maker contacts",
-                desc: "C-suite, VPs, Directors, and function heads.",
+                title: "250K+ decision-makers",
+                desc: "Named C-suite, VPs, Directors, and function heads across the ecosystem.",
               },
               {
                 icon: Building2,
-                title: "GCC-verified roles",
-                desc: "Mapped to actual centres, not just parent companies.",
+                title: "Centre-level mapping",
+                desc: "Contacts tied to 5,900+ individual centres, not just parent companies.",
               },
               {
                 icon: Briefcase,
                 title: "Function coverage",
-                desc: "Engineering, Finance, HR, Legal, Operations, IT, and more.",
+                desc: "Engineering, Product, Data, Finance, HR, Legal, Operations, IT, and more.",
               },
               {
                 icon: MapPin,
-                title: "Full geography",
-                desc: "All major GCC cities and clusters across India.",
+                title: "Geospatial precision",
+                desc: "Every centre geo-coded across India's GCC cities and clusters.",
               },
               {
                 icon: Layers,
-                title: "Parent company linkage",
-                desc: "Every contact connected to its GCC centre and parent org.",
+                title: "Service-mix context",
+                desc: "5–12 structured service classifications per centre: what each GCC actually does.",
               },
               {
                 icon: Tag,
-                title: "Sector tagging",
-                desc: "BFSI, Technology, Retail, Pharma, Manufacturing, and more.",
+                title: "Sector & tech tagging",
+                desc: "BFSI, Tech, Pharma, Retail, Manufacturing, with tech-stack signals layered in.",
               },
             ].map((item) => (
               <div
@@ -173,9 +179,10 @@ const GCCProspectData = () => {
           </div>
 
           <p className="mt-10 text-base md:text-lg text-muted-foreground max-w-3xl">
-            Built from Bamboo Reports' proprietary database —{" "}
+            Built from Bamboo Reports' proprietary database.{" "}
             <span className="font-semibold text-foreground">
-              the largest structured GCC dataset in India.
+              40% more accounts than NASSCOM, 3x more centres, and 21x more structured data per GCC
+              than the nearest alternative.
             </span>
           </p>
         </div>
@@ -254,19 +261,19 @@ const GCCProspectData = () => {
             {[
               {
                 icon: Database,
-                text: "Structured across hundreds of data points and multiple linked tables.",
+                text: "260+ man-months of structured research since 2022, built centre by centre, not scraped.",
               },
               {
                 icon: Globe,
-                text: "Full geospatial coverage for every GCC centre.",
+                text: "250+ structured data points per GCC across 6 interlinked data tables.",
               },
               {
                 icon: RefreshCw,
-                text: "Continuously updated as new centres open and leaders move.",
+                text: "AI-augmented weekly refresh cycles with automated change detection as leaders move.",
               },
               {
                 icon: Sparkles,
-                text: "Built by a team that lives and breathes the India GCC ecosystem.",
+                text: "Every field mapped to an AI agent for enrichment, validation, and quality checks.",
               },
             ].map((item, i) => (
               <div key={i} className="flex gap-5 items-start">
@@ -280,7 +287,7 @@ const GCCProspectData = () => {
 
           <blockquote className="border-l-4 border-accent pl-6 md:pl-8 max-w-3xl">
             <p className="text-2xl md:text-3xl font-semibold leading-snug italic">
-              "We don't resell third-party databases. We built ours from scratch — and it shows."
+              "We don't resell third-party databases. We built ours from scratch, and it shows."
             </p>
           </blockquote>
         </div>
@@ -305,16 +312,9 @@ const GCCProspectData = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Request a Custom Dataset
+                Talk to Us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full font-semibold px-7 py-6 text-base border-foreground/20"
-            >
-              <Link to="/resources">Download Sample</Link>
             </Button>
           </div>
         </div>

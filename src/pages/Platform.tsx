@@ -24,7 +24,7 @@ const Platform = () => {
   useSEO({
     title: "Platform | The India GCC Intelligence Workspace | Bamboo Reports",
     description:
-      "Explore every GCC, every centre, every decision-maker — on one live workspace. Accounts, Centers, Prospects and Headcount, visualised across charts, maps and grids.",
+      "Explore every GCC, every centre, every decision-maker on one live workspace. Accounts, Centers, Prospects and Headcount, visualised across charts, maps and grids.",
     keywords:
       "GCC platform, India GCC intelligence, GCC analytics, GCC database, account analytics, center analytics",
   });
@@ -58,7 +58,7 @@ const Platform = () => {
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Accounts, Centers, Prospects and Headcount — fully linked, constantly refreshed, and
+            Accounts, Centers, Prospects and Headcount: fully linked, constantly refreshed, and
             explorable across charts, maps, and grids. Replace a dozen spreadsheets with the
             workspace the GCC economy has been waiting for.
           </p>
@@ -112,13 +112,13 @@ const Platform = () => {
           <div className="rounded-2xl border shadow-2xl overflow-hidden bg-background">
             <img
               src="/platform/accounts-data.png"
-              alt="Bamboo Reports platform — Account Analytics grid view"
+              alt="Bamboo Reports platform: Account Analytics grid view"
               className="w-full h-auto block"
               loading="eager"
             />
           </div>
           <p className="mt-4 text-center text-sm text-muted-foreground">
-            Account Analytics — explore 2,467 live GCC parent accounts with structured firmographics.
+            Account Analytics: explore 2,467 live GCC parent accounts with structured firmographics.
           </p>
         </div>
       </section>
@@ -131,7 +131,7 @@ const Platform = () => {
               / One Dataset, Every View
             </div>
             <h2 className="leading-tight">
-              Switch between <span className="text-accent">Charts, Map, and Data</span> — without
+              Switch between <span className="text-accent">Charts, Map, and Data</span> without
               leaving the question you're asking.
             </h2>
           </div>
@@ -173,10 +173,10 @@ const Platform = () => {
             <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
               / Geospatial Intelligence
             </div>
-            <h2 className="leading-tight mb-6">See India's GCC footprint — not just read about it.</h2>
+            <h2 className="leading-tight mb-6">See India's GCC footprint, not just read about it.</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               Every centre geocoded. Every account linked to its cities. Heatmaps at the state and
-              city level reveal where the economy is concentrating — and where the next wave is
+              city level reveal where the economy is concentrating, and where the next wave is
               going.
             </p>
             <ul className="space-y-3 text-base">
@@ -197,7 +197,7 @@ const Platform = () => {
             <div className="rounded-xl border shadow-xl overflow-hidden bg-background">
               <img
                 src="/platform/accounts-map.png"
-                alt="Bamboo Reports platform — Accounts Map heatmap of India GCC footprint"
+                alt="Bamboo Reports platform: Accounts Map heatmap of India GCC footprint"
                 className="w-full h-auto block"
                 loading="lazy"
               />
@@ -213,7 +213,7 @@ const Platform = () => {
             <div className="rounded-xl border shadow-xl overflow-hidden bg-background">
               <img
                 src="/platform/centers-data.png"
-                alt="Bamboo Reports platform — Center Analytics grid view"
+                alt="Bamboo Reports platform: Center Analytics grid view"
                 className="w-full h-auto block"
                 loading="lazy"
               />
@@ -227,7 +227,7 @@ const Platform = () => {
               Every centre. Not just every logo.
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Most databases stop at the parent company. We map all the way down — each individual
+              Most databases stop at the parent company. We map all the way down to each individual
               centre, its city, its function, its headcount, and the parent account it belongs to.
             </p>
             <div className="grid grid-cols-2 gap-4">
@@ -274,7 +274,7 @@ const Platform = () => {
               {
                 icon: LayoutGrid,
                 title: "Table and Grid modes",
-                desc: "Scan fast in grid view, analyse deep in table view — same data, your choice.",
+                desc: "Scan fast in grid view, analyse deep in table view. Same data, your choice.",
               },
               {
                 icon: Layers,
