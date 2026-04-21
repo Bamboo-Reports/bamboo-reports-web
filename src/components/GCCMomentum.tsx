@@ -11,7 +11,7 @@ const GCCMomentum = () => {
               Which cities are winning the next wave of GCC mandates?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Our Q4 snapshot tracks the shifts in headcount, capability mix, and leadership depth across India's GCC landscape — so you can spot the signals before your competitors do.
+              Our Q4 snapshot tracks the shifts in headcount, capability mix, and leadership depth across India's GCC landscape, so you can spot the signals before your competitors do.
             </p>
             <Button
               asChild

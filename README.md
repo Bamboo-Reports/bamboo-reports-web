@@ -96,9 +96,11 @@ netlify/
 
 - `/` — Home
 - `/pricing` — Pricing
-- `/features` — Features
-- `/use-cases` — Use Cases
-- `/icp` — ICP
+- `/gcc-prospect-data` — GCC Prospect Data
+- `/account-market-intelligence` — Account and Market Intelligence
+- `/gcc-abm` — GCC ABM
+- `/platform` — Platform
+- `/success-stories` — Success Stories
 - `/insights` — Insights
 - `/resources` — Resources
 - `/reports` — Reports index

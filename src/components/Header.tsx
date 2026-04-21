@@ -21,9 +21,11 @@ import {
 } from "@/components/ui/sheet";
 import {
   NavigationMenu,
+  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
@@ -61,34 +63,55 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  className={navigationMenuTriggerStyle() + " cursor-pointer"}
-                  onClick={() => openInquiryForm()}
-                >
-                  Pricing
-                </NavigationMenuLink>
+                <NavigationMenuTrigger>What we Offer</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[320px] gap-1 p-2">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/gcc-prospect-data"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          GCC Prospect Data
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/account-market-intelligence"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          Account and Market Intelligence
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/gcc-abm"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          GCC ABM
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link to="/features">
+                <Link to="/platform">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Features
+                    Platform
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link to="/use-cases">
+                <Link to="/success-stories">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Use Cases
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link to="/icp">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    ICP
+                    Success Stories
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -99,6 +122,15 @@ const Header = () => {
                     Resources
                   </NavigationMenuLink>
                 </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className={navigationMenuTriggerStyle() + " cursor-pointer"}
+                  onClick={() => openInquiryForm()}
+                >
+                  Pricing
+                </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -181,6 +213,63 @@ const Header = () => {
               {/* Navigation */}
               <nav className="flex-1 overflow-y-auto">
                 <div className="px-6 space-y-1">
+                  <details className="group border-b pb-2">
+                    <summary className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth cursor-pointer list-none">
+                      What we Offer
+                      <ChevronRight className="h-5 w-5 transition-transform group-open:rotate-90" />
+                    </summary>
+                    <div className="pl-4 space-y-1">
+                      <Link
+                        to="/gcc-prospect-data"
+                        className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        GCC Prospect Data
+                      </Link>
+                      <Link
+                        to="/account-market-intelligence"
+                        className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Account and Market Intelligence
+                      </Link>
+                      <Link
+                        to="/gcc-abm"
+                        className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        GCC ABM
+                      </Link>
+                    </div>
+                  </details>
+
+                  <Link
+                    to="/platform"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Platform
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
+
+                  <Link
+                    to="/success-stories"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Success Stories
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
+
+                  <Link
+                    to="/resources"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Resources
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
+
                   <button
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth w-full"
                     onClick={() => {
@@ -191,42 +280,6 @@ const Header = () => {
                     Pricing
                     <ChevronRight className="h-5 w-5" />
                   </button>
-
-                  <Link
-                    to="/features"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-t pt-4"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Features
-                    <ChevronRight className="h-5 w-5" />
-                  </Link>
-
-                  <Link
-                    to="/use-cases"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-t pt-4"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Use Cases
-                    <ChevronRight className="h-5 w-5" />
-                  </Link>
-
-                  <Link
-                    to="/icp"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-t pt-4"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    ICP
-                    <ChevronRight className="h-5 w-5" />
-                  </Link>
-
-                  <Link
-                    to="/resources"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-t pt-4"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Resources
-                    <ChevronRight className="h-5 w-5" />
-                  </Link>
                 </div>
 
                 {/* Separator */}

@@ -27,9 +27,11 @@ import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
-import Features from "./pages/Features";
-import UseCases from "./pages/UseCases";
-import ICP from "./pages/ICP";
+import GCCProspectData from "./pages/GCCProspectData";
+import AccountMarketIntelligence from "./pages/AccountMarketIntelligence";
+import GCCABM from "./pages/GCCABM";
+import Platform from "./pages/Platform";
+import SuccessStories from "./pages/SuccessStories";
 import ScrollToTop from "./components/ScrollToTop";
 import { ensureJotformEmbedHandler } from "@/lib/jotform";
 
@@ -71,9 +73,14 @@ const App = () => {
             <Route path="/terms-conditions" element={<TermsConditions />} />
             <Route path="/about-us" element={<Navigate to="/" replace />} />
             <Route path="/contact-us" element={<Navigate to="/" replace />} />
-            <Route path="/features" element={<Features />} />
-            <Route path="/use-cases" element={<UseCases />} />
-            <Route path="/icp" element={<ICP />} />
+            <Route path="/gcc-prospect-data" element={<GCCProspectData />} />
+            <Route path="/account-market-intelligence" element={<AccountMarketIntelligence />} />
+            <Route path="/gcc-abm" element={<GCCABM />} />
+            <Route path="/platform" element={<Platform />} />
+            <Route path="/success-stories" element={<SuccessStories />} />
+            <Route path="/features" element={<Navigate to="/" replace />} />
+            <Route path="/use-cases" element={<Navigate to="/" replace />} />
+            <Route path="/icp" element={<Navigate to="/" replace />} />
             <Route path="/features/coverage" element={<Navigate to="/pricing" replace />} />
             <Route path="/features/what-if-scenarios" element={<Navigate to="/pricing" replace />} />
             <Route path="/features/proprietary-tam-slicers" element={<Navigate to="/pricing" replace />} />

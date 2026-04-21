@@ -330,7 +330,7 @@ const H1BStrategicReset = () => {
             <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Final takeaway</p>
             <h3 className="text-2xl font-bold">Global capability centers are in India because capability is higher.</h3>
             <p className="text-base text-muted-foreground leading-relaxed">
-              The Bengaluru roundtable made one point clear: the outsourcing era is ending. As GCCs take on strategic mandates and own budgets, India is positioned to be the primary strategy hub for global enterprises. The call to action is simple—market your wins internally, elevate strategic roles in India, and treat capability plus scale as the advantage to defend.
+              The Bengaluru roundtable made one point clear: the outsourcing era is ending. As GCCs take on strategic mandates and own budgets, India is positioned to be the primary strategy hub for global enterprises. The call to action is simple: market your wins internally, elevate strategic roles in India, and treat capability plus scale as the advantage to defend.
             </p>
           </section>
         </div>
