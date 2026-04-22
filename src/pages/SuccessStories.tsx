@@ -31,39 +31,17 @@ const SuccessStories = () => {
         <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border bg-background/60 backdrop-blur text-xs font-semibold uppercase tracking-wider mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            Success Stories
-          </div>
-
           <h1 className="leading-[1.05] max-w-5xl">
             <span className="block text-foreground">Intelligence at Work.</span>
             <span className="block text-accent">Outcomes, Not Headlines.</span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+          <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
             Two long-running engagements that show what structured, centre-level intelligence
             delivers in practice. One for a solution provider selling into GCCs. One for a GCC
             building its own future.
           </p>
 
-          <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 max-w-4xl border-t border-b py-6">
-            {[
-              { v: "4+ yrs", l: "Longest ongoing engagement" },
-              { v: "1,050", l: "BFSI GCCs profiled" },
-              { v: "44", l: "Intelligence reports delivered" },
-              { v: "Fortune 500", l: "GCC setup supported" },
-            ].map((s) => (
-              <div key={s.l}>
-                <div className="text-2xl md:text-3xl font-bold text-foreground leading-none">
-                  {s.v}
-                </div>
-                <div className="mt-2 text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                  {s.l}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -73,14 +51,14 @@ const SuccessStories = () => {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             {/* Left: narrative */}
             <div className="lg:col-span-5">
-              <div className="text-xs font-mono uppercase tracking-[0.25em] text-primary mb-4">
+              <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">
                 / Case 01  ·  Solution Provider
               </div>
               <div className="flex items-center gap-3 mb-6 text-sm text-muted-foreground">
                 <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider">
                   4 Years
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider">
+                <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                   Ongoing
                 </span>
@@ -105,7 +83,7 @@ const SuccessStories = () => {
 
             {/* Right: metric stack */}
             <div className="lg:col-span-7">
-              <div className="text-xs font-mono uppercase tracking-[0.25em] text-primary mb-6">
+              <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6">
                 / What We Delivered
               </div>
               <div className="divide-y border-y">
@@ -139,7 +117,7 @@ const SuccessStories = () => {
       {/* THEME DIVIDER */}
       <section className="py-14 md:py-20 px-4 bg-foreground text-background border-b">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="text-xs font-mono uppercase tracking-[0.25em] text-accent mb-5">
+          <div className="text-xs uppercase tracking-[0.2em] text-accent mb-5">
             / Two Sides of the Same Ecosystem
           </div>
           <p className="text-2xl md:text-3xl font-semibold leading-snug text-background/95">
@@ -157,14 +135,14 @@ const SuccessStories = () => {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             {/* Left: narrative */}
             <div className="lg:col-span-5">
-              <div className="text-xs font-mono uppercase tracking-[0.25em] text-accent mb-4">
+              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
                 / Case 02  ·  GCC Itself
               </div>
               <div className="flex items-center gap-3 mb-6 text-sm text-muted-foreground">
                 <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-accent/15 text-accent text-xs font-semibold uppercase tracking-wider">
                   Fortune 500
                 </span>
-                <span className="text-xs font-mono uppercase tracking-wider">Phased · Strategic</span>
+                <span className="text-xs uppercase tracking-wider">Phased · Strategic</span>
               </div>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-6">
@@ -186,7 +164,7 @@ const SuccessStories = () => {
 
             {/* Right: phased timeline */}
             <div className="lg:col-span-7">
-              <div className="text-xs font-mono uppercase tracking-[0.25em] text-accent mb-6">
+              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-6">
                 / The Engagement Arc
               </div>
 
@@ -216,7 +194,7 @@ const SuccessStories = () => {
                   <li key={r.phase} className="relative grid grid-cols-[52px_1fr] gap-4 md:gap-6 py-5">
                     <div className="relative z-10">
                       <div
-                        className={`w-9 h-9 rounded-full flex items-center justify-center font-mono text-xs font-bold ${
+                        className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold ${
                           r.emphasis
                             ? "bg-accent text-accent-foreground"
                             : "bg-background border-2 border-accent/40 text-accent"

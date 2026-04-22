@@ -14,12 +14,15 @@ const Hero = () => {
               GCC GTM Enablement
             </span>
           </h1>
-          <ul className="text-muted-foreground mb-6 md:mb-8 font-bold text-sm sm:text-base md:text-lg px-2 max-w-3xl mx-auto leading-relaxed list-disc list-inside flex flex-col sm:flex-row sm:list-none gap-1 sm:gap-4 justify-center items-center">
-            <li>GCC Prospect Data</li>
-            <li className="hidden sm:block">•</li>
-            <li>Account & Market Intelligence</li>
-            <li className="hidden sm:block">•</li>
-            <li>GCC Focused ABM</li>
+          <ul className="mb-6 md:mb-8 px-2 max-w-3xl mx-auto flex flex-wrap gap-2 sm:gap-3 justify-center items-center">
+            {["GCC Prospect Data", "Account & Market Intelligence", "GCC Focused ABM"].map((item) => (
+              <li
+                key={item}
+                className="rounded-full bg-primary/10 text-primary px-4 py-1.5 text-xs sm:text-sm md:text-base font-semibold border border-primary/20"
+              >
+                {item}
+              </li>
+            ))}
           </ul>
 
           {/* --- Button Wrapper --- */}

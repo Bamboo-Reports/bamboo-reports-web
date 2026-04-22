@@ -1,8 +1,8 @@
 import logo from "@/assets/bamboo-logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight, User, LogOut } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -33,6 +33,23 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, signOut } = useAuth();
   const { openInquiryForm } = useInquiryForm();
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const [showDemoCta, setShowDemoCta] = useState(!isHome);
+
+  useEffect(() => {
+    if (!isHome) {
+      setShowDemoCta(true);
+      return;
+    }
+    setShowDemoCta(false);
+    const onScroll = () => {
+      setShowDemoCta(window.scrollY > window.innerHeight * 0.7);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
 
   const getInitials = (name: string) => {
     return name
@@ -136,18 +153,30 @@ const Header = () => {
           </NavigationMenu>
 
           <div className="flex items-center gap-3">
-            <Button
-              asChild
-              className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold"
+            <div
+              className={`grid transition-all duration-500 ease-out ${
+                showDemoCta
+                  ? "grid-cols-[1fr] opacity-100 translate-x-0"
+                  : "grid-cols-[0fr] opacity-0 -translate-x-2"
+              }`}
+              aria-hidden={!showDemoCta}
             >
-              <a
-                href="https://calendar.app.google/QNXWripJexzXLHqGA"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get a Demo
-              </a>
-            </Button>
+              <div className="overflow-hidden">
+                <Button
+                  asChild
+                  className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow whitespace-nowrap"
+                  tabIndex={showDemoCta ? undefined : -1}
+                >
+                  <a
+                    href="https://calendar.app.google/QNXWripJexzXLHqGA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get a Demo
+                  </a>
+                </Button>
+              </div>
+            </div>
 
             {user ? (
               <DropdownMenu>
@@ -306,7 +335,7 @@ const Header = () => {
                         <Button
                           asChild
                           variant="ghost"
-                          className="w-full rounded-full font-semibold justify-start"
+                          className="w-full font-semibold justify-start"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           <Link to="/profile">
@@ -317,7 +346,7 @@ const Header = () => {
                       </div>
                       <Button
                         variant="outline"
-                        className="w-full rounded-full font-semibold"
+                        className="w-full font-semibold"
                         onClick={() => {
                           handleSignOut();
                           setMobileMenuOpen(false);

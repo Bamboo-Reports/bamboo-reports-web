@@ -89,31 +89,29 @@ const GCCABM = () => {
       {/* HERO */}
       <section className="relative overflow-hidden border-b">
         <div
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          className="absolute inset-0 opacity-[0.035] pointer-events-none"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(135deg, hsl(var(--foreground)) 0 1px, transparent 1px 24px)",
+              "linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
           }}
         />
-        <div className="absolute top-20 -right-32 w-[480px] h-[480px] rounded-full bg-primary/15 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/3 w-[380px] h-[380px] rounded-full bg-accent/15 blur-3xl pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border bg-background/60 backdrop-blur text-xs font-semibold uppercase tracking-wider mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            GCC ABM
-          </div>
-
           <h1 className="leading-[1.05] max-w-5xl">
-            <span className="block">Account-Based Marketing</span>
-            <span className="block">for the India GCC Market,</span>
-            <span className="block text-primary">Built on the Best Data in the Business.</span>
+            <span className="block text-foreground">Account-Based Marketing</span>
+            <span className="block text-foreground">for the India GCC Market,</span>
+            <span className="block text-accent">Built on the Best Data in the Business.</span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
-            End-to-end ABM campaigns powered by 250K+ verified decision-makers across 5,900+
-            centres. Account targeting, contact selection, execution, and guaranteed MQL
-            handoff, built on proprietary GCC data, not licensed lists.
+          <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
+            From prospect data creation, account planning, account level strategy, campaign
+            planning and performance reporting, we have all the capabilities to create a focussed
+            GCC outreach programme. Reduce operational work, maintain signals, scoring,
+            segmentation, insights without losing sight of the big picture and manage personalised
+            GCC focussed campaigns seamlessly.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -138,7 +136,7 @@ const GCCABM = () => {
       <section className="py-20 md:py-28 px-4 border-b">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-start">
           <div className="md:col-span-5">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / The Problem
             </div>
             <h2 className="leading-tight">
@@ -153,7 +151,7 @@ const GCCABM = () => {
             </p>
             <p className="text-xl md:text-2xl font-semibold leading-snug">
               Running campaigns into this market without GCC-native data means{" "}
-              <span className="text-primary">wasted spend, wrong targets,</span> and messaging that
+              <span className="text-accent">wasted spend, wrong targets,</span> and messaging that
               lands with the wrong people.
             </p>
           </div>
@@ -164,7 +162,7 @@ const GCCABM = () => {
       <section id="how-it-works" className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / How It Works
             </div>
             <h2 className="leading-tight">Full-Funnel ABM, End to End.</h2>
@@ -174,19 +172,19 @@ const GCCABM = () => {
             {steps.map((step, i) => (
               <div
                 key={step.num}
-                className="relative bg-background border rounded-2xl p-7 hover:border-primary transition-colors duration-200"
+                className="relative bg-background border rounded-2xl p-7 hover:border-accent transition-colors duration-200"
               >
-                <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-4">
+                <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
                   {step.num}
                 </div>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-5">
                   <step.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-[15px]">{step.body}</p>
 
                 {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-[2px] bg-primary/30" />
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-[2px] bg-accent/30" />
                 )}
               </div>
             ))}
@@ -198,7 +196,7 @@ const GCCABM = () => {
       <section className="py-20 md:py-28 px-4 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Campaign Formats
             </div>
             <h2 className="leading-tight">Pick Your Play.</h2>
@@ -211,7 +209,7 @@ const GCCABM = () => {
                 className="grid md:grid-cols-12 gap-4 md:gap-8 p-6 md:p-8 items-center hover:bg-secondary/30 transition-colors duration-200 group"
               >
                 <div className="md:col-span-1 flex items-center">
-                  <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200">
+                  <div className="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-200">
                     <f.icon className="w-5 h-5" />
                   </div>
                 </div>
@@ -230,19 +228,19 @@ const GCCABM = () => {
       </section>
 
       {/* PROVEN RESULTS */}
-      <section className="py-20 md:py-28 px-4 bg-primary text-primary-foreground border-b">
+      <section className="py-20 md:py-28 px-4 bg-foreground text-background border-b">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center mb-14">
             <div className="md:col-span-5">
-              <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
                 / Proven Results
               </div>
-              <h2 className="leading-tight text-primary-foreground">
+              <h2 className="leading-tight text-background">
                 Qualified Pipeline. Measurable Outcomes.
               </h2>
             </div>
             <div className="md:col-span-7">
-              <p className="text-lg md:text-xl leading-relaxed text-primary-foreground/90">
+              <p className="text-base md:text-lg leading-relaxed text-background/90">
                 ABM campaigns for SaaS vendors, enterprise software, and professional services
                 firms, delivered across India's top GCC cities with{" "}
                 <span className="text-accent font-semibold">
@@ -253,34 +251,34 @@ const GCCABM = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-8 rounded-2xl bg-primary-foreground/10 border border-primary-foreground/15">
+            <div className="p-8 rounded-2xl bg-background/10 border border-background/15">
               <div className="text-5xl font-bold text-accent leading-none">250+</div>
-              <div className="mt-3 text-sm text-primary-foreground/70 font-mono uppercase tracking-wider">
+              <div className="mt-3 text-sm text-background/70 uppercase tracking-wider">
                 MQLs, single campaign
               </div>
-              <p className="mt-4 text-primary-foreground/90 leading-relaxed">
+              <p className="mt-4 text-background/90 leading-relaxed">
                 One enterprise software client, one GCC-native ABM programme.
               </p>
             </div>
-            <div className="p-8 rounded-2xl bg-primary-foreground/10 border border-primary-foreground/15">
+            <div className="p-8 rounded-2xl bg-background/10 border border-background/15">
               <div className="text-5xl font-bold text-accent leading-none">
                 600+ <span className="text-3xl">/ 40+</span>
               </div>
-              <div className="mt-3 text-sm text-primary-foreground/70 font-mono uppercase tracking-wider">
+              <div className="mt-3 text-sm text-background/70 uppercase tracking-wider">
                 MQLs / SQLs, enterprise client
               </div>
-              <p className="mt-4 text-primary-foreground/90 leading-relaxed">
+              <p className="mt-4 text-background/90 leading-relaxed">
                 Multi-quarter programme into a named GCC account list.
               </p>
             </div>
-            <div className="p-8 rounded-2xl bg-primary-foreground/10 border border-primary-foreground/15">
+            <div className="p-8 rounded-2xl bg-background/10 border border-background/15">
               <div className="text-5xl font-bold text-accent leading-none">
                 1,050 <span className="text-3xl">/ 364</span>
               </div>
-              <div className="mt-3 text-sm text-primary-foreground/70 font-mono uppercase tracking-wider">
+              <div className="mt-3 text-sm text-background/70 uppercase tracking-wider">
                 BFSI GCCs profiled / contacts mapped
               </div>
-              <p className="mt-4 text-primary-foreground/90 leading-relaxed">
+              <p className="mt-4 text-background/90 leading-relaxed">
                 4-year ongoing BFSI GCC programme for a leading global IT services firm.
               </p>
             </div>
@@ -292,7 +290,7 @@ const GCCABM = () => {
       <section className="py-20 md:py-28 px-4 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Who It's For
             </div>
             <h2 className="leading-tight">Built for B2B Teams Selling Into GCCs.</h2>
@@ -308,9 +306,9 @@ const GCCABM = () => {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex gap-5 items-start p-6 border rounded-xl hover:border-primary transition-colors duration-200"
+                className="flex gap-5 items-start p-6 border rounded-xl hover:border-accent transition-colors duration-200"
               >
-                <div className="font-mono text-2xl font-bold text-primary/40 leading-none pt-1">
+                <div className="text-2xl font-bold text-accent/40 leading-none pt-1">
                   0{i + 1}
                 </div>
                 <p className="text-base md:text-lg leading-relaxed">{item}</p>
@@ -324,7 +322,7 @@ const GCCABM = () => {
       <section className="py-20 md:py-28 px-4 bg-foreground text-background">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Why Bamboo Reports
             </div>
             <h2 className="leading-tight text-background">
@@ -334,7 +332,7 @@ const GCCABM = () => {
             </h2>
           </div>
 
-          <p className="text-lg md:text-xl text-background/80 leading-relaxed max-w-3xl mb-12">
+          <p className="text-base md:text-lg text-background/80 leading-relaxed max-w-3xl mb-12">
             Most ABM agencies build your list, send your emails, and call it done. We're different
             because the data is ours, built and maintained by us, not licensed from a third party.
           </p>
