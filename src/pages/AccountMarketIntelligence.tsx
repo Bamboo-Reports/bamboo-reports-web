@@ -69,34 +69,29 @@ const AccountMarketIntelligence = () => {
       <Header />
 
       {/* HERO */}
-      <section className="relative overflow-hidden border-b bg-primary text-primary-foreground">
+      <section className="relative overflow-hidden border-b">
         <div
-          className="absolute inset-0 opacity-[0.07] pointer-events-none"
+          className="absolute inset-0 opacity-[0.035] pointer-events-none"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, hsl(var(--primary-foreground)) 1px, transparent 0)",
-            backgroundSize: "28px 28px",
+              "linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
           }}
         />
-        <div className="absolute top-1/2 -right-32 w-[500px] h-[500px] rounded-full bg-accent/30 blur-3xl pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur text-xs font-semibold uppercase tracking-wider mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            Account &amp; Market Intelligence
-          </div>
-
           <h1 className="leading-[1.05] max-w-5xl">
-            <span className="block">Know the GCC Market</span>
-            <span className="block">
-              Before Your <span className="text-accent">Competitor</span> Does.
-            </span>
+            <span className="block text-foreground">Know the GCC Market</span>
+            <span className="block text-accent">Before Your Competitor Does.</span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg md:text-xl text-primary-foreground/80 leading-relaxed">
-            A dataset refreshed weekly, sliceable by city, sector, function, or company, with 3
-            years of historical movement built in and tech-adoption trends at individual GCC level.
-            Not a survey report. Not a parent-level snapshot. Structured, centre-level intelligence.
+          <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
+            An up-to-date dataset that can be filtered by city, sector, function, or company; it
+            includes three years of historical movement data and trends in tech adoption at the GCC
+            level. Not a report on a survey. Not a picture at the parent level. Structured,
+            center-level intelligence.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -121,7 +116,7 @@ const AccountMarketIntelligence = () => {
       <section className="py-20 md:py-28 px-4 border-b">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-start">
           <div className="md:col-span-5">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / The Problem
             </div>
             <h2 className="leading-tight">
@@ -136,7 +131,7 @@ const AccountMarketIntelligence = () => {
             </p>
             <p className="text-xl md:text-2xl font-semibold leading-snug">
               You need ground-truth intelligence:{" "}
-              <span className="text-primary">centre-level, structured, and queryable.</span>
+              <span className="text-accent">centre-level, structured, and queryable.</span>
             </p>
           </div>
         </div>
@@ -146,7 +141,7 @@ const AccountMarketIntelligence = () => {
       <section className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Product Suite
             </div>
             <h2 className="leading-tight">
@@ -158,14 +153,14 @@ const AccountMarketIntelligence = () => {
             {products.map((p) => (
               <div
                 key={p.num}
-                className="relative bg-background border rounded-2xl p-6 md:p-10 hover:border-primary transition-colors duration-200 group"
+                className="relative bg-background border rounded-2xl p-6 md:p-10 hover:border-accent transition-colors duration-200 group"
               >
                 <div className="grid md:grid-cols-12 gap-6 md:gap-10 items-start">
                   <div className="md:col-span-3 flex md:flex-col gap-4 items-center md:items-start">
-                    <div className="font-mono text-5xl md:text-6xl font-bold text-primary/20 group-hover:text-primary transition-colors duration-200 leading-none">
+                    <div className="text-5xl md:text-6xl font-bold text-accent/40 group-hover:text-accent transition-colors duration-200 leading-none">
                       {p.num}
                     </div>
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
                       <p.icon className="w-6 h-6" />
                     </div>
                   </div>
@@ -194,7 +189,7 @@ const AccountMarketIntelligence = () => {
       <section className="py-20 md:py-28 px-4 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Platform In Action
             </div>
             <h2 className="leading-tight">Live Intelligence, Not Static PDFs.</h2>
@@ -229,7 +224,7 @@ const AccountMarketIntelligence = () => {
               },
             ].map((c) => (
               <div key={c.title} className="bg-background p-8 md:p-10">
-                <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-5">
+                <div className="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-5">
                   <c.icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{c.title}</h3>
@@ -240,36 +235,36 @@ const AccountMarketIntelligence = () => {
 
           <div className="mt-14 grid md:grid-cols-2 gap-6">
             <div className="p-8 border rounded-2xl bg-secondary/30">
-              <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-3">
+              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-3">
                 / What-If Scenario Intelligence
               </div>
               <ul className="space-y-3 text-base md:text-lg leading-relaxed">
-                <li className="flex gap-3"><span className="text-primary">→</span> How do we compare against peer GCCs in our sector and size band?</li>
-                <li className="flex gap-3"><span className="text-primary">→</span> Which cities offer the right talent for a new capability centre?</li>
-                <li className="flex gap-3"><span className="text-primary">→</span> What functions are peers expanding or consolidating right now?</li>
-                <li className="flex gap-3"><span className="text-primary">→</span> Where should we add a new practice, and what does hiring look like?</li>
+                <li className="flex gap-3"><span className="text-accent">→</span> How do we compare against peer GCCs in our sector and size band?</li>
+                <li className="flex gap-3"><span className="text-accent">→</span> Which cities offer the right talent for a new capability centre?</li>
+                <li className="flex gap-3"><span className="text-accent">→</span> What functions are peers expanding or consolidating right now?</li>
+                <li className="flex gap-3"><span className="text-accent">→</span> Where should we add a new practice, and what does hiring look like?</li>
               </ul>
             </div>
-            <div className="p-8 border rounded-2xl bg-primary text-primary-foreground">
-              <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3">
+            <div className="p-8 border rounded-2xl bg-foreground text-background">
+              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-3">
                 / Measurable Impact
               </div>
               <div className="space-y-5">
                 <div>
                   <div className="text-3xl font-bold text-accent">6 months → under 1 month</div>
-                  <div className="text-primary-foreground/80 text-sm mt-1">
+                  <div className="text-background/80 text-sm mt-1">
                     GCC discovery cycle for a leading global IT services firm.
                   </div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-accent">Weeks → minutes</div>
-                  <div className="text-primary-foreground/80 text-sm mt-1">
+                  <div className="text-background/80 text-sm mt-1">
                     Strategy-meeting intelligence via AI-powered custom insights.
                   </div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-accent">₹30–50L saved</div>
-                  <div className="text-primary-foreground/80 text-sm mt-1">
+                  <div className="text-background/80 text-sm mt-1">
                     vs. stitching GCC intelligence from fragmented sources.
                   </div>
                 </div>
@@ -283,7 +278,7 @@ const AccountMarketIntelligence = () => {
       <section className="py-20 md:py-28 px-4 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Who Uses This
             </div>
             <h2 className="leading-tight">Intelligence for the Decisions That Matter.</h2>
@@ -321,7 +316,7 @@ const AccountMarketIntelligence = () => {
                 key={item.name}
                 className="p-8 border rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-5">
                   <item.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{item.name}</h3>
@@ -336,7 +331,7 @@ const AccountMarketIntelligence = () => {
       <section className="py-20 md:py-28 px-4 bg-foreground text-background">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16">
           <div className="md:col-span-5">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Why It's Different
             </div>
             <h2 className="leading-tight text-background">
@@ -358,7 +353,7 @@ const AccountMarketIntelligence = () => {
                 "Exclusive datasets: service-mix, function-mix, and software vendor market share at centre level.",
               ].map((t, i) => (
                 <li key={i} className="flex gap-4 items-start">
-                  <span className="font-mono text-sm text-accent pt-1.5 w-8 flex-shrink-0">
+                  <span className="text-sm text-accent pt-1.5 w-8 flex-shrink-0">
                     0{i + 1}
                   </span>
                   <span className="text-lg leading-relaxed text-background/90">{t}</span>
@@ -367,9 +362,9 @@ const AccountMarketIntelligence = () => {
             </ul>
 
             <blockquote className="border-l-4 border-accent pl-6">
-              <p className="text-2xl md:text-3xl font-semibold leading-snug italic">
+              <p className="text-2xl md:text-3xl font-semibold leading-snug">
                 "Nasscom publishes GCC counts.{" "}
-                <span className="text-accent not-italic font-bold">
+                <span className="text-accent font-bold">
                   We publish the underlying data.
                 </span>
                 "

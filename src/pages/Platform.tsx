@@ -1,13 +1,9 @@
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 import {
   ArrowRight,
-  Building2,
-  MapPin,
-  Users,
   BarChart3,
   Map as MapIcon,
   Table as TableIcon,
@@ -17,7 +13,6 @@ import {
   Layers,
   Sparkles,
   Database,
-  Briefcase,
 } from "lucide-react";
 
 const Platform = () => {
@@ -47,17 +42,12 @@ const Platform = () => {
         <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border bg-background/60 backdrop-blur text-xs font-semibold uppercase tracking-wider mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            The Bamboo Reports Platform
-          </div>
-
           <h1 className="leading-[1.05] max-w-5xl">
             <span className="block text-foreground">The India GCC Ecosystem.</span>
             <span className="block text-accent">On One Live Workspace.</span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+          <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
             Accounts, Centers, Prospects and Headcount: fully linked, constantly refreshed, and
             explorable across charts, maps, and grids. Replace a dozen spreadsheets with the
             workspace the GCC economy has been waiting for.
@@ -77,32 +67,8 @@ const Platform = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full font-semibold px-7 py-6 text-base border-foreground/20 hover:bg-foreground hover:text-background"
-            >
-              <Link to="/pricing">See Pricing</Link>
-            </Button>
           </div>
 
-          {/* KPI strip */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-[1px] bg-border border rounded-xl overflow-hidden">
-            {[
-              { label: "Accounts", value: "2,467", icon: Building2 },
-              { label: "Centers", value: "5,929", icon: MapPin },
-              { label: "Prospects", value: "63,648", icon: Briefcase },
-              { label: "Headcount", value: "5.16M", icon: Users },
-            ].map((k) => (
-              <div key={k.label} className="bg-background px-6 py-5">
-                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
-                  <k.icon className="w-3.5 h-3.5 text-accent" />
-                  {k.label}
-                </div>
-                <div className="text-3xl md:text-4xl font-bold tracking-tight">{k.value}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -127,7 +93,7 @@ const Platform = () => {
       <section className="py-20 md:py-28 px-4 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / One Dataset, Every View
             </div>
             <h2 className="leading-tight">
@@ -170,7 +136,7 @@ const Platform = () => {
       <section className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           <div className="md:col-span-5">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Geospatial Intelligence
             </div>
             <h2 className="leading-tight mb-6">See India's GCC footprint, not just read about it.</h2>
@@ -220,31 +186,16 @@ const Platform = () => {
             </div>
           </div>
           <div className="md:col-span-5 order-1 md:order-2">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Down to the Centre
             </div>
             <h2 className="leading-tight mb-6">
               Every centre. Not just every logo.
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Most databases stop at the parent company. We map all the way down to each individual
               centre, its city, its function, its headcount, and the parent account it belongs to.
             </p>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Centres mapped", value: "5,929" },
-                { label: "Parent accounts", value: "2,467" },
-                { label: "Prospects tagged", value: "63,648" },
-                { label: "Headcount indexed", value: "5.16M" },
-              ].map((s) => (
-                <div key={s.label} className="p-4 border rounded-lg">
-                  <div className="text-2xl font-bold">{s.value}</div>
-                  <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mt-1">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -253,7 +204,7 @@ const Platform = () => {
       <section className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Built for Operators
             </div>
             <h2 className="leading-tight">A workspace, not a report.</h2>
@@ -311,7 +262,7 @@ const Platform = () => {
       <section className="py-20 md:py-28 px-4 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Who It's For
             </div>
             <h2 className="leading-tight">One platform. Many operating teams.</h2>
@@ -360,7 +311,7 @@ const Platform = () => {
       {/* CTA */}
       <section className="py-20 md:py-28 px-4 bg-foreground text-background">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+          <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
             / See It Live
           </div>
           <h2 className="leading-tight mb-6 text-background">
@@ -368,7 +319,7 @@ const Platform = () => {
             <br />
             <span className="text-accent">Start operating on live GCC intelligence.</span>
           </h2>
-          <p className="text-lg md:text-xl text-background/80 max-w-2xl mx-auto mb-10">
+          <p className="text-base md:text-lg text-background/80 max-w-3xl mx-auto mb-10">
             Book a 30-minute walkthrough. We'll tailor the demo to your ICP, territory or sector.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -384,13 +335,6 @@ const Platform = () => {
                 Book a Demo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full font-semibold px-7 py-6 text-base bg-transparent border-background/40 text-background hover:bg-background hover:text-foreground"
-            >
-              <Link to="/pricing">See Pricing</Link>
             </Button>
           </div>
         </div>

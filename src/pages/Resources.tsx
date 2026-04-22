@@ -90,13 +90,26 @@ const Resources = () => {
 
       <main className="flex-1">
         <section className="relative overflow-hidden border-b">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,hsl(var(--accent)/0.16),transparent_30%),radial-gradient(circle_at_88%_12%,hsl(var(--primary)/0.16),transparent_36%),linear-gradient(140deg,hsl(var(--background))_0%,hsl(var(--muted)/0.42)_100%)]" />
-          <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(90deg,hsl(var(--foreground))_1px,transparent_1px),linear-gradient(180deg,hsl(var(--foreground))_1px,transparent_1px)] bg-[size:44px_44px]" />
+          <div
+            className="absolute inset-0 opacity-[0.035] pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)",
+              backgroundSize: "56px 56px",
+            }}
+          />
+          <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
-          <div className="relative max-w-6xl mx-auto px-4 py-16 lg:py-24 space-y-4">
-            <h1 className="text-4xl lg:text-6xl font-black leading-[1.03] tracking-tight animate-fade-in">
-              Resources
+          <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
+            <h1 className="leading-[1.05] max-w-5xl">
+              <span className="block text-foreground">Resources.</span>
+              <span className="block text-accent">Intelligence You Can Use.</span>
             </h1>
+            <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
+              Reports, guides, and data-driven insights from the team building India's GCC
+              intelligence layer.
+            </p>
           </div>
         </section>
 

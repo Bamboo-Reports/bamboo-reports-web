@@ -43,39 +43,16 @@ const GCCProspectData = () => {
         <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border bg-background/60 backdrop-blur text-xs font-semibold uppercase tracking-wider mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            GCC Prospect Data
-          </div>
-
           <h1 className="leading-[1.05] max-w-5xl">
             <span className="block text-foreground">Every GCC in India.</span>
             <span className="block text-accent">Every Decision-Maker Who Matters.</span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+          <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
             Bamboo Reports gives you the most complete, structured contact intelligence on India's
             Global Capability Centre ecosystem: 250K+ verified decision-makers across 5,900+
             centres, continuously refreshed and ready to power your outreach.
           </p>
-
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 max-w-3xl border-t border-b py-6">
-            {[
-              { v: "2,500+", l: "Accounts" },
-              { v: "5,900+", l: "Centres" },
-              { v: "250K+", l: "Decision-Makers" },
-              { v: "4.9M", l: "Workforce Data" },
-            ].map((s) => (
-              <div key={s.l}>
-                <div className="text-2xl md:text-3xl font-bold text-foreground leading-none">
-                  {s.v}
-                </div>
-                <div className="mt-2 text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                  {s.l}
-                </div>
-              </div>
-            ))}
-          </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
             <Button
@@ -99,7 +76,7 @@ const GCCProspectData = () => {
       <section className="py-20 md:py-28 px-4 border-b">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-start">
           <div className="md:col-span-5">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / The Problem
             </div>
             <h2 className="leading-tight">
@@ -126,7 +103,7 @@ const GCCProspectData = () => {
       <section className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / What's Inside
             </div>
             <h2 className="leading-tight">Built for GCC Go-To-Market.</h2>
@@ -192,7 +169,7 @@ const GCCProspectData = () => {
       <section className="py-20 md:py-28 px-4 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Who Uses This
             </div>
             <h2 className="leading-tight">Built for Teams That Sell Into GCCs.</h2>
@@ -247,7 +224,7 @@ const GCCProspectData = () => {
       <section className="py-20 md:py-28 px-4 bg-foreground text-background">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Why Bamboo Reports
             </div>
             <h2 className="leading-tight text-background">
@@ -286,7 +263,7 @@ const GCCProspectData = () => {
           </div>
 
           <blockquote className="border-l-4 border-accent pl-6 md:pl-8 max-w-3xl">
-            <p className="text-2xl md:text-3xl font-semibold leading-snug italic">
+            <p className="text-2xl md:text-3xl font-semibold leading-snug">
               "We don't resell third-party databases. We built ours from scratch, and it shows."
             </p>
           </blockquote>
@@ -296,7 +273,7 @@ const GCCProspectData = () => {
       {/* CTA */}
       <section className="py-20 md:py-28 px-4">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+          <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
             / Get Your Custom Dataset
           </div>
           <h2 className="leading-tight mb-6">
