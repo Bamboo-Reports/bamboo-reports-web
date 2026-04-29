@@ -211,4 +211,212 @@ All colors MUST be HSL.
       transform: scale(1);
     }
   }
+
+  .platform-dashboard-reveal {
+    position: relative;
+    isolation: isolate;
+    border-radius: 1.25rem 1.25rem 0 0;
+    overflow: hidden;
+    box-shadow:
+      0 34px 90px hsl(var(--foreground) / 0.18),
+      0 12px 28px hsl(var(--primary) / 0.12);
+    transform-origin: top center;
+    animation: platformDashboardStageIn 700ms 120ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    transition:
+      transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .platform-dashboard-reveal::before {
+    content: none;
+  }
+
+  .platform-dashboard-reveal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 0%,
+      transparent 36%,
+      hsl(var(--background) / 0.52) 48%,
+      transparent 60%,
+      transparent 100%
+    );
+    transform: translateX(-130%);
+    animation: platformDashboardGlint 1250ms 950ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    mix-blend-mode: screen;
+  }
+
+  .platform-dashboard-reveal:hover {
+    transform: translateY(-4px) scale(1.006);
+    box-shadow:
+      0 42px 110px hsl(var(--foreground) / 0.2),
+      0 16px 34px hsl(var(--primary) / 0.16);
+  }
+
+  .platform-dashboard-frame {
+    overflow: hidden;
+    border-radius: 1.25rem 1.25rem 0 0;
+    background: hsl(var(--background));
+    animation: platformDashboardReveal 1100ms 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .platform-dashboard-frame img {
+    margin-bottom: -7%;
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .platform-dashboard-reveal:hover .platform-dashboard-frame img {
+    transform: scale(1.012);
+  }
+
+  .platform-hero-title,
+  .platform-hero-copy,
+  .platform-hero-actions {
+    animation: platformHeroRise 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .platform-hero-copy {
+    animation-delay: 110ms;
+  }
+
+  .platform-hero-actions {
+    animation-delay: 200ms;
+  }
+
+  .platform-cta {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 28px hsl(var(--accent) / 0.28);
+    transition:
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .platform-cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 20%, hsl(var(--background) / 0.28), transparent 80%);
+    transform: translateX(-130%);
+    transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .platform-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px hsl(var(--accent) / 0.34);
+  }
+
+  .platform-cta:hover::after {
+    transform: translateX(130%);
+  }
+
+  .platform-feature-row {
+    transition:
+      transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .platform-feature-row:hover {
+    transform: translateY(-3px);
+    border-color: hsl(var(--accent) / 0.38);
+    box-shadow:
+      0 22px 54px hsl(var(--foreground) / 0.1),
+      0 8px 18px hsl(var(--accent) / 0.08);
+  }
+
+  .platform-feature-icon {
+    transition:
+      transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .platform-feature-row:hover .platform-feature-icon {
+    transform: translateY(-1px) scale(1.06);
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  .platform-feature-media {
+    overflow: hidden;
+  }
+
+  .platform-feature-media img {
+    transition:
+      transform 520ms cubic-bezier(0.16, 1, 0.3, 1),
+      filter 520ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .platform-feature-row:hover .platform-feature-media img {
+    transform: scale(1.012);
+    filter: saturate(1.04) contrast(1.02);
+  }
+
+  @keyframes platformDashboardStageIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.99);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes platformDashboardReveal {
+    from {
+      clip-path: inset(100% 0 0 0 round 1rem);
+      transform: translateY(18px);
+    }
+    to {
+      clip-path: inset(0 0 0 0 round 1rem);
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes platformDashboardGlint {
+    from {
+      transform: translateX(-130%);
+    }
+    to {
+      transform: translateX(130%);
+    }
+  }
+
+  @keyframes platformHeroRise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .platform-dashboard-reveal,
+    .platform-dashboard-reveal::after,
+    .platform-dashboard-frame,
+    .platform-hero-title,
+    .platform-hero-copy,
+    .platform-hero-actions {
+      animation: none;
+    }
+
+    .platform-dashboard-reveal,
+    .platform-dashboard-frame img,
+    .platform-cta,
+    .platform-feature-row,
+    .platform-feature-icon,
+    .platform-feature-media img {
+      transition: none;
+    }
+  }
 }
