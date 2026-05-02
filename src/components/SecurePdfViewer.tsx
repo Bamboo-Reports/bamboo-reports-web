@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Document, Page } from 'react-pdf';
-import { ChevronLeft, ChevronRight, Download, Loader2, X, ZoomIn, ZoomOut } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Download, Loader2, X } from 'lucide-react';
 import { degrees, PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 
 import 'react-pdf/dist/Page/AnnotationLayer.css';
@@ -28,17 +28,18 @@ interface SecurePdfViewerProps {
   onOpenChange: (open: boolean) => void;
 }
 
-const MIN_ZOOM = 0.5;
-const MAX_ZOOM = 1;
-const ZOOM_STEP = 0.2;
-const PAGE_X_PADDING = 24;
+const PAGE_X_PADDING_MOBILE = 8;
+const PAGE_X_PADDING_DESKTOP = 24;
 const REPORT_TITLE = 'GCC Snapshot Q4';
 const DOWNLOAD_FILENAME = 'bamboo-reports-gcc-snapshot-q4.pdf';
+const PDF_DOCUMENT_OPTIONS = {
+  disableStream: false,
+  disableAutoFetch: false,
+};
 
 const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewerProps) => {
   const [numPages, setNumPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
-  const [zoom, setZoom] = useState(1);
   const [downloadDialogOpen, setDownloadDialogOpen] = useState(false);
   const [downloadAccepted, setDownloadAccepted] = useState(false);
   const [downloadError, setDownloadError] = useState<string | null>(null);
@@ -47,13 +48,13 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
     width: 0,
     height: 0,
   });
+  const [pageAspect, setPageAspect] = useState<number | null>(null);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (open) {
       setPageNumber(1);
-      setZoom(1);
       setDownloadAccepted(false);
       setDownloadError(null);
       setDownloading(false);
@@ -73,12 +74,15 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
 
   const goPrev = () => setPageNumber((p) => Math.max(1, p - 1));
   const goNext = () => setPageNumber((p) => Math.min(numPages || p, p + 1));
-  const zoomIn = () => setZoom((z) => Math.min(MAX_ZOOM, +(z + ZOOM_STEP).toFixed(2)));
-  const zoomOut = () => setZoom((z) => Math.max(MIN_ZOOM, +(z - ZOOM_STEP).toFixed(2)));
 
-  const renderHeight = containerSize.height
-    ? Math.max(1, Math.floor(containerSize.height * zoom))
-    : undefined;
+  const horizontalPadding =
+    containerSize.width < 640 ? PAGE_X_PADDING_MOBILE : PAGE_X_PADDING_DESKTOP;
+  const availableWidth = Math.max(0, containerSize.width - horizontalPadding * 2);
+  const fitHeight =
+    containerSize.height && pageAspect && availableWidth
+      ? Math.min(containerSize.height, availableWidth / pageAspect)
+      : containerSize.height || 0;
+  const renderHeight = fitHeight ? Math.max(1, Math.floor(fitHeight)) : undefined;
 
   const downloadWatermarkedPdf = async () => {
     if (!url) return;
@@ -129,8 +133,9 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
       setDownloadDialogOpen(false);
       setDownloadAccepted(false);
     } catch (error) {
-      console.warn(error);
-      setDownloadError('Could not prepare the watermarked download. Please try again.');
+      console.error('Watermarked download failed:', error);
+      const message = error instanceof Error ? error.message : String(error);
+      setDownloadError(`Could not prepare the watermarked download: ${message}`);
     } finally {
       setDownloading(false);
     }
@@ -143,41 +148,17 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
           <DialogOverlay className="bg-black/90" />
           <DialogContent
             className={cn(
-              'fixed left-0 top-0 z-50 flex h-screen w-screen max-w-none translate-x-0 translate-y-0',
+              'fixed left-0 top-0 z-50 flex h-screen w-screen max-w-none translate-x-0 translate-y-0 overflow-hidden',
               'flex-col gap-0 rounded-none border-0 bg-neutral-950 p-0 shadow-none sm:rounded-none',
               '[&>button]:hidden',
             )}
             onContextMenu={(e) => e.preventDefault()}
           >
-          <div className="flex items-center justify-between border-b border-white/10 bg-neutral-900/80 px-4 py-2 text-white">
-            <div className="text-sm font-medium">
+          <div className="flex items-center justify-between gap-2 border-b border-white/10 bg-neutral-900/80 px-2 py-2 text-white sm:px-4">
+            <div className="hidden truncate text-sm font-medium sm:block">
               {REPORT_TITLE}
             </div>
-            <div className="flex items-center gap-2">
-              <Button
-                size="sm"
-                variant="ghost"
-                onClick={zoomOut}
-                disabled={zoom <= MIN_ZOOM}
-                className="text-white hover:bg-white/10 hover:text-white"
-                aria-label="Zoom out"
-              >
-                <ZoomOut className="h-4 w-4" />
-              </Button>
-              <span className="w-12 text-center text-xs tabular-nums">
-                {Math.round(zoom * 100)}%
-              </span>
-              <Button
-                size="sm"
-                variant="ghost"
-                onClick={zoomIn}
-                disabled={zoom >= MAX_ZOOM}
-                className="text-white hover:bg-white/10 hover:text-white"
-                aria-label="Zoom in"
-              >
-                <ZoomIn className="h-4 w-4" />
-              </Button>
-              <div className="mx-2 h-5 w-px bg-white/20" />
+            <div className="flex flex-1 items-center justify-end gap-1 sm:gap-2">
               <Button
                 size="sm"
                 variant="ghost"
@@ -186,23 +167,23 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
                   setDownloadDialogOpen(true);
                 }}
                 disabled={!url || downloading}
-                className="text-white hover:bg-white/10 hover:text-white"
+                className="h-9 w-9 px-0 text-white hover:bg-white/10 hover:text-white sm:h-8 sm:w-auto sm:px-3"
                 aria-label="Download report"
               >
                 <Download className="h-4 w-4" />
               </Button>
-              <div className="mx-2 h-5 w-px bg-white/20" />
+              <div className="mx-1 hidden h-5 w-px bg-white/20 sm:block sm:mx-2" />
               <Button
                 size="sm"
                 variant="ghost"
                 onClick={goPrev}
                 disabled={pageNumber <= 1}
-                className="text-white hover:bg-white/10 hover:text-white"
+                className="h-9 w-9 px-0 text-white hover:bg-white/10 hover:text-white sm:h-8 sm:w-auto sm:px-3"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
-              <span className="min-w-[60px] text-center text-xs tabular-nums">
+              <span className="min-w-[48px] text-center text-xs tabular-nums sm:min-w-[60px]">
                 {pageNumber} / {numPages || '–'}
               </span>
               <Button
@@ -210,17 +191,17 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
                 variant="ghost"
                 onClick={goNext}
                 disabled={!numPages || pageNumber >= numPages}
-                className="text-white hover:bg-white/10 hover:text-white"
+                className="h-9 w-9 px-0 text-white hover:bg-white/10 hover:text-white sm:h-8 sm:w-auto sm:px-3"
                 aria-label="Next page"
               >
                 <ChevronRight className="h-4 w-4" />
               </Button>
-              <div className="mx-2 h-5 w-px bg-white/20" />
+              <div className="mx-1 hidden h-5 w-px bg-white/20 sm:block sm:mx-2" />
               <Button
                 size="sm"
                 variant="ghost"
                 onClick={() => onOpenChange(false)}
-                className="text-white hover:bg-white/10 hover:text-white"
+                className="h-9 w-9 px-0 text-white hover:bg-white/10 hover:text-white sm:h-8 sm:w-auto sm:px-3"
                 aria-label="Close"
               >
                 <X className="h-4 w-4" />
@@ -230,17 +211,18 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
 
           <div
             ref={containerRef}
-            className="relative min-h-0 flex-1 overflow-auto bg-neutral-900"
+            className="relative min-h-0 flex-1 overflow-hidden bg-neutral-900"
             style={{ userSelect: 'none' }}
             onWheel={(e) => e.preventDefault()}
           >
             <div
-              className="flex min-h-full items-center justify-center"
-              style={{ boxSizing: 'border-box', paddingInline: PAGE_X_PADDING }}
+              className="flex h-full w-full items-center justify-center"
+              style={{ boxSizing: 'border-box', paddingInline: horizontalPadding }}
             >
               {url ? (
                 <Document
                   file={url}
+                  options={PDF_DOCUMENT_OPTIONS}
                   onLoadSuccess={({ numPages: n }) => setNumPages(n)}
                   loading={
                     <div className="py-12 text-sm text-white/70">Loading report…</div>
@@ -253,14 +235,35 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
                 >
                   <div
                     className="relative shrink-0 shadow-2xl"
-                    style={renderHeight ? { height: renderHeight } : undefined}
+                    style={
+                      renderHeight && pageAspect
+                        ? {
+                            height: renderHeight,
+                            width: Math.floor(renderHeight * pageAspect),
+                          }
+                        : renderHeight
+                        ? { height: renderHeight }
+                        : undefined
+                    }
                   >
                     <Page
                       key={`${pageNumber}-${renderHeight ?? 'auto'}`}
                       pageNumber={pageNumber}
                       height={renderHeight}
+                      devicePixelRatio={Math.min(window.devicePixelRatio || 1, 1.5)}
                       renderTextLayer={false}
                       renderAnnotationLayer={false}
+                      onLoadSuccess={(page) => {
+                        const { width, height } = page;
+                        if (width && height) setPageAspect(width / height);
+                        const el = containerRef.current;
+                        if (el) {
+                          setContainerSize({
+                            width: el.clientWidth,
+                            height: el.clientHeight,
+                          });
+                        }
+                      }}
                     />
                     <Watermark email={userEmail} />
                   </div>
@@ -344,8 +347,8 @@ const Watermark = ({ email }: { email: string }) => {
       aria-hidden
       className="pointer-events-none absolute inset-0 grid select-none overflow-hidden"
       style={{
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gridAutoRows: '140px',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
+        gridAutoRows: '120px',
       }}
     >
       {cells.map((_, i) => (
