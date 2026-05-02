@@ -31,8 +31,7 @@ interface SecurePdfViewerProps {
 const MIN_ZOOM = 0.5;
 const MAX_ZOOM = 1;
 const ZOOM_STEP = 0.2;
-const PAGE_PADDING = 24; // matches py-6 on the inner wrapper
-const FIT_GUTTER = 12; // absorbs canvas/browser rounding so fit mode does not show scrollbars
+const PAGE_X_PADDING = 24;
 const REPORT_TITLE = 'GCC Snapshot Q4';
 const DOWNLOAD_FILENAME = 'bamboo-reports-gcc-snapshot-q4.pdf';
 
@@ -77,10 +76,9 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
   const zoomIn = () => setZoom((z) => Math.min(MAX_ZOOM, +(z + ZOOM_STEP).toFixed(2)));
   const zoomOut = () => setZoom((z) => Math.max(MIN_ZOOM, +(z - ZOOM_STEP).toFixed(2)));
 
-  const fitHeight = containerSize.height
-    ? Math.max(1, Math.floor(containerSize.height - PAGE_PADDING * 2 - FIT_GUTTER))
+  const renderHeight = containerSize.height
+    ? Math.max(1, Math.floor(containerSize.height * zoom))
     : undefined;
-  const renderHeight = fitHeight ? Math.max(1, Math.floor(fitHeight * zoom)) : undefined;
 
   const downloadWatermarkedPdf = async () => {
     if (!url) return;
@@ -232,13 +230,13 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
 
           <div
             ref={containerRef}
-            className="relative min-h-0 flex-1 overflow-hidden bg-neutral-900"
+            className="relative min-h-0 flex-1 overflow-auto bg-neutral-900"
             style={{ userSelect: 'none' }}
             onWheel={(e) => e.preventDefault()}
           >
             <div
-              className="flex h-full items-start justify-center"
-              style={{ boxSizing: 'border-box', padding: PAGE_PADDING }}
+              className="flex min-h-full items-center justify-center"
+              style={{ boxSizing: 'border-box', paddingInline: PAGE_X_PADDING }}
             >
               {url ? (
                 <Document
@@ -253,7 +251,10 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
                     </div>
                   }
                 >
-                  <div className="relative shrink-0 shadow-2xl">
+                  <div
+                    className="relative shrink-0 shadow-2xl"
+                    style={renderHeight ? { height: renderHeight } : undefined}
+                  >
                     <Page
                       key={`${pageNumber}-${renderHeight ?? 'auto'}`}
                       pageNumber={pageNumber}
