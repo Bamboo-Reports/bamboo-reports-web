@@ -8,6 +8,7 @@ import {
   Clock3,
   Download,
   Eye,
+  Home,
   Loader2,
   LogIn,
   LogOut,
@@ -16,6 +17,7 @@ import {
   UserPlus,
   Users,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -264,6 +266,12 @@ const Admin = () => {
             </div>
           </div>
           <div className="flex items-center gap-2">
+            <Button asChild variant="outline" size="sm">
+              <Link to="/">
+                <Home className="h-4 w-4" />
+                <span className="hidden sm:inline">Home</span>
+              </Link>
+            </Button>
             <Button variant="outline" size="sm" onClick={loadData} disabled={loading}>
               {loading ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
