@@ -7,6 +7,8 @@ interface AuthContextType {
   user: User | null;
   session: Session | null;
   loading: boolean;
+  role: string | null;
+  roleLoading: boolean;
   signUp: (
     email: string,
     password: string,
@@ -47,6 +49,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
+  const [role, setRole] = useState<string | null>(null);
+  const [roleLoading, setRoleLoading] = useState(false);
 
   useEffect(() => {
     // Get initial session
@@ -67,6 +71,29 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     return () => subscription.unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (!user) {
+      setRole(null);
+      return;
+    }
+    let cancelled = false;
+    setRoleLoading(true);
+    supabase
+      .from('user_profiles')
+      .select('role')
+      .eq('id', user.id)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (!cancelled) setRole((data?.role as string | undefined) ?? 'user');
+      })
+      .then(() => {
+        if (!cancelled) setRoleLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
 
   const signUp = async (
     email: string,
@@ -263,6 +290,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     user,
     session,
     loading,
+    role,
+    roleLoading,
     signUp,
     signIn,
     signOut,
