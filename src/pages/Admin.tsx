@@ -2,22 +2,23 @@ import { useEffect, useMemo, useState } from 'react';
 import { format } from 'date-fns';
 import {
   Activity,
+  BarChart3,
   ChevronLeft,
   ChevronRight,
+  Clock3,
   Download,
   Eye,
   Loader2,
   LogIn,
   LogOut,
   RefreshCw,
-  ShieldCheck,
+  Search,
   UserPlus,
   Users,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import {
   Sheet,
   SheetContent,
@@ -27,10 +28,8 @@ import {
 } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/lib/supabase';
-
-const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'admin';
-const SESSION_KEY = 'bamboo_admin_authed';
+import { useAuth } from '@/contexts/AuthContext';
+import NotFound from '@/pages/NotFound';
 
 interface UserProfile {
   id: string;
@@ -57,18 +56,16 @@ interface EventLog {
 }
 
 const eventBadgeStyles: Record<string, string> = {
-  signup: 'bg-primary/10 text-primary',
-  signin: 'bg-secondary text-secondary-foreground',
-  report_view: 'bg-accent/15 text-accent',
-  report_download: 'bg-emerald-100 text-emerald-700',
-  report_request: 'bg-muted text-foreground/70',
+  signup: 'border-primary/20 bg-primary/10 text-primary',
+  signin: 'border-secondary bg-secondary text-secondary-foreground',
+  report_view: 'border-accent/20 bg-accent/15 text-accent',
+  report_download: 'border-emerald-200 bg-emerald-50 text-emerald-700',
+  report_request: 'border-border bg-muted text-foreground/70',
 };
 
 const Admin = () => {
-  const [authed, setAuthed] = useState(() => sessionStorage.getItem(SESSION_KEY) === 'true');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [authError, setAuthError] = useState<string | null>(null);
+  const { user, loading: authLoading, role, roleLoading, signOut } = useAuth();
+  const authed = !!user && role === 'admin';
 
   const [profiles, setProfiles] = useState<UserProfile[]>([]);
   const [events, setEvents] = useState<EventLog[]>([]);
@@ -83,22 +80,8 @@ const Admin = () => {
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
 
-  const handleSignIn = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-      sessionStorage.setItem(SESSION_KEY, 'true');
-      setAuthed(true);
-      setAuthError(null);
-    } else {
-      setAuthError('Invalid credentials');
-    }
-  };
-
-  const handleSignOut = () => {
-    sessionStorage.removeItem(SESSION_KEY);
-    setAuthed(false);
-    setUsername('');
-    setPassword('');
+  const handleSignOut = async () => {
+    await signOut();
   };
 
   const loadData = async () => {
@@ -123,7 +106,7 @@ const Admin = () => {
       setProfiles((profilesRes.data ?? []) as UserProfile[]);
       setEvents((eventsRes.data ?? []) as EventLog[]);
     } catch (err) {
-      console.error('Admin load failed:', err);
+      console.warn('Admin load failed:', err);
       const message =
         err && typeof err === 'object'
           ? ((err as { message?: string }).message ?? JSON.stringify(err))
@@ -187,6 +170,29 @@ const Admin = () => {
     return counts;
   }, [events]);
 
+  const dashboardSignals = useMemo(() => {
+    const activeUsers = new Set(
+      events
+        .map((e) => e.user_id ?? e.email)
+        .filter((value): value is string => Boolean(value)),
+    ).size;
+    const reportViews = totals.report_view ?? 0;
+    const reportDownloads = totals.report_download ?? 0;
+    const downloadRate =
+      reportViews > 0 ? Math.round((reportDownloads / reportViews) * 100) : 0;
+    const latestEvent = events[0]?.created_at
+      ? format(new Date(events[0].created_at), 'PP p')
+      : 'No activity';
+    const topReport = reportAggregates[0]?.slug ?? 'No report activity';
+
+    return {
+      activeUsers,
+      downloadRate,
+      latestEvent,
+      topReport,
+    };
+  }, [events, reportAggregates, totals]);
+
   const eventTypes = useMemo(() => {
     const set = new Set<string>();
     events.forEach((e) => set.add(e.event_type));
@@ -228,65 +234,27 @@ const Admin = () => {
   const userEnd = Math.min(userStart + userPageSize, filteredProfiles.length);
   const pagedProfiles = filteredProfiles.slice(userStart, userEnd);
 
-  if (!authed) {
+  if (authLoading || (user && roleLoading)) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background via-secondary/40 to-background p-4">
-        <form
-          onSubmit={handleSignIn}
-          className="w-full max-w-sm space-y-5 rounded-2xl border bg-card p-8 shadow-lg"
-        >
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <ShieldCheck className="h-5 w-5" />
-            </div>
-            <div>
-              <h1 className="text-lg font-semibold">Admin sign in</h1>
-              <p className="text-xs text-muted-foreground">
-                Bamboo Reports command center.
-              </p>
-            </div>
-          </div>
-          <div className="space-y-1.5">
-            <Label htmlFor="admin-username">Username</Label>
-            <Input
-              id="admin-username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              autoComplete="username"
-              required
-            />
-          </div>
-          <div className="space-y-1.5">
-            <Label htmlFor="admin-password">Password</Label>
-            <Input
-              id="admin-password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
-              required
-            />
-          </div>
-          {authError ? (
-            <p className="text-sm text-destructive">{authError}</p>
-          ) : null}
-          <Button type="submit" className="w-full">
-            Sign in
-          </Button>
-        </form>
+      <div className="flex min-h-screen items-center justify-center bg-secondary/30">
+        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
       </div>
     );
+  }
+
+  if (!user || role !== 'admin') {
+    return <NotFound />;
   }
 
   return (
     <div className="min-h-screen bg-secondary/30">
       <header className="sticky top-0 z-10 border-b bg-background/90 backdrop-blur">
         <div className="flex items-center justify-between gap-4 px-4 py-4 sm:px-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+          <div className="flex min-w-0 items-center gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
               <Activity className="h-5 w-5" />
             </div>
-            <div>
+            <div className="min-w-0">
               <h1 className="text-base font-semibold tracking-tight sm:text-lg">
                 Command Center
               </h1>
@@ -312,14 +280,41 @@ const Admin = () => {
         </div>
       </header>
 
-      <main className="space-y-6 px-3 py-6 sm:px-4">
+      <main className="space-y-5 px-3 py-5 sm:px-4 lg:px-6">
         {loadError ? (
           <div className="rounded-lg border border-destructive/40 bg-destructive/5 px-4 py-3 text-sm text-destructive">
             {loadError}
           </div>
         ) : null}
 
-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <section className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          <SignalCard
+            label="Active users"
+            value={dashboardSignals.activeUsers.toLocaleString()}
+            meta={`${profiles.length.toLocaleString()} total profiles`}
+            icon={<Users className="h-4 w-4" />}
+          />
+          <SignalCard
+            label="Top report"
+            value={dashboardSignals.topReport}
+            meta="By views and downloads"
+            icon={<BarChart3 className="h-4 w-4" />}
+          />
+          <SignalCard
+            label="Download rate"
+            value={`${dashboardSignals.downloadRate}%`}
+            meta="Downloads per view"
+            icon={<Download className="h-4 w-4" />}
+          />
+          <SignalCard
+            label="Last event"
+            value={dashboardSignals.latestEvent}
+            meta="Most recent activity"
+            icon={<Clock3 className="h-4 w-4" />}
+          />
+        </section>
+
+        <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
           <StatCard
             label="Total users"
             value={profiles.length}
@@ -391,12 +386,15 @@ const Admin = () => {
           title={`Users (${profiles.length})`}
           subtitle="Profiles created via signup, with their lifetime activity."
           actions={
-            <Input
-              placeholder="Search by name, email, company…"
-              value={userQuery}
-              onChange={(e) => setUserQuery(e.target.value)}
-              className="h-9 w-full sm:w-72"
-            />
+            <div className="relative w-full sm:w-80">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                placeholder="Search by name, email, company..."
+                value={userQuery}
+                onChange={(e) => setUserQuery(e.target.value)}
+                className="h-9 w-full rounded-lg bg-background pl-9"
+              />
+            </div>
           }
         >
           <div className="overflow-x-auto">
@@ -527,9 +525,9 @@ const Admin = () => {
                       <td className="px-4 py-3">
                         <span
                           className={cn(
-                            'inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium',
+                            'inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium',
                             eventBadgeStyles[e.event_type] ??
-                              'bg-muted text-foreground/70',
+                              'border-border bg-muted text-foreground/70',
                           )}
                         >
                           {e.event_type}
@@ -632,7 +630,9 @@ const UserDetailSheet = ({
                   profile.email ||
                   'User'}
               </SheetTitle>
-              <SheetDescription>{profile.email || '—'}</SheetDescription>
+              <SheetDescription>
+                {profile.email || '—'}
+              </SheetDescription>
             </SheetHeader>
 
             <div className="mt-6 space-y-6">
@@ -664,7 +664,7 @@ const UserDetailSheet = ({
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                   {['signup', 'signin', 'report_view', 'report_download'].map((type) => (
                     <div key={type} className="rounded-lg border bg-muted/30 p-3">
-                      <p className="text-[11px] uppercase text-muted-foreground">
+                      <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
                         {type.replace('_', ' ')}
                       </p>
                       <p className="text-xl font-semibold tabular-nums">
@@ -699,9 +699,9 @@ const UserDetailSheet = ({
                         <div className="flex items-center justify-between">
                           <span
                             className={cn(
-                              'inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium',
+                              'inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium',
                               eventBadgeStyles[e.event_type] ??
-                                'bg-muted text-foreground/70',
+                                'border-border bg-muted text-foreground/70',
                             )}
                           >
                             {e.event_type}
@@ -760,8 +760,9 @@ const EventDetailSheet = ({
               <SheetTitle className="flex items-center gap-2">
                 <span
                   className={cn(
-                    'inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium',
-                    eventBadgeStyles[event.event_type] ?? 'bg-muted text-foreground/70',
+                    'inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium',
+                    eventBadgeStyles[event.event_type] ??
+                      'border-border bg-muted text-foreground/70',
                   )}
                 >
                   {event.event_type}
@@ -844,9 +845,39 @@ const DetailGrid = ({
 const toneStyles: Record<string, { bg: string; text: string }> = {
   primary: { bg: 'bg-primary/10', text: 'text-primary' },
   accent: { bg: 'bg-accent/15', text: 'text-accent' },
-  emerald: { bg: 'bg-emerald-100', text: 'text-emerald-700' },
+  emerald: {
+    bg: 'bg-emerald-100',
+    text: 'text-emerald-700',
+  },
   muted: { bg: 'bg-muted', text: 'text-foreground/70' },
 };
+
+const SignalCard = ({
+  label,
+  value,
+  meta,
+  icon,
+}: {
+  label: string;
+  value: string;
+  meta: string;
+  icon: React.ReactNode;
+}) => (
+  <div className="group rounded-xl border bg-card p-4 shadow-sm transition-shadow hover:shadow-md">
+    <div className="flex items-center justify-between gap-3">
+      <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        {label}
+      </p>
+      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+        {icon}
+      </div>
+    </div>
+    <p className="mt-4 truncate text-xl font-semibold tracking-tight text-foreground">
+      {value}
+    </p>
+    <p className="mt-1 text-xs text-muted-foreground">{meta}</p>
+  </div>
+);
 
 const StatCard = ({
   label,
