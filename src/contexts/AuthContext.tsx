@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { User, Session, AuthError } from '@supabase/supabase-js';
 import { setRememberSession, supabase } from '@/lib/supabase';
+import { logEvent } from '@/lib/eventLogger';
 
 interface AuthContextType {
   user: User | null;
@@ -89,6 +90,18 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         },
       },
     });
+    if (!error) {
+      void logEvent({
+        type: 'signup',
+        email,
+        metadata: {
+          first_name: firstName,
+          last_name: lastName,
+          phone_number: phoneNumber ?? null,
+          company_name: companyName ?? null,
+        },
+      });
+    }
     return { error };
   };
 
@@ -98,6 +111,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       email,
       password,
     });
+    if (!error) {
+      void logEvent({ type: 'signin', email });
+    }
     return { error };
   };
 

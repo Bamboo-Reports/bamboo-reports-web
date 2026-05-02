@@ -195,7 +195,56 @@ create policy "Users can delete their own profile images"
   );
 
 -- -----------------------------------------------------------------------------
--- STEP 6 - Verify after a test signup
+-- STEP 6 - Event log table for admin command center
+-- -----------------------------------------------------------------------------
+create table if not exists public.event_logs (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) on delete set null,
+  email text,
+  event_type text not null,
+  report_slug text,
+  metadata jsonb not null default '{}'::jsonb,
+  user_agent text,
+  ip text,
+  referrer text,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists event_logs_user_id_idx on public.event_logs (user_id);
+create index if not exists event_logs_event_type_idx on public.event_logs (event_type);
+create index if not exists event_logs_created_at_idx on public.event_logs (created_at desc);
+
+alter table public.event_logs enable row level security;
+
+-- Anyone (anon or authenticated) can insert events. Useful for signup events
+-- that fire before the user has a session.
+drop policy if exists "Anyone can insert event logs" on public.event_logs;
+create policy "Anyone can insert event logs"
+  on public.event_logs
+  for insert
+  to anon, authenticated
+  with check (true);
+
+-- TEMPORARY: any authenticated user can read all events so the hardcoded
+-- /admin page can render. Replace with a role/claim check before this hits
+-- real users.
+drop policy if exists "Authenticated users can read event logs" on public.event_logs;
+create policy "Authenticated users can read event logs"
+  on public.event_logs
+  for select
+  to authenticated
+  using (true);
+
+-- TEMPORARY: same loosening for user_profiles so /admin can list every user.
+drop policy if exists "Authenticated users can read all profiles" on public.user_profiles;
+create policy "Authenticated users can read all profiles"
+  on public.user_profiles
+  for select
+  to authenticated
+  using (true);
+
+-- -----------------------------------------------------------------------------
+-- STEP 7 - Verify after a test signup
 -- -----------------------------------------------------------------------------
 select email, raw_user_meta_data
 from auth.users

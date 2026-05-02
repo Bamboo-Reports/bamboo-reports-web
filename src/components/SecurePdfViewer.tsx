@@ -8,6 +8,7 @@ import 'react-pdf/dist/Page/TextLayer.css';
 import '@/lib/pdfWorker';
 
 import { Dialog, DialogContent, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
+import { logEvent } from '@/lib/eventLogger';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { cn } from '@/lib/utils';
@@ -26,18 +27,31 @@ interface SecurePdfViewerProps {
   userEmail: string;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  reportSlug?: string;
+  reportTitle?: string;
 }
 
 const PAGE_X_PADDING_MOBILE = 8;
 const PAGE_X_PADDING_DESKTOP = 24;
-const REPORT_TITLE = 'GCC Snapshot Q4';
-const DOWNLOAD_FILENAME = 'bamboo-reports-gcc-snapshot-q4.pdf';
+const DEFAULT_REPORT_TITLE = 'GCC Snapshot Q4';
+const DEFAULT_REPORT_SLUG = 'gcc-snapshot-q4';
+const DEFAULT_DOWNLOAD_FILENAME = 'bamboo-reports-gcc-snapshot-q4.pdf';
 const PDF_DOCUMENT_OPTIONS = {
   disableStream: false,
   disableAutoFetch: false,
 };
 
-const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewerProps) => {
+const SecurePdfViewer = ({
+  url,
+  userEmail,
+  open,
+  onOpenChange,
+  reportSlug = DEFAULT_REPORT_SLUG,
+  reportTitle = DEFAULT_REPORT_TITLE,
+}: SecurePdfViewerProps) => {
+  const downloadFilename = reportSlug
+    ? `bamboo-reports-${reportSlug}.pdf`
+    : DEFAULT_DOWNLOAD_FILENAME;
   const [numPages, setNumPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const [downloadDialogOpen, setDownloadDialogOpen] = useState(false);
@@ -58,8 +72,15 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
       setDownloadAccepted(false);
       setDownloadError(null);
       setDownloading(false);
+      if (url) {
+        void logEvent({
+          type: 'report_view',
+          reportSlug,
+          metadata: { title: reportTitle },
+        });
+      }
     }
-  }, [open, url]);
+  }, [open, url, reportSlug, reportTitle]);
 
   useLayoutEffect(() => {
     const el = containerRef.current;
@@ -124,11 +145,17 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
       const objectUrl = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = objectUrl;
-      link.download = DOWNLOAD_FILENAME;
+      link.download = downloadFilename;
       document.body.appendChild(link);
       link.click();
       link.remove();
       URL.revokeObjectURL(objectUrl);
+
+      void logEvent({
+        type: 'report_download',
+        reportSlug,
+        metadata: { title: reportTitle, filename: downloadFilename },
+      });
 
       setDownloadDialogOpen(false);
       setDownloadAccepted(false);
@@ -156,7 +183,7 @@ const SecurePdfViewer = ({ url, userEmail, open, onOpenChange }: SecurePdfViewer
           >
           <div className="flex items-center justify-between gap-2 border-b border-white/10 bg-neutral-900/80 px-2 py-2 text-white sm:px-4">
             <div className="hidden truncate text-sm font-medium sm:block">
-              {REPORT_TITLE}
+              {reportTitle}
             </div>
             <div className="flex flex-1 items-center justify-end gap-1 sm:gap-2">
               <Button
