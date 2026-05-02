@@ -22,3 +22,9 @@
   directory = "netlify/functions"
   # Use ESM modules
   node_bundler = "esbuild"
+
+# Local dev server settings (netlify dev)
+[dev]
+  command = "npm run dev"
+  targetPort = 8080
+  framework = "#custom"

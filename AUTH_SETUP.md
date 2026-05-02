@@ -228,3 +228,35 @@ For more information:
 - [Supabase Documentation](https://supabase.com/docs)
 - [Supabase Auth Guide](https://supabase.com/docs/guides/auth)
 - [React Auth Tutorial](https://supabase.com/docs/guides/auth/auth-helpers/auth-ui)
+
+---
+
+## Gated Reports (Private Bucket + Signed URL)
+
+The Q4 GCC Snapshot at `/reports/gcc-snapshot-q4` is gated behind a Supabase Auth session. Logged-in users get a 60-second signed URL minted server-side by the `report-signed-url` Netlify Function and rendered in `SecurePdfViewer` (no download/print/right-click).
+
+### One-time setup
+
+1. **Private bucket** — In the Supabase dashboard: Storage → New bucket → name `gated-reports`, **Public = OFF**. Upload the PDF as `gcc-snapshot-q4.pdf`. No public SELECT policy needed; the function uses the service role key.
+2. **Netlify env vars** — Site settings → Environment variables:
+   - `SUPABASE_URL` (project URL)
+   - `SUPABASE_SERVICE_ROLE_KEY` (service-role key — never expose in the client, never commit)
+   - `VITE_SUPABASE_ANON_KEY` (already set; the function also reads it to validate user tokens)
+3. **Local dev** — Add the same vars to `.env` so `netlify dev` can mint URLs locally.
+
+### Adding more gated reports
+
+Edit `netlify/functions/report-signed-url.js` and extend the `REPORT_PATHS` map:
+
+```js
+const REPORT_PATHS = {
+  'gcc-snapshot-q4': 'gcc-snapshot-q4.pdf',
+  'your-new-slug': 'path/in/bucket.pdf',
+};
+```
+
+Then call `requestSignedReportUrl('your-new-slug', session.access_token)` from the page.
+
+### Security notes
+
+This is **deterrence, not DRM**. Disabling the toolbar and right-click does not stop devtools, screenshots, screen recording, or OS Print-to-PDF. The viewer overlays a faint per-user email watermark so leaked screenshots are at least traceable. The signed URL itself expires in 60 seconds, so it can't be re-shared as a permalink.

@@ -12,6 +12,8 @@ import Footer from '@/components/Footer';
 
 const SignUp = () => {
   const [fullName, setFullName] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -130,7 +132,7 @@ const SignUp = () => {
 
     setIsLoading(true);
 
-    const { error } = await signUp(email, password, fullName);
+    const { error } = await signUp(email, password, fullName, phoneNumber, companyName);
 
     if (error) {
       toast({
@@ -172,13 +174,39 @@ const SignUp = () => {
                 <Label htmlFor="fullName">Full name</Label>
                 <Input
                   id="fullName"
-                  placeholder="Jordan Patel"
+                  placeholder="Aarav Sharma"
                   type="text"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   required
                   disabled={isLoading}
                   autoComplete="name"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="companyName">Company name</Label>
+                <Input
+                  id="companyName"
+                  placeholder="Infosys"
+                  type="text"
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  autoComplete="organization"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="phoneNumber">Phone number</Label>
+                <Input
+                  id="phoneNumber"
+                  placeholder="+91 98765 43210"
+                  type="tel"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  autoComplete="tel"
                 />
               </div>
               <div className="space-y-1.5">
