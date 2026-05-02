@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { User, Session, AuthError } from '@supabase/supabase-js';
-import { supabase } from '@/lib/supabase';
+import { setRememberSession, supabase } from '@/lib/supabase';
 
 interface AuthContextType {
   user: User | null;
@@ -9,13 +9,19 @@ interface AuthContextType {
   signUp: (
     email: string,
     password: string,
-    fullName: string,
+    firstName: string,
+    lastName: string,
     phoneNumber?: string,
     companyName?: string,
   ) => Promise<{ error: AuthError | null }>;
-  signIn: (email: string, password: string) => Promise<{ error: AuthError | null }>;
+  signIn: (email: string, password: string, rememberMe?: boolean) => Promise<{ error: AuthError | null }>;
   signOut: () => Promise<void>;
-  updateProfile: (fullName: string) => Promise<{ error: AuthError | null }>;
+  updateProfile: (
+    firstName: string,
+    lastName: string,
+    phoneNumber: string,
+    companyName: string,
+  ) => Promise<{ error: Error | null }>;
   updateEmail: (newEmail: string) => Promise<{ error: AuthError | null }>;
   updatePassword: (newPassword: string) => Promise<{ error: AuthError | null }>;
   uploadAvatar: (file: File) => Promise<{ error: Error | null; url: string | null }>;
@@ -64,15 +70,19 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const signUp = async (
     email: string,
     password: string,
-    fullName: string,
+    firstName: string,
+    lastName: string,
     phoneNumber?: string,
     companyName?: string,
   ) => {
+    const fullName = `${firstName} ${lastName}`.trim();
     const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         data: {
+          first_name: firstName,
+          last_name: lastName,
           full_name: fullName,
           phone_number: phoneNumber || null,
           company_name: companyName || null,
@@ -82,7 +92,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return { error };
   };
 
-  const signIn = async (email: string, password: string) => {
+  const signIn = async (email: string, password: string, rememberMe = true) => {
+    setRememberSession(rememberMe);
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -94,11 +105,43 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     await supabase.auth.signOut();
   };
 
-  const updateProfile = async (fullName: string) => {
+  const updateProfile = async (
+    firstName: string,
+    lastName: string,
+    phoneNumber: string,
+    companyName: string,
+  ) => {
+    const fullName = `${firstName} ${lastName}`.trim();
     const { error } = await supabase.auth.updateUser({
-      data: { full_name: fullName },
+      data: {
+        first_name: firstName,
+        last_name: lastName,
+        full_name: fullName,
+        phone_number: phoneNumber,
+        company_name: companyName,
+      },
     });
-    return { error };
+
+    if (error) {
+      return { error };
+    }
+
+    if (!user) {
+      return { error: new Error('No user logged in') };
+    }
+
+    const { error: profileError } = await supabase
+      .from('user_profiles')
+      .upsert({
+        id: user.id,
+        first_name: firstName,
+        last_name: lastName,
+        full_name: fullName,
+        phone: phoneNumber,
+        company_name: companyName,
+      }, { onConflict: 'id' });
+
+    return { error: profileError };
   };
 
   const updateEmail = async (newEmail: string) => {

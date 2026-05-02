@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useToast } from '@/hooks/use-toast';
 import { LogOut, Mail, User, Calendar, Camera, Loader2, Trash2, Lock } from 'lucide-react';
 import { format } from 'date-fns';
+import { getDisplayName, isStrongPassword, profileDetailsSchema } from '@/lib/auth';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ImageCropDialog from '@/components/ImageCropDialog';
@@ -23,7 +24,10 @@ const Profile = () => {
   const [isUpdatingPassword, setIsUpdatingPassword] = useState(false);
   const [isUploadingAvatar, setIsUploadingAvatar] = useState(false);
 
-  const [newName, setNewName] = useState('');
+  const [newFirstName, setNewFirstName] = useState('');
+  const [newLastName, setNewLastName] = useState('');
+  const [newCompanyName, setNewCompanyName] = useState('');
+  const [newPhoneNumber, setNewPhoneNumber] = useState('');
   const [newEmail, setNewEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -46,17 +50,31 @@ const Profile = () => {
 
   const handleUpdateName = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newName.trim()) {
+    const parsedProfile = profileDetailsSchema.safeParse({
+      firstName: newFirstName,
+      lastName: newLastName,
+      companyName: newCompanyName,
+      phoneNumber: newPhoneNumber,
+    });
+
+    if (!parsedProfile.success) {
+      const issue = parsedProfile.error.issues[0];
       toast({
-        title: 'Error',
-        description: 'Name cannot be empty',
+        title: 'Check your details',
+        description: issue.message,
         variant: 'destructive',
       });
       return;
     }
 
+    const profileValues = parsedProfile.data;
     setIsUpdatingName(true);
-    const { error } = await updateProfile(newName);
+    const { error } = await updateProfile(
+      profileValues.firstName,
+      profileValues.lastName,
+      profileValues.phoneNumber,
+      profileValues.companyName,
+    );
 
     if (error) {
       toast({
@@ -67,10 +85,13 @@ const Profile = () => {
     } else {
       toast({
         title: 'Success',
-        description: 'Name updated successfully',
+        description: 'Profile updated successfully',
       });
       setEditingName(false);
-      setNewName('');
+      setNewFirstName('');
+      setNewLastName('');
+      setNewCompanyName('');
+      setNewPhoneNumber('');
     }
     setIsUpdatingName(false);
   };
@@ -108,10 +129,10 @@ const Profile = () => {
 
   const handleUpdatePassword = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (newPassword.length < 6) {
+    if (!isStrongPassword(newPassword)) {
       toast({
         title: 'Error',
-        description: 'Password must be at least 6 characters',
+        description: 'Password must be at least 8 characters and include uppercase, lowercase, number, and special character.',
         variant: 'destructive',
       });
       return;
@@ -228,7 +249,11 @@ const Profile = () => {
       .slice(0, 2);
   };
 
-  const fullName = user.user_metadata?.full_name || 'User';
+  const firstName = typeof user.user_metadata?.first_name === 'string' ? user.user_metadata.first_name : '';
+  const lastName = typeof user.user_metadata?.last_name === 'string' ? user.user_metadata.last_name : '';
+  const companyName = typeof user.user_metadata?.company_name === 'string' ? user.user_metadata.company_name : '';
+  const phoneNumber = typeof user.user_metadata?.phone_number === 'string' ? user.user_metadata.phone_number : '';
+  const fullName = getDisplayName(user.user_metadata);
   const avatarUrl = user.user_metadata?.avatar_url;
   const createdAt = user.created_at ? new Date(user.created_at) : new Date();
 
@@ -306,12 +331,12 @@ const Profile = () => {
 
             {/* Right column: editable fields */}
             <section className="space-y-4">
-              {/* Full name */}
+              {/* Profile details */}
               <div className="rounded-lg border bg-card p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <User className="h-4 w-4 text-primary" />
-                    <h3 className="text-sm font-semibold">Full name</h3>
+                    <h3 className="text-sm font-semibold">Profile details</h3>
                   </div>
                   {!editingName && (
                     <Button
@@ -319,7 +344,10 @@ const Profile = () => {
                       size="sm"
                       onClick={() => {
                         setEditingName(true);
-                        setNewName(fullName);
+                        setNewFirstName(firstName || fullName.split(' ')[0] || '');
+                        setNewLastName(lastName || fullName.split(' ').slice(1).join(' ') || '');
+                        setNewCompanyName(companyName);
+                        setNewPhoneNumber(phoneNumber);
                       }}
                     >
                       Edit
@@ -328,17 +356,60 @@ const Profile = () => {
                 </div>
                 {editingName ? (
                   <form onSubmit={handleUpdateName} className="space-y-3">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="full-name" className="text-xs text-muted-foreground">
-                        Name
-                      </Label>
-                      <Input
-                        id="full-name"
-                        value={newName}
-                        onChange={(e) => setNewName(e.target.value)}
-                        placeholder={fullName}
-                        disabled={isUpdatingName}
-                      />
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="space-y-1.5">
+                        <Label htmlFor="first-name" className="text-xs text-muted-foreground">
+                          First name
+                        </Label>
+                        <Input
+                          id="first-name"
+                          value={newFirstName}
+                          onChange={(e) => setNewFirstName(e.target.value)}
+                          placeholder="First name"
+                          disabled={isUpdatingName}
+                          autoComplete="given-name"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="last-name" className="text-xs text-muted-foreground">
+                          Last name
+                        </Label>
+                        <Input
+                          id="last-name"
+                          value={newLastName}
+                          onChange={(e) => setNewLastName(e.target.value)}
+                          placeholder="Last name"
+                          disabled={isUpdatingName}
+                          autoComplete="family-name"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="company-name" className="text-xs text-muted-foreground">
+                          Company name
+                        </Label>
+                        <Input
+                          id="company-name"
+                          value={newCompanyName}
+                          onChange={(e) => setNewCompanyName(e.target.value)}
+                          placeholder="Company name"
+                          disabled={isUpdatingName}
+                          autoComplete="organization"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="phone-number" className="text-xs text-muted-foreground">
+                          Phone number
+                        </Label>
+                        <Input
+                          id="phone-number"
+                          type="tel"
+                          value={newPhoneNumber}
+                          onChange={(e) => setNewPhoneNumber(e.target.value)}
+                          placeholder="Phone number"
+                          disabled={isUpdatingName}
+                          autoComplete="tel"
+                        />
+                      </div>
                     </div>
                     <div className="flex gap-2">
                       <Button type="submit" disabled={isUpdatingName} size="sm">
@@ -356,7 +427,10 @@ const Profile = () => {
                         variant="ghost"
                         onClick={() => {
                           setEditingName(false);
-                          setNewName('');
+                          setNewFirstName('');
+                          setNewLastName('');
+                          setNewCompanyName('');
+                          setNewPhoneNumber('');
                         }}
                         disabled={isUpdatingName}
                         size="sm"
@@ -366,7 +440,24 @@ const Profile = () => {
                     </div>
                   </form>
                 ) : (
-                  <p className="text-sm text-muted-foreground">{fullName}</p>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div>
+                      <p className="text-xs text-muted-foreground">First name</p>
+                      <p className="text-sm">{firstName || fullName.split(' ')[0] || 'Not provided'}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Last name</p>
+                      <p className="text-sm">{lastName || fullName.split(' ').slice(1).join(' ') || 'Not provided'}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Company</p>
+                      <p className="text-sm">{companyName || 'Not provided'}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Phone</p>
+                      <p className="text-sm">{phoneNumber || 'Not provided'}</p>
+                    </div>
+                  </div>
                 )}
               </div>
 
@@ -477,7 +568,9 @@ const Profile = () => {
                         disabled={isUpdatingPassword}
                       />
                     </div>
-                    <p className="text-xs text-muted-foreground">Use at least 6 characters.</p>
+                    <p className="text-xs text-muted-foreground">
+                      Use at least 8 characters with uppercase, lowercase, number, and special character.
+                    </p>
                     <div className="flex gap-2">
                       <Button type="submit" disabled={isUpdatingPassword} size="sm">
                         {isUpdatingPassword ? (
