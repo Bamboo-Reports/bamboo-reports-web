@@ -23,6 +23,7 @@ import Resources from "./pages/Resources";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
+import Admin from "./pages/Admin";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -103,6 +104,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            <Route path="/admin" element={<Admin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
             </Routes>

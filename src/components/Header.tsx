@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight, User, LogOut } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { getDisplayName } from "@/lib/auth";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -64,7 +65,7 @@ const Header = () => {
     await signOut();
   };
 
-  const userFullName = user?.user_metadata?.full_name || 'User';
+  const userFullName = getDisplayName(user?.user_metadata);
   const avatarUrl = user?.user_metadata?.avatar_url;
 
   return (

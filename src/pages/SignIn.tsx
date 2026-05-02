@@ -2,29 +2,32 @@ import { useState } from 'react';
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Eye, EyeOff } from 'lucide-react';
+import { getSafeRedirectPath } from '@/lib/auth';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { signIn } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get('redirect') || '/profile';
+  const redirectTo = getSafeRedirectPath(searchParams.get('redirect'));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const { error } = await signIn(email, password);
+    const { error } = await signIn(email, password, rememberMe);
 
     if (error) {
       toast({
@@ -93,6 +96,20 @@ const SignIn = () => {
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
                 </div>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="rememberMe"
+                  checked={rememberMe}
+                  onCheckedChange={(checked) => setRememberMe(checked === true)}
+                  disabled={isLoading}
+                />
+                <Label
+                  htmlFor="rememberMe"
+                  className="text-sm font-normal text-muted-foreground cursor-pointer"
+                >
+                  Remember me
+                </Label>
               </div>
               <Button
                 type="submit"
