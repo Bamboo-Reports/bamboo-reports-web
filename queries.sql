@@ -33,6 +33,7 @@ alter table public.user_profiles
   add column if not exists full_name text,
   add column if not exists phone text,
   add column if not exists company_name text,
+  add column if not exists role text not null default 'user',
   add column if not exists created_at timestamptz not null default now(),
   add column if not exists updated_at timestamptz not null default now();
 
@@ -89,7 +90,7 @@ security definer
 set search_path = public
 as $$
 begin
-  insert into public.user_profiles (id, email, first_name, last_name, full_name, phone, company_name)
+  insert into public.user_profiles (id, email, first_name, last_name, full_name, phone, company_name, role)
   values (
     new.id,
     new.email,
@@ -97,7 +98,8 @@ begin
     new.raw_user_meta_data ->> 'last_name',
     new.raw_user_meta_data ->> 'full_name',
     new.raw_user_meta_data ->> 'phone_number',
-    new.raw_user_meta_data ->> 'company_name'
+    new.raw_user_meta_data ->> 'company_name',
+    'user'
   )
   on conflict (id) do update set
     email = coalesce(excluded.email, public.user_profiles.email),
@@ -106,6 +108,8 @@ begin
     full_name = coalesce(excluded.full_name, public.user_profiles.full_name),
     phone = coalesce(excluded.phone, public.user_profiles.phone),
     company_name = coalesce(excluded.company_name, public.user_profiles.company_name);
+  -- Note: role is intentionally NOT touched on conflict, so admins can't be
+  -- demoted by a metadata refresh.
 
   return new;
 end;
@@ -225,23 +229,42 @@ create policy "Anyone can insert event logs"
   to anon, authenticated
   with check (true);
 
--- TEMPORARY: any authenticated user can read all events so the hardcoded
--- /admin page can render. Replace with a role/claim check before this hits
--- real users.
+-- Helper: is the current user an admin? SECURITY DEFINER so policies can
+-- check the role without recursing into user_profiles RLS.
+create or replace function public.is_admin()
+returns boolean
+language sql
+security definer
+set search_path = public
+stable
+as $$
+  select exists (
+    select 1 from public.user_profiles
+    where id = auth.uid() and role = 'admin'
+  );
+$$;
+
+-- Admins can read every event log row.
 drop policy if exists "Authenticated users can read event logs" on public.event_logs;
-create policy "Authenticated users can read event logs"
+drop policy if exists "Admins can read event logs" on public.event_logs;
+create policy "Admins can read event logs"
   on public.event_logs
   for select
   to authenticated
-  using (true);
+  using (public.is_admin());
 
--- TEMPORARY: same loosening for user_profiles so /admin can list every user.
+-- Admins can read every profile; everyone else stays scoped to their own row
+-- via the existing "Users can view their own profile" policy.
 drop policy if exists "Authenticated users can read all profiles" on public.user_profiles;
-create policy "Authenticated users can read all profiles"
+drop policy if exists "Admins can read all profiles" on public.user_profiles;
+create policy "Admins can read all profiles"
   on public.user_profiles
   for select
   to authenticated
-  using (true);
+  using (public.is_admin());
+
+-- Promote yourself to admin (run once with the email you want to grant):
+-- update public.user_profiles set role = 'admin' where email = 'you@example.com';
 
 -- -----------------------------------------------------------------------------
 -- STEP 7 - Verify after a test signup
