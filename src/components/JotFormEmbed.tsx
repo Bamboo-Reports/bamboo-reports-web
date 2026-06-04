@@ -1,5 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useCallback, useEffect, useId, useRef } from "react";
 import { ensureJotformEmbedHandler } from "@/lib/jotform";
+
+type JotformWindow = Window & {
+  jotformEmbedHandler?: (selector: string, source: string) => void;
+};
 
 interface JotFormEmbedProps {
   formId: string;
@@ -21,26 +25,49 @@ const JotFormEmbed = ({
 }: JotFormEmbedProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const fallbackTimerRef = useRef<number | null>(null);
+  const resetTimerRef = useRef<number | null>(null);
+  const reactId = useId();
+  const iframeId = `JotFormIFrame-${formId}-${reactId.replace(/:/g, "")}`;
   const embedSrc = `https://form.jotform.com/${formId}?isIframeEmbed=1`;
 
-  const resetForm = () => {
+  const clearFallbackTimer = useCallback(() => {
+    if (fallbackTimerRef.current === null) return;
+
+    window.clearTimeout(fallbackTimerRef.current);
+    fallbackTimerRef.current = null;
+  }, []);
+
+  const showForm = useCallback(() => {
+    clearFallbackTimer();
+    setIsLoaded(true);
+  }, [clearFallbackTimer]);
+
+  const resetForm = useCallback(() => {
     const iframe = iframeRef.current;
     if (!iframe) return;
 
+    clearFallbackTimer();
     setIsLoaded(false);
     iframe.src = `${embedSrc}&_ts=${Date.now()}`;
-  };
+    fallbackTimerRef.current = window.setTimeout(showForm, 4000);
+  }, [clearFallbackTimer, embedSrc, showForm]);
 
   useEffect(() => {
+    fallbackTimerRef.current = window.setTimeout(showForm, 4000);
+
     ensureJotformEmbedHandler().then(() => {
-      if ((window as any).jotformEmbedHandler) {
-        (window as any).jotformEmbedHandler(
-          `iframe[id='JotFormIFrame-${formId}']`,
-          "https://form.jotform.com/"
-        );
+      const jotformWindow = window as JotformWindow;
+
+      if (jotformWindow.jotformEmbedHandler) {
+        jotformWindow.jotformEmbedHandler(`iframe[id='${iframeId}']`, "https://form.jotform.com/");
       }
     });
-  }, [formId]);
+
+    return () => {
+      clearFallbackTimer();
+    };
+  }, [clearFallbackTimer, iframeId, showForm]);
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
@@ -51,12 +78,16 @@ const JotFormEmbed = ({
 
       if (typeof data === "string") {
         const message = data.toLowerCase();
+        if (message.includes(formId.toLowerCase()) || message.includes("setheight")) {
+          showForm();
+        }
+
         if (
           message.includes("submission-completed") ||
           message.includes("thankyou") ||
           message.includes("form-submit")
         ) {
-          setTimeout(resetForm, 1200);
+          resetTimerRef.current = window.setTimeout(resetForm, 1200);
         }
         return;
       }
@@ -72,12 +103,16 @@ const JotFormEmbed = ({
           payload.event || payload.type || payload.action || payload.message || ""
         ).toLowerCase();
 
+        if (signal.includes(formId.toLowerCase()) || signal.includes("setheight")) {
+          showForm();
+        }
+
         if (
           signal.includes("submission-completed") ||
           signal.includes("thankyou") ||
           signal.includes("form-submit")
         ) {
-          setTimeout(resetForm, 1200);
+          resetTimerRef.current = window.setTimeout(resetForm, 1200);
         }
       }
     };
@@ -94,12 +129,16 @@ const JotFormEmbed = ({
     return () => {
       window.removeEventListener("message", handleMessage);
       window.removeEventListener("pageshow", handlePageShow);
+      if (resetTimerRef.current !== null) {
+        window.clearTimeout(resetTimerRef.current);
+        resetTimerRef.current = null;
+      }
     };
-  }, [embedSrc]);
+  }, [embedSrc, formId, resetForm, showForm]);
 
   const handleLoad = () => {
     // Small delay so the form has a moment to render its content
-    setTimeout(() => setIsLoaded(true), 150);
+    window.setTimeout(showForm, 150);
   };
 
   return (
@@ -139,7 +178,7 @@ const JotFormEmbed = ({
       {/* Actual JotForm iframe */}
       <iframe
         ref={iframeRef}
-        id={`JotFormIFrame-${formId}`}
+        id={iframeId}
         title={title}
         allowTransparency={true}
         allow="geolocation; microphone; camera; fullscreen; payment"
