@@ -85,9 +85,19 @@ src/
 └── pages/               # Route components
     └── articles/        # Article detail pages
 
+public/                  # Static assets served as-is (favicon, robots, sitemap, platform/ screenshots)
+
 netlify/
 └── functions/           # Serverless functions (currently: tempmail check)
+
+docs/                    # Project documentation
+├── AUTH_SETUP.md        # Supabase auth configuration guide
+├── SITE_AUDIT_AND_OPTIMIZATIONS.md
+├── privacy-terms.md     # Source copy for the Privacy Policy page
+└── terms-conditions.md  # Source copy for the Terms & Conditions page
 ```
+
+> This project uses **npm** — `package-lock.json` is the only committed lockfile.
 
 ## Routes
 
