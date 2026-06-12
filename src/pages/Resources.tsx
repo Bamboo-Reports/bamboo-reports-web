@@ -7,58 +7,6 @@ import type { SyntheticEvent } from "react";
 
 const REPORT_THUMBNAIL_FALLBACK = "/placeholder.svg";
 
-const reports = [
-  {
-    id: "state-of-gccs-2026",
-    title: "State of GCCs in India - A 2026 Report",
-    subtitle: "Agentic AI, ownership, and the rise of tier-2 hubs.",
-    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvqt4DyIQYfah4CDjOn37lSb01A2cpw68eykxz",
-  },
-  {
-    id: "52-weeks",
-    title: "52 Weeks of GCC Momentum",
-    subtitle: "India's GCC expansion mapped week by week.",
-    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvNNPnQh6JMprQjEy7dL5OqGWNfYBeuV4HlIzK",
-  },
-  {
-    id: "gcc-snapshot-q1",
-    title: "India GCC Snapshot Q1 (FY25-26)",
-    subtitle: "Quarterly view of India GCC maturity and momentum.",
-    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvgXdKglTMytEzAd5jcKVQJC81krLZXpRH72bx",
-  },
-  {
-    id: "gcc-snapshot-q2",
-    title: "India GCC Snapshot Q2 (FY25-26)",
-    subtitle: "Quarterly view of India GCC maturity and momentum.",
-    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvmuUxXGnoI5sEOcLKqMDN4Sdb3xQRZFC9gtu1",
-  },
-  {
-    id: "gcc-snapshot-q3",
-    title: "India GCC Snapshot Q3 (FY25-26)",
-    subtitle: "Quarterly view of India GCC maturity and momentum.",
-    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvpZK9crebFq8yla9WYurNK7GUmowcBkPOXgxD",
-  },
-  {
-    id: "gcc-snapshot-q4",
-    title: "India GCC Snapshot Q4 (FY25-26)",
-    subtitle: "Quarterly view of India GCC maturity and momentum.",
-    thumbnail: "https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvJxynEBxTSsyCtN4UrElocuAhdMjDkZBHnO0R",
-  },
-];
-
-const reportDisplayOrder = [
-  "state-of-gccs-2026",
-  "gcc-snapshot-q4",
-  "gcc-snapshot-q3",
-  "gcc-snapshot-q2",
-  "52-weeks",
-  "gcc-snapshot-q1",
-];
-
-const recentReports = [...reports]
-  .sort((a, b) => reportDisplayOrder.indexOf(a.id) - reportDisplayOrder.indexOf(b.id))
-  .slice(0, 3);
-
 const articles = [
   {
     slug: "h1b-shock-strategic-reset",
@@ -81,7 +29,7 @@ const Resources = () => {
 
   useSEO({
     title: "Resources | Bamboo Reports",
-    description: "Explore the latest reports and blogs from Bamboo Reports in one place.",
+    description: "Explore the latest roundtables and insights from Bamboo Reports in one place.",
   });
 
   return (
@@ -107,50 +55,13 @@ const Resources = () => {
               <span className="block text-accent">Intelligence You Can Use.</span>
             </h1>
             <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              Reports, guides, and data-driven insights from the team building India's GCC
+              Roundtables, guides, and data-driven insights from the team building India's GCC
               intelligence layer.
             </p>
           </div>
         </section>
 
         <section className="relative max-w-6xl mx-auto px-4 py-14 lg:py-20 space-y-12">
-          <section className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Resources</p>
-                <h2 className="text-3xl lg:text-4xl font-black">Recent Reports</h2>
-              </div>
-              <Button variant="outline" className="rounded-full" asChild>
-                <Link to="/reports">View all reports</Link>
-              </Button>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {recentReports.map((report) => (
-                <Link
-                  key={report.id}
-                  to={`/reports/${report.id}`}
-                  className="group relative h-full rounded-3xl border bg-gradient-to-br from-background to-muted/50 shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] overflow-hidden"
-                >
-                  <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={report.thumbnail}
-                      alt={report.title}
-                      onError={handleThumbnailError}
-                      className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="relative p-5 space-y-2">
-                    <h3 className="text-lg font-black leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
-                      {report.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{report.subtitle}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-
           <section className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
