@@ -83,19 +83,27 @@ src/
 ├── hooks/               # Custom React hooks
 ├── lib/                 # Utilities, data, Supabase client
 └── pages/               # Route components
-    ├── articles/        # Article detail pages
-    └── reports/         # Report page template
+    └── articles/        # Article detail pages
+
+public/                  # Static assets served as-is (favicon, robots, sitemap, platform/ screenshots)
 
 netlify/
 └── functions/           # Serverless functions (currently: tempmail check)
+
+docs/                    # Project documentation
+├── AUTH_SETUP.md        # Supabase auth configuration guide
+├── SITE_AUDIT_AND_OPTIMIZATIONS.md
+├── privacy-terms.md     # Source copy for the Privacy Policy page
+└── terms-conditions.md  # Source copy for the Terms & Conditions page
 ```
+
+> This project uses **npm** — `package-lock.json` is the only committed lockfile.
 
 ## Routes
 
 ### Public
 
 - `/` — Home
-- `/pricing` — Pricing
 - `/gcc-prospect-data` — GCC Prospect Data
 - `/account-market-intelligence` — Account and Market Intelligence
 - `/gcc-abm` — GCC ABM
@@ -103,8 +111,6 @@ netlify/
 - `/success-stories` — Success Stories
 - `/insights` — Insights
 - `/resources` — Resources
-- `/reports` — Reports index
-- `/reports/52-weeks`, `/reports/gcc-snapshot-q1`, `/reports/gcc-snapshot-q2`, `/reports/gcc-snapshot-q3`, `/reports/gcc-snapshot-q4`, `/reports/state-of-gccs-2026` — individual reports
 - `/roundtables` — Roundtables index
 - `/roundtables/h1b-shock-strategic-reset` — H1B article
 - `/thank-you`, `/privacy-policy`, `/terms-conditions` — legal/transactional
@@ -117,9 +123,9 @@ netlify/
 
 - `/profile` — requires authentication
 
-### Legacy redirects
+### Unmatched paths
 
-A handful of old paths (`/about-us`, `/contact-us`, `/gcc-list`, `/products/*`, `/features/*`, `/use-cases/*`) still resolve and redirect to relevant pages so old links and search results don't 404.
+Any path not listed above falls through to the `NotFound` (404) page.
 
 ## Supabase
 

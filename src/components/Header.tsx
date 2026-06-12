@@ -81,6 +81,14 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
+                <Link to="/platform">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Platform
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
                 <NavigationMenuTrigger>What we Offer</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[320px] gap-1 p-2">
@@ -116,14 +124,6 @@ const Header = () => {
                     </li>
                   </ul>
                 </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link to="/platform">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Platform
-                  </NavigationMenuLink>
-                </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -243,6 +243,15 @@ const Header = () => {
               {/* Navigation */}
               <nav className="flex-1 overflow-y-auto">
                 <div className="px-6 space-y-1">
+                  <Link
+                    to="/platform"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Platform
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
+
                   <details className="group border-b pb-2">
                     <summary className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth cursor-pointer list-none">
                       What we Offer
@@ -272,15 +281,6 @@ const Header = () => {
                       </Link>
                     </div>
                   </details>
-
-                  <Link
-                    to="/platform"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Platform
-                    <ChevronRight className="h-5 w-5" />
-                  </Link>
 
                   <Link
                     to="/success-stories"

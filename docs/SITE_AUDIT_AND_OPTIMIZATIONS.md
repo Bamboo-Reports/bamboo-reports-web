@@ -40,7 +40,7 @@ All pages are imported directly in `App.tsx`, loading everything upfront.
 // Current (BAD)
 import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
-import Reports from "./pages/Reports";
+import Platform from "./pages/Platform";
 // ... 20+ more imports
 ```
 
@@ -59,7 +59,7 @@ import { lazy, Suspense } from 'react';
 
 const Index = lazy(() => import('./pages/Index'));
 const Pricing = lazy(() => import('./pages/Pricing'));
-const Reports = lazy(() => import('./pages/Reports'));
+const Platform = lazy(() => import('./pages/Platform'));
 // ... lazy load all routes
 
 // Wrap Routes in Suspense
@@ -134,24 +134,7 @@ const queryClient = new QueryClient({
 
 ---
 
-#### Issue 1.4: Large PDF Worker Files
-**Current State:**
-- `pdf.worker.min.js`: 1.9MB
-- `pdf.worker.min.mjs`: 1MB
-
-**Recommendation:**
-- ✅ Already using minified versions (good!)
-- Consider CDN hosting for PDF.js worker
-- Lazy load PDF viewer only when needed
-
-```typescript
-// Only load PDF viewer on /my-content or when user clicks "View PDF"
-const SecurePDFViewer = lazy(() => import('./components/SecurePDFViewer'));
-```
-
----
-
-#### Issue 1.5: No Image Optimization
+#### Issue 1.4: No Image Optimization
 **Recommendation:**
 - Use WebP format for images
 - Add width/height attributes to prevent CLS (Cumulative Layout Shift)
@@ -288,7 +271,6 @@ export default defineConfig({
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
           'supabase': ['@supabase/supabase-js'],
-          'pdf': ['react-pdf', 'pdfjs-dist'],
         },
       },
     },
