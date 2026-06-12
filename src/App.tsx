@@ -12,6 +12,8 @@ import Insights from "./pages/Insights";
 import Articles from "./pages/Articles";
 import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
 import Resources from "./pages/Resources";
+import Reads from "./pages/Reads";
+import AgenticEnterprise from "./pages/reads/AgenticEnterprise";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
@@ -49,6 +51,8 @@ const App = () => {
             <Route path="/roundtables" element={<Articles />} />
             <Route path="/roundtables/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/reads" element={<Reads />} />
+            <Route path="/reads/agentic-enterprise" element={<AgenticEnterprise />} />
             <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />

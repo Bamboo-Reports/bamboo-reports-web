@@ -6,7 +6,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 const ThankYou = () => {
   useSEO({
-    title: "Thank You - Bamboo Reports",
+    title: "Thank You | Bamboo Reports",
     description:
       "Thank you for reaching out to Bamboo Reports. Our team will review your request and get in touch shortly.",
     keywords:

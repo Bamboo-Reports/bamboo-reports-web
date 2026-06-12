@@ -20,6 +20,19 @@ const articles = [
 
 const recentArticles = articles.slice(0, 3);
 
+// Interesting Reads — curated whitepapers / long-form pieces. Each links to
+// its own landing page.
+const interestingReads = [
+  {
+    to: "/reads/agentic-enterprise",
+    title: "The Agentic Enterprise · Thoughtworks × AWS",
+    summary:
+      "Build an enterprise that adapts, not just automates. A composable architecture of agents, data and governance that evolves as fast as AI does.",
+    label: "Whitepaper",
+    thumbnail: "https://3lqbm904a5.ufs.sh/f/qFKrZopOp2VTGMv7iissIv8NxSL4WbOHyQrMJZ3VzREBim0P",
+  },
+];
+
 const Resources = () => {
   const handleThumbnailError = (event: SyntheticEvent<HTMLImageElement>) => {
     const img = event.currentTarget;
@@ -66,10 +79,48 @@ const Resources = () => {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Resources</p>
+                <h2 className="text-3xl lg:text-4xl font-black">Interesting Reads</h2>
+              </div>
+              <Button variant="outline" className="rounded-full" asChild>
+                <Link to="/reads">View All</Link>
+              </Button>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {interestingReads.map((read) => (
+                <Link
+                  key={read.to}
+                  to={read.to}
+                  className="group relative h-full rounded-3xl border bg-gradient-to-br from-background to-muted/50 shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] overflow-hidden"
+                >
+                  <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={read.thumbnail}
+                      alt={read.title}
+                      onError={handleThumbnailError}
+                      className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <div className="relative p-5 space-y-2">
+                    <p className="text-xs font-semibold text-primary">{read.label}</p>
+                    <h3 className="text-lg font-black leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
+                      {read.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{read.summary}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section className="space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Resources</p>
                 <h2 className="text-3xl lg:text-4xl font-black">Recent Roundtables</h2>
               </div>
               <Button variant="outline" className="rounded-full" asChild>
-                <Link to="/roundtables">View all roundtables</Link>
+                <Link to="/roundtables">View All</Link>
               </Button>
             </div>
             <div className="grid md:grid-cols-3 gap-6">

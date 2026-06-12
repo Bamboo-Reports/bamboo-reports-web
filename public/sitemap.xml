@@ -7,6 +7,33 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Product & Offering Pages -->
+  <url>
+    <loc>https://www.bambooreports.com/platform</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.bambooreports.com/gcc-prospect-data</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bambooreports.com/account-market-intelligence</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bambooreports.com/gcc-abm</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bambooreports.com/success-stories</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Content & Resources -->
   <url>
     <loc>https://www.bambooreports.com/resources</loc>
@@ -19,9 +46,24 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/articles</loc>
+    <loc>https://www.bambooreports.com/roundtables</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bambooreports.com/roundtables/h1b-shock-strategic-reset</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.bambooreports.com/reads</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bambooreports.com/reads/agentic-enterprise</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Legal Pages -->

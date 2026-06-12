@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 const categories = [
   {
     title: "Industries",
-    description: "Comprehensive data on companies in India, segmented across 25+ categories, 85+ industries, and 380+ sub-industries."
+    description: "Comprehensive data on companies in India, segmented across 30+ categories, 110+ industries, and 813+ sub-industries."
   },
   {
     title: "Functions",
@@ -11,7 +11,7 @@ const categories = [
   },
   {
     title: "Geographies",
-    description: "A unified platform mapping Global Capability Centers (GCCs) from multinational corporations headquartered in over 55 countries."
+    description: "A unified platform mapping Global Capability Centers (GCCs) from multinational corporations headquartered in 50+ countries."
   }
 ];
 
@@ -37,7 +37,7 @@ const IntelligenceSpans = () => {
           </div>
           
           <div className="flex justify-center">
-            <img src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvcg4BcafkqTaIeyhXvfH3RzPubnYl7A6dNV2i" alt="GCC Intelligence Coverage Map" className="w-full max-w-2xl" />
+            <img src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvauMM2LSwWI251zDQnx7ABmluGvNOsJfTEKM8" alt="GCC Intelligence Coverage Map" className="w-full max-w-2xl" />
           </div>
         </div>
       </div>

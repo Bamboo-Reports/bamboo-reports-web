@@ -1,0 +1,333 @@
+/* ─────────────────────────────────────────
+   Thoughtworks × ResearchNXT "Interesting Reads" landing page.
+   Ported from the standalone microsite, scoped under `.reads-page`
+   so the Thoughtworks brand styling never leaks into the rest of
+   the Bamboo Reports app. White-dominant, teal + pink accents.
+───────────────────────────────────────── */
+.reads-page {
+  --teal:      #003d4f;
+  --pink:      #f2617a;
+
+  --white:     #ffffff;
+  --tint:      #fafbfb;   /* faint form-side panel */
+  --line:      #ececec;
+  --line-soft: #f2f2f2;
+
+  --ink:       #14252b;   /* near-teal-black for headings */
+  --text:      #3d4a4f;
+  --muted:     #8a9499;
+
+  /* Thoughtworks brand type system */
+  --font-head: 'Bitter', Georgia, serif;       /* Bold (700) only */
+  --font-body: 'Inter', sans-serif;            /* variable: 360 body, 630 callout/subhead */
+
+  font-family: var(--font-body);
+  font-variation-settings: 'wght' 360;
+  font-weight: 360;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Inter variable-weight helpers (font-variation-settings overrides font-weight,
+   so 'wght' is restated wherever used). Genuine italics get slant -10 per brand. */
+.reads-page .fw-body { font-variation-settings: 'wght' 360; font-weight: 360; }
+.reads-page .fw-bold { font-variation-settings: 'wght' 630; font-weight: 630; }
+.reads-page i,
+.reads-page .italic { font-style: italic; font-variation-settings: 'wght' 360, 'slnt' -10; }
+
+.reads-page *,
+.reads-page *::before,
+.reads-page *::after { box-sizing: border-box; }
+
+.reads-page img { display: block; max-width: 100%; }
+.reads-page a   { text-decoration: none; color: inherit; }
+.reads-page em  { font-style: normal; color: var(--teal); }
+
+/* ─────────────────────────────────────────
+   LAYOUT — full viewport split
+───────────────────────────────────────── */
+.reads-page .page {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  height: 100vh;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.reads-page .panel { position: relative; }
+
+/* ─────────────────────────────────────────
+   LEFT PANEL (white)
+───────────────────────────────────────── */
+.reads-page .panel--left {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 44px 64px 40px;
+  overflow: hidden;
+}
+
+/* whisper-faint decorative arc, top-right */
+.reads-page .panel--left::before {
+  content: '';
+  position: absolute;
+  top: -240px;
+  right: -180px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,61,79,0.05);
+  pointer-events: none;
+}
+.reads-page .panel--left::after {
+  content: '';
+  position: absolute;
+  top: -180px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242,97,122,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Logo */
+.reads-page .logos {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: reads-fadeUp 0.5s ease 0.05s forwards;
+}
+.reads-page .logo--tw   { height: 26px; width: auto; }
+
+/* ── Main content */
+.reads-page .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+}
+
+.reads-page .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-variation-settings: 'wght' 630;
+  font-weight: 630;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.reads-page .eyebrow--teal { color: var(--teal); margin-bottom: 24px; }
+.reads-page .eyebrow--pink { color: var(--pink); margin-bottom: 18px; }
+.reads-page .eyebrow .x { color: var(--pink); font-weight: 700; }
+
+.reads-page .eyebrow--teal {
+  opacity: 0;
+  animation: reads-fadeUp 0.5s ease 0.15s forwards;
+}
+
+.reads-page .headline {
+  font-family: var(--font-head);
+  font-size: clamp(40px, 4.5vw, 60px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+  opacity: 0;
+  animation: reads-fadeUp 0.55s ease 0.24s forwards;
+}
+.reads-page .headline__dot { color: var(--pink); }
+
+.reads-page .subheadline {
+  font-size: clamp(18px, 2vw, 23px);
+  font-variation-settings: 'wght' 630;
+  font-weight: 630;
+  color: var(--text);
+  line-height: 1.38;
+  letter-spacing: -0.01em;
+  max-width: 480px;
+  margin-bottom: 22px;
+  opacity: 0;
+  animation: reads-fadeUp 0.55s ease 0.33s forwards;
+}
+
+.reads-page .description {
+  font-size: 15px;
+  font-variation-settings: 'wght' 360;
+  font-weight: 360;
+  color: var(--muted);
+  line-height: 1.72;
+  max-width: 470px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: reads-fadeUp 0.55s ease 0.42s forwards;
+}
+
+/* ── Pillars */
+.reads-page .pillars {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line-soft);
+  opacity: 0;
+  animation: reads-fadeUp 0.55s ease 0.5s forwards;
+}
+
+.reads-page .pillar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line-soft);
+  transition: padding-left 0.25s ease;
+}
+.reads-page .pillar:hover { padding-left: 8px; }
+
+.reads-page .pillar__num {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-variation-settings: 'wght' 630;
+  font-weight: 630;
+  letter-spacing: 0.08em;
+  color: var(--pink);
+  font-variant-numeric: tabular-nums;
+}
+
+.reads-page .pillar__text { display: flex; flex-direction: column; gap: 2px; }
+.reads-page .pillar__text strong {
+  font-size: 14.5px;
+  font-variation-settings: 'wght' 630;
+  font-weight: 630;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.reads-page .pillar__text span {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ─────────────────────────────────────────
+   RIGHT PANEL (faint tint)
+───────────────────────────────────────── */
+.reads-page .panel--right {
+  background: var(--tint);
+  border-left: 1px solid var(--line);
+  display: flex;
+  align-items: safe center;
+  justify-content: center;
+  padding: 40px 44px;
+  /* hard no-scroll: anything that doesn't fit the viewport is clipped.
+     Under 860px the stacked layout overrides this and scrolls normally. */
+  overflow-y: hidden;
+}
+
+.reads-page .form-card {
+  width: 100%;
+  opacity: 0;
+  /* opacity-only entrance: a translateY here would briefly extend the
+     panel's scroll area and flash a scrollbar gutter on load */
+  animation: reads-fadeIn 0.6s ease 0.4s forwards;
+}
+
+.reads-page .form-card__title {
+  font-size: clamp(20px, 1.9vw, 25px);
+  font-variation-settings: 'wght' 630;
+  font-weight: 630;
+  color: var(--ink);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.reads-page .form-card__sub {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 30px;
+}
+
+/* ── Form embed */
+.reads-page .form-embed {
+  margin-bottom: 16px;
+}
+/* JotForm's embed handler rewrites the iframe's inline height from the
+   form's own height messages, which can arrive before the privacy text
+   finishes wrapping and shrink the iframe enough to cut off the Submit
+   button. min-height wins over inline height, so this keeps the full
+   form (incl. Submit) visible no matter what the handler sets. */
+.reads-page .form-embed iframe {
+  min-height: 780px;
+}
+
+.reads-page .form-card__note {
+  font-size: 11px;
+  color: #aab2b5;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ─────────────────────────────────────────
+   ANIMATION
+───────────────────────────────────────── */
+@keyframes reads-fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes reads-fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reads-page * { animation: none !important; }
+  .reads-page [class] { opacity: 1 !important; transform: none !important; }
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 860px) {
+  .reads-page .page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+    min-height: 100vh;
+    max-width: 100%;
+  }
+  .reads-page .panel--left  { padding: 36px 28px 44px; }
+  .reads-page .panel--right { border-left: none; border-top: 1px solid var(--line); padding: 40px 28px; overflow-y: visible; }
+  .reads-page .panel--left::before, .reads-page .panel--left::after { display: none; }
+
+  /* content flows from the top instead of vertical-centering */
+  .reads-page .content {
+    justify-content: flex-start;
+    margin-top: 36px;
+    max-width: 100%;
+  }
+  .reads-page .subheadline, .reads-page .description { max-width: 100%; }
+}
+
+/* phones */
+@media (max-width: 560px) {
+  .reads-page .panel--left  { padding: 28px 22px 36px; }
+  .reads-page .panel--right { padding: 32px 22px; }
+
+  /* logo shrinks safely */
+  .reads-page .logo--tw   { height: 20px; }
+
+  .reads-page .content { margin-top: 30px; }
+
+  .reads-page .headline   { font-size: clamp(40px, 13vw, 54px); }
+  .reads-page .pillar     { gap: 14px; }
+  .reads-page .form-card__title { font-size: 21px; }
+}
+
