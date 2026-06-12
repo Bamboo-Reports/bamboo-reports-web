@@ -347,7 +347,7 @@ const AccountMarketIntelligence = () => {
             </p>
             <ul className="space-y-5 mb-12">
               {[
-                "Built bottom-up from 2,500+ accounts and 5,900+ centres. 260+ man-months of structured research.",
+                "Built bottom-up from 2,400+ accounts and 5,800+ centres. 260+ man-months of structured research.",
                 "Sliceable by city, sector, function, size, tech stack, and centre status.",
                 "AI-augmented weekly refresh, not an annual survey report.",
                 "Exclusive datasets: service-mix, function-mix, and software vendor market share at centre level.",

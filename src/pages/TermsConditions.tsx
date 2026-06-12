@@ -4,7 +4,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 const TermsConditions = () => {
     useSEO({
-        title: "Terms & Conditions - Bamboo Reports",
+        title: "Terms & Conditions | Bamboo Reports",
         description: "Terms and Conditions for Bamboo Reports. Read our terms of service, usage rights, and user responsibilities.",
         keywords: "Terms and Conditions, Terms of Service, Bamboo Reports Terms, Usage Rights, User Agreement",
     });
@@ -76,7 +76,6 @@ const TermsConditions = () => {
 
                     <h2 className="text-2xl font-semibold mt-8 mb-4">13. Contact</h2>
                     <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                        📧 <a href="mailto:legal@researchnxt.com" className="text-primary hover:underline">legal@researchnxt.com</a><br />
                         📍 Research NXT, Pune, India
                     </p>
                 </div>

@@ -50,7 +50,7 @@ const GCCProspectData = () => {
 
           <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
             Bamboo Reports gives you the most complete, structured contact intelligence on India's
-            Global Capability Centre ecosystem: 250K+ verified decision-makers across 5,900+
+            Global Capability Centre ecosystem: 250K+ verified decision-makers across 5,800+
             centres, continuously refreshed and ready to power your outreach.
           </p>
 
@@ -119,7 +119,7 @@ const GCCProspectData = () => {
               {
                 icon: Building2,
                 title: "Centre-level mapping",
-                desc: "Contacts tied to 5,900+ individual centres, not just parent companies.",
+                desc: "Contacts tied to 5,800+ individual centres, not just parent companies.",
               },
               {
                 icon: Briefcase,

@@ -52,7 +52,7 @@ const SuccessStories = () => {
             {/* Left: narrative */}
             <div className="lg:col-span-5">
               <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">
-                / Case 01  ·  Solution Provider
+                / Case 01  ·  Leading Global IT Services Firm
               </div>
               <div className="flex items-center gap-3 mb-6 text-sm text-muted-foreground">
                 <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider">
@@ -69,9 +69,10 @@ const SuccessStories = () => {
               </h2>
 
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
-                A leading global technology and consulting firm needed structured intelligence on
-                India's BFSI GCC landscape to power their sector GTM strategy, account targeting,
-                and ABM campaigns.
+                A global technology and consulting firm needed to expand its India BFSI GCC
+                pipeline. The mandate: map global customers with India GCC presence, add
+                look-alike accounts beyond their book, then go deep on the BFSI strategic
+                shortlist.
               </p>
 
               <div className="inline-flex items-center gap-3 mt-2 pl-4 py-2 border-l-2 border-primary">
@@ -88,13 +89,16 @@ const SuccessStories = () => {
               </div>
               <div className="divide-y border-y">
                 {[
-                  { v: "1,050", l: "BFSI GCC companies profiled" },
-                  { v: "44", l: "Intelligence reports delivered" },
-                  { v: "364", l: "Decision-maker contacts mapped" },
                   {
-                    v: "2 streams",
-                    l: "GCC intelligence + Indian Enterprise, running in parallel",
+                    v: "1,050",
+                    l: "Prospect universe: global customers with India GCCs + look-alike accounts",
                   },
+                  { v: "70+", l: "BFSI accounts shortlisted for strategic GTM fit" },
+                  {
+                    v: "44",
+                    l: "Drill-down reports: vendor, tech, entry points, decision-makers",
+                  },
+                  { v: "364", l: "Decision-makers mapped across BFSI shortlist" },
                 ].map((r) => (
                   <div
                     key={r.l}
@@ -136,7 +140,7 @@ const SuccessStories = () => {
             {/* Left: narrative */}
             <div className="lg:col-span-5">
               <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-                / Case 02  ·  GCC Itself
+                / Case 02  ·  Global Medical Device Company GCC
               </div>
               <div className="flex items-center gap-3 mb-6 text-sm text-muted-foreground">
                 <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-accent/15 text-accent text-xs font-semibold uppercase tracking-wider">

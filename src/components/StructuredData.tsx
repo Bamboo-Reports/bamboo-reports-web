@@ -49,17 +49,17 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Bamboo Reports",
-          "description": "Leading GCC Intelligence platform providing actionable insights on Global Capability Centers across India. Comprehensive market intelligence, GTM research, and GCC benchmarking solutions.",
+          "description": "Leading GCC Intelligence platform providing actionable insights on Global Capability Centers across India. Comprehensive market intelligence, GTM research, and GCC benchmarking solutions. A Research NXT product.",
           "url": "https://www.bambooreports.com",
           "logo": "https://www.bambooreports.com/logo.png",
+          "parentOrganization": {
+            "@type": "Organization",
+            "name": "Research NXT",
+            "url": "https://researchnxt.com"
+          },
           "sameAs": [
             "https://www.linkedin.com/company/bambooreports"
           ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "email": "hello@bambooreports.com"
-          },
           "address": {
             "@type": "PostalAddress",
             "addressCountry": "IN"

@@ -1,5 +1,5 @@
 import logo from "@/assets/researchnxt-logo.png";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
 
@@ -46,12 +46,6 @@ const Footer = () => {
               >
                 View pricing
               </button>
-              <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4 text-primary" aria-hidden />
-                <a href="mailto:enquiry@researchnxt.com" className="hover:text-primary">
-                  enquiry@researchnxt.com
-                </a>
-              </div>
             </div>
           </div>
         </div>

@@ -32,7 +32,7 @@ export const featureItems: FeatureItem[] = [
       "Analyst-guided, not just data-heavy - every insight is validated so teams can act immediately."
     ],
     stats: [
-      { label: "Centers tracked", value: "2,400+", helper: "Verified GCC locations across India" },
+      { label: "Centres tracked", value: "5,800+", helper: "Verified GCC locations across India" },
       { label: "Datapoints per centre", value: "30+", helper: "Location, capabilities, functions, scale, operating model" },
       { label: "Signal refresh", value: "Weekly", helper: "Expansions, new additions, structural changes" }
     ]

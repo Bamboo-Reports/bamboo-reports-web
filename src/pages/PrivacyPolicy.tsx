@@ -4,7 +4,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 const PrivacyPolicy = () => {
     useSEO({
-        title: "Privacy Policy - Bamboo Reports",
+        title: "Privacy Policy | Bamboo Reports",
         description: "Privacy Policy for Bamboo Reports. Learn how we collect, use, and safeguard your information.",
         keywords: "Privacy Policy, Data Protection, Bamboo Reports Privacy, GDPR, Data Security",
     });
@@ -74,7 +74,6 @@ const PrivacyPolicy = () => {
                     <h2 className="text-2xl font-semibold mt-8 mb-4">10. Contact</h2>
                     <p className="text-base text-muted-foreground leading-relaxed mb-4">For privacy concerns or requests:</p>
                     <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                        📧 <a href="mailto:support@researchnxt.com" className="text-primary hover:underline">support@researchnxt.com</a><br />
                         📍 Research NXT, Pune, India
                     </p>
                 </div>
