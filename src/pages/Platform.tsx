@@ -134,22 +134,6 @@ const Platform = () => {
 
       /* ---------- motion-safe choreography ---------- */
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        // page scroll progress hairline
-        gsap.fromTo(
-          ".pf-progress",
-          { scaleX: 0 },
-          {
-            scaleX: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: pageRef.current,
-              start: "top top",
-              end: "bottom bottom",
-              scrub: 0.3,
-            },
-          }
-        );
-
         // hero entrance
         const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
         heroTl
@@ -293,7 +277,6 @@ const Platform = () => {
 
   return (
     <div ref={pageRef} className="pf min-h-screen bg-background">
-      <div className="pf-progress" aria-hidden="true" />
       <Header />
 
       {/* ───────── 001 · HERO ───────── */}
