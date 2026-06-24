@@ -37,7 +37,7 @@ const IntelligenceSpans = () => {
           </div>
           
           <div className="flex justify-center">
-            <img src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvauMM2LSwWI251zDQnx7ABmluGvNOsJfTEKM8" alt="GCC Intelligence Coverage Map" className="w-full max-w-2xl" />
+            <img src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvJndE6eBxTSsyCtN4UrElocuAhdMjDkZBHnO0" alt="GCC Intelligence Coverage Map" className="w-full max-w-2xl" />
           </div>
         </div>
       </div>
