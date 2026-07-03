@@ -7,7 +7,7 @@ const FORM_ID = "261820348991464";
 
 const MapYourGCCOpportunity = () => {
   useSEO({
-    title: "Map Your India GCC Opportunity | Bamboo Reports",
+    title: "Map your India GCC opportunity | Bamboo Reports",
     description:
       "Map your India GCC opportunity with Bamboo Reports.",
     keywords:
