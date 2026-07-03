@@ -27,7 +27,7 @@ import "./platform.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 
-const DEMO_URL = "https://calendar.app.google/QNXWripJexzXLHqGA";
+const DEMO_URL = "https://calendar.app.google/dxFo1gWtermpyAG47";
 
 const LENSES = [
   {

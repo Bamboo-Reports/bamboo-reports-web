@@ -249,7 +249,7 @@ const SuccessStories = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
               <a
-                href="https://calendar.app.google/QNXWripJexzXLHqGA"
+                href="https://calendar.app.google/dxFo1gWtermpyAG47"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -39,7 +39,7 @@ const ThankYou = () => {
 
           <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-lg mx-auto">
             <a
-              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0gkLpzha2NOvjdfQJjMaOc07Hd4LYmHa_S6u3uNA7pZo79nOO2NsNcKjctg_jb6gTTLm7URNvw"
+              href="https://calendar.app.google/dxFo1gWtermpyAG47"
               target="_blank"
               rel="noopener noreferrer"
               className="group rounded-2xl border border-primary/20 bg-primary/5 p-4 sm:p-6 text-center transition-all hover:shadow-lg hover:border-primary/40 hover:-translate-y-1"

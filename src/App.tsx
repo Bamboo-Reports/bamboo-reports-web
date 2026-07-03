@@ -26,6 +26,7 @@ import AccountMarketIntelligence from "./pages/AccountMarketIntelligence";
 import GCCABM from "./pages/GCCABM";
 import Platform from "./pages/Platform";
 import SuccessStories from "./pages/SuccessStories";
+import MapYourGCCOpportunity from "./pages/MapYourGCCOpportunity";
 import ScrollToTop from "./components/ScrollToTop";
 import { ensureJotformEmbedHandler } from "@/lib/jotform";
 
@@ -61,6 +62,7 @@ const App = () => {
             <Route path="/gcc-abm" element={<GCCABM />} />
             <Route path="/platform" element={<Platform />} />
             <Route path="/success-stories" element={<SuccessStories />} />
+            <Route path="/map-your-gcc-oppurtunity" element={<MapYourGCCOpportunity />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
             <Route

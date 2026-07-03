@@ -32,7 +32,7 @@ const Hero = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
             >
               <a
-                href="https://calendar.app.google/QNXWripJexzXLHqGA"
+                href="https://calendar.app.google/dxFo1gWtermpyAG47"
                 target="_blank"
                 rel="noopener noreferrer"
               >

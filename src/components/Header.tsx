@@ -169,7 +169,7 @@ const Header = () => {
                   tabIndex={showDemoCta ? undefined : -1}
                 >
                   <a
-                    href="https://calendar.app.google/QNXWripJexzXLHqGA"
+                    href="https://calendar.app.google/dxFo1gWtermpyAG47"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -323,7 +323,7 @@ const Header = () => {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <a
-                      href="https://calendar.app.google/QNXWripJexzXLHqGA"
+                      href="https://calendar.app.google/dxFo1gWtermpyAG47"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
