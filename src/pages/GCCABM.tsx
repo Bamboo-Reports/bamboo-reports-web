@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 import {
@@ -119,14 +120,10 @@ const GCCABM = () => {
               asChild
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
-              <a
-                href="https://calendar.app.google/QNXWripJexzXLHqGA"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <GoogleCalendarSchedulingButton>
                 Talk to Us
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </GoogleCalendarSchedulingButton>
             </Button>
           </div>
         </div>
@@ -381,14 +378,10 @@ const GCCABM = () => {
               asChild
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
-              <a
-                href="https://calendar.app.google/QNXWripJexzXLHqGA"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <GoogleCalendarSchedulingButton>
                 Talk to Us
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </GoogleCalendarSchedulingButton>
             </Button>
           </div>
         </div>
