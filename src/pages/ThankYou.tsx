@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { CheckCircle, FileText, ArrowRight, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
+import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 
 const ThankYou = () => {
   useSEO({
@@ -38,10 +39,7 @@ const ThankYou = () => {
           </p>
 
           <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-lg mx-auto">
-            <a
-              href="https://calendar.app.google/dxFo1gWtermpyAG47"
-              target="_blank"
-              rel="noopener noreferrer"
+            <GoogleCalendarSchedulingButton
               className="group rounded-2xl border border-primary/20 bg-primary/5 p-4 sm:p-6 text-center transition-all hover:shadow-lg hover:border-primary/40 hover:-translate-y-1"
             >
               <div className="mb-3 sm:mb-4 mx-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -55,7 +53,7 @@ const ThankYou = () => {
                 Book now
                 <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
               </div>
-            </a>
+            </GoogleCalendarSchedulingButton>
 
             <div
               onClick={() => navigate("/resources")}

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { getDisplayName } from "@/lib/auth";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
+import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -168,13 +169,9 @@ const Header = () => {
                   className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow whitespace-nowrap"
                   tabIndex={showDemoCta ? undefined : -1}
                 >
-                  <a
-                    href="https://calendar.app.google/dxFo1gWtermpyAG47"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <GoogleCalendarSchedulingButton>
                     Get a Demo
-                  </a>
+                  </GoogleCalendarSchedulingButton>
                 </Button>
               </div>
             </div>
@@ -322,13 +319,9 @@ const Header = () => {
                     className="w-full bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <a
-                      href="https://calendar.app.google/dxFo1gWtermpyAG47"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <GoogleCalendarSchedulingButton>
                       Get a Demo
-                    </a>
+                    </GoogleCalendarSchedulingButton>
                   </Button>
                   {user ? (
                     <>

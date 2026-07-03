@@ -2,6 +2,7 @@ import logo from "@/assets/researchnxt-logo.png";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
+import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 
 const Footer = () => {
   const { openInquiryForm } = useInquiryForm();
@@ -31,15 +32,12 @@ const Footer = () => {
             </div>
 
             <div className="flex w-full flex-col gap-3 md:w-auto">
-              <a
-                href="https://calendar.app.google/dxFo1gWtermpyAG47"
-                target="_blank"
-                rel="noopener noreferrer"
+              <GoogleCalendarSchedulingButton
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition duration-micro ease-smooth hover:shadow-md"
               >
                 Book a demo
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
-              </a>
+              </GoogleCalendarSchedulingButton>
               <button
                 onClick={openInquiryForm}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition duration-micro ease-smooth hover:border-primary hover:text-primary"
@@ -78,15 +76,12 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-foreground">Get Started</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
-                <a
-                  href="https://calendar.app.google/dxFo1gWtermpyAG47"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <GoogleCalendarSchedulingButton
                   className="inline-flex items-center gap-1 transition-colors duration-micro ease-smooth hover:text-primary"
                 >
                   Book a Demo
                   <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-                </a>
+                </GoogleCalendarSchedulingButton>
               </li>
               <li>
                 <button onClick={openInquiryForm} className="transition-colors duration-micro ease-smooth hover:text-primary">

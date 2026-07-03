@@ -452,9 +452,11 @@
 .pf-persona {
   position: relative;
   display: grid;
+  width: 100%;
   grid-template-columns: 3.2rem 1fr auto;
   gap: 0.75rem 1.75rem;
   align-items: center;
+  text-align: left;
   padding: 1.7rem 0.75rem;
   border-top: 1px solid var(--pf-line);
   transition: background 0.3s;

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import gccIllustration from "@/assets/gcc-illustration.png";
 
 const Hero = () => {
@@ -31,13 +32,9 @@ const Hero = () => {
               asChild // Use asChild to render the anchor tag
               className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
             >
-              <a
-                href="https://calendar.app.google/dxFo1gWtermpyAG47"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <GoogleCalendarSchedulingButton>
                 Get a Demo
-              </a>
+              </GoogleCalendarSchedulingButton>
             </Button>
           </div>
 
