@@ -72,7 +72,7 @@ const Header = () => {
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="transition-transform duration-micro ease-smooth hover:scale-[1.02]">
+        <Link to="/">
           <img src={logo} alt="Bamboo Reports" className="h-10 md:h-12" />
         </Link>
 
@@ -84,6 +84,14 @@ const Header = () => {
                 <Link to="/platform">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Platform
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link to="/tracker">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    GCC Tracker
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -235,7 +243,7 @@ const Header = () => {
             <div className="flex flex-col h-full">
               {/* Logo at top */}
               <div className="p-6 pb-4">
-                <Link to="/" onClick={() => setMobileMenuOpen(false)} className="inline-block transition-transform duration-micro ease-smooth hover:scale-[1.02]">
+                <Link to="/" onClick={() => setMobileMenuOpen(false)} className="inline-block">
                   <img src={logo} alt="Bamboo Reports" className="h-10" />
                 </Link>
               </div>
@@ -249,6 +257,15 @@ const Header = () => {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Platform
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
+
+                  <Link
+                    to="/tracker"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    GCC Tracker
                     <ChevronRight className="h-5 w-5" />
                   </Link>
 

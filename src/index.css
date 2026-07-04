@@ -141,28 +141,35 @@ All colors MUST be HSL.
 @layer utilities {
   /* Unified Micro-Interaction System */
 
-  /* Button interactions - subtle scale on hover/active */
+  /* The tracker is intentionally static: no hover lifts, scaling, or pulsing. */
+  .tracker-page a:hover,
+  .tracker-page a:active,
+  .tracker-page button:hover,
+  .tracker-page button:active,
+  .tracker-page [class*="hover:-translate-y"]:hover {
+    transform: none !important;
+  }
+
+  .tracker-page .animate-pulse {
+    animation: none;
+  }
+
+  /* Button interactions - visual feedback without positional movement */
   .animate-button {
-    transition: transform var(--timing-micro) var(--easing-smooth),
-                box-shadow var(--timing-micro) var(--easing-smooth);
+    transition: box-shadow var(--timing-micro) var(--easing-smooth);
   }
 
   .animate-button:hover {
-    transform: scale(1.02);
+    box-shadow: 0 4px 12px hsl(var(--foreground) / 0.12);
   }
 
-  .animate-button:active {
-    transform: scale(0.98);
-  }
-
-  /* Card/Container interactions - subtle lift */
+  /* Card/Container interactions - shadow feedback without lifting */
   .animate-card {
-    transition: transform var(--timing-micro) var(--easing-smooth),
-                box-shadow var(--timing-micro) var(--easing-smooth);
+    transition: box-shadow var(--timing-micro) var(--easing-smooth);
   }
 
   .animate-card:hover {
-    transform: translateY(-2px);
+    box-shadow: 0 4px 12px hsl(var(--foreground) / 0.08);
   }
 
   /* Link interactions - opacity change */

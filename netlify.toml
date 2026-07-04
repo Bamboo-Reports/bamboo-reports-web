@@ -7,6 +7,15 @@
   functions = "netlify/functions"
 
 # Redirect rules for SPA (Single Page Application)
+# NOTE: More specific redirects (like /api/* below) must come BEFORE the catch-all "/*" rule,
+# because Netlify evaluates redirects in file order.
+
+# API: server-side tracker function (keeps DB access server-side, no data leakage)
+[[redirects]]
+  from = "/api/tracker"
+  to = "/.netlify/functions/tracker"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -56,7 +56,7 @@ const Footer = () => {
             <img
               src={logo}
               alt="Research NXT - GCC Intelligence Provider"
-              className="h-12 w-auto transition-transform duration-micro ease-smooth hover:scale-[1.02]"
+              className="h-12 w-auto"
             />
             <p className="max-w-xl text-sm text-muted-foreground">
               Leading GCC Intelligence platform for Global Capability Centers research, market intelligence, and executive-ready insights.

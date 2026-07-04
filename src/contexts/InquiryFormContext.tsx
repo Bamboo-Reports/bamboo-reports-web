@@ -41,7 +41,7 @@ export const InquiryFormProvider = ({ children }: { children: ReactNode }) => {
         >
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
+            className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-colors duration-micro ease-smooth"
             aria-label="Close inquiry form"
           >
             <X size={20} />
