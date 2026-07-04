@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TrustLogos from "@/components/TrustLogos";
+import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { useSEO } from "@/hooks/useSEO";
 import {
   ArrowRight,
@@ -26,8 +27,6 @@ import {
 import "./platform.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
-
-const DEMO_URL = "https://calendar.app.google/QNXWripJexzXLHqGA";
 
 const LENSES = [
   {
@@ -298,15 +297,10 @@ const Platform = () => {
                 sources.
               </p>
               <div className="pf-hero-actions lg:col-span-5 flex flex-wrap items-center gap-4 lg:justify-end">
-                <a
-                  className="pf-btn-primary"
-                  href={DEMO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <GoogleCalendarSchedulingButton className="pf-btn-primary">
                   Request a Demo
                   <ArrowRight className="pf-btn-arrow h-4 w-4" />
-                </a>
+                </GoogleCalendarSchedulingButton>
                 <a className="pf-btn-ghost" href="#tour" onClick={scrollToTour}>
                   Take the tour
                   <ArrowDown className="h-4 w-4" />
@@ -545,11 +539,8 @@ const Platform = () => {
 
           <div className="mt-12 relative" data-reveal-group>
             {PERSONAS.map((p) => (
-              <a
+              <GoogleCalendarSchedulingButton
                 key={p.tag}
-                href={DEMO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="pf-persona"
                 aria-label={`Book a demo — ${p.name}`}
                 data-reveal-item
@@ -564,7 +555,7 @@ const Platform = () => {
                 <span className="pf-persona-arrow">
                   <ArrowUpRight className="h-5 w-5" />
                 </span>
-              </a>
+              </GoogleCalendarSchedulingButton>
             ))}
           </div>
         </div>
@@ -586,15 +577,10 @@ const Platform = () => {
             and send you off with a target list you can action the same afternoon.
           </p>
           <div data-reveal>
-            <a
-              className="pf-btn-primary"
-              href={DEMO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <GoogleCalendarSchedulingButton className="pf-btn-primary">
               Book a Demo
               <ArrowRight className="pf-btn-arrow h-4 w-4" />
-            </a>
+            </GoogleCalendarSchedulingButton>
           </div>
         </div>
       </section>

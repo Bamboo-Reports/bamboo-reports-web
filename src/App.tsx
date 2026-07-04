@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { InquiryFormProvider } from "@/contexts/InquiryFormContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
@@ -27,6 +27,7 @@ import GCCABM from "./pages/GCCABM";
 import Platform from "./pages/Platform";
 import SuccessStories from "./pages/SuccessStories";
 import Tracker from "./pages/Tracker";
+import MapYourGCCOpportunity from "./pages/MapYourGCCOpportunity";
 import ScrollToTop from "./components/ScrollToTop";
 import { ensureJotformEmbedHandler } from "@/lib/jotform";
 
@@ -63,6 +64,11 @@ const App = () => {
             <Route path="/platform" element={<Platform />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/tracker" element={<Tracker />} />
+            <Route path="/map-your-gcc-opportunity" element={<MapYourGCCOpportunity />} />
+            <Route
+              path="/map-your-gcc-oppurtunity"
+              element={<Navigate to="/map-your-gcc-opportunity" replace />}
+            />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
             <Route
