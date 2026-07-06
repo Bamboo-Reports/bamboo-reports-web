@@ -127,7 +127,6 @@ export const handler = async (event) => {
   const accounts = sanitize(body.account_global_legal_name).slice(0, 1);
   const accountSearch =
     typeof body.account_search === "string" ? body.account_search.trim().slice(0, 100) : "";
-
   try {
     const sql = neon(databaseUrl);
     const rows = await sql.query(TRACKER_QUERY, [

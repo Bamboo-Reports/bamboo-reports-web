@@ -1,0 +1,103 @@
+{
+  "slug": "ast-science",
+  "name": "AST & Science, LLC",
+  "shortName": "AST & Science",
+  "displayName": "AST & Science, LLC",
+  "website": "https://www.ast-science.com",
+  "linkedin": "http://www.linkedin.com/company/ast-spacemobile",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "AST & Science's GCC footprint in India",
+  "lede": "<strong>AST & Science runs one capability center in Hyderabad.</strong> Hyderabad, covering R&D, built over three years.",
+  "insight": "A single AST & Science center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "AST & Science, LLC GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "AST & Science runs 1 verified GCC center in Hyderabad, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Hyderabad"
+    ],
+    "yearsInIndia": 3,
+    "sinceYear": 2023,
+    "headcountBand": "51 to 100",
+    "headcountBandLong": "51 to 100"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D"
+  ],
+  "tech": {
+    "tools": 1,
+    "categories": 1,
+    "categoryList": [
+      "DevOps"
+    ]
+  },
+  "leaders": {
+    "count": 2,
+    "departments": "IT and GCC leadership",
+    "titles": [
+      {
+        "title": "Director",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "VP of Engineering and General Manager",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "AST & Science's India footprint covers Hyderabad, spanning R&D. The centers deliver IT and R&D and ER&D for the group's global operations.",
+    "industry": "Wireless Network Operators, Telecommunications Service",
+    "headquarters": "Midland, Texas, United States",
+    "revenueBand": "$51Mn to $100Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does AST & Science operate in India?",
+      "a": "AST & Science operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does AST & Science have GCC centers in?",
+      "a": "AST & Science's India GCC presence is in Hyderabad."
+    },
+    {
+      "q": "What types of GCC centers does AST & Science run in India?",
+      "a": "AST & Science runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at AST & Science's India GCCs?",
+      "a": "AST & Science's India centers employ in the 51 to 100 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads AST & Science's GCC in India?",
+      "a": "Bamboo Reports tracks 2 leaders at AST & Science's India centers, across IT and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

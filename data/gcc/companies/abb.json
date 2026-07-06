@@ -1,0 +1,137 @@
+{
+  "slug": "abb",
+  "name": "ABB Ltd.",
+  "shortName": "ABB",
+  "displayName": "ABB Ltd.",
+  "website": "https://www.abb.com",
+  "linkedin": "http://www.linkedin.com/company/abb",
+  "forbesRank": 288,
+  "fortuneRank": 492,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "ABB's GCC footprint in India",
+  "lede": "<strong>ABB runs twelve capability centers across seven Indian cities.</strong> Bengaluru, Nashik, Vadodara, Chennai, Faridabad, Hyderabad and Mumbai, covering engineering & design, gbs, manufacturing, R&D and sales & marketing, built over 24 years.",
+  "insight": "Search elsewhere and you will usually find one ABB office in India. We map twelve, across seven cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "ABB Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "ABB runs 12 verified GCC centers across 7 Indian cities (Bengaluru, Nashik, Vadodara, Chennai, Faridabad, Hyderabad, Mumbai), covering engineering & design, gbs, manufacturing, R&D and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 12,
+    "totalCenters": 12,
+    "cities": [
+      "Bengaluru",
+      "Nashik",
+      "Vadodara",
+      "Chennai",
+      "Faridabad",
+      "Hyderabad",
+      "Mumbai"
+    ],
+    "yearsInIndia": 24,
+    "sinceYear": 2002,
+    "headcountBand": ">10K",
+    "headcountBandLong": ">10K"
+  },
+  "centerTypes": [
+    "Engineering & Design",
+    "GBS",
+    "Manufacturing",
+    "R&D",
+    "Sales & Marketing"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 21,
+    "categories": 15,
+    "categoryList": [
+      "ERP",
+      "CRM",
+      "Human Capital Management",
+      "Talent Experience Platform",
+      "CAD",
+      "Data Visualisation",
+      "Materials Management",
+      "Production Planning",
+      "Productivity Suite",
+      "Cloud Integration Platform",
+      "Cloud Platform",
+      "IT Service Management",
+      "Process Orchestration",
+      "Programming Language",
+      "Sales & Distribution"
+    ]
+  },
+  "leaders": {
+    "count": 204,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Country Head, Security",
+        "city": "Pune"
+      },
+      {
+        "title": "Global Chief Data Officer",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head of Service Delivery & Performance",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "ABB's India footprint covers Bengaluru, Nashik, Vadodara, Chennai, Faridabad, Hyderabad and Mumbai, spanning engineering & design, gbs, manufacturing, R&D and sales & marketing. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Industrial Equipment and Machinery, Industrial Manufacturing",
+    "headquarters": "Zurich, Zurich, Switzerland",
+    "revenueBand": "$25Bn to $50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "ABBN, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 204 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does ABB operate in India?",
+      "a": "ABB operates 12 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does ABB have GCC centers in?",
+      "a": "ABB's India GCC footprint spans Bengaluru, Nashik, Vadodara, Chennai, Faridabad, Hyderabad and Mumbai."
+    },
+    {
+      "q": "What types of GCC centers does ABB run in India?",
+      "a": "ABB runs engineering & design, gbs, manufacturing, R&D and sales & marketing centers in India."
+    },
+    {
+      "q": "How many people work at ABB's India GCCs?",
+      "a": "ABB's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads ABB's GCC in India?",
+      "a": "Bamboo Reports tracks 204 leaders at ABB's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

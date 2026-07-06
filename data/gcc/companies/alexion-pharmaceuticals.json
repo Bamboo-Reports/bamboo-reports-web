@@ -1,0 +1,100 @@
+{
+  "slug": "alexion-pharmaceuticals",
+  "name": "Alexion Pharmaceuticals, Inc.",
+  "shortName": "Alexion Pharmaceuticals",
+  "displayName": "Alexion Pharmaceuticals",
+  "website": "https://www.alexion.com",
+  "linkedin": "http://www.linkedin.com/company/alexion-pharmaceuticals",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Alexion Pharmaceuticals's GCC footprint in India",
+  "lede": "<strong>Alexion Pharmaceuticals runs one capability center in Mumbai.</strong> Mumbai, covering ssc, built over fifteen years.",
+  "insight": "A single Alexion Pharmaceuticals center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Alexion Pharmaceuticals GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Alexion Pharmaceuticals runs 1 verified GCC center in Mumbai, covering ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Mumbai"
+    ],
+    "yearsInIndia": 15,
+    "sinceYear": 2011,
+    "headcountBand": "<50",
+    "headcountBandLong": "<50"
+  },
+  "centerTypes": [
+    "SSC"
+  ],
+  "functions": [
+    "Finance & Accounting"
+  ],
+  "tech": {
+    "tools": 1,
+    "categories": 1,
+    "categoryList": [
+      "Finance & Controlling"
+    ]
+  },
+  "leaders": {
+    "count": 2,
+    "departments": "GCC leadership",
+    "titles": [
+      {
+        "title": "Director Statistical Programming & Site Lead Bangalore, India.",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Alexion Pharmaceuticals's India footprint covers Mumbai, spanning ssc. The centers deliver Finance & Accounting for the group's global operations.",
+    "industry": "Specialty Pharmaceuticals, Pharmaceutical Manufacturing",
+    "headquarters": "Boston, Massachusetts, United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "5,000 to 10,000",
+    "tickerAndType": "ACQSP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Alexion Pharmaceuticals operate in India?",
+      "a": "Alexion Pharmaceuticals operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does Alexion Pharmaceuticals have GCC centers in?",
+      "a": "Alexion Pharmaceuticals's India GCC presence is in Mumbai."
+    },
+    {
+      "q": "What types of GCC centers does Alexion Pharmaceuticals run in India?",
+      "a": "Alexion Pharmaceuticals runs ssc centers in India."
+    },
+    {
+      "q": "How many people work at Alexion Pharmaceuticals's India GCCs?",
+      "a": "Alexion Pharmaceuticals's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Alexion Pharmaceuticals's GCC in India?",
+      "a": "Bamboo Reports tracks 2 leaders at Alexion Pharmaceuticals's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

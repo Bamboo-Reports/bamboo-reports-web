@@ -1,0 +1,105 @@
+{
+  "slug": "back-office-shared-services-pty",
+  "name": "Back Office Shared Services Pty. Ltd.",
+  "shortName": "Back Office Shared Services Pty",
+  "displayName": "Back Office Shared Services Pty",
+  "website": "https://www.boz.com.au",
+  "linkedin": "http://www.linkedin.com/company/back-office-shared-services-pvt-ltd-india",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Back Office Shared Services Pty's GCC footprint in India",
+  "lede": "<strong>Back Office Shared Services Pty runs one capability center in Bengaluru.</strong> Bengaluru, covering ssc, built over 22 years.",
+  "insight": "A single Back Office Shared Services Pty center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Back Office Shared Services Pty GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Back Office Shared Services Pty runs 1 verified GCC center in Bengaluru, covering ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Bengaluru"
+    ],
+    "yearsInIndia": 22,
+    "sinceYear": 2004,
+    "headcountBand": "51 to 100",
+    "headcountBandLong": "51 to 100"
+  },
+  "centerTypes": [
+    "SSC"
+  ],
+  "functions": [
+    "Finance & Accounting",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 1,
+    "categories": 1,
+    "categoryList": [
+      "Cloud Accounting"
+    ]
+  },
+  "leaders": {
+    "count": 2,
+    "departments": "Finance and HR",
+    "titles": [
+      {
+        "title": "Director-HR & Workflow Admin",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Director - Planning",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Back Office Shared Services Pty's India footprint covers Bengaluru, spanning ssc. The centers deliver Finance & Accounting and Customer Support for the group's global operations.",
+    "industry": "BPO/KPO, Corporate Services",
+    "headquarters": "Lindfield, New South Wales, Australia",
+    "revenueBand": "$10Mn to $50Mn",
+    "employeesBand": "101 to 200",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Back Office Shared Services Pty operate in India?",
+      "a": "Back Office Shared Services Pty operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does Back Office Shared Services Pty have GCC centers in?",
+      "a": "Back Office Shared Services Pty's India GCC presence is in Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does Back Office Shared Services Pty run in India?",
+      "a": "Back Office Shared Services Pty runs ssc centers in India."
+    },
+    {
+      "q": "How many people work at Back Office Shared Services Pty's India GCCs?",
+      "a": "Back Office Shared Services Pty's India centers employ in the 51 to 100 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Back Office Shared Services Pty's GCC in India?",
+      "a": "Bamboo Reports tracks 2 leaders at Back Office Shared Services Pty's India centers, across Finance and HR. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

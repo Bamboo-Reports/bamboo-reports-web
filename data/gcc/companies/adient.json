@@ -1,0 +1,128 @@
+{
+  "slug": "adient",
+  "name": "Adient plc",
+  "shortName": "Adient",
+  "displayName": "Adient plc",
+  "website": "https://www.adient.com",
+  "linkedin": "http://www.linkedin.com/company/adient",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Adient's GCC footprint in India",
+  "lede": "<strong>Adient runs eight capability centers across six Indian cities.</strong> Pune, Ahmedabad, Belur, Chennai, Rudrapur and Lucknow, covering engineering & design, manufacturing and R&D, built over 26 years.",
+  "insight": "Search elsewhere and you will usually find one Adient office in India. We map eight, across six cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Adient plc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Adient runs 8 verified GCC centers across 6 Indian cities (Pune, Ahmedabad, Belur, Chennai, Rudrapur, Lucknow), covering engineering & design, manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 8,
+    "totalCenters": 9,
+    "cities": [
+      "Pune",
+      "Ahmedabad",
+      "Belur",
+      "Chennai",
+      "Rudrapur",
+      "Lucknow"
+    ],
+    "yearsInIndia": 26,
+    "sinceYear": 2000,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "Engineering & Design",
+    "Manufacturing",
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "Procurement"
+  ],
+  "tech": {
+    "tools": 12,
+    "categories": 11,
+    "categoryList": [
+      "ERP",
+      "CAD",
+      "Cloud Platform",
+      "Data Integration & ETL",
+      "Data Visualisation",
+      "Data Warehouse",
+      "DevOps",
+      "Human Capital Management",
+      "Materials Management",
+      "Scripting",
+      "Web Development Framework"
+    ]
+  },
+  "leaders": {
+    "count": 8,
+    "departments": "IT, HR and Procurement",
+    "titles": [
+      {
+        "title": "Senior Manager - IT Applications",
+        "city": "Pune"
+      },
+      {
+        "title": "Sr.Manager HR",
+        "city": "Pune"
+      },
+      {
+        "title": "Head Of Purchasing",
+        "city": "Pune"
+      }
+    ]
+  },
+  "about": {
+    "description": "Adient's India footprint covers Pune, Ahmedabad, Belur, Chennai, Rudrapur and Lucknow, spanning engineering & design, manufacturing and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and Procurement for the group's global operations.",
+    "industry": "Automobile Parts Manufacturing, Automotive Manufacturing",
+    "headquarters": "Plymouth, Michigan, United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "ADNT, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eight decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Adient operate in India?",
+      "a": "Adient operates 8 active Global Capability Center sites in India. Nine are on record in total, including non-operational sites."
+    },
+    {
+      "q": "Which Indian cities does Adient have GCC centers in?",
+      "a": "Adient's India GCC footprint spans Pune, Ahmedabad, Belur, Chennai, Rudrapur and Lucknow."
+    },
+    {
+      "q": "What types of GCC centers does Adient run in India?",
+      "a": "Adient runs engineering & design, manufacturing and R&D centers in India."
+    },
+    {
+      "q": "How many people work at Adient's India GCCs?",
+      "a": "Adient's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Adient's GCC in India?",
+      "a": "Bamboo Reports tracks 8 leaders at Adient's India centers, across IT, HR and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

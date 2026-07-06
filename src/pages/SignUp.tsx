@@ -16,6 +16,10 @@ const SignUp = () => {
   const [lastName, setLastName] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [jobTitle, setJobTitle] = useState('');
+  const [companyOffering, setCompanyOffering] = useState('');
+  const [primaryGoal, setPrimaryGoal] = useState('');
+  const [primaryGoalOther, setPrimaryGoalOther] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -68,6 +72,10 @@ const SignUp = () => {
       lastName,
       companyName,
       phoneNumber,
+      jobTitle,
+      companyOffering,
+      primaryGoal,
+      primaryGoalOther,
       email,
       password,
       confirmPassword,
@@ -116,6 +124,10 @@ const SignUp = () => {
       signupValues.lastName,
       signupValues.phoneNumber,
       signupValues.companyName,
+      signupValues.jobTitle,
+      signupValues.companyOffering,
+      signupValues.primaryGoal,
+      signupValues.primaryGoalOther,
     );
 
     if (error) {
@@ -180,16 +192,16 @@ const SignUp = () => {
                 />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="companyName">Company name</Label>
+                <Label htmlFor="email">Email</Label>
                 <Input
-                  id="companyName"
-                  placeholder="Infosys"
-                  type="text"
-                  value={companyName}
-                  onChange={(e) => setCompanyName(e.target.value)}
+                  id="email"
+                  placeholder="name@company.com"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   disabled={isLoading}
-                  autoComplete="organization"
+                  autoComplete="email"
                 />
               </div>
               <div className="space-y-1.5">
@@ -205,19 +217,83 @@ const SignUp = () => {
                   autoComplete="tel"
                 />
               </div>
-              <div className="space-y-1.5 sm:col-span-2">
-                <Label htmlFor="email">Email</Label>
+              <div className="space-y-1.5">
+                <Label htmlFor="companyName">Company name</Label>
                 <Input
-                  id="email"
-                  placeholder="name@company.com"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  id="companyName"
+                  placeholder="Infosys"
+                  type="text"
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
                   required
                   disabled={isLoading}
-                  autoComplete="email"
+                  autoComplete="organization"
                 />
               </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="jobTitle">Job title</Label>
+                <Input
+                  id="jobTitle"
+                  placeholder="Head of Growth"
+                  type="text"
+                  value={jobTitle}
+                  onChange={(e) => setJobTitle(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  autoComplete="organization-title"
+                />
+              </div>
+              <div className="space-y-1.5 sm:col-span-2">
+                <Label htmlFor="companyOffering">What does your company offer, and who do you serve?</Label>
+                <textarea
+                  id="companyOffering"
+                  placeholder="We provide cloud security services to enterprise technology teams."
+                  value={companyOffering}
+                  onChange={(e) => setCompanyOffering(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  maxLength={500}
+                  rows={3}
+                  className="flex min-h-24 w-full resize-y rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                />
+              </div>
+              <div className="space-y-1.5 sm:col-span-2">
+                <Label htmlFor="primaryGoal">What would you like to achieve with Bamboo Reports?</Label>
+                <select
+                  id="primaryGoal"
+                  value={primaryGoal}
+                  onChange={(e) => {
+                    setPrimaryGoal(e.target.value);
+                    if (e.target.value !== 'other') setPrimaryGoalOther('');
+                  }}
+                  required
+                  disabled={isLoading}
+                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                >
+                  <option value="" disabled>Select your primary goal</option>
+                  <option value="gcc_data">GCC data and decision-maker intelligence</option>
+                  <option value="market_intelligence">Market intelligence and opportunity mapping</option>
+                  <option value="lead_generation">Lead generation and account targeting</option>
+                  <option value="benchmarking">Benchmarking and competitive analysis</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+              {primaryGoal === 'other' && (
+                <div className="space-y-1.5 sm:col-span-2">
+                  <Label htmlFor="primaryGoalOther">Tell us what you’re looking to achieve</Label>
+                  <textarea
+                    id="primaryGoalOther"
+                    placeholder="Describe the outcome you need help with."
+                    value={primaryGoalOther}
+                    onChange={(e) => setPrimaryGoalOther(e.target.value)}
+                    required
+                    disabled={isLoading}
+                    maxLength={300}
+                    rows={3}
+                    className="flex min-h-24 w-full resize-y rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  />
+                </div>
+              )}
               <div className="space-y-1.5">
                 <Label htmlFor="password">Password</Label>
                 <div className="relative">

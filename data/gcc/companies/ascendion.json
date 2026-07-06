@@ -1,0 +1,112 @@
+{
+  "slug": "ascendion",
+  "name": "Ascendion Inc.",
+  "shortName": "Ascendion",
+  "displayName": "Ascendion Inc.",
+  "website": "https://ascendion.com",
+  "linkedin": "https://www.linkedin.com/company/ascendion",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Ascendion's GCC footprint in India",
+  "lede": "<strong>Ascendion runs two capability centers across two Indian cities.</strong> Hyderabad and Chennai, covering it, built over two years.",
+  "insight": "Search elsewhere and you will usually find one Ascendion office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Ascendion Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Ascendion runs 2 verified GCC centers across 2 Indian cities (Hyderabad, Chennai), covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Hyderabad",
+      "Chennai"
+    ],
+    "yearsInIndia": 2,
+    "sinceYear": 2024,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "IT"
+  ],
+  "functions": [
+    "IT"
+  ],
+  "tech": {
+    "tools": 6,
+    "categories": 6,
+    "categoryList": [
+      "Cloud Platform",
+      "Container Orchestration",
+      "Containerisation",
+      "Data Analytics Platform",
+      "Data Warehouse",
+      "Project Management"
+    ]
+  },
+  "leaders": {
+    "count": 3,
+    "departments": "IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Board Member",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Director - Engineering",
+        "city": "TBA"
+      },
+      {
+        "title": "Associate Vice President",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Ascendion's India footprint covers Hyderabad and Chennai, spanning it. The centers deliver IT for the group's global operations.",
+    "industry": "Compliance and Governance Software, Business Software Solutions",
+    "headquarters": "Basking Ridge, New Jersey, United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "5,000 to 10,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Ascendion operate in India?",
+      "a": "Ascendion operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Ascendion have GCC centers in?",
+      "a": "Ascendion's India GCC footprint spans Hyderabad and Chennai."
+    },
+    {
+      "q": "What types of GCC centers does Ascendion run in India?",
+      "a": "Ascendion runs it centers in India."
+    },
+    {
+      "q": "How many people work at Ascendion's India GCCs?",
+      "a": "Ascendion's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Ascendion's GCC in India?",
+      "a": "Bamboo Reports tracks 3 leaders at Ascendion's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

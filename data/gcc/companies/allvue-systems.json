@@ -1,0 +1,105 @@
+{
+  "slug": "allvue-systems",
+  "name": "Allvue Systems, LLC",
+  "shortName": "Allvue Systems",
+  "displayName": "Allvue Systems, LLC",
+  "website": "https://www.allvuesystems.com",
+  "linkedin": "https://www.linkedin.com/company/allvuesystems",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Allvue Systems's GCC footprint in India",
+  "lede": "<strong>Allvue Systems runs one capability center in Pune.</strong> Pune, covering gcc/gic, built over four years.",
+  "insight": "A single Allvue Systems center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Allvue Systems, LLC GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Allvue Systems runs 1 verified GCC center in Pune, covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Pune"
+    ],
+    "yearsInIndia": 4,
+    "sinceYear": 2022,
+    "headcountBand": "51 to 100",
+    "headcountBandLong": "51 to 100"
+  },
+  "centerTypes": [
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 3,
+    "categoryList": [
+      "Cloud Platform",
+      "Data Warehouse",
+      "Message Streaming"
+    ]
+  },
+  "leaders": {
+    "count": 2,
+    "departments": "HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Head of India, Engineering & Operations",
+        "city": "Pune"
+      },
+      {
+        "title": "Head of Human Resources, India",
+        "city": "Pune"
+      }
+    ]
+  },
+  "about": {
+    "description": "Allvue Systems's India footprint covers Pune, spanning gcc/gic. The centers deliver IT and Finance & Accounting for the group's global operations.",
+    "industry": "Market Research Software, Miscellaneous Software",
+    "headquarters": "Coral Gables, Florida, United States",
+    "revenueBand": "$101Mn to $250Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Allvue Systems operate in India?",
+      "a": "Allvue Systems operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does Allvue Systems have GCC centers in?",
+      "a": "Allvue Systems's India GCC presence is in Pune."
+    },
+    {
+      "q": "What types of GCC centers does Allvue Systems run in India?",
+      "a": "Allvue Systems runs gcc/gic centers in India."
+    },
+    {
+      "q": "How many people work at Allvue Systems's India GCCs?",
+      "a": "Allvue Systems's India centers employ in the 51 to 100 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Allvue Systems's GCC in India?",
+      "a": "Bamboo Reports tracks 2 leaders at Allvue Systems's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

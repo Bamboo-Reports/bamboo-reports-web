@@ -15,6 +15,10 @@ interface AuthContextType {
     lastName: string,
     phoneNumber?: string,
     companyName?: string,
+    jobTitle?: string,
+    companyOffering?: string,
+    primaryGoal?: string,
+    primaryGoalOther?: string,
   ) => Promise<{ error: AuthError | null }>;
   signIn: (email: string, password: string, rememberMe?: boolean) => Promise<{ error: AuthError | null }>;
   signOut: () => Promise<void>;
@@ -101,6 +105,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     lastName: string,
     phoneNumber?: string,
     companyName?: string,
+    jobTitle?: string,
+    companyOffering?: string,
+    primaryGoal?: string,
+    primaryGoalOther?: string,
   ) => {
     const fullName = `${firstName} ${lastName}`.trim();
     const { error } = await supabase.auth.signUp({
@@ -113,6 +121,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           full_name: fullName,
           phone_number: phoneNumber || null,
           company_name: companyName || null,
+          job_title: jobTitle || null,
+          company_offering: companyOffering || null,
+          primary_goal: primaryGoal || null,
+          primary_goal_other: primaryGoal === 'other' ? primaryGoalOther || null : null,
         },
       },
     });

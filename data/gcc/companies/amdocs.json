@@ -1,0 +1,118 @@
+{
+  "slug": "amdocs",
+  "name": "Amdocs Ltd.",
+  "shortName": "Amdocs",
+  "displayName": "Amdocs Ltd.",
+  "website": "https://www.amdocs.com",
+  "linkedin": "http://www.linkedin.com/company/amdocs",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Amdocs's GCC footprint in India",
+  "lede": "<strong>Amdocs runs two capability centers across two Indian cities.</strong> Gurugram and Pune, covering gbs and ssc, built over 22 years.",
+  "insight": "Search elsewhere and you will usually find one Amdocs office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Amdocs Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Amdocs runs 2 verified GCC centers across 2 Indian cities (Gurugram, Pune), covering gbs and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Gurugram",
+      "Pune"
+    ],
+    "yearsInIndia": 22,
+    "sinceYear": 2004,
+    "headcountBand": ">10K",
+    "headcountBandLong": ">10K"
+  },
+  "centerTypes": [
+    "GBS",
+    "SSC"
+  ],
+  "functions": [
+    "IT",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 6,
+    "categories": 5,
+    "categoryList": [
+      "Finance & Controlling",
+      "Database",
+      "ERP",
+      "ERP Administration",
+      "ERP Development"
+    ]
+  },
+  "leaders": {
+    "count": 125,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Managing Director",
+        "city": "TBA"
+      },
+      {
+        "title": "Head of Quality CoE",
+        "city": "Gurugram"
+      },
+      {
+        "title": "Head of HR",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Amdocs's India footprint covers Gurugram and Pune, spanning gbs and ssc. The centers deliver IT, HR, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "IT, System Integration and Consulting Services, Corporate Services",
+    "headquarters": "St. Louis, Missouri, United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "DOX, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 125 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Amdocs operate in India?",
+      "a": "Amdocs operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Amdocs have GCC centers in?",
+      "a": "Amdocs's India GCC footprint spans Gurugram and Pune."
+    },
+    {
+      "q": "What types of GCC centers does Amdocs run in India?",
+      "a": "Amdocs runs gbs and ssc centers in India."
+    },
+    {
+      "q": "How many people work at Amdocs's India GCCs?",
+      "a": "Amdocs's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Amdocs's GCC in India?",
+      "a": "Bamboo Reports tracks 125 leaders at Amdocs's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

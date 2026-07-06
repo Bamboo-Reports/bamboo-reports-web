@@ -1,0 +1,130 @@
+{
+  "slug": "baxter-international",
+  "name": "Baxter International, Inc.",
+  "shortName": "Baxter International",
+  "displayName": "Baxter International",
+  "website": "https://www.baxter.com",
+  "linkedin": "http://www.linkedin.com/company/baxter-healthcare",
+  "forbesRank": 1175,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Baxter International's GCC footprint in India",
+  "lede": "<strong>Baxter International runs eight capability centers across five Indian cities.</strong> Bengaluru, Gurugram, Ahmedabad, Aurangabad and Chennai, covering CoE, manufacturing, R&D and ssc, built over 30 years.",
+  "insight": "Search elsewhere and you will usually find one Baxter International office in India. We map eight, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Baxter International GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Baxter International runs 8 verified GCC centers across 5 Indian cities (Bengaluru, Gurugram, Ahmedabad, Aurangabad, Chennai), covering CoE, manufacturing, R&D and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 8,
+    "totalCenters": 8,
+    "cities": [
+      "Bengaluru",
+      "Gurugram",
+      "Ahmedabad",
+      "Aurangabad",
+      "Chennai"
+    ],
+    "yearsInIndia": 30,
+    "sinceYear": 1996,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "CoE",
+    "Manufacturing",
+    "R&D",
+    "SSC"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 12,
+    "categories": 12,
+    "categoryList": [
+      "Human Capital Management",
+      "API Management",
+      "CRM",
+      "Container Orchestration",
+      "DNS Management",
+      "Data Visualisation",
+      "Database",
+      "Finance & Controlling",
+      "Privacy & Compliance",
+      "Web Design",
+      "Backup & Recovery",
+      "HR Service Delivery"
+    ]
+  },
+  "leaders": {
+    "count": 28,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Country Head",
+        "city": "TBA"
+      },
+      {
+        "title": "Director - BISO & Cybersecurity",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Associate Director - HR",
+        "city": "Ahmedabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Baxter International's India footprint covers Bengaluru, Gurugram, Ahmedabad, Aurangabad and Chennai, spanning CoE, manufacturing, R&D and ssc. The centers deliver IT, R&D and ER&D, Finance & Accounting and Procurement for the group's global operations.",
+    "industry": "Diagnostic Devices, Medical Devices and Equipment",
+    "headquarters": "Deerfield, Illinois, United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "BAX, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 28 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Baxter International operate in India?",
+      "a": "Baxter International operates 8 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Baxter International have GCC centers in?",
+      "a": "Baxter International's India GCC footprint spans Bengaluru, Gurugram, Ahmedabad, Aurangabad and Chennai."
+    },
+    {
+      "q": "What types of GCC centers does Baxter International run in India?",
+      "a": "Baxter International runs CoE, manufacturing, R&D and ssc centers in India."
+    },
+    {
+      "q": "How many people work at Baxter International's India GCCs?",
+      "a": "Baxter International's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Baxter International's GCC in India?",
+      "a": "Bamboo Reports tracks 28 leaders at Baxter International's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

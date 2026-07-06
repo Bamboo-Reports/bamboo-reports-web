@@ -1,0 +1,126 @@
+{
+  "slug": "amneal-pharmaceuticals",
+  "name": "Amneal Pharmaceuticals, Inc.",
+  "shortName": "Amneal Pharmaceuticals",
+  "displayName": "Amneal Pharmaceuticals",
+  "website": "https://www.amneal.com",
+  "linkedin": "http://www.linkedin.com/company/amneal-pharmaceuticals",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Amneal Pharmaceuticals's GCC footprint in India",
+  "lede": "<strong>Amneal Pharmaceuticals runs eight capability centers across five Indian cities.</strong> Ahmedabad, Mumbai, Hyderabad, Bharuch and Visakhapatnam, covering manufacturing, R&D and sales & marketing, built over eighteen years.",
+  "insight": "Search elsewhere and you will usually find one Amneal Pharmaceuticals office in India. We map eight, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Amneal Pharmaceuticals GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Amneal Pharmaceuticals runs 8 verified GCC centers across 5 Indian cities (Ahmedabad, Mumbai, Hyderabad, Bharuch, Visakhapatnam), covering manufacturing, R&D and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 8,
+    "totalCenters": 8,
+    "cities": [
+      "Ahmedabad",
+      "Mumbai",
+      "Hyderabad",
+      "Bharuch",
+      "Visakhapatnam"
+    ],
+    "yearsInIndia": 18,
+    "sinceYear": 2008,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "Manufacturing",
+    "R&D",
+    "Sales & Marketing"
+  ],
+  "functions": [
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 12,
+    "categories": 10,
+    "categoryList": [
+      "ERP",
+      "Finance & Controlling",
+      "Travel & Expense Management",
+      "CDN & Edge Security",
+      "Cybersecurity",
+      "HR Management",
+      "IT Service Management",
+      "Learning Management System",
+      "Workforce Management",
+      "Data Visualisation"
+    ]
+  },
+  "leaders": {
+    "count": 33,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Site Operation Head",
+        "city": "Bharuch"
+      },
+      {
+        "title": "Associate Vice President ( AVP ) - IT",
+        "city": "TBA"
+      },
+      {
+        "title": "Vice President - Human Resources (Operations & R&D)",
+        "city": "Ahmedabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Amneal Pharmaceuticals's India footprint covers Ahmedabad, Mumbai, Hyderabad, Bharuch and Visakhapatnam, spanning manufacturing, R&D and sales & marketing. The centers deliver R&D and ER&D, Finance & Accounting, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Generic Pharmaceuticals, Pharmaceutical Manufacturing",
+    "headquarters": "Bridgewater, New Jersey, United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "5,000 to 10,000",
+    "tickerAndType": "AMRX, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 33 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Amneal Pharmaceuticals operate in India?",
+      "a": "Amneal Pharmaceuticals operates 8 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Amneal Pharmaceuticals have GCC centers in?",
+      "a": "Amneal Pharmaceuticals's India GCC footprint spans Ahmedabad, Mumbai, Hyderabad, Bharuch and Visakhapatnam."
+    },
+    {
+      "q": "What types of GCC centers does Amneal Pharmaceuticals run in India?",
+      "a": "Amneal Pharmaceuticals runs manufacturing, R&D and sales & marketing centers in India."
+    },
+    {
+      "q": "How many people work at Amneal Pharmaceuticals's India GCCs?",
+      "a": "Amneal Pharmaceuticals's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Amneal Pharmaceuticals's GCC in India?",
+      "a": "Bamboo Reports tracks 33 leaders at Amneal Pharmaceuticals's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

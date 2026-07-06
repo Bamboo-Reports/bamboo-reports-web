@@ -1,0 +1,115 @@
+{
+  "slug": "amicorp",
+  "name": "Amicorp Ltd.",
+  "shortName": "Amicorp",
+  "displayName": "Amicorp Ltd.",
+  "website": "https://www.amicorp.com",
+  "linkedin": "http://www.linkedin.com/company/amicorp",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Amicorp's GCC footprint in India",
+  "lede": "<strong>Amicorp runs two capability centers across two Indian cities.</strong> Mumbai and Bengaluru, covering gcc/gic, built over 21 years.",
+  "insight": "Search elsewhere and you will usually find one Amicorp office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Amicorp Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Amicorp runs 2 verified GCC centers across 2 Indian cities (Mumbai, Bengaluru), covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Mumbai",
+      "Bengaluru"
+    ],
+    "yearsInIndia": 21,
+    "sinceYear": 2005,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 4,
+    "categoryList": [
+      "Cloud Database",
+      "Cloud Platform",
+      "Fitness Studio Management",
+      "Talent Acquisition"
+    ]
+  },
+  "leaders": {
+    "count": 17,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Managing Director and Head Globalization Services",
+        "city": "TBA"
+      },
+      {
+        "title": "Vice President Information Technology",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Country Head - Human Resources",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Amicorp's India footprint covers Mumbai and Bengaluru, spanning gcc/gic. The centers deliver IT, Finance & Accounting, HR and Sales & Marketing for the group's global operations.",
+    "industry": "Diversified Financial Services, Financial Services",
+    "headquarters": "Hong Kong, Hong Kong, Hong Kong",
+    "revenueBand": "$251Mn to $500Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seventeen decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Amicorp operate in India?",
+      "a": "Amicorp operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Amicorp have GCC centers in?",
+      "a": "Amicorp's India GCC footprint spans Mumbai and Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does Amicorp run in India?",
+      "a": "Amicorp runs gcc/gic centers in India."
+    },
+    {
+      "q": "How many people work at Amicorp's India GCCs?",
+      "a": "Amicorp's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Amicorp's GCC in India?",
+      "a": "Bamboo Reports tracks 17 leaders at Amicorp's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

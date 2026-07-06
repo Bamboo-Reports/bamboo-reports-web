@@ -1,0 +1,112 @@
+{
+  "slug": "atmecs-global",
+  "name": "Atmecs Global Inc.",
+  "shortName": "Atmecs Global",
+  "displayName": "Atmecs Global Inc.",
+  "website": "https://www.atmecs.com",
+  "linkedin": "http://www.linkedin.com/company/atmecs-global-inc",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Atmecs Global's GCC footprint in India",
+  "lede": "<strong>Atmecs Global runs one capability center in Hyderabad.</strong> Hyderabad, covering R&D, built over eleven years.",
+  "insight": "A single Atmecs Global center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Atmecs Global Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Atmecs Global runs 1 verified GCC center in Hyderabad, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Hyderabad"
+    ],
+    "yearsInIndia": 11,
+    "sinceYear": 2015,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 3,
+    "categories": 3,
+    "categoryList": [
+      "Database",
+      "DevOps",
+      "Version Control"
+    ]
+  },
+  "leaders": {
+    "count": 17,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Director",
+        "city": "TBA"
+      },
+      {
+        "title": "Vice President, Engineering at ATMECS Global",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Associate Vice President Human Resources",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Atmecs Global's India footprint covers Hyderabad, spanning R&D. The centers deliver IT, R&D and ER&D and Sales & Marketing for the group's global operations.",
+    "industry": "IT, System Integration and Consulting Services, Corporate Services",
+    "headquarters": "Santa Clara, California, United States",
+    "revenueBand": "$101Mn to $250Mn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seventeen decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Atmecs Global operate in India?",
+      "a": "Atmecs Global operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does Atmecs Global have GCC centers in?",
+      "a": "Atmecs Global's India GCC presence is in Hyderabad."
+    },
+    {
+      "q": "What types of GCC centers does Atmecs Global run in India?",
+      "a": "Atmecs Global runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Atmecs Global's India GCCs?",
+      "a": "Atmecs Global's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Atmecs Global's GCC in India?",
+      "a": "Bamboo Reports tracks 17 leaders at Atmecs Global's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

@@ -1,0 +1,144 @@
+{
+  "slug": "3m-co",
+  "name": "3M Co.",
+  "shortName": "3M",
+  "displayName": "3M Co.",
+  "website": "https://www.3m.com",
+  "linkedin": "http://www.linkedin.com/company/3m",
+  "forbesRank": 334,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "3M's GCC footprint in India",
+  "lede": "<strong>3M operates seven capability centers across five Indian cities.</strong> The network includes Bengaluru and four additional cities, supporting manufacturing and other capability work.",
+  "insight": "Search elsewhere and you will usually find one 3M office in India. We map seven, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "3M Co. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "3M runs 7 verified GCC centers across 5 Indian cities (Bengaluru, Ahmedabad, Pune, Gurugram, Chennai), covering CoE, manufacturing, R&D and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 7,
+    "totalCenters": 8,
+    "cities": [
+      "Bengaluru",
+      "Ahmedabad",
+      "Pune",
+      "Gurugram",
+      "Chennai"
+    ],
+    "yearsInIndia": 15,
+    "sinceYear": 2011,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "Manufacturing",
+    "R&D",
+    "Sales & Marketing",
+    "CoE"
+  ],
+  "functions": [
+    "IT",
+    "R&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 11,
+    "categories": 9,
+    "categorySamples": [
+      {
+        "category": "Cloud Platform",
+        "software": [
+          "AWS",
+          "Microsoft Azure"
+        ]
+      },
+      {
+        "category": "CRM",
+        "software": [
+          "Salesforce"
+        ]
+      }
+    ],
+    "categoryList": [
+      "Cloud Platform",
+      "CRM",
+      "ERP",
+      "Human Capital Management",
+      "Data Warehouse",
+      "Global Trade Services",
+      "In-Memory Database",
+      "Materials Management",
+      "Production Planning"
+    ]
+  },
+  "leaders": {
+    "count": 26,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "COE Engineering & Site Leader (GCC Head) - Global Technology Center - 3M",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head - IT Infrastructure and Security - India Region",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Senior General Manager - Human Resources",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "3M's India centers pair product engineering with manufacturing-linked and shared-services work. The footprint supports global product development, supply-chain analytics and enterprise IT for 3M's safety, transportation and healthcare businesses.",
+    "industry": "Industrial Conglomerates, Holding Companies",
+    "headquarters": "Saint Paul, Minnesota, United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "MMM, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 26 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does 3M operate in India?",
+      "a": "3M operates 7 active Global Capability Center sites in India. Eight are on record in total, including non-operational sites."
+    },
+    {
+      "q": "Which Indian cities does 3M have GCC centers in?",
+      "a": "3M's India GCC footprint includes Bengaluru and four additional cities."
+    },
+    {
+      "q": "What types of GCC centers does 3M run in India?",
+      "a": "3M runs manufacturing and three additional center types in India."
+    },
+    {
+      "q": "How many people work at 3M's India GCCs?",
+      "a": "Aggregate and center-level headcount for 3M's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads 3M's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at 3M's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

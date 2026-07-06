@@ -87,7 +87,31 @@ export const profileDetailsSchema = z.object({
     .refine(isValidPhoneNumber, 'Please enter a valid phone number with 7 to 15 digits.'),
 });
 
-export const signupSchema = profileDetailsSchema.extend({
+const signupQualificationSchema = z.object({
+  jobTitle: z.string()
+    .transform(normalizeSpaces)
+    .refine((value) => value.length > 0, 'Job title is required.')
+    .refine((value) => value.length >= 2 && value.length <= 120, 'Please enter a valid job title.'),
+  companyOffering: z.string()
+    .transform(normalizeSpaces)
+    .refine((value) => value.length > 0, 'Please describe what your company offers.')
+    .refine((value) => value.length >= 10 && value.length <= 500, 'Please use 10 to 500 characters to describe your offering and audience.'),
+});
+
+export const signupSchema = profileDetailsSchema.merge(signupQualificationSchema).extend({
+  primaryGoal: z.enum([
+    'gcc_data',
+    'market_intelligence',
+    'lead_generation',
+    'benchmarking',
+    'other',
+  ], {
+    required_error: 'Please select what you would like to achieve.',
+    invalid_type_error: 'Please select what you would like to achieve.',
+  }),
+  primaryGoalOther: z.string()
+    .transform(normalizeSpaces)
+    .refine((value) => value.length <= 300, 'Please keep your response under 300 characters.'),
   email: z.string()
     .trim()
     .toLowerCase()
@@ -102,6 +126,13 @@ export const signupSchema = profileDetailsSchema.extend({
   confirmPassword: z.string()
     .refine((value) => value.length > 0, 'Please confirm your password.'),
 }).superRefine((values, ctx) => {
+  if (values.primaryGoal === 'other' && values.primaryGoalOther.length < 3) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: 'Please tell us what you would like to achieve.',
+      path: ['primaryGoalOther'],
+    });
+  }
   if (values.password !== values.confirmPassword) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,

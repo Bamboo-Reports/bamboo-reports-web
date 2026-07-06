@@ -1,0 +1,119 @@
+{
+  "slug": "ashley-furniture-industries",
+  "name": "Ashley Furniture Industries, Inc.",
+  "shortName": "Ashley Furniture Industries",
+  "displayName": "Ashley Furniture Industries",
+  "website": "https://www.ashley.biz",
+  "linkedin": "https://www.linkedin.com/company/ashley-furniture-industries/",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Ashley Furniture Industries's GCC footprint in India",
+  "lede": "<strong>Ashley Furniture Industries runs two capability centers across two Indian cities.</strong> Bengaluru and Chennai, covering gcc/gic, built over four years.",
+  "insight": "Search elsewhere and you will usually find one Ashley Furniture Industries office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Ashley Furniture Industries GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Ashley Furniture Industries runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Chennai), covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Bengaluru",
+      "Chennai"
+    ],
+    "yearsInIndia": 4,
+    "sinceYear": 2022,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D"
+  ],
+  "tech": {
+    "tools": 12,
+    "categories": 12,
+    "categoryList": [
+      "Asset Management",
+      "CRM",
+      "Data Visualisation",
+      "Database",
+      "DevOps",
+      "Development Framework",
+      "ERP",
+      "ERP & CRM",
+      "Human Capital Management",
+      "Legacy Development",
+      "Runtime Environment",
+      "Supply Chain Software"
+    ]
+  },
+  "leaders": {
+    "count": 11,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Senior Director - GCC Strategy & Operations",
+        "city": "Chennai"
+      },
+      {
+        "title": "Delivery Head - Business Analytics & AI Innovation",
+        "city": "Chennai"
+      },
+      {
+        "title": "Head of Learning and Development",
+        "city": "Chennai"
+      }
+    ]
+  },
+  "about": {
+    "description": "Ashley Furniture Industries's India footprint covers Bengaluru and Chennai, spanning gcc/gic. The centers deliver IT and R&D and ER&D for the group's global operations.",
+    "industry": "Household Furniture, Consumer Product",
+    "headquarters": "Arcadia, Wisconsin, United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eleven decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Ashley Furniture Industries operate in India?",
+      "a": "Ashley Furniture Industries operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Ashley Furniture Industries have GCC centers in?",
+      "a": "Ashley Furniture Industries's India GCC footprint spans Bengaluru and Chennai."
+    },
+    {
+      "q": "What types of GCC centers does Ashley Furniture Industries run in India?",
+      "a": "Ashley Furniture Industries runs gcc/gic centers in India."
+    },
+    {
+      "q": "How many people work at Ashley Furniture Industries's India GCCs?",
+      "a": "Ashley Furniture Industries's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Ashley Furniture Industries's GCC in India?",
+      "a": "Bamboo Reports tracks 11 leaders at Ashley Furniture Industries's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

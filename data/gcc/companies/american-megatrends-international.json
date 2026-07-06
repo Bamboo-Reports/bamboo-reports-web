@@ -1,0 +1,124 @@
+{
+  "slug": "american-megatrends-international",
+  "name": "American Megatrends International, LLC",
+  "shortName": "American Megatrends International",
+  "displayName": "American Megatrends International",
+  "website": "https://www.ami.com",
+  "linkedin": "http://www.linkedin.com/company/ami",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "American Megatrends International's GCC footprint in India",
+  "lede": "<strong>American Megatrends International runs four capability centers across three Indian cities.</strong> Chennai, Coimbatore and Kolkata, covering CoE, manufacturing and R&D, built over 24 years.",
+  "insight": "Search elsewhere and you will usually find one American Megatrends International office in India. We map four, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "American Megatrends International GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "American Megatrends International runs 4 verified GCC centers across 3 Indian cities (Chennai, Coimbatore, Kolkata), covering CoE, manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 4,
+    "totalCenters": 4,
+    "cities": [
+      "Chennai",
+      "Coimbatore",
+      "Kolkata"
+    ],
+    "yearsInIndia": 24,
+    "sinceYear": 2002,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "CoE",
+    "Manufacturing",
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 11,
+    "categories": 11,
+    "categoryList": [
+      "CSS Framework",
+      "Configure Price Quote",
+      "Container Orchestration",
+      "Database",
+      "Monitoring & Observability",
+      "Operating System",
+      "Programming Language",
+      "Real-Time Communication Protocol",
+      "Version Control",
+      "Web Server",
+      "eCommerce"
+    ]
+  },
+  "leaders": {
+    "count": 71,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Vice President, Global Talent Acquisition, India",
+        "city": "New Delhi"
+      },
+      {
+        "title": "Senior Manager - CISO Org India",
+        "city": "Chennai"
+      },
+      {
+        "title": "Vice President- Regional Head of Human Resources",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "American Megatrends International's India footprint covers Chennai, Coimbatore and Kolkata, spanning CoE, manufacturing and R&D. The centers deliver IT, R&D and ER&D and Customer Support for the group's global operations.",
+    "industry": "Computer Peripherals and Accessories, Computer Hardware Manufacturing",
+    "headquarters": "Duluth, Georgia, United States",
+    "revenueBand": "$251Mn to $500Mn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 71 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does American Megatrends International operate in India?",
+      "a": "American Megatrends International operates 4 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does American Megatrends International have GCC centers in?",
+      "a": "American Megatrends International's India GCC footprint spans Chennai, Coimbatore and Kolkata."
+    },
+    {
+      "q": "What types of GCC centers does American Megatrends International run in India?",
+      "a": "American Megatrends International runs CoE, manufacturing and R&D centers in India."
+    },
+    {
+      "q": "How many people work at American Megatrends International's India GCCs?",
+      "a": "American Megatrends International's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads American Megatrends International's GCC in India?",
+      "a": "Bamboo Reports tracks 71 leaders at American Megatrends International's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

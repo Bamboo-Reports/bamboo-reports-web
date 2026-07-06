@@ -1,0 +1,112 @@
+{
+  "slug": "aditi-consulting",
+  "name": "Aditi Consulting LLC",
+  "shortName": "Aditi Consulting",
+  "displayName": "Aditi Consulting LLC",
+  "website": "https://www.aditiconsulting.com",
+  "linkedin": "http://www.linkedin.com/company/aditiconsulting",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Aditi Consulting's GCC footprint in India",
+  "lede": "<strong>Aditi Consulting runs two capability centers across two Indian cities.</strong> Vadodara and Bengaluru, covering gbs and it, built over eleven years.",
+  "insight": "Search elsewhere and you will usually find one Aditi Consulting office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Aditi Consulting LLC GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Aditi Consulting runs 2 verified GCC centers across 2 Indian cities (Vadodara, Bengaluru), covering gbs and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Vadodara",
+      "Bengaluru"
+    ],
+    "yearsInIndia": 11,
+    "sinceYear": 2015,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "GBS",
+    "IT"
+  ],
+  "functions": [
+    "IT",
+    "HR"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 4,
+    "categoryList": [
+      "API Development",
+      "Continuous Integration and Delivery",
+      "Programming Language",
+      "Web Development Framework"
+    ]
+  },
+  "leaders": {
+    "count": 3,
+    "departments": "IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Country Head - India",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Assistant Vice President - Engineering",
+        "city": "Pune"
+      },
+      {
+        "title": "Associate Director - People & Culture",
+        "city": "Vadodara"
+      }
+    ]
+  },
+  "about": {
+    "description": "Aditi Consulting's India footprint covers Vadodara and Bengaluru, spanning gbs and it. The centers deliver IT and HR for the group's global operations.",
+    "industry": "Electronic Payment Systems, Financial Services",
+    "headquarters": "Bellevue, Washington, United States",
+    "revenueBand": "$251Mn to $500Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Aditi Consulting operate in India?",
+      "a": "Aditi Consulting operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Aditi Consulting have GCC centers in?",
+      "a": "Aditi Consulting's India GCC footprint spans Vadodara and Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does Aditi Consulting run in India?",
+      "a": "Aditi Consulting runs gbs and it centers in India."
+    },
+    {
+      "q": "How many people work at Aditi Consulting's India GCCs?",
+      "a": "Aditi Consulting's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Aditi Consulting's GCC in India?",
+      "a": "Bamboo Reports tracks 3 leaders at Aditi Consulting's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

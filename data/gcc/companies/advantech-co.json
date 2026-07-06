@@ -1,0 +1,114 @@
+{
+  "slug": "advantech-co",
+  "name": "Advantech Co., Ltd.",
+  "shortName": "Advantech",
+  "displayName": "Advantech Co., Ltd.",
+  "website": "https://www.advantech.com",
+  "linkedin": "http://www.linkedin.com/company/advantech",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Advantech's GCC footprint in India",
+  "lede": "<strong>Advantech runs three capability centers across three Indian cities.</strong> Bengaluru, Pune and Jaipur, covering engineering & design, R&D and sales & marketing, built over fourteen years.",
+  "insight": "Search elsewhere and you will usually find one Advantech office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Advantech Co., Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Advantech runs 3 verified GCC centers across 3 Indian cities (Bengaluru, Pune, Jaipur), covering engineering & design, R&D and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Bengaluru",
+      "Pune",
+      "Jaipur"
+    ],
+    "yearsInIndia": 14,
+    "sinceYear": 2012,
+    "headcountBand": "101 to 200",
+    "headcountBandLong": "101 to 200"
+  },
+  "centerTypes": [
+    "Engineering & Design",
+    "R&D",
+    "Sales & Marketing"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 4,
+    "categoryList": [
+      "CRM",
+      "Governance Risk & Compliance",
+      "Materials Management",
+      "Retail Management"
+    ]
+  },
+  "leaders": {
+    "count": 3,
+    "departments": "GCC leadership",
+    "titles": [
+      {
+        "title": "Head of Department - Service",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Sr IIoT Marketing Manager",
+        "city": "Pune"
+      }
+    ]
+  },
+  "about": {
+    "description": "Advantech's India footprint covers Bengaluru, Pune and Jaipur, spanning engineering & design, R&D and sales & marketing. The centers deliver IT, R&D and ER&D, Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "Industrial Automation & Robotics, Industrial Manufacturing",
+    "headquarters": "Taipei, Taipei, Taiwan",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "5,000 to 10,000",
+    "tickerAndType": "2395, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Advantech operate in India?",
+      "a": "Advantech operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Advantech have GCC centers in?",
+      "a": "Advantech's India GCC footprint spans Bengaluru, Pune and Jaipur."
+    },
+    {
+      "q": "What types of GCC centers does Advantech run in India?",
+      "a": "Advantech runs engineering & design, R&D and sales & marketing centers in India."
+    },
+    {
+      "q": "How many people work at Advantech's India GCCs?",
+      "a": "Advantech's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Advantech's GCC in India?",
+      "a": "Bamboo Reports tracks 3 leaders at Advantech's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

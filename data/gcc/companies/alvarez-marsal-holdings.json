@@ -1,0 +1,114 @@
+{
+  "slug": "alvarez-marsal-holdings",
+  "name": "Alvarez & Marsal Holdings, LLC",
+  "shortName": "Alvarez & Marsal",
+  "displayName": "Alvarez & Marsal",
+  "website": "https://www.alvarezandmarsal.com",
+  "linkedin": "http://www.linkedin.com/company/alvarez-&-marsal",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Alvarez & Marsal's GCC footprint in India",
+  "lede": "<strong>Alvarez & Marsal runs two capability centers across two Indian cities.</strong> New Delhi and Bengaluru, covering gcc/gic and ssc, built over four years.",
+  "insight": "Search elsewhere and you will usually find one Alvarez & Marsal office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Alvarez & Marsal GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Alvarez & Marsal runs 2 verified GCC centers across 2 Indian cities (New Delhi, Bengaluru), covering gcc/gic and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "New Delhi",
+      "Bengaluru"
+    ],
+    "yearsInIndia": 4,
+    "sinceYear": 2022,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "GCC/GIC",
+    "SSC"
+  ],
+  "functions": [
+    "Finance & Accounting",
+    "HR"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 4,
+    "categoryList": [
+      "Data Visualisation",
+      "Cloud Platform",
+      "Data Analytics",
+      "Human Capital Management"
+    ]
+  },
+  "leaders": {
+    "count": 9,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Managing Director and Head A&M India and Global Capability Centre",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Technology Consulting- Senior director",
+        "city": "TBA"
+      },
+      {
+        "title": "Director - People & Talent",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Alvarez & Marsal's India footprint covers New Delhi and Bengaluru, spanning gcc/gic and ssc. The centers deliver Finance & Accounting and HR for the group's global operations.",
+    "industry": "Business Services, Corporate Services",
+    "headquarters": "New York, New York, United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "5,000 to 10,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all nine decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Alvarez & Marsal operate in India?",
+      "a": "Alvarez & Marsal operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Alvarez & Marsal have GCC centers in?",
+      "a": "Alvarez & Marsal's India GCC footprint spans New Delhi and Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does Alvarez & Marsal run in India?",
+      "a": "Alvarez & Marsal runs gcc/gic and ssc centers in India."
+    },
+    {
+      "q": "How many people work at Alvarez & Marsal's India GCCs?",
+      "a": "Alvarez & Marsal's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Alvarez & Marsal's GCC in India?",
+      "a": "Bamboo Reports tracks 9 leaders at Alvarez & Marsal's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

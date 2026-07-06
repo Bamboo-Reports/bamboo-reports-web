@@ -1,0 +1,116 @@
+{
+  "slug": "blackboard",
+  "name": "Blackboard Inc. (Merged with Anthology Inc.)",
+  "shortName": "Blackboard",
+  "displayName": "Blackboard",
+  "website": "https://www.anthology.com",
+  "linkedin": "http://www.linkedin.com/company/anthologyinc",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Blackboard's GCC footprint in India",
+  "lede": "<strong>Blackboard runs two capability centers across two Indian cities.</strong> Chennai and Bengaluru, covering it and R&D, built over eleven years.",
+  "insight": "Search elsewhere and you will usually find one Blackboard office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Blackboard GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Blackboard runs 2 verified GCC centers across 2 Indian cities (Chennai, Bengaluru), covering it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Chennai",
+      "Bengaluru"
+    ],
+    "yearsInIndia": 11,
+    "sinceYear": 2015,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "IT",
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "HR",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 3,
+    "categoryList": [
+      "Cloud Platform",
+      "DevOps",
+      "Project Management Methodology"
+    ]
+  },
+  "leaders": {
+    "count": 5,
+    "departments": "IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Global Chief Information Officer",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Director Software Engineering",
+        "city": "Chennai"
+      },
+      {
+        "title": "Director, Talent & People",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Blackboard's India footprint covers Chennai and Bengaluru, spanning it and R&D. The centers deliver IT, R&D and ER&D, HR and Sales & Marketing for the group's global operations.",
+    "industry": "Education and Training Software, Industry-Specific Software",
+    "headquarters": "Boca Raton, Florida, United States",
+    "revenueBand": "$501Mn to $1Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Merger"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all five decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Blackboard operate in India?",
+      "a": "Blackboard operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Blackboard have GCC centers in?",
+      "a": "Blackboard's India GCC footprint spans Chennai and Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does Blackboard run in India?",
+      "a": "Blackboard runs it and R&D centers in India."
+    },
+    {
+      "q": "How many people work at Blackboard's India GCCs?",
+      "a": "Blackboard's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Blackboard's GCC in India?",
+      "a": "Bamboo Reports tracks 5 leaders at Blackboard's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

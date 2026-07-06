@@ -1,0 +1,109 @@
+{
+  "slug": "applyboard",
+  "name": "ApplyBoard Inc.",
+  "shortName": "ApplyBoard",
+  "displayName": "ApplyBoard Inc.",
+  "website": "https://www.applyboard.com",
+  "linkedin": "http://www.linkedin.com/company/applyboard",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "ApplyBoard's GCC footprint in India",
+  "lede": "<strong>ApplyBoard runs one capability center in Gurugram.</strong> Gurugram, covering gcc/gic, built over five years.",
+  "insight": "A single ApplyBoard center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "ApplyBoard Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "ApplyBoard runs 1 verified GCC center in Gurugram, covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Gurugram"
+    ],
+    "yearsInIndia": 5,
+    "sinceYear": 2021,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "HR"
+  ],
+  "tech": {
+    "tools": 1,
+    "categories": 1,
+    "categoryList": [
+      "Human Capital Management"
+    ]
+  },
+  "leaders": {
+    "count": 4,
+    "departments": "HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Country Head",
+        "city": "Gurugram"
+      },
+      {
+        "title": "Head of Recruitment, India | Enabling Scalable Growth in International Student Success",
+        "city": "New Delhi"
+      },
+      {
+        "title": "Enterprise Sales Head - Value Solutions",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "ApplyBoard's India footprint covers Gurugram, spanning gcc/gic. The centers deliver IT and HR for the group's global operations.",
+    "industry": "Education and Training Software, Industry-Specific Software",
+    "headquarters": "Kitchener, Ontario, Canada",
+    "revenueBand": "$101Mn to $250Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all four decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does ApplyBoard operate in India?",
+      "a": "ApplyBoard operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does ApplyBoard have GCC centers in?",
+      "a": "ApplyBoard's India GCC presence is in Gurugram."
+    },
+    {
+      "q": "What types of GCC centers does ApplyBoard run in India?",
+      "a": "ApplyBoard runs gcc/gic centers in India."
+    },
+    {
+      "q": "How many people work at ApplyBoard's India GCCs?",
+      "a": "ApplyBoard's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads ApplyBoard's GCC in India?",
+      "a": "Bamboo Reports tracks 4 leaders at ApplyBoard's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "adama-agricultural-solutions",
+  "name": "Adama Agricultural Solutions Ltd.",
+  "shortName": "Adama Agricultural Solutions",
+  "displayName": "Adama Agricultural Solutions",
+  "website": "https://www.adama.com",
+  "linkedin": "http://www.linkedin.com/company/adamaus",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Adama Agricultural Solutions's GCC footprint in India",
+  "lede": "<strong>Adama Agricultural Solutions runs two capability centers across two Indian cities.</strong> Bharuch and Hyderabad, covering manufacturing and R&D, built over eleven years.",
+  "insight": "Search elsewhere and you will usually find one Adama Agricultural Solutions office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Adama Agricultural Solutions GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Adama Agricultural Solutions runs 2 verified GCC centers across 2 Indian cities (Bharuch, Hyderabad), covering manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Bharuch",
+      "Hyderabad"
+    ],
+    "yearsInIndia": 11,
+    "sinceYear": 2015,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "Manufacturing",
+    "R&D"
+  ],
+  "functions": [
+    "R&D and ER&D",
+    "HR"
+  ],
+  "tech": {
+    "tools": 6,
+    "categories": 4,
+    "categoryList": [
+      "ERP",
+      "Graphic Design",
+      "Cloud Platform",
+      "Production Planning"
+    ]
+  },
+  "leaders": {
+    "count": 13,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "General Manager of ADAMA India",
+        "city": "TBA"
+      },
+      {
+        "title": "General Manager -IT",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Head of People",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Adama Agricultural Solutions's India footprint covers Bharuch and Hyderabad, spanning manufacturing and R&D. The centers deliver R&D and ER&D and HR for the group's global operations.",
+    "industry": "Agricultural Chemicals, Chemicals Manufacturing",
+    "headquarters": "Tel Aviv, Tel Aviv District, Israel",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "5,000 to 10,000",
+    "tickerAndType": "000553, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all thirteen decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Adama Agricultural Solutions operate in India?",
+      "a": "Adama Agricultural Solutions operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Adama Agricultural Solutions have GCC centers in?",
+      "a": "Adama Agricultural Solutions's India GCC footprint spans Bharuch and Hyderabad."
+    },
+    {
+      "q": "What types of GCC centers does Adama Agricultural Solutions run in India?",
+      "a": "Adama Agricultural Solutions runs manufacturing and R&D centers in India."
+    },
+    {
+      "q": "How many people work at Adama Agricultural Solutions's India GCCs?",
+      "a": "Adama Agricultural Solutions's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Adama Agricultural Solutions's GCC in India?",
+      "a": "Bamboo Reports tracks 13 leaders at Adama Agricultural Solutions's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

@@ -1,0 +1,106 @@
+{
+  "slug": "arch-capital-group",
+  "name": "Arch Capital Group Ltd.",
+  "shortName": "Arch Capital",
+  "displayName": "Arch Capital Group Ltd.",
+  "website": "https://www.archgroup.com",
+  "linkedin": "https://www.linkedin.com/company/arch-capital-services-llc/",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Arch Capital's GCC footprint in India",
+  "lede": "<strong>Arch Capital runs three capability centers across three Indian cities.</strong> Pune, Thiruvananthapuram and Hyderabad, covering gcc/gic and it.",
+  "insight": "Search elsewhere and you will usually find one Arch Capital office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Arch Capital Group Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Arch Capital runs 3 verified GCC centers across 3 Indian cities (Pune, Thiruvananthapuram, Hyderabad), covering gcc/gic and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Pune",
+      "Thiruvananthapuram",
+      "Hyderabad"
+    ],
+    "yearsInIndia": 1,
+    "sinceYear": 2025,
+    "headcountBand": "<50",
+    "headcountBandLong": "<50"
+  },
+  "centerTypes": [
+    "GCC/GIC",
+    "IT"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 5,
+    "categoryList": [
+      "Cloud Platform",
+      "Digital Marketing Platform",
+      "Productivity Suite",
+      "Graphic Design",
+      "Spreadsheet"
+    ]
+  },
+  "leaders": {
+    "count": 1,
+    "departments": "IT",
+    "titles": [
+      {
+        "title": "Head of Technology & Operations, ARCH Global Services India",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Arch Capital's India footprint covers Pune, Thiruvananthapuram and Hyderabad, spanning gcc/gic and it. The centers deliver IT and Finance & Accounting for the group's global operations.",
+    "industry": "Specialty Insurance, Insurance",
+    "headquarters": "Pembroke, Hamilton, Bermuda",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "5,000 to 10,000",
+    "tickerAndType": "ACGL, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Arch Capital operate in India?",
+      "a": "Arch Capital operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Arch Capital have GCC centers in?",
+      "a": "Arch Capital's India GCC footprint spans Pune, Thiruvananthapuram and Hyderabad."
+    },
+    {
+      "q": "What types of GCC centers does Arch Capital run in India?",
+      "a": "Arch Capital runs gcc/gic and it centers in India."
+    },
+    {
+      "q": "How many people work at Arch Capital's India GCCs?",
+      "a": "Arch Capital's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Arch Capital's GCC in India?",
+      "a": "Bamboo Reports tracks 1 leaders at Arch Capital's India centers, across IT. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

@@ -1,0 +1,111 @@
+{
+  "slug": "birst",
+  "name": "Birst (Accquired by Infor Inc.)",
+  "shortName": "Birst",
+  "displayName": "Birst",
+  "website": "https://www.infor.com",
+  "linkedin": "http://www.linkedin.com/company/infor",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Birst's GCC footprint in India",
+  "lede": "<strong>Birst runs one capability center in Ahmedabad.</strong> Ahmedabad, covering it, built over nine years.",
+  "insight": "A single Birst center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Birst GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Birst runs 1 verified GCC center in Ahmedabad, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Ahmedabad"
+    ],
+    "yearsInIndia": 9,
+    "sinceYear": 2017,
+    "headcountBand": "101 to 200",
+    "headcountBandLong": "101 to 200"
+  },
+  "centerTypes": [
+    "IT"
+  ],
+  "functions": [
+    "IT"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 4,
+    "categoryList": [
+      "Data Warehouse",
+      "Database",
+      "Infrastructure as Code",
+      "Version Control"
+    ]
+  },
+  "leaders": {
+    "count": 21,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Vice President & Managing Director - Indian Subcontinent",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Vice President, Software Development",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Senior Director and Head - HR",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Birst's India footprint covers Ahmedabad, spanning it. The centers deliver IT for the group's global operations.",
+    "industry": "Enterprise Resource Planning Software, Business Software Solutions",
+    "headquarters": "New York, New York, United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "ACQMP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 21 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Birst operate in India?",
+      "a": "Birst operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does Birst have GCC centers in?",
+      "a": "Birst's India GCC presence is in Ahmedabad."
+    },
+    {
+      "q": "What types of GCC centers does Birst run in India?",
+      "a": "Birst runs it centers in India."
+    },
+    {
+      "q": "How many people work at Birst's India GCCs?",
+      "a": "Birst's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Birst's GCC in India?",
+      "a": "Bamboo Reports tracks 21 leaders at Birst's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

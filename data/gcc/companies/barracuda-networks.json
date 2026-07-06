@@ -1,0 +1,118 @@
+{
+  "slug": "barracuda-networks",
+  "name": "Barracuda Networks, Inc.",
+  "shortName": "Barracuda Networks",
+  "displayName": "Barracuda Networks, Inc.",
+  "website": "https://www.barracuda.com",
+  "linkedin": "http://www.linkedin.com/company/barracuda-networks",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Barracuda Networks's GCC footprint in India",
+  "lede": "<strong>Barracuda Networks runs two capability centers across two Indian cities.</strong> Bengaluru and Pune, covering it and R&D, built over 26 years.",
+  "insight": "Search elsewhere and you will usually find one Barracuda Networks office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Barracuda Networks, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Barracuda Networks runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Pune), covering it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Bengaluru",
+      "Pune"
+    ],
+    "yearsInIndia": 26,
+    "sinceYear": 2000,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "IT",
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "HR",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 9,
+    "categories": 6,
+    "categoryList": [
+      "Cloud Platform",
+      "CRM",
+      "Container Orchestration",
+      "Containerisation",
+      "Database",
+      "Privacy & Compliance"
+    ]
+  },
+  "leaders": {
+    "count": 10,
+    "departments": "IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Managing Director & Vice president",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Vice President of Support - APAC",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Human Resources Director",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Barracuda Networks's India footprint covers Bengaluru and Pune, spanning it and R&D. The centers deliver IT, R&D and ER&D, HR and Sales & Marketing for the group's global operations.",
+    "industry": "Security Software, Security and Compliance Software",
+    "headquarters": "Campbell, California, United States",
+    "revenueBand": "$251Mn to $500Mn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "ACQSP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all ten decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Barracuda Networks operate in India?",
+      "a": "Barracuda Networks operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Barracuda Networks have GCC centers in?",
+      "a": "Barracuda Networks's India GCC footprint spans Bengaluru and Pune."
+    },
+    {
+      "q": "What types of GCC centers does Barracuda Networks run in India?",
+      "a": "Barracuda Networks runs it and R&D centers in India."
+    },
+    {
+      "q": "How many people work at Barracuda Networks's India GCCs?",
+      "a": "Barracuda Networks's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Barracuda Networks's GCC in India?",
+      "a": "Bamboo Reports tracks 10 leaders at Barracuda Networks's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

@@ -1,0 +1,105 @@
+{
+  "slug": "ball",
+  "name": "Ball Corp.",
+  "shortName": "Ball",
+  "displayName": "Ball Corp.",
+  "website": "https://www.ball.com",
+  "linkedin": "https://www.linkedin.com/company/ball-corporation",
+  "forbesRank": null,
+  "fortuneRank": 278,
+  "badges": [],
+  "h1": "Ball's GCC footprint in India",
+  "lede": "<strong>Ball runs three capability centers across three Indian cities.</strong> Ahmedabad, Navi Mumbai and Tirupati, covering manufacturing, built over twenty years.",
+  "insight": "Search elsewhere and you will usually find one Ball office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Ball Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Ball runs 3 verified GCC centers across 3 Indian cities (Ahmedabad, Navi Mumbai, Tirupati), covering manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Ahmedabad",
+      "Navi Mumbai",
+      "Tirupati"
+    ],
+    "yearsInIndia": 20,
+    "sinceYear": 2006,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "Manufacturing"
+  ],
+  "functions": [
+    "Details in the full profile"
+  ],
+  "tech": {
+    "tools": 2,
+    "categories": 2,
+    "categoryList": [
+      "ERP",
+      "Productivity Suite"
+    ]
+  },
+  "leaders": {
+    "count": 2,
+    "departments": "HR and GCC leadership",
+    "titles": [
+      {
+        "title": "• Developed growth strategy and managed execution with country management team for all entities of Ball in Asia, including JV in Vietnam and other units in Hong Kong, Singapore and Thailand.\n• Managed combined business of - Revenue of US$400m, - P&L size of US$76m and - Operating Cash Flow of US$71m - Integral part of Core team to facilitate US$115m capex investment into our two facilities in Taloja n Sricity to augment our India business growth story. Managing profitable growth for APAC business and responsible for delivering financial metrics for the Region QoQ. OE n CF delivered higher than estimates consistently for last 5 years. • Leading a team of 2 direct reports (Country FMs India , Myanmar) and 3 dotted line reportees( Finance Director Vietnam, Regional FP&A and Commercial Finance)",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head - Human Resources",
+        "city": "Mumbai"
+      }
+    ]
+  },
+  "about": {
+    "description": "Ball's India footprint covers Ahmedabad, Navi Mumbai and Tirupati, spanning manufacturing. The centers deliver capability work for the group's global operations.",
+    "industry": "Construction Engineering Services, Construction & Engineering",
+    "headquarters": "Westminster, Colorado, United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Ball operate in India?",
+      "a": "Ball operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Ball have GCC centers in?",
+      "a": "Ball's India GCC footprint spans Ahmedabad, Navi Mumbai and Tirupati."
+    },
+    {
+      "q": "What types of GCC centers does Ball run in India?",
+      "a": "Ball runs manufacturing centers in India."
+    },
+    {
+      "q": "How many people work at Ball's India GCCs?",
+      "a": "Ball's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Ball's GCC in India?",
+      "a": "Bamboo Reports tracks 2 leaders at Ball's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

@@ -1,0 +1,123 @@
+{
+  "slug": "atkinsrealis-group",
+  "name": "AtkinsRealis Group Inc.",
+  "shortName": "AtkinsRealis",
+  "displayName": "AtkinsRealis Group Inc.",
+  "website": "https://www.atkinsrealis.com",
+  "linkedin": "http://www.linkedin.com/company/atkinsrealis",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "AtkinsRealis's GCC footprint in India",
+  "lede": "<strong>AtkinsRealis runs three capability centers across three Indian cities.</strong> Gurugram, Mumbai and Bengaluru, covering CoE and ssc, built over nineteen years.",
+  "insight": "Search elsewhere and you will usually find one AtkinsRealis office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "AtkinsRealis Group Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "AtkinsRealis runs 3 verified GCC centers across 3 Indian cities (Gurugram, Mumbai, Bengaluru), covering CoE and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Gurugram",
+      "Mumbai",
+      "Bengaluru"
+    ],
+    "yearsInIndia": 19,
+    "sinceYear": 2007,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "CoE",
+    "SSC"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement"
+  ],
+  "tech": {
+    "tools": 9,
+    "categories": 9,
+    "categoryList": [
+      "Application Delivery",
+      "Build Tool",
+      "CAD",
+      "Cloud Platform",
+      "Collaboration & Messaging",
+      "Diagramming",
+      "Firewall",
+      "Network Management",
+      "Test Automation"
+    ]
+  },
+  "leaders": {
+    "count": 26,
+    "departments": "Finance, IT and HR",
+    "titles": [
+      {
+        "title": "Chief Executive Officer - Global Technology Centre",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Global Head HR Business Intelligence (People Analytics & Organization Centre of Excellence)",
+        "city": "TBA"
+      },
+      {
+        "title": "Head of Operations",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "AtkinsRealis's India footprint covers Gurugram, Mumbai and Bengaluru, spanning CoE and ssc. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Construction Engineering Services, Construction & Engineering",
+    "headquarters": "Montreal, Quebec, Canada",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "ACQSP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 26 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does AtkinsRealis operate in India?",
+      "a": "AtkinsRealis operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does AtkinsRealis have GCC centers in?",
+      "a": "AtkinsRealis's India GCC footprint spans Gurugram, Mumbai and Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does AtkinsRealis run in India?",
+      "a": "AtkinsRealis runs CoE and ssc centers in India."
+    },
+    {
+      "q": "How many people work at AtkinsRealis's India GCCs?",
+      "a": "AtkinsRealis's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads AtkinsRealis's GCC in India?",
+      "a": "Bamboo Reports tracks 26 leaders at AtkinsRealis's India centers, across Finance, IT and HR. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

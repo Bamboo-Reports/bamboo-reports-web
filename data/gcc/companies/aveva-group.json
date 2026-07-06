@@ -1,0 +1,120 @@
+{
+  "slug": "aveva-group",
+  "name": "Aveva Group plc",
+  "shortName": "Aveva",
+  "displayName": "Aveva Group plc",
+  "website": "https://www.aveva.com",
+  "linkedin": "http://www.linkedin.com/company/aveva",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Aveva's GCC footprint in India",
+  "lede": "<strong>Aveva runs three capability centers across three Indian cities.</strong> Mumbai, Bengaluru and Hyderabad, covering CoE and R&D, built over 25 years.",
+  "insight": "Search elsewhere and you will usually find one Aveva office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Aveva Group plc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Aveva runs 3 verified GCC centers across 3 Indian cities (Mumbai, Bengaluru, Hyderabad), covering CoE and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Mumbai",
+      "Bengaluru",
+      "Hyderabad"
+    ],
+    "yearsInIndia": 25,
+    "sinceYear": 2001,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "CoE",
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 5,
+    "categoryList": [
+      "Cloud Platform",
+      "Database Query Language",
+      "Development Framework",
+      "Integration Platform",
+      "Serverless Computing"
+    ]
+  },
+  "leaders": {
+    "count": 21,
+    "departments": "Finance, IT and HR",
+    "titles": [
+      {
+        "title": "Head of Platform Development",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Head HR",
+        "city": "Chhatrapati Sambhajinagar"
+      },
+      {
+        "title": "Vice President and Head of Finance - Asia Pacific",
+        "city": "Mumbai"
+      }
+    ]
+  },
+  "about": {
+    "description": "Aveva's India footprint covers Mumbai, Bengaluru and Hyderabad, spanning CoE and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "IT, System Integration and Consulting Services, Corporate Services",
+    "headquarters": "Cambridge, Massachusetts, United Kingdom",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "5,000 to 10,000",
+    "tickerAndType": "ACQSP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 21 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Aveva operate in India?",
+      "a": "Aveva operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Aveva have GCC centers in?",
+      "a": "Aveva's India GCC footprint spans Mumbai, Bengaluru and Hyderabad."
+    },
+    {
+      "q": "What types of GCC centers does Aveva run in India?",
+      "a": "Aveva runs CoE and R&D centers in India."
+    },
+    {
+      "q": "How many people work at Aveva's India GCCs?",
+      "a": "Aveva's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Aveva's GCC in India?",
+      "a": "Bamboo Reports tracks 21 leaders at Aveva's India centers, across Finance, IT and HR. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

@@ -1,0 +1,116 @@
+{
+  "slug": "admiral-group",
+  "name": "Admiral Group plc",
+  "shortName": "Admiral",
+  "displayName": "Admiral Group plc",
+  "website": "https://www.admiralgroup.co.uk",
+  "linkedin": "http://www.linkedin.com/company/admiral-group-plc",
+  "forbesRank": 1528,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Admiral's GCC footprint in India",
+  "lede": "<strong>Admiral runs two capability centers in Gurugram.</strong> Gurugram, covering CoE and gcc/gic, built over fourteen years.",
+  "insight": "Search elsewhere and you will usually find one Admiral office in India. We map two, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Admiral Group plc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Admiral runs 2 verified GCC centers in Gurugram, covering CoE and gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Gurugram"
+    ],
+    "yearsInIndia": 14,
+    "sinceYear": 2012,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "CoE",
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 9,
+    "categories": 5,
+    "categoryList": [
+      "Cloud Platform",
+      "Programming Language",
+      "Web Development Framework",
+      "Container Orchestration",
+      "State Management Library"
+    ]
+  },
+  "leaders": {
+    "count": 10,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Country Head",
+        "city": "Gurugram"
+      },
+      {
+        "title": "Head of Engineering",
+        "city": "New Delhi"
+      },
+      {
+        "title": "Head Of People Services",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "Admiral's India footprint covers Gurugram, spanning CoE and gcc/gic. The centers deliver IT, Finance & Accounting, HR and Customer Support for the group's global operations.",
+    "industry": "Multiline Insurance, Insurance",
+    "headquarters": "Cardiff, Wales, United Kingdom",
+    "revenueBand": "$5Bn to $10Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "ADM, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all ten decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Admiral operate in India?",
+      "a": "Admiral operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Admiral have GCC centers in?",
+      "a": "Admiral's India GCC presence is in Gurugram."
+    },
+    {
+      "q": "What types of GCC centers does Admiral run in India?",
+      "a": "Admiral runs CoE and gcc/gic centers in India."
+    },
+    {
+      "q": "How many people work at Admiral's India GCCs?",
+      "a": "Admiral's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Admiral's GCC in India?",
+      "a": "Bamboo Reports tracks 10 leaders at Admiral's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

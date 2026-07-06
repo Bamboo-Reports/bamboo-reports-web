@@ -1,0 +1,118 @@
+{
+  "slug": "amadeus-it-group",
+  "name": "Amadeus IT Group, S.A.",
+  "shortName": "Amadeus IT",
+  "displayName": "Amadeus IT Group, S.A.",
+  "website": "https://www.amadeus.com",
+  "linkedin": "http://www.linkedin.com/company/amadeus",
+  "forbesRank": 1082,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Amadeus IT's GCC footprint in India",
+  "lede": "<strong>Amadeus IT runs two capability centers across two Indian cities.</strong> Pune and Bengaluru, covering R&D, built over fourteen years.",
+  "insight": "Search elsewhere and you will usually find one Amadeus IT office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Amadeus IT Group, S.A. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Amadeus IT runs 2 verified GCC centers across 2 Indian cities (Pune, Bengaluru), covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Pune",
+      "Bengaluru"
+    ],
+    "yearsInIndia": 14,
+    "sinceYear": 2012,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 5,
+    "categoryList": [
+      "Business Intelligence",
+      "Cloud Platform",
+      "Database Administration",
+      "ERP Administration",
+      "Human Capital Management"
+    ]
+  },
+  "leaders": {
+    "count": 79,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "CEO @Amadeus India | Travel Technology | Big Data | GCC | Payments | Product | E-commerce | MBA @ FMS, Delhi",
+        "city": "New Delhi"
+      },
+      {
+        "title": "Head of Airlines IT APAC Amadeus",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "HR- Head",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Amadeus IT's India footprint covers Pune and Bengaluru, spanning R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "IT, System Integration and Consulting Services, Corporate Services",
+    "headquarters": "Madrid, Madrid, Spain",
+    "revenueBand": "$5Bn to $10Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "AMS, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 79 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Amadeus IT operate in India?",
+      "a": "Amadeus IT operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Amadeus IT have GCC centers in?",
+      "a": "Amadeus IT's India GCC footprint spans Pune and Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does Amadeus IT run in India?",
+      "a": "Amadeus IT runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Amadeus IT's India GCCs?",
+      "a": "Amadeus IT's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Amadeus IT's GCC in India?",
+      "a": "Bamboo Reports tracks 79 leaders at Amadeus IT's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

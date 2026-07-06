@@ -1,0 +1,154 @@
+{
+  "slug": "accenture",
+  "name": "Accenture plc",
+  "shortName": "Accenture",
+  "displayName": "Accenture plc",
+  "website": "https://www.accenture.com",
+  "linkedin": "http://www.linkedin.com/company/accenture",
+  "forbesRank": 160,
+  "fortuneRank": 211,
+  "badges": [],
+  "h1": "Accenture's GCC footprint in India",
+  "lede": "<strong>Accenture runs 23 capability centers across thirteen Indian cities.</strong> Mumbai, Bengaluru, Gurugram, Hyderabad, Chennai, Gandhinagar, Noida, Coimbatore, Kolkata, Pune, Bhubaneswar, Indore and Jaipur, covering CoE, gbs, it, R&D and sales & marketing, built over 36 years.",
+  "insight": "Search elsewhere and you will usually find one Accenture office in India. We map 23, across thirteen cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Accenture plc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Accenture runs 23 verified GCC centers across 13 Indian cities (Mumbai, Bengaluru, Gurugram, Hyderabad, Chennai, Gandhinagar, Noida, Coimbatore, Kolkata, Pune, Bhubaneswar, Indore, Jaipur), covering CoE, gbs, it, R&D and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 23,
+    "totalCenters": 23,
+    "cities": [
+      "Mumbai",
+      "Bengaluru",
+      "Gurugram",
+      "Hyderabad",
+      "Chennai",
+      "Gandhinagar",
+      "Noida",
+      "Coimbatore",
+      "Kolkata",
+      "Pune",
+      "Bhubaneswar",
+      "Indore",
+      "Jaipur"
+    ],
+    "yearsInIndia": 36,
+    "sinceYear": 1990,
+    "headcountBand": ">10K",
+    "headcountBandLong": ">10K"
+  },
+  "centerTypes": [
+    "CoE",
+    "GBS",
+    "IT",
+    "R&D",
+    "Sales & Marketing"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 38,
+    "categories": 28,
+    "categoryList": [
+      "Cloud Platform",
+      "ERP",
+      "Human Capital Management",
+      "Marketing Automation",
+      "Containerisation",
+      "Cloud Security",
+      "Data Visualisation",
+      "Talent Management",
+      "Utilities Industry Solution",
+      "Programming Language",
+      "Version Control",
+      "CRM",
+      "Container Orchestration",
+      "Data Warehouse",
+      "DevOps",
+      "Big Data",
+      "Big Data Platform",
+      "Build Tool",
+      "Continuous Integration and Delivery",
+      "Data Format",
+      "Database",
+      "Earned Value Management",
+      "IT Automation",
+      "IT Service Management",
+      "In-Memory Database",
+      "Infrastructure as Code",
+      "Integrated Business Planning",
+      "Project Management"
+    ]
+  },
+  "leaders": {
+    "count": 825,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Chief Technology Officer (Sales and Service)",
+        "city": "TBA"
+      },
+      {
+        "title": "Chief Technology Offier, Senior Managing Director - Accenture Operations",
+        "city": "TBA"
+      },
+      {
+        "title": "Corporate Function Global HR for CIO/Information Security/Asset Engineering Hub",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Accenture's India footprint covers Mumbai, Bengaluru, Gurugram, Hyderabad, Chennai, Gandhinagar, Noida, Coimbatore, Kolkata, Pune, Bhubaneswar, Indore and Jaipur, spanning CoE, gbs, it, R&D and sales & marketing. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "IT, System Integration and Consulting Services, Corporate Services",
+    "headquarters": "Dublin, Dublin, Ireland",
+    "revenueBand": ">$50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "ACN, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 825 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Accenture operate in India?",
+      "a": "Accenture operates 23 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Accenture have GCC centers in?",
+      "a": "Accenture's India GCC footprint spans Mumbai, Bengaluru, Gurugram, Hyderabad, Chennai, Gandhinagar, Noida, Coimbatore, Kolkata, Pune, Bhubaneswar, Indore and Jaipur."
+    },
+    {
+      "q": "What types of GCC centers does Accenture run in India?",
+      "a": "Accenture runs CoE, gbs, it, R&D and sales & marketing centers in India."
+    },
+    {
+      "q": "How many people work at Accenture's India GCCs?",
+      "a": "Accenture's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Accenture's GCC in India?",
+      "a": "Bamboo Reports tracks 825 leaders at Accenture's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

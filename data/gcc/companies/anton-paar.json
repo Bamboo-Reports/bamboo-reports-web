@@ -1,0 +1,106 @@
+{
+  "slug": "anton-paar",
+  "name": "Anton Paar GmbH",
+  "shortName": "Anton Paar",
+  "displayName": "Anton Paar GmbH",
+  "website": "https://www.anton-paar.com",
+  "linkedin": "http://www.linkedin.com/company/anton-paar-gmbh",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Anton Paar's GCC footprint in India",
+  "lede": "<strong>Anton Paar runs two capability centers across two Indian cities.</strong> Gurugram and Thane, covering gbs and sales & marketing, built over eighteen years.",
+  "insight": "Search elsewhere and you will usually find one Anton Paar office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Anton Paar GmbH GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Anton Paar runs 2 verified GCC centers across 2 Indian cities (Gurugram, Thane), covering gbs and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Gurugram",
+      "Thane"
+    ],
+    "yearsInIndia": 18,
+    "sinceYear": 2008,
+    "headcountBand": "101 to 200",
+    "headcountBandLong": "101 to 200"
+  },
+  "centerTypes": [
+    "GBS",
+    "Sales & Marketing"
+  ],
+  "functions": [
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 3,
+    "categories": 3,
+    "categoryList": [
+      "CRM",
+      "Cloud Platform",
+      "ERP"
+    ]
+  },
+  "leaders": {
+    "count": 1,
+    "departments": "GCC leadership",
+    "titles": [
+      {
+        "title": "CEO - Anton Paar India",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "Anton Paar's India footprint covers Gurugram and Thane, spanning gbs and sales & marketing. The centers deliver HR, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Laboratory Equipment, Industrial Manufacturing",
+    "headquarters": "Graz, Styria, Austria",
+    "revenueBand": "$501Mn to $1Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Anton Paar operate in India?",
+      "a": "Anton Paar operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Anton Paar have GCC centers in?",
+      "a": "Anton Paar's India GCC footprint spans Gurugram and Thane."
+    },
+    {
+      "q": "What types of GCC centers does Anton Paar run in India?",
+      "a": "Anton Paar runs gbs and sales & marketing centers in India."
+    },
+    {
+      "q": "How many people work at Anton Paar's India GCCs?",
+      "a": "Anton Paar's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Anton Paar's GCC in India?",
+      "a": "Bamboo Reports tracks 1 leaders at Anton Paar's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

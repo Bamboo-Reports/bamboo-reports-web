@@ -1,0 +1,120 @@
+{
+  "slug": "advanta-seeds-dmcc",
+  "name": "Advanta Seeds DMCC",
+  "shortName": "Advanta Seeds",
+  "displayName": "Advanta Seeds DMCC",
+  "website": "https://www.advantaseeds.com",
+  "linkedin": "http://www.linkedin.com/company/advantaseeds",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Advanta Seeds's GCC footprint in India",
+  "lede": "<strong>Advanta Seeds runs three capability centers across three Indian cities.</strong> Hyderabad, Sonipat and Pune, covering manufacturing and R&D, built over 32 years.",
+  "insight": "Search elsewhere and you will usually find one Advanta Seeds office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Advanta Seeds DMCC GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Advanta Seeds runs 3 verified GCC centers across 3 Indian cities (Hyderabad, Sonipat, Pune), covering manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Hyderabad",
+      "Sonipat",
+      "Pune"
+    ],
+    "yearsInIndia": 32,
+    "sinceYear": 1994,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "Manufacturing",
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 5,
+    "categoryList": [
+      "CRM",
+      "Fitness Studio Management",
+      "Materials Management",
+      "Production Planning",
+      "Talent Acquisition"
+    ]
+  },
+  "leaders": {
+    "count": 8,
+    "departments": "IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Director",
+        "city": "TBA"
+      },
+      {
+        "title": "Global Head IT,Advanta (Seeds). Additional Role 2019-23: Regional Head IT, Crop Protection(AME-ANZ)",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head HR - Asia & Africa",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Advanta Seeds's India footprint covers Hyderabad, Sonipat and Pune, spanning manufacturing and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Agriculture Processing, Agricultural Produce",
+    "headquarters": "Dubai, Dubai, United Arab Emirates",
+    "revenueBand": "$501Mn to $1Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "ACQSP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eight decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Advanta Seeds operate in India?",
+      "a": "Advanta Seeds operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Advanta Seeds have GCC centers in?",
+      "a": "Advanta Seeds's India GCC footprint spans Hyderabad, Sonipat and Pune."
+    },
+    {
+      "q": "What types of GCC centers does Advanta Seeds run in India?",
+      "a": "Advanta Seeds runs manufacturing and R&D centers in India."
+    },
+    {
+      "q": "How many people work at Advanta Seeds's India GCCs?",
+      "a": "Advanta Seeds's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Advanta Seeds's GCC in India?",
+      "a": "Bamboo Reports tracks 8 leaders at Advanta Seeds's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

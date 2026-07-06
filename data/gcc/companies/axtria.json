@@ -1,0 +1,133 @@
+{
+  "slug": "axtria",
+  "name": "Axtria, Inc.",
+  "shortName": "Axtria",
+  "displayName": "Axtria, Inc.",
+  "website": "https://www.axtria.com",
+  "linkedin": "http://www.linkedin.com/company/axtria",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Axtria's GCC footprint in India",
+  "lede": "<strong>Axtria runs nine capability centers across five Indian cities.</strong> Gurugram, Noida, Pune, Bengaluru and Hyderabad, covering gbs and gcc/gic, built over thirteen years.",
+  "insight": "Search elsewhere and you will usually find one Axtria office in India. We map nine, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Axtria, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Axtria runs 9 verified GCC centers across 5 Indian cities (Gurugram, Noida, Pune, Bengaluru, Hyderabad), covering gbs and gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 9,
+    "totalCenters": 9,
+    "cities": [
+      "Gurugram",
+      "Noida",
+      "Pune",
+      "Bengaluru",
+      "Hyderabad"
+    ],
+    "yearsInIndia": 13,
+    "sinceYear": 2013,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "GBS",
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 21,
+    "categories": 17,
+    "categoryList": [
+      "Cloud Platform",
+      "Data Science Platform",
+      "ERP",
+      "CRM",
+      "Commercial Analytics",
+      "Data Analytics Platform",
+      "Data Warehouse",
+      "Master Data Management",
+      "Continuous Integration and Delivery",
+      "Data Visualisation",
+      "Marketing Analytics",
+      "Project Management",
+      "Sales Analytics",
+      "Test Automation",
+      "Database",
+      "Database Query Language",
+      "Programming Language"
+    ]
+  },
+  "leaders": {
+    "count": 59,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Director & Global Delivery Partner",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head of Engineering",
+        "city": "New Delhi"
+      },
+      {
+        "title": "CHRO - India, Principal - People Practices",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Axtria's India footprint covers Gurugram, Noida, Pune, Bengaluru and Hyderabad, spanning gbs and gcc/gic. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Pharma and Biotech Software, Industry-Specific Software",
+    "headquarters": "Berkeley Heights, New Jersey, United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 59 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Axtria operate in India?",
+      "a": "Axtria operates 9 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Axtria have GCC centers in?",
+      "a": "Axtria's India GCC footprint spans Gurugram, Noida, Pune, Bengaluru and Hyderabad."
+    },
+    {
+      "q": "What types of GCC centers does Axtria run in India?",
+      "a": "Axtria runs gbs and gcc/gic centers in India."
+    },
+    {
+      "q": "How many people work at Axtria's India GCCs?",
+      "a": "Axtria's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Axtria's GCC in India?",
+      "a": "Bamboo Reports tracks 59 leaders at Axtria's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

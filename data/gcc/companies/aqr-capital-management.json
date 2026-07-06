@@ -1,0 +1,109 @@
+{
+  "slug": "aqr-capital-management",
+  "name": "AQR Capital Management, LLC",
+  "shortName": "AQR Capital Management",
+  "displayName": "AQR Capital Management",
+  "website": "https://www.aqr.com",
+  "linkedin": "http://www.linkedin.com/company/aqr-capital-management",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "AQR Capital Management's GCC footprint in India",
+  "lede": "<strong>AQR Capital Management runs one capability center in Bengaluru.</strong> Bengaluru, covering it, built over eight years.",
+  "insight": "A single AQR Capital Management center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "AQR Capital Management GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "AQR Capital Management runs 1 verified GCC center in Bengaluru, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Bengaluru"
+    ],
+    "yearsInIndia": 8,
+    "sinceYear": 2018,
+    "headcountBand": "101 to 200",
+    "headcountBandLong": "101 to 200"
+  },
+  "centerTypes": [
+    "IT"
+  ],
+  "functions": [
+    "IT"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 4,
+    "categoryList": [
+      "Cloud Platform",
+      "Containerisation",
+      "Data Visualisation",
+      "Identity & Access Management"
+    ]
+  },
+  "leaders": {
+    "count": 14,
+    "departments": "Finance, IT and HR",
+    "titles": [
+      {
+        "title": "Vice President, Information Security",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Vice President Talent Acquisition",
+        "city": "TBA"
+      },
+      {
+        "title": "Vice President at AQR Capital Management",
+        "city": "Pune"
+      }
+    ]
+  },
+  "about": {
+    "description": "AQR Capital Management's India footprint covers Bengaluru, spanning it. The centers deliver IT for the group's global operations.",
+    "industry": "Investment Management and Fund Operators, Financial Services",
+    "headquarters": "Greenwich, Connecticut, United States",
+    "revenueBand": "$251Mn to $500Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all fourteen decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does AQR Capital Management operate in India?",
+      "a": "AQR Capital Management operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does AQR Capital Management have GCC centers in?",
+      "a": "AQR Capital Management's India GCC presence is in Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does AQR Capital Management run in India?",
+      "a": "AQR Capital Management runs it centers in India."
+    },
+    {
+      "q": "How many people work at AQR Capital Management's India GCCs?",
+      "a": "AQR Capital Management's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads AQR Capital Management's GCC in India?",
+      "a": "Bamboo Reports tracks 14 leaders at AQR Capital Management's India centers, across Finance, IT and HR. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

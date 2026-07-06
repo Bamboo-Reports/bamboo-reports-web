@@ -1,0 +1,116 @@
+{
+  "slug": "advance-auto-parts",
+  "name": "Advance Auto Parts, Inc.",
+  "shortName": "Advance Auto Parts",
+  "displayName": "Advance Auto Parts, Inc.",
+  "website": "https://www.advanceautoparts.com",
+  "linkedin": "http://www.linkedin.com/company/advance-auto-parts",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Advance Auto Parts's GCC footprint in India",
+  "lede": "<strong>Advance Auto Parts runs one capability center in Hyderabad.</strong> Hyderabad, covering gcc/gic, built over four years.",
+  "insight": "A single Advance Auto Parts center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Advance Auto Parts, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Advance Auto Parts runs 1 verified GCC center in Hyderabad, covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Hyderabad"
+    ],
+    "yearsInIndia": 4,
+    "sinceYear": 2022,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR"
+  ],
+  "tech": {
+    "tools": 7,
+    "categories": 7,
+    "categoryList": [
+      "Cloud Platform",
+      "Cloud Storage",
+      "Container Platform",
+      "Data Warehouse",
+      "Enterprise Linux",
+      "Human Capital Management",
+      "Message Streaming"
+    ]
+  },
+  "leaders": {
+    "count": 10,
+    "departments": "IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Director & India GCC Finance Head",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Head - IT Infrastructure Engineering & Operations",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Head of HR",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Advance Auto Parts's India footprint covers Hyderabad, spanning gcc/gic. The centers deliver IT, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Motor Vehicle Parts Suppliers, Automotive Trading",
+    "headquarters": "Raleigh, North Carolina, United States",
+    "revenueBand": "$5Bn to $10Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "AAP, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all ten decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Advance Auto Parts operate in India?",
+      "a": "Advance Auto Parts operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does Advance Auto Parts have GCC centers in?",
+      "a": "Advance Auto Parts's India GCC presence is in Hyderabad."
+    },
+    {
+      "q": "What types of GCC centers does Advance Auto Parts run in India?",
+      "a": "Advance Auto Parts runs gcc/gic centers in India."
+    },
+    {
+      "q": "How many people work at Advance Auto Parts's India GCCs?",
+      "a": "Advance Auto Parts's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Advance Auto Parts's GCC in India?",
+      "a": "Bamboo Reports tracks 10 leaders at Advance Auto Parts's India centers, across IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

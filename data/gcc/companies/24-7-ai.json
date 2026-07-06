@@ -1,0 +1,127 @@
+{
+  "slug": "24-7-ai",
+  "name": "[24]7.ai, Inc.",
+  "shortName": "247.ai, 24/7.ai",
+  "displayName": "[24]7.ai, Inc.",
+  "website": "https://www.247.ai",
+  "linkedin": "http://www.linkedin.com/company/24-7-ai",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "247.ai, 24/7.ai's GCC footprint in India",
+  "lede": "<strong>247.ai, 24/7.ai runs three capability centers across three Indian cities.</strong> Shillong, Hyderabad and Bengaluru, covering bpo, gbs and ssc, built over 26 years.",
+  "insight": "Search elsewhere and you will usually find one 247.ai, 24/7.ai office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "[24]7.ai, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "247.ai, 24/7.ai runs 3 verified GCC centers across 3 Indian cities (Shillong, Hyderabad, Bengaluru), covering bpo, gbs and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Shillong",
+      "Hyderabad",
+      "Bengaluru"
+    ],
+    "yearsInIndia": 26,
+    "sinceYear": 2000,
+    "headcountBand": "5K to 10K",
+    "headcountBandLong": "5,000 to 10,000"
+  },
+  "centerTypes": [
+    "BPO",
+    "GBS",
+    "SSC"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 12,
+    "categories": 10,
+    "categoryList": [
+      "Cloud Platform",
+      "Payroll",
+      "Email & Collaboration",
+      "Finance & Controlling",
+      "Human Capital Management",
+      "Marketing Automation",
+      "Operating System",
+      "Productivity Suite",
+      "Virtualisation",
+      "Web Analytics"
+    ]
+  },
+  "leaders": {
+    "count": 43,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Practice Head - F&A BPO, VP Internal Audit, Center Head - Chennai",
+        "city": "Chennai"
+      },
+      {
+        "title": "Head of Product & Engineering – AdTech Platform | Strategic Product Revamp & Growth",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Senior Vice President | Chief of Staff to COO & Global Head – Quality, Workforce Management & PMO",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "247.ai, 24/7.ai's India footprint covers Shillong, Hyderabad and Bengaluru, spanning bpo, gbs and ssc. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Customer Relationship Management, Business Software Solutions",
+    "headquarters": "Campbell, California, United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 43 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does 247.ai, 24/7.ai operate in India?",
+      "a": "247.ai, 24/7.ai operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does 247.ai, 24/7.ai have GCC centers in?",
+      "a": "247.ai, 24/7.ai's India GCC footprint spans Shillong, Hyderabad and Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does 247.ai, 24/7.ai run in India?",
+      "a": "247.ai, 24/7.ai runs bpo, gbs and ssc centers in India."
+    },
+    {
+      "q": "How many people work at 247.ai, 24/7.ai's India GCCs?",
+      "a": "247.ai, 24/7.ai's India centers employ in the 5,000 to 10,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads 247.ai, 24/7.ai's GCC in India?",
+      "a": "Bamboo Reports tracks 43 leaders at 247.ai, 24/7.ai's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

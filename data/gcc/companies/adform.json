@@ -1,0 +1,111 @@
+{
+  "slug": "adform",
+  "name": "Adform A/S",
+  "shortName": "Adform",
+  "displayName": "Adform A/S",
+  "website": "https://www.adform.com",
+  "linkedin": "http://www.linkedin.com/company/adform",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Adform's GCC footprint in India",
+  "lede": "<strong>Adform runs one capability center in Mumbai.</strong> Mumbai, covering it, built over seven years.",
+  "insight": "A single Adform center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Adform A/S GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Adform runs 1 verified GCC center in Mumbai, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Mumbai"
+    ],
+    "yearsInIndia": 7,
+    "sinceYear": 2019,
+    "headcountBand": "51 to 100",
+    "headcountBandLong": "51 to 100"
+  },
+  "centerTypes": [
+    "IT"
+  ],
+  "functions": [
+    "IT",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 2,
+    "categories": 2,
+    "categoryList": [
+      "Big Data",
+      "Infrastructure as Code"
+    ]
+  },
+  "leaders": {
+    "count": 6,
+    "departments": "IT and GCC leadership",
+    "titles": [
+      {
+        "title": "Senior Vice President Of Engineering",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head of Information Technology Operations - India",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Sales Director India & SEA",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "Adform's India footprint covers Mumbai, spanning it. The centers deliver IT, Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "Advertising Industry Software, Industry-Specific Software",
+    "headquarters": "Copenhagen, Copenhagen, Denmark",
+    "revenueBand": "$101Mn to $250Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all six decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Adform operate in India?",
+      "a": "Adform operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does Adform have GCC centers in?",
+      "a": "Adform's India GCC presence is in Mumbai."
+    },
+    {
+      "q": "What types of GCC centers does Adform run in India?",
+      "a": "Adform runs it centers in India."
+    },
+    {
+      "q": "How many people work at Adform's India GCCs?",
+      "a": "Adform's India centers employ in the 51 to 100 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Adform's GCC in India?",
+      "a": "Bamboo Reports tracks 6 leaders at Adform's India centers, across IT and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

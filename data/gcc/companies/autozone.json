@@ -1,0 +1,100 @@
+{
+  "slug": "autozone",
+  "name": "AutoZone, Inc.",
+  "shortName": "AutoZone",
+  "displayName": "AutoZone, Inc.",
+  "website": "https://www.autozone.com",
+  "linkedin": "https://www.linkedin.com/company/autozone",
+  "forbesRank": null,
+  "fortuneRank": 240,
+  "badges": [],
+  "h1": "AutoZone's GCC footprint in India",
+  "lede": "<strong>AutoZone runs one capability center in Gurugram.</strong> Gurugram, covering gbs, built over three years.",
+  "insight": "A single AutoZone center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "AutoZone, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "AutoZone runs 1 verified GCC center in Gurugram, covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Gurugram"
+    ],
+    "yearsInIndia": 3,
+    "sinceYear": 2023,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "GBS"
+  ],
+  "functions": [
+    "IT",
+    "Procurement"
+  ],
+  "tech": {
+    "tools": 2,
+    "categories": 2,
+    "categoryList": [
+      "Cloud Platform",
+      "Containerisation"
+    ]
+  },
+  "leaders": {
+    "count": 1,
+    "departments": "GCC leadership",
+    "titles": [
+      {
+        "title": "Head of IT Operations, GCC Leader - India",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "AutoZone's India footprint covers Gurugram, spanning gbs. The centers deliver IT and Procurement for the group's global operations.",
+    "industry": "Security Software, Security and Compliance Software",
+    "headquarters": "Memphis, Tennessee, United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does AutoZone operate in India?",
+      "a": "AutoZone operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does AutoZone have GCC centers in?",
+      "a": "AutoZone's India GCC presence is in Gurugram."
+    },
+    {
+      "q": "What types of GCC centers does AutoZone run in India?",
+      "a": "AutoZone runs gbs centers in India."
+    },
+    {
+      "q": "How many people work at AutoZone's India GCCs?",
+      "a": "AutoZone's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads AutoZone's GCC in India?",
+      "a": "Bamboo Reports tracks 1 leaders at AutoZone's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

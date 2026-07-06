@@ -1,0 +1,107 @@
+{
+  "slug": "biogen",
+  "name": "Biogen Inc.",
+  "shortName": "Biogen",
+  "displayName": "Biogen Inc.",
+  "website": "https://www.biogen.com",
+  "linkedin": "http://www.linkedin.com/company/biogen-",
+  "forbesRank": 845,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Biogen's GCC footprint in India",
+  "lede": "<strong>Biogen runs one capability center in Bengaluru.</strong> Bengaluru, covering gcc/gic, built over three years.",
+  "insight": "A single Biogen center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Biogen Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Biogen runs 1 verified GCC center in Bengaluru, covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Bengaluru"
+    ],
+    "yearsInIndia": 3,
+    "sinceYear": 2023,
+    "headcountBand": "51 to 100",
+    "headcountBandLong": "51 to 100"
+  },
+  "centerTypes": [
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D"
+  ],
+  "tech": {
+    "tools": 2,
+    "categories": 1,
+    "categoryList": [
+      "Robotic Process Automation"
+    ]
+  },
+  "leaders": {
+    "count": 3,
+    "departments": "Finance, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Head of Biogen Capability Center India",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head of Human Resources, Biogen Capability Centre India",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Director / Finance Business Partner",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Biogen's India footprint covers Bengaluru, spanning gcc/gic. The centers deliver IT and R&D and ER&D for the group's global operations.",
+    "industry": "Biopharmaceuticals and Biotherapeutics, Biotechnology and Life Sciences",
+    "headquarters": "Cambridge, Massachusetts, United States",
+    "revenueBand": "$5Bn to $10Bn",
+    "employeesBand": "5,000 to 10,000",
+    "tickerAndType": "BIIB, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Biogen operate in India?",
+      "a": "Biogen operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does Biogen have GCC centers in?",
+      "a": "Biogen's India GCC presence is in Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does Biogen run in India?",
+      "a": "Biogen runs gcc/gic centers in India."
+    },
+    {
+      "q": "How many people work at Biogen's India GCCs?",
+      "a": "Biogen's India centers employ in the 51 to 100 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Biogen's GCC in India?",
+      "a": "Bamboo Reports tracks 3 leaders at Biogen's India centers, across Finance, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

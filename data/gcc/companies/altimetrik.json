@@ -1,0 +1,134 @@
+{
+  "slug": "altimetrik",
+  "name": "Altimetrik Corp.",
+  "shortName": "Altimetrik",
+  "displayName": "Altimetrik Corp.",
+  "website": "https://www.altimetrik.com",
+  "linkedin": "http://www.linkedin.com/company/altimetrik",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Altimetrik's GCC footprint in India",
+  "lede": "<strong>Altimetrik runs six capability centers across five Indian cities.</strong> Bengaluru, Chennai, Pune, Hyderabad and Jaipur, covering engineering & design, it and R&D, built over 23 years.",
+  "insight": "Search elsewhere and you will usually find one Altimetrik office in India. We map six, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Altimetrik Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Altimetrik runs 6 verified GCC centers across 5 Indian cities (Bengaluru, Chennai, Pune, Hyderabad, Jaipur), covering engineering & design, it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 6,
+    "totalCenters": 6,
+    "cities": [
+      "Bengaluru",
+      "Chennai",
+      "Pune",
+      "Hyderabad",
+      "Jaipur"
+    ],
+    "yearsInIndia": 23,
+    "sinceYear": 2003,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "Engineering & Design",
+    "IT",
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "HR",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 19,
+    "categories": 18,
+    "categoryList": [
+      "Process Integration",
+      "Data Visualisation",
+      "Cloud Platform",
+      "ERP Administration",
+      "Human Capital Management",
+      "Container Orchestration",
+      "Containerisation",
+      "Continuous Integration and Delivery",
+      "Database Administration",
+      "ERP Development",
+      "Finance & Controlling",
+      "HR Management",
+      "Infrastructure as Code",
+      "Java Framework",
+      "Materials Management",
+      "Production Planning",
+      "SIEM & Security Analytics",
+      "Version Control"
+    ]
+  },
+  "leaders": {
+    "count": 24,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Managing Partner & Head of Global Capability Centers",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Global CTO",
+        "city": "Chennai"
+      },
+      {
+        "title": "Head of Human Resources - Asia Pacific",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Altimetrik's India footprint covers Bengaluru, Chennai, Pune, Hyderabad and Jaipur, spanning engineering & design, it and R&D. The centers deliver IT, R&D and ER&D, HR and Sales & Marketing for the group's global operations.",
+    "industry": "IT, System Integration and Consulting Services, Corporate Services",
+    "headquarters": "Southfield, Michigan, United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 24 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Altimetrik operate in India?",
+      "a": "Altimetrik operates 6 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Altimetrik have GCC centers in?",
+      "a": "Altimetrik's India GCC footprint spans Bengaluru, Chennai, Pune, Hyderabad and Jaipur."
+    },
+    {
+      "q": "What types of GCC centers does Altimetrik run in India?",
+      "a": "Altimetrik runs engineering & design, it and R&D centers in India."
+    },
+    {
+      "q": "How many people work at Altimetrik's India GCCs?",
+      "a": "Altimetrik's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Altimetrik's GCC in India?",
+      "a": "Bamboo Reports tracks 24 leaders at Altimetrik's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

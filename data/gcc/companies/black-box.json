@@ -1,0 +1,127 @@
+{
+  "slug": "black-box",
+  "name": "Black Box Corp.",
+  "shortName": "Black Box",
+  "displayName": "Black Box Corp.",
+  "website": "https://www.blackbox.com",
+  "linkedin": "http://www.linkedin.com/company/black-box",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Black Box's GCC footprint in India",
+  "lede": "<strong>Black Box runs three capability centers across three Indian cities.</strong> Gurugram, Bengaluru and Mumbai, covering CoE, gbs and sales & marketing, built over thirteen years.",
+  "insight": "Search elsewhere and you will usually find one Black Box office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Black Box Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Black Box runs 3 verified GCC centers across 3 Indian cities (Gurugram, Bengaluru, Mumbai), covering CoE, gbs and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Gurugram",
+      "Bengaluru",
+      "Mumbai"
+    ],
+    "yearsInIndia": 13,
+    "sinceYear": 2013,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "CoE",
+    "GBS",
+    "Sales & Marketing"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 15,
+    "categories": 12,
+    "categoryList": [
+      "Cloud Platform",
+      "Database",
+      "Materials Management",
+      "ERP",
+      "Finance & Controlling",
+      "Human Capital Management",
+      "IT Service Management",
+      "Production Planning",
+      "Project Management",
+      "Project System",
+      "Spreadsheet",
+      "Warehouse Management"
+    ]
+  },
+  "leaders": {
+    "count": 33,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "VP & Head - Global Delivery (India Center)",
+        "city": "TBA"
+      },
+      {
+        "title": "Vice President & Head - IoT",
+        "city": "Kolkata"
+      },
+      {
+        "title": "Head of Human Resources",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Black Box's India footprint covers Gurugram, Bengaluru and Mumbai, spanning CoE, gbs and sales & marketing. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "IT, System Integration and Consulting Services, Corporate Services",
+    "headquarters": "Plano, Texas, United States",
+    "revenueBand": "$501Mn to $1Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 33 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Black Box operate in India?",
+      "a": "Black Box operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Black Box have GCC centers in?",
+      "a": "Black Box's India GCC footprint spans Gurugram, Bengaluru and Mumbai."
+    },
+    {
+      "q": "What types of GCC centers does Black Box run in India?",
+      "a": "Black Box runs CoE, gbs and sales & marketing centers in India."
+    },
+    {
+      "q": "How many people work at Black Box's India GCCs?",
+      "a": "Black Box's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Black Box's GCC in India?",
+      "a": "Bamboo Reports tracks 33 leaders at Black Box's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

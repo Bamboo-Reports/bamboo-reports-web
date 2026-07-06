@@ -1,0 +1,109 @@
+{
+  "slug": "anglo-eastern-univan-group",
+  "name": "Anglo-Eastern Univan Group Ltd.",
+  "shortName": "Anglo-Eastern Univan",
+  "displayName": "Anglo-Eastern Univan",
+  "website": "https://www.angloeasterngroup.com",
+  "linkedin": "https://www.linkedin.com/company/anglo-eastern",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Anglo-Eastern Univan's GCC footprint in India",
+  "lede": "<strong>Anglo-Eastern Univan runs three capability centers across three Indian cities.</strong> Navi Mumbai, Mumbai and New Delhi, covering CoE and ssc, built over seventeen years.",
+  "insight": "Search elsewhere and you will usually find one Anglo-Eastern Univan office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Anglo-Eastern Univan GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Anglo-Eastern Univan runs 3 verified GCC centers across 3 Indian cities (Navi Mumbai, Mumbai, New Delhi), covering CoE and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Navi Mumbai",
+      "Mumbai",
+      "New Delhi"
+    ],
+    "yearsInIndia": 17,
+    "sinceYear": 2009,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "CoE",
+    "SSC"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "Procurement"
+  ],
+  "tech": {
+    "tools": 3,
+    "categories": 3,
+    "categoryList": [
+      "Customer Service",
+      "IT Service Management",
+      "Productivity Suite"
+    ]
+  },
+  "leaders": {
+    "count": 2,
+    "departments": "HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Head/India Site Leader- Global Shared Services Center",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Director MHR - Marine Talent Strategy & Wellbeing",
+        "city": "Mumbai"
+      }
+    ]
+  },
+  "about": {
+    "description": "Anglo-Eastern Univan's India footprint covers Navi Mumbai, Mumbai and New Delhi, spanning CoE and ssc. The centers deliver IT, Finance & Accounting and Procurement for the group's global operations.",
+    "industry": "Online Staffing and Recruitment Services, Corporate Services",
+    "headquarters": "Kowloon Bay, Hong Kong, Hong Kong",
+    "revenueBand": "$251Mn to $500Mn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Anglo-Eastern Univan operate in India?",
+      "a": "Anglo-Eastern Univan operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Anglo-Eastern Univan have GCC centers in?",
+      "a": "Anglo-Eastern Univan's India GCC footprint spans Navi Mumbai, Mumbai and New Delhi."
+    },
+    {
+      "q": "What types of GCC centers does Anglo-Eastern Univan run in India?",
+      "a": "Anglo-Eastern Univan runs CoE and ssc centers in India."
+    },
+    {
+      "q": "How many people work at Anglo-Eastern Univan's India GCCs?",
+      "a": "Anglo-Eastern Univan's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Anglo-Eastern Univan's GCC in India?",
+      "a": "Bamboo Reports tracks 2 leaders at Anglo-Eastern Univan's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

@@ -1,0 +1,109 @@
+{
+  "slug": "behr-process",
+  "name": "Behr Process Corp.",
+  "shortName": "Behr Process",
+  "displayName": "Behr Process Corp.",
+  "website": "https://www.behr.com",
+  "linkedin": "http://www.linkedin.com/company/behr-pinturas-mexico",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Behr Process's GCC footprint in India",
+  "lede": "<strong>Behr Process runs one capability center in Pune.</strong> Pune, covering R&D, built over twenty years.",
+  "insight": "A single Behr Process center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Behr Process Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Behr Process runs 1 verified GCC center in Pune, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Pune"
+    ],
+    "yearsInIndia": 20,
+    "sinceYear": 2006,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D"
+  ],
+  "tech": {
+    "tools": 1,
+    "categories": 1,
+    "categoryList": [
+      "Sales & Distribution"
+    ]
+  },
+  "leaders": {
+    "count": 4,
+    "departments": "GCC leadership",
+    "titles": [
+      {
+        "title": "Managing Director",
+        "city": "Pune"
+      },
+      {
+        "title": "Facility Director",
+        "city": "Pune"
+      },
+      {
+        "title": "Technical Director - Applied Research, Research & Development",
+        "city": "Pune"
+      }
+    ]
+  },
+  "about": {
+    "description": "Behr Process's India footprint covers Pune, spanning R&D. The centers deliver IT and R&D and ER&D for the group's global operations.",
+    "industry": "Paints, Dyes, Varnishes and Lacquers, Chemicals Manufacturing",
+    "headquarters": "Santa Ana, California, United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Subsidiary"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all four decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Behr Process operate in India?",
+      "a": "Behr Process operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does Behr Process have GCC centers in?",
+      "a": "Behr Process's India GCC presence is in Pune."
+    },
+    {
+      "q": "What types of GCC centers does Behr Process run in India?",
+      "a": "Behr Process runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Behr Process's India GCCs?",
+      "a": "Behr Process's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Behr Process's GCC in India?",
+      "a": "Bamboo Reports tracks 4 leaders at Behr Process's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

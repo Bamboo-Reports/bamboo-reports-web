@@ -1,0 +1,116 @@
+{
+  "slug": "affle-3i",
+  "name": "Affle 3i Ltd.",
+  "shortName": "Affle 3i",
+  "displayName": "Affle 3i Ltd.",
+  "website": "https://www.affle.com",
+  "linkedin": "http://www.linkedin.com/company/affle",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Affle 3i's GCC footprint in India",
+  "lede": "<strong>Affle 3i runs two capability centers across two Indian cities.</strong> Bengaluru and Gurugram, covering R&D and sales & marketing, built over seven years.",
+  "insight": "Search elsewhere and you will usually find one Affle 3i office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Affle 3i Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Affle 3i runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Gurugram), covering R&D and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Bengaluru",
+      "Gurugram"
+    ],
+    "yearsInIndia": 7,
+    "sinceYear": 2019,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "R&D",
+    "Sales & Marketing"
+  ],
+  "functions": [
+    "IT",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 7,
+    "categories": 6,
+    "categoryList": [
+      "Cloud Platform",
+      "Accounting",
+      "Container Orchestration",
+      "Containerisation",
+      "ERP",
+      "Finance & Controlling"
+    ]
+  },
+  "leaders": {
+    "count": 10,
+    "departments": "Finance, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Co-founder, Chief Revenue & Operating Officer",
+        "city": "Gurugram"
+      },
+      {
+        "title": "Senior Associate Director - HRBP & Talent Management",
+        "city": "New Delhi"
+      },
+      {
+        "title": "Executive Director , Chief Financial and Operations Officer",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "Affle 3i's India footprint covers Bengaluru and Gurugram, spanning R&D and sales & marketing. The centers deliver IT and Sales & Marketing for the group's global operations.",
+    "industry": "Advertising Industry Software, Industry-Specific Software",
+    "headquarters": "Singapore, Singapore, Singapore",
+    "revenueBand": "$251Mn to $500Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "AFFLE, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all ten decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Affle 3i operate in India?",
+      "a": "Affle 3i operates 2 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Affle 3i have GCC centers in?",
+      "a": "Affle 3i's India GCC footprint spans Bengaluru and Gurugram."
+    },
+    {
+      "q": "What types of GCC centers does Affle 3i run in India?",
+      "a": "Affle 3i runs R&D and sales & marketing centers in India."
+    },
+    {
+      "q": "How many people work at Affle 3i's India GCCs?",
+      "a": "Affle 3i's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Affle 3i's GCC in India?",
+      "a": "Bamboo Reports tracks 10 leaders at Affle 3i's India centers, across Finance, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

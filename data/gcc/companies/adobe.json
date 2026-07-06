@@ -1,0 +1,126 @@
+{
+  "slug": "adobe",
+  "name": "Adobe, Inc.",
+  "shortName": "Adobe",
+  "displayName": "Adobe, Inc.",
+  "website": "https://www.adobe.com",
+  "linkedin": "http://www.linkedin.com/company/adobe",
+  "forbesRank": 340,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Adobe's GCC footprint in India",
+  "lede": "<strong>Adobe runs six capability centers across four Indian cities.</strong> Noida, Pune, Hyderabad and Bengaluru, covering CoE, gbs, it and R&D, built over 27 years.",
+  "insight": "Search elsewhere and you will usually find one Adobe office in India. We map six, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Adobe, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Adobe runs 6 verified GCC centers across 4 Indian cities (Noida, Pune, Hyderabad, Bengaluru), covering CoE, gbs, it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 6,
+    "totalCenters": 6,
+    "cities": [
+      "Noida",
+      "Pune",
+      "Hyderabad",
+      "Bengaluru"
+    ],
+    "yearsInIndia": 27,
+    "sinceYear": 1999,
+    "headcountBand": ">10K",
+    "headcountBandLong": ">10K"
+  },
+  "centerTypes": [
+    "CoE",
+    "GBS",
+    "IT",
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 12,
+    "categories": 9,
+    "categoryList": [
+      "Cloud Platform",
+      "Container Orchestration",
+      "CDN & Edge Security",
+      "Containerisation",
+      "Customer Service",
+      "DNS Management",
+      "Email & Collaboration",
+      "Finance & Controlling",
+      "Typography"
+    ]
+  },
+  "leaders": {
+    "count": 285,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Vice President & General Manager, Adobe Digital Advertising, Learning, & Publishing Business",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Country Head - Data & Analytics",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head Education and Skill Development, South Asia",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Adobe's India footprint covers Noida, Pune, Hyderabad and Bengaluru, spanning CoE, gbs, it and R&D. The centers deliver IT, Finance & Accounting, HR and Sales & Marketing for the group's global operations.",
+    "industry": "Multimedia and Graphics Software, Business Software Solutions",
+    "headquarters": "San Jose, California, United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "ADBE, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 285 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Adobe operate in India?",
+      "a": "Adobe operates 6 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Adobe have GCC centers in?",
+      "a": "Adobe's India GCC footprint spans Noida, Pune, Hyderabad and Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does Adobe run in India?",
+      "a": "Adobe runs CoE, gbs, it and R&D centers in India."
+    },
+    {
+      "q": "How many people work at Adobe's India GCCs?",
+      "a": "Adobe's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Adobe's GCC in India?",
+      "a": "Bamboo Reports tracks 285 leaders at Adobe's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

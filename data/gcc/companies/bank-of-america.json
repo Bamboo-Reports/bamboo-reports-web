@@ -1,0 +1,126 @@
+{
+  "slug": "bank-of-america",
+  "name": "Bank of America Corp.",
+  "shortName": "BofA, BoA",
+  "displayName": "Bank of America Corp.",
+  "website": "https://www.bankofamerica.com",
+  "linkedin": "http://www.linkedin.com/company/bank-of-america",
+  "forbesRank": 6,
+  "fortuneRank": 34,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "BofA, BoA's GCC footprint in India",
+  "lede": "<strong>BofA, BoA runs six capability centers across six Indian cities.</strong> Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai and Mumbai, covering gbs, built over 22 years.",
+  "insight": "Search elsewhere and you will usually find one BofA, BoA office in India. We map six, across six cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Bank of America Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "BofA, BoA runs 6 verified GCC centers across 6 Indian cities (Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai, Mumbai), covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 6,
+    "totalCenters": 6,
+    "cities": [
+      "Gurugram",
+      "Hyderabad",
+      "Gandhinagar",
+      "New Delhi",
+      "Chennai",
+      "Mumbai"
+    ],
+    "yearsInIndia": 22,
+    "sinceYear": 2004,
+    "headcountBand": ">10K",
+    "headcountBandLong": ">10K"
+  },
+  "centerTypes": [
+    "GBS"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 13,
+    "categories": 10,
+    "categoryList": [
+      "Database Administration",
+      "CRM",
+      "Data Analytics",
+      "Human Capital Management",
+      "Procurement",
+      "Cloud Platform",
+      "Data Visualisation",
+      "Enterprise Software",
+      "Governance Risk & Compliance",
+      "Project Management"
+    ]
+  },
+  "leaders": {
+    "count": 310,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "GBS India COO and Tech Executive",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Head Of Engineering",
+        "city": "New Delhi"
+      },
+      {
+        "title": "SVP & Head HR at Bank of America",
+        "city": "Ahmedabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "BofA, BoA's India footprint covers Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai and Mumbai, spanning gbs. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "Commercial Banking, Banks",
+    "headquarters": "Charlotte, North Carolina, United States",
+    "revenueBand": ">$50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "BAC, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 310 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does BofA, BoA operate in India?",
+      "a": "BofA, BoA operates 6 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does BofA, BoA have GCC centers in?",
+      "a": "BofA, BoA's India GCC footprint spans Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai and Mumbai."
+    },
+    {
+      "q": "What types of GCC centers does BofA, BoA run in India?",
+      "a": "BofA, BoA runs gbs centers in India."
+    },
+    {
+      "q": "How many people work at BofA, BoA's India GCCs?",
+      "a": "BofA, BoA's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads BofA, BoA's GCC in India?",
+      "a": "Bamboo Reports tracks 310 leaders at BofA, BoA's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

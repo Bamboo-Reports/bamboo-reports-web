@@ -90,14 +90,6 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link to="/tracker">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    GCC Tracker
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
                 <NavigationMenuTrigger>What we Offer</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[320px] gap-1 p-2">
@@ -254,15 +246,6 @@ const Header = () => {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Platform
-                    <ChevronRight className="h-5 w-5" />
-                  </Link>
-
-                  <Link
-                    to="/tracker"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    GCC Tracker
                     <ChevronRight className="h-5 w-5" />
                   </Link>
 

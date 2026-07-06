@@ -1,0 +1,119 @@
+{
+  "slug": "autoliv",
+  "name": "Autoliv, Inc.",
+  "shortName": "Autoliv",
+  "displayName": "Autoliv, Inc.",
+  "website": "https://www.autoliv.com",
+  "linkedin": "http://www.linkedin.com/company/autoliv",
+  "forbesRank": 1803,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Autoliv's GCC footprint in India",
+  "lede": "<strong>Autoliv runs five capability centers across five Indian cities.</strong> Bengaluru, Chennai, Gurugram, Mysuru and Pune, covering engineering & design and manufacturing, built over sixteen years.",
+  "insight": "Search elsewhere and you will usually find one Autoliv office in India. We map five, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Autoliv, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Autoliv runs 5 verified GCC centers across 5 Indian cities (Bengaluru, Chennai, Gurugram, Mysuru, Pune), covering engineering & design and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 5,
+    "totalCenters": 5,
+    "cities": [
+      "Bengaluru",
+      "Chennai",
+      "Gurugram",
+      "Mysuru",
+      "Pune"
+    ],
+    "yearsInIndia": 16,
+    "sinceYear": 2010,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "Engineering & Design",
+    "Manufacturing"
+  ],
+  "functions": [
+    "R&D and ER&D",
+    "HR",
+    "Procurement"
+  ],
+  "tech": {
+    "tools": 6,
+    "categories": 5,
+    "categoryList": [
+      "CAD",
+      "Web Server",
+      "Cloud Platform",
+      "Materials Management",
+      "Product Lifecycle Management"
+    ]
+  },
+  "leaders": {
+    "count": 12,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Managing Director",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Vice President Engineering",
+        "city": "Pune"
+      },
+      {
+        "title": "Director- HR and Administration",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Autoliv's India footprint covers Bengaluru, Chennai, Gurugram, Mysuru and Pune, spanning engineering & design and manufacturing. The centers deliver R&D and ER&D, HR and Procurement for the group's global operations.",
+    "industry": "Automobile Parts Manufacturing, Automotive Manufacturing",
+    "headquarters": "Stockholm, Stockholm, Sweden",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "ALV, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all twelve decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Autoliv operate in India?",
+      "a": "Autoliv operates 5 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Autoliv have GCC centers in?",
+      "a": "Autoliv's India GCC footprint spans Bengaluru, Chennai, Gurugram, Mysuru and Pune."
+    },
+    {
+      "q": "What types of GCC centers does Autoliv run in India?",
+      "a": "Autoliv runs engineering & design and manufacturing centers in India."
+    },
+    {
+      "q": "How many people work at Autoliv's India GCCs?",
+      "a": "Autoliv's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Autoliv's GCC in India?",
+      "a": "Bamboo Reports tracks 12 leaders at Autoliv's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

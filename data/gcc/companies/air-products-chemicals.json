@@ -1,0 +1,128 @@
+{
+  "slug": "air-products-chemicals",
+  "name": "Air Products & Chemicals, Inc",
+  "shortName": "Air Products & Chemicals",
+  "displayName": "Air Products & Chemicals",
+  "website": "https://www.airproducts.com",
+  "linkedin": "http://www.linkedin.com/company/air-products",
+  "forbesRank": 475,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Air Products & Chemicals's GCC footprint in India",
+  "lede": "<strong>Air Products & Chemicals runs twelve capability centers across ten Indian cities.</strong> Pune, Ahmedabad, Bankura, Fatehgarh Sahib, Ghaziabad, Hosur, Nagpur, Puducherry, Thane and Vadodara, covering engineering & design and manufacturing, built over seventeen years.",
+  "insight": "Search elsewhere and you will usually find one Air Products & Chemicals office in India. We map twelve, across ten cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Air Products & Chemicals GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Air Products & Chemicals runs 12 verified GCC centers across 10 Indian cities (Pune, Ahmedabad, Bankura, Fatehgarh Sahib, Ghaziabad, Hosur, Nagpur, Puducherry, Thane, Vadodara), covering engineering & design and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 12,
+    "totalCenters": 12,
+    "cities": [
+      "Pune",
+      "Ahmedabad",
+      "Bankura",
+      "Fatehgarh Sahib",
+      "Ghaziabad",
+      "Hosur",
+      "Nagpur",
+      "Puducherry",
+      "Thane",
+      "Vadodara"
+    ],
+    "yearsInIndia": 17,
+    "sinceYear": 2009,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "Engineering & Design",
+    "Manufacturing"
+  ],
+  "functions": [
+    "R&D and ER&D",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 10,
+    "categories": 9,
+    "categoryList": [
+      "ERP",
+      "In-Memory Database",
+      "Plant Maintenance",
+      "Materials Management",
+      "Finance & Controlling",
+      "Logistics",
+      "Procurement",
+      "Production Planning",
+      "Sales & Distribution"
+    ]
+  },
+  "leaders": {
+    "count": 15,
+    "departments": "Finance, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "India Head Administration",
+        "city": "Pune"
+      },
+      {
+        "title": "Head of Talent Acquisition- India & Middle East",
+        "city": "Pune"
+      },
+      {
+        "title": "Country Finance Head",
+        "city": "Pune"
+      }
+    ]
+  },
+  "about": {
+    "description": "Air Products & Chemicals's India footprint covers Pune, Ahmedabad, Bankura, Fatehgarh Sahib, Ghaziabad, Hosur, Nagpur, Puducherry, Thane and Vadodara, spanning engineering & design and manufacturing. The centers deliver R&D and ER&D, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Diversified Chemicals, Chemicals Manufacturing",
+    "headquarters": "Allentown, Pennsylvania, United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "APD, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all fifteen decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Air Products & Chemicals operate in India?",
+      "a": "Air Products & Chemicals operates 12 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Air Products & Chemicals have GCC centers in?",
+      "a": "Air Products & Chemicals's India GCC footprint spans Pune, Ahmedabad, Bankura, Fatehgarh Sahib, Ghaziabad, Hosur, Nagpur, Puducherry, Thane and Vadodara."
+    },
+    {
+      "q": "What types of GCC centers does Air Products & Chemicals run in India?",
+      "a": "Air Products & Chemicals runs engineering & design and manufacturing centers in India."
+    },
+    {
+      "q": "How many people work at Air Products & Chemicals's India GCCs?",
+      "a": "Air Products & Chemicals's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Air Products & Chemicals's GCC in India?",
+      "a": "Bamboo Reports tracks 15 leaders at Air Products & Chemicals's India centers, across Finance, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

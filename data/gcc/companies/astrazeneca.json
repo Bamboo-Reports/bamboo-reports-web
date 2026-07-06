@@ -1,0 +1,127 @@
+{
+  "slug": "astrazeneca",
+  "name": "AstraZeneca plc",
+  "shortName": "AstraZeneca",
+  "displayName": "AstraZeneca plc",
+  "website": "https://www.astrazeneca.com",
+  "linkedin": "http://www.linkedin.com/company/astrazeneca",
+  "forbesRank": 109,
+  "fortuneRank": 270,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "AstraZeneca's GCC footprint in India",
+  "lede": "<strong>AstraZeneca runs four capability centers across two Indian cities.</strong> Chennai and Bengaluru, covering gbs, gcc/gic and manufacturing, built over twelve years.",
+  "insight": "Search elsewhere and you will usually find one AstraZeneca office in India. We map four, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "AstraZeneca plc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "AstraZeneca runs 4 verified GCC centers across 2 Indian cities (Chennai, Bengaluru), covering gbs, gcc/gic and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 4,
+    "totalCenters": 4,
+    "cities": [
+      "Chennai",
+      "Bengaluru"
+    ],
+    "yearsInIndia": 12,
+    "sinceYear": 2014,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "GBS",
+    "GCC/GIC",
+    "Manufacturing"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 12,
+    "categories": 12,
+    "categoryList": [
+      "ERP",
+      "Finance & Controlling",
+      "Database",
+      "Human Capital Management",
+      "IT Service Management",
+      "In-Memory Database",
+      "Materials Management",
+      "Project Management",
+      "Sales & Distribution",
+      "ERP Administration",
+      "Process Integration",
+      "Talent Acquisition"
+    ]
+  },
+  "leaders": {
+    "count": 84,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Head of GBS Service Enablement",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Country Head-Digital and IT",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Associate Director Human Resources",
+        "city": "Chennai"
+      }
+    ]
+  },
+  "about": {
+    "description": "AstraZeneca's India footprint covers Chennai and Bengaluru, spanning gbs, gcc/gic and manufacturing. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Biopharmaceuticals and Biotherapeutics, Biotechnology and Life Sciences",
+    "headquarters": "Cambridge, Massachusetts, United Kingdom",
+    "revenueBand": ">$50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "AZN, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 84 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does AstraZeneca operate in India?",
+      "a": "AstraZeneca operates 4 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does AstraZeneca have GCC centers in?",
+      "a": "AstraZeneca's India GCC footprint spans Chennai and Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does AstraZeneca run in India?",
+      "a": "AstraZeneca runs gbs, gcc/gic and manufacturing centers in India."
+    },
+    {
+      "q": "How many people work at AstraZeneca's India GCCs?",
+      "a": "AstraZeneca's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads AstraZeneca's GCC in India?",
+      "a": "Bamboo Reports tracks 84 leaders at AstraZeneca's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

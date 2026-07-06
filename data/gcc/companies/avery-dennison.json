@@ -1,0 +1,125 @@
+{
+  "slug": "avery-dennison",
+  "name": "Avery Dennison Corp.",
+  "shortName": "Avery Dennison",
+  "displayName": "Avery Dennison Corp.",
+  "website": "https://www.averydennison.com",
+  "linkedin": "http://www.linkedin.com/company/avery-dennison",
+  "forbesRank": 1415,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Avery Dennison's GCC footprint in India",
+  "lede": "<strong>Avery Dennison runs seven capability centers across four Indian cities.</strong> Pune, Bengaluru, Mumbai and Noida, covering it, manufacturing, R&D and sales & marketing, built over fourteen years.",
+  "insight": "Search elsewhere and you will usually find one Avery Dennison office in India. We map seven, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Avery Dennison Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Avery Dennison runs 7 verified GCC centers across 4 Indian cities (Pune, Bengaluru, Mumbai, Noida), covering it, manufacturing, R&D and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 7,
+    "totalCenters": 8,
+    "cities": [
+      "Pune",
+      "Bengaluru",
+      "Mumbai",
+      "Noida"
+    ],
+    "yearsInIndia": 14,
+    "sinceYear": 2012,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "IT",
+    "Manufacturing",
+    "R&D",
+    "Sales & Marketing"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 9,
+    "categories": 6,
+    "categoryList": [
+      "ERP",
+      "CRM",
+      "Materials Management",
+      "Cloud Platform",
+      "Enterprise Software",
+      "Payroll"
+    ]
+  },
+  "leaders": {
+    "count": 29,
+    "departments": "Finance, IT, HR and Procurement",
+    "titles": [
+      {
+        "title": "Head Data & Analytics- AMEA",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head of Human Resources",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head Of Finance",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Avery Dennison's India footprint covers Pune, Bengaluru, Mumbai and Noida, spanning it, manufacturing, R&D and sales & marketing. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Packaging Equipments & Solutions, Industrial Manufacturing",
+    "headquarters": "Mentor, Ohio, United States",
+    "revenueBand": "$5Bn to $10Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "AVY, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 29 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Avery Dennison operate in India?",
+      "a": "Avery Dennison operates 7 active Global Capability Center sites in India. Eight are on record in total, including non-operational sites."
+    },
+    {
+      "q": "Which Indian cities does Avery Dennison have GCC centers in?",
+      "a": "Avery Dennison's India GCC footprint spans Pune, Bengaluru, Mumbai and Noida."
+    },
+    {
+      "q": "What types of GCC centers does Avery Dennison run in India?",
+      "a": "Avery Dennison runs it, manufacturing, R&D and sales & marketing centers in India."
+    },
+    {
+      "q": "How many people work at Avery Dennison's India GCCs?",
+      "a": "Avery Dennison's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Avery Dennison's GCC in India?",
+      "a": "Bamboo Reports tracks 29 leaders at Avery Dennison's India centers, across Finance, IT, HR and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

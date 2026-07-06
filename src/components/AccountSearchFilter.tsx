@@ -69,7 +69,7 @@ export function AccountSearchFilter({
             aria-controls={listboxId}
             aria-expanded={open && canShowSuggestions}
             value={selectedAccount ?? query}
-            placeholder="Type at least 2 characters"
+            placeholder="Search companies"
             disabled={disabled}
             autoComplete="off"
             className="pl-9 pr-10"

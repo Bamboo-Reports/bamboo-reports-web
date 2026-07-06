@@ -1,0 +1,116 @@
+{
+  "slug": "berry-global-group",
+  "name": "Berry Global Group, Inc. (Acquired by Amcor plc)",
+  "shortName": "Berry",
+  "displayName": "Berry",
+  "website": "https://www.berryglobal.com",
+  "linkedin": "http://www.linkedin.com/company/berryglobal",
+  "forbesRank": 1989,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Berry's GCC footprint in India",
+  "lede": "<strong>Berry runs three capability centers across three Indian cities.</strong> Bengaluru, Tumkur and Mundra, covering CoE and manufacturing, built over four years.",
+  "insight": "Search elsewhere and you will usually find one Berry office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Berry GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Berry runs 3 verified GCC centers across 3 Indian cities (Bengaluru, Tumkur, Mundra), covering CoE and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Bengaluru",
+      "Tumkur",
+      "Mundra"
+    ],
+    "yearsInIndia": 4,
+    "sinceYear": 2022,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "CoE",
+    "Manufacturing"
+  ],
+  "functions": [
+    "R&D and ER&D"
+  ],
+  "tech": {
+    "tools": 7,
+    "categories": 6,
+    "categoryList": [
+      "ERP",
+      "Cloud Platform",
+      "Digital Certificate",
+      "JavaScript UI Library",
+      "Privacy & Compliance",
+      "Web Design"
+    ]
+  },
+  "leaders": {
+    "count": 25,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Managing Director -India , Vice President -General Manager -India & Indonesia",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head of Technology",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head of Human Resources",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Berry's India footprint covers Bengaluru, Tumkur and Mundra, spanning CoE and manufacturing. The centers deliver R&D and ER&D for the group's global operations.",
+    "industry": "Packaging Equipments & Solutions, Industrial Manufacturing",
+    "headquarters": "Evansville, Indiana, United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "BERY, ACQMP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 25 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Berry operate in India?",
+      "a": "Berry operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Berry have GCC centers in?",
+      "a": "Berry's India GCC footprint spans Bengaluru, Tumkur and Mundra."
+    },
+    {
+      "q": "What types of GCC centers does Berry run in India?",
+      "a": "Berry runs CoE and manufacturing centers in India."
+    },
+    {
+      "q": "How many people work at Berry's India GCCs?",
+      "a": "Berry's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Berry's GCC in India?",
+      "a": "Bamboo Reports tracks 25 leaders at Berry's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

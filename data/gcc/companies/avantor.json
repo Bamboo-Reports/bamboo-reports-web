@@ -1,0 +1,122 @@
+{
+  "slug": "avantor",
+  "name": "Avantor, Inc.",
+  "shortName": "Avantor",
+  "displayName": "Avantor, Inc.",
+  "website": "https://www.avantorsciences.com",
+  "linkedin": "http://www.linkedin.com/company/avantorinc",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Avantor's GCC footprint in India",
+  "lede": "<strong>Avantor runs four capability centers across four Indian cities.</strong> Bharuch, Dehradun, Mumbai and Bengaluru, covering distribution, manufacturing and R&D, built over thirteen years.",
+  "insight": "Search elsewhere and you will usually find one Avantor office in India. We map four, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Avantor, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Avantor runs 4 verified GCC centers across 4 Indian cities (Bharuch, Dehradun, Mumbai, Bengaluru), covering distribution, manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 4,
+    "totalCenters": 4,
+    "cities": [
+      "Bharuch",
+      "Dehradun",
+      "Mumbai",
+      "Bengaluru"
+    ],
+    "yearsInIndia": 13,
+    "sinceYear": 2013,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "Distribution",
+    "Manufacturing",
+    "R&D"
+  ],
+  "functions": [
+    "R&D and ER&D",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 9,
+    "categories": 8,
+    "categoryList": [
+      "CRM",
+      "ERP Administration",
+      "Field Service Management",
+      "Materials Management",
+      "Production Planning",
+      "Productivity Suite",
+      "Quality Management",
+      "Warehouse Management"
+    ]
+  },
+  "leaders": {
+    "count": 12,
+    "departments": "Finance, IT, HR and Procurement",
+    "titles": [
+      {
+        "title": "Senior Director Business Operations, Global Shared Services Center",
+        "city": "Chennai"
+      },
+      {
+        "title": "Director - Human Resources, Asia Pacific",
+        "city": "Gurugram"
+      },
+      {
+        "title": "Head Of Financial Planning & Analysis (Director)",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Avantor's India footprint covers Bharuch, Dehradun, Mumbai and Bengaluru, spanning distribution, manufacturing and R&D. The centers deliver R&D and ER&D, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Laboratory Equipment, Industrial Manufacturing",
+    "headquarters": "Radnor, Pennsylvania, United States",
+    "revenueBand": "$5Bn to $10Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "AVTR, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all twelve decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Avantor operate in India?",
+      "a": "Avantor operates 4 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Avantor have GCC centers in?",
+      "a": "Avantor's India GCC footprint spans Bharuch, Dehradun, Mumbai and Bengaluru."
+    },
+    {
+      "q": "What types of GCC centers does Avantor run in India?",
+      "a": "Avantor runs distribution, manufacturing and R&D centers in India."
+    },
+    {
+      "q": "How many people work at Avantor's India GCCs?",
+      "a": "Avantor's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Avantor's GCC in India?",
+      "a": "Bamboo Reports tracks 12 leaders at Avantor's India centers, across Finance, IT, HR and Procurement. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

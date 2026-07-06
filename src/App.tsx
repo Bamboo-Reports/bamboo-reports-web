@@ -63,7 +63,8 @@ const App = () => {
             <Route path="/gcc-abm" element={<GCCABM />} />
             <Route path="/platform" element={<Platform />} />
             <Route path="/success-stories" element={<SuccessStories />} />
-            <Route path="/tracker" element={<Tracker />} />
+            <Route path="/gcc" element={<Tracker />} />
+            <Route path="/tracker" element={<Navigate to="/gcc" replace />} />
             <Route path="/map-your-gcc-opportunity" element={<MapYourGCCOpportunity />} />
             <Route
               path="/map-your-gcc-oppurtunity"

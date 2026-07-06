@@ -1,0 +1,115 @@
+{
+  "slug": "blackberry",
+  "name": "BlackBerry Ltd.",
+  "shortName": "BlackBerry",
+  "displayName": "BlackBerry Ltd.",
+  "website": "https://www.blackberry.com",
+  "linkedin": "http://www.linkedin.com/company/blackberry",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "BlackBerry's GCC footprint in India",
+  "lede": "<strong>BlackBerry runs three capability centers across three Indian cities.</strong> Bengaluru, Hyderabad and Noida, covering CoE and gcc/gic, built over three years.",
+  "insight": "Search elsewhere and you will usually find one BlackBerry office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "BlackBerry Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "BlackBerry runs 3 verified GCC centers across 3 Indian cities (Bengaluru, Hyderabad, Noida), covering CoE and gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Bengaluru",
+      "Hyderabad",
+      "Noida"
+    ],
+    "yearsInIndia": 3,
+    "sinceYear": 2023,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "CoE",
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 2,
+    "categories": 2,
+    "categoryList": [
+      "Endpoint Security",
+      "Real-Time Operating System"
+    ]
+  },
+  "leaders": {
+    "count": 3,
+    "departments": "IT and GCC leadership",
+    "titles": [
+      {
+        "title": "Director",
+        "city": "New Delhi"
+      },
+      {
+        "title": "Director – SW Engineering – QNX",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Vice President, QNX Engineering and Head of R&D Hyderabad",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "BlackBerry's India footprint covers Bengaluru, Hyderabad and Noida, spanning CoE and gcc/gic. The centers deliver IT, R&D and ER&D, Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "Security Software, Security and Compliance Software",
+    "headquarters": "Waterloo, Ontario, Canada",
+    "revenueBand": "$501Mn to $1Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does BlackBerry operate in India?",
+      "a": "BlackBerry operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does BlackBerry have GCC centers in?",
+      "a": "BlackBerry's India GCC footprint spans Bengaluru, Hyderabad and Noida."
+    },
+    {
+      "q": "What types of GCC centers does BlackBerry run in India?",
+      "a": "BlackBerry runs CoE and gcc/gic centers in India."
+    },
+    {
+      "q": "How many people work at BlackBerry's India GCCs?",
+      "a": "BlackBerry's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads BlackBerry's GCC in India?",
+      "a": "Bamboo Reports tracks 3 leaders at BlackBerry's India centers, across IT and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

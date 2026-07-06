@@ -49,3 +49,10 @@ coverage
 
 # Netlify
 .netlify
+
+# Raw warehouse exports (contain contact PII) - never commit
+data-staging/
+data/data.xlsx
+
+# Vendored reference copy of the old repo - not project source
+ref/

@@ -1,0 +1,126 @@
+{
+  "slug": "amazon-com",
+  "name": "Amazon.com, Inc.",
+  "shortName": "Amazon",
+  "displayName": "Amazon.com, Inc.",
+  "website": "https://www.amazon.com",
+  "linkedin": "http://www.linkedin.com/company/amazon",
+  "forbesRank": 5,
+  "fortuneRank": 2,
+  "badges": [],
+  "h1": "Amazon's GCC footprint in India",
+  "lede": "<strong>Amazon runs eight capability centers across six Indian cities.</strong> Bengaluru, Mumbai, Chennai, Hyderabad, Pune and Gurugram, covering gbs, it and ssc, built over 22 years.",
+  "insight": "Search elsewhere and you will usually find one Amazon office in India. We map eight, across six cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Amazon.com, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Amazon runs 8 verified GCC centers across 6 Indian cities (Bengaluru, Mumbai, Chennai, Hyderabad, Pune, Gurugram), covering gbs, it and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 8,
+    "totalCenters": 8,
+    "cities": [
+      "Bengaluru",
+      "Mumbai",
+      "Chennai",
+      "Hyderabad",
+      "Pune",
+      "Gurugram"
+    ],
+    "yearsInIndia": 22,
+    "sinceYear": 2004,
+    "headcountBand": ">10K",
+    "headcountBandLong": ">10K"
+  },
+  "centerTypes": [
+    "GBS",
+    "IT",
+    "SSC"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 11,
+    "categories": 8,
+    "categoryList": [
+      "Finance & Controlling",
+      "Cloud Platform",
+      "Data Warehouse",
+      "Human Capital Management",
+      "Materials Management",
+      "ERP",
+      "Environment Health & Safety",
+      "Payroll"
+    ]
+  },
+  "leaders": {
+    "count": 52,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Country Head, Amazon Flex & IHS India",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head - Data & Analytics, India and South Asia",
+        "city": "Mumbai"
+      },
+      {
+        "title": "VP, (HR) People eXperience and Technology, Amazon Stores India and Emerging Markets",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Amazon's India footprint covers Bengaluru, Mumbai, Chennai, Hyderabad, Pune and Gurugram, spanning gbs, it and ssc. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "E-Commerce Marketplace, E-commerce",
+    "headquarters": "Seattle, Washington, United States",
+    "revenueBand": ">$50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "AMZN, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 52 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Amazon operate in India?",
+      "a": "Amazon operates 8 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Amazon have GCC centers in?",
+      "a": "Amazon's India GCC footprint spans Bengaluru, Mumbai, Chennai, Hyderabad, Pune and Gurugram."
+    },
+    {
+      "q": "What types of GCC centers does Amazon run in India?",
+      "a": "Amazon runs gbs, it and ssc centers in India."
+    },
+    {
+      "q": "How many people work at Amazon's India GCCs?",
+      "a": "Amazon's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Amazon's GCC in India?",
+      "a": "Bamboo Reports tracks 52 leaders at Amazon's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

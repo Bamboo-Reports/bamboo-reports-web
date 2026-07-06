@@ -1,0 +1,121 @@
+{
+  "slug": "assa-abloy-ab",
+  "name": "Assa Abloy AB",
+  "shortName": "Assa Abloy",
+  "displayName": "Assa Abloy AB",
+  "website": "https://www.assaabloy.com",
+  "linkedin": "http://www.linkedin.com/company/assaabloy",
+  "forbesRank": 717,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Assa Abloy's GCC footprint in India",
+  "lede": "<strong>Assa Abloy runs three capability centers across three Indian cities.</strong> Chennai, Gurugram and Mumbai, covering CoE, gbs and R&D, built over 21 years.",
+  "insight": "Search elsewhere and you will usually find one Assa Abloy office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Assa Abloy AB GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Assa Abloy runs 3 verified GCC centers across 3 Indian cities (Chennai, Gurugram, Mumbai), covering CoE, gbs and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Chennai",
+      "Gurugram",
+      "Mumbai"
+    ],
+    "yearsInIndia": 21,
+    "sinceYear": 2005,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "CoE",
+    "GBS",
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 4,
+    "categoryList": [
+      "CRM",
+      "ERP",
+      "Finance & Controlling",
+      "In-Memory Database"
+    ]
+  },
+  "leaders": {
+    "count": 7,
+    "departments": "Finance, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Chief Executive Officer",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Director and Head of HR - SAARC Region",
+        "city": "Pune"
+      },
+      {
+        "title": "HEAD SALES KERALA OPERATION",
+        "city": "Akola"
+      }
+    ]
+  },
+  "about": {
+    "description": "Assa Abloy's India footprint covers Chennai, Gurugram and Mumbai, spanning CoE, gbs and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Window and Door Manufacturing, Construction and Building Materials",
+    "headquarters": "Stockholm, Stockholm, Sweden",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "ASSA-B, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Assa Abloy operate in India?",
+      "a": "Assa Abloy operates 3 active Global Capability Center sites in India."
+    },
+    {
+      "q": "Which Indian cities does Assa Abloy have GCC centers in?",
+      "a": "Assa Abloy's India GCC footprint spans Chennai, Gurugram and Mumbai."
+    },
+    {
+      "q": "What types of GCC centers does Assa Abloy run in India?",
+      "a": "Assa Abloy runs CoE, gbs and R&D centers in India."
+    },
+    {
+      "q": "How many people work at Assa Abloy's India GCCs?",
+      "a": "Assa Abloy's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Assa Abloy's GCC in India?",
+      "a": "Bamboo Reports tracks 7 leaders at Assa Abloy's India centers, across Finance, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}

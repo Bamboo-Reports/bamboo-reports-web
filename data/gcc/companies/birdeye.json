@@ -1,0 +1,112 @@
+{
+  "slug": "birdeye",
+  "name": "Birdeye Inc.",
+  "shortName": "Birdeye",
+  "displayName": "Birdeye Inc.",
+  "website": "https://www.birdeye.com",
+  "linkedin": "http://www.linkedin.com/company/birdeye",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Birdeye's GCC footprint in India",
+  "lede": "<strong>Birdeye runs one capability center in Gurugram.</strong> Gurugram, covering R&D, built over ten years.",
+  "insight": "A single Birdeye center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Birdeye Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Birdeye runs 1 verified GCC center in Gurugram, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Gurugram"
+    ],
+    "yearsInIndia": 10,
+    "sinceYear": 2016,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 3,
+    "categories": 2,
+    "categoryList": [
+      "Data Visualisation",
+      "CRM"
+    ]
+  },
+  "leaders": {
+    "count": 17,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Vice President | India Board of Directors",
+        "city": "Gurugram"
+      },
+      {
+        "title": "VP Engineering",
+        "city": "Gurugram"
+      },
+      {
+        "title": "Senior Director, People & Culture",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "Birdeye's India footprint covers Gurugram, spanning R&D. The centers deliver IT, Finance & Accounting, Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "Customer Relationship Management, Business Software Solutions",
+    "headquarters": "Palo Alto, California, United States",
+    "revenueBand": "$101Mn to $250Mn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seventeen decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many GCC centers does Birdeye operate in India?",
+      "a": "Birdeye operates 1 active Global Capability Center site in India."
+    },
+    {
+      "q": "Which Indian cities does Birdeye have GCC centers in?",
+      "a": "Birdeye's India GCC presence is in Gurugram."
+    },
+    {
+      "q": "What types of GCC centers does Birdeye run in India?",
+      "a": "Birdeye runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Birdeye's India GCCs?",
+      "a": "Birdeye's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Birdeye's GCC in India?",
+      "a": "Bamboo Reports tracks 17 leaders at Birdeye's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Open the GCC Tracker",
+      "href": "/tracker"
+    }
+  ],
+  "sponsor": null
+}
