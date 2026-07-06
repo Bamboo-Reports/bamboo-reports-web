@@ -19,6 +19,7 @@ import {
   Target,
   TrendingUp,
   Users,
+  X,
 } from "lucide-react";
 
 const DEBOUNCE_MS = 250;
@@ -32,6 +33,31 @@ function useDebouncedValue<T>(value: T, delay: number): T {
   }, [value, delay]);
   return debounced;
 }
+
+const FilterChip = ({
+  category,
+  value,
+  onRemove,
+}: {
+  category: string;
+  value: string;
+  onRemove: () => void;
+}) => (
+  <span className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 py-1 pl-3 pr-1.5 text-sm font-medium text-primary">
+    <span className="text-xs uppercase tracking-wide text-primary/70">{category}</span>
+    <span className="truncate" title={value}>
+      {value}
+    </span>
+    <button
+      type="button"
+      onClick={onRemove}
+      aria-label={`Remove ${category.toLowerCase()} ${value}`}
+      className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+    >
+      <X className="h-3.5 w-3.5" />
+    </button>
+  </span>
+);
 
 const CountCard = ({
   label,
@@ -126,6 +152,14 @@ const Tracker = () => {
   const reset = () => {
     setFilters(EMPTY_FILTERS);
     setAccountSearch("");
+    setPage(1);
+  };
+
+  const removeFilterValue = (key: keyof TrackerFilters, value: string) => {
+    setFilters((current) => ({
+      ...current,
+      [key]: current[key].filter((item) => item !== value),
+    }));
     setPage(1);
   };
 
@@ -363,6 +397,39 @@ const Tracker = () => {
                 Reset
               </Button>
             </div>
+
+            {hasAppliedFilters && (
+              <div className="mt-4 flex flex-wrap items-center gap-2 border-t pt-4">
+                {filters.account_global_legal_name.map((name) => (
+                  <FilterChip
+                    key={name}
+                    category="Company"
+                    value={name}
+                    onRemove={() =>
+                      removeFilterValue("account_global_legal_name", name)
+                    }
+                  />
+                ))}
+                {filters.account_primary_category.map((industry) => (
+                  <FilterChip
+                    key={industry}
+                    category="Industry"
+                    value={industry}
+                    onRemove={() =>
+                      removeFilterValue("account_primary_category", industry)
+                    }
+                  />
+                ))}
+                {filters.center_city.map((city) => (
+                  <FilterChip
+                    key={city}
+                    category="City"
+                    value={city}
+                    onRemove={() => removeFilterValue("center_city", city)}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Counts */}
