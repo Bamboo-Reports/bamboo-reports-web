@@ -463,10 +463,7 @@ const Tracker = () => {
           {/* Directory */}
           <div className="mt-10 overflow-hidden rounded-lg border bg-card">
             <div className="border-b px-5 py-4">
-              <h3 className="text-lg font-semibold tracking-tight">GCC account directory</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Every account behind your numbers, shown 25 at a time.
-              </p>
+              <h3 className="text-lg font-semibold tracking-tight">Browse GCCs</h3>
             </div>
 
             <div
