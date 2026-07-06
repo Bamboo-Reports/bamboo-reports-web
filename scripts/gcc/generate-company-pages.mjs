@@ -14,6 +14,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const SITE = "https://www.bambooreports.com";
 const DATA_DIR = join(ROOT, "data", "gcc", "companies");
 const TEMPLATE = join(ROOT, "templates", "gcc", "company.html");
+const TEMPLATE_V2 = join(ROOT, "templates", "gcc", "company-v2.html");
 
 const outFlag = process.argv.indexOf("--out");
 const OUT_DIR = outFlag > -1 ? resolve(process.argv[outFlag + 1]) : join(ROOT, "public");
@@ -69,7 +70,7 @@ const ICONS = {
   globe:
     '<svg class="tag-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
   linkedin:
-    '<svg class="tag-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>',
+    '<svg class="tag-icon tag-icon-fill" aria-hidden="true" viewBox="0 0 448 512"><!--!Font Awesome Free by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>',
   award:
     '<svg class="tag-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg>',
 };
@@ -108,7 +109,7 @@ function buildStatTiles(c) {
 }
 
 function buildLeaderRows(c) {
-  return (c.leaders.titles ?? []).slice(0, 1)
+  return (c.leaders.titles ?? []).slice(0, 3)
     .map(
       (l) =>
         `              <div class="dm-row"><div class="dm-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg></div><div class="dm-title">${esc(l.title)} <span>| ${esc(l.city)}</span></div></div>`
@@ -155,6 +156,54 @@ function buildSponsor(c) {
               <a class="btn btn-ghost" href="${esc(s.href)}" rel="sponsored nofollow">Learn more</a>
             </div>
           </div>`;
+}
+
+// V2 builders. Cities and center types follow the same one-visible teaser
+// gating as v1, rendered as chips.
+function chipRowTeaser(items, singular, plural) {
+  const list = items ?? [];
+  if (!list.length) return "";
+  const chips = [`<span class="chip">${esc(list[0])}</span>`];
+  const rest = list.length - 1;
+  if (rest > 0) {
+    chips.push(
+      `<span class="chip chip-more">+${rest} more ${rest === 1 ? singular : plural}</span>`
+    );
+  }
+  return chips.join("");
+}
+
+function buildFactTilesV2(c) {
+  const s = c.stats;
+  const lockIcon =
+    '<svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>';
+  const tiles = [
+    { k: "Total centers", v: s.totalCenters ?? s.activeCenters },
+    { k: "Indian cities", v: s.cities.length },
+    { k: "Years in India", locked: true },
+    { k: "India headcount", locked: true },
+  ];
+  return tiles
+    .map((t) =>
+      t.locked
+        ? `      <div class="fact"><div class="k">${esc(t.k)}</div><a class="fact-lock" href="/signup?src=gcc-company-${esc(c.slug)}-v2-facts">${lockIcon}Unlock</a></div>`
+        : `      <div class="fact"><div class="k">${esc(t.k)}</div><div class="v">${esc(t.v)}</div></div>`
+    )
+    .join("\n");
+}
+
+// Same four rows v1's about grid exposes; sinceYear stays out because the
+// "Years in India" tile is locked and the since-year would give it away.
+function buildAboutRowsV2(c) {
+  const rows = [
+    ["Industry", c.about.industry],
+    ["Headquarters", c.about.headquarters],
+    ["Global revenue", c.about.revenueBand],
+    ["Global employees", c.about.employeesBand],
+  ].filter(([, v]) => v);
+  return rows
+    .map(([k, v]) => `              <div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`)
+    .join("\n");
 }
 
 function buildSchemas(c, canonical) {
@@ -205,7 +254,7 @@ function buildSchemas(c, canonical) {
   return { organization, dataset, faq, breadcrumb };
 }
 
-function render(template, c) {
+function render(template, c, extraVars = {}) {
   const canonical = `${SITE}/gcc/companies/${c.slug}`;
   const schemas = buildSchemas(c, canonical);
   const vars = {
@@ -240,6 +289,7 @@ function render(template, c) {
     FAQ_ITEMS: buildFaqItems(c),
     RELATED_LINKS: buildRelated(c),
     SPONSOR_SLOT: buildSponsor(c),
+    ...extraVars,
   };
   let html = template;
   for (const [key, value] of Object.entries(vars)) {
@@ -267,6 +317,7 @@ function qaChecks(c, html) {
 }
 
 const template = await readFile(TEMPLATE, "utf8");
+const templateV2 = await readFile(TEMPLATE_V2, "utf8");
 const files = (await readdir(DATA_DIR)).filter((f) => f.endsWith(".json"));
 if (files.length === 0) {
   console.error(`No company data files found in ${DATA_DIR}`);
@@ -277,16 +328,23 @@ let failures = 0;
 for (const file of files) {
   const c = JSON.parse(await readFile(join(DATA_DIR, file), "utf8"));
   const html = render(template, c);
-  const problems = qaChecks(c, html);
+  const htmlV2 = render(templateV2, c, {
+    V2_FACT_TILES: buildFactTilesV2(c),
+    CITY_CHIPS_ALL: chipRowTeaser(c.stats.cities, "city", "cities"),
+    TYPE_CHIPS_ALL: chipRowTeaser(c.centerTypes, "center type", "center types"),
+    ABOUT_ROWS_V2: buildAboutRowsV2(c),
+  });
+  const problems = [...qaChecks(c, html), ...qaChecks(c, htmlV2).map((p) => `v2: ${p}`)];
   if (problems.length) {
     failures++;
     console.error(`FAIL ${c.slug}: ${problems.join("; ")}`);
     continue;
   }
   const dir = join(OUT_DIR, "gcc", "companies", c.slug);
-  await mkdir(dir, { recursive: true });
+  await mkdir(join(dir, "v2"), { recursive: true });
   await writeFile(join(dir, "index.html"), html);
-  console.log(`OK   /gcc/companies/${c.slug}/ (${(html.length / 1024).toFixed(1)} KB)`);
+  await writeFile(join(dir, "v2", "index.html"), htmlV2);
+  console.log(`OK   /gcc/companies/${c.slug}/ (+v2) (${(html.length / 1024).toFixed(1)} KB / ${(htmlV2.length / 1024).toFixed(1)} KB)`);
 }
 
 if (failures) {
