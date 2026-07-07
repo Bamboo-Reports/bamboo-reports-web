@@ -1,21 +1,45 @@
-# Search and answer engines that cite and link back to us: full access.
+# Policy: block AI TRAINING crawlers, welcome AI SEARCH and answer engines.
+# We want LLMs to cite and link bambooreports.com when users ask about
+# India GCCs, without our data being absorbed into training corpora.
+
+# --- Search engines: full access ---
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+# --- AI answer and search agents (they cite and link): full access ---
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# --- Social preview bots: full access ---
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-# Training-only crawlers that consume without citing: disallowed.
-# Blocking these does not affect search visibility.
+# --- AI TRAINING crawlers (consume without citing): disallowed ---
+# Blocking these does not affect search visibility or AI-answer citations.
 User-agent: GPTBot
 Disallow: /
 
@@ -25,10 +49,16 @@ Disallow: /
 User-agent: Google-Extended
 Disallow: /
 
+User-agent: ClaudeBot
+Disallow: /
+
 User-agent: Bytespider
 Disallow: /
 
-User-agent: ClaudeBot
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Applebot-Extended
 Disallow: /
 
 # Everything else: allowed.
