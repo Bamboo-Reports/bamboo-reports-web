@@ -10,6 +10,17 @@
 # NOTE: More specific redirects (like /api/* below) must come BEFORE the catch-all "/*" rule,
 # because Netlify evaluates redirects in file order.
 
+# Force the raw Netlify alias onto the real domain. All bot management and
+# rate limiting live on Cloudflare in front of bambooreports.com; without this,
+# scrapers hitting the *.netlify.app origin would bypass every protection.
+# Deploy previews (deploy-preview-N--staging-bambooreports.netlify.app) are
+# different hostnames and are not affected.
+[[redirects]]
+  from = "https://staging-bambooreports.netlify.app/*"
+  to = "https://bambooreports.com/:splat"
+  status = 301
+  force = true
+
 # API: server-side tracker function (keeps DB access server-side, no data leakage)
 [[redirects]]
   from = "/api/tracker"
