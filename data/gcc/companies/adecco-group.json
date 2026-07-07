@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Adecco's GCC footprint in India",
-  "lede": "<strong>Adecco runs two capability centers in Bengaluru.</strong> Bengaluru, covering it and ssc, built over 27 years.",
+  "lede": "<strong>Adecco runs two centers in Bengaluru.</strong> Bengaluru, covering SSC and IT, built over 27 years.",
   "insight": "Search elsewhere and you will usually find one Adecco office in India. We map two, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Adecco Group AG GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Adecco runs 2 verified GCC centers in Bengaluru, covering it and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Adecco runs 2 verified centers in Bengaluru, covering SSC and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -25,8 +25,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "IT",
-    "SSC"
+    "SSC",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -60,9 +60,9 @@
     ]
   },
   "about": {
-    "description": "Adecco's India footprint covers Bengaluru, spanning it and ssc. The centers deliver IT and HR for the group's global operations.",
-    "industry": "Human Resources and Staffing, Corporate Services",
-    "headquarters": "Zurich, Zurich, Switzerland",
+    "description": "Adecco's India footprint covers Bengaluru, spanning SSC and IT. The centers deliver IT and HR for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "Switzerland",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "Private"
@@ -70,25 +70,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all fourteen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Adecco operate in India?",
-      "a": "Adecco operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Adecco operate in India?",
+      "a": "Adecco operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Adecco have GCC centers in?",
-      "a": "Adecco's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Adecco have centers in?",
+      "a": "Adecco's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Adecco run in India?",
-      "a": "Adecco runs it and ssc centers in India."
+      "q": "What types of centers does Adecco run in India?",
+      "a": "Adecco runs SSC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Adecco's India GCCs?",
-      "a": "Adecco's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Adecco's India centers?",
+      "a": "Aggregate and center-level headcount for Adecco's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Adecco's GCC in India?",
-      "a": "Bamboo Reports tracks 14 leaders at Adecco's India centers, across Finance, IT, HR and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Adecco's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -102,8 +102,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,16 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "Bastian Solutions's GCC footprint in India",
-  "lede": "<strong>Bastian Solutions runs two capability centers across two Indian cities.</strong> Bengaluru and Malur, covering it and manufacturing, built over 30 years.",
-  "insight": "Search elsewhere and you will usually find one Bastian Solutions office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Bastian Solutions runs one center in Bengaluru.</strong> Bengaluru, covering IT, built over 30 years.",
+  "insight": "A single Bastian Solutions center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Bastian Solutions, LLC GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Bastian Solutions runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Malur), covering it and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Bastian Solutions runs 1 verified center in Bengaluru, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 2,
-    "totalCenters": 2,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Bengaluru",
-      "Malur"
+      "Bengaluru"
     ],
     "yearsInIndia": 30,
     "sinceYear": 1996,
@@ -28,8 +27,7 @@
     "headcountBandLong": "101 to 200"
   },
   "centerTypes": [
-    "IT",
-    "Manufacturing"
+    "IT"
   ],
   "functions": [
     "IT",
@@ -60,9 +58,9 @@
     ]
   },
   "about": {
-    "description": "Bastian Solutions's India footprint covers Bengaluru and Malur, spanning it and manufacturing. The centers deliver IT and Customer Support for the group's global operations.",
-    "industry": "Industrial Equipment and Machinery, Industrial Manufacturing",
-    "headquarters": "Carmel, Indiana, United States",
+    "description": "Bastian Solutions's India footprint covers Bengaluru, spanning IT. The centers deliver IT and Customer Support for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "United States",
     "revenueBand": "$251Mn to $500Mn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "ACQSP"
@@ -70,25 +68,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Bastian Solutions operate in India?",
-      "a": "Bastian Solutions operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Bastian Solutions operate in India?",
+      "a": "Bastian Solutions operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Bastian Solutions have GCC centers in?",
-      "a": "Bastian Solutions's India GCC footprint spans Bengaluru and Malur."
+      "q": "Which Indian cities does Bastian Solutions have centers in?",
+      "a": "Bastian Solutions's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Bastian Solutions run in India?",
-      "a": "Bastian Solutions runs it and manufacturing centers in India."
+      "q": "What types of centers does Bastian Solutions run in India?",
+      "a": "Bastian Solutions runs IT centers in India."
     },
     {
-      "q": "How many people work at Bastian Solutions's India GCCs?",
-      "a": "Bastian Solutions's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Bastian Solutions's India centers?",
+      "a": "Aggregate and center-level headcount for Bastian Solutions's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Bastian Solutions's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Bastian Solutions's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Bastian Solutions's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -102,8 +100,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

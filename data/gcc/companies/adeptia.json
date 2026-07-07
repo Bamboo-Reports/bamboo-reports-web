@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Adeptia's GCC footprint in India",
-  "lede": "<strong>Adeptia runs one capability center in Noida.</strong> Noida, covering R&D, built over 26 years.",
+  "lede": "<strong>Adeptia runs one center in Noida.</strong> Noida, covering R&D, built over 26 years.",
   "insight": "A single Adeptia center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Adeptia, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Adeptia runs 1 verified GCC center in Noida, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Adeptia runs 1 verified center in Noida, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -56,8 +56,8 @@
   },
   "about": {
     "description": "Adeptia's India footprint covers Noida, spanning R&D. The centers deliver IT for the group's global operations.",
-    "industry": "Database Management Software, Technology and Infrastructure Software",
-    "headquarters": "Chicago, Illinois, United States",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "101 to 200",
     "tickerAndType": "Private"
@@ -65,25 +65,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Adeptia operate in India?",
-      "a": "Adeptia operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Adeptia operate in India?",
+      "a": "Adeptia operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Adeptia have GCC centers in?",
-      "a": "Adeptia's India GCC presence is in Noida."
+      "q": "Which Indian cities does Adeptia have centers in?",
+      "a": "Adeptia's India presence is in Noida."
     },
     {
-      "q": "What types of GCC centers does Adeptia run in India?",
+      "q": "What types of centers does Adeptia run in India?",
       "a": "Adeptia runs R&D centers in India."
     },
     {
-      "q": "How many people work at Adeptia's India GCCs?",
-      "a": "Adeptia's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Adeptia's India centers?",
+      "a": "Aggregate and center-level headcount for Adeptia's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Adeptia's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Adeptia's India centers, across IT and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Adeptia's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -97,8 +97,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

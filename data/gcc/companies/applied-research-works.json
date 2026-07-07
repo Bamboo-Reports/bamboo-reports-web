@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Applied Research Works's GCC footprint in India",
-  "lede": "<strong>Applied Research Works runs one capability center in Kolkata.</strong> Kolkata, covering it, built over nineteen years.",
+  "lede": "<strong>Applied Research Works runs one center in Kolkata.</strong> Kolkata, covering IT, built over nineteen years.",
   "insight": "A single Applied Research Works center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Applied Research Works GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Applied Research Works runs 1 verified GCC center in Kolkata, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Applied Research Works runs 1 verified center in Kolkata, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -57,9 +57,9 @@
     ]
   },
   "about": {
-    "description": "Applied Research Works's India footprint covers Kolkata, spanning it. The centers deliver IT, Sales & Marketing and Customer Support for the group's global operations.",
-    "industry": "Health Care Management Software, Industry-Specific Software",
-    "headquarters": "Palo Alto, California, United States",
+    "description": "Applied Research Works's India footprint covers Kolkata, spanning IT. The centers deliver IT, Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$51Mn to $100Mn",
     "employeesBand": "201 to 500",
     "tickerAndType": "Private"
@@ -67,25 +67,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Applied Research Works operate in India?",
-      "a": "Applied Research Works operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Applied Research Works operate in India?",
+      "a": "Applied Research Works operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Applied Research Works have GCC centers in?",
-      "a": "Applied Research Works's India GCC presence is in Kolkata."
+      "q": "Which Indian cities does Applied Research Works have centers in?",
+      "a": "Applied Research Works's India presence is in Kolkata."
     },
     {
-      "q": "What types of GCC centers does Applied Research Works run in India?",
-      "a": "Applied Research Works runs it centers in India."
+      "q": "What types of centers does Applied Research Works run in India?",
+      "a": "Applied Research Works runs IT centers in India."
     },
     {
-      "q": "How many people work at Applied Research Works's India GCCs?",
-      "a": "Applied Research Works's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Applied Research Works's India centers?",
+      "a": "Aggregate and center-level headcount for Applied Research Works's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Applied Research Works's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Applied Research Works's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Applied Research Works's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -99,8 +99,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

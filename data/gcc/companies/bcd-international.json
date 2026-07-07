@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "BCD International's GCC footprint in India",
-  "lede": "<strong>BCD International runs one capability center in Ahmedabad.</strong> Ahmedabad, covering engineering & design, built over five years.",
+  "lede": "<strong>BCD International runs one center in Ahmedabad.</strong> Ahmedabad, covering engineering & design, built over five years.",
   "insight": "A single BCD International center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "BCD International, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "BCD International runs 1 verified GCC center in Ahmedabad, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "BCD International runs 1 verified center in Ahmedabad, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -54,8 +54,8 @@
   },
   "about": {
     "description": "BCD International's India footprint covers Ahmedabad, spanning engineering & design. The centers deliver IT, R&D and ER&D, Sales & Marketing and Customer Support for the group's global operations.",
-    "industry": "Video Surveillance System, Building Management System",
-    "headquarters": "Buffalo Grove, Illinois, United States",
+    "industry": "Electronics",
+    "headquarters": "United States",
     "revenueBand": "$51Mn to $100Mn",
     "employeesBand": "51 to 100",
     "tickerAndType": "Private"
@@ -63,25 +63,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does BCD International operate in India?",
-      "a": "BCD International operates 1 active Global Capability Center site in India."
+      "q": "How many centers does BCD International operate in India?",
+      "a": "BCD International operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does BCD International have GCC centers in?",
-      "a": "BCD International's India GCC presence is in Ahmedabad."
+      "q": "Which Indian cities does BCD International have centers in?",
+      "a": "BCD International's India presence is in Ahmedabad."
     },
     {
-      "q": "What types of GCC centers does BCD International run in India?",
+      "q": "What types of centers does BCD International run in India?",
       "a": "BCD International runs engineering & design centers in India."
     },
     {
-      "q": "How many people work at BCD International's India GCCs?",
-      "a": "BCD International's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at BCD International's India centers?",
+      "a": "Aggregate and center-level headcount for BCD International's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads BCD International's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at BCD International's India centers, across HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at BCD International's India centers, across HR. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -95,8 +95,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

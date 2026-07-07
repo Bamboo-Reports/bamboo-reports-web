@@ -11,19 +11,17 @@
     "NASSCOM Listed"
   ],
   "h1": "Andritz's GCC footprint in India",
-  "lede": "<strong>Andritz runs six capability centers across five Indian cities.</strong> Chennai, Mandideep, New Delhi, Palwal and Bengaluru, covering engineering & design, gcc/gic and manufacturing, built over 28 years.",
-  "insight": "Search elsewhere and you will usually find one Andritz office in India. We map six, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Andritz runs three centers across three Indian cities.</strong> New Delhi, Bengaluru and Chennai, covering GCC/GIC and engineering & design, built over 28 years.",
+  "insight": "Search elsewhere and you will usually find one Andritz office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Andritz AG GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Andritz runs 6 verified GCC centers across 5 Indian cities (Chennai, Mandideep, New Delhi, Palwal, Bengaluru), covering engineering & design, gcc/gic and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Andritz runs 3 verified centers across 3 Indian cities (New Delhi, Bengaluru, Chennai), covering GCC/GIC and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 6,
-    "totalCenters": 6,
+    "activeCenters": 3,
+    "totalCenters": 3,
     "cities": [
-      "Chennai",
-      "Mandideep",
       "New Delhi",
-      "Palwal",
-      "Bengaluru"
+      "Bengaluru",
+      "Chennai"
     ],
     "yearsInIndia": 28,
     "sinceYear": 1998,
@@ -31,9 +29,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "Engineering & Design",
     "GCC/GIC",
-    "Manufacturing"
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -75,9 +72,9 @@
     ]
   },
   "about": {
-    "description": "Andritz's India footprint covers Chennai, Mandideep, New Delhi, Palwal and Bengaluru, spanning engineering & design, gcc/gic and manufacturing. The centers deliver IT, R&D and ER&D and HR for the group's global operations.",
-    "industry": "Industrial Equipment and Machinery, Industrial Manufacturing",
-    "headquarters": "Graz, Styria, Austria",
+    "description": "Andritz's India footprint covers New Delhi, Bengaluru and Chennai, spanning GCC/GIC and engineering & design. The centers deliver IT, R&D and ER&D and HR for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "Austria",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "ANDR, Public"
@@ -85,25 +82,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 28 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Andritz operate in India?",
-      "a": "Andritz operates 6 active Global Capability Center sites in India."
+      "q": "How many centers does Andritz operate in India?",
+      "a": "Andritz operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Andritz have GCC centers in?",
-      "a": "Andritz's India GCC footprint spans Chennai, Mandideep, New Delhi, Palwal and Bengaluru."
+      "q": "Which Indian cities does Andritz have centers in?",
+      "a": "Andritz's India footprint includes New Delhi and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Andritz run in India?",
-      "a": "Andritz runs engineering & design, gcc/gic and manufacturing centers in India."
+      "q": "What types of centers does Andritz run in India?",
+      "a": "Andritz runs GCC/GIC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Andritz's India GCCs?",
-      "a": "Andritz's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Andritz's India centers?",
+      "a": "Aggregate and center-level headcount for Andritz's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Andritz's GCC in India?",
-      "a": "Bamboo Reports tracks 28 leaders at Andritz's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Andritz's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -117,8 +114,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

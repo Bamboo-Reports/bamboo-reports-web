@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "BearingPoint's GCC footprint in India",
-  "lede": "<strong>BearingPoint runs one capability center in Bengaluru.</strong> Bengaluru, covering it, built over five years.",
+  "lede": "<strong>BearingPoint runs one center in Bengaluru.</strong> Bengaluru, covering IT, built over five years.",
   "insight": "A single BearingPoint center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "BearingPoint GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "BearingPoint runs 1 verified GCC center in Bengaluru, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "BearingPoint runs 1 verified center in Bengaluru, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -54,9 +54,9 @@
     ]
   },
   "about": {
-    "description": "BearingPoint's India footprint covers Bengaluru, spanning it. The centers deliver IT and Finance & Accounting for the group's global operations.",
-    "industry": "Management Consulting, Corporate Services",
-    "headquarters": "Amsterdam, North Holland, Netherlands",
+    "description": "BearingPoint's India footprint covers Bengaluru, spanning IT. The centers deliver IT and Finance & Accounting for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "Netherlands",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "Public"
@@ -64,25 +64,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does BearingPoint operate in India?",
-      "a": "BearingPoint operates 1 active Global Capability Center site in India."
+      "q": "How many centers does BearingPoint operate in India?",
+      "a": "BearingPoint operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does BearingPoint have GCC centers in?",
-      "a": "BearingPoint's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does BearingPoint have centers in?",
+      "a": "BearingPoint's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does BearingPoint run in India?",
-      "a": "BearingPoint runs it centers in India."
+      "q": "What types of centers does BearingPoint run in India?",
+      "a": "BearingPoint runs IT centers in India."
     },
     {
-      "q": "How many people work at BearingPoint's India GCCs?",
-      "a": "BearingPoint's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at BearingPoint's India centers?",
+      "a": "Aggregate and center-level headcount for BearingPoint's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads BearingPoint's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at BearingPoint's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at BearingPoint's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -96,8 +96,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

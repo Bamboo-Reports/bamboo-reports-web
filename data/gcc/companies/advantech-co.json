@@ -11,17 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Advantech's GCC footprint in India",
-  "lede": "<strong>Advantech runs three capability centers across three Indian cities.</strong> Bengaluru, Pune and Jaipur, covering engineering & design, R&D and sales & marketing, built over fourteen years.",
-  "insight": "Search elsewhere and you will usually find one Advantech office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Advantech runs two centers across two Indian cities.</strong> Pune and Bengaluru, covering R&D and engineering & design, built over fourteen years.",
+  "insight": "Search elsewhere and you will usually find one Advantech office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Advantech Co., Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Advantech runs 3 verified GCC centers across 3 Indian cities (Bengaluru, Pune, Jaipur), covering engineering & design, R&D and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Advantech runs 2 verified centers across 2 Indian cities (Pune, Bengaluru), covering R&D and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 3,
-    "totalCenters": 3,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
-      "Bengaluru",
       "Pune",
-      "Jaipur"
+      "Bengaluru"
     ],
     "yearsInIndia": 14,
     "sinceYear": 2012,
@@ -29,9 +28,8 @@
     "headcountBandLong": "101 to 200"
   },
   "centerTypes": [
-    "Engineering & Design",
     "R&D",
-    "Sales & Marketing"
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -64,9 +62,9 @@
     ]
   },
   "about": {
-    "description": "Advantech's India footprint covers Bengaluru, Pune and Jaipur, spanning engineering & design, R&D and sales & marketing. The centers deliver IT, R&D and ER&D, Sales & Marketing and Customer Support for the group's global operations.",
-    "industry": "Industrial Automation & Robotics, Industrial Manufacturing",
-    "headquarters": "Taipei, Taipei, Taiwan",
+    "description": "Advantech's India footprint covers Pune and Bengaluru, spanning R&D and engineering & design. The centers deliver IT, R&D and ER&D, Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "Taiwan",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "2395, Public"
@@ -74,25 +72,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Advantech operate in India?",
-      "a": "Advantech operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Advantech operate in India?",
+      "a": "Advantech operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Advantech have GCC centers in?",
-      "a": "Advantech's India GCC footprint spans Bengaluru, Pune and Jaipur."
+      "q": "Which Indian cities does Advantech have centers in?",
+      "a": "Advantech's India footprint includes Pune and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Advantech run in India?",
-      "a": "Advantech runs engineering & design, R&D and sales & marketing centers in India."
+      "q": "What types of centers does Advantech run in India?",
+      "a": "Advantech runs R&D and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Advantech's India GCCs?",
-      "a": "Advantech's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Advantech's India centers?",
+      "a": "Aggregate and center-level headcount for Advantech's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Advantech's GCC in India?",
-      "a": "Bamboo Reports tracks 3 leaders at Advantech's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Advantech's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -106,8 +104,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

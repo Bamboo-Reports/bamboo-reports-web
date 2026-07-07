@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Appian's GCC footprint in India",
-  "lede": "<strong>Appian runs one capability center in Chennai.</strong> Chennai, covering it, built over four years.",
+  "lede": "<strong>Appian runs one center in Chennai.</strong> Chennai, covering IT, built over four years.",
   "insight": "A single Appian center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Appian Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Appian runs 1 verified GCC center in Chennai, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Appian runs 1 verified center in Chennai, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -55,9 +55,9 @@
     ]
   },
   "about": {
-    "description": "Appian's India footprint covers Chennai, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Engineering, Scientific and CAD Software, Industry-Specific Software",
-    "headquarters": "McLean, Virginia, United States",
+    "description": "Appian's India footprint covers Chennai, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "APPN, Public"
@@ -65,25 +65,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Appian operate in India?",
-      "a": "Appian operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Appian operate in India?",
+      "a": "Appian operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Appian have GCC centers in?",
-      "a": "Appian's India GCC presence is in Chennai."
+      "q": "Which Indian cities does Appian have centers in?",
+      "a": "Appian's India presence is in Chennai."
     },
     {
-      "q": "What types of GCC centers does Appian run in India?",
-      "a": "Appian runs it centers in India."
+      "q": "What types of centers does Appian run in India?",
+      "a": "Appian runs IT centers in India."
     },
     {
-      "q": "How many people work at Appian's India GCCs?",
-      "a": "Appian's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Appian's India centers?",
+      "a": "Aggregate and center-level headcount for Appian's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Appian's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Appian's India centers, across IT and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Appian's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -97,8 +97,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

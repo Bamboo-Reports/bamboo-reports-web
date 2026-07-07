@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Belcan's GCC footprint in India",
-  "lede": "<strong>Belcan runs two capability centers across two Indian cities.</strong> Hyderabad and Bengaluru, covering engineering & design and it, built over ten years.",
+  "lede": "<strong>Belcan runs two centers across two Indian cities.</strong> Hyderabad and Bengaluru, covering engineering & design and IT, built over ten years.",
   "insight": "Search elsewhere and you will usually find one Belcan office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Belcan, LLC GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Belcan runs 2 verified GCC centers across 2 Indian cities (Hyderabad, Bengaluru), covering engineering & design and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Belcan runs 2 verified centers across 2 Indian cities (Hyderabad, Bengaluru), covering engineering & design and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -56,9 +56,9 @@
     ]
   },
   "about": {
-    "description": "Belcan's India footprint covers Hyderabad and Bengaluru, spanning engineering & design and it. The centers deliver R&D and ER&D for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Cincinnati, Ohio, United States",
+    "description": "Belcan's India footprint covers Hyderabad and Bengaluru, spanning engineering & design and IT. The centers deliver R&D and ER&D for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "Private"
@@ -66,25 +66,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Belcan operate in India?",
-      "a": "Belcan operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Belcan operate in India?",
+      "a": "Belcan operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Belcan have GCC centers in?",
-      "a": "Belcan's India GCC footprint spans Hyderabad and Bengaluru."
+      "q": "Which Indian cities does Belcan have centers in?",
+      "a": "Belcan's India footprint includes Hyderabad and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Belcan run in India?",
-      "a": "Belcan runs engineering & design and it centers in India."
+      "q": "What types of centers does Belcan run in India?",
+      "a": "Belcan runs engineering & design and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Belcan's India GCCs?",
-      "a": "Belcan's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Belcan's India centers?",
+      "a": "Aggregate and center-level headcount for Belcan's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Belcan's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Belcan's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Belcan's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -98,8 +98,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

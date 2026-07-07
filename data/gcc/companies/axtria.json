@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Axtria's GCC footprint in India",
-  "lede": "<strong>Axtria runs nine capability centers across five Indian cities.</strong> Gurugram, Noida, Pune, Bengaluru and Hyderabad, covering gbs and gcc/gic, built over thirteen years.",
+  "lede": "<strong>Axtria runs nine centers across five Indian cities.</strong> Gurugram, Noida, Pune, Bengaluru and Hyderabad, covering GBS and GCC/GIC, built over thirteen years.",
   "insight": "Search elsewhere and you will usually find one Axtria office in India. We map nine, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Axtria, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Axtria runs 9 verified GCC centers across 5 Indian cities (Gurugram, Noida, Pune, Bengaluru, Hyderabad), covering gbs and gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Axtria runs 9 verified centers across 5 Indian cities (Gurugram, Noida, Pune, Bengaluru, Hyderabad), covering GBS and GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 9,
     "totalCenters": 9,
@@ -83,9 +83,9 @@
     ]
   },
   "about": {
-    "description": "Axtria's India footprint covers Gurugram, Noida, Pune, Bengaluru and Hyderabad, spanning gbs and gcc/gic. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Pharma and Biotech Software, Industry-Specific Software",
-    "headquarters": "Berkeley Heights, New Jersey, United States",
+    "description": "Axtria's India footprint covers Gurugram, Noida, Pune, Bengaluru and Hyderabad, spanning GBS and GCC/GIC. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -93,25 +93,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 59 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Axtria operate in India?",
-      "a": "Axtria operates 9 active Global Capability Center sites in India."
+      "q": "How many centers does Axtria operate in India?",
+      "a": "Axtria operates 9 active centers in India."
     },
     {
-      "q": "Which Indian cities does Axtria have GCC centers in?",
-      "a": "Axtria's India GCC footprint spans Gurugram, Noida, Pune, Bengaluru and Hyderabad."
+      "q": "Which Indian cities does Axtria have centers in?",
+      "a": "Axtria's India footprint includes Gurugram and 4 additional cities."
     },
     {
-      "q": "What types of GCC centers does Axtria run in India?",
-      "a": "Axtria runs gbs and gcc/gic centers in India."
+      "q": "What types of centers does Axtria run in India?",
+      "a": "Axtria runs GBS and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Axtria's India GCCs?",
-      "a": "Axtria's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Axtria's India centers?",
+      "a": "Aggregate and center-level headcount for Axtria's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Axtria's GCC in India?",
-      "a": "Bamboo Reports tracks 59 leaders at Axtria's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Axtria's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -125,8 +125,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

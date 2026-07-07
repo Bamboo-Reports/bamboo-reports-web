@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Bitwise's GCC footprint in India",
-  "lede": "<strong>Bitwise runs one capability center in Pune.</strong> Pune, covering gbs, built over eight years.",
+  "lede": "<strong>Bitwise runs one center in Pune.</strong> Pune, covering GBS, built over eight years.",
   "insight": "A single Bitwise center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Bitwise, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Bitwise runs 1 verified GCC center in Pune, covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Bitwise runs 1 verified center in Pune, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -54,9 +54,9 @@
     ]
   },
   "about": {
-    "description": "Bitwise's India footprint covers Pune, spanning gbs. The centers deliver IT for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Schaumburg, Illinois, United States",
+    "description": "Bitwise's India footprint covers Pune, spanning GBS. The centers deliver IT for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -64,25 +64,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Bitwise operate in India?",
-      "a": "Bitwise operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Bitwise operate in India?",
+      "a": "Bitwise operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Bitwise have GCC centers in?",
-      "a": "Bitwise's India GCC presence is in Pune."
+      "q": "Which Indian cities does Bitwise have centers in?",
+      "a": "Bitwise's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does Bitwise run in India?",
-      "a": "Bitwise runs gbs centers in India."
+      "q": "What types of centers does Bitwise run in India?",
+      "a": "Bitwise runs GBS centers in India."
     },
     {
-      "q": "How many people work at Bitwise's India GCCs?",
-      "a": "Bitwise's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Bitwise's India centers?",
+      "a": "Aggregate and center-level headcount for Bitwise's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Bitwise's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Bitwise's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Bitwise's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -96,8 +96,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

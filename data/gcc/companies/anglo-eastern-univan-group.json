@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Anglo-Eastern Univan's GCC footprint in India",
-  "lede": "<strong>Anglo-Eastern Univan runs three capability centers across three Indian cities.</strong> Navi Mumbai, Mumbai and New Delhi, covering CoE and ssc, built over seventeen years.",
+  "lede": "<strong>Anglo-Eastern Univan runs three centers across three Indian cities.</strong> Navi Mumbai, Mumbai and New Delhi, covering SSC and CoE, built over seventeen years.",
   "insight": "Search elsewhere and you will usually find one Anglo-Eastern Univan office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Anglo-Eastern Univan GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Anglo-Eastern Univan runs 3 verified GCC centers across 3 Indian cities (Navi Mumbai, Mumbai, New Delhi), covering CoE and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Anglo-Eastern Univan runs 3 verified centers across 3 Indian cities (Navi Mumbai, Mumbai, New Delhi), covering SSC and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
@@ -27,8 +27,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "CoE",
-    "SSC"
+    "SSC",
+    "CoE"
   ],
   "functions": [
     "IT",
@@ -59,9 +59,9 @@
     ]
   },
   "about": {
-    "description": "Anglo-Eastern Univan's India footprint covers Navi Mumbai, Mumbai and New Delhi, spanning CoE and ssc. The centers deliver IT, Finance & Accounting and Procurement for the group's global operations.",
-    "industry": "Online Staffing and Recruitment Services, Corporate Services",
-    "headquarters": "Kowloon Bay, Hong Kong, Hong Kong",
+    "description": "Anglo-Eastern Univan's India footprint covers Navi Mumbai, Mumbai and New Delhi, spanning SSC and CoE. The centers deliver IT, Finance & Accounting and Procurement for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "Hong Kong",
     "revenueBand": "$251Mn to $500Mn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -69,25 +69,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Anglo-Eastern Univan operate in India?",
-      "a": "Anglo-Eastern Univan operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Anglo-Eastern Univan operate in India?",
+      "a": "Anglo-Eastern Univan operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Anglo-Eastern Univan have GCC centers in?",
-      "a": "Anglo-Eastern Univan's India GCC footprint spans Navi Mumbai, Mumbai and New Delhi."
+      "q": "Which Indian cities does Anglo-Eastern Univan have centers in?",
+      "a": "Anglo-Eastern Univan's India footprint includes Navi Mumbai and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Anglo-Eastern Univan run in India?",
-      "a": "Anglo-Eastern Univan runs CoE and ssc centers in India."
+      "q": "What types of centers does Anglo-Eastern Univan run in India?",
+      "a": "Anglo-Eastern Univan runs SSC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Anglo-Eastern Univan's India GCCs?",
-      "a": "Anglo-Eastern Univan's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Anglo-Eastern Univan's India centers?",
+      "a": "Aggregate and center-level headcount for Anglo-Eastern Univan's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Anglo-Eastern Univan's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Anglo-Eastern Univan's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Anglo-Eastern Univan's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -101,8 +101,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

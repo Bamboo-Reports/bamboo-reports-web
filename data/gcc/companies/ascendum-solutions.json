@@ -11,16 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "Ascendum Solutions's GCC footprint in India",
-  "lede": "<strong>Ascendum Solutions runs two capability centers across two Indian cities.</strong> Ahmedabad and Bengaluru, covering bpo and sales & marketing, built over 25 years.",
-  "insight": "Search elsewhere and you will usually find one Ascendum Solutions office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Ascendum Solutions runs one center in Ahmedabad.</strong> Ahmedabad, covering BPO, built over 25 years.",
+  "insight": "A single Ascendum Solutions center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Ascendum Solutions LLC GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Ascendum Solutions runs 2 verified GCC centers across 2 Indian cities (Ahmedabad, Bengaluru), covering bpo and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Ascendum Solutions runs 1 verified center in Ahmedabad, covering BPO. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 2,
-    "totalCenters": 2,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Ahmedabad",
-      "Bengaluru"
+      "Ahmedabad"
     ],
     "yearsInIndia": 25,
     "sinceYear": 2001,
@@ -28,8 +27,7 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "BPO",
-    "Sales & Marketing"
+    "BPO"
   ],
   "functions": [
     "Finance & Accounting",
@@ -67,9 +65,9 @@
     ]
   },
   "about": {
-    "description": "Ascendum Solutions's India footprint covers Ahmedabad and Bengaluru, spanning bpo and sales & marketing. The centers deliver Finance & Accounting, HR, Sales & Marketing and Customer Support for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Cincinnati, Ohio, United States",
+    "description": "Ascendum Solutions's India footprint covers Ahmedabad, spanning BPO. The centers deliver Finance & Accounting, HR, Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United States",
     "revenueBand": "$101Mn to $250Mn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -77,25 +75,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all six decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Ascendum Solutions operate in India?",
-      "a": "Ascendum Solutions operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Ascendum Solutions operate in India?",
+      "a": "Ascendum Solutions operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Ascendum Solutions have GCC centers in?",
-      "a": "Ascendum Solutions's India GCC footprint spans Ahmedabad and Bengaluru."
+      "q": "Which Indian cities does Ascendum Solutions have centers in?",
+      "a": "Ascendum Solutions's India presence is in Ahmedabad."
     },
     {
-      "q": "What types of GCC centers does Ascendum Solutions run in India?",
-      "a": "Ascendum Solutions runs bpo and sales & marketing centers in India."
+      "q": "What types of centers does Ascendum Solutions run in India?",
+      "a": "Ascendum Solutions runs BPO centers in India."
     },
     {
-      "q": "How many people work at Ascendum Solutions's India GCCs?",
-      "a": "Ascendum Solutions's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Ascendum Solutions's India centers?",
+      "a": "Aggregate and center-level headcount for Ascendum Solutions's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Ascendum Solutions's GCC in India?",
-      "a": "Bamboo Reports tracks 6 leaders at Ascendum Solutions's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Ascendum Solutions's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -109,8 +107,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

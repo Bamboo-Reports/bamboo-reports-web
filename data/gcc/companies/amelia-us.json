@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Amelia US's GCC footprint in India",
-  "lede": "<strong>Amelia US runs one capability center in Bengaluru.</strong> Bengaluru, covering gbs, built over six years.",
+  "lede": "<strong>Amelia US runs one center in Bengaluru.</strong> Bengaluru, covering GBS, built over six years.",
   "insight": "A single Amelia US center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Amelia US GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Amelia US runs 1 verified GCC center in Bengaluru, covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Amelia US runs 1 verified center in Bengaluru, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -62,9 +62,9 @@
     ]
   },
   "about": {
-    "description": "Amelia US's India footprint covers Bengaluru, spanning gbs. The centers deliver IT and Finance & Accounting for the group's global operations.",
-    "industry": "RPA (Robotic Process Automation), Miscellaneous Software",
-    "headquarters": "New York, New York, United States",
+    "description": "Amelia US's India footprint covers Bengaluru, spanning GBS. The centers deliver IT and Finance & Accounting for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$101Mn to $250Mn",
     "employeesBand": "501 to 1,000",
     "tickerAndType": "ACQMP"
@@ -72,25 +72,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all four decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Amelia US operate in India?",
-      "a": "Amelia US operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Amelia US operate in India?",
+      "a": "Amelia US operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Amelia US have GCC centers in?",
-      "a": "Amelia US's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Amelia US have centers in?",
+      "a": "Amelia US's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Amelia US run in India?",
-      "a": "Amelia US runs gbs centers in India."
+      "q": "What types of centers does Amelia US run in India?",
+      "a": "Amelia US runs GBS centers in India."
     },
     {
-      "q": "How many people work at Amelia US's India GCCs?",
-      "a": "Amelia US's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Amelia US's India centers?",
+      "a": "Aggregate and center-level headcount for Amelia US's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Amelia US's GCC in India?",
-      "a": "Bamboo Reports tracks 4 leaders at Amelia US's India centers, across Finance, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Amelia US's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -104,8 +104,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

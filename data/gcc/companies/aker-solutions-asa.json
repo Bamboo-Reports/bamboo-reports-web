@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Aker Solutions's GCC footprint in India",
-  "lede": "<strong>Aker Solutions runs two capability centers across two Indian cities.</strong> Mumbai and Pune, covering engineering & design, built over sixteen years.",
+  "lede": "<strong>Aker Solutions runs two centers across two Indian cities.</strong> Mumbai and Pune, covering engineering & design, built over sixteen years.",
   "insight": "Search elsewhere and you will usually find one Aker Solutions office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Aker Solutions ASA GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Aker Solutions runs 2 verified GCC centers across 2 Indian cities (Mumbai, Pune), covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Aker Solutions runs 2 verified centers across 2 Indian cities (Mumbai, Pune), covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -65,8 +65,8 @@
   },
   "about": {
     "description": "Aker Solutions's India footprint covers Mumbai and Pune, spanning engineering & design. The centers deliver R&D and ER&D, Procurement and Sales & Marketing for the group's global operations.",
-    "industry": "Oil and Gas Production and Exploration, Oil & Gas",
-    "headquarters": "Lysaker, Viken, Norway",
+    "industry": "Utilities",
+    "headquarters": "Norway",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "AKSO, Public"
@@ -74,25 +74,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Aker Solutions operate in India?",
-      "a": "Aker Solutions operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Aker Solutions operate in India?",
+      "a": "Aker Solutions operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Aker Solutions have GCC centers in?",
-      "a": "Aker Solutions's India GCC footprint spans Mumbai and Pune."
+      "q": "Which Indian cities does Aker Solutions have centers in?",
+      "a": "Aker Solutions's India footprint includes Mumbai and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Aker Solutions run in India?",
+      "q": "What types of centers does Aker Solutions run in India?",
       "a": "Aker Solutions runs engineering & design centers in India."
     },
     {
-      "q": "How many people work at Aker Solutions's India GCCs?",
-      "a": "Aker Solutions's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Aker Solutions's India centers?",
+      "a": "Aggregate and center-level headcount for Aker Solutions's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Aker Solutions's GCC in India?",
-      "a": "Bamboo Reports tracks 7 leaders at Aker Solutions's India centers, across Finance, IT and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Aker Solutions's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -106,8 +106,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

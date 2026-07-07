@@ -11,20 +11,20 @@
     "NASSCOM Listed"
   ],
   "h1": "Adept Chips Services Pvt's GCC footprint in India",
-  "lede": "<strong>Adept Chips Services Pvt runs seven capability centers across six Indian cities.</strong> Hyderabad, Visakhapatnam, Pune, Belgaum, Kochi and Bengaluru, covering CoE, engineering & design, gbs and R&D, built over eighteen years.",
+  "lede": "<strong>Adept Chips Services Pvt runs seven centers across six Indian cities.</strong> Bengaluru, Hyderabad, Visakhapatnam, Pune, Belgaum and Kochi, covering GBS, R&D, CoE and engineering & design, built over eighteen years.",
   "insight": "Search elsewhere and you will usually find one Adept Chips Services Pvt office in India. We map seven, across six cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Adept Chips Services Pvt GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Adept Chips Services Pvt runs 7 verified GCC centers across 6 Indian cities (Hyderabad, Visakhapatnam, Pune, Belgaum, Kochi, Bengaluru), covering CoE, engineering & design, gbs and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Adept Chips Services Pvt runs 7 verified centers across 6 Indian cities (Bengaluru, Hyderabad, Visakhapatnam, Pune, Belgaum, Kochi), covering GBS, R&D, CoE and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 7,
     "totalCenters": 7,
     "cities": [
+      "Bengaluru",
       "Hyderabad",
       "Visakhapatnam",
       "Pune",
       "Belgaum",
-      "Kochi",
-      "Bengaluru"
+      "Kochi"
     ],
     "yearsInIndia": 18,
     "sinceYear": 2008,
@@ -32,10 +32,10 @@
     "headcountBandLong": ">10K"
   },
   "centerTypes": [
-    "CoE",
-    "Engineering & Design",
     "GBS",
-    "R&D"
+    "R&D",
+    "CoE",
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -84,9 +84,9 @@
     ]
   },
   "about": {
-    "description": "Adept Chips Services Pvt's India footprint covers Hyderabad, Visakhapatnam, Pune, Belgaum, Kochi and Bengaluru, spanning CoE, engineering & design, gbs and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Industrial Engineering Services, Construction & Engineering",
-    "headquarters": "Singapore, Singapore, Singapore",
+    "description": "Adept Chips Services Pvt's India footprint covers Bengaluru, Hyderabad, Visakhapatnam, Pune, Belgaum and Kochi, spanning GBS, R&D, CoE and engineering & design. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "Singapore",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "ACQMP"
@@ -94,25 +94,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 45 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Adept Chips Services Pvt operate in India?",
-      "a": "Adept Chips Services Pvt operates 7 active Global Capability Center sites in India."
+      "q": "How many centers does Adept Chips Services Pvt operate in India?",
+      "a": "Adept Chips Services Pvt operates 7 active centers in India."
     },
     {
-      "q": "Which Indian cities does Adept Chips Services Pvt have GCC centers in?",
-      "a": "Adept Chips Services Pvt's India GCC footprint spans Hyderabad, Visakhapatnam, Pune, Belgaum, Kochi and Bengaluru."
+      "q": "Which Indian cities does Adept Chips Services Pvt have centers in?",
+      "a": "Adept Chips Services Pvt's India footprint includes Bengaluru and 5 additional cities."
     },
     {
-      "q": "What types of GCC centers does Adept Chips Services Pvt run in India?",
-      "a": "Adept Chips Services Pvt runs CoE, engineering & design, gbs and R&D centers in India."
+      "q": "What types of centers does Adept Chips Services Pvt run in India?",
+      "a": "Adept Chips Services Pvt runs GBS and 3 additional center types centers in India."
     },
     {
-      "q": "How many people work at Adept Chips Services Pvt's India GCCs?",
-      "a": "Adept Chips Services Pvt's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Adept Chips Services Pvt's India centers?",
+      "a": "Aggregate and center-level headcount for Adept Chips Services Pvt's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Adept Chips Services Pvt's GCC in India?",
-      "a": "Bamboo Reports tracks 45 leaders at Adept Chips Services Pvt's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Adept Chips Services Pvt's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -126,8 +126,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

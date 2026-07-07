@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Analec North America's GCC footprint in India",
-  "lede": "<strong>Analec North America runs one capability center in Gurugram.</strong> Gurugram, covering it, built over 23 years.",
+  "lede": "<strong>Analec North America runs one center in Gurugram.</strong> Gurugram, covering IT, built over 23 years.",
   "insight": "A single Analec North America center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Analec North America GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Analec North America runs 1 verified GCC center in Gurugram, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Analec North America runs 1 verified center in Gurugram, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -57,9 +57,9 @@
     ]
   },
   "about": {
-    "description": "Analec North America's India footprint covers Gurugram, spanning it. The centers deliver IT and Customer Support for the group's global operations.",
-    "industry": "Financial Services Software, Business Software Solutions",
-    "headquarters": "New York, New York, United States",
+    "description": "Analec North America's India footprint covers Gurugram, spanning IT. The centers deliver IT and Customer Support for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "101 to 200",
     "tickerAndType": "Private"
@@ -67,25 +67,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Analec North America operate in India?",
-      "a": "Analec North America operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Analec North America operate in India?",
+      "a": "Analec North America operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Analec North America have GCC centers in?",
-      "a": "Analec North America's India GCC presence is in Gurugram."
+      "q": "Which Indian cities does Analec North America have centers in?",
+      "a": "Analec North America's India presence is in Gurugram."
     },
     {
-      "q": "What types of GCC centers does Analec North America run in India?",
-      "a": "Analec North America runs it centers in India."
+      "q": "What types of centers does Analec North America run in India?",
+      "a": "Analec North America runs IT centers in India."
     },
     {
-      "q": "How many people work at Analec North America's India GCCs?",
-      "a": "Analec North America's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Analec North America's India centers?",
+      "a": "Aggregate and center-level headcount for Analec North America's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Analec North America's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Analec North America's India centers, across Finance and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Analec North America's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -99,8 +99,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

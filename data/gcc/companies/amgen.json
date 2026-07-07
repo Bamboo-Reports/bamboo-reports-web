@@ -11,16 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Amgen's GCC footprint in India",
-  "lede": "<strong>Amgen runs three capability centers across three Indian cities.</strong> Hyderabad, Mumbai and Bengaluru, covering it and R&D, built over nineteen years.",
+  "lede": "<strong>Amgen runs three centers across three Indian cities.</strong> Mumbai, Hyderabad and Bengaluru, covering R&D and IT, built over nineteen years.",
   "insight": "Search elsewhere and you will usually find one Amgen office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Amgen Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Amgen runs 3 verified GCC centers across 3 Indian cities (Hyderabad, Mumbai, Bengaluru), covering it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Amgen runs 3 verified centers across 3 Indian cities (Mumbai, Hyderabad, Bengaluru), covering R&D and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
     "cities": [
-      "Hyderabad",
       "Mumbai",
+      "Hyderabad",
       "Bengaluru"
     ],
     "yearsInIndia": 19,
@@ -29,8 +29,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "IT",
-    "R&D"
+    "R&D",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -66,9 +66,9 @@
     ]
   },
   "about": {
-    "description": "Amgen's India footprint covers Hyderabad, Mumbai and Bengaluru, spanning it and R&D. The centers deliver IT, R&D and ER&D and Procurement for the group's global operations.",
-    "industry": "Biopharmaceuticals and Biotherapeutics, Biotechnology and Life Sciences",
-    "headquarters": "Thousand Oaks, California, United States",
+    "description": "Amgen's India footprint covers Mumbai, Hyderabad and Bengaluru, spanning R&D and IT. The centers deliver IT, R&D and ER&D and Procurement for the group's global operations.",
+    "industry": "Pharma & Life Sciences",
+    "headquarters": "United States",
     "revenueBand": "$25Bn to $50Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "AMGN, Public"
@@ -76,25 +76,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 29 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Amgen operate in India?",
-      "a": "Amgen operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Amgen operate in India?",
+      "a": "Amgen operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Amgen have GCC centers in?",
-      "a": "Amgen's India GCC footprint spans Hyderabad, Mumbai and Bengaluru."
+      "q": "Which Indian cities does Amgen have centers in?",
+      "a": "Amgen's India footprint includes Mumbai and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Amgen run in India?",
-      "a": "Amgen runs it and R&D centers in India."
+      "q": "What types of centers does Amgen run in India?",
+      "a": "Amgen runs R&D and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Amgen's India GCCs?",
-      "a": "Amgen's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Amgen's India centers?",
+      "a": "Aggregate and center-level headcount for Amgen's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Amgen's GCC in India?",
-      "a": "Bamboo Reports tracks 29 leaders at Amgen's India centers, across IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Amgen's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -108,8 +108,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

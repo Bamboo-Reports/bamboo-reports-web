@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Abacus.AI's GCC footprint in India",
-  "lede": "<strong>Abacus.AI runs one capability center in Mumbai.</strong> Mumbai, covering R&D, built over five years.",
+  "lede": "<strong>Abacus.AI runs one center in Mumbai.</strong> Mumbai, covering R&D, built over five years.",
   "insight": "A single Abacus.AI center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Abacus.AI, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Abacus.AI runs 1 verified GCC center in Mumbai, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Abacus.AI runs 1 verified center in Mumbai, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -61,8 +61,8 @@
   },
   "about": {
     "description": "Abacus.AI's India footprint covers Mumbai, spanning R&D. The centers deliver IT for the group's global operations.",
-    "industry": "AI and Chatbot Software, Business Software Solutions",
-    "headquarters": "San Francisco, California, United States",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "101 to 200",
     "tickerAndType": "Private"
@@ -70,25 +70,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all five decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Abacus.AI operate in India?",
-      "a": "Abacus.AI operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Abacus.AI operate in India?",
+      "a": "Abacus.AI operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Abacus.AI have GCC centers in?",
-      "a": "Abacus.AI's India GCC presence is in Mumbai."
+      "q": "Which Indian cities does Abacus.AI have centers in?",
+      "a": "Abacus.AI's India presence is in Mumbai."
     },
     {
-      "q": "What types of GCC centers does Abacus.AI run in India?",
+      "q": "What types of centers does Abacus.AI run in India?",
       "a": "Abacus.AI runs R&D centers in India."
     },
     {
-      "q": "How many people work at Abacus.AI's India GCCs?",
-      "a": "Abacus.AI's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Abacus.AI's India centers?",
+      "a": "Aggregate and center-level headcount for Abacus.AI's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Abacus.AI's GCC in India?",
-      "a": "Bamboo Reports tracks 5 leaders at Abacus.AI's India centers, across IT and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Abacus.AI's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -102,8 +102,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

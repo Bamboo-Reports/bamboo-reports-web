@@ -11,17 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "AB InBev, Budweiser's GCC footprint in India",
-  "lede": "<strong>AB InBev, Budweiser runs four capability centers across three Indian cities.</strong> Bengaluru, Mysuru and Medak, covering gcc/gic, it and manufacturing, built over twelve years.",
-  "insight": "Search elsewhere and you will usually find one AB InBev, Budweiser office in India. We map four, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>AB InBev, Budweiser runs two centers in Bengaluru.</strong> Bengaluru, covering GCC/GIC and IT, built over twelve years.",
+  "insight": "Search elsewhere and you will usually find one AB InBev, Budweiser office in India. We map two, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "AB InBev, Budweiser GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "AB InBev, Budweiser runs 4 verified GCC centers across 3 Indian cities (Bengaluru, Mysuru, Medak), covering gcc/gic, it and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "AB InBev, Budweiser runs 2 verified centers in Bengaluru, covering GCC/GIC and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 4,
-    "totalCenters": 4,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
-      "Bengaluru",
-      "Mysuru",
-      "Medak"
+      "Bengaluru"
     ],
     "yearsInIndia": 12,
     "sinceYear": 2014,
@@ -30,8 +28,7 @@
   },
   "centerTypes": [
     "GCC/GIC",
-    "IT",
-    "Manufacturing"
+    "IT"
   ],
   "functions": [
     "IT",
@@ -76,9 +73,9 @@
     ]
   },
   "about": {
-    "description": "AB InBev, Budweiser's India footprint covers Bengaluru, Mysuru and Medak, spanning gcc/gic, it and manufacturing. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Breweries, Specialty Food and Beverages",
-    "headquarters": "Brussels, Brussels-Capital Region, Belgium",
+    "description": "AB InBev, Budweiser's India footprint covers Bengaluru, spanning GCC/GIC and IT. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Consumer Packaged Goods",
+    "headquarters": "Belgium",
     "revenueBand": ">$50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "ABI, Public"
@@ -86,25 +83,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 26 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does AB InBev, Budweiser operate in India?",
-      "a": "AB InBev, Budweiser operates 4 active Global Capability Center sites in India."
+      "q": "How many centers does AB InBev, Budweiser operate in India?",
+      "a": "AB InBev, Budweiser operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does AB InBev, Budweiser have GCC centers in?",
-      "a": "AB InBev, Budweiser's India GCC footprint spans Bengaluru, Mysuru and Medak."
+      "q": "Which Indian cities does AB InBev, Budweiser have centers in?",
+      "a": "AB InBev, Budweiser's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does AB InBev, Budweiser run in India?",
-      "a": "AB InBev, Budweiser runs gcc/gic, it and manufacturing centers in India."
+      "q": "What types of centers does AB InBev, Budweiser run in India?",
+      "a": "AB InBev, Budweiser runs GCC/GIC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at AB InBev, Budweiser's India GCCs?",
-      "a": "AB InBev, Budweiser's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at AB InBev, Budweiser's India centers?",
+      "a": "Aggregate and center-level headcount for AB InBev, Budweiser's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads AB InBev, Budweiser's GCC in India?",
-      "a": "Bamboo Reports tracks 26 leaders at AB InBev, Budweiser's India centers, across Finance, IT, HR and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at AB InBev, Budweiser's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -118,8 +115,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

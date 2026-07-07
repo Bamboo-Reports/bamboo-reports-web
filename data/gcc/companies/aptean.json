@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Aptean's GCC footprint in India",
-  "lede": "<strong>Aptean runs two capability centers across two Indian cities.</strong> Bengaluru and Madurai, covering R&D and ssc, built over 28 years.",
+  "lede": "<strong>Aptean runs two centers across two Indian cities.</strong> Bengaluru and Madurai, covering SSC and R&D, built over 28 years.",
   "insight": "Search elsewhere and you will usually find one Aptean office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Aptean, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Aptean runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Madurai), covering R&D and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Aptean runs 2 verified centers across 2 Indian cities (Bengaluru, Madurai), covering SSC and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -28,8 +28,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "R&D",
-    "SSC"
+    "SSC",
+    "R&D"
   ],
   "functions": [
     "IT",
@@ -63,9 +63,9 @@
     ]
   },
   "about": {
-    "description": "Aptean's India footprint covers Bengaluru and Madurai, spanning R&D and ssc. The centers deliver IT, Finance & Accounting, HR and Customer Support for the group's global operations.",
-    "industry": "Enterprise Resource Planning Software, Business Software Solutions",
-    "headquarters": "Alpharetta, Georgia, United States",
+    "description": "Aptean's India footprint covers Bengaluru and Madurai, spanning SSC and R&D. The centers deliver IT, Finance & Accounting, HR and Customer Support for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "ACQSP"
@@ -73,25 +73,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all fourteen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Aptean operate in India?",
-      "a": "Aptean operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Aptean operate in India?",
+      "a": "Aptean operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Aptean have GCC centers in?",
-      "a": "Aptean's India GCC footprint spans Bengaluru and Madurai."
+      "q": "Which Indian cities does Aptean have centers in?",
+      "a": "Aptean's India footprint includes Bengaluru and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Aptean run in India?",
-      "a": "Aptean runs R&D and ssc centers in India."
+      "q": "What types of centers does Aptean run in India?",
+      "a": "Aptean runs SSC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Aptean's India GCCs?",
-      "a": "Aptean's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Aptean's India centers?",
+      "a": "Aggregate and center-level headcount for Aptean's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Aptean's GCC in India?",
-      "a": "Bamboo Reports tracks 14 leaders at Aptean's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Aptean's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -105,8 +105,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

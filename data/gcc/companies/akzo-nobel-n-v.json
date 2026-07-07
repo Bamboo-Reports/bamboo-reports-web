@@ -11,17 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "Akzo Nobel's GCC footprint in India",
-  "lede": "<strong>Akzo Nobel runs five capability centers across five Indian cities.</strong> Pune, Gurugram, Noida, Bengaluru and Thane, covering gbs, manufacturing and R&D, built over fourteen years.",
-  "insight": "Search elsewhere and you will usually find one Akzo Nobel office in India. We map five, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Akzo Nobel runs three centers across three Indian cities.</strong> Pune, Bengaluru and Thane, covering GBS and R&D, built over fourteen years.",
+  "insight": "Search elsewhere and you will usually find one Akzo Nobel office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Akzo Nobel N.V. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Akzo Nobel runs 5 verified GCC centers across 5 Indian cities (Pune, Gurugram, Noida, Bengaluru, Thane), covering gbs, manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Akzo Nobel runs 3 verified centers across 3 Indian cities (Pune, Bengaluru, Thane), covering GBS and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 5,
-    "totalCenters": 5,
+    "activeCenters": 3,
+    "totalCenters": 3,
     "cities": [
       "Pune",
-      "Gurugram",
-      "Noida",
       "Bengaluru",
       "Thane"
     ],
@@ -32,7 +30,6 @@
   },
   "centerTypes": [
     "GBS",
-    "Manufacturing",
     "R&D"
   ],
   "functions": [
@@ -79,9 +76,9 @@
     ]
   },
   "about": {
-    "description": "Akzo Nobel's India footprint covers Pune, Gurugram, Noida, Bengaluru and Thane, spanning gbs, manufacturing and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Paints, Dyes, Varnishes and Lacquers, Chemicals Manufacturing",
-    "headquarters": "Amsterdam, North Holland, Netherlands",
+    "description": "Akzo Nobel's India footprint covers Pune, Bengaluru and Thane, spanning GBS and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Chemicals",
+    "headquarters": "Netherlands",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "AKZA, Public"
@@ -89,25 +86,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 73 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Akzo Nobel operate in India?",
-      "a": "Akzo Nobel operates 5 active Global Capability Center sites in India."
+      "q": "How many centers does Akzo Nobel operate in India?",
+      "a": "Akzo Nobel operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Akzo Nobel have GCC centers in?",
-      "a": "Akzo Nobel's India GCC footprint spans Pune, Gurugram, Noida, Bengaluru and Thane."
+      "q": "Which Indian cities does Akzo Nobel have centers in?",
+      "a": "Akzo Nobel's India footprint includes Pune and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Akzo Nobel run in India?",
-      "a": "Akzo Nobel runs gbs, manufacturing and R&D centers in India."
+      "q": "What types of centers does Akzo Nobel run in India?",
+      "a": "Akzo Nobel runs GBS and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Akzo Nobel's India GCCs?",
-      "a": "Akzo Nobel's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Akzo Nobel's India centers?",
+      "a": "Aggregate and center-level headcount for Akzo Nobel's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Akzo Nobel's GCC in India?",
-      "a": "Bamboo Reports tracks 73 leaders at Akzo Nobel's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Akzo Nobel's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -121,8 +118,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

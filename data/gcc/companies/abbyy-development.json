@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "ABBYY Development's GCC footprint in India",
-  "lede": "<strong>ABBYY Development runs two capability centers across two Indian cities.</strong> Bengaluru and New Delhi, covering CoE and R&D, built over two years.",
+  "lede": "<strong>ABBYY Development runs two centers across two Indian cities.</strong> Bengaluru and New Delhi, covering R&D and CoE, built over two years.",
   "insight": "Search elsewhere and you will usually find one ABBYY Development office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "ABBYY Development Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "ABBYY Development runs 2 verified GCC centers across 2 Indian cities (Bengaluru, New Delhi), covering CoE and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "ABBYY Development runs 2 verified centers across 2 Indian cities (Bengaluru, New Delhi), covering R&D and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -26,8 +26,8 @@
     "headcountBandLong": "51 to 100"
   },
   "centerTypes": [
-    "CoE",
-    "R&D"
+    "R&D",
+    "CoE"
   ],
   "functions": [
     "IT"
@@ -54,9 +54,9 @@
     ]
   },
   "about": {
-    "description": "ABBYY Development's India footprint covers Bengaluru and New Delhi, spanning CoE and R&D. The centers deliver IT for the group's global operations.",
-    "industry": "Document Management Software, Miscellaneous Software",
-    "headquarters": "Milpitas, California, United States",
+    "description": "ABBYY Development's India footprint covers Bengaluru and New Delhi, spanning R&D and CoE. The centers deliver IT for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$101Mn to $250Mn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -64,25 +64,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does ABBYY Development operate in India?",
-      "a": "ABBYY Development operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does ABBYY Development operate in India?",
+      "a": "ABBYY Development operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does ABBYY Development have GCC centers in?",
-      "a": "ABBYY Development's India GCC footprint spans Bengaluru and New Delhi."
+      "q": "Which Indian cities does ABBYY Development have centers in?",
+      "a": "ABBYY Development's India footprint includes Bengaluru and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does ABBYY Development run in India?",
-      "a": "ABBYY Development runs CoE and R&D centers in India."
+      "q": "What types of centers does ABBYY Development run in India?",
+      "a": "ABBYY Development runs R&D and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at ABBYY Development's India GCCs?",
-      "a": "ABBYY Development's India centers employ in the 51 to 100 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at ABBYY Development's India centers?",
+      "a": "Aggregate and center-level headcount for ABBYY Development's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads ABBYY Development's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at ABBYY Development's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at ABBYY Development's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -96,8 +96,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

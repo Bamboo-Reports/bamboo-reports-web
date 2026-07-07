@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Automation Anywhere's GCC footprint in India",
-  "lede": "<strong>Automation Anywhere runs three capability centers across two Indian cities.</strong> Bengaluru and Vadodara, covering engineering & design, built over sixteen years.",
+  "lede": "<strong>Automation Anywhere runs three centers across two Indian cities.</strong> Bengaluru and Vadodara, covering engineering & design, built over sixteen years.",
   "insight": "Search elsewhere and you will usually find one Automation Anywhere office in India. We map three, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Automation Anywhere GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Automation Anywhere runs 3 verified GCC centers across 2 Indian cities (Bengaluru, Vadodara), covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Automation Anywhere runs 3 verified centers across 2 Indian cities (Bengaluru, Vadodara), covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 4,
@@ -73,8 +73,8 @@
   },
   "about": {
     "description": "Automation Anywhere's India footprint covers Bengaluru and Vadodara, spanning engineering & design. The centers deliver IT, R&D and ER&D, Finance & Accounting and Sales & Marketing for the group's global operations.",
-    "industry": "RPA (Robotic Process Automation), Miscellaneous Software",
-    "headquarters": "San Jose, California, United States",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -82,25 +82,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 50 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Automation Anywhere operate in India?",
-      "a": "Automation Anywhere operates 3 active Global Capability Center sites in India. Four are on record in total, including non-operational sites."
+      "q": "How many centers does Automation Anywhere operate in India?",
+      "a": "Automation Anywhere operates 3 active centers in India. Four are on record in total, including non-operational sites."
     },
     {
-      "q": "Which Indian cities does Automation Anywhere have GCC centers in?",
-      "a": "Automation Anywhere's India GCC footprint spans Bengaluru and Vadodara."
+      "q": "Which Indian cities does Automation Anywhere have centers in?",
+      "a": "Automation Anywhere's India footprint includes Bengaluru and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Automation Anywhere run in India?",
+      "q": "What types of centers does Automation Anywhere run in India?",
       "a": "Automation Anywhere runs engineering & design centers in India."
     },
     {
-      "q": "How many people work at Automation Anywhere's India GCCs?",
-      "a": "Automation Anywhere's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Automation Anywhere's India centers?",
+      "a": "Aggregate and center-level headcount for Automation Anywhere's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Automation Anywhere's GCC in India?",
-      "a": "Bamboo Reports tracks 50 leaders at Automation Anywhere's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Automation Anywhere's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -114,8 +114,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

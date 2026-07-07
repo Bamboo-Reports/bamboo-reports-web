@@ -11,18 +11,17 @@
     "NASSCOM Listed"
   ],
   "h1": "Altair Engineering's GCC footprint in India",
-  "lede": "<strong>Altair Engineering runs four capability centers across four Indian cities.</strong> Bengaluru, Chennai, New Delhi and Pune, covering engineering & design, gbs, it and sales & marketing, built over eight years.",
-  "insight": "Search elsewhere and you will usually find one Altair Engineering office in India. We map four, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Altair Engineering runs three centers across three Indian cities.</strong> Bengaluru, Chennai and New Delhi, covering GBS, engineering & design and IT, built over eight years.",
+  "insight": "Search elsewhere and you will usually find one Altair Engineering office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Altair Engineering Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Altair Engineering runs 4 verified GCC centers across 4 Indian cities (Bengaluru, Chennai, New Delhi, Pune), covering engineering & design, gbs, it and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Altair Engineering runs 3 verified centers across 3 Indian cities (Bengaluru, Chennai, New Delhi), covering GBS, engineering & design and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 4,
-    "totalCenters": 4,
+    "activeCenters": 3,
+    "totalCenters": 3,
     "cities": [
       "Bengaluru",
       "Chennai",
-      "New Delhi",
-      "Pune"
+      "New Delhi"
     ],
     "yearsInIndia": 8,
     "sinceYear": 2018,
@@ -30,10 +29,9 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "Engineering & Design",
     "GBS",
-    "IT",
-    "Sales & Marketing"
+    "Engineering & Design",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -75,9 +73,9 @@
     ]
   },
   "about": {
-    "description": "Altair Engineering's India footprint covers Bengaluru, Chennai, New Delhi and Pune, spanning engineering & design, gbs, it and sales & marketing. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Engineering, Scientific and CAD Software, Industry-Specific Software",
-    "headquarters": "Troy, Michigan, United States",
+    "description": "Altair Engineering's India footprint covers Bengaluru, Chennai and New Delhi, spanning GBS, engineering & design and IT. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Public"
@@ -85,25 +83,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 41 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Altair Engineering operate in India?",
-      "a": "Altair Engineering operates 4 active Global Capability Center sites in India."
+      "q": "How many centers does Altair Engineering operate in India?",
+      "a": "Altair Engineering operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Altair Engineering have GCC centers in?",
-      "a": "Altair Engineering's India GCC footprint spans Bengaluru, Chennai, New Delhi and Pune."
+      "q": "Which Indian cities does Altair Engineering have centers in?",
+      "a": "Altair Engineering's India footprint includes Bengaluru and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Altair Engineering run in India?",
-      "a": "Altair Engineering runs engineering & design, gbs, it and sales & marketing centers in India."
+      "q": "What types of centers does Altair Engineering run in India?",
+      "a": "Altair Engineering runs GBS and 2 additional center types centers in India."
     },
     {
-      "q": "How many people work at Altair Engineering's India GCCs?",
-      "a": "Altair Engineering's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Altair Engineering's India centers?",
+      "a": "Aggregate and center-level headcount for Altair Engineering's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Altair Engineering's GCC in India?",
-      "a": "Bamboo Reports tracks 41 leaders at Altair Engineering's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Altair Engineering's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -117,8 +115,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

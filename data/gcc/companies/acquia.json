@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Acquia's GCC footprint in India",
-  "lede": "<strong>Acquia runs one capability center in Pune.</strong> Pune, covering gbs, built over seven years.",
+  "lede": "<strong>Acquia runs one center in Pune.</strong> Pune, covering GBS, built over seven years.",
   "insight": "A single Acquia center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Acquia, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Acquia runs 1 verified GCC center in Pune, covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Acquia runs 1 verified center in Pune, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -67,9 +67,9 @@
     ]
   },
   "about": {
-    "description": "Acquia's India footprint covers Pune, spanning gbs. The centers deliver IT, Finance & Accounting, HR and Customer Support for the group's global operations.",
-    "industry": "Content Management Software, Miscellaneous Software",
-    "headquarters": "Boston, Massachusetts, United States",
+    "description": "Acquia's India footprint covers Pune, spanning GBS. The centers deliver IT, Finance & Accounting, HR and Customer Support for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$101Mn to $250Mn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "ACQSP"
@@ -77,25 +77,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all ten decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Acquia operate in India?",
-      "a": "Acquia operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Acquia operate in India?",
+      "a": "Acquia operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Acquia have GCC centers in?",
-      "a": "Acquia's India GCC presence is in Pune."
+      "q": "Which Indian cities does Acquia have centers in?",
+      "a": "Acquia's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does Acquia run in India?",
-      "a": "Acquia runs gbs centers in India."
+      "q": "What types of centers does Acquia run in India?",
+      "a": "Acquia runs GBS centers in India."
     },
     {
-      "q": "How many people work at Acquia's India GCCs?",
-      "a": "Acquia's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Acquia's India centers?",
+      "a": "Aggregate and center-level headcount for Acquia's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Acquia's GCC in India?",
-      "a": "Bamboo Reports tracks 10 leaders at Acquia's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Acquia's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -109,8 +109,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

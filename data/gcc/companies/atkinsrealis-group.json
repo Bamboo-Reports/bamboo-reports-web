@@ -11,17 +11,17 @@
     "NASSCOM Listed"
   ],
   "h1": "AtkinsRealis's GCC footprint in India",
-  "lede": "<strong>AtkinsRealis runs three capability centers across three Indian cities.</strong> Gurugram, Mumbai and Bengaluru, covering CoE and ssc, built over nineteen years.",
+  "lede": "<strong>AtkinsRealis runs three centers across three Indian cities.</strong> Bengaluru, Gurugram and Mumbai, covering SSC and CoE, built over nineteen years.",
   "insight": "Search elsewhere and you will usually find one AtkinsRealis office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "AtkinsRealis Group Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "AtkinsRealis runs 3 verified GCC centers across 3 Indian cities (Gurugram, Mumbai, Bengaluru), covering CoE and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "AtkinsRealis runs 3 verified centers across 3 Indian cities (Bengaluru, Gurugram, Mumbai), covering SSC and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
     "cities": [
+      "Bengaluru",
       "Gurugram",
-      "Mumbai",
-      "Bengaluru"
+      "Mumbai"
     ],
     "yearsInIndia": 19,
     "sinceYear": 2007,
@@ -29,8 +29,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "CoE",
-    "SSC"
+    "SSC",
+    "CoE"
   ],
   "functions": [
     "IT",
@@ -73,9 +73,9 @@
     ]
   },
   "about": {
-    "description": "AtkinsRealis's India footprint covers Gurugram, Mumbai and Bengaluru, spanning CoE and ssc. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Construction Engineering Services, Construction & Engineering",
-    "headquarters": "Montreal, Quebec, Canada",
+    "description": "AtkinsRealis's India footprint covers Bengaluru, Gurugram and Mumbai, spanning SSC and CoE. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "Canada",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "ACQSP"
@@ -83,25 +83,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 26 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does AtkinsRealis operate in India?",
-      "a": "AtkinsRealis operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does AtkinsRealis operate in India?",
+      "a": "AtkinsRealis operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does AtkinsRealis have GCC centers in?",
-      "a": "AtkinsRealis's India GCC footprint spans Gurugram, Mumbai and Bengaluru."
+      "q": "Which Indian cities does AtkinsRealis have centers in?",
+      "a": "AtkinsRealis's India footprint includes Bengaluru and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does AtkinsRealis run in India?",
-      "a": "AtkinsRealis runs CoE and ssc centers in India."
+      "q": "What types of centers does AtkinsRealis run in India?",
+      "a": "AtkinsRealis runs SSC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at AtkinsRealis's India GCCs?",
-      "a": "AtkinsRealis's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at AtkinsRealis's India centers?",
+      "a": "Aggregate and center-level headcount for AtkinsRealis's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads AtkinsRealis's GCC in India?",
-      "a": "Bamboo Reports tracks 26 leaders at AtkinsRealis's India centers, across Finance, IT and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at AtkinsRealis's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -115,8 +115,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

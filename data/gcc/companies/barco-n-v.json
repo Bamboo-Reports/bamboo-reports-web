@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Barco's GCC footprint in India",
-  "lede": "<strong>Barco runs one capability center in Noida.</strong> Noida, covering CoE, built over 30 years.",
+  "lede": "<strong>Barco runs one center in Noida.</strong> Noida, covering CoE, built over 30 years.",
   "insight": "A single Barco center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Barco N.V. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Barco runs 1 verified GCC center in Noida, covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Barco runs 1 verified center in Noida, covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -64,8 +64,8 @@
   },
   "about": {
     "description": "Barco's India footprint covers Noida, spanning CoE. The centers deliver IT, R&D and ER&D, Procurement and Sales & Marketing for the group's global operations.",
-    "industry": "Computer Monitors and Projectors, Computer Hardware Manufacturing",
-    "headquarters": "Kortrijk, West Flanders, Belgium",
+    "industry": "Hi-Tech",
+    "headquarters": "Belgium",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "BAR, Public"
@@ -73,25 +73,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 54 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Barco operate in India?",
-      "a": "Barco operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Barco operate in India?",
+      "a": "Barco operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Barco have GCC centers in?",
-      "a": "Barco's India GCC presence is in Noida."
+      "q": "Which Indian cities does Barco have centers in?",
+      "a": "Barco's India presence is in Noida."
     },
     {
-      "q": "What types of GCC centers does Barco run in India?",
+      "q": "What types of centers does Barco run in India?",
       "a": "Barco runs CoE centers in India."
     },
     {
-      "q": "How many people work at Barco's India GCCs?",
-      "a": "Barco's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Barco's India centers?",
+      "a": "Aggregate and center-level headcount for Barco's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Barco's GCC in India?",
-      "a": "Bamboo Reports tracks 54 leaders at Barco's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Barco's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -105,8 +105,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

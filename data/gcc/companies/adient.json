@@ -11,20 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "Adient's GCC footprint in India",
-  "lede": "<strong>Adient runs eight capability centers across six Indian cities.</strong> Pune, Ahmedabad, Belur, Chennai, Rudrapur and Lucknow, covering engineering & design, manufacturing and R&D, built over 26 years.",
-  "insight": "Search elsewhere and you will usually find one Adient office in India. We map eight, across six cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Adient runs two centers in Pune.</strong> Pune, covering R&D and engineering & design, built over 26 years.",
+  "insight": "Search elsewhere and you will usually find one Adient office in India. We map two, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Adient plc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Adient runs 8 verified GCC centers across 6 Indian cities (Pune, Ahmedabad, Belur, Chennai, Rudrapur, Lucknow), covering engineering & design, manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Adient runs 2 verified centers in Pune, covering R&D and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 8,
-    "totalCenters": 9,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
-      "Pune",
-      "Ahmedabad",
-      "Belur",
-      "Chennai",
-      "Rudrapur",
-      "Lucknow"
+      "Pune"
     ],
     "yearsInIndia": 26,
     "sinceYear": 2000,
@@ -32,9 +27,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "Engineering & Design",
-    "Manufacturing",
-    "R&D"
+    "R&D",
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -78,9 +72,9 @@
     ]
   },
   "about": {
-    "description": "Adient's India footprint covers Pune, Ahmedabad, Belur, Chennai, Rudrapur and Lucknow, spanning engineering & design, manufacturing and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and Procurement for the group's global operations.",
-    "industry": "Automobile Parts Manufacturing, Automotive Manufacturing",
-    "headquarters": "Plymouth, Michigan, United States",
+    "description": "Adient's India footprint covers Pune, spanning R&D and engineering & design. The centers deliver IT, R&D and ER&D, Finance & Accounting and Procurement for the group's global operations.",
+    "industry": "Automotive",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "ADNT, Public"
@@ -88,25 +82,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eight decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Adient operate in India?",
-      "a": "Adient operates 8 active Global Capability Center sites in India. Nine are on record in total, including non-operational sites."
+      "q": "How many centers does Adient operate in India?",
+      "a": "Adient operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Adient have GCC centers in?",
-      "a": "Adient's India GCC footprint spans Pune, Ahmedabad, Belur, Chennai, Rudrapur and Lucknow."
+      "q": "Which Indian cities does Adient have centers in?",
+      "a": "Adient's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does Adient run in India?",
-      "a": "Adient runs engineering & design, manufacturing and R&D centers in India."
+      "q": "What types of centers does Adient run in India?",
+      "a": "Adient runs R&D and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Adient's India GCCs?",
-      "a": "Adient's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Adient's India centers?",
+      "a": "Aggregate and center-level headcount for Adient's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Adient's GCC in India?",
-      "a": "Bamboo Reports tracks 8 leaders at Adient's India centers, across IT, HR and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Adient's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -120,8 +114,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

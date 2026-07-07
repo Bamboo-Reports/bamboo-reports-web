@@ -9,16 +9,16 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "AlphaSense's GCC footprint in India",
-  "lede": "<strong>AlphaSense runs two capability centers across two Indian cities.</strong> Bengaluru and Pune, covering gcc/gic and it, built over seven years.",
+  "lede": "<strong>AlphaSense runs two centers across two Indian cities.</strong> Pune and Bengaluru, covering GCC/GIC and IT, built over seven years.",
   "insight": "Search elsewhere and you will usually find one AlphaSense office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "AlphaSense, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "AlphaSense runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Pune), covering gcc/gic and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "AlphaSense runs 2 verified centers across 2 Indian cities (Pune, Bengaluru), covering GCC/GIC and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
     "cities": [
-      "Bengaluru",
-      "Pune"
+      "Pune",
+      "Bengaluru"
     ],
     "yearsInIndia": 7,
     "sinceYear": 2019,
@@ -55,9 +55,9 @@
     ]
   },
   "about": {
-    "description": "AlphaSense's India footprint covers Bengaluru and Pune, spanning gcc/gic and it. The centers deliver IT for the group's global operations.",
-    "industry": "Automobile Parts Manufacturing, Automotive Manufacturing",
-    "headquarters": "New York, New York, United States",
+    "description": "AlphaSense's India footprint covers Pune and Bengaluru, spanning GCC/GIC and IT. The centers deliver IT for the group's global operations.",
+    "industry": "Automotive",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -65,25 +65,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does AlphaSense operate in India?",
-      "a": "AlphaSense operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does AlphaSense operate in India?",
+      "a": "AlphaSense operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does AlphaSense have GCC centers in?",
-      "a": "AlphaSense's India GCC footprint spans Bengaluru and Pune."
+      "q": "Which Indian cities does AlphaSense have centers in?",
+      "a": "AlphaSense's India footprint includes Pune and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does AlphaSense run in India?",
-      "a": "AlphaSense runs gcc/gic and it centers in India."
+      "q": "What types of centers does AlphaSense run in India?",
+      "a": "AlphaSense runs GCC/GIC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at AlphaSense's India GCCs?",
-      "a": "AlphaSense's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at AlphaSense's India centers?",
+      "a": "Aggregate and center-level headcount for AlphaSense's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads AlphaSense's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at AlphaSense's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at AlphaSense's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -97,8 +97,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

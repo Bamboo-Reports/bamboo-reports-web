@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "AIR Worldwide's GCC footprint in India",
-  "lede": "<strong>AIR Worldwide runs one capability center in Hyderabad.</strong> Hyderabad, covering it, built over seventeen years.",
+  "lede": "<strong>AIR Worldwide runs one center in Hyderabad.</strong> Hyderabad, covering IT, built over seventeen years.",
   "insight": "A single AIR Worldwide center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "AIR Worldwide GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "AIR Worldwide runs 1 verified GCC center in Hyderabad, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "AIR Worldwide runs 1 verified center in Hyderabad, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -61,9 +61,9 @@
     ]
   },
   "about": {
-    "description": "AIR Worldwide's India footprint covers Hyderabad, spanning it. The centers deliver IT and Customer Support for the group's global operations.",
-    "industry": "Business Services, Corporate Services",
-    "headquarters": "Mendota Heights, Minnesota, United States",
+    "description": "AIR Worldwide's India footprint covers Hyderabad, spanning IT. The centers deliver IT and Customer Support for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "VRSK, ACQMP"
@@ -71,25 +71,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all five decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does AIR Worldwide operate in India?",
-      "a": "AIR Worldwide operates 1 active Global Capability Center site in India."
+      "q": "How many centers does AIR Worldwide operate in India?",
+      "a": "AIR Worldwide operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does AIR Worldwide have GCC centers in?",
-      "a": "AIR Worldwide's India GCC presence is in Hyderabad."
+      "q": "Which Indian cities does AIR Worldwide have centers in?",
+      "a": "AIR Worldwide's India presence is in Hyderabad."
     },
     {
-      "q": "What types of GCC centers does AIR Worldwide run in India?",
-      "a": "AIR Worldwide runs it centers in India."
+      "q": "What types of centers does AIR Worldwide run in India?",
+      "a": "AIR Worldwide runs IT centers in India."
     },
     {
-      "q": "How many people work at AIR Worldwide's India GCCs?",
-      "a": "AIR Worldwide's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at AIR Worldwide's India centers?",
+      "a": "Aggregate and center-level headcount for AIR Worldwide's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads AIR Worldwide's GCC in India?",
-      "a": "Bamboo Reports tracks 5 leaders at AIR Worldwide's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at AIR Worldwide's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -103,8 +103,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

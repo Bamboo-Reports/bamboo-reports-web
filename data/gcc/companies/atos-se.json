@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Atos's GCC footprint in India",
-  "lede": "<strong>Atos runs seven capability centers across seven Indian cities.</strong> Chennai, Mumbai, Pune, Tirunelveli, Vadodara, Bengaluru and Gurugram, covering gbs, built over fourteen years.",
+  "lede": "<strong>Atos runs seven centers across seven Indian cities.</strong> Chennai, Mumbai, Pune, Tirunelveli, Vadodara, Bengaluru and Gurugram, covering GBS, built over fourteen years.",
   "insight": "Search elsewhere and you will usually find one Atos office in India. We map seven, across seven cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Atos SE GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Atos runs 7 verified GCC centers across 7 Indian cities (Chennai, Mumbai, Pune, Tirunelveli, Vadodara, Bengaluru, Gurugram), covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Atos runs 7 verified centers across 7 Indian cities (Chennai, Mumbai, Pune, Tirunelveli, Vadodara, Bengaluru, Gurugram), covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 7,
     "totalCenters": 7,
@@ -92,9 +92,9 @@
     ]
   },
   "about": {
-    "description": "Atos's India footprint covers Chennai, Mumbai, Pune, Tirunelveli, Vadodara, Bengaluru and Gurugram, spanning gbs. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Paris, Île-de-France, France",
+    "description": "Atos's India footprint covers Chennai, Mumbai, Pune, Tirunelveli, Vadodara, Bengaluru and Gurugram, spanning GBS. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "France",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "ATO, Public"
@@ -102,25 +102,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 91 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Atos operate in India?",
-      "a": "Atos operates 7 active Global Capability Center sites in India."
+      "q": "How many centers does Atos operate in India?",
+      "a": "Atos operates 7 active centers in India."
     },
     {
-      "q": "Which Indian cities does Atos have GCC centers in?",
-      "a": "Atos's India GCC footprint spans Chennai, Mumbai, Pune, Tirunelveli, Vadodara, Bengaluru and Gurugram."
+      "q": "Which Indian cities does Atos have centers in?",
+      "a": "Atos's India footprint includes Chennai and 6 additional cities."
     },
     {
-      "q": "What types of GCC centers does Atos run in India?",
-      "a": "Atos runs gbs centers in India."
+      "q": "What types of centers does Atos run in India?",
+      "a": "Atos runs GBS centers in India."
     },
     {
-      "q": "How many people work at Atos's India GCCs?",
-      "a": "Atos's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Atos's India centers?",
+      "a": "Aggregate and center-level headcount for Atos's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Atos's GCC in India?",
-      "a": "Bamboo Reports tracks 91 leaders at Atos's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Atos's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -134,8 +134,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

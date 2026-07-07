@@ -11,13 +11,13 @@
     "NASSCOM Listed"
   ],
   "h1": "Arasan Chip Systems's GCC footprint in India",
-  "lede": "<strong>Arasan Chip Systems runs two capability centers across two Indian cities.</strong> Bengaluru and Thoothukudi, covering engineering & design and it, built over sixteen years.",
+  "lede": "<strong>Arasan Chip Systems runs two centers across two Indian cities.</strong> Bengaluru and Thoothukudi, covering engineering & design and IT, built over sixteen years.",
   "insight": "Search elsewhere and you will usually find one Arasan Chip Systems office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Arasan Chip Systems GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Arasan Chip Systems runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Thoothukudi), covering engineering & design and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Arasan Chip Systems runs 2 verified centers across 2 Indian cities (Bengaluru, Thoothukudi), covering engineering & design and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
-    "totalCenters": 3,
+    "totalCenters": 2,
     "cities": [
       "Bengaluru",
       "Thoothukudi"
@@ -60,9 +60,9 @@
     ]
   },
   "about": {
-    "description": "Arasan Chip Systems's India footprint covers Bengaluru and Thoothukudi, spanning engineering & design and it. The centers deliver IT and R&D and ER&D for the group's global operations.",
-    "industry": "Semiconductors, Semiconductor Manufacturing",
-    "headquarters": "San Jose, California, United States",
+    "description": "Arasan Chip Systems's India footprint covers Bengaluru and Thoothukudi, spanning engineering & design and IT. The centers deliver IT and R&D and ER&D for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "201 to 500",
     "tickerAndType": "Private"
@@ -70,25 +70,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Arasan Chip Systems operate in India?",
-      "a": "Arasan Chip Systems operates 2 active Global Capability Center sites in India. Three are on record in total, including non-operational sites."
+      "q": "How many centers does Arasan Chip Systems operate in India?",
+      "a": "Arasan Chip Systems operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Arasan Chip Systems have GCC centers in?",
-      "a": "Arasan Chip Systems's India GCC footprint spans Bengaluru and Thoothukudi."
+      "q": "Which Indian cities does Arasan Chip Systems have centers in?",
+      "a": "Arasan Chip Systems's India footprint includes Bengaluru and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Arasan Chip Systems run in India?",
-      "a": "Arasan Chip Systems runs engineering & design and it centers in India."
+      "q": "What types of centers does Arasan Chip Systems run in India?",
+      "a": "Arasan Chip Systems runs engineering & design and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Arasan Chip Systems's India GCCs?",
-      "a": "Arasan Chip Systems's India centers employ in the 51 to 100 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Arasan Chip Systems's India centers?",
+      "a": "Aggregate and center-level headcount for Arasan Chip Systems's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Arasan Chip Systems's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Arasan Chip Systems's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Arasan Chip Systems's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -102,8 +102,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

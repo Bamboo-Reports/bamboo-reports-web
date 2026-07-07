@@ -9,18 +9,15 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Belden's GCC footprint in India",
-  "lede": "<strong>Belden runs four capability centers across four Indian cities.</strong> Bengaluru, Gurugram, Pune and Ernakulam, covering engineering & design, manufacturing and sales & marketing, built over two years.",
-  "insight": "Search elsewhere and you will usually find one Belden office in India. We map four, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Belden runs one center in Bengaluru.</strong> Bengaluru, covering engineering & design, built over two years.",
+  "insight": "A single Belden center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Belden Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Belden runs 4 verified GCC centers across 4 Indian cities (Bengaluru, Gurugram, Pune, Ernakulam), covering engineering & design, manufacturing and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Belden runs 1 verified center in Bengaluru, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 4,
-    "totalCenters": 4,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Bengaluru",
-      "Gurugram",
-      "Pune",
-      "Ernakulam"
+      "Bengaluru"
     ],
     "yearsInIndia": 2,
     "sinceYear": 2024,
@@ -28,9 +25,7 @@
     "headcountBandLong": "201 to 500"
   },
   "centerTypes": [
-    "Engineering & Design",
-    "Manufacturing",
-    "Sales & Marketing"
+    "Engineering & Design"
   ],
   "functions": [
     "R&D and ER&D",
@@ -71,9 +66,9 @@
     ]
   },
   "about": {
-    "description": "Belden's India footprint covers Bengaluru, Gurugram, Pune and Ernakulam, spanning engineering & design, manufacturing and sales & marketing. The centers deliver R&D and ER&D, Procurement, Sales & Marketing and Customer Support for the group's global operations.",
-    "industry": "Electronic Components and Accessories, Electronic Components and Accessories",
-    "headquarters": "St. Louis, Missouri, United States",
+    "description": "Belden's India footprint covers Bengaluru, spanning engineering & design. The centers deliver R&D and ER&D, Procurement, Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "Electronics",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "BDC, Public"
@@ -81,25 +76,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all twelve decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Belden operate in India?",
-      "a": "Belden operates 4 active Global Capability Center sites in India."
+      "q": "How many centers does Belden operate in India?",
+      "a": "Belden operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Belden have GCC centers in?",
-      "a": "Belden's India GCC footprint spans Bengaluru, Gurugram, Pune and Ernakulam."
+      "q": "Which Indian cities does Belden have centers in?",
+      "a": "Belden's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Belden run in India?",
-      "a": "Belden runs engineering & design, manufacturing and sales & marketing centers in India."
+      "q": "What types of centers does Belden run in India?",
+      "a": "Belden runs engineering & design centers in India."
     },
     {
-      "q": "How many people work at Belden's India GCCs?",
-      "a": "Belden's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Belden's India centers?",
+      "a": "Aggregate and center-level headcount for Belden's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Belden's GCC in India?",
-      "a": "Bamboo Reports tracks 12 leaders at Belden's India centers, across Finance, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Belden's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -113,8 +108,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Ascena Retail's GCC footprint in India",
-  "lede": "<strong>Ascena Retail runs one capability center in Bengaluru.</strong> Bengaluru, covering it, built over nine years.",
+  "lede": "<strong>Ascena Retail runs one center in Bengaluru.</strong> Bengaluru, covering IT, built over nine years.",
   "insight": "A single Ascena Retail center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Ascena Retail GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Ascena Retail runs 1 verified GCC center in Bengaluru, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Ascena Retail runs 1 verified center in Bengaluru, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -54,9 +54,9 @@
     ]
   },
   "about": {
-    "description": "Ascena Retail's India footprint covers Bengaluru, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Apparel Retail, Consumer Product",
-    "headquarters": "Mahwah, New Jersey, United States",
+    "description": "Ascena Retail's India footprint covers Bengaluru, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Retail",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "Private"
@@ -64,25 +64,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Ascena Retail operate in India?",
-      "a": "Ascena Retail operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Ascena Retail operate in India?",
+      "a": "Ascena Retail operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Ascena Retail have GCC centers in?",
-      "a": "Ascena Retail's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Ascena Retail have centers in?",
+      "a": "Ascena Retail's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Ascena Retail run in India?",
-      "a": "Ascena Retail runs it centers in India."
+      "q": "What types of centers does Ascena Retail run in India?",
+      "a": "Ascena Retail runs IT centers in India."
     },
     {
-      "q": "How many people work at Ascena Retail's India GCCs?",
-      "a": "Ascena Retail's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Ascena Retail's India centers?",
+      "a": "Aggregate and center-level headcount for Ascena Retail's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Ascena Retail's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Ascena Retail's India centers, across IT and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Ascena Retail's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -96,8 +96,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

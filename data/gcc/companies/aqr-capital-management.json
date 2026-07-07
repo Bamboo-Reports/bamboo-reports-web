@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "AQR Capital Management's GCC footprint in India",
-  "lede": "<strong>AQR Capital Management runs one capability center in Bengaluru.</strong> Bengaluru, covering it, built over eight years.",
+  "lede": "<strong>AQR Capital Management runs one center in Bengaluru.</strong> Bengaluru, covering IT, built over eight years.",
   "insight": "A single AQR Capital Management center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "AQR Capital Management GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "AQR Capital Management runs 1 verified GCC center in Bengaluru, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "AQR Capital Management runs 1 verified center in Bengaluru, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -59,9 +59,9 @@
     ]
   },
   "about": {
-    "description": "AQR Capital Management's India footprint covers Bengaluru, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Investment Management and Fund Operators, Financial Services",
-    "headquarters": "Greenwich, Connecticut, United States",
+    "description": "AQR Capital Management's India footprint covers Bengaluru, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "United States",
     "revenueBand": "$251Mn to $500Mn",
     "employeesBand": "501 to 1,000",
     "tickerAndType": "Private"
@@ -69,25 +69,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all fourteen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does AQR Capital Management operate in India?",
-      "a": "AQR Capital Management operates 1 active Global Capability Center site in India."
+      "q": "How many centers does AQR Capital Management operate in India?",
+      "a": "AQR Capital Management operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does AQR Capital Management have GCC centers in?",
-      "a": "AQR Capital Management's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does AQR Capital Management have centers in?",
+      "a": "AQR Capital Management's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does AQR Capital Management run in India?",
-      "a": "AQR Capital Management runs it centers in India."
+      "q": "What types of centers does AQR Capital Management run in India?",
+      "a": "AQR Capital Management runs IT centers in India."
     },
     {
-      "q": "How many people work at AQR Capital Management's India GCCs?",
-      "a": "AQR Capital Management's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at AQR Capital Management's India centers?",
+      "a": "Aggregate and center-level headcount for AQR Capital Management's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads AQR Capital Management's GCC in India?",
-      "a": "Bamboo Reports tracks 14 leaders at AQR Capital Management's India centers, across Finance, IT and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at AQR Capital Management's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -101,8 +101,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

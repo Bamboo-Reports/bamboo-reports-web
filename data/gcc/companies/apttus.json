@@ -11,17 +11,17 @@
     "NASSCOM Listed"
   ],
   "h1": "Apttus's GCC footprint in India",
-  "lede": "<strong>Apttus runs four capability centers across four Indian cities.</strong> Ahmedabad, Bengaluru, Chennai and Pune, covering engineering & design and R&D, built over fourteen years.",
+  "lede": "<strong>Apttus runs four centers across four Indian cities.</strong> Chennai, Ahmedabad, Bengaluru and Pune, covering R&D and engineering & design, built over fourteen years.",
   "insight": "Search elsewhere and you will usually find one Apttus office in India. We map four, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Apttus Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Apttus runs 4 verified GCC centers across 4 Indian cities (Ahmedabad, Bengaluru, Chennai, Pune), covering engineering & design and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Apttus runs 4 verified centers across 4 Indian cities (Chennai, Ahmedabad, Bengaluru, Pune), covering R&D and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 4,
     "totalCenters": 4,
     "cities": [
+      "Chennai",
       "Ahmedabad",
       "Bengaluru",
-      "Chennai",
       "Pune"
     ],
     "yearsInIndia": 14,
@@ -30,8 +30,8 @@
     "headcountBandLong": "501 to 1,000"
   },
   "centerTypes": [
-    "Engineering & Design",
-    "R&D"
+    "R&D",
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -74,9 +74,9 @@
     ]
   },
   "about": {
-    "description": "Apttus's India footprint covers Ahmedabad, Bengaluru, Chennai and Pune, spanning engineering & design and R&D. The centers deliver IT, R&D and ER&D, HR and Sales & Marketing for the group's global operations.",
-    "industry": "Business Intelligence Software, Business Software Solutions",
-    "headquarters": "Broomfield, Colorado, United States",
+    "description": "Apttus's India footprint covers Chennai, Ahmedabad, Bengaluru and Pune, spanning R&D and engineering & design. The centers deliver IT, R&D and ER&D, HR and Sales & Marketing for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Merger"
@@ -84,25 +84,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all four decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Apttus operate in India?",
-      "a": "Apttus operates 4 active Global Capability Center sites in India."
+      "q": "How many centers does Apttus operate in India?",
+      "a": "Apttus operates 4 active centers in India."
     },
     {
-      "q": "Which Indian cities does Apttus have GCC centers in?",
-      "a": "Apttus's India GCC footprint spans Ahmedabad, Bengaluru, Chennai and Pune."
+      "q": "Which Indian cities does Apttus have centers in?",
+      "a": "Apttus's India footprint includes Chennai and 3 additional cities."
     },
     {
-      "q": "What types of GCC centers does Apttus run in India?",
-      "a": "Apttus runs engineering & design and R&D centers in India."
+      "q": "What types of centers does Apttus run in India?",
+      "a": "Apttus runs R&D and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Apttus's India GCCs?",
-      "a": "Apttus's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Apttus's India centers?",
+      "a": "Aggregate and center-level headcount for Apttus's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Apttus's GCC in India?",
-      "a": "Bamboo Reports tracks 4 leaders at Apttus's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Apttus's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -116,8 +116,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

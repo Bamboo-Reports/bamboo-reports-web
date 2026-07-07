@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "7-Eleven's GCC footprint in India",
-  "lede": "<strong>7-Eleven runs one capability center in Bengaluru.</strong> Bengaluru, covering gcc/gic, built over four years.",
+  "lede": "<strong>7-Eleven runs one center in Bengaluru.</strong> Bengaluru, covering GCC/GIC, built over four years.",
   "insight": "A single 7-Eleven center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "7-Eleven, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "7-Eleven runs 1 verified GCC center in Bengaluru, covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "7-Eleven runs 1 verified center in Bengaluru, covering GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -62,9 +62,9 @@
     ]
   },
   "about": {
-    "description": "7-Eleven's India footprint covers Bengaluru, spanning gcc/gic. The centers deliver IT and Finance & Accounting for the group's global operations.",
-    "industry": "Convenience Stores and Gas Stations, Stores & Market",
-    "headquarters": "Irving, Texas, United States",
+    "description": "7-Eleven's India footprint covers Bengaluru, spanning GCC/GIC. The centers deliver IT and Finance & Accounting for the group's global operations.",
+    "industry": "Retail",
+    "headquarters": "United States",
     "revenueBand": ">$50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "Public"
@@ -72,25 +72,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 25 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does 7-Eleven operate in India?",
-      "a": "7-Eleven operates 1 active Global Capability Center site in India."
+      "q": "How many centers does 7-Eleven operate in India?",
+      "a": "7-Eleven operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does 7-Eleven have GCC centers in?",
-      "a": "7-Eleven's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does 7-Eleven have centers in?",
+      "a": "7-Eleven's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does 7-Eleven run in India?",
-      "a": "7-Eleven runs gcc/gic centers in India."
+      "q": "What types of centers does 7-Eleven run in India?",
+      "a": "7-Eleven runs GCC/GIC centers in India."
     },
     {
-      "q": "How many people work at 7-Eleven's India GCCs?",
-      "a": "7-Eleven's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at 7-Eleven's India centers?",
+      "a": "Aggregate and center-level headcount for 7-Eleven's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads 7-Eleven's GCC in India?",
-      "a": "Bamboo Reports tracks 25 leaders at 7-Eleven's India centers, across IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at 7-Eleven's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -104,8 +104,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

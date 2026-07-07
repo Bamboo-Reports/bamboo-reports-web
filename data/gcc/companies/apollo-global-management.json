@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Apollo Global Management's GCC footprint in India",
-  "lede": "<strong>Apollo Global Management runs one capability center in Mumbai.</strong> Mumbai, covering gbs, built over eight years.",
+  "lede": "<strong>Apollo Global Management runs one center in Mumbai.</strong> Mumbai, covering GBS, built over eight years.",
   "insight": "A single Apollo Global Management center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Apollo Global Management GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Apollo Global Management runs 1 verified GCC center in Mumbai, covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Apollo Global Management runs 1 verified center in Mumbai, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -58,9 +58,9 @@
     ]
   },
   "about": {
-    "description": "Apollo Global Management's India footprint covers Mumbai, spanning gbs. The centers deliver Finance & Accounting and HR for the group's global operations.",
-    "industry": "Private Equity, Capital Market",
-    "headquarters": "New York, New York, United States",
+    "description": "Apollo Global Management's India footprint covers Mumbai, spanning GBS. The centers deliver Finance & Accounting and HR for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "United States",
     "revenueBand": "$25Bn to $50Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "APO, Public"
@@ -68,25 +68,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 30 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Apollo Global Management operate in India?",
-      "a": "Apollo Global Management operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Apollo Global Management operate in India?",
+      "a": "Apollo Global Management operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Apollo Global Management have GCC centers in?",
-      "a": "Apollo Global Management's India GCC presence is in Mumbai."
+      "q": "Which Indian cities does Apollo Global Management have centers in?",
+      "a": "Apollo Global Management's India presence is in Mumbai."
     },
     {
-      "q": "What types of GCC centers does Apollo Global Management run in India?",
-      "a": "Apollo Global Management runs gbs centers in India."
+      "q": "What types of centers does Apollo Global Management run in India?",
+      "a": "Apollo Global Management runs GBS centers in India."
     },
     {
-      "q": "How many people work at Apollo Global Management's India GCCs?",
-      "a": "Apollo Global Management's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Apollo Global Management's India centers?",
+      "a": "Aggregate and center-level headcount for Apollo Global Management's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Apollo Global Management's GCC in India?",
-      "a": "Bamboo Reports tracks 30 leaders at Apollo Global Management's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Apollo Global Management's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -100,8 +100,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

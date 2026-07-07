@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "American International's GCC footprint in India",
-  "lede": "<strong>American International runs three capability centers across three Indian cities.</strong> Bengaluru, Gurugram and Chennai, covering CoE and it, built over seventeen years.",
+  "lede": "<strong>American International runs three centers across three Indian cities.</strong> Bengaluru, Gurugram and Chennai, covering CoE and IT, built over seventeen years.",
   "insight": "Search elsewhere and you will usually find one American International office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "American International GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "American International runs 3 verified GCC centers across 3 Indian cities (Bengaluru, Gurugram, Chennai), covering CoE and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "American International runs 3 verified centers across 3 Indian cities (Bengaluru, Gurugram, Chennai), covering CoE and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
@@ -66,9 +66,9 @@
     ]
   },
   "about": {
-    "description": "American International's India footprint covers Bengaluru, Gurugram and Chennai, spanning CoE and it. The centers deliver IT, Finance & Accounting and Procurement for the group's global operations.",
-    "industry": "Multiline Insurance, Insurance",
-    "headquarters": "New York, New York, United States",
+    "description": "American International's India footprint covers Bengaluru, Gurugram and Chennai, spanning CoE and IT. The centers deliver IT, Finance & Accounting and Procurement for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "United States",
     "revenueBand": "$25Bn to $50Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "AIG, Public"
@@ -76,25 +76,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does American International operate in India?",
-      "a": "American International operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does American International operate in India?",
+      "a": "American International operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does American International have GCC centers in?",
-      "a": "American International's India GCC footprint spans Bengaluru, Gurugram and Chennai."
+      "q": "Which Indian cities does American International have centers in?",
+      "a": "American International's India footprint includes Bengaluru and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does American International run in India?",
-      "a": "American International runs CoE and it centers in India."
+      "q": "What types of centers does American International run in India?",
+      "a": "American International runs CoE and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at American International's India GCCs?",
-      "a": "American International's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at American International's India centers?",
+      "a": "Aggregate and center-level headcount for American International's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads American International's GCC in India?",
-      "a": "Bamboo Reports tracks 7 leaders at American International's India centers, across Finance, IT and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at American International's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -108,8 +108,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

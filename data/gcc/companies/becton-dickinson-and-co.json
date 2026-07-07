@@ -11,17 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "BD, Becton Dickinson's GCC footprint in India",
-  "lede": "<strong>BD, Becton Dickinson runs five capability centers across five Indian cities.</strong> Vellore, Gurugram, Rewari, Bengaluru and Chandigarh, covering CoE, gbs, it, manufacturing and R&D, built over 31 years.",
-  "insight": "Search elsewhere and you will usually find one BD, Becton Dickinson office in India. We map five, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>BD, Becton Dickinson runs four centers across four Indian cities.</strong> Gurugram, Vellore, Bengaluru and Chandigarh, covering GBS, R&D, CoE and IT, built over 31 years.",
+  "insight": "Search elsewhere and you will usually find one BD, Becton Dickinson office in India. We map four, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "BD, Becton Dickinson GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "BD, Becton Dickinson runs 5 verified GCC centers across 5 Indian cities (Vellore, Gurugram, Rewari, Bengaluru, Chandigarh), covering CoE, gbs, it, manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "BD, Becton Dickinson runs 4 verified centers across 4 Indian cities (Gurugram, Vellore, Bengaluru, Chandigarh), covering GBS, R&D, CoE and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 5,
-    "totalCenters": 5,
+    "activeCenters": 4,
+    "totalCenters": 4,
     "cities": [
-      "Vellore",
       "Gurugram",
-      "Rewari",
+      "Vellore",
       "Bengaluru",
       "Chandigarh"
     ],
@@ -31,11 +30,10 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "CoE",
     "GBS",
-    "IT",
-    "Manufacturing",
-    "R&D"
+    "R&D",
+    "CoE",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -79,9 +77,9 @@
     ]
   },
   "about": {
-    "description": "BD, Becton Dickinson's India footprint covers Vellore, Gurugram, Rewari, Bengaluru and Chandigarh, spanning CoE, gbs, it, manufacturing and R&D. The centers deliver IT, R&D and ER&D, HR and Procurement for the group's global operations.",
-    "industry": "Surgical Devices, Medical Devices and Equipment",
-    "headquarters": "Franklin Lakes, New Jersey, United States",
+    "description": "BD, Becton Dickinson's India footprint covers Gurugram, Vellore, Bengaluru and Chandigarh, spanning GBS, R&D, CoE and IT. The centers deliver IT, R&D and ER&D, HR and Procurement for the group's global operations.",
+    "industry": "Pharma & Life Sciences",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "BDX, Public"
@@ -89,25 +87,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all nineteen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does BD, Becton Dickinson operate in India?",
-      "a": "BD, Becton Dickinson operates 5 active Global Capability Center sites in India."
+      "q": "How many centers does BD, Becton Dickinson operate in India?",
+      "a": "BD, Becton Dickinson operates 4 active centers in India."
     },
     {
-      "q": "Which Indian cities does BD, Becton Dickinson have GCC centers in?",
-      "a": "BD, Becton Dickinson's India GCC footprint spans Vellore, Gurugram, Rewari, Bengaluru and Chandigarh."
+      "q": "Which Indian cities does BD, Becton Dickinson have centers in?",
+      "a": "BD, Becton Dickinson's India footprint includes Gurugram and 3 additional cities."
     },
     {
-      "q": "What types of GCC centers does BD, Becton Dickinson run in India?",
-      "a": "BD, Becton Dickinson runs CoE, gbs, it, manufacturing and R&D centers in India."
+      "q": "What types of centers does BD, Becton Dickinson run in India?",
+      "a": "BD, Becton Dickinson runs GBS and 3 additional center types centers in India."
     },
     {
-      "q": "How many people work at BD, Becton Dickinson's India GCCs?",
-      "a": "BD, Becton Dickinson's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at BD, Becton Dickinson's India centers?",
+      "a": "Aggregate and center-level headcount for BD, Becton Dickinson's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads BD, Becton Dickinson's GCC in India?",
-      "a": "Bamboo Reports tracks 19 leaders at BD, Becton Dickinson's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at BD, Becton Dickinson's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -121,8 +119,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

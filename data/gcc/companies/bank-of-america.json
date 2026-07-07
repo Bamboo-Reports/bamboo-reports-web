@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "BofA, BoA's GCC footprint in India",
-  "lede": "<strong>BofA, BoA runs six capability centers across six Indian cities.</strong> Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai and Mumbai, covering gbs, built over 22 years.",
+  "lede": "<strong>BofA, BoA runs six centers across six Indian cities.</strong> Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai and Mumbai, covering GBS, built over 22 years.",
   "insight": "Search elsewhere and you will usually find one BofA, BoA office in India. We map six, across six cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Bank of America Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "BofA, BoA runs 6 verified GCC centers across 6 Indian cities (Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai, Mumbai), covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "BofA, BoA runs 6 verified centers across 6 Indian cities (Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai, Mumbai), covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 6,
     "totalCenters": 6,
@@ -76,9 +76,9 @@
     ]
   },
   "about": {
-    "description": "BofA, BoA's India footprint covers Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai and Mumbai, spanning gbs. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Commercial Banking, Banks",
-    "headquarters": "Charlotte, North Carolina, United States",
+    "description": "BofA, BoA's India footprint covers Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai and Mumbai, spanning GBS. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "United States",
     "revenueBand": ">$50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "BAC, Public"
@@ -86,25 +86,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 310 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does BofA, BoA operate in India?",
-      "a": "BofA, BoA operates 6 active Global Capability Center sites in India."
+      "q": "How many centers does BofA, BoA operate in India?",
+      "a": "BofA, BoA operates 6 active centers in India."
     },
     {
-      "q": "Which Indian cities does BofA, BoA have GCC centers in?",
-      "a": "BofA, BoA's India GCC footprint spans Gurugram, Hyderabad, Gandhinagar, New Delhi, Chennai and Mumbai."
+      "q": "Which Indian cities does BofA, BoA have centers in?",
+      "a": "BofA, BoA's India footprint includes Gurugram and 5 additional cities."
     },
     {
-      "q": "What types of GCC centers does BofA, BoA run in India?",
-      "a": "BofA, BoA runs gbs centers in India."
+      "q": "What types of centers does BofA, BoA run in India?",
+      "a": "BofA, BoA runs GBS centers in India."
     },
     {
-      "q": "How many people work at BofA, BoA's India GCCs?",
-      "a": "BofA, BoA's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at BofA, BoA's India centers?",
+      "a": "Aggregate and center-level headcount for BofA, BoA's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads BofA, BoA's GCC in India?",
-      "a": "Bamboo Reports tracks 310 leaders at BofA, BoA's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at BofA, BoA's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -118,8 +118,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

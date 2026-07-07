@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Agility Public Warehousing's GCC footprint in India",
-  "lede": "<strong>Agility Public Warehousing runs one capability center in Hyderabad.</strong> Hyderabad, covering CoE, built over 24 years.",
+  "lede": "<strong>Agility Public Warehousing runs one center in Hyderabad.</strong> Hyderabad, covering CoE, built over 24 years.",
   "insight": "A single Agility Public Warehousing center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Agility Public Warehousing GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Agility Public Warehousing runs 1 verified GCC center in Hyderabad, covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Agility Public Warehousing runs 1 verified center in Hyderabad, covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -55,8 +55,8 @@
   },
   "about": {
     "description": "Agility Public Warehousing's India footprint covers Hyderabad, spanning CoE. The centers deliver capability work for the group's global operations.",
-    "industry": "End to End Freight Management, Transportation & Logistics",
-    "headquarters": "Safat, Al Asimah, Kuwait",
+    "industry": "TTLH",
+    "headquarters": "Kuwait",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "MKHZN, Public"
@@ -64,25 +64,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Agility Public Warehousing operate in India?",
-      "a": "Agility Public Warehousing operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Agility Public Warehousing operate in India?",
+      "a": "Agility Public Warehousing operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Agility Public Warehousing have GCC centers in?",
-      "a": "Agility Public Warehousing's India GCC presence is in Hyderabad."
+      "q": "Which Indian cities does Agility Public Warehousing have centers in?",
+      "a": "Agility Public Warehousing's India presence is in Hyderabad."
     },
     {
-      "q": "What types of GCC centers does Agility Public Warehousing run in India?",
+      "q": "What types of centers does Agility Public Warehousing run in India?",
       "a": "Agility Public Warehousing runs CoE centers in India."
     },
     {
-      "q": "How many people work at Agility Public Warehousing's India GCCs?",
-      "a": "Agility Public Warehousing's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Agility Public Warehousing's India centers?",
+      "a": "Aggregate and center-level headcount for Agility Public Warehousing's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Agility Public Warehousing's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Agility Public Warehousing's India centers, across IT. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Agility Public Warehousing's India centers, across IT. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -96,8 +96,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

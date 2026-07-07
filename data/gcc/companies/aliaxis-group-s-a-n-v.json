@@ -9,17 +9,15 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Aliaxis's GCC footprint in India",
-  "lede": "<strong>Aliaxis runs three capability centers across three Indian cities.</strong> Bengaluru, Salcete and Kolkata, covering manufacturing and R&D, built over six years.",
-  "insight": "Search elsewhere and you will usually find one Aliaxis office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Aliaxis runs one center in Bengaluru.</strong> Bengaluru, covering R&D, built over six years.",
+  "insight": "A single Aliaxis center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Aliaxis GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Aliaxis runs 3 verified GCC centers across 3 Indian cities (Bengaluru, Salcete, Kolkata), covering manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Aliaxis runs 1 verified center in Bengaluru, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 3,
-    "totalCenters": 3,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Bengaluru",
-      "Salcete",
-      "Kolkata"
+      "Bengaluru"
     ],
     "yearsInIndia": 6,
     "sinceYear": 2020,
@@ -27,7 +25,6 @@
     "headcountBandLong": "101 to 200"
   },
   "centerTypes": [
-    "Manufacturing",
     "R&D"
   ],
   "functions": [
@@ -71,9 +68,9 @@
     ]
   },
   "about": {
-    "description": "Aliaxis's India footprint covers Bengaluru, Salcete and Kolkata, spanning manufacturing and R&D. The centers deliver IT, R&D and ER&D, HR and Procurement for the group's global operations.",
-    "industry": "Steel Pipes and Tubes, Industrial Manufacturing",
-    "headquarters": "Brussels, Brussels-Capital Region, Belgium",
+    "description": "Aliaxis's India footprint covers Bengaluru, spanning R&D. The centers deliver IT, R&D and ER&D, HR and Procurement for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "Belgium",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "Private"
@@ -81,25 +78,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all twenty decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Aliaxis operate in India?",
-      "a": "Aliaxis operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Aliaxis operate in India?",
+      "a": "Aliaxis operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Aliaxis have GCC centers in?",
-      "a": "Aliaxis's India GCC footprint spans Bengaluru, Salcete and Kolkata."
+      "q": "Which Indian cities does Aliaxis have centers in?",
+      "a": "Aliaxis's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Aliaxis run in India?",
-      "a": "Aliaxis runs manufacturing and R&D centers in India."
+      "q": "What types of centers does Aliaxis run in India?",
+      "a": "Aliaxis runs R&D centers in India."
     },
     {
-      "q": "How many people work at Aliaxis's India GCCs?",
-      "a": "Aliaxis's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Aliaxis's India centers?",
+      "a": "Aggregate and center-level headcount for Aliaxis's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Aliaxis's GCC in India?",
-      "a": "Bamboo Reports tracks 20 leaders at Aliaxis's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Aliaxis's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -113,8 +110,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

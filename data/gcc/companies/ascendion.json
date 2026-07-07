@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Ascendion's GCC footprint in India",
-  "lede": "<strong>Ascendion runs two capability centers across two Indian cities.</strong> Hyderabad and Chennai, covering it, built over two years.",
+  "lede": "<strong>Ascendion runs two centers across two Indian cities.</strong> Hyderabad and Chennai, covering IT, built over two years.",
   "insight": "Search elsewhere and you will usually find one Ascendion office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Ascendion Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Ascendion runs 2 verified GCC centers across 2 Indian cities (Hyderabad, Chennai), covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Ascendion runs 2 verified centers across 2 Indian cities (Hyderabad, Chennai), covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -62,9 +62,9 @@
     ]
   },
   "about": {
-    "description": "Ascendion's India footprint covers Hyderabad and Chennai, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Compliance and Governance Software, Business Software Solutions",
-    "headquarters": "Basking Ridge, New Jersey, United States",
+    "description": "Ascendion's India footprint covers Hyderabad and Chennai, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "Private"
@@ -72,25 +72,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Ascendion operate in India?",
-      "a": "Ascendion operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Ascendion operate in India?",
+      "a": "Ascendion operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Ascendion have GCC centers in?",
-      "a": "Ascendion's India GCC footprint spans Hyderabad and Chennai."
+      "q": "Which Indian cities does Ascendion have centers in?",
+      "a": "Ascendion's India footprint includes Hyderabad and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Ascendion run in India?",
-      "a": "Ascendion runs it centers in India."
+      "q": "What types of centers does Ascendion run in India?",
+      "a": "Ascendion runs IT centers in India."
     },
     {
-      "q": "How many people work at Ascendion's India GCCs?",
-      "a": "Ascendion's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Ascendion's India centers?",
+      "a": "Aggregate and center-level headcount for Ascendion's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Ascendion's GCC in India?",
-      "a": "Bamboo Reports tracks 3 leaders at Ascendion's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Ascendion's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -104,8 +104,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

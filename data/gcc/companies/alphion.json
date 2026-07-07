@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Alphion's GCC footprint in India",
-  "lede": "<strong>Alphion runs two capability centers across two Indian cities.</strong> Chennai and Mumbai, covering R&D, built over eighteen years.",
+  "lede": "<strong>Alphion runs two centers across two Indian cities.</strong> Chennai and Mumbai, covering R&D, built over eighteen years.",
   "insight": "Search elsewhere and you will usually find one Alphion office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Alphion Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Alphion runs 2 verified GCC centers across 2 Indian cities (Chennai, Mumbai), covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Alphion runs 2 verified centers across 2 Indian cities (Chennai, Mumbai), covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -62,8 +62,8 @@
   },
   "about": {
     "description": "Alphion's India footprint covers Chennai and Mumbai, spanning R&D. The centers deliver R&D and ER&D for the group's global operations.",
-    "industry": "Telecommunications Equipment, Telecommunications Manufacturing",
-    "headquarters": "Princeton Junction, New Jersey, United States",
+    "industry": "Telecom",
+    "headquarters": "United States",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "51 to 100",
     "tickerAndType": "Private"
@@ -71,25 +71,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all six decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Alphion operate in India?",
-      "a": "Alphion operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Alphion operate in India?",
+      "a": "Alphion operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Alphion have GCC centers in?",
-      "a": "Alphion's India GCC footprint spans Chennai and Mumbai."
+      "q": "Which Indian cities does Alphion have centers in?",
+      "a": "Alphion's India footprint includes Chennai and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Alphion run in India?",
+      "q": "What types of centers does Alphion run in India?",
       "a": "Alphion runs R&D centers in India."
     },
     {
-      "q": "How many people work at Alphion's India GCCs?",
-      "a": "Alphion's India centers employ in the 51 to 100 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Alphion's India centers?",
+      "a": "Aggregate and center-level headcount for Alphion's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Alphion's GCC in India?",
-      "a": "Bamboo Reports tracks 6 leaders at Alphion's India centers, across IT and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Alphion's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -103,8 +103,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -9,10 +9,10 @@
   "fortuneRank": 376,
   "badges": [],
   "h1": "Best Buy's GCC footprint in India",
-  "lede": "<strong>Best Buy runs one capability center in Bengaluru.</strong> Bengaluru, covering gcc/gic.",
+  "lede": "<strong>Best Buy runs one center in Bengaluru.</strong> Bengaluru, covering GCC/GIC.",
   "insight": "A single Best Buy center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Best Buy Co., Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Best Buy runs 1 verified GCC center in Bengaluru, covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Best Buy runs 1 verified center in Bengaluru, covering GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -62,9 +62,9 @@
     ]
   },
   "about": {
-    "description": "Best Buy's India footprint covers Bengaluru, spanning gcc/gic. The centers deliver IT for the group's global operations.",
-    "industry": "Electronics Retail, Consumer Product",
-    "headquarters": "Richfield, Minnesota, United States",
+    "description": "Best Buy's India footprint covers Bengaluru, spanning GCC/GIC. The centers deliver IT for the group's global operations.",
+    "industry": "Retail",
+    "headquarters": "United States",
     "revenueBand": "$25Bn to $50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "Public"
@@ -72,25 +72,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 21 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Best Buy operate in India?",
-      "a": "Best Buy operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Best Buy operate in India?",
+      "a": "Best Buy operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Best Buy have GCC centers in?",
-      "a": "Best Buy's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Best Buy have centers in?",
+      "a": "Best Buy's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Best Buy run in India?",
-      "a": "Best Buy runs gcc/gic centers in India."
+      "q": "What types of centers does Best Buy run in India?",
+      "a": "Best Buy runs GCC/GIC centers in India."
     },
     {
-      "q": "How many people work at Best Buy's India GCCs?",
-      "a": "Best Buy's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Best Buy's India centers?",
+      "a": "Aggregate and center-level headcount for Best Buy's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Best Buy's GCC in India?",
-      "a": "Bamboo Reports tracks 21 leaders at Best Buy's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Best Buy's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -104,8 +104,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

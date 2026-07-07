@@ -11,13 +11,13 @@
     "NASSCOM Listed"
   ],
   "h1": "Align Technology's GCC footprint in India",
-  "lede": "<strong>Align Technology runs two capability centers across two Indian cities.</strong> Mumbai and Hyderabad, covering gbs and R&D, built over nineteen years.",
+  "lede": "<strong>Align Technology runs two centers across two Indian cities.</strong> Mumbai and Hyderabad, covering GBS and R&D, built over nineteen years.",
   "insight": "Search elsewhere and you will usually find one Align Technology office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Align Technology, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Align Technology runs 2 verified GCC centers across 2 Indian cities (Mumbai, Hyderabad), covering gbs and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Align Technology runs 2 verified centers across 2 Indian cities (Mumbai, Hyderabad), covering GBS and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
-    "totalCenters": 3,
+    "totalCenters": 2,
     "cities": [
       "Mumbai",
       "Hyderabad"
@@ -70,9 +70,9 @@
     ]
   },
   "about": {
-    "description": "Align Technology's India footprint covers Mumbai and Hyderabad, spanning gbs and R&D. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Orthopedic and Prosthetic Equipment, Medical Devices and Equipment",
-    "headquarters": "Tempe, Arizona, United States",
+    "description": "Align Technology's India footprint covers Mumbai and Hyderabad, spanning GBS and R&D. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "Pharma & Life Sciences",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "ALGN, Public"
@@ -80,25 +80,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all thirteen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Align Technology operate in India?",
-      "a": "Align Technology operates 2 active Global Capability Center sites in India. Three are on record in total, including non-operational sites."
+      "q": "How many centers does Align Technology operate in India?",
+      "a": "Align Technology operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Align Technology have GCC centers in?",
-      "a": "Align Technology's India GCC footprint spans Mumbai and Hyderabad."
+      "q": "Which Indian cities does Align Technology have centers in?",
+      "a": "Align Technology's India footprint includes Mumbai and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Align Technology run in India?",
-      "a": "Align Technology runs gbs and R&D centers in India."
+      "q": "What types of centers does Align Technology run in India?",
+      "a": "Align Technology runs GBS and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Align Technology's India GCCs?",
-      "a": "Align Technology's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Align Technology's India centers?",
+      "a": "Aggregate and center-level headcount for Align Technology's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Align Technology's GCC in India?",
-      "a": "Bamboo Reports tracks 13 leaders at Align Technology's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Align Technology's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -112,8 +112,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

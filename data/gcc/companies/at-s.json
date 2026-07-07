@@ -9,16 +9,15 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "AT&S's GCC footprint in India",
-  "lede": "<strong>AT&S runs two capability centers across two Indian cities.</strong> Pune and Mysuru, covering it and manufacturing.",
-  "insight": "Search elsewhere and you will usually find one AT&S office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>AT&S runs one center in Pune.</strong> Pune, covering IT.",
+  "insight": "A single AT&S center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "AT&S AG GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "AT&S runs 2 verified GCC centers across 2 Indian cities (Pune, Mysuru), covering it and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "AT&S runs 1 verified center in Pune, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 2,
-    "totalCenters": 2,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Pune",
-      "Mysuru"
+      "Pune"
     ],
     "yearsInIndia": 1,
     "sinceYear": 2025,
@@ -26,8 +25,7 @@
     "headcountBandLong": "501 to 1,000"
   },
   "centerTypes": [
-    "IT",
-    "Manufacturing"
+    "IT"
   ],
   "functions": [
     "IT"
@@ -63,9 +61,9 @@
     ]
   },
   "about": {
-    "description": "AT&S's India footprint covers Pune and Mysuru, spanning it and manufacturing. The centers deliver IT for the group's global operations.",
-    "industry": "Semiconductors, Semiconductor Manufacturing",
-    "headquarters": "Leoben, Styria, Austria",
+    "description": "AT&S's India footprint covers Pune, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "Austria",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "ATS, Public"
@@ -73,25 +71,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all five decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does AT&S operate in India?",
-      "a": "AT&S operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does AT&S operate in India?",
+      "a": "AT&S operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does AT&S have GCC centers in?",
-      "a": "AT&S's India GCC footprint spans Pune and Mysuru."
+      "q": "Which Indian cities does AT&S have centers in?",
+      "a": "AT&S's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does AT&S run in India?",
-      "a": "AT&S runs it and manufacturing centers in India."
+      "q": "What types of centers does AT&S run in India?",
+      "a": "AT&S runs IT centers in India."
     },
     {
-      "q": "How many people work at AT&S's India GCCs?",
-      "a": "AT&S's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at AT&S's India centers?",
+      "a": "Aggregate and center-level headcount for AT&S's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads AT&S's GCC in India?",
-      "a": "Bamboo Reports tracks 5 leaders at AT&S's India centers, across Finance, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at AT&S's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -105,8 +103,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

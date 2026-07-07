@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Baker Hughes's GCC footprint in India",
-  "lede": "<strong>Baker Hughes runs three capability centers across two Indian cities.</strong> Bengaluru and Mumbai, covering CoE, built over nineteen years.",
+  "lede": "<strong>Baker Hughes runs three centers across two Indian cities.</strong> Bengaluru and Mumbai, covering CoE, built over nineteen years.",
   "insight": "Search elsewhere and you will usually find one Baker Hughes office in India. We map three, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Baker Hughes Co. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Baker Hughes runs 3 verified GCC centers across 2 Indian cities (Bengaluru, Mumbai), covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Baker Hughes runs 3 verified centers across 2 Indian cities (Bengaluru, Mumbai), covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
@@ -73,8 +73,8 @@
   },
   "about": {
     "description": "Baker Hughes's India footprint covers Bengaluru and Mumbai, spanning CoE. The centers deliver IT, R&D and ER&D, HR and Procurement for the group's global operations.",
-    "industry": "Oil and Gas Field Services, Oil & Gas",
-    "headquarters": "Houston, Texas, United States",
+    "industry": "Utilities",
+    "headquarters": "United States",
     "revenueBand": "$25Bn to $50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "BKR, Public"
@@ -82,25 +82,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 31 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Baker Hughes operate in India?",
-      "a": "Baker Hughes operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Baker Hughes operate in India?",
+      "a": "Baker Hughes operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Baker Hughes have GCC centers in?",
-      "a": "Baker Hughes's India GCC footprint spans Bengaluru and Mumbai."
+      "q": "Which Indian cities does Baker Hughes have centers in?",
+      "a": "Baker Hughes's India footprint includes Bengaluru and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Baker Hughes run in India?",
+      "q": "What types of centers does Baker Hughes run in India?",
       "a": "Baker Hughes runs CoE centers in India."
     },
     {
-      "q": "How many people work at Baker Hughes's India GCCs?",
-      "a": "Baker Hughes's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Baker Hughes's India centers?",
+      "a": "Aggregate and center-level headcount for Baker Hughes's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Baker Hughes's GCC in India?",
-      "a": "Bamboo Reports tracks 31 leaders at Baker Hughes's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Baker Hughes's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -114,8 +114,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,18 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Aptiv's GCC footprint in India",
-  "lede": "<strong>Aptiv runs seven capability centers across five Indian cities.</strong> Pune, Chennai, Rewari, Kochi and Bengaluru, covering engineering & design, it and manufacturing, built over 26 years.",
-  "insight": "Search elsewhere and you will usually find one Aptiv office in India. We map seven, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Aptiv runs five centers across three Indian cities.</strong> Pune, Chennai and Bengaluru, covering engineering & design and IT, built over 26 years.",
+  "insight": "Search elsewhere and you will usually find one Aptiv office in India. We map five, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Aptiv plc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Aptiv runs 7 verified GCC centers across 5 Indian cities (Pune, Chennai, Rewari, Kochi, Bengaluru), covering engineering & design, it and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Aptiv runs 5 verified centers across 3 Indian cities (Pune, Chennai, Bengaluru), covering engineering & design and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 7,
-    "totalCenters": 7,
+    "activeCenters": 5,
+    "totalCenters": 5,
     "cities": [
       "Pune",
       "Chennai",
-      "Rewari",
-      "Kochi",
       "Bengaluru"
     ],
     "yearsInIndia": 26,
@@ -32,8 +30,7 @@
   },
   "centerTypes": [
     "Engineering & Design",
-    "IT",
-    "Manufacturing"
+    "IT"
   ],
   "functions": [
     "IT",
@@ -76,9 +73,9 @@
     ]
   },
   "about": {
-    "description": "Aptiv's India footprint covers Pune, Chennai, Rewari, Kochi and Bengaluru, spanning engineering & design, it and manufacturing. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Automotive Engineering and Consulting, Automotive Engineering Services",
-    "headquarters": "Dublin, Dublin, Ireland",
+    "description": "Aptiv's India footprint covers Pune, Chennai and Bengaluru, spanning engineering & design and IT. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Automotive",
+    "headquarters": "Ireland",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "APTV, Public"
@@ -86,25 +83,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 23 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Aptiv operate in India?",
-      "a": "Aptiv operates 7 active Global Capability Center sites in India."
+      "q": "How many centers does Aptiv operate in India?",
+      "a": "Aptiv operates 5 active centers in India."
     },
     {
-      "q": "Which Indian cities does Aptiv have GCC centers in?",
-      "a": "Aptiv's India GCC footprint spans Pune, Chennai, Rewari, Kochi and Bengaluru."
+      "q": "Which Indian cities does Aptiv have centers in?",
+      "a": "Aptiv's India footprint includes Pune and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Aptiv run in India?",
-      "a": "Aptiv runs engineering & design, it and manufacturing centers in India."
+      "q": "What types of centers does Aptiv run in India?",
+      "a": "Aptiv runs engineering & design and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Aptiv's India GCCs?",
-      "a": "Aptiv's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Aptiv's India centers?",
+      "a": "Aggregate and center-level headcount for Aptiv's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Aptiv's GCC in India?",
-      "a": "Bamboo Reports tracks 23 leaders at Aptiv's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Aptiv's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -118,8 +115,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

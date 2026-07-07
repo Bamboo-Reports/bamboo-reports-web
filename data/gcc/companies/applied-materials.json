@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Applied Materials's GCC footprint in India",
-  "lede": "<strong>Applied Materials runs six capability centers across three Indian cities.</strong> Bengaluru, Chennai and Mumbai, covering CoE, engineering & design, gbs and R&D, built over 23 years.",
+  "lede": "<strong>Applied Materials runs six centers across three Indian cities.</strong> Bengaluru, Chennai and Mumbai, covering GBS, R&D, CoE and engineering & design, built over 23 years.",
   "insight": "Search elsewhere and you will usually find one Applied Materials office in India. We map six, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Applied Materials, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Applied Materials runs 6 verified GCC centers across 3 Indian cities (Bengaluru, Chennai, Mumbai), covering CoE, engineering & design, gbs and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Applied Materials runs 6 verified centers across 3 Indian cities (Bengaluru, Chennai, Mumbai), covering GBS, R&D, CoE and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 6,
     "totalCenters": 6,
@@ -29,10 +29,10 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "CoE",
-    "Engineering & Design",
     "GBS",
-    "R&D"
+    "R&D",
+    "CoE",
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -75,9 +75,9 @@
     ]
   },
   "about": {
-    "description": "Applied Materials's India footprint covers Bengaluru, Chennai and Mumbai, spanning CoE, engineering & design, gbs and R&D. The centers deliver IT, R&D and ER&D, HR and Procurement for the group's global operations.",
-    "industry": "Semiconductors, Semiconductor Manufacturing",
-    "headquarters": "Santa Clara, California, United States",
+    "description": "Applied Materials's India footprint covers Bengaluru, Chennai and Mumbai, spanning GBS, R&D, CoE and engineering & design. The centers deliver IT, R&D and ER&D, HR and Procurement for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$25Bn to $50Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "AMAT, Public"
@@ -85,25 +85,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 45 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Applied Materials operate in India?",
-      "a": "Applied Materials operates 6 active Global Capability Center sites in India."
+      "q": "How many centers does Applied Materials operate in India?",
+      "a": "Applied Materials operates 6 active centers in India."
     },
     {
-      "q": "Which Indian cities does Applied Materials have GCC centers in?",
-      "a": "Applied Materials's India GCC footprint spans Bengaluru, Chennai and Mumbai."
+      "q": "Which Indian cities does Applied Materials have centers in?",
+      "a": "Applied Materials's India footprint includes Bengaluru and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Applied Materials run in India?",
-      "a": "Applied Materials runs CoE, engineering & design, gbs and R&D centers in India."
+      "q": "What types of centers does Applied Materials run in India?",
+      "a": "Applied Materials runs GBS and 3 additional center types centers in India."
     },
     {
-      "q": "How many people work at Applied Materials's India GCCs?",
-      "a": "Applied Materials's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Applied Materials's India centers?",
+      "a": "Aggregate and center-level headcount for Applied Materials's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Applied Materials's GCC in India?",
-      "a": "Bamboo Reports tracks 45 leaders at Applied Materials's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Applied Materials's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -117,8 +117,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

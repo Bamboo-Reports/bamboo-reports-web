@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Google's GCC footprint in India",
-  "lede": "<strong>Google runs nine capability centers across seven Indian cities.</strong> Bengaluru, Hyderabad, Pune, New Delhi, Gurugram, Mumbai and Visakhapatnam, covering gbs, it and R&D, built over 22 years.",
+  "lede": "<strong>Google runs nine centers across seven Indian cities.</strong> Bengaluru, Hyderabad, Pune, New Delhi, Gurugram, Mumbai and Visakhapatnam, covering GBS, R&D and IT, built over 22 years.",
   "insight": "Search elsewhere and you will usually find one Google office in India. We map nine, across seven cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Alphabet Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Google runs 9 verified GCC centers across 7 Indian cities (Bengaluru, Hyderabad, Pune, New Delhi, Gurugram, Mumbai, Visakhapatnam), covering gbs, it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Google runs 9 verified centers across 7 Indian cities (Bengaluru, Hyderabad, Pune, New Delhi, Gurugram, Mumbai, Visakhapatnam), covering GBS, R&D and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 9,
     "totalCenters": 11,
@@ -34,8 +34,8 @@
   },
   "centerTypes": [
     "GBS",
-    "IT",
-    "R&D"
+    "R&D",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -84,9 +84,9 @@
     ]
   },
   "about": {
-    "description": "Google's India footprint covers Bengaluru, Hyderabad, Pune, New Delhi, Gurugram, Mumbai and Visakhapatnam, spanning gbs, it and R&D. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Hi-Tech Multinational conglomerate, Holding Companies",
-    "headquarters": "Mountain View, California, United States",
+    "description": "Google's India footprint covers Bengaluru, Hyderabad, Pune, New Delhi, Gurugram, Mumbai and Visakhapatnam, spanning GBS, R&D and IT. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": ">$50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "GOOGL, Public"
@@ -94,25 +94,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all five decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Google operate in India?",
-      "a": "Google operates 9 active Global Capability Center sites in India. Eleven are on record in total, including non-operational sites."
+      "q": "How many centers does Google operate in India?",
+      "a": "Google operates 9 active centers in India. Eleven are on record in total, including non-operational sites."
     },
     {
-      "q": "Which Indian cities does Google have GCC centers in?",
-      "a": "Google's India GCC footprint spans Bengaluru, Hyderabad, Pune, New Delhi, Gurugram, Mumbai and Visakhapatnam."
+      "q": "Which Indian cities does Google have centers in?",
+      "a": "Google's India footprint includes Bengaluru and 6 additional cities."
     },
     {
-      "q": "What types of GCC centers does Google run in India?",
-      "a": "Google runs gbs, it and R&D centers in India."
+      "q": "What types of centers does Google run in India?",
+      "a": "Google runs GBS and 2 additional center types centers in India."
     },
     {
-      "q": "How many people work at Google's India GCCs?",
-      "a": "Google's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Google's India centers?",
+      "a": "Aggregate and center-level headcount for Google's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Google's GCC in India?",
-      "a": "Bamboo Reports tracks 5 leaders at Google's India centers, across Finance and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Google's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -126,8 +126,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

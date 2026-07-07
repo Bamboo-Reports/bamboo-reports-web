@@ -9,17 +9,15 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Bacardi's GCC footprint in India",
-  "lede": "<strong>Bacardi runs four capability centers across four Indian cities.</strong> Ghaziabad, Gurugram, Nashik and Mysuru, covering gbs, manufacturing and R&D, built over 30 years.",
-  "insight": "Search elsewhere and you will usually find one Bacardi office in India. We map four, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Bacardi runs two centers across two Indian cities.</strong> Gurugram and Mysuru, covering GBS and R&D, built over 30 years.",
+  "insight": "Search elsewhere and you will usually find one Bacardi office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Bacardi Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Bacardi runs 4 verified GCC centers across 4 Indian cities (Ghaziabad, Gurugram, Nashik, Mysuru), covering gbs, manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Bacardi runs 2 verified centers across 2 Indian cities (Gurugram, Mysuru), covering GBS and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 4,
-    "totalCenters": 4,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
-      "Ghaziabad",
       "Gurugram",
-      "Nashik",
       "Mysuru"
     ],
     "yearsInIndia": 30,
@@ -29,7 +27,6 @@
   },
   "centerTypes": [
     "GBS",
-    "Manufacturing",
     "R&D"
   ],
   "functions": [
@@ -70,9 +67,9 @@
     ]
   },
   "about": {
-    "description": "Bacardi's India footprint covers Ghaziabad, Gurugram, Nashik and Mysuru, spanning gbs, manufacturing and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Alcoholic Beverages, Beverage",
-    "headquarters": "Hamilton, Hamilton, Bermuda",
+    "description": "Bacardi's India footprint covers Gurugram and Mysuru, spanning GBS and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Food & Beverages",
+    "headquarters": "Bermuda",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "Private"
@@ -80,25 +77,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eleven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Bacardi operate in India?",
-      "a": "Bacardi operates 4 active Global Capability Center sites in India."
+      "q": "How many centers does Bacardi operate in India?",
+      "a": "Bacardi operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Bacardi have GCC centers in?",
-      "a": "Bacardi's India GCC footprint spans Ghaziabad, Gurugram, Nashik and Mysuru."
+      "q": "Which Indian cities does Bacardi have centers in?",
+      "a": "Bacardi's India footprint includes Gurugram and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Bacardi run in India?",
-      "a": "Bacardi runs gbs, manufacturing and R&D centers in India."
+      "q": "What types of centers does Bacardi run in India?",
+      "a": "Bacardi runs GBS and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Bacardi's India GCCs?",
-      "a": "Bacardi's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Bacardi's India centers?",
+      "a": "Aggregate and center-level headcount for Bacardi's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Bacardi's GCC in India?",
-      "a": "Bamboo Reports tracks 11 leaders at Bacardi's India centers, across Finance, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Bacardi's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -112,8 +109,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

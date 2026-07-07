@@ -11,17 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "American Axle & Manufacturing's GCC footprint in India",
-  "lede": "<strong>American Axle & Manufacturing runs six capability centers across three Indian cities.</strong> Pune, Chennai and Rudrapur, covering engineering & design and manufacturing, built over 22 years.",
-  "insight": "Search elsewhere and you will usually find one American Axle & Manufacturing office in India. We map six, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>American Axle & Manufacturing runs two centers in Pune.</strong> Pune, covering engineering & design, built over 22 years.",
+  "insight": "Search elsewhere and you will usually find one American Axle & Manufacturing office in India. We map two, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "American Axle & Manufacturing GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "American Axle & Manufacturing runs 6 verified GCC centers across 3 Indian cities (Pune, Chennai, Rudrapur), covering engineering & design and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "American Axle & Manufacturing runs 2 verified centers in Pune, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 6,
-    "totalCenters": 6,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
-      "Pune",
-      "Chennai",
-      "Rudrapur"
+      "Pune"
     ],
     "yearsInIndia": 22,
     "sinceYear": 2004,
@@ -29,8 +27,7 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "Engineering & Design",
-    "Manufacturing"
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -69,9 +66,9 @@
     ]
   },
   "about": {
-    "description": "American Axle & Manufacturing's India footprint covers Pune, Chennai and Rudrapur, spanning engineering & design and manufacturing. The centers deliver IT, R&D and ER&D and Procurement for the group's global operations.",
-    "industry": "Automobile Parts Manufacturing, Automotive Manufacturing",
-    "headquarters": "Detroit, Michigan, United States",
+    "description": "American Axle & Manufacturing's India footprint covers Pune, spanning engineering & design. The centers deliver IT, R&D and ER&D and Procurement for the group's global operations.",
+    "industry": "Automotive",
+    "headquarters": "United States",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "AXL, Public"
@@ -79,25 +76,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does American Axle & Manufacturing operate in India?",
-      "a": "American Axle & Manufacturing operates 6 active Global Capability Center sites in India."
+      "q": "How many centers does American Axle & Manufacturing operate in India?",
+      "a": "American Axle & Manufacturing operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does American Axle & Manufacturing have GCC centers in?",
-      "a": "American Axle & Manufacturing's India GCC footprint spans Pune, Chennai and Rudrapur."
+      "q": "Which Indian cities does American Axle & Manufacturing have centers in?",
+      "a": "American Axle & Manufacturing's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does American Axle & Manufacturing run in India?",
-      "a": "American Axle & Manufacturing runs engineering & design and manufacturing centers in India."
+      "q": "What types of centers does American Axle & Manufacturing run in India?",
+      "a": "American Axle & Manufacturing runs engineering & design centers in India."
     },
     {
-      "q": "How many people work at American Axle & Manufacturing's India GCCs?",
-      "a": "American Axle & Manufacturing's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at American Axle & Manufacturing's India centers?",
+      "a": "Aggregate and center-level headcount for American Axle & Manufacturing's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads American Axle & Manufacturing's GCC in India?",
-      "a": "Bamboo Reports tracks 7 leaders at American Axle & Manufacturing's India centers, across IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at American Axle & Manufacturing's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -111,8 +108,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,16 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "Affle 3i's GCC footprint in India",
-  "lede": "<strong>Affle 3i runs two capability centers across two Indian cities.</strong> Bengaluru and Gurugram, covering R&D and sales & marketing, built over seven years.",
-  "insight": "Search elsewhere and you will usually find one Affle 3i office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Affle 3i runs one center in Bengaluru.</strong> Bengaluru, covering R&D, built over seven years.",
+  "insight": "A single Affle 3i center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Affle 3i Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Affle 3i runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Gurugram), covering R&D and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Affle 3i runs 1 verified center in Bengaluru, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 2,
-    "totalCenters": 2,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Bengaluru",
-      "Gurugram"
+      "Bengaluru"
     ],
     "yearsInIndia": 7,
     "sinceYear": 2019,
@@ -28,8 +27,7 @@
     "headcountBandLong": "201 to 500"
   },
   "centerTypes": [
-    "R&D",
-    "Sales & Marketing"
+    "R&D"
   ],
   "functions": [
     "IT",
@@ -66,9 +64,9 @@
     ]
   },
   "about": {
-    "description": "Affle 3i's India footprint covers Bengaluru and Gurugram, spanning R&D and sales & marketing. The centers deliver IT and Sales & Marketing for the group's global operations.",
-    "industry": "Advertising Industry Software, Industry-Specific Software",
-    "headquarters": "Singapore, Singapore, Singapore",
+    "description": "Affle 3i's India footprint covers Bengaluru, spanning R&D. The centers deliver IT and Sales & Marketing for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "Singapore",
     "revenueBand": "$251Mn to $500Mn",
     "employeesBand": "501 to 1,000",
     "tickerAndType": "AFFLE, Public"
@@ -76,25 +74,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all ten decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Affle 3i operate in India?",
-      "a": "Affle 3i operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Affle 3i operate in India?",
+      "a": "Affle 3i operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Affle 3i have GCC centers in?",
-      "a": "Affle 3i's India GCC footprint spans Bengaluru and Gurugram."
+      "q": "Which Indian cities does Affle 3i have centers in?",
+      "a": "Affle 3i's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Affle 3i run in India?",
-      "a": "Affle 3i runs R&D and sales & marketing centers in India."
+      "q": "What types of centers does Affle 3i run in India?",
+      "a": "Affle 3i runs R&D centers in India."
     },
     {
-      "q": "How many people work at Affle 3i's India GCCs?",
-      "a": "Affle 3i's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Affle 3i's India centers?",
+      "a": "Aggregate and center-level headcount for Affle 3i's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Affle 3i's GCC in India?",
-      "a": "Bamboo Reports tracks 10 leaders at Affle 3i's India centers, across Finance, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Affle 3i's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -108,8 +106,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

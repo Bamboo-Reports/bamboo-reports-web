@@ -11,18 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Air Liquide's GCC footprint in India",
-  "lede": "<strong>Air Liquide runs five capability centers across four Indian cities.</strong> New Delhi, Chennai, Chengalpattu and Mumbai, covering engineering & design, gcc/gic and manufacturing, built over 34 years.",
-  "insight": "Search elsewhere and you will usually find one Air Liquide office in India. We map five, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Air Liquide runs two centers across two Indian cities.</strong> Mumbai and New Delhi, covering GCC/GIC and engineering & design, built over 34 years.",
+  "insight": "Search elsewhere and you will usually find one Air Liquide office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Air Liquide S.A. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Air Liquide runs 5 verified GCC centers across 4 Indian cities (New Delhi, Chennai, Chengalpattu, Mumbai), covering engineering & design, gcc/gic and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Air Liquide runs 2 verified centers across 2 Indian cities (Mumbai, New Delhi), covering GCC/GIC and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 5,
-    "totalCenters": 5,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
-      "New Delhi",
-      "Chennai",
-      "Chengalpattu",
-      "Mumbai"
+      "Mumbai",
+      "New Delhi"
     ],
     "yearsInIndia": 34,
     "sinceYear": 1992,
@@ -30,9 +28,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "Engineering & Design",
     "GCC/GIC",
-    "Manufacturing"
+    "Engineering & Design"
   ],
   "functions": [
     "R&D and ER&D",
@@ -76,9 +73,9 @@
     ]
   },
   "about": {
-    "description": "Air Liquide's India footprint covers New Delhi, Chennai, Chengalpattu and Mumbai, spanning engineering & design, gcc/gic and manufacturing. The centers deliver R&D and ER&D, HR, Procurement and Sales & Marketing for the group's global operations.",
-    "industry": "Industrial Fluid Manufacturing, Chemicals Manufacturing",
-    "headquarters": "Paris, Île-de-France, France",
+    "description": "Air Liquide's India footprint covers Mumbai and New Delhi, spanning GCC/GIC and engineering & design. The centers deliver R&D and ER&D, HR, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Chemicals",
+    "headquarters": "France",
     "revenueBand": "$25Bn to $50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "AI, Public"
@@ -86,25 +83,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seventeen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Air Liquide operate in India?",
-      "a": "Air Liquide operates 5 active Global Capability Center sites in India."
+      "q": "How many centers does Air Liquide operate in India?",
+      "a": "Air Liquide operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Air Liquide have GCC centers in?",
-      "a": "Air Liquide's India GCC footprint spans New Delhi, Chennai, Chengalpattu and Mumbai."
+      "q": "Which Indian cities does Air Liquide have centers in?",
+      "a": "Air Liquide's India footprint includes Mumbai and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Air Liquide run in India?",
-      "a": "Air Liquide runs engineering & design, gcc/gic and manufacturing centers in India."
+      "q": "What types of centers does Air Liquide run in India?",
+      "a": "Air Liquide runs GCC/GIC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Air Liquide's India GCCs?",
-      "a": "Air Liquide's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Air Liquide's India centers?",
+      "a": "Aggregate and center-level headcount for Air Liquide's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Air Liquide's GCC in India?",
-      "a": "Bamboo Reports tracks 17 leaders at Air Liquide's India centers, across Finance, IT, HR and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Air Liquide's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -118,8 +115,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

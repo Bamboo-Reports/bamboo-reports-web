@@ -11,18 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Avery Dennison's GCC footprint in India",
-  "lede": "<strong>Avery Dennison runs seven capability centers across four Indian cities.</strong> Pune, Bengaluru, Mumbai and Noida, covering it, manufacturing, R&D and sales & marketing, built over fourteen years.",
-  "insight": "Search elsewhere and you will usually find one Avery Dennison office in India. We map seven, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Avery Dennison runs two centers across two Indian cities.</strong> Pune and Bengaluru, covering R&D and IT, built over fourteen years.",
+  "insight": "Search elsewhere and you will usually find one Avery Dennison office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Avery Dennison Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Avery Dennison runs 7 verified GCC centers across 4 Indian cities (Pune, Bengaluru, Mumbai, Noida), covering it, manufacturing, R&D and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Avery Dennison runs 2 verified centers across 2 Indian cities (Pune, Bengaluru), covering R&D and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 7,
-    "totalCenters": 8,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
       "Pune",
-      "Bengaluru",
-      "Mumbai",
-      "Noida"
+      "Bengaluru"
     ],
     "yearsInIndia": 14,
     "sinceYear": 2012,
@@ -30,10 +28,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "IT",
-    "Manufacturing",
     "R&D",
-    "Sales & Marketing"
+    "IT"
   ],
   "functions": [
     "IT",
@@ -75,9 +71,9 @@
     ]
   },
   "about": {
-    "description": "Avery Dennison's India footprint covers Pune, Bengaluru, Mumbai and Noida, spanning it, manufacturing, R&D and sales & marketing. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Packaging Equipments & Solutions, Industrial Manufacturing",
-    "headquarters": "Mentor, Ohio, United States",
+    "description": "Avery Dennison's India footprint covers Pune and Bengaluru, spanning R&D and IT. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "United States",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "AVY, Public"
@@ -85,25 +81,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 29 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Avery Dennison operate in India?",
-      "a": "Avery Dennison operates 7 active Global Capability Center sites in India. Eight are on record in total, including non-operational sites."
+      "q": "How many centers does Avery Dennison operate in India?",
+      "a": "Avery Dennison operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Avery Dennison have GCC centers in?",
-      "a": "Avery Dennison's India GCC footprint spans Pune, Bengaluru, Mumbai and Noida."
+      "q": "Which Indian cities does Avery Dennison have centers in?",
+      "a": "Avery Dennison's India footprint includes Pune and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Avery Dennison run in India?",
-      "a": "Avery Dennison runs it, manufacturing, R&D and sales & marketing centers in India."
+      "q": "What types of centers does Avery Dennison run in India?",
+      "a": "Avery Dennison runs R&D and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Avery Dennison's India GCCs?",
-      "a": "Avery Dennison's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Avery Dennison's India centers?",
+      "a": "Aggregate and center-level headcount for Avery Dennison's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Avery Dennison's GCC in India?",
-      "a": "Bamboo Reports tracks 29 leaders at Avery Dennison's India centers, across Finance, IT, HR and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Avery Dennison's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -117,8 +113,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

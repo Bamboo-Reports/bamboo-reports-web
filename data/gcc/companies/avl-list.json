@@ -9,16 +9,15 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "AVL List's GCC footprint in India",
-  "lede": "<strong>AVL List runs three capability centers across two Indian cities.</strong> New Delhi and Gurugram, covering it, manufacturing and R&D, built over 24 years.",
-  "insight": "Search elsewhere and you will usually find one AVL List office in India. We map three, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>AVL List runs two centers in New Delhi.</strong> New Delhi, covering R&D and IT, built over 24 years.",
+  "insight": "Search elsewhere and you will usually find one AVL List office in India. We map two, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "AVL List GmbH GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "AVL List runs 3 verified GCC centers across 2 Indian cities (New Delhi, Gurugram), covering it, manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "AVL List runs 2 verified centers in New Delhi, covering R&D and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 3,
-    "totalCenters": 3,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
-      "New Delhi",
-      "Gurugram"
+      "New Delhi"
     ],
     "yearsInIndia": 24,
     "sinceYear": 2002,
@@ -26,9 +25,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "IT",
-    "Manufacturing",
-    "R&D"
+    "R&D",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -62,9 +60,9 @@
     ]
   },
   "about": {
-    "description": "AVL List's India footprint covers New Delhi and Gurugram, spanning it, manufacturing and R&D. The centers deliver IT and R&D and ER&D for the group's global operations.",
-    "industry": "Automotive Engineering and Consulting, Automotive Engineering Services",
-    "headquarters": "Graz, Styria, Austria",
+    "description": "AVL List's India footprint covers New Delhi, spanning R&D and IT. The centers deliver IT and R&D and ER&D for the group's global operations.",
+    "industry": "Automotive",
+    "headquarters": "Austria",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "Private"
@@ -72,25 +70,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all fourteen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does AVL List operate in India?",
-      "a": "AVL List operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does AVL List operate in India?",
+      "a": "AVL List operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does AVL List have GCC centers in?",
-      "a": "AVL List's India GCC footprint spans New Delhi and Gurugram."
+      "q": "Which Indian cities does AVL List have centers in?",
+      "a": "AVL List's India presence is in New Delhi."
     },
     {
-      "q": "What types of GCC centers does AVL List run in India?",
-      "a": "AVL List runs it, manufacturing and R&D centers in India."
+      "q": "What types of centers does AVL List run in India?",
+      "a": "AVL List runs R&D and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at AVL List's India GCCs?",
-      "a": "AVL List's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at AVL List's India centers?",
+      "a": "Aggregate and center-level headcount for AVL List's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads AVL List's GCC in India?",
-      "a": "Bamboo Reports tracks 14 leaders at AVL List's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at AVL List's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -104,8 +102,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

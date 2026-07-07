@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Bentley Systems's GCC footprint in India",
-  "lede": "<strong>Bentley Systems runs one capability center in New Delhi.</strong> New Delhi, covering it, built over 26 years.",
+  "lede": "<strong>Bentley Systems runs one center in New Delhi.</strong> New Delhi, covering IT, built over 26 years.",
   "insight": "A single Bentley Systems center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Bentley Systems, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Bentley Systems runs 1 verified GCC center in New Delhi, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Bentley Systems runs 1 verified center in New Delhi, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -62,9 +62,9 @@
     ]
   },
   "about": {
-    "description": "Bentley Systems's India footprint covers New Delhi, spanning it. The centers deliver IT, HR and Sales & Marketing for the group's global operations.",
-    "industry": "Construction and Architecture Software, Industry-Specific Software",
-    "headquarters": "Exton, Pennsylvania, United States",
+    "description": "Bentley Systems's India footprint covers New Delhi, spanning IT. The centers deliver IT, HR and Sales & Marketing for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "BSY, Public"
@@ -72,25 +72,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eleven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Bentley Systems operate in India?",
-      "a": "Bentley Systems operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Bentley Systems operate in India?",
+      "a": "Bentley Systems operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Bentley Systems have GCC centers in?",
-      "a": "Bentley Systems's India GCC presence is in New Delhi."
+      "q": "Which Indian cities does Bentley Systems have centers in?",
+      "a": "Bentley Systems's India presence is in New Delhi."
     },
     {
-      "q": "What types of GCC centers does Bentley Systems run in India?",
-      "a": "Bentley Systems runs it centers in India."
+      "q": "What types of centers does Bentley Systems run in India?",
+      "a": "Bentley Systems runs IT centers in India."
     },
     {
-      "q": "How many people work at Bentley Systems's India GCCs?",
-      "a": "Bentley Systems's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Bentley Systems's India centers?",
+      "a": "Aggregate and center-level headcount for Bentley Systems's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Bentley Systems's GCC in India?",
-      "a": "Bamboo Reports tracks 11 leaders at Bentley Systems's India centers, across Finance, IT and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Bentley Systems's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -104,8 +104,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

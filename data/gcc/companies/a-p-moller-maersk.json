@@ -11,16 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Maersk's GCC footprint in India",
-  "lede": "<strong>Maersk runs six capability centers across five Indian cities.</strong> Chennai, Kanchipuram, Bengaluru, Mumbai and Pune, covering CoE and gcc/gic, built over 23 years.",
+  "lede": "<strong>Maersk runs six centers across five Indian cities.</strong> Kanchipuram, Chennai, Bengaluru, Mumbai and Pune, covering CoE and GCC/GIC, built over 23 years.",
   "insight": "Search elsewhere and you will usually find one Maersk office in India. We map six, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "A.P. Moller Maersk A/S GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Maersk runs 6 verified GCC centers across 5 Indian cities (Chennai, Kanchipuram, Bengaluru, Mumbai, Pune), covering CoE and gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Maersk runs 6 verified centers across 5 Indian cities (Kanchipuram, Chennai, Bengaluru, Mumbai, Pune), covering CoE and GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 6,
     "totalCenters": 6,
     "cities": [
-      "Chennai",
       "Kanchipuram",
+      "Chennai",
       "Bengaluru",
       "Mumbai",
       "Pune"
@@ -88,9 +88,9 @@
     ]
   },
   "about": {
-    "description": "Maersk's India footprint covers Chennai, Kanchipuram, Bengaluru, Mumbai and Pune, spanning CoE and gcc/gic. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "End to End Freight Management, Transportation & Logistics",
-    "headquarters": "Copenhagen, Copenhagen, Denmark",
+    "description": "Maersk's India footprint covers Kanchipuram, Chennai, Bengaluru, Mumbai and Pune, spanning CoE and GCC/GIC. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "TTLH",
+    "headquarters": "Denmark",
     "revenueBand": ">$50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "MAERSK-B, Public"
@@ -98,25 +98,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 89 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Maersk operate in India?",
-      "a": "Maersk operates 6 active Global Capability Center sites in India."
+      "q": "How many centers does Maersk operate in India?",
+      "a": "Maersk operates 6 active centers in India."
     },
     {
-      "q": "Which Indian cities does Maersk have GCC centers in?",
-      "a": "Maersk's India GCC footprint spans Chennai, Kanchipuram, Bengaluru, Mumbai and Pune."
+      "q": "Which Indian cities does Maersk have centers in?",
+      "a": "Maersk's India footprint includes Kanchipuram and 4 additional cities."
     },
     {
-      "q": "What types of GCC centers does Maersk run in India?",
-      "a": "Maersk runs CoE and gcc/gic centers in India."
+      "q": "What types of centers does Maersk run in India?",
+      "a": "Maersk runs CoE and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Maersk's India GCCs?",
-      "a": "Maersk's India centers employ in the 5,000 to 10,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Maersk's India centers?",
+      "a": "Aggregate and center-level headcount for Maersk's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Maersk's GCC in India?",
-      "a": "Bamboo Reports tracks 89 leaders at Maersk's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Maersk's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -130,8 +130,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Axcelinno's GCC footprint in India",
-  "lede": "<strong>Axcelinno runs one capability center in Pune.</strong> Pune, covering gbs, built over six years.",
+  "lede": "<strong>Axcelinno runs one center in Pune.</strong> Pune, covering GBS, built over six years.",
   "insight": "A single Axcelinno center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Axcelinno GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Axcelinno runs 1 verified GCC center in Pune, covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Axcelinno runs 1 verified center in Pune, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -50,9 +50,9 @@
     ]
   },
   "about": {
-    "description": "Axcelinno's India footprint covers Pune, spanning gbs. The centers deliver Sales & Marketing for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Charlotte, North Carolina, United States",
+    "description": "Axcelinno's India footprint covers Pune, spanning GBS. The centers deliver Sales & Marketing for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United States",
     "revenueBand": "$51Mn to $100Mn",
     "employeesBand": "201 to 500",
     "tickerAndType": "ACQMP"
@@ -60,25 +60,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Axcelinno operate in India?",
-      "a": "Axcelinno operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Axcelinno operate in India?",
+      "a": "Axcelinno operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Axcelinno have GCC centers in?",
-      "a": "Axcelinno's India GCC presence is in Pune."
+      "q": "Which Indian cities does Axcelinno have centers in?",
+      "a": "Axcelinno's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does Axcelinno run in India?",
-      "a": "Axcelinno runs gbs centers in India."
+      "q": "What types of centers does Axcelinno run in India?",
+      "a": "Axcelinno runs GBS centers in India."
     },
     {
-      "q": "How many people work at Axcelinno's India GCCs?",
-      "a": "Axcelinno's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Axcelinno's India centers?",
+      "a": "Aggregate and center-level headcount for Axcelinno's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Axcelinno's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at Axcelinno's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Axcelinno's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -92,8 +92,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

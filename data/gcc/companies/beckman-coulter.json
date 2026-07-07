@@ -11,16 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "Beckman's GCC footprint in India",
-  "lede": "<strong>Beckman runs two capability centers across two Indian cities.</strong> Bengaluru and Mumbai, covering manufacturing and R&D, built over fifteen years.",
-  "insight": "Search elsewhere and you will usually find one Beckman office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Beckman runs one center in Bengaluru.</strong> Bengaluru, covering R&D, built over fifteen years.",
+  "insight": "A single Beckman center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Beckman Coulter, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Beckman runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Mumbai), covering manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Beckman runs 1 verified center in Bengaluru, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 2,
-    "totalCenters": 2,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Bengaluru",
-      "Mumbai"
+      "Bengaluru"
     ],
     "yearsInIndia": 15,
     "sinceYear": 2011,
@@ -28,7 +27,6 @@
     "headcountBandLong": "501 to 1,000"
   },
   "centerTypes": [
-    "Manufacturing",
     "R&D"
   ],
   "functions": [
@@ -69,9 +67,9 @@
     ]
   },
   "about": {
-    "description": "Beckman's India footprint covers Bengaluru and Mumbai, spanning manufacturing and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Diagnostic Devices, Medical Devices and Equipment",
-    "headquarters": "Brea, California, United States",
+    "description": "Beckman's India footprint covers Bengaluru, spanning R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Pharma & Life Sciences",
+    "headquarters": "United States",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "ACQSP"
@@ -79,25 +77,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all six decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Beckman operate in India?",
-      "a": "Beckman operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Beckman operate in India?",
+      "a": "Beckman operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Beckman have GCC centers in?",
-      "a": "Beckman's India GCC footprint spans Bengaluru and Mumbai."
+      "q": "Which Indian cities does Beckman have centers in?",
+      "a": "Beckman's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Beckman run in India?",
-      "a": "Beckman runs manufacturing and R&D centers in India."
+      "q": "What types of centers does Beckman run in India?",
+      "a": "Beckman runs R&D centers in India."
     },
     {
-      "q": "How many people work at Beckman's India GCCs?",
-      "a": "Beckman's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Beckman's India centers?",
+      "a": "Aggregate and center-level headcount for Beckman's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Beckman's GCC in India?",
-      "a": "Bamboo Reports tracks 6 leaders at Beckman's India centers, across Finance, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Beckman's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -111,8 +109,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Arrk's GCC footprint in India",
-  "lede": "<strong>Arrk runs one capability center in Mumbai.</strong> Mumbai, covering gbs, built over 24 years.",
+  "lede": "<strong>Arrk runs one center in Mumbai.</strong> Mumbai, covering GBS, built over 24 years.",
   "insight": "A single Arrk center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Arrk Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Arrk runs 1 verified GCC center in Mumbai, covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Arrk runs 1 verified center in Mumbai, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -55,9 +55,9 @@
     ]
   },
   "about": {
-    "description": "Arrk's India footprint covers Mumbai, spanning gbs. The centers deliver IT and Sales & Marketing for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Manchester, New Hampshire, United Kingdom",
+    "description": "Arrk's India footprint covers Mumbai, spanning GBS. The centers deliver IT and Sales & Marketing for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United Kingdom",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "101 to 200",
     "tickerAndType": "Private"
@@ -65,25 +65,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Arrk operate in India?",
-      "a": "Arrk operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Arrk operate in India?",
+      "a": "Arrk operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Arrk have GCC centers in?",
-      "a": "Arrk's India GCC presence is in Mumbai."
+      "q": "Which Indian cities does Arrk have centers in?",
+      "a": "Arrk's India presence is in Mumbai."
     },
     {
-      "q": "What types of GCC centers does Arrk run in India?",
-      "a": "Arrk runs gbs centers in India."
+      "q": "What types of centers does Arrk run in India?",
+      "a": "Arrk runs GBS centers in India."
     },
     {
-      "q": "How many people work at Arrk's India GCCs?",
-      "a": "Arrk's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Arrk's India centers?",
+      "a": "Aggregate and center-level headcount for Arrk's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Arrk's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Arrk's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Arrk's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -97,8 +97,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

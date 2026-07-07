@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Agnity's GCC footprint in India",
-  "lede": "<strong>Agnity runs one capability center in Noida.</strong> Noida, covering it, built over eleven years.",
+  "lede": "<strong>Agnity runs one center in Noida.</strong> Noida, covering IT, built over eleven years.",
   "insight": "A single Agnity center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Agnity GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Agnity runs 1 verified GCC center in Noida, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Agnity runs 1 verified center in Noida, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -56,9 +56,9 @@
     ]
   },
   "about": {
-    "description": "Agnity's India footprint covers Noida, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Networking,Communication and Data Services, Telecommunications Service",
-    "headquarters": "Reston, Virginia, United States",
+    "description": "Agnity's India footprint covers Noida, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Telecom",
+    "headquarters": "United States",
     "revenueBand": "$251Mn to $500Mn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "ACQMP"
@@ -66,25 +66,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Agnity operate in India?",
-      "a": "Agnity operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Agnity operate in India?",
+      "a": "Agnity operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Agnity have GCC centers in?",
-      "a": "Agnity's India GCC presence is in Noida."
+      "q": "Which Indian cities does Agnity have centers in?",
+      "a": "Agnity's India presence is in Noida."
     },
     {
-      "q": "What types of GCC centers does Agnity run in India?",
-      "a": "Agnity runs it centers in India."
+      "q": "What types of centers does Agnity run in India?",
+      "a": "Agnity runs IT centers in India."
     },
     {
-      "q": "How many people work at Agnity's India GCCs?",
-      "a": "Agnity's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Agnity's India centers?",
+      "a": "Aggregate and center-level headcount for Agnity's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Agnity's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Agnity's India centers, across HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Agnity's India centers, across HR. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -98,8 +98,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

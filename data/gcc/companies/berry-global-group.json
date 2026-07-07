@@ -11,17 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Berry's GCC footprint in India",
-  "lede": "<strong>Berry runs three capability centers across three Indian cities.</strong> Bengaluru, Tumkur and Mundra, covering CoE and manufacturing, built over four years.",
-  "insight": "Search elsewhere and you will usually find one Berry office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Berry runs two centers across two Indian cities.</strong> Bengaluru and Tumkur, covering CoE, built over four years.",
+  "insight": "Search elsewhere and you will usually find one Berry office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Berry GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Berry runs 3 verified GCC centers across 3 Indian cities (Bengaluru, Tumkur, Mundra), covering CoE and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Berry runs 2 verified centers across 2 Indian cities (Bengaluru, Tumkur), covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 3,
-    "totalCenters": 3,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
       "Bengaluru",
-      "Tumkur",
-      "Mundra"
+      "Tumkur"
     ],
     "yearsInIndia": 4,
     "sinceYear": 2022,
@@ -29,8 +28,7 @@
     "headcountBandLong": "201 to 500"
   },
   "centerTypes": [
-    "CoE",
-    "Manufacturing"
+    "CoE"
   ],
   "functions": [
     "R&D and ER&D"
@@ -66,9 +64,9 @@
     ]
   },
   "about": {
-    "description": "Berry's India footprint covers Bengaluru, Tumkur and Mundra, spanning CoE and manufacturing. The centers deliver R&D and ER&D for the group's global operations.",
-    "industry": "Packaging Equipments & Solutions, Industrial Manufacturing",
-    "headquarters": "Evansville, Indiana, United States",
+    "description": "Berry's India footprint covers Bengaluru and Tumkur, spanning CoE. The centers deliver R&D and ER&D for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "BERY, ACQMP"
@@ -76,25 +74,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 25 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Berry operate in India?",
-      "a": "Berry operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Berry operate in India?",
+      "a": "Berry operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Berry have GCC centers in?",
-      "a": "Berry's India GCC footprint spans Bengaluru, Tumkur and Mundra."
+      "q": "Which Indian cities does Berry have centers in?",
+      "a": "Berry's India footprint includes Bengaluru and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Berry run in India?",
-      "a": "Berry runs CoE and manufacturing centers in India."
+      "q": "What types of centers does Berry run in India?",
+      "a": "Berry runs CoE centers in India."
     },
     {
-      "q": "How many people work at Berry's India GCCs?",
-      "a": "Berry's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Berry's India centers?",
+      "a": "Aggregate and center-level headcount for Berry's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Berry's GCC in India?",
-      "a": "Bamboo Reports tracks 25 leaders at Berry's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Berry's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -108,8 +106,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

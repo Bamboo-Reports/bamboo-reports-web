@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Avineon's GCC footprint in India",
-  "lede": "<strong>Avineon runs two capability centers across two Indian cities.</strong> Hyderabad and Kakinada, covering gbs, built over 28 years.",
+  "lede": "<strong>Avineon runs two centers across two Indian cities.</strong> Hyderabad and Kakinada, covering GBS, built over 28 years.",
   "insight": "Search elsewhere and you will usually find one Avineon office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Avineon, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Avineon runs 2 verified GCC centers across 2 Indian cities (Hyderabad, Kakinada), covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Avineon runs 2 verified centers across 2 Indian cities (Hyderabad, Kakinada), covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -65,9 +65,9 @@
     ]
   },
   "about": {
-    "description": "Avineon's India footprint covers Hyderabad and Kakinada, spanning gbs. The centers deliver IT, R&D and ER&D, HR and Sales & Marketing for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "McLean, Virginia, United States",
+    "description": "Avineon's India footprint covers Hyderabad and Kakinada, spanning GBS. The centers deliver IT, R&D and ER&D, HR and Sales & Marketing for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United States",
     "revenueBand": "$101Mn to $250Mn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -75,25 +75,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all six decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Avineon operate in India?",
-      "a": "Avineon operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Avineon operate in India?",
+      "a": "Avineon operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Avineon have GCC centers in?",
-      "a": "Avineon's India GCC footprint spans Hyderabad and Kakinada."
+      "q": "Which Indian cities does Avineon have centers in?",
+      "a": "Avineon's India footprint includes Hyderabad and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Avineon run in India?",
-      "a": "Avineon runs gbs centers in India."
+      "q": "What types of centers does Avineon run in India?",
+      "a": "Avineon runs GBS centers in India."
     },
     {
-      "q": "How many people work at Avineon's India GCCs?",
-      "a": "Avineon's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Avineon's India centers?",
+      "a": "Aggregate and center-level headcount for Avineon's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Avineon's GCC in India?",
-      "a": "Bamboo Reports tracks 6 leaders at Avineon's India centers, across Finance, IT and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Avineon's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -107,8 +107,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

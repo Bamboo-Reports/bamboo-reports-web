@@ -26,7 +26,7 @@ const Footer = () => {
                   Ready to unlock GCC intelligence for your team?
                 </h3>
                 <p className="text-sm md:text-base text-muted-foreground max-w-2xl">
-                  See how Research NXT keeps you ahead with verified GCC data, benchmarks, and weekly insight drops tailored to strategy, location, and talent teams.
+                  See how Bamboo Reports keeps you ahead with verified GCC data, benchmarks, and weekly insight drops tailored to strategy, location, and talent teams.
                 </p>
               </div>
             </div>
@@ -53,7 +53,7 @@ const Footer = () => {
           <div className="space-y-4 md:col-span-2">
             <img
               src={logo}
-              alt="Research NXT - GCC Intelligence Provider"
+              alt="Bamboo Reports - GCC Intelligence Provider"
               className="h-12 w-auto"
             />
             <p className="max-w-xl text-sm text-muted-foreground">

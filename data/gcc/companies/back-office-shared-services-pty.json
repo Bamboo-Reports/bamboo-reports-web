@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Back Office Shared Services Pty's GCC footprint in India",
-  "lede": "<strong>Back Office Shared Services Pty runs one capability center in Bengaluru.</strong> Bengaluru, covering ssc, built over 22 years.",
+  "lede": "<strong>Back Office Shared Services Pty runs one center in Bengaluru.</strong> Bengaluru, covering SSC, built over 22 years.",
   "insight": "A single Back Office Shared Services Pty center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Back Office Shared Services Pty GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Back Office Shared Services Pty runs 1 verified GCC center in Bengaluru, covering ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Back Office Shared Services Pty runs 1 verified center in Bengaluru, covering SSC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -55,9 +55,9 @@
     ]
   },
   "about": {
-    "description": "Back Office Shared Services Pty's India footprint covers Bengaluru, spanning ssc. The centers deliver Finance & Accounting and Customer Support for the group's global operations.",
-    "industry": "BPO/KPO, Corporate Services",
-    "headquarters": "Lindfield, New South Wales, Australia",
+    "description": "Back Office Shared Services Pty's India footprint covers Bengaluru, spanning SSC. The centers deliver Finance & Accounting and Customer Support for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "Australia",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "101 to 200",
     "tickerAndType": "Private"
@@ -65,25 +65,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Back Office Shared Services Pty operate in India?",
-      "a": "Back Office Shared Services Pty operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Back Office Shared Services Pty operate in India?",
+      "a": "Back Office Shared Services Pty operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Back Office Shared Services Pty have GCC centers in?",
-      "a": "Back Office Shared Services Pty's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Back Office Shared Services Pty have centers in?",
+      "a": "Back Office Shared Services Pty's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Back Office Shared Services Pty run in India?",
-      "a": "Back Office Shared Services Pty runs ssc centers in India."
+      "q": "What types of centers does Back Office Shared Services Pty run in India?",
+      "a": "Back Office Shared Services Pty runs SSC centers in India."
     },
     {
-      "q": "How many people work at Back Office Shared Services Pty's India GCCs?",
-      "a": "Back Office Shared Services Pty's India centers employ in the 51 to 100 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Back Office Shared Services Pty's India centers?",
+      "a": "Aggregate and center-level headcount for Back Office Shared Services Pty's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Back Office Shared Services Pty's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Back Office Shared Services Pty's India centers, across Finance and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Back Office Shared Services Pty's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -97,8 +97,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

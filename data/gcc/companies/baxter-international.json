@@ -11,19 +11,17 @@
     "NASSCOM Listed"
   ],
   "h1": "Baxter International's GCC footprint in India",
-  "lede": "<strong>Baxter International runs eight capability centers across five Indian cities.</strong> Bengaluru, Gurugram, Ahmedabad, Aurangabad and Chennai, covering CoE, manufacturing, R&D and ssc, built over 30 years.",
-  "insight": "Search elsewhere and you will usually find one Baxter International office in India. We map eight, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Baxter International runs five centers across three Indian cities.</strong> Bengaluru, Ahmedabad and Gurugram, covering SSC, R&D and CoE, built over 30 years.",
+  "insight": "Search elsewhere and you will usually find one Baxter International office in India. We map five, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Baxter International GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Baxter International runs 8 verified GCC centers across 5 Indian cities (Bengaluru, Gurugram, Ahmedabad, Aurangabad, Chennai), covering CoE, manufacturing, R&D and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Baxter International runs 5 verified centers across 3 Indian cities (Bengaluru, Ahmedabad, Gurugram), covering SSC, R&D and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 8,
-    "totalCenters": 8,
+    "activeCenters": 5,
+    "totalCenters": 5,
     "cities": [
       "Bengaluru",
-      "Gurugram",
       "Ahmedabad",
-      "Aurangabad",
-      "Chennai"
+      "Gurugram"
     ],
     "yearsInIndia": 30,
     "sinceYear": 1996,
@@ -31,10 +29,9 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "CoE",
-    "Manufacturing",
+    "SSC",
     "R&D",
-    "SSC"
+    "CoE"
   ],
   "functions": [
     "IT",
@@ -80,9 +77,9 @@
     ]
   },
   "about": {
-    "description": "Baxter International's India footprint covers Bengaluru, Gurugram, Ahmedabad, Aurangabad and Chennai, spanning CoE, manufacturing, R&D and ssc. The centers deliver IT, R&D and ER&D, Finance & Accounting and Procurement for the group's global operations.",
-    "industry": "Diagnostic Devices, Medical Devices and Equipment",
-    "headquarters": "Deerfield, Illinois, United States",
+    "description": "Baxter International's India footprint covers Bengaluru, Ahmedabad and Gurugram, spanning SSC, R&D and CoE. The centers deliver IT, R&D and ER&D, Finance & Accounting and Procurement for the group's global operations.",
+    "industry": "Pharma & Life Sciences",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "BAX, Public"
@@ -90,25 +87,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 28 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Baxter International operate in India?",
-      "a": "Baxter International operates 8 active Global Capability Center sites in India."
+      "q": "How many centers does Baxter International operate in India?",
+      "a": "Baxter International operates 5 active centers in India."
     },
     {
-      "q": "Which Indian cities does Baxter International have GCC centers in?",
-      "a": "Baxter International's India GCC footprint spans Bengaluru, Gurugram, Ahmedabad, Aurangabad and Chennai."
+      "q": "Which Indian cities does Baxter International have centers in?",
+      "a": "Baxter International's India footprint includes Bengaluru and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Baxter International run in India?",
-      "a": "Baxter International runs CoE, manufacturing, R&D and ssc centers in India."
+      "q": "What types of centers does Baxter International run in India?",
+      "a": "Baxter International runs SSC and 2 additional center types centers in India."
     },
     {
-      "q": "How many people work at Baxter International's India GCCs?",
-      "a": "Baxter International's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Baxter International's India centers?",
+      "a": "Aggregate and center-level headcount for Baxter International's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Baxter International's GCC in India?",
-      "a": "Bamboo Reports tracks 28 leaders at Baxter International's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Baxter International's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -122,8 +119,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

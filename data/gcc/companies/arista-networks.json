@@ -11,16 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Arista Networks's GCC footprint in India",
-  "lede": "<strong>Arista Networks runs two capability centers across two Indian cities.</strong> Pune and Bengaluru, covering it and R&D, built over sixteen years.",
+  "lede": "<strong>Arista Networks runs two centers across two Indian cities.</strong> Bengaluru and Pune, covering R&D and IT, built over sixteen years.",
   "insight": "Search elsewhere and you will usually find one Arista Networks office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Arista Networks, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Arista Networks runs 2 verified GCC centers across 2 Indian cities (Pune, Bengaluru), covering it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Arista Networks runs 2 verified centers across 2 Indian cities (Bengaluru, Pune), covering R&D and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
     "cities": [
-      "Pune",
-      "Bengaluru"
+      "Bengaluru",
+      "Pune"
     ],
     "yearsInIndia": 16,
     "sinceYear": 2010,
@@ -28,8 +28,8 @@
     "headcountBandLong": "501 to 1,000"
   },
   "centerTypes": [
-    "IT",
-    "R&D"
+    "R&D",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -65,9 +65,9 @@
     ]
   },
   "about": {
-    "description": "Arista Networks's India footprint covers Pune and Bengaluru, spanning it and R&D. The centers deliver IT, R&D and ER&D and Sales & Marketing for the group's global operations.",
-    "industry": "Computer Networking Equipment, Computer Hardware Manufacturing",
-    "headquarters": "Santa Clara, California, United States",
+    "description": "Arista Networks's India footprint covers Bengaluru and Pune, spanning R&D and IT. The centers deliver IT, R&D and ER&D and Sales & Marketing for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "ANET, Public"
@@ -75,25 +75,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seventeen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Arista Networks operate in India?",
-      "a": "Arista Networks operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Arista Networks operate in India?",
+      "a": "Arista Networks operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Arista Networks have GCC centers in?",
-      "a": "Arista Networks's India GCC footprint spans Pune and Bengaluru."
+      "q": "Which Indian cities does Arista Networks have centers in?",
+      "a": "Arista Networks's India footprint includes Bengaluru and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Arista Networks run in India?",
-      "a": "Arista Networks runs it and R&D centers in India."
+      "q": "What types of centers does Arista Networks run in India?",
+      "a": "Arista Networks runs R&D and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Arista Networks's India GCCs?",
-      "a": "Arista Networks's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Arista Networks's India centers?",
+      "a": "Aggregate and center-level headcount for Arista Networks's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Arista Networks's GCC in India?",
-      "a": "Bamboo Reports tracks 17 leaders at Arista Networks's India centers, across Finance and IT. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Arista Networks's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -107,8 +107,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

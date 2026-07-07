@@ -11,20 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "SKF's GCC footprint in India",
-  "lede": "<strong>SKF runs nine capability centers across six Indian cities.</strong> Bengaluru, Pune, Haridwar, Mumbai, Mysuru and Ahmedabad, covering distribution, engineering & design, manufacturing and sales & marketing, built over fifteen years.",
-  "insight": "Search elsewhere and you will usually find one SKF office in India. We map nine, across six cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>SKF runs one center in Bengaluru.</strong> Bengaluru, covering engineering & design, built over fifteen years.",
+  "insight": "A single SKF center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "AB SKF GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "SKF runs 9 verified GCC centers across 6 Indian cities (Bengaluru, Pune, Haridwar, Mumbai, Mysuru, Ahmedabad), covering distribution, engineering & design, manufacturing and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "SKF runs 1 verified center in Bengaluru, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 9,
-    "totalCenters": 10,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Bengaluru",
-      "Pune",
-      "Haridwar",
-      "Mumbai",
-      "Mysuru",
-      "Ahmedabad"
+      "Bengaluru"
     ],
     "yearsInIndia": 15,
     "sinceYear": 2011,
@@ -32,10 +27,7 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "Distribution",
-    "Engineering & Design",
-    "Manufacturing",
-    "Sales & Marketing"
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -86,9 +78,9 @@
     ]
   },
   "about": {
-    "description": "SKF's India footprint covers Bengaluru, Pune, Haridwar, Mumbai, Mysuru and Ahmedabad, spanning distribution, engineering & design, manufacturing and sales & marketing. The centers deliver IT, R&D and ER&D, Finance & Accounting and Procurement for the group's global operations.",
-    "industry": "Ball Bearings and Roller Bearing, Industrial Manufacturing",
-    "headquarters": "Gothenburg, Västra Götaland, Sweden",
+    "description": "SKF's India footprint covers Bengaluru, spanning engineering & design. The centers deliver IT, R&D and ER&D, Finance & Accounting and Procurement for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "Sweden",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "SKF-B, Public"
@@ -96,25 +88,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 31 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does SKF operate in India?",
-      "a": "SKF operates 9 active Global Capability Center sites in India. Ten are on record in total, including non-operational sites."
+      "q": "How many centers does SKF operate in India?",
+      "a": "SKF operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does SKF have GCC centers in?",
-      "a": "SKF's India GCC footprint spans Bengaluru, Pune, Haridwar, Mumbai, Mysuru and Ahmedabad."
+      "q": "Which Indian cities does SKF have centers in?",
+      "a": "SKF's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does SKF run in India?",
-      "a": "SKF runs distribution, engineering & design, manufacturing and sales & marketing centers in India."
+      "q": "What types of centers does SKF run in India?",
+      "a": "SKF runs engineering & design centers in India."
     },
     {
-      "q": "How many people work at SKF's India GCCs?",
-      "a": "SKF's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at SKF's India centers?",
+      "a": "Aggregate and center-level headcount for SKF's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads SKF's GCC in India?",
-      "a": "Bamboo Reports tracks 31 leaders at SKF's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at SKF's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -128,8 +120,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

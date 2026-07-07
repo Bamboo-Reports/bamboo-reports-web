@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "AiDash's GCC footprint in India",
-  "lede": "<strong>AiDash runs one capability center in Bengaluru.</strong> Bengaluru, covering CoE, built over two years.",
+  "lede": "<strong>AiDash runs one center in Bengaluru.</strong> Bengaluru, covering CoE, built over two years.",
   "insight": "A single AiDash center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "AiDash, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "AiDash runs 1 verified GCC center in Bengaluru, covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "AiDash runs 1 verified center in Bengaluru, covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -59,8 +59,8 @@
   },
   "about": {
     "description": "AiDash's India footprint covers Bengaluru, spanning CoE. The centers deliver IT, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Specialty Chemicals, Chemicals Manufacturing",
-    "headquarters": "San Jose, California, United States",
+    "industry": "Chemicals",
+    "headquarters": "United States",
     "revenueBand": "$51Mn to $100Mn",
     "employeesBand": "201 to 500",
     "tickerAndType": "Private"
@@ -68,25 +68,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does AiDash operate in India?",
-      "a": "AiDash operates 1 active Global Capability Center site in India."
+      "q": "How many centers does AiDash operate in India?",
+      "a": "AiDash operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does AiDash have GCC centers in?",
-      "a": "AiDash's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does AiDash have centers in?",
+      "a": "AiDash's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does AiDash run in India?",
+      "q": "What types of centers does AiDash run in India?",
       "a": "AiDash runs CoE centers in India."
     },
     {
-      "q": "How many people work at AiDash's India GCCs?",
-      "a": "AiDash's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at AiDash's India centers?",
+      "a": "Aggregate and center-level headcount for AiDash's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads AiDash's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at AiDash's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at AiDash's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -100,8 +100,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

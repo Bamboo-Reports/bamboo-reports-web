@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Avalara's GCC footprint in India",
-  "lede": "<strong>Avalara runs three capability centers across two Indian cities.</strong> Pune and Noida, covering it, built over twenty years.",
+  "lede": "<strong>Avalara runs three centers across two Indian cities.</strong> Pune and Noida, covering IT, built over twenty years.",
   "insight": "Search elsewhere and you will usually find one Avalara office in India. We map three, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Avalara, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Avalara runs 3 verified GCC centers across 2 Indian cities (Pune, Noida), covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Avalara runs 3 verified centers across 2 Indian cities (Pune, Noida), covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
@@ -67,9 +67,9 @@
     ]
   },
   "about": {
-    "description": "Avalara's India footprint covers Pune and Noida, spanning it. The centers deliver IT, HR, Sales & Marketing and Customer Support for the group's global operations.",
-    "industry": "Accounting and Tax Software, Industry-Specific Software",
-    "headquarters": "Seattle, Washington, United States",
+    "description": "Avalara's India footprint covers Pune and Noida, spanning IT. The centers deliver IT, HR, Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "ACQSP"
@@ -77,25 +77,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 37 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Avalara operate in India?",
-      "a": "Avalara operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Avalara operate in India?",
+      "a": "Avalara operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Avalara have GCC centers in?",
-      "a": "Avalara's India GCC footprint spans Pune and Noida."
+      "q": "Which Indian cities does Avalara have centers in?",
+      "a": "Avalara's India footprint includes Pune and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Avalara run in India?",
-      "a": "Avalara runs it centers in India."
+      "q": "What types of centers does Avalara run in India?",
+      "a": "Avalara runs IT centers in India."
     },
     {
-      "q": "How many people work at Avalara's India GCCs?",
-      "a": "Avalara's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Avalara's India centers?",
+      "a": "Aggregate and center-level headcount for Avalara's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Avalara's GCC in India?",
-      "a": "Bamboo Reports tracks 37 leaders at Avalara's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Avalara's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -109,8 +109,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

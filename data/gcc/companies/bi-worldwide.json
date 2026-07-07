@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "BI Worldwide's GCC footprint in India",
-  "lede": "<strong>BI Worldwide runs one capability center in Chennai.</strong> Chennai, covering it, built over four years.",
+  "lede": "<strong>BI Worldwide runs one center in Chennai.</strong> Chennai, covering IT, built over four years.",
   "insight": "A single BI Worldwide center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "BI Worldwide GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "BI Worldwide runs 1 verified GCC center in Chennai, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "BI Worldwide runs 1 verified center in Chennai, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -60,9 +60,9 @@
     ]
   },
   "about": {
-    "description": "BI Worldwide's India footprint covers Chennai, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Business Services, Corporate Services",
-    "headquarters": "Minneapolis, Minnesota, United States",
+    "description": "BI Worldwide's India footprint covers Chennai, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "United States",
     "revenueBand": "$251Mn to $500Mn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -70,25 +70,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all nine decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does BI Worldwide operate in India?",
-      "a": "BI Worldwide operates 1 active Global Capability Center site in India."
+      "q": "How many centers does BI Worldwide operate in India?",
+      "a": "BI Worldwide operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does BI Worldwide have GCC centers in?",
-      "a": "BI Worldwide's India GCC presence is in Chennai."
+      "q": "Which Indian cities does BI Worldwide have centers in?",
+      "a": "BI Worldwide's India presence is in Chennai."
     },
     {
-      "q": "What types of GCC centers does BI Worldwide run in India?",
-      "a": "BI Worldwide runs it centers in India."
+      "q": "What types of centers does BI Worldwide run in India?",
+      "a": "BI Worldwide runs IT centers in India."
     },
     {
-      "q": "How many people work at BI Worldwide's India GCCs?",
-      "a": "BI Worldwide's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at BI Worldwide's India centers?",
+      "a": "Aggregate and center-level headcount for BI Worldwide's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads BI Worldwide's GCC in India?",
-      "a": "Bamboo Reports tracks 9 leaders at BI Worldwide's India centers, across IT and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at BI Worldwide's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -102,8 +102,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

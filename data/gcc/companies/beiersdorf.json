@@ -11,16 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "Nivea's GCC footprint in India",
-  "lede": "<strong>Nivea runs three capability centers across two Indian cities.</strong> Mumbai and Sanand, covering manufacturing, R&D and ssc, built over 21 years.",
-  "insight": "Search elsewhere and you will usually find one Nivea office in India. We map three, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Nivea runs two centers in Mumbai.</strong> Mumbai, covering SSC and R&D, built over 21 years.",
+  "insight": "Search elsewhere and you will usually find one Nivea office in India. We map two, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Beiersdorf AG GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Nivea runs 3 verified GCC centers across 2 Indian cities (Mumbai, Sanand), covering manufacturing, R&D and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Nivea runs 2 verified centers in Mumbai, covering SSC and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 3,
-    "totalCenters": 3,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
-      "Mumbai",
-      "Sanand"
+      "Mumbai"
     ],
     "yearsInIndia": 21,
     "sinceYear": 2005,
@@ -28,9 +27,8 @@
     "headcountBandLong": "201 to 500"
   },
   "centerTypes": [
-    "Manufacturing",
-    "R&D",
-    "SSC"
+    "SSC",
+    "R&D"
   ],
   "functions": [
     "IT",
@@ -64,9 +62,9 @@
     ]
   },
   "about": {
-    "description": "Nivea's India footprint covers Mumbai and Sanand, spanning manufacturing, R&D and ssc. The centers deliver IT, R&D and ER&D, HR and Procurement for the group's global operations.",
-    "industry": "Personal Products, Consumer Product",
-    "headquarters": "Hamburg, Hamburg, Germany",
+    "description": "Nivea's India footprint covers Mumbai, spanning SSC and R&D. The centers deliver IT, R&D and ER&D, HR and Procurement for the group's global operations.",
+    "industry": "Consumer Goods Manufacturing",
+    "headquarters": "Germany",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "BEI, Public"
@@ -74,25 +72,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all five decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Nivea operate in India?",
-      "a": "Nivea operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Nivea operate in India?",
+      "a": "Nivea operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Nivea have GCC centers in?",
-      "a": "Nivea's India GCC footprint spans Mumbai and Sanand."
+      "q": "Which Indian cities does Nivea have centers in?",
+      "a": "Nivea's India presence is in Mumbai."
     },
     {
-      "q": "What types of GCC centers does Nivea run in India?",
-      "a": "Nivea runs manufacturing, R&D and ssc centers in India."
+      "q": "What types of centers does Nivea run in India?",
+      "a": "Nivea runs SSC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Nivea's India GCCs?",
-      "a": "Nivea's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Nivea's India centers?",
+      "a": "Aggregate and center-level headcount for Nivea's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Nivea's GCC in India?",
-      "a": "Bamboo Reports tracks 5 leaders at Nivea's India centers, across HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Nivea's India centers, across HR. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -106,8 +104,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

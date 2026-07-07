@@ -11,16 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "BlueConch Technologies's GCC footprint in India",
-  "lede": "<strong>BlueConch Technologies runs two capability centers across two Indian cities.</strong> Ahmedabad and Pune, covering CoE and gbs, built over six years.",
+  "lede": "<strong>BlueConch Technologies runs two centers across two Indian cities.</strong> Pune and Ahmedabad, covering GBS and CoE, built over six years.",
   "insight": "Search elsewhere and you will usually find one BlueConch Technologies office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "BlueConch Technologies GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "BlueConch Technologies runs 2 verified GCC centers across 2 Indian cities (Ahmedabad, Pune), covering CoE and gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "BlueConch Technologies runs 2 verified centers across 2 Indian cities (Pune, Ahmedabad), covering GBS and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
     "cities": [
-      "Ahmedabad",
-      "Pune"
+      "Pune",
+      "Ahmedabad"
     ],
     "yearsInIndia": 6,
     "sinceYear": 2020,
@@ -28,8 +28,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "CoE",
-    "GBS"
+    "GBS",
+    "CoE"
   ],
   "functions": [
     "IT",
@@ -71,9 +71,9 @@
     ]
   },
   "about": {
-    "description": "BlueConch Technologies's India footprint covers Ahmedabad and Pune, spanning CoE and gbs. The centers deliver IT, R&D and ER&D and Finance & Accounting for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Aliso Viejo, California, United States",
+    "description": "BlueConch Technologies's India footprint covers Pune and Ahmedabad, spanning GBS and CoE. The centers deliver IT, R&D and ER&D and Finance & Accounting for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United States",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "Subsidiary"
@@ -81,25 +81,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seventeen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does BlueConch Technologies operate in India?",
-      "a": "BlueConch Technologies operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does BlueConch Technologies operate in India?",
+      "a": "BlueConch Technologies operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does BlueConch Technologies have GCC centers in?",
-      "a": "BlueConch Technologies's India GCC footprint spans Ahmedabad and Pune."
+      "q": "Which Indian cities does BlueConch Technologies have centers in?",
+      "a": "BlueConch Technologies's India footprint includes Pune and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does BlueConch Technologies run in India?",
-      "a": "BlueConch Technologies runs CoE and gbs centers in India."
+      "q": "What types of centers does BlueConch Technologies run in India?",
+      "a": "BlueConch Technologies runs GBS and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at BlueConch Technologies's India GCCs?",
-      "a": "BlueConch Technologies's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at BlueConch Technologies's India centers?",
+      "a": "Aggregate and center-level headcount for BlueConch Technologies's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads BlueConch Technologies's GCC in India?",
-      "a": "Bamboo Reports tracks 17 leaders at BlueConch Technologies's India centers, across Finance and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at BlueConch Technologies's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -113,8 +113,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

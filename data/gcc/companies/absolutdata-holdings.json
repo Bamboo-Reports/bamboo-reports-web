@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "AbsolutData's GCC footprint in India",
-  "lede": "<strong>AbsolutData runs two capability centers across two Indian cities.</strong> Bengaluru and Gurugram, covering gbs, built over seventeen years.",
+  "lede": "<strong>AbsolutData runs two centers across two Indian cities.</strong> Bengaluru and Gurugram, covering GBS, built over seventeen years.",
   "insight": "Search elsewhere and you will usually find one AbsolutData office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "AbsolutData GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "AbsolutData runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Gurugram), covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "AbsolutData runs 2 verified centers across 2 Indian cities (Bengaluru, Gurugram), covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -66,9 +66,9 @@
     ]
   },
   "about": {
-    "description": "AbsolutData's India footprint covers Bengaluru and Gurugram, spanning gbs. The centers deliver IT and Sales & Marketing for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Los Gatos, California, United States",
+    "description": "AbsolutData's India footprint covers Bengaluru and Gurugram, spanning GBS. The centers deliver IT and Sales & Marketing for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "ACQMP"
@@ -76,25 +76,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 27 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does AbsolutData operate in India?",
-      "a": "AbsolutData operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does AbsolutData operate in India?",
+      "a": "AbsolutData operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does AbsolutData have GCC centers in?",
-      "a": "AbsolutData's India GCC footprint spans Bengaluru and Gurugram."
+      "q": "Which Indian cities does AbsolutData have centers in?",
+      "a": "AbsolutData's India footprint includes Bengaluru and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does AbsolutData run in India?",
-      "a": "AbsolutData runs gbs centers in India."
+      "q": "What types of centers does AbsolutData run in India?",
+      "a": "AbsolutData runs GBS centers in India."
     },
     {
-      "q": "How many people work at AbsolutData's India GCCs?",
-      "a": "AbsolutData's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at AbsolutData's India centers?",
+      "a": "Aggregate and center-level headcount for AbsolutData's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads AbsolutData's GCC in India?",
-      "a": "Bamboo Reports tracks 27 leaders at AbsolutData's India centers, across Finance, IT, HR and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at AbsolutData's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -108,8 +108,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

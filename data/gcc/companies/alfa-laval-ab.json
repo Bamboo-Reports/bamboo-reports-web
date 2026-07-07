@@ -11,16 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "Alfa Laval's GCC footprint in India",
-  "lede": "<strong>Alfa Laval runs three capability centers across two Indian cities.</strong> Pune and Satara, covering manufacturing and ssc, built over four years.",
-  "insight": "Search elsewhere and you will usually find one Alfa Laval office in India. We map three, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Alfa Laval runs one center in Pune.</strong> Pune, covering SSC, built over four years.",
+  "insight": "A single Alfa Laval center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Alfa Laval AB GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Alfa Laval runs 3 verified GCC centers across 2 Indian cities (Pune, Satara), covering manufacturing and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Alfa Laval runs 1 verified center in Pune, covering SSC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 3,
-    "totalCenters": 3,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Pune",
-      "Satara"
+      "Pune"
     ],
     "yearsInIndia": 4,
     "sinceYear": 2022,
@@ -28,7 +27,6 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "Manufacturing",
     "SSC"
   ],
   "functions": [
@@ -67,9 +65,9 @@
     ]
   },
   "about": {
-    "description": "Alfa Laval's India footprint covers Pune and Satara, spanning manufacturing and ssc. The centers deliver IT, HR, Procurement and Sales & Marketing for the group's global operations.",
-    "industry": "Industrial Equipment and Machinery, Industrial Manufacturing",
-    "headquarters": "Lund, Skåne, Sweden",
+    "description": "Alfa Laval's India footprint covers Pune, spanning SSC. The centers deliver IT, HR, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "Sweden",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "ALFA, Public"
@@ -77,25 +75,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 24 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Alfa Laval operate in India?",
-      "a": "Alfa Laval operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Alfa Laval operate in India?",
+      "a": "Alfa Laval operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Alfa Laval have GCC centers in?",
-      "a": "Alfa Laval's India GCC footprint spans Pune and Satara."
+      "q": "Which Indian cities does Alfa Laval have centers in?",
+      "a": "Alfa Laval's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does Alfa Laval run in India?",
-      "a": "Alfa Laval runs manufacturing and ssc centers in India."
+      "q": "What types of centers does Alfa Laval run in India?",
+      "a": "Alfa Laval runs SSC centers in India."
     },
     {
-      "q": "How many people work at Alfa Laval's India GCCs?",
-      "a": "Alfa Laval's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Alfa Laval's India centers?",
+      "a": "Aggregate and center-level headcount for Alfa Laval's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Alfa Laval's GCC in India?",
-      "a": "Bamboo Reports tracks 24 leaders at Alfa Laval's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Alfa Laval's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -109,8 +107,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

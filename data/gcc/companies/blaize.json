@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Blaize's GCC footprint in India",
-  "lede": "<strong>Blaize runs one capability center in Hyderabad.</strong> Hyderabad, covering it, built over fifteen years.",
+  "lede": "<strong>Blaize runs one center in Hyderabad.</strong> Hyderabad, covering IT, built over fifteen years.",
   "insight": "A single Blaize center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Blaize, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Blaize runs 1 verified GCC center in Hyderabad, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Blaize runs 1 verified center in Hyderabad, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -55,9 +55,9 @@
     ]
   },
   "about": {
-    "description": "Blaize's India footprint covers Hyderabad, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Semiconductors, Semiconductor Manufacturing",
-    "headquarters": "El Dorado Hills, California, United States",
+    "description": "Blaize's India footprint covers Hyderabad, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "201 to 500",
     "tickerAndType": "Private"
@@ -65,25 +65,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Blaize operate in India?",
-      "a": "Blaize operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Blaize operate in India?",
+      "a": "Blaize operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Blaize have GCC centers in?",
-      "a": "Blaize's India GCC presence is in Hyderabad."
+      "q": "Which Indian cities does Blaize have centers in?",
+      "a": "Blaize's India presence is in Hyderabad."
     },
     {
-      "q": "What types of GCC centers does Blaize run in India?",
-      "a": "Blaize runs it centers in India."
+      "q": "What types of centers does Blaize run in India?",
+      "a": "Blaize runs IT centers in India."
     },
     {
-      "q": "How many people work at Blaize's India GCCs?",
-      "a": "Blaize's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Blaize's India centers?",
+      "a": "Aggregate and center-level headcount for Blaize's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Blaize's GCC in India?",
-      "a": "Bamboo Reports tracks 3 leaders at Blaize's India centers, across Finance and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Blaize's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -97,8 +97,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

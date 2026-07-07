@@ -5,12 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{TITLE}}</title>
   <meta name="description" content="{{META_DESCRIPTION}}">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="{{CANONICAL_URL}}">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{OG_TITLE}}">
+  <meta property="og:description" content="{{OG_DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL_URL}}">
+  <meta property="og:image" content="{{OG_IMAGE}}">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">{{SCHEMA_ORGANIZATION}}</script>
+  <script type="application/ld+json">{{SCHEMA_DATASET}}</script>
+  <script type="application/ld+json">{{SCHEMA_FAQ}}</script>
+  <script type="application/ld+json">{{SCHEMA_BREADCRUMB}}</script>
 
   <style>
     :root {
@@ -146,6 +157,7 @@
     .tag-icon-fill { fill: currentColor; stroke: none; }
     .tag-external { display: block; width: 11px; height: 11px; opacity: .6; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .chip { padding: 7px 14px; font-size: 13px; }
+    .source-line { margin: 18px 0 0; color: var(--faint); font-size: 12.5px; }
 
     .facts { border-block: 1px solid var(--border); background: #fbfdfe; }
     .facts .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
@@ -240,6 +252,7 @@
     details.faq p { margin: -6px 28px 16px 0; color: var(--muted); font-size: 14px; }
 
     .aside { position: sticky; top: 160px; display: grid; gap: 16px; }
+    .inline-cta { display: none; }
     .side-box { padding: 22px; border: 1px solid var(--border); border-radius: 12px; background: #fff; }
     .side-box h3 { margin: 0 0 8px; color: var(--heading); font-size: 15.5px; line-height: 1.35; }
     .side-box p { margin: 0 0 16px; color: var(--muted); font-size: 13.5px; }
@@ -254,25 +267,53 @@
 
     .site-footer { border-top: 1px solid var(--border); background: #fbfdfe; }
     .site-footer .wrap { padding-block: 44px 26px; }
+    .footer-kicker { display: inline-flex; align-items: center; gap: 8px; padding: 5px 11px; border-radius: 999px; color: var(--primary-dark); background: var(--surface-blue); font-size: 12px; font-weight: 600; }
+    .footer-kicker::before { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); content: ""; }
     .footer-cta { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding-bottom: 34px; border-bottom: 1px solid var(--border); }
-    .footer-cta h2 { margin: 0 0 6px; color: var(--heading); font-size: 22px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; }
+    .footer-cta h2 { margin: 13px 0 6px; color: var(--heading); font-size: 22px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; }
     .footer-cta p { max-width: 640px; margin: 0; color: var(--muted); font-size: 15px; }
     .footer-actions { display: flex; min-width: 166px; flex-direction: column; gap: 9px; }
+    .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; padding-block: 38px; border-bottom: 1px solid var(--border); }
+    .footer-brand strong { color: var(--heading); font-size: 20px; }
+    .footer-brand p { max-width: 520px; margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.625; }
+    .footer-column h3 { margin: 0 0 14px; color: var(--heading); font-size: 14px; }
+    .footer-column a { display: block; margin-top: 10px; color: var(--muted); font-size: 14px; }
+    .footer-column a:hover { color: var(--primary); }
     .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 24px; color: var(--muted); font-size: 13px; }
     .footer-legal { display: flex; flex-wrap: wrap; gap: 18px; }
     .footer-legal a { color: var(--muted); }
     .footer-legal a:hover { color: var(--primary); }
 
+    .mobile-cta {
+      position: fixed;
+      inset: auto 0 0 0;
+      z-index: 40;
+      display: none;
+      gap: 10px;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+      border-top: 1px solid var(--border);
+      background: rgb(255 255 255 / .97);
+      backdrop-filter: blur(12px);
+    }
+    .mobile-cta .btn { flex: 1; min-height: 46px; font-size: 14px; }
+
     @media (max-width: 960px) {
       .site-nav, .nav-actions { display: none; }
       .mobile-nav { display: block; }
-      .facts .wrap { grid-template-columns: repeat(2, 1fr); }
-      .fact { padding-left: 0; padding-right: 16px; }
-      .fact:nth-child(2n) { border-right: 0; }
-      .fact:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .mobile-cta { display: flex; }
+      body { padding-bottom: 78px; }
+      /* Dividers drawn once on the wrapper: per-tile 1px borders can be
+         dropped by fractional device-pixel rounding on phones. */
+      .facts .wrap { position: relative; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; }
+      .facts .wrap::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--border); }
+      .facts .wrap::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--border); }
+      .fact { border-right: 0; padding: 18px 16px 20px; }
+      .fact:nth-child(odd) { padding-left: 0; }
       .subnav { top: 96px; }
       .content-grid { grid-template-columns: 1fr; gap: 8px; }
-      .aside { position: static; grid-template-columns: repeat(2, 1fr); margin-top: 26px; }
+      .aside { display: none; }
+      .inline-cta { display: block; margin: 4px 0 30px; }
+      .inline-cta .btn { width: 100%; }
     }
     @media (max-width: 640px) {
       .site-header .wrap { min-height: 66px; }
@@ -285,6 +326,7 @@
       .kv { grid-template-columns: 1fr; }
       .aside { grid-template-columns: 1fr; }
       .footer-cta { align-items: stretch; flex-direction: column; }
+      .footer-main { grid-template-columns: 1fr; gap: 28px; }
       .footer-bottom { align-items: flex-start; flex-direction: column; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -346,6 +388,7 @@
       <h1>{{H1}}</h1>
       <p class="lede">{{LEDE}}</p>
       <div class="tags">{{TAGS}}</div>
+      <p class="source-line">Source: Bamboo Reports &middot; Updated {{LAST_UPDATED}}</p>
     </div>
   </section>
 
@@ -390,6 +433,11 @@
               <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
               Unlock center records and site-level details
             </a>
+            <div class="side-box inline-cta">
+              <h3>Size your market</h3>
+              <p>Filter India's GCC universe by company, industry and city.</p>
+              <a class="btn btn-ghost" href="/gcc?src={{SRC}}-v2-inline">Explore India GCCs</a>
+            </div>
           </section>
 
           <section class="section" id="capabilities">
@@ -417,7 +465,7 @@
           <section class="section" id="leadership">
             <span class="section-kicker">Leadership</span>
             <h2>Who runs it</h2>
-            <p class="desc">Decision-makers across {{LEADER_DEPTS}}. Titles are shown here. Names, email and LinkedIn open with a free account, and your signup includes credits to reveal a few.</p>
+            <p class="desc">A sample of decision-maker titles across {{LEADER_DEPTS}} is shown below. Names, email and LinkedIn for the full leadership map ({{LEADER_COUNT}} tracked) open with a free account, and your signup includes credits to reveal a few.</p>
             <div class="decision-makers">
 {{LEADER_ROWS}}
             </div>
@@ -425,12 +473,22 @@
               <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
               Open the full leadership map
             </a>
+            <div class="side-box featured inline-cta">
+              <h3>Unlock {{COMPANY_SHORT}} in full</h3>
+              <p>Exact centers, the org map and {{LEADER_COUNT}} leaders. Free accounts include credits to reveal contacts.</p>
+              <a class="btn btn-primary" href="/signup?src={{SRC}}-v2-inline">Create free account</a>
+            </div>
           </section>
 
           <section class="section" id="faq">
             <span class="section-kicker">FAQ</span>
             <h2>Common questions</h2>
 {{FAQ_ITEMS}}
+            <div class="side-box inline-cta" style="margin-top: 24px;">
+              <h3>Map Your India GCC Opportunity</h3>
+              <p>Get a 30-minute assessment to size your India GCC opportunity and identify the accounts that best match your ICP.</p>
+              <a class="btn btn-ghost" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Book Now</a>
+            </div>
           </section>
         </div>
 
@@ -464,13 +522,29 @@
     <div class="wrap">
       <div class="footer-cta">
         <div>
+          <span class="footer-kicker">Always-on GCC intelligence</span>
           <h2>Ready to unlock GCC intelligence for your team?</h2>
-          <p>Verified GCC data, benchmarks and weekly insights tailored to strategy, location and talent teams.</p>
+          <p>See how Bamboo Reports keeps you ahead with verified GCC data, benchmarks and weekly insights tailored to strategy, location and talent teams.</p>
         </div>
         <div class="footer-actions">
           <a class="btn btn-primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Book a demo</a>
           <a class="btn btn-ghost" href="/map-your-gcc-opportunity">View pricing</a>
         </div>
+      </div>
+      <div class="footer-main">
+        <div class="footer-brand">
+          <strong>Bamboo Reports</strong>
+          <p>Leading GCC Intelligence platform for Global Capability Centers research, market intelligence and executive-ready insights.</p>
+        </div>
+        <nav class="footer-column" aria-label="Footer resources">
+          <h3>Resources</h3>
+          <a href="/roundtables">Roundtables</a>
+        </nav>
+        <nav class="footer-column" aria-label="Get started">
+          <h3>Get Started</h3>
+          <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Book a Demo ↗</a>
+          <a href="/map-your-gcc-opportunity">Pricing</a>
+        </nav>
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Research NXT. All rights reserved.</span>
@@ -481,5 +555,10 @@
       </div>
     </div>
   </footer>
+
+  <div class="mobile-cta" aria-label="Quick actions">
+    <a class="btn btn-primary" href="/signup?src={{SRC}}-v2-sticky">Create free account</a>
+    <a class="btn btn-accent" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Get a Demo</a>
+  </div>
 </body>
 </html>

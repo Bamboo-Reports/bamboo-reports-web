@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Arch Capital's GCC footprint in India",
-  "lede": "<strong>Arch Capital runs three capability centers across three Indian cities.</strong> Pune, Thiruvananthapuram and Hyderabad, covering gcc/gic and it.",
+  "lede": "<strong>Arch Capital runs three centers across three Indian cities.</strong> Pune, Thiruvananthapuram and Hyderabad, covering GCC/GIC and IT.",
   "insight": "Search elsewhere and you will usually find one Arch Capital office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Arch Capital Group Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Arch Capital runs 3 verified GCC centers across 3 Indian cities (Pune, Thiruvananthapuram, Hyderabad), covering gcc/gic and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Arch Capital runs 3 verified centers across 3 Indian cities (Pune, Thiruvananthapuram, Hyderabad), covering GCC/GIC and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
@@ -56,9 +56,9 @@
     ]
   },
   "about": {
-    "description": "Arch Capital's India footprint covers Pune, Thiruvananthapuram and Hyderabad, spanning gcc/gic and it. The centers deliver IT and Finance & Accounting for the group's global operations.",
-    "industry": "Specialty Insurance, Insurance",
-    "headquarters": "Pembroke, Hamilton, Bermuda",
+    "description": "Arch Capital's India footprint covers Pune, Thiruvananthapuram and Hyderabad, spanning GCC/GIC and IT. The centers deliver IT and Finance & Accounting for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "Bermuda",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "ACGL, Public"
@@ -66,25 +66,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Arch Capital operate in India?",
-      "a": "Arch Capital operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Arch Capital operate in India?",
+      "a": "Arch Capital operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Arch Capital have GCC centers in?",
-      "a": "Arch Capital's India GCC footprint spans Pune, Thiruvananthapuram and Hyderabad."
+      "q": "Which Indian cities does Arch Capital have centers in?",
+      "a": "Arch Capital's India footprint includes Pune and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Arch Capital run in India?",
-      "a": "Arch Capital runs gcc/gic and it centers in India."
+      "q": "What types of centers does Arch Capital run in India?",
+      "a": "Arch Capital runs GCC/GIC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Arch Capital's India GCCs?",
-      "a": "Arch Capital's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Arch Capital's India centers?",
+      "a": "Aggregate and center-level headcount for Arch Capital's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Arch Capital's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at Arch Capital's India centers, across IT. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Arch Capital's India centers, across IT. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -98,8 +98,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

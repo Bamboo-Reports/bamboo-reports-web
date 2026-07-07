@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Bloomberg's GCC footprint in India",
-  "lede": "<strong>Bloomberg runs two capability centers across two Indian cities.</strong> Mumbai and Pune, covering gcc/gic and it, built over 30 years.",
+  "lede": "<strong>Bloomberg runs two centers across two Indian cities.</strong> Mumbai and Pune, covering GCC/GIC and IT, built over 30 years.",
   "insight": "Search elsewhere and you will usually find one Bloomberg office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Bloomberg L.P. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Bloomberg runs 2 verified GCC centers across 2 Indian cities (Mumbai, Pune), covering gcc/gic and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Bloomberg runs 2 verified centers across 2 Indian cities (Mumbai, Pune), covering GCC/GIC and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -65,9 +65,9 @@
     ]
   },
   "about": {
-    "description": "Bloomberg's India footprint covers Mumbai and Pune, spanning gcc/gic and it. The centers deliver IT, HR, Sales & Marketing and Customer Support for the group's global operations.",
-    "industry": "Internet Content Providers, Media & Services",
-    "headquarters": "New York, New York, United States",
+    "description": "Bloomberg's India footprint covers Mumbai and Pune, spanning GCC/GIC and IT. The centers deliver IT, HR, Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "Media and Entertainment",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "Private"
@@ -75,25 +75,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all six decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Bloomberg operate in India?",
-      "a": "Bloomberg operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Bloomberg operate in India?",
+      "a": "Bloomberg operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Bloomberg have GCC centers in?",
-      "a": "Bloomberg's India GCC footprint spans Mumbai and Pune."
+      "q": "Which Indian cities does Bloomberg have centers in?",
+      "a": "Bloomberg's India footprint includes Mumbai and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Bloomberg run in India?",
-      "a": "Bloomberg runs gcc/gic and it centers in India."
+      "q": "What types of centers does Bloomberg run in India?",
+      "a": "Bloomberg runs GCC/GIC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Bloomberg's India GCCs?",
-      "a": "Bloomberg's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Bloomberg's India centers?",
+      "a": "Aggregate and center-level headcount for Bloomberg's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Bloomberg's GCC in India?",
-      "a": "Bamboo Reports tracks 6 leaders at Bloomberg's India centers, across IT. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Bloomberg's India centers, across IT. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -107,8 +107,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

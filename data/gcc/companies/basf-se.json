@@ -11,24 +11,19 @@
     "NASSCOM Listed"
   ],
   "h1": "BASF's GCC footprint in India",
-  "lede": "<strong>BASF runs eleven capability centers across ten Indian cities.</strong> Chennai, Thane, Hyderabad, Ankleshwar, Bharuch, Kharagpur, Mangaluru, Mumbai, Kanchipuram and Pune, covering gbs, it, manufacturing and R&D, built over twelve years.",
-  "insight": "Search elsewhere and you will usually find one BASF office in India. We map eleven, across ten cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>BASF runs five centers across five Indian cities.</strong> Mumbai, Chennai, Thane, Hyderabad and Mangaluru, covering GBS, R&D and IT, built over twelve years.",
+  "insight": "Search elsewhere and you will usually find one BASF office in India. We map five, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "BASF SE GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "BASF runs 11 verified GCC centers across 10 Indian cities (Chennai, Thane, Hyderabad, Ankleshwar, Bharuch, Kharagpur, Mangaluru, Mumbai, Kanchipuram, Pune), covering gbs, it, manufacturing and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "BASF runs 5 verified centers across 5 Indian cities (Mumbai, Chennai, Thane, Hyderabad, Mangaluru), covering GBS, R&D and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 11,
-    "totalCenters": 12,
+    "activeCenters": 5,
+    "totalCenters": 6,
     "cities": [
+      "Mumbai",
       "Chennai",
       "Thane",
       "Hyderabad",
-      "Ankleshwar",
-      "Bharuch",
-      "Kharagpur",
-      "Mangaluru",
-      "Mumbai",
-      "Kanchipuram",
-      "Pune"
+      "Mangaluru"
     ],
     "yearsInIndia": 12,
     "sinceYear": 2014,
@@ -37,9 +32,8 @@
   },
   "centerTypes": [
     "GBS",
-    "IT",
-    "Manufacturing",
-    "R&D"
+    "R&D",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -89,9 +83,9 @@
     ]
   },
   "about": {
-    "description": "BASF's India footprint covers Chennai, Thane, Hyderabad, Ankleshwar, Bharuch, Kharagpur, Mangaluru, Mumbai, Kanchipuram and Pune, spanning gbs, it, manufacturing and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Diversified Chemicals, Chemicals Manufacturing",
-    "headquarters": "Ludwigshafen, Rhineland-Palatinate, Germany",
+    "description": "BASF's India footprint covers Mumbai, Chennai, Thane, Hyderabad and Mangaluru, spanning GBS, R&D and IT. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Chemicals",
+    "headquarters": "Germany",
     "revenueBand": ">$50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "BAS, Public"
@@ -99,25 +93,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 73 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does BASF operate in India?",
-      "a": "BASF operates 11 active Global Capability Center sites in India. Twelve are on record in total, including non-operational sites."
+      "q": "How many centers does BASF operate in India?",
+      "a": "BASF operates 5 active centers in India. Six are on record in total, including non-operational sites."
     },
     {
-      "q": "Which Indian cities does BASF have GCC centers in?",
-      "a": "BASF's India GCC footprint spans Chennai, Thane, Hyderabad, Ankleshwar, Bharuch, Kharagpur, Mangaluru, Mumbai, Kanchipuram and Pune."
+      "q": "Which Indian cities does BASF have centers in?",
+      "a": "BASF's India footprint includes Mumbai and 4 additional cities."
     },
     {
-      "q": "What types of GCC centers does BASF run in India?",
-      "a": "BASF runs gbs, it, manufacturing and R&D centers in India."
+      "q": "What types of centers does BASF run in India?",
+      "a": "BASF runs GBS and 2 additional center types centers in India."
     },
     {
-      "q": "How many people work at BASF's India GCCs?",
-      "a": "BASF's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at BASF's India centers?",
+      "a": "Aggregate and center-level headcount for BASF's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads BASF's GCC in India?",
-      "a": "Bamboo Reports tracks 73 leaders at BASF's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at BASF's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -131,8 +125,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

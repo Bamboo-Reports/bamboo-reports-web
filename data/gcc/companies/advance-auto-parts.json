@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Advance Auto Parts's GCC footprint in India",
-  "lede": "<strong>Advance Auto Parts runs one capability center in Hyderabad.</strong> Hyderabad, covering gcc/gic, built over four years.",
+  "lede": "<strong>Advance Auto Parts runs one center in Hyderabad.</strong> Hyderabad, covering GCC/GIC, built over four years.",
   "insight": "A single Advance Auto Parts center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Advance Auto Parts, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Advance Auto Parts runs 1 verified GCC center in Hyderabad, covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Advance Auto Parts runs 1 verified center in Hyderabad, covering GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -66,9 +66,9 @@
     ]
   },
   "about": {
-    "description": "Advance Auto Parts's India footprint covers Hyderabad, spanning gcc/gic. The centers deliver IT, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Motor Vehicle Parts Suppliers, Automotive Trading",
-    "headquarters": "Raleigh, North Carolina, United States",
+    "description": "Advance Auto Parts's India footprint covers Hyderabad, spanning GCC/GIC. The centers deliver IT, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Automotive",
+    "headquarters": "United States",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "AAP, Public"
@@ -76,25 +76,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all ten decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Advance Auto Parts operate in India?",
-      "a": "Advance Auto Parts operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Advance Auto Parts operate in India?",
+      "a": "Advance Auto Parts operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Advance Auto Parts have GCC centers in?",
-      "a": "Advance Auto Parts's India GCC presence is in Hyderabad."
+      "q": "Which Indian cities does Advance Auto Parts have centers in?",
+      "a": "Advance Auto Parts's India presence is in Hyderabad."
     },
     {
-      "q": "What types of GCC centers does Advance Auto Parts run in India?",
-      "a": "Advance Auto Parts runs gcc/gic centers in India."
+      "q": "What types of centers does Advance Auto Parts run in India?",
+      "a": "Advance Auto Parts runs GCC/GIC centers in India."
     },
     {
-      "q": "How many people work at Advance Auto Parts's India GCCs?",
-      "a": "Advance Auto Parts's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Advance Auto Parts's India centers?",
+      "a": "Aggregate and center-level headcount for Advance Auto Parts's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Advance Auto Parts's GCC in India?",
-      "a": "Bamboo Reports tracks 10 leaders at Advance Auto Parts's India centers, across IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Advance Auto Parts's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -108,8 +108,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

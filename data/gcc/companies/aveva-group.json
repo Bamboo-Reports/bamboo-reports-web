@@ -11,17 +11,17 @@
     "NASSCOM Listed"
   ],
   "h1": "Aveva's GCC footprint in India",
-  "lede": "<strong>Aveva runs three capability centers across three Indian cities.</strong> Mumbai, Bengaluru and Hyderabad, covering CoE and R&D, built over 25 years.",
+  "lede": "<strong>Aveva runs three centers across three Indian cities.</strong> Hyderabad, Mumbai and Bengaluru, covering R&D and CoE, built over 25 years.",
   "insight": "Search elsewhere and you will usually find one Aveva office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Aveva Group plc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Aveva runs 3 verified GCC centers across 3 Indian cities (Mumbai, Bengaluru, Hyderabad), covering CoE and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Aveva runs 3 verified centers across 3 Indian cities (Hyderabad, Mumbai, Bengaluru), covering R&D and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
     "cities": [
+      "Hyderabad",
       "Mumbai",
-      "Bengaluru",
-      "Hyderabad"
+      "Bengaluru"
     ],
     "yearsInIndia": 25,
     "sinceYear": 2001,
@@ -29,8 +29,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "CoE",
-    "R&D"
+    "R&D",
+    "CoE"
   ],
   "functions": [
     "IT",
@@ -70,9 +70,9 @@
     ]
   },
   "about": {
-    "description": "Aveva's India footprint covers Mumbai, Bengaluru and Hyderabad, spanning CoE and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Cambridge, Massachusetts, United Kingdom",
+    "description": "Aveva's India footprint covers Hyderabad, Mumbai and Bengaluru, spanning R&D and CoE. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United Kingdom",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "ACQSP"
@@ -80,25 +80,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 21 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Aveva operate in India?",
-      "a": "Aveva operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Aveva operate in India?",
+      "a": "Aveva operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Aveva have GCC centers in?",
-      "a": "Aveva's India GCC footprint spans Mumbai, Bengaluru and Hyderabad."
+      "q": "Which Indian cities does Aveva have centers in?",
+      "a": "Aveva's India footprint includes Hyderabad and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Aveva run in India?",
-      "a": "Aveva runs CoE and R&D centers in India."
+      "q": "What types of centers does Aveva run in India?",
+      "a": "Aveva runs R&D and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Aveva's India GCCs?",
-      "a": "Aveva's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Aveva's India centers?",
+      "a": "Aggregate and center-level headcount for Aveva's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Aveva's GCC in India?",
-      "a": "Bamboo Reports tracks 21 leaders at Aveva's India centers, across Finance, IT and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Aveva's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -112,8 +112,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

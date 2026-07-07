@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Assent's GCC footprint in India",
-  "lede": "<strong>Assent runs one capability center in Pune.</strong> Pune, covering it.",
+  "lede": "<strong>Assent runs one center in Pune.</strong> Pune, covering IT.",
   "insight": "A single Assent center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Assent Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Assent runs 1 verified GCC center in Pune, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Assent runs 1 verified center in Pune, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -50,9 +50,9 @@
     ]
   },
   "about": {
-    "description": "Assent's India footprint covers Pune, spanning it. The centers deliver IT and Customer Support for the group's global operations.",
-    "industry": "Specialty Pharmaceuticals, Pharmaceutical Manufacturing",
-    "headquarters": "Ottawa, Ontario, Canada",
+    "description": "Assent's India footprint covers Pune, spanning IT. The centers deliver IT and Customer Support for the group's global operations.",
+    "industry": "Pharma & Life Sciences",
+    "headquarters": "Canada",
     "revenueBand": "$101Mn to $250Mn",
     "employeesBand": "501 to 1,000",
     "tickerAndType": "Private"
@@ -60,25 +60,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Assent operate in India?",
-      "a": "Assent operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Assent operate in India?",
+      "a": "Assent operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Assent have GCC centers in?",
-      "a": "Assent's India GCC presence is in Pune."
+      "q": "Which Indian cities does Assent have centers in?",
+      "a": "Assent's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does Assent run in India?",
-      "a": "Assent runs it centers in India."
+      "q": "What types of centers does Assent run in India?",
+      "a": "Assent runs IT centers in India."
     },
     {
-      "q": "How many people work at Assent's India GCCs?",
-      "a": "Assent's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Assent's India centers?",
+      "a": "Aggregate and center-level headcount for Assent's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Assent's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at Assent's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Assent's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -92,8 +92,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

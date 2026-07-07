@@ -224,6 +224,7 @@
     details.faq p { margin: -4px 28px 15px 0; color: var(--muted); font-size: 14px; }
 
     .aside { position: sticky; top: 100px; }
+    .inline-cta { display: none; }
     .side-box { margin-bottom: 16px; padding: 20px; }
     .side-box h3, .sponsor h3 { margin: 0 0 7px; color: var(--foreground); font-size: 16px; line-height: 1.35; }
     .side-box p, .sponsor p { margin: 0 0 15px; color: var(--muted); font-size: 13px; }
@@ -258,15 +259,31 @@
     .footer-legal { display: flex; flex-wrap: wrap; gap: 18px; }
     .footer-legal a:hover { color: var(--primary); }
 
+    .mobile-cta {
+      position: fixed;
+      inset: auto 0 0 0;
+      z-index: 40;
+      display: none;
+      gap: 10px;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+      border-top: 1px solid var(--border);
+      background: rgb(255 255 255 / .97);
+      backdrop-filter: blur(12px);
+    }
+    .mobile-cta .btn { flex: 1; min-height: 46px; font-size: 14px; }
+    .mobile-cta .btn:hover { transform: none; }
+
     @media (max-width: 960px) {
       .site-nav, .nav-actions { display: none; }
       .mobile-nav { display: block; }
+      .mobile-cta { display: flex; }
+      body { padding-bottom: 78px; }
       .hero-grid { grid-template-columns: 1fr; gap: 24px; }
       .bamboo-insight { max-width: 680px; }
       .content-grid { grid-template-columns: 1fr; }
-      .aside { position: static; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .aside > * { margin: 0; }
-      .sponsor { grid-column: 1 / -1; }
+      .aside { display: none; }
+      .inline-cta { display: block; margin: 0 0 18px; }
+      .inline-cta .btn { width: 100%; }
     }
     @media (max-width: 720px) {
       .site-header .wrap { min-height: 66px; }
@@ -277,10 +294,12 @@
       h1 { font-size: 37px; }
       .lede { font-size: 16px; }
       .bamboo-insight { padding: 20px; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .stat:nth-child(2) { border-right: 0; }
-      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
-      .stat { padding: 20px; }
+      /* Dividers drawn once on the wrapper: per-tile 1px borders can be
+         dropped by fractional device-pixel rounding on phones. */
+      .stats { position: relative; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; }
+      .stats::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--border); }
+      .stats::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--border); }
+      .stat { border-right: 0; padding: 20px; }
       .about dl { grid-template-columns: 1fr; gap: 2px; }
       .about dd { margin-bottom: 10px; }
       .footer-cta { align-items: stretch; flex-direction: column; }
@@ -292,8 +311,6 @@
       .card, .side-box { padding: 20px; }
       .insight-kicker { align-items: flex-start; flex-direction: column; gap: 2px; }
       .insight-statement { font-size: 16px; }
-      .aside { grid-template-columns: 1fr; }
-      .sponsor { grid-column: auto; }
       .site-footer .wrap { padding-block: 32px 24px; }
       .footer-cta { padding: 22px; }
       .footer-main { grid-template-columns: 1fr; gap: 28px; padding-block: 32px; }
@@ -389,6 +406,12 @@
             </a>
           </section>
 
+          <div class="side-box inline-cta">
+            <h3>Size your market</h3>
+            <p>Filter India's GCC universe by company, industry and city.</p>
+            <a class="btn btn-ghost" href="/gcc?src={{SRC}}-inline">Explore India GCCs</a>
+          </div>
+
           <section class="card">
             <h2>What {{COMPANY_SHORT}}'s India centers deliver</h2>
             <p class="desc">The functions running out of India today. The service lines behind each one sit in the full profile.</p>
@@ -421,6 +444,12 @@
             </a>
           </section>
 
+          <div class="side-box featured inline-cta">
+            <h3>Unlock {{COMPANY_SHORT}} in full</h3>
+            <p>Exact centers, the org map and {{LEADER_COUNT}} leaders. Free accounts include credits to reveal contacts.</p>
+            <a class="btn btn-primary" href="/signup?src={{SRC}}-inline">Create free account</a>
+          </div>
+
           <section class="card about">
             <h2>About {{COMPANY_SHORT}} in India</h2>
             <p class="desc">{{ABOUT_DESC}}</p>
@@ -433,18 +462,24 @@
             <h2>Common questions</h2>
 {{FAQ_ITEMS}}
           </section>
+
+          <div class="side-box inline-cta">
+            <h3>Map Your India GCC Opportunity</h3>
+            <p>Get a 30-minute assessment to size your India GCC opportunity and identify the accounts that best match your ICP.</p>
+            <a class="btn btn-ghost" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Book Now</a>
+          </div>
         </div>
 
         <aside class="aside">
-          <div class="side-box">
-            <h3>Size your market</h3>
-            <p>Filter India's GCC universe by company, industry and city.</p>
-            <a class="btn btn-ghost" href="/gcc?src={{SRC}}-side">Explore India GCCs</a>
-          </div>
           <div class="side-box featured">
             <h3>Unlock {{COMPANY_SHORT}} in full</h3>
             <p>Exact centers, the org map and {{LEADER_COUNT}} leaders. Free accounts include credits to reveal contacts.</p>
             <a class="btn btn-primary" href="/signup?src={{SRC}}-side">Create free account</a>
+          </div>
+          <div class="side-box">
+            <h3>Size your market</h3>
+            <p>Filter India's GCC universe by company, industry and city.</p>
+            <a class="btn btn-ghost" href="/gcc?src={{SRC}}-side">Explore India GCCs</a>
           </div>
           <div class="side-box">
             <h3>Map Your India GCC Opportunity</h3>
@@ -499,5 +534,10 @@
       </div>
     </div>
   </footer>
+
+  <div class="mobile-cta" aria-label="Quick actions">
+    <a class="btn btn-primary" href="/signup?src={{SRC}}-sticky">Create free account</a>
+    <a class="btn btn-accent" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Get a Demo</a>
+  </div>
 </body>
 </html>

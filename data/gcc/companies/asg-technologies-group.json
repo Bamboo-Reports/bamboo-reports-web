@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "ASG Technologies's GCC footprint in India",
-  "lede": "<strong>ASG Technologies runs one capability center in Chennai.</strong> Chennai, covering R&D, built over nine years.",
+  "lede": "<strong>ASG Technologies runs one center in Chennai.</strong> Chennai, covering R&D, built over nine years.",
   "insight": "A single ASG Technologies center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "ASG Technologies GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "ASG Technologies runs 1 verified GCC center in Chennai, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "ASG Technologies runs 1 verified center in Chennai, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -60,8 +60,8 @@
   },
   "about": {
     "description": "ASG Technologies's India footprint covers Chennai, spanning R&D. The centers deliver IT for the group's global operations.",
-    "industry": "Business Intelligence Software, Business Software Solutions",
-    "headquarters": "Waltham, Massachusetts, United States",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "ACQMP"
@@ -69,25 +69,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eleven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does ASG Technologies operate in India?",
-      "a": "ASG Technologies operates 1 active Global Capability Center site in India."
+      "q": "How many centers does ASG Technologies operate in India?",
+      "a": "ASG Technologies operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does ASG Technologies have GCC centers in?",
-      "a": "ASG Technologies's India GCC presence is in Chennai."
+      "q": "Which Indian cities does ASG Technologies have centers in?",
+      "a": "ASG Technologies's India presence is in Chennai."
     },
     {
-      "q": "What types of GCC centers does ASG Technologies run in India?",
+      "q": "What types of centers does ASG Technologies run in India?",
       "a": "ASG Technologies runs R&D centers in India."
     },
     {
-      "q": "How many people work at ASG Technologies's India GCCs?",
-      "a": "ASG Technologies's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at ASG Technologies's India centers?",
+      "a": "Aggregate and center-level headcount for ASG Technologies's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads ASG Technologies's GCC in India?",
-      "a": "Bamboo Reports tracks 11 leaders at ASG Technologies's India centers, across Finance, IT and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at ASG Technologies's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -101,8 +101,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

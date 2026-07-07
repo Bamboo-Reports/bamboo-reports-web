@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Aurigo Software Technologies's GCC footprint in India",
-  "lede": "<strong>Aurigo Software Technologies runs three capability centers across two Indian cities.</strong> Bengaluru and Mysuru, covering it and R&D, built over 26 years.",
+  "lede": "<strong>Aurigo Software Technologies runs three centers across two Indian cities.</strong> Bengaluru and Mysuru, covering R&D and IT, built over 26 years.",
   "insight": "Search elsewhere and you will usually find one Aurigo Software Technologies office in India. We map three, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Aurigo Software Technologies GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Aurigo Software Technologies runs 3 verified GCC centers across 2 Indian cities (Bengaluru, Mysuru), covering it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Aurigo Software Technologies runs 3 verified centers across 2 Indian cities (Bengaluru, Mysuru), covering R&D and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
@@ -28,8 +28,8 @@
     "headcountBandLong": "201 to 500"
   },
   "centerTypes": [
-    "IT",
-    "R&D"
+    "R&D",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -64,9 +64,9 @@
     ]
   },
   "about": {
-    "description": "Aurigo Software Technologies's India footprint covers Bengaluru and Mysuru, spanning it and R&D. The centers deliver IT and R&D and ER&D for the group's global operations.",
-    "industry": "Project Management Software, Business Software Solutions",
-    "headquarters": "Austin, Texas, United States",
+    "description": "Aurigo Software Technologies's India footprint covers Bengaluru and Mysuru, spanning R&D and IT. The centers deliver IT and R&D and ER&D for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$51Mn to $100Mn",
     "employeesBand": "201 to 500",
     "tickerAndType": "Private"
@@ -74,25 +74,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all nine decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Aurigo Software Technologies operate in India?",
-      "a": "Aurigo Software Technologies operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Aurigo Software Technologies operate in India?",
+      "a": "Aurigo Software Technologies operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Aurigo Software Technologies have GCC centers in?",
-      "a": "Aurigo Software Technologies's India GCC footprint spans Bengaluru and Mysuru."
+      "q": "Which Indian cities does Aurigo Software Technologies have centers in?",
+      "a": "Aurigo Software Technologies's India footprint includes Bengaluru and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Aurigo Software Technologies run in India?",
-      "a": "Aurigo Software Technologies runs it and R&D centers in India."
+      "q": "What types of centers does Aurigo Software Technologies run in India?",
+      "a": "Aurigo Software Technologies runs R&D and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Aurigo Software Technologies's India GCCs?",
-      "a": "Aurigo Software Technologies's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Aurigo Software Technologies's India centers?",
+      "a": "Aggregate and center-level headcount for Aurigo Software Technologies's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Aurigo Software Technologies's GCC in India?",
-      "a": "Bamboo Reports tracks 9 leaders at Aurigo Software Technologies's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Aurigo Software Technologies's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -106,8 +106,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

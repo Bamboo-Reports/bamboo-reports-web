@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Arctic Wolf Networks's GCC footprint in India",
-  "lede": "<strong>Arctic Wolf Networks runs three capability centers across two Indian cities.</strong> Bengaluru and Noida, covering gcc/gic, it and R&D, built over two years.",
+  "lede": "<strong>Arctic Wolf Networks runs three centers across two Indian cities.</strong> Bengaluru and Noida, covering R&D, GCC/GIC and IT, built over two years.",
   "insight": "Search elsewhere and you will usually find one Arctic Wolf Networks office in India. We map three, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Arctic Wolf Networks GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Arctic Wolf Networks runs 3 verified GCC centers across 2 Indian cities (Bengaluru, Noida), covering gcc/gic, it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Arctic Wolf Networks runs 3 verified centers across 2 Indian cities (Bengaluru, Noida), covering R&D, GCC/GIC and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
@@ -26,9 +26,9 @@
     "headcountBandLong": "201 to 500"
   },
   "centerTypes": [
+    "R&D",
     "GCC/GIC",
-    "IT",
-    "R&D"
+    "IT"
   ],
   "functions": [
     "IT"
@@ -62,9 +62,9 @@
     ]
   },
   "about": {
-    "description": "Arctic Wolf Networks's India footprint covers Bengaluru and Noida, spanning gcc/gic, it and R&D. The centers deliver IT for the group's global operations.",
-    "industry": "Security Software, Security and Compliance Software",
-    "headquarters": "Eden Prairie, Minnesota, United States",
+    "description": "Arctic Wolf Networks's India footprint covers Bengaluru and Noida, spanning R&D, GCC/GIC and IT. The centers deliver IT for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -72,25 +72,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eleven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Arctic Wolf Networks operate in India?",
-      "a": "Arctic Wolf Networks operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Arctic Wolf Networks operate in India?",
+      "a": "Arctic Wolf Networks operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Arctic Wolf Networks have GCC centers in?",
-      "a": "Arctic Wolf Networks's India GCC footprint spans Bengaluru and Noida."
+      "q": "Which Indian cities does Arctic Wolf Networks have centers in?",
+      "a": "Arctic Wolf Networks's India footprint includes Bengaluru and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Arctic Wolf Networks run in India?",
-      "a": "Arctic Wolf Networks runs gcc/gic, it and R&D centers in India."
+      "q": "What types of centers does Arctic Wolf Networks run in India?",
+      "a": "Arctic Wolf Networks runs R&D and 2 additional center types centers in India."
     },
     {
-      "q": "How many people work at Arctic Wolf Networks's India GCCs?",
-      "a": "Arctic Wolf Networks's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Arctic Wolf Networks's India centers?",
+      "a": "Aggregate and center-level headcount for Arctic Wolf Networks's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Arctic Wolf Networks's GCC in India?",
-      "a": "Bamboo Reports tracks 11 leaders at Arctic Wolf Networks's India centers, across IT and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Arctic Wolf Networks's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -104,8 +104,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

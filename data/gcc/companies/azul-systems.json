@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Azul Systems's GCC footprint in India",
-  "lede": "<strong>Azul Systems runs one capability center in Bengaluru.</strong> Bengaluru, covering it, built over 21 years.",
+  "lede": "<strong>Azul Systems runs one center in Bengaluru.</strong> Bengaluru, covering IT, built over 21 years.",
   "insight": "A single Azul Systems center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Azul Systems, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Azul Systems runs 1 verified GCC center in Bengaluru, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Azul Systems runs 1 verified center in Bengaluru, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -57,9 +57,9 @@
     ]
   },
   "about": {
-    "description": "Azul Systems's India footprint covers Bengaluru, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Enterprise Application Integration (EAI) Software, Enterprise Software",
-    "headquarters": "Sunnyvale, California, United States",
+    "description": "Azul Systems's India footprint covers Bengaluru, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$101Mn to $250Mn",
     "employeesBand": "201 to 500",
     "tickerAndType": "Private"
@@ -67,25 +67,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Azul Systems operate in India?",
-      "a": "Azul Systems operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Azul Systems operate in India?",
+      "a": "Azul Systems operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Azul Systems have GCC centers in?",
-      "a": "Azul Systems's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Azul Systems have centers in?",
+      "a": "Azul Systems's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Azul Systems run in India?",
-      "a": "Azul Systems runs it centers in India."
+      "q": "What types of centers does Azul Systems run in India?",
+      "a": "Azul Systems runs IT centers in India."
     },
     {
-      "q": "How many people work at Azul Systems's India GCCs?",
-      "a": "Azul Systems's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Azul Systems's India centers?",
+      "a": "Aggregate and center-level headcount for Azul Systems's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Azul Systems's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Azul Systems's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Azul Systems's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -99,8 +99,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

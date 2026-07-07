@@ -13,7 +13,6 @@ import { fileURLToPath } from "node:url";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const SITE = "https://www.bambooreports.com";
 const DATA_DIR = join(ROOT, "data", "gcc", "companies");
-const TEMPLATE = join(ROOT, "templates", "gcc", "company.html");
 const TEMPLATE_V2 = join(ROOT, "templates", "gcc", "company-v2.html");
 
 const outFlag = process.argv.indexOf("--out");
@@ -221,11 +220,11 @@ function buildSchemas(c, canonical) {
     "@context": "https://schema.org",
     "@type": "Dataset",
     name: `${c.displayName} Global Capability Centers in India`,
-    description: `${c.shortName} operates ${s.activeCenters} active GCC centers across ${s.cities.length} Indian cities.`,
+    description: `${c.shortName} operates ${s.activeCenters} active centers across ${s.cities.length} Indian cities.`,
     creator: { "@type": "Organization", name: "Bamboo Reports" },
     dateModified: c.dateModified,
     variableMeasured: [
-      { "@type": "PropertyValue", name: "Active GCC centers in India", value: s.activeCenters },
+      { "@type": "PropertyValue", name: "Active centers in India", value: s.activeCenters },
       { "@type": "PropertyValue", name: "Indian cities with centers", value: s.cities.length },
       { "@type": "PropertyValue", name: "Years in India", value: s.yearsInIndia },
       { "@type": "PropertyValue", name: "India headcount range", value: s.headcountBandLong },
@@ -263,7 +262,7 @@ function render(template, c, extraVars = {}) {
     CANONICAL_URL: canonical,
     OG_TITLE: esc(c.metaTitle.replace(/ \| Bamboo Reports$/, "")),
     OG_DESCRIPTION: esc(
-      `${c.stats.activeCenters} verified GCC centers across ${c.stats.cities.length} Indian cities. See the full India footprint on Bamboo Reports.`
+      `${c.stats.activeCenters} verified centers across ${c.stats.cities.length} Indian cities. See the full India footprint on Bamboo Reports.`
     ),
     OG_IMAGE: `${SITE}/logo.png`,
     SCHEMA_ORGANIZATION: JSON.stringify(schemas.organization),
@@ -284,6 +283,7 @@ function render(template, c, extraVars = {}) {
     LEADER_COUNT: esc(c.leaders.count),
     LEADER_DEPTS: esc(c.leaders.departments),
     LEADER_ROWS: buildLeaderRows(c),
+    LAST_UPDATED: esc(c.lastUpdated ?? ""),
     ABOUT_DESC: esc(c.about.description),
     ABOUT_ROWS: buildAboutRows(c),
     FAQ_ITEMS: buildFaqItems(c),
@@ -316,7 +316,6 @@ function qaChecks(c, html) {
   return problems;
 }
 
-const template = await readFile(TEMPLATE, "utf8");
 const templateV2 = await readFile(TEMPLATE_V2, "utf8");
 const files = (await readdir(DATA_DIR)).filter((f) => f.endsWith(".json"));
 if (files.length === 0) {
@@ -327,24 +326,22 @@ if (files.length === 0) {
 let failures = 0;
 for (const file of files) {
   const c = JSON.parse(await readFile(join(DATA_DIR, file), "utf8"));
-  const html = render(template, c);
-  const htmlV2 = render(templateV2, c, {
+  const html = render(templateV2, c, {
     V2_FACT_TILES: buildFactTilesV2(c),
     CITY_CHIPS_ALL: chipRowTeaser(c.stats.cities, "city", "cities"),
     TYPE_CHIPS_ALL: chipRowTeaser(c.centerTypes, "center type", "center types"),
     ABOUT_ROWS_V2: buildAboutRowsV2(c),
   });
-  const problems = [...qaChecks(c, html), ...qaChecks(c, htmlV2).map((p) => `v2: ${p}`)];
+  const problems = qaChecks(c, html);
   if (problems.length) {
     failures++;
     console.error(`FAIL ${c.slug}: ${problems.join("; ")}`);
     continue;
   }
   const dir = join(OUT_DIR, "gcc", "companies", c.slug);
-  await mkdir(join(dir, "v2"), { recursive: true });
+  await mkdir(dir, { recursive: true });
   await writeFile(join(dir, "index.html"), html);
-  await writeFile(join(dir, "v2", "index.html"), htmlV2);
-  console.log(`OK   /gcc/companies/${c.slug}/ (+v2) (${(html.length / 1024).toFixed(1)} KB / ${(htmlV2.length / 1024).toFixed(1)} KB)`);
+  console.log(`OK   /gcc/companies/${c.slug}/ (${(html.length / 1024).toFixed(1)} KB)`);
 }
 
 if (failures) {

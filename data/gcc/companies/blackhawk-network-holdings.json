@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Blackhawk Network's GCC footprint in India",
-  "lede": "<strong>Blackhawk Network runs one capability center in Bengaluru.</strong> Bengaluru, covering it, built over seven years.",
+  "lede": "<strong>Blackhawk Network runs one center in Bengaluru.</strong> Bengaluru, covering IT, built over seven years.",
   "insight": "A single Blackhawk Network center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Blackhawk Network GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Blackhawk Network runs 1 verified GCC center in Bengaluru, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Blackhawk Network runs 1 verified center in Bengaluru, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -62,9 +62,9 @@
     ]
   },
   "about": {
-    "description": "Blackhawk Network's India footprint covers Bengaluru, spanning it. The centers deliver IT, R&D and ER&D and Sales & Marketing for the group's global operations.",
-    "industry": "Electronic Payment Systems, Financial Services",
-    "headquarters": "Pleasanton, California, United States",
+    "description": "Blackhawk Network's India footprint covers Bengaluru, spanning IT. The centers deliver IT, R&D and ER&D and Sales & Marketing for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Private"
@@ -72,25 +72,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Blackhawk Network operate in India?",
-      "a": "Blackhawk Network operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Blackhawk Network operate in India?",
+      "a": "Blackhawk Network operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Blackhawk Network have GCC centers in?",
-      "a": "Blackhawk Network's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Blackhawk Network have centers in?",
+      "a": "Blackhawk Network's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Blackhawk Network run in India?",
-      "a": "Blackhawk Network runs it centers in India."
+      "q": "What types of centers does Blackhawk Network run in India?",
+      "a": "Blackhawk Network runs IT centers in India."
     },
     {
-      "q": "How many people work at Blackhawk Network's India GCCs?",
-      "a": "Blackhawk Network's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Blackhawk Network's India centers?",
+      "a": "Aggregate and center-level headcount for Blackhawk Network's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Blackhawk Network's GCC in India?",
-      "a": "Bamboo Reports tracks 7 leaders at Blackhawk Network's India centers, across IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Blackhawk Network's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -104,8 +104,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

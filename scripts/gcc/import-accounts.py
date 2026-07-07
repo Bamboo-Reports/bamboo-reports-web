@@ -33,6 +33,21 @@ NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 SENIORITY = ["CXO", "Head", "VP", "Director", "GM", "Leader", "Senior Manager"]
 LEADER_LEVELS = set(SENIORITY)
 
+# Center types surfaced first on the page, in this order; anything else
+# follows by center count. The lead city is the top type's busiest city.
+TYPE_PRIORITY = ["GBS", "SSC", "R&D", "CoE", "GCC/GIC", "Engineering & Design", "IT"]
+
+# Non-GCC center types. These are excluded from the headline center count, the
+# city list and the type labels, so "N centers" reflects true GCC centers only
+# (R&D, IT, GBS, CoE, GCC/GIC, Engineering, SSC), not manufacturing/sales/
+# distribution sites. If a company has ONLY non-GCC centers we fall back to the
+# full set so the page still renders (that case is caught by account_type later).
+NON_GCC_TYPES = {"Manufacturing", "Sales & Marketing", "Distribution"}
+
+# Center types that stay upper/mixed-case in prose (acronyms). Everything else
+# (e.g. "Engineering & Design") is lowercased to read naturally in a sentence.
+ACRONYM_TYPES = {"GBS", "SSC", "R&D", "CoE", "GCC/GIC", "IT", "BPO"}
+
 SERVICE_LABELS = {
     "service_it": "IT",
     "service_erd": "R&D and ER&D",
@@ -175,12 +190,35 @@ def build_company(a, aliases, centers, services, prospects, tech):
     short = clean(al.get("brand_name")) or clean(al.get("short_legal_name")) or name
     slug = slugify(name)
 
-    active = [c for c in centers if clean(c.get("center_status")) == "Active Center"]
-    total = len(centers)
+    active_all = [c for c in centers if clean(c.get("center_status")) == "Active Center"]
+    gcc_active = [c for c in active_all if clean(c.get("center_type")) not in NON_GCC_TYPES]
+    if gcc_active:
+        active = gcc_active
+        total = sum(1 for c in centers if clean(c.get("center_type")) not in NON_GCC_TYPES)
+    else:
+        # All centers are non-GCC (manufacturing/sales/distribution only); keep
+        # the full set so the page renders. account_type filtering handles these.
+        active = active_all
+        total = len(centers)
     city_counts = Counter(clean(c.get("center_city")) for c in active if clean(c.get("center_city")))
     cities = [c for c, _ in city_counts.most_common()]
     type_counts = Counter(clean(c.get("center_type")) for c in active if clean(c.get("center_type")))
-    types = [center_type for center_type, _ in type_counts.most_common()]
+    type_rank = {t: i for i, t in enumerate(TYPE_PRIORITY)}
+    types = sorted(
+        type_counts,
+        key=lambda t: (type_rank.get(t, len(TYPE_PRIORITY)), -type_counts[t], t),
+    )
+    if types:
+        lead_city_counts = Counter(
+            clean(c.get("center_city"))
+            for c in active
+            if clean(c.get("center_type")) == types[0] and clean(c.get("center_city"))
+        )
+        if lead_city_counts:
+            lead_city = lead_city_counts.most_common(1)[0][0]
+            if lead_city in cities:
+                cities.remove(lead_city)
+                cities.insert(0, lead_city)
 
     functions = []
     for col, label in SERVICE_LABELS.items():
@@ -227,11 +265,8 @@ def build_company(a, aliases, centers, services, prospects, tech):
 
     years = num(a.get("years_in_india"))
     since = num(a.get("account_first_center_year"))
-    hq_bits = [clean(a.get("account_hq_city")), clean(a.get("account_hq_state")), clean(a.get("account_hq_country"))]
-    hq = ", ".join(b for b in hq_bits if b)
-    industry = ", ".join(
-        b for b in [clean(a.get("account_hq_sub_industry")), clean(a.get("account_hq_industry"))] if b
-    )
+    hq = clean(a.get("account_hq_country"))
+    industry = clean(a.get("account_primary_category"))
     revenue_short, _ = band_pretty(a.get("account_hq_revenue_range"), money=True)
     hc_short, hc_long = band_pretty(a.get("account_center_employees_range"))
     website = clean(a.get("account_hq_website"))
@@ -243,11 +278,12 @@ def build_company(a, aliases, centers, services, prospects, tech):
     fortune = num(a.get("account_hq_fortune_500_rank"))
 
     n_active, n_cities = len(active), len(cities)
-    center_word = "capability center" + ("s" if n_active != 1 else "")
+    # "centers", not "GCC centers": active counts can include manufacturing sites.
+    center_word = "center" + ("s" if n_active != 1 else "")
     city_phrase = (
         f"across {num_word(n_cities)} Indian cities" if n_cities > 1 else f"in {cities[0]}" if cities else "in India"
     )
-    type_labels = [t.lower().replace("coe", "CoE").replace("r&d", "R&D") for t in types]
+    type_labels = [t if t in ACRONYM_TYPES else t.lower() for t in types]
     types_lower = join_and(type_labels) or "capability work"
     city_preview = cities[0] if cities else ""
     if n_cities > 1:
@@ -281,22 +317,22 @@ def build_company(a, aliases, centers, services, prospects, tech):
 
     faq = [
         {
-            "q": f"How many GCC centers does {short} operate in India?",
-            "a": f"{short} operates {n_active} active Global Capability Center site{'s' if n_active != 1 else ''} in India."
+            "q": f"How many centers does {short} operate in India?",
+            "a": f"{short} operates {n_active} active center{'s' if n_active != 1 else ''} in India."
             + (f" {num_word(total).capitalize()} are on record in total, including non-operational sites." if total > n_active else ""),
         },
         {
-            "q": f"Which Indian cities does {short} have GCC centers in?",
-            "a": f"{short}'s India GCC footprint includes {city_preview}." if n_cities > 1 else f"{short}'s India GCC presence is in {cities[0]}." if cities else f"{short}'s center locations are available in the full profile.",
+            "q": f"Which Indian cities does {short} have centers in?",
+            "a": f"{short}'s India footprint includes {city_preview}." if n_cities > 1 else f"{short}'s India presence is in {cities[0]}." if cities else f"{short}'s center locations are available in the full profile.",
         },
         {
-            "q": f"What types of GCC centers does {short} run in India?",
+            "q": f"What types of centers does {short} run in India?",
             "a": f"{short} runs {type_preview} centers in India.",
         },
     ]
     if hc_long:
         faq.append({
-            "q": f"How many people work at {short}'s India GCCs?",
+            "q": f"How many people work at {short}'s India centers?",
             "a": f"Aggregate and center-level headcount for {short}'s India operations is available in the full profile.",
             "excludeFromSchema": True,
         })
@@ -325,7 +361,7 @@ def build_company(a, aliases, centers, services, prospects, tech):
         "insight": insight,
         "metaTitle": f"{display} GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
         "metaDescription": (
-            f"{short} runs {n_active} verified GCC center{'s' if n_active != 1 else ''} "
+            f"{short} runs {n_active} verified center{'s' if n_active != 1 else ''} "
             + (f"across {n_cities} Indian cities ({', '.join(cities)})" if n_cities > 1 else f"in {cities[0]}" if cities else "in India")
             + f", covering {types_lower}. See the full India footprint, org map and contacts on Bamboo Reports."
         ),

@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "ACI Worldwide's GCC footprint in India",
-  "lede": "<strong>ACI Worldwide runs three capability centers across three Indian cities.</strong> Pune, Bengaluru and Mumbai, covering it, built over 32 years.",
+  "lede": "<strong>ACI Worldwide runs three centers across three Indian cities.</strong> Pune, Bengaluru and Mumbai, covering IT, built over 32 years.",
   "insight": "Search elsewhere and you will usually find one ACI Worldwide office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "ACI Worldwide, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "ACI Worldwide runs 3 verified GCC centers across 3 Indian cities (Pune, Bengaluru, Mumbai), covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "ACI Worldwide runs 3 verified centers across 3 Indian cities (Pune, Bengaluru, Mumbai), covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
@@ -74,9 +74,9 @@
     ]
   },
   "about": {
-    "description": "ACI Worldwide's India footprint covers Pune, Bengaluru and Mumbai, spanning it. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Electronic Payment Systems, Financial Services",
-    "headquarters": "Coral Gables, Florida, United States",
+    "description": "ACI Worldwide's India footprint covers Pune, Bengaluru and Mumbai, spanning IT. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "ACIW, Public"
@@ -84,25 +84,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all twelve decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does ACI Worldwide operate in India?",
-      "a": "ACI Worldwide operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does ACI Worldwide operate in India?",
+      "a": "ACI Worldwide operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does ACI Worldwide have GCC centers in?",
-      "a": "ACI Worldwide's India GCC footprint spans Pune, Bengaluru and Mumbai."
+      "q": "Which Indian cities does ACI Worldwide have centers in?",
+      "a": "ACI Worldwide's India footprint includes Pune and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does ACI Worldwide run in India?",
-      "a": "ACI Worldwide runs it centers in India."
+      "q": "What types of centers does ACI Worldwide run in India?",
+      "a": "ACI Worldwide runs IT centers in India."
     },
     {
-      "q": "How many people work at ACI Worldwide's India GCCs?",
-      "a": "ACI Worldwide's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at ACI Worldwide's India centers?",
+      "a": "Aggregate and center-level headcount for ACI Worldwide's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads ACI Worldwide's GCC in India?",
-      "a": "Bamboo Reports tracks 12 leaders at ACI Worldwide's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at ACI Worldwide's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -116,8 +116,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Adaequare's GCC footprint in India",
-  "lede": "<strong>Adaequare runs one capability center in Hyderabad.</strong> Hyderabad, covering it, built over twenty years.",
+  "lede": "<strong>Adaequare runs one center in Hyderabad.</strong> Hyderabad, covering IT, built over twenty years.",
   "insight": "A single Adaequare center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Adaequare, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Adaequare runs 1 verified GCC center in Hyderabad, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Adaequare runs 1 verified center in Hyderabad, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -59,9 +59,9 @@
     ]
   },
   "about": {
-    "description": "Adaequare's India footprint covers Hyderabad, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Chantilly, Virginia, United States",
+    "description": "Adaequare's India footprint covers Hyderabad, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United States",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "501 to 1,000",
     "tickerAndType": "Private"
@@ -69,25 +69,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all four decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Adaequare operate in India?",
-      "a": "Adaequare operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Adaequare operate in India?",
+      "a": "Adaequare operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Adaequare have GCC centers in?",
-      "a": "Adaequare's India GCC presence is in Hyderabad."
+      "q": "Which Indian cities does Adaequare have centers in?",
+      "a": "Adaequare's India presence is in Hyderabad."
     },
     {
-      "q": "What types of GCC centers does Adaequare run in India?",
-      "a": "Adaequare runs it centers in India."
+      "q": "What types of centers does Adaequare run in India?",
+      "a": "Adaequare runs IT centers in India."
     },
     {
-      "q": "How many people work at Adaequare's India GCCs?",
-      "a": "Adaequare's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Adaequare's India centers?",
+      "a": "Aggregate and center-level headcount for Adaequare's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Adaequare's GCC in India?",
-      "a": "Bamboo Reports tracks 4 leaders at Adaequare's India centers, across Finance, IT and HR. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Adaequare's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -101,8 +101,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Black & Veatch's GCC footprint in India",
-  "lede": "<strong>Black & Veatch runs two capability centers across two Indian cities.</strong> Mumbai and Pune, covering engineering & design, built over 29 years.",
+  "lede": "<strong>Black & Veatch runs two centers across two Indian cities.</strong> Mumbai and Pune, covering engineering & design, built over 29 years.",
   "insight": "Search elsewhere and you will usually find one Black & Veatch office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Black & Veatch GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Black & Veatch runs 2 verified GCC centers across 2 Indian cities (Mumbai, Pune), covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Black & Veatch runs 2 verified centers across 2 Indian cities (Mumbai, Pune), covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -65,8 +65,8 @@
   },
   "about": {
     "description": "Black & Veatch's India footprint covers Mumbai and Pune, spanning engineering & design. The centers deliver R&D and ER&D, Finance & Accounting, HR and Sales & Marketing for the group's global operations.",
-    "industry": "Construction Engineering Services, Construction & Engineering",
-    "headquarters": "Overland Park, Kansas, United States",
+    "industry": "Industrial",
+    "headquarters": "United States",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "Private"
@@ -74,25 +74,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all six decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Black & Veatch operate in India?",
-      "a": "Black & Veatch operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Black & Veatch operate in India?",
+      "a": "Black & Veatch operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Black & Veatch have GCC centers in?",
-      "a": "Black & Veatch's India GCC footprint spans Mumbai and Pune."
+      "q": "Which Indian cities does Black & Veatch have centers in?",
+      "a": "Black & Veatch's India footprint includes Mumbai and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Black & Veatch run in India?",
+      "q": "What types of centers does Black & Veatch run in India?",
       "a": "Black & Veatch runs engineering & design centers in India."
     },
     {
-      "q": "How many people work at Black & Veatch's India GCCs?",
-      "a": "Black & Veatch's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Black & Veatch's India centers?",
+      "a": "Aggregate and center-level headcount for Black & Veatch's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Black & Veatch's GCC in India?",
-      "a": "Bamboo Reports tracks 6 leaders at Black & Veatch's India centers, across IT, HR and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Black & Veatch's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -106,8 +106,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

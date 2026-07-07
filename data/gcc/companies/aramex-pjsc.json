@@ -11,16 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "Aramex's GCC footprint in India",
-  "lede": "<strong>Aramex runs two capability centers across two Indian cities.</strong> Pune and Ahmedabad, covering it and sales & marketing.",
-  "insight": "Search elsewhere and you will usually find one Aramex office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Aramex runs one center in Pune.</strong> Pune, covering IT.",
+  "insight": "A single Aramex center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Aramex PJSC GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Aramex runs 2 verified GCC centers across 2 Indian cities (Pune, Ahmedabad), covering it and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Aramex runs 1 verified center in Pune, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 2,
-    "totalCenters": 2,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Pune",
-      "Ahmedabad"
+      "Pune"
     ],
     "yearsInIndia": 1,
     "sinceYear": 2025,
@@ -28,8 +27,7 @@
     "headcountBandLong": "201 to 500"
   },
   "centerTypes": [
-    "IT",
-    "Sales & Marketing"
+    "IT"
   ],
   "functions": [
     "IT"
@@ -61,9 +59,9 @@
     ]
   },
   "about": {
-    "description": "Aramex's India footprint covers Pune and Ahmedabad, spanning it and sales & marketing. The centers deliver IT for the group's global operations.",
-    "industry": "End to End Freight Management, Transportation & Logistics",
-    "headquarters": "Dubai, Dubai, United Arab Emirates",
+    "description": "Aramex's India footprint covers Pune, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "TTLH",
+    "headquarters": "United Arab Emirates",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "ARMX, Public"
@@ -71,25 +69,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eleven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Aramex operate in India?",
-      "a": "Aramex operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Aramex operate in India?",
+      "a": "Aramex operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Aramex have GCC centers in?",
-      "a": "Aramex's India GCC footprint spans Pune and Ahmedabad."
+      "q": "Which Indian cities does Aramex have centers in?",
+      "a": "Aramex's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does Aramex run in India?",
-      "a": "Aramex runs it and sales & marketing centers in India."
+      "q": "What types of centers does Aramex run in India?",
+      "a": "Aramex runs IT centers in India."
     },
     {
-      "q": "How many people work at Aramex's India GCCs?",
-      "a": "Aramex's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Aramex's India centers?",
+      "a": "Aggregate and center-level headcount for Aramex's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Aramex's GCC in India?",
-      "a": "Bamboo Reports tracks 11 leaders at Aramex's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Aramex's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -103,8 +101,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

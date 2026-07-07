@@ -11,17 +11,17 @@
     "NASSCOM Listed"
   ],
   "h1": "BlackRock's GCC footprint in India",
-  "lede": "<strong>BlackRock runs three capability centers across three Indian cities.</strong> Bengaluru, Gurugram and Mumbai, covering CoE and it, built over 22 years.",
+  "lede": "<strong>BlackRock runs three centers across three Indian cities.</strong> Mumbai, Bengaluru and Gurugram, covering CoE and IT, built over 22 years.",
   "insight": "Search elsewhere and you will usually find one BlackRock office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "BlackRock, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "BlackRock runs 3 verified GCC centers across 3 Indian cities (Bengaluru, Gurugram, Mumbai), covering CoE and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "BlackRock runs 3 verified centers across 3 Indian cities (Mumbai, Bengaluru, Gurugram), covering CoE and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 4,
     "cities": [
+      "Mumbai",
       "Bengaluru",
-      "Gurugram",
-      "Mumbai"
+      "Gurugram"
     ],
     "yearsInIndia": 22,
     "sinceYear": 2004,
@@ -75,9 +75,9 @@
     ]
   },
   "about": {
-    "description": "BlackRock's India footprint covers Bengaluru, Gurugram and Mumbai, spanning CoE and it. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Investment Services and Advice, Financial Services",
-    "headquarters": "New York, New York, United States",
+    "description": "BlackRock's India footprint covers Mumbai, Bengaluru and Gurugram, spanning CoE and IT. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "BLK, Public"
@@ -85,25 +85,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 94 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does BlackRock operate in India?",
-      "a": "BlackRock operates 3 active Global Capability Center sites in India. Four are on record in total, including non-operational sites."
+      "q": "How many centers does BlackRock operate in India?",
+      "a": "BlackRock operates 3 active centers in India. Four are on record in total, including non-operational sites."
     },
     {
-      "q": "Which Indian cities does BlackRock have GCC centers in?",
-      "a": "BlackRock's India GCC footprint spans Bengaluru, Gurugram and Mumbai."
+      "q": "Which Indian cities does BlackRock have centers in?",
+      "a": "BlackRock's India footprint includes Mumbai and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does BlackRock run in India?",
-      "a": "BlackRock runs CoE and it centers in India."
+      "q": "What types of centers does BlackRock run in India?",
+      "a": "BlackRock runs CoE and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at BlackRock's India GCCs?",
-      "a": "BlackRock's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at BlackRock's India centers?",
+      "a": "Aggregate and center-level headcount for BlackRock's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads BlackRock's GCC in India?",
-      "a": "Bamboo Reports tracks 94 leaders at BlackRock's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at BlackRock's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -117,8 +117,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

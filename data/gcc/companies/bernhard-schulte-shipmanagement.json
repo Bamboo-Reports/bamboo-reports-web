@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Bernhard Schulte Shipmanagement's GCC footprint in India",
-  "lede": "<strong>Bernhard Schulte Shipmanagement runs two capability centers across two Indian cities.</strong> Mumbai and Kochi, covering CoE and ssc, built over 26 years.",
+  "lede": "<strong>Bernhard Schulte Shipmanagement runs two centers across two Indian cities.</strong> Mumbai and Kochi, covering SSC and CoE, built over 26 years.",
   "insight": "Search elsewhere and you will usually find one Bernhard Schulte Shipmanagement office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Bernhard Schulte Shipmanagement GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Bernhard Schulte Shipmanagement runs 2 verified GCC centers across 2 Indian cities (Mumbai, Kochi), covering CoE and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Bernhard Schulte Shipmanagement runs 2 verified centers across 2 Indian cities (Mumbai, Kochi), covering SSC and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -28,8 +28,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "CoE",
-    "SSC"
+    "SSC",
+    "CoE"
   ],
   "functions": [
     "Finance & Accounting"
@@ -57,9 +57,9 @@
     ]
   },
   "about": {
-    "description": "Bernhard Schulte Shipmanagement's India footprint covers Mumbai and Kochi, spanning CoE and ssc. The centers deliver Finance & Accounting for the group's global operations.",
-    "industry": "Marine Transportation Support, Transportation & Logistics",
-    "headquarters": "Hamburg, Hamburg, Germany",
+    "description": "Bernhard Schulte Shipmanagement's India footprint covers Mumbai and Kochi, spanning SSC and CoE. The centers deliver Finance & Accounting for the group's global operations.",
+    "industry": "TTLH",
+    "headquarters": "Germany",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "Private"
@@ -67,25 +67,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Bernhard Schulte Shipmanagement operate in India?",
-      "a": "Bernhard Schulte Shipmanagement operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Bernhard Schulte Shipmanagement operate in India?",
+      "a": "Bernhard Schulte Shipmanagement operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Bernhard Schulte Shipmanagement have GCC centers in?",
-      "a": "Bernhard Schulte Shipmanagement's India GCC footprint spans Mumbai and Kochi."
+      "q": "Which Indian cities does Bernhard Schulte Shipmanagement have centers in?",
+      "a": "Bernhard Schulte Shipmanagement's India footprint includes Mumbai and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Bernhard Schulte Shipmanagement run in India?",
-      "a": "Bernhard Schulte Shipmanagement runs CoE and ssc centers in India."
+      "q": "What types of centers does Bernhard Schulte Shipmanagement run in India?",
+      "a": "Bernhard Schulte Shipmanagement runs SSC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Bernhard Schulte Shipmanagement's India GCCs?",
-      "a": "Bernhard Schulte Shipmanagement's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Bernhard Schulte Shipmanagement's India centers?",
+      "a": "Aggregate and center-level headcount for Bernhard Schulte Shipmanagement's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Bernhard Schulte Shipmanagement's GCC in India?",
-      "a": "Bamboo Reports tracks 3 leaders at Bernhard Schulte Shipmanagement's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Bernhard Schulte Shipmanagement's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -99,8 +99,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "America Online's GCC footprint in India",
-  "lede": "<strong>America Online runs one capability center in Bengaluru.</strong> Bengaluru, covering it, built over 22 years.",
+  "lede": "<strong>America Online runs one center in Bengaluru.</strong> Bengaluru, covering IT, built over 22 years.",
   "insight": "A single America Online center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "AOL Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "America Online runs 1 verified GCC center in Bengaluru, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "America Online runs 1 verified center in Bengaluru, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 2,
@@ -50,9 +50,9 @@
     ]
   },
   "about": {
-    "description": "America Online's India footprint covers Bengaluru, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Diversified Media, Media & Services",
-    "headquarters": "New York, New York, United States",
+    "description": "America Online's India footprint covers Bengaluru, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Media and Entertainment",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "ACQSP"
@@ -60,25 +60,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does America Online operate in India?",
-      "a": "America Online operates 1 active Global Capability Center site in India. Two are on record in total, including non-operational sites."
+      "q": "How many centers does America Online operate in India?",
+      "a": "America Online operates 1 active center in India. Two are on record in total, including non-operational sites."
     },
     {
-      "q": "Which Indian cities does America Online have GCC centers in?",
-      "a": "America Online's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does America Online have centers in?",
+      "a": "America Online's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does America Online run in India?",
-      "a": "America Online runs it centers in India."
+      "q": "What types of centers does America Online run in India?",
+      "a": "America Online runs IT centers in India."
     },
     {
-      "q": "How many people work at America Online's India GCCs?",
-      "a": "America Online's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at America Online's India centers?",
+      "a": "Aggregate and center-level headcount for America Online's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads America Online's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at America Online's India centers. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at America Online's India centers. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -92,8 +92,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

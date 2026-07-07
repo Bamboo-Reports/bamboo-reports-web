@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Arrow Electronics's GCC footprint in India",
-  "lede": "<strong>Arrow Electronics runs eight capability centers across seven Indian cities.</strong> Bengaluru, Ahmedabad, Chennai, Hyderabad, Indore, Noida and Pune, covering engineering & design and gcc/gic, built over 24 years.",
+  "lede": "<strong>Arrow Electronics runs eight centers across seven Indian cities.</strong> Bengaluru, Ahmedabad, Chennai, Hyderabad, Indore, Noida and Pune, covering GCC/GIC and engineering & design, built over 24 years.",
   "insight": "Search elsewhere and you will usually find one Arrow Electronics office in India. We map eight, across seven cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Arrow Electronics, Inc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Arrow Electronics runs 8 verified GCC centers across 7 Indian cities (Bengaluru, Ahmedabad, Chennai, Hyderabad, Indore, Noida, Pune), covering engineering & design and gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Arrow Electronics runs 8 verified centers across 7 Indian cities (Bengaluru, Ahmedabad, Chennai, Hyderabad, Indore, Noida, Pune), covering GCC/GIC and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 8,
     "totalCenters": 8,
@@ -33,8 +33,8 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "Engineering & Design",
-    "GCC/GIC"
+    "GCC/GIC",
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -78,9 +78,9 @@
     ]
   },
   "about": {
-    "description": "Arrow Electronics's India footprint covers Bengaluru, Ahmedabad, Chennai, Hyderabad, Indore, Noida and Pune, spanning engineering & design and gcc/gic. The centers deliver IT, R&D and ER&D, HR and Sales & Marketing for the group's global operations.",
-    "industry": "Electronic Components and Accessories, Electronics Manufacturing",
-    "headquarters": "Centennial, Colorado, United States",
+    "description": "Arrow Electronics's India footprint covers Bengaluru, Ahmedabad, Chennai, Hyderabad, Indore, Noida and Pune, spanning GCC/GIC and engineering & design. The centers deliver IT, R&D and ER&D, HR and Sales & Marketing for the group's global operations.",
+    "industry": "Electronics",
+    "headquarters": "United States",
     "revenueBand": "$25Bn to $50Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "ARW, Public"
@@ -88,25 +88,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all nine decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Arrow Electronics operate in India?",
-      "a": "Arrow Electronics operates 8 active Global Capability Center sites in India."
+      "q": "How many centers does Arrow Electronics operate in India?",
+      "a": "Arrow Electronics operates 8 active centers in India."
     },
     {
-      "q": "Which Indian cities does Arrow Electronics have GCC centers in?",
-      "a": "Arrow Electronics's India GCC footprint spans Bengaluru, Ahmedabad, Chennai, Hyderabad, Indore, Noida and Pune."
+      "q": "Which Indian cities does Arrow Electronics have centers in?",
+      "a": "Arrow Electronics's India footprint includes Bengaluru and 6 additional cities."
     },
     {
-      "q": "What types of GCC centers does Arrow Electronics run in India?",
-      "a": "Arrow Electronics runs engineering & design and gcc/gic centers in India."
+      "q": "What types of centers does Arrow Electronics run in India?",
+      "a": "Arrow Electronics runs GCC/GIC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Arrow Electronics's India GCCs?",
-      "a": "Arrow Electronics's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Arrow Electronics's India centers?",
+      "a": "Aggregate and center-level headcount for Arrow Electronics's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Arrow Electronics's GCC in India?",
-      "a": "Bamboo Reports tracks 9 leaders at Arrow Electronics's India centers, across Finance, IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Arrow Electronics's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -120,8 +120,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Ashland's GCC footprint in India",
-  "lede": "<strong>Ashland runs three capability centers across two Indian cities.</strong> Hyderabad and Mumbai, covering CoE, gbs and R&D, built over fourteen years.",
+  "lede": "<strong>Ashland runs three centers across two Indian cities.</strong> Hyderabad and Mumbai, covering GBS, R&D and CoE, built over fourteen years.",
   "insight": "Search elsewhere and you will usually find one Ashland office in India. We map three, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Ashland Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Ashland runs 3 verified GCC centers across 2 Indian cities (Hyderabad, Mumbai), covering CoE, gbs and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Ashland runs 3 verified centers across 2 Indian cities (Hyderabad, Mumbai), covering GBS, R&D and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
@@ -28,9 +28,9 @@
     "headcountBandLong": "201 to 500"
   },
   "centerTypes": [
-    "CoE",
     "GBS",
-    "R&D"
+    "R&D",
+    "CoE"
   ],
   "functions": [
     "R&D and ER&D",
@@ -71,9 +71,9 @@
     ]
   },
   "about": {
-    "description": "Ashland's India footprint covers Hyderabad and Mumbai, spanning CoE, gbs and R&D. The centers deliver R&D and ER&D, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Specialty Chemicals, Chemicals Manufacturing",
-    "headquarters": "Wilmington, Massachusetts, United States",
+    "description": "Ashland's India footprint covers Hyderabad and Mumbai, spanning GBS, R&D and CoE. The centers deliver R&D and ER&D, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "Chemicals",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "ASH, Public"
@@ -81,25 +81,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Ashland operate in India?",
-      "a": "Ashland operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Ashland operate in India?",
+      "a": "Ashland operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Ashland have GCC centers in?",
-      "a": "Ashland's India GCC footprint spans Hyderabad and Mumbai."
+      "q": "Which Indian cities does Ashland have centers in?",
+      "a": "Ashland's India footprint includes Hyderabad and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Ashland run in India?",
-      "a": "Ashland runs CoE, gbs and R&D centers in India."
+      "q": "What types of centers does Ashland run in India?",
+      "a": "Ashland runs GBS and 2 additional center types centers in India."
     },
     {
-      "q": "How many people work at Ashland's India GCCs?",
-      "a": "Ashland's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Ashland's India centers?",
+      "a": "Aggregate and center-level headcount for Ashland's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Ashland's GCC in India?",
-      "a": "Bamboo Reports tracks 7 leaders at Ashland's India centers, across Finance, HR and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Ashland's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -113,8 +113,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

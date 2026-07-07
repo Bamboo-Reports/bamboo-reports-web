@@ -9,18 +9,15 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Wurth, Würth's GCC footprint in India",
-  "lede": "<strong>Wurth, Würth runs five capability centers across four Indian cities.</strong> Pune, Bengaluru, Kolkata and New Delhi, covering distribution, it, manufacturing and sales & marketing, built over eleven years.",
-  "insight": "Search elsewhere and you will usually find one Wurth, Würth office in India. We map five, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Wurth, Würth runs one center in Pune.</strong> Pune, covering IT, built over eleven years.",
+  "insight": "A single Wurth, Würth center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Wurth, Würth GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Wurth, Würth runs 5 verified GCC centers across 4 Indian cities (Pune, Bengaluru, Kolkata, New Delhi), covering distribution, it, manufacturing and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Wurth, Würth runs 1 verified center in Pune, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 5,
-    "totalCenters": 5,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Pune",
-      "Bengaluru",
-      "Kolkata",
-      "New Delhi"
+      "Pune"
     ],
     "yearsInIndia": 11,
     "sinceYear": 2015,
@@ -28,10 +25,7 @@
     "headcountBandLong": "501 to 1,000"
   },
   "centerTypes": [
-    "Distribution",
-    "IT",
-    "Manufacturing",
-    "Sales & Marketing"
+    "IT"
   ],
   "functions": [
     "IT",
@@ -68,9 +62,9 @@
     ]
   },
   "about": {
-    "description": "Wurth, Würth's India footprint covers Pune, Bengaluru, Kolkata and New Delhi, spanning distribution, it, manufacturing and sales & marketing. The centers deliver IT, Procurement and Sales & Marketing for the group's global operations.",
-    "industry": "Industrial Machinery Distribution, Industrial Trading",
-    "headquarters": "Kuenzelsau, Baden-Württemberg, Germany",
+    "description": "Wurth, Würth's India footprint covers Pune, spanning IT. The centers deliver IT, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "Germany",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "Private"
@@ -78,25 +72,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all twelve decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Wurth, Würth operate in India?",
-      "a": "Wurth, Würth operates 5 active Global Capability Center sites in India."
+      "q": "How many centers does Wurth, Würth operate in India?",
+      "a": "Wurth, Würth operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Wurth, Würth have GCC centers in?",
-      "a": "Wurth, Würth's India GCC footprint spans Pune, Bengaluru, Kolkata and New Delhi."
+      "q": "Which Indian cities does Wurth, Würth have centers in?",
+      "a": "Wurth, Würth's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does Wurth, Würth run in India?",
-      "a": "Wurth, Würth runs distribution, it, manufacturing and sales & marketing centers in India."
+      "q": "What types of centers does Wurth, Würth run in India?",
+      "a": "Wurth, Würth runs IT centers in India."
     },
     {
-      "q": "How many people work at Wurth, Würth's India GCCs?",
-      "a": "Wurth, Würth's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Wurth, Würth's India centers?",
+      "a": "Aggregate and center-level headcount for Wurth, Würth's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Wurth, Würth's GCC in India?",
-      "a": "Bamboo Reports tracks 12 leaders at Wurth, Würth's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Wurth, Würth's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -110,8 +104,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

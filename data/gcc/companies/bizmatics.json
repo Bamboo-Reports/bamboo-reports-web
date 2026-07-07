@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Bizmatics's GCC footprint in India",
-  "lede": "<strong>Bizmatics runs one capability center in Mumbai.</strong> Mumbai, covering gbs, built over 24 years.",
+  "lede": "<strong>Bizmatics runs one center in Mumbai.</strong> Mumbai, covering GBS, built over 24 years.",
   "insight": "A single Bizmatics center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Bizmatics GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Bizmatics runs 1 verified GCC center in Mumbai, covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Bizmatics runs 1 verified center in Mumbai, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -60,9 +60,9 @@
     ]
   },
   "about": {
-    "description": "Bizmatics's India footprint covers Mumbai, spanning gbs. The centers deliver IT and HR for the group's global operations.",
-    "industry": "Customer Relationship Management, Business Software Solutions",
-    "headquarters": "Ottawa, Ontario, Canada",
+    "description": "Bizmatics's India footprint covers Mumbai, spanning GBS. The centers deliver IT and HR for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "Canada",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "ACQMP"
@@ -70,25 +70,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all thirteen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Bizmatics operate in India?",
-      "a": "Bizmatics operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Bizmatics operate in India?",
+      "a": "Bizmatics operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Bizmatics have GCC centers in?",
-      "a": "Bizmatics's India GCC presence is in Mumbai."
+      "q": "Which Indian cities does Bizmatics have centers in?",
+      "a": "Bizmatics's India presence is in Mumbai."
     },
     {
-      "q": "What types of GCC centers does Bizmatics run in India?",
-      "a": "Bizmatics runs gbs centers in India."
+      "q": "What types of centers does Bizmatics run in India?",
+      "a": "Bizmatics runs GBS centers in India."
     },
     {
-      "q": "How many people work at Bizmatics's India GCCs?",
-      "a": "Bizmatics's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Bizmatics's India centers?",
+      "a": "Aggregate and center-level headcount for Bizmatics's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Bizmatics's GCC in India?",
-      "a": "Bamboo Reports tracks 13 leaders at Bizmatics's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Bizmatics's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -102,8 +102,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

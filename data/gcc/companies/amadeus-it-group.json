@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Amadeus IT's GCC footprint in India",
-  "lede": "<strong>Amadeus IT runs two capability centers across two Indian cities.</strong> Pune and Bengaluru, covering R&D, built over fourteen years.",
+  "lede": "<strong>Amadeus IT runs two centers across two Indian cities.</strong> Pune and Bengaluru, covering R&D, built over fourteen years.",
   "insight": "Search elsewhere and you will usually find one Amadeus IT office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Amadeus IT Group, S.A. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Amadeus IT runs 2 verified GCC centers across 2 Indian cities (Pune, Bengaluru), covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Amadeus IT runs 2 verified centers across 2 Indian cities (Pune, Bengaluru), covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -69,8 +69,8 @@
   },
   "about": {
     "description": "Amadeus IT's India footprint covers Pune and Bengaluru, spanning R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Madrid, Madrid, Spain",
+    "industry": "IT Service",
+    "headquarters": "Spain",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "AMS, Public"
@@ -78,25 +78,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 79 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Amadeus IT operate in India?",
-      "a": "Amadeus IT operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Amadeus IT operate in India?",
+      "a": "Amadeus IT operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Amadeus IT have GCC centers in?",
-      "a": "Amadeus IT's India GCC footprint spans Pune and Bengaluru."
+      "q": "Which Indian cities does Amadeus IT have centers in?",
+      "a": "Amadeus IT's India footprint includes Pune and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Amadeus IT run in India?",
+      "q": "What types of centers does Amadeus IT run in India?",
       "a": "Amadeus IT runs R&D centers in India."
     },
     {
-      "q": "How many people work at Amadeus IT's India GCCs?",
-      "a": "Amadeus IT's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Amadeus IT's India centers?",
+      "a": "Aggregate and center-level headcount for Amadeus IT's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Amadeus IT's GCC in India?",
-      "a": "Bamboo Reports tracks 79 leaders at Amadeus IT's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Amadeus IT's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -110,8 +110,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

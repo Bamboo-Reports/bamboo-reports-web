@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Alamy's GCC footprint in India",
-  "lede": "<strong>Alamy runs one capability center in Thiruvananthapuram.</strong> Thiruvananthapuram, covering it, built over 22 years.",
+  "lede": "<strong>Alamy runs one center in Thiruvananthapuram.</strong> Thiruvananthapuram, covering IT, built over 22 years.",
   "insight": "A single Alamy center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Alamy Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Alamy runs 1 verified GCC center in Thiruvananthapuram, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Alamy runs 1 verified center in Thiruvananthapuram, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -57,9 +57,9 @@
     ]
   },
   "about": {
-    "description": "Alamy's India footprint covers Thiruvananthapuram, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Photographic Services, Corporate Services",
-    "headquarters": "Abingdon, Oxfordshire, United Kingdom",
+    "description": "Alamy's India footprint covers Thiruvananthapuram, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "United Kingdom",
     "revenueBand": "$51Mn to $100Mn",
     "employeesBand": "501 to 1,000",
     "tickerAndType": "ACQSP"
@@ -67,25 +67,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Alamy operate in India?",
-      "a": "Alamy operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Alamy operate in India?",
+      "a": "Alamy operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Alamy have GCC centers in?",
-      "a": "Alamy's India GCC presence is in Thiruvananthapuram."
+      "q": "Which Indian cities does Alamy have centers in?",
+      "a": "Alamy's India presence is in Thiruvananthapuram."
     },
     {
-      "q": "What types of GCC centers does Alamy run in India?",
-      "a": "Alamy runs it centers in India."
+      "q": "What types of centers does Alamy run in India?",
+      "a": "Alamy runs IT centers in India."
     },
     {
-      "q": "How many people work at Alamy's India GCCs?",
-      "a": "Alamy's India centers employ in the 51 to 100 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Alamy's India centers?",
+      "a": "Aggregate and center-level headcount for Alamy's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Alamy's GCC in India?",
-      "a": "Bamboo Reports tracks 3 leaders at Alamy's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Alamy's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -99,8 +99,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

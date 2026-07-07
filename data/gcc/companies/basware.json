@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Basware's GCC footprint in India",
-  "lede": "<strong>Basware runs one capability center in Chandigarh.</strong> Chandigarh, covering gcc/gic, built over fourteen years.",
+  "lede": "<strong>Basware runs one center in Chandigarh.</strong> Chandigarh, covering GCC/GIC, built over fourteen years.",
   "insight": "A single Basware center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Basware Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Basware runs 1 verified GCC center in Chandigarh, covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Basware runs 1 verified center in Chandigarh, covering GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -60,9 +60,9 @@
     ]
   },
   "about": {
-    "description": "Basware's India footprint covers Chandigarh, spanning gcc/gic. The centers deliver IT and Customer Support for the group's global operations.",
-    "industry": "Financial Services Software, Business Software Solutions",
-    "headquarters": "Espoo, Uusimaa, Finland",
+    "description": "Basware's India footprint covers Chandigarh, spanning GCC/GIC. The centers deliver IT and Customer Support for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "Finland",
     "revenueBand": "$251Mn to $500Mn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "ACQSP"
@@ -70,25 +70,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all six decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Basware operate in India?",
-      "a": "Basware operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Basware operate in India?",
+      "a": "Basware operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Basware have GCC centers in?",
-      "a": "Basware's India GCC presence is in Chandigarh."
+      "q": "Which Indian cities does Basware have centers in?",
+      "a": "Basware's India presence is in Chandigarh."
     },
     {
-      "q": "What types of GCC centers does Basware run in India?",
-      "a": "Basware runs gcc/gic centers in India."
+      "q": "What types of centers does Basware run in India?",
+      "a": "Basware runs GCC/GIC centers in India."
     },
     {
-      "q": "How many people work at Basware's India GCCs?",
-      "a": "Basware's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Basware's India centers?",
+      "a": "Aggregate and center-level headcount for Basware's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Basware's GCC in India?",
-      "a": "Bamboo Reports tracks 6 leaders at Basware's India centers, across IT, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Basware's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -102,8 +102,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

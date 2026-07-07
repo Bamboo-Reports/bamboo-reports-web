@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Avnet's GCC footprint in India",
-  "lede": "<strong>Avnet runs one capability center in Mumbai.</strong> Mumbai, covering CoE, built over 31 years.",
+  "lede": "<strong>Avnet runs one center in Mumbai.</strong> Mumbai, covering CoE, built over 31 years.",
   "insight": "A single Avnet center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Avnet, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Avnet runs 1 verified GCC center in Mumbai, covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Avnet runs 1 verified center in Mumbai, covering CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -57,8 +57,8 @@
   },
   "about": {
     "description": "Avnet's India footprint covers Mumbai, spanning CoE. The centers deliver IT and Sales & Marketing for the group's global operations.",
-    "industry": "Electronic Components and Accessories, Electronics Manufacturing",
-    "headquarters": "Phoenix, Arizona, United States",
+    "industry": "Electronics",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "AVT, Public"
@@ -66,25 +66,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Avnet operate in India?",
-      "a": "Avnet operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Avnet operate in India?",
+      "a": "Avnet operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Avnet have GCC centers in?",
-      "a": "Avnet's India GCC presence is in Mumbai."
+      "q": "Which Indian cities does Avnet have centers in?",
+      "a": "Avnet's India presence is in Mumbai."
     },
     {
-      "q": "What types of GCC centers does Avnet run in India?",
+      "q": "What types of centers does Avnet run in India?",
       "a": "Avnet runs CoE centers in India."
     },
     {
-      "q": "How many people work at Avnet's India GCCs?",
-      "a": "Avnet's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Avnet's India centers?",
+      "a": "Aggregate and center-level headcount for Avnet's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Avnet's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Avnet's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Avnet's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -98,8 +98,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

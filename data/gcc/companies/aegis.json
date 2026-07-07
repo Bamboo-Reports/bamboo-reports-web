@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Aegis's GCC footprint in India",
-  "lede": "<strong>Aegis runs one capability center in Chennai.</strong> Chennai, covering bpo, built over thirteen years.",
+  "lede": "<strong>Aegis runs one center in Chennai.</strong> Chennai, covering BPO, built over thirteen years.",
   "insight": "A single Aegis center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Aegis GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Aegis runs 1 verified GCC center in Chennai, covering bpo. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Aegis runs 1 verified center in Chennai, covering BPO. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -59,9 +59,9 @@
     ]
   },
   "about": {
-    "description": "Aegis's India footprint covers Chennai, spanning bpo. The centers deliver capability work for the group's global operations.",
-    "industry": "BPO/KPO, Corporate Services",
-    "headquarters": "Denver, Colorado, United States",
+    "description": "Aegis's India footprint covers Chennai, spanning BPO. The centers deliver capability work for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "United States",
     "revenueBand": "$251Mn to $500Mn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "ACQMP"
@@ -69,25 +69,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 23 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Aegis operate in India?",
-      "a": "Aegis operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Aegis operate in India?",
+      "a": "Aegis operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Aegis have GCC centers in?",
-      "a": "Aegis's India GCC presence is in Chennai."
+      "q": "Which Indian cities does Aegis have centers in?",
+      "a": "Aegis's India presence is in Chennai."
     },
     {
-      "q": "What types of GCC centers does Aegis run in India?",
-      "a": "Aegis runs bpo centers in India."
+      "q": "What types of centers does Aegis run in India?",
+      "a": "Aegis runs BPO centers in India."
     },
     {
-      "q": "How many people work at Aegis's India GCCs?",
-      "a": "Aegis's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Aegis's India centers?",
+      "a": "Aggregate and center-level headcount for Aegis's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Aegis's GCC in India?",
-      "a": "Bamboo Reports tracks 23 leaders at Aegis's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Aegis's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -101,8 +101,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -52,7 +52,7 @@ coverage
 
 # Raw warehouse exports (contain contact PII) - never commit
 data-staging/
-data/data.xlsx
+data/*.xlsx
 
 # Vendored reference copy of the old repo - not project source
 ref/

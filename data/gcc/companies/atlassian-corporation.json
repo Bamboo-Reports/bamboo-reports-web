@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Atlassian's GCC footprint in India",
-  "lede": "<strong>Atlassian runs two capability centers in Bengaluru.</strong> Bengaluru, covering R&D, built over eight years.",
+  "lede": "<strong>Atlassian runs two centers in Bengaluru.</strong> Bengaluru, covering R&D, built over eight years.",
   "insight": "Search elsewhere and you will usually find one Atlassian office in India. We map two, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Atlassian GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Atlassian runs 2 verified GCC centers in Bengaluru, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Atlassian runs 2 verified centers in Bengaluru, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -67,8 +67,8 @@
   },
   "about": {
     "description": "Atlassian's India footprint covers Bengaluru, spanning R&D. The centers deliver IT, HR, Procurement and Customer Support for the group's global operations.",
-    "industry": "Collaborative Software, Communication and Collaboration Software",
-    "headquarters": "Sydney, New South Wales, Australia",
+    "industry": "Hi-Tech",
+    "headquarters": "Australia",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "TEAM, Public"
@@ -76,25 +76,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 43 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Atlassian operate in India?",
-      "a": "Atlassian operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Atlassian operate in India?",
+      "a": "Atlassian operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Atlassian have GCC centers in?",
-      "a": "Atlassian's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Atlassian have centers in?",
+      "a": "Atlassian's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Atlassian run in India?",
+      "q": "What types of centers does Atlassian run in India?",
       "a": "Atlassian runs R&D centers in India."
     },
     {
-      "q": "How many people work at Atlassian's India GCCs?",
-      "a": "Atlassian's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Atlassian's India centers?",
+      "a": "Aggregate and center-level headcount for Atlassian's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Atlassian's GCC in India?",
-      "a": "Bamboo Reports tracks 43 leaders at Atlassian's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Atlassian's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -108,8 +108,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

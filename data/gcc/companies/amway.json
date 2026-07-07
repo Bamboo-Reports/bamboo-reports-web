@@ -11,16 +11,15 @@
     "NASSCOM Listed"
   ],
   "h1": "Amway's GCC footprint in India",
-  "lede": "<strong>Amway runs two capability centers across two Indian cities.</strong> Gurugram and Nilakkottai, covering gbs and manufacturing, built over eight years.",
-  "insight": "Search elsewhere and you will usually find one Amway office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Amway runs one center in Gurugram.</strong> Gurugram, covering GBS, built over eight years.",
+  "insight": "A single Amway center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Amway Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Amway runs 2 verified GCC centers across 2 Indian cities (Gurugram, Nilakkottai), covering gbs and manufacturing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Amway runs 1 verified center in Gurugram, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 2,
-    "totalCenters": 2,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Gurugram",
-      "Nilakkottai"
+      "Gurugram"
     ],
     "yearsInIndia": 8,
     "sinceYear": 2018,
@@ -28,8 +27,7 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "GBS",
-    "Manufacturing"
+    "GBS"
   ],
   "functions": [
     "IT",
@@ -71,9 +69,9 @@
     ]
   },
   "about": {
-    "description": "Amway's India footprint covers Gurugram and Nilakkottai, spanning gbs and manufacturing. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Personal Products, Consumer Product",
-    "headquarters": "Ada, Michigan, United States",
+    "description": "Amway's India footprint covers Gurugram, spanning GBS. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Consumer Goods Manufacturing",
+    "headquarters": "United States",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "Private"
@@ -81,25 +79,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 29 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Amway operate in India?",
-      "a": "Amway operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Amway operate in India?",
+      "a": "Amway operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Amway have GCC centers in?",
-      "a": "Amway's India GCC footprint spans Gurugram and Nilakkottai."
+      "q": "Which Indian cities does Amway have centers in?",
+      "a": "Amway's India presence is in Gurugram."
     },
     {
-      "q": "What types of GCC centers does Amway run in India?",
-      "a": "Amway runs gbs and manufacturing centers in India."
+      "q": "What types of centers does Amway run in India?",
+      "a": "Amway runs GBS centers in India."
     },
     {
-      "q": "How many people work at Amway's India GCCs?",
-      "a": "Amway's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Amway's India centers?",
+      "a": "Aggregate and center-level headcount for Amway's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Amway's GCC in India?",
-      "a": "Bamboo Reports tracks 29 leaders at Amway's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Amway's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -113,8 +111,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

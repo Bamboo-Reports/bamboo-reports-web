@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Adobe's GCC footprint in India",
-  "lede": "<strong>Adobe runs six capability centers across four Indian cities.</strong> Noida, Pune, Hyderabad and Bengaluru, covering CoE, gbs, it and R&D, built over 27 years.",
+  "lede": "<strong>Adobe runs six centers across four Indian cities.</strong> Noida, Pune, Hyderabad and Bengaluru, covering GBS, R&D, CoE and IT, built over 27 years.",
   "insight": "Search elsewhere and you will usually find one Adobe office in India. We map six, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Adobe, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Adobe runs 6 verified GCC centers across 4 Indian cities (Noida, Pune, Hyderabad, Bengaluru), covering CoE, gbs, it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Adobe runs 6 verified centers across 4 Indian cities (Noida, Pune, Hyderabad, Bengaluru), covering GBS, R&D, CoE and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 6,
     "totalCenters": 6,
@@ -30,10 +30,10 @@
     "headcountBandLong": ">10K"
   },
   "centerTypes": [
-    "CoE",
     "GBS",
-    "IT",
-    "R&D"
+    "R&D",
+    "CoE",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -76,9 +76,9 @@
     ]
   },
   "about": {
-    "description": "Adobe's India footprint covers Noida, Pune, Hyderabad and Bengaluru, spanning CoE, gbs, it and R&D. The centers deliver IT, Finance & Accounting, HR and Sales & Marketing for the group's global operations.",
-    "industry": "Multimedia and Graphics Software, Business Software Solutions",
-    "headquarters": "San Jose, California, United States",
+    "description": "Adobe's India footprint covers Noida, Pune, Hyderabad and Bengaluru, spanning GBS, R&D, CoE and IT. The centers deliver IT, Finance & Accounting, HR and Sales & Marketing for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "ADBE, Public"
@@ -86,25 +86,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 285 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Adobe operate in India?",
-      "a": "Adobe operates 6 active Global Capability Center sites in India."
+      "q": "How many centers does Adobe operate in India?",
+      "a": "Adobe operates 6 active centers in India."
     },
     {
-      "q": "Which Indian cities does Adobe have GCC centers in?",
-      "a": "Adobe's India GCC footprint spans Noida, Pune, Hyderabad and Bengaluru."
+      "q": "Which Indian cities does Adobe have centers in?",
+      "a": "Adobe's India footprint includes Noida and 3 additional cities."
     },
     {
-      "q": "What types of GCC centers does Adobe run in India?",
-      "a": "Adobe runs CoE, gbs, it and R&D centers in India."
+      "q": "What types of centers does Adobe run in India?",
+      "a": "Adobe runs GBS and 3 additional center types centers in India."
     },
     {
-      "q": "How many people work at Adobe's India GCCs?",
-      "a": "Adobe's India centers employ in the >10K range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Adobe's India centers?",
+      "a": "Aggregate and center-level headcount for Adobe's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Adobe's GCC in India?",
-      "a": "Bamboo Reports tracks 285 leaders at Adobe's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Adobe's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -118,8 +118,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

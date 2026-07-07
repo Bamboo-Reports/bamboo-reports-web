@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Banca Sella's GCC footprint in India",
-  "lede": "<strong>Banca Sella runs one capability center in Chennai.</strong> Chennai, covering gcc/gic, built over 29 years.",
+  "lede": "<strong>Banca Sella runs one center in Chennai.</strong> Chennai, covering GCC/GIC, built over 29 years.",
   "insight": "A single Banca Sella center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Banca Sella S.p.A. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Banca Sella runs 1 verified GCC center in Chennai, covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Banca Sella runs 1 verified center in Chennai, covering GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -50,9 +50,9 @@
     ]
   },
   "about": {
-    "description": "Banca Sella's India footprint covers Chennai, spanning gcc/gic. The centers deliver IT for the group's global operations.",
-    "industry": "Commercial Banking, Banks",
-    "headquarters": "Biella, Piedmont, Italy",
+    "description": "Banca Sella's India footprint covers Chennai, spanning GCC/GIC. The centers deliver IT for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "Italy",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "Private"
@@ -60,25 +60,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Banca Sella operate in India?",
-      "a": "Banca Sella operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Banca Sella operate in India?",
+      "a": "Banca Sella operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Banca Sella have GCC centers in?",
-      "a": "Banca Sella's India GCC presence is in Chennai."
+      "q": "Which Indian cities does Banca Sella have centers in?",
+      "a": "Banca Sella's India presence is in Chennai."
     },
     {
-      "q": "What types of GCC centers does Banca Sella run in India?",
-      "a": "Banca Sella runs gcc/gic centers in India."
+      "q": "What types of centers does Banca Sella run in India?",
+      "a": "Banca Sella runs GCC/GIC centers in India."
     },
     {
-      "q": "How many people work at Banca Sella's India GCCs?",
-      "a": "Banca Sella's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Banca Sella's India centers?",
+      "a": "Aggregate and center-level headcount for Banca Sella's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Banca Sella's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at Banca Sella's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Banca Sella's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -92,8 +92,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

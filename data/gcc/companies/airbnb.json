@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Airbnb's GCC footprint in India",
-  "lede": "<strong>Airbnb runs two capability centers across two Indian cities.</strong> Gurugram and Bengaluru, covering gcc/gic and it, built over nine years.",
+  "lede": "<strong>Airbnb runs two centers across two Indian cities.</strong> Gurugram and Bengaluru, covering GCC/GIC and IT, built over nine years.",
   "insight": "Search elsewhere and you will usually find one Airbnb office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Airbnb, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Airbnb runs 2 verified GCC centers across 2 Indian cities (Gurugram, Bengaluru), covering gcc/gic and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Airbnb runs 2 verified centers across 2 Indian cities (Gurugram, Bengaluru), covering GCC/GIC and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -64,9 +64,9 @@
     ]
   },
   "about": {
-    "description": "Airbnb's India footprint covers Gurugram and Bengaluru, spanning gcc/gic and it. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Accommodation, Hotels, Resorts & Hospitality Services",
-    "headquarters": "San Francisco, California, United States",
+    "description": "Airbnb's India footprint covers Gurugram and Bengaluru, spanning GCC/GIC and IT. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "TTLH",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "ABNB, Public"
@@ -74,25 +74,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Airbnb operate in India?",
-      "a": "Airbnb operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Airbnb operate in India?",
+      "a": "Airbnb operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Airbnb have GCC centers in?",
-      "a": "Airbnb's India GCC footprint spans Gurugram and Bengaluru."
+      "q": "Which Indian cities does Airbnb have centers in?",
+      "a": "Airbnb's India footprint includes Gurugram and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Airbnb run in India?",
-      "a": "Airbnb runs gcc/gic and it centers in India."
+      "q": "What types of centers does Airbnb run in India?",
+      "a": "Airbnb runs GCC/GIC and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Airbnb's India GCCs?",
-      "a": "Airbnb's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Airbnb's India centers?",
+      "a": "Aggregate and center-level headcount for Airbnb's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Airbnb's GCC in India?",
-      "a": "Bamboo Reports tracks 3 leaders at Airbnb's India centers. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Airbnb's India centers. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -106,8 +106,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

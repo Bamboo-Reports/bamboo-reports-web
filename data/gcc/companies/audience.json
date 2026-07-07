@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Audience's GCC footprint in India",
-  "lede": "<strong>Audience runs one capability center in Bengaluru.</strong> Bengaluru, covering engineering & design, built over fourteen years.",
+  "lede": "<strong>Audience runs one center in Bengaluru.</strong> Bengaluru, covering engineering & design, built over fourteen years.",
   "insight": "A single Audience center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Audience GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Audience runs 1 verified GCC center in Bengaluru, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Audience runs 1 verified center in Bengaluru, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -54,8 +54,8 @@
   },
   "about": {
     "description": "Audience's India footprint covers Bengaluru, spanning engineering & design. The centers deliver R&D and ER&D for the group's global operations.",
-    "industry": "Consumer Electronics, Consumer Product",
-    "headquarters": "Itasca, Illinois, United States",
+    "industry": "Electronics",
+    "headquarters": "United States",
     "revenueBand": "$501Mn to $1Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "ACQMP"
@@ -63,25 +63,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Audience operate in India?",
-      "a": "Audience operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Audience operate in India?",
+      "a": "Audience operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Audience have GCC centers in?",
-      "a": "Audience's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Audience have centers in?",
+      "a": "Audience's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Audience run in India?",
+      "q": "What types of centers does Audience run in India?",
       "a": "Audience runs engineering & design centers in India."
     },
     {
-      "q": "How many people work at Audience's India GCCs?",
-      "a": "Audience's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Audience's India centers?",
+      "a": "Aggregate and center-level headcount for Audience's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Audience's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at Audience's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Audience's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -95,8 +95,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

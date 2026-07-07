@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Bloom Energy's GCC footprint in India",
-  "lede": "<strong>Bloom Energy runs one capability center in Bengaluru.</strong> Bengaluru, covering ssc, built over 22 years.",
+  "lede": "<strong>Bloom Energy runs one center in Bengaluru.</strong> Bengaluru, covering SSC, built over 22 years.",
   "insight": "A single Bloom Energy center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Bloom Energy Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Bloom Energy runs 1 verified GCC center in Bengaluru, covering ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Bloom Energy runs 1 verified center in Bengaluru, covering SSC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -64,9 +64,9 @@
     ]
   },
   "about": {
-    "description": "Bloom Energy's India footprint covers Bengaluru, spanning ssc. The centers deliver IT, Finance & Accounting, Procurement and Sales & Marketing for the group's global operations.",
-    "industry": "Alternative Energy Sources, Energy and Environmental",
-    "headquarters": "San Jose, California, United States",
+    "description": "Bloom Energy's India footprint covers Bengaluru, spanning SSC. The centers deliver IT, Finance & Accounting, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Utilities",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "BE, Public"
@@ -74,25 +74,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all twelve decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Bloom Energy operate in India?",
-      "a": "Bloom Energy operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Bloom Energy operate in India?",
+      "a": "Bloom Energy operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Bloom Energy have GCC centers in?",
-      "a": "Bloom Energy's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Bloom Energy have centers in?",
+      "a": "Bloom Energy's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Bloom Energy run in India?",
-      "a": "Bloom Energy runs ssc centers in India."
+      "q": "What types of centers does Bloom Energy run in India?",
+      "a": "Bloom Energy runs SSC centers in India."
     },
     {
-      "q": "How many people work at Bloom Energy's India GCCs?",
-      "a": "Bloom Energy's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Bloom Energy's India centers?",
+      "a": "Aggregate and center-level headcount for Bloom Energy's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Bloom Energy's GCC in India?",
-      "a": "Bamboo Reports tracks 12 leaders at Bloom Energy's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Bloom Energy's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -106,8 +106,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

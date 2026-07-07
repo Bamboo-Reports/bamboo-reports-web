@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Ameriprise Financial's GCC footprint in India",
-  "lede": "<strong>Ameriprise Financial runs two capability centers across two Indian cities.</strong> Gurugram and Noida, covering gcc/gic, built over 21 years.",
+  "lede": "<strong>Ameriprise Financial runs two centers across two Indian cities.</strong> Gurugram and Noida, covering GCC/GIC, built over 21 years.",
   "insight": "Search elsewhere and you will usually find one Ameriprise Financial office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Ameriprise Financial GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Ameriprise Financial runs 2 verified GCC centers across 2 Indian cities (Gurugram, Noida), covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Ameriprise Financial runs 2 verified centers across 2 Indian cities (Gurugram, Noida), covering GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -68,9 +68,9 @@
     ]
   },
   "about": {
-    "description": "Ameriprise Financial's India footprint covers Gurugram and Noida, spanning gcc/gic. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Diversified Financial Services, Financial Services",
-    "headquarters": "Minneapolis, Minnesota, United States",
+    "description": "Ameriprise Financial's India footprint covers Gurugram and Noida, spanning GCC/GIC. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "AMP, Public"
@@ -78,25 +78,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eighteen decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Ameriprise Financial operate in India?",
-      "a": "Ameriprise Financial operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Ameriprise Financial operate in India?",
+      "a": "Ameriprise Financial operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Ameriprise Financial have GCC centers in?",
-      "a": "Ameriprise Financial's India GCC footprint spans Gurugram and Noida."
+      "q": "Which Indian cities does Ameriprise Financial have centers in?",
+      "a": "Ameriprise Financial's India footprint includes Gurugram and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Ameriprise Financial run in India?",
-      "a": "Ameriprise Financial runs gcc/gic centers in India."
+      "q": "What types of centers does Ameriprise Financial run in India?",
+      "a": "Ameriprise Financial runs GCC/GIC centers in India."
     },
     {
-      "q": "How many people work at Ameriprise Financial's India GCCs?",
-      "a": "Ameriprise Financial's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Ameriprise Financial's India centers?",
+      "a": "Aggregate and center-level headcount for Ameriprise Financial's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Ameriprise Financial's GCC in India?",
-      "a": "Bamboo Reports tracks 18 leaders at Ameriprise Financial's India centers, across Finance and IT. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Ameriprise Financial's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -110,8 +110,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

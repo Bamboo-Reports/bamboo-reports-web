@@ -1,33 +1,32 @@
 {
-  "lede": "<strong>3M operates seven capability centers across five Indian cities.</strong> The network includes Bengaluru and four additional cities, supporting manufacturing and other capability work.",
-  "insight": "Search elsewhere and you will usually find one 3M office in India. We map seven, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
-  "functions": [
-    "IT",
-    "R&D",
-    "Finance & Accounting",
-    "HR",
-    "Procurement",
-    "Sales & Marketing",
-    "Customer Support"
-  ],
-  "tech": {
-    "categorySamples": [
-      {
-        "category": "Cloud Platform",
-        "software": [
-          "AWS",
-          "Microsoft Azure"
-        ]
-      },
-      {
-        "category": "CRM",
-        "software": [
-          "Salesforce"
-        ]
-      }
+ "insight": "Search elsewhere and you will usually find one 3M office in India. We map every GCC center in the footprint, each tagged by type, function and city, so a name on a list becomes an account you can plan against.",
+ "functions": [
+  "IT",
+  "R&D",
+  "Finance & Accounting",
+  "HR",
+  "Procurement",
+  "Sales & Marketing",
+  "Customer Support"
+ ],
+ "tech": {
+  "categorySamples": [
+   {
+    "category": "Cloud Platform",
+    "software": [
+     "AWS",
+     "Microsoft Azure"
     ]
-  },
-  "about": {
-    "description": "3M's India centers pair product engineering with manufacturing-linked and shared-services work. The footprint supports global product development, supply-chain analytics and enterprise IT for 3M's safety, transportation and healthcare businesses."
-  }
+   },
+   {
+    "category": "CRM",
+    "software": [
+     "Salesforce"
+    ]
+   }
+  ]
+ },
+ "about": {
+  "description": "3M's India centers pair product engineering with shared-services and enterprise IT work. The footprint supports global product development, supply-chain analytics and enterprise IT for 3M's safety, transportation and healthcare businesses."
+ }
 }

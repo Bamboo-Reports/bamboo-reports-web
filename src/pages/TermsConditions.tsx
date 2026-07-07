@@ -25,6 +25,7 @@ const TermsConditions = () => {
                         <li className="pl-2">Access is granted on a subscription or enterprise-license basis.</li>
                         <li className="pl-2">Users may view, analyze, and download insights for internal business use only.</li>
                         <li className="pl-2">Redistribution, repackaging, resale, or public disclosure of Bamboo Reports content without written consent is strictly prohibited.</li>
+                        <li className="pl-2">Automated access, scraping, crawling, or bulk extraction of the platform's data, whether by bots, scripts, or any automated means, is prohibited without prior written authorization. This includes using the content to train machine learning or AI models.</li>
                     </ul>
 
                     <h2 className="text-2xl font-semibold mt-8 mb-4">3. Intellectual Property</h2>

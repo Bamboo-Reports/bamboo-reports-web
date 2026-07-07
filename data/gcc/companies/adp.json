@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "ADP's GCC footprint in India",
-  "lede": "<strong>ADP runs three capability centers across three Indian cities.</strong> Hyderabad, Pune and Bengaluru, covering ssc, built over 23 years.",
+  "lede": "<strong>ADP runs three centers across three Indian cities.</strong> Hyderabad, Pune and Bengaluru, covering SSC, built over 23 years.",
   "insight": "Search elsewhere and you will usually find one ADP office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "ADP, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "ADP runs 3 verified GCC centers across 3 Indian cities (Hyderabad, Pune, Bengaluru), covering ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "ADP runs 3 verified centers across 3 Indian cities (Hyderabad, Pune, Bengaluru), covering SSC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
@@ -71,9 +71,9 @@
     ]
   },
   "about": {
-    "description": "ADP's India footprint covers Hyderabad, Pune and Bengaluru, spanning ssc. The centers deliver IT, Finance & Accounting, HR and Sales & Marketing for the group's global operations.",
-    "industry": "Human Resources Software, Business Software Solutions",
-    "headquarters": "Roseland, New Jersey, United States",
+    "description": "ADP's India footprint covers Hyderabad, Pune and Bengaluru, spanning SSC. The centers deliver IT, Finance & Accounting, HR and Sales & Marketing for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "ADP, Public"
@@ -81,25 +81,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 55 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does ADP operate in India?",
-      "a": "ADP operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does ADP operate in India?",
+      "a": "ADP operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does ADP have GCC centers in?",
-      "a": "ADP's India GCC footprint spans Hyderabad, Pune and Bengaluru."
+      "q": "Which Indian cities does ADP have centers in?",
+      "a": "ADP's India footprint includes Hyderabad and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does ADP run in India?",
-      "a": "ADP runs ssc centers in India."
+      "q": "What types of centers does ADP run in India?",
+      "a": "ADP runs SSC centers in India."
     },
     {
-      "q": "How many people work at ADP's India GCCs?",
-      "a": "ADP's India centers employ in the 5,000 to 10,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at ADP's India centers?",
+      "a": "Aggregate and center-level headcount for ADP's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads ADP's GCC in India?",
-      "a": "Bamboo Reports tracks 55 leaders at ADP's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at ADP's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -113,8 +113,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

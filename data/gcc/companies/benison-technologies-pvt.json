@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Benison Technologies Pvt's GCC footprint in India",
-  "lede": "<strong>Benison Technologies Pvt runs one capability center in Bengaluru.</strong> Bengaluru, covering it, built over fifteen years.",
+  "lede": "<strong>Benison Technologies Pvt runs one center in Bengaluru.</strong> Bengaluru, covering IT, built over fifteen years.",
   "insight": "A single Benison Technologies Pvt center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Benison Technologies Pvt GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Benison Technologies Pvt runs 1 verified GCC center in Bengaluru, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Benison Technologies Pvt runs 1 verified center in Bengaluru, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -60,9 +60,9 @@
     ]
   },
   "about": {
-    "description": "Benison Technologies Pvt's India footprint covers Bengaluru, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "IT, System Integration and Consulting Services, Corporate Services",
-    "headquarters": "Bengaluru, Karnataka, India",
+    "description": "Benison Technologies Pvt's India footprint covers Bengaluru, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "India",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "201 to 500",
     "tickerAndType": "Private"
@@ -70,25 +70,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all five decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Benison Technologies Pvt operate in India?",
-      "a": "Benison Technologies Pvt operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Benison Technologies Pvt operate in India?",
+      "a": "Benison Technologies Pvt operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Benison Technologies Pvt have GCC centers in?",
-      "a": "Benison Technologies Pvt's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Benison Technologies Pvt have centers in?",
+      "a": "Benison Technologies Pvt's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Benison Technologies Pvt run in India?",
-      "a": "Benison Technologies Pvt runs it centers in India."
+      "q": "What types of centers does Benison Technologies Pvt run in India?",
+      "a": "Benison Technologies Pvt runs IT centers in India."
     },
     {
-      "q": "How many people work at Benison Technologies Pvt's India GCCs?",
-      "a": "Benison Technologies Pvt's India centers employ in the 101 to 200 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Benison Technologies Pvt's India centers?",
+      "a": "Aggregate and center-level headcount for Benison Technologies Pvt's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Benison Technologies Pvt's GCC in India?",
-      "a": "Bamboo Reports tracks 5 leaders at Benison Technologies Pvt's India centers, across IT, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Benison Technologies Pvt's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -102,8 +102,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

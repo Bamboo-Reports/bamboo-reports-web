@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "AnyMind's GCC footprint in India",
-  "lede": "<strong>AnyMind runs one capability center in Bengaluru.</strong> Bengaluru, covering it, built over three years.",
+  "lede": "<strong>AnyMind runs one center in Bengaluru.</strong> Bengaluru, covering IT, built over three years.",
   "insight": "A single AnyMind center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "AnyMind Group Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "AnyMind runs 1 verified GCC center in Bengaluru, covering it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "AnyMind runs 1 verified center in Bengaluru, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -53,9 +53,9 @@
     ]
   },
   "about": {
-    "description": "AnyMind's India footprint covers Bengaluru, spanning it. The centers deliver IT for the group's global operations.",
-    "industry": "Industrial Measurement Devices, Industrial Manufacturing",
-    "headquarters": "Tokyo, Tokyo, Japan",
+    "description": "AnyMind's India footprint covers Bengaluru, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "Japan",
     "revenueBand": "$251Mn to $500Mn",
     "employeesBand": "1,000 to 5,000",
     "tickerAndType": "Public"
@@ -63,25 +63,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does AnyMind operate in India?",
-      "a": "AnyMind operates 1 active Global Capability Center site in India."
+      "q": "How many centers does AnyMind operate in India?",
+      "a": "AnyMind operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does AnyMind have GCC centers in?",
-      "a": "AnyMind's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does AnyMind have centers in?",
+      "a": "AnyMind's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does AnyMind run in India?",
-      "a": "AnyMind runs it centers in India."
+      "q": "What types of centers does AnyMind run in India?",
+      "a": "AnyMind runs IT centers in India."
     },
     {
-      "q": "How many people work at AnyMind's India GCCs?",
-      "a": "AnyMind's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at AnyMind's India centers?",
+      "a": "Aggregate and center-level headcount for AnyMind's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads AnyMind's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at AnyMind's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at AnyMind's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -95,8 +95,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

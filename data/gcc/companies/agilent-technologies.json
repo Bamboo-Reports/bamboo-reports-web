@@ -11,16 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Agilent Technologies's GCC footprint in India",
-  "lede": "<strong>Agilent Technologies runs seven capability centers across five Indian cities.</strong> Ahmedabad, Manesar, Bengaluru, Mumbai and Hyderabad, covering CoE, gbs, it and R&D, built over 25 years.",
+  "lede": "<strong>Agilent Technologies runs seven centers across five Indian cities.</strong> Manesar, Ahmedabad, Bengaluru, Mumbai and Hyderabad, covering GBS, R&D, CoE and IT, built over 25 years.",
   "insight": "Search elsewhere and you will usually find one Agilent Technologies office in India. We map seven, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Agilent Technologies GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Agilent Technologies runs 7 verified GCC centers across 5 Indian cities (Ahmedabad, Manesar, Bengaluru, Mumbai, Hyderabad), covering CoE, gbs, it and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Agilent Technologies runs 7 verified centers across 5 Indian cities (Manesar, Ahmedabad, Bengaluru, Mumbai, Hyderabad), covering GBS, R&D, CoE and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 7,
     "totalCenters": 7,
     "cities": [
-      "Ahmedabad",
       "Manesar",
+      "Ahmedabad",
       "Bengaluru",
       "Mumbai",
       "Hyderabad"
@@ -31,10 +31,10 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "CoE",
     "GBS",
-    "IT",
-    "R&D"
+    "R&D",
+    "CoE",
+    "IT"
   ],
   "functions": [
     "IT",
@@ -84,9 +84,9 @@
     ]
   },
   "about": {
-    "description": "Agilent Technologies's India footprint covers Ahmedabad, Manesar, Bengaluru, Mumbai and Hyderabad, spanning CoE, gbs, it and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Scientific Instrument - Life Sciences, Scientific Instrument Manufacturing",
-    "headquarters": "Santa Clara, California, United States",
+    "description": "Agilent Technologies's India footprint covers Manesar, Ahmedabad, Bengaluru, Mumbai and Hyderabad, spanning GBS, R&D, CoE and IT. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Pharma & Life Sciences",
+    "headquarters": "United States",
     "revenueBand": "$5Bn to $10Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "A, Public"
@@ -94,25 +94,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all twenty decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Agilent Technologies operate in India?",
-      "a": "Agilent Technologies operates 7 active Global Capability Center sites in India."
+      "q": "How many centers does Agilent Technologies operate in India?",
+      "a": "Agilent Technologies operates 7 active centers in India."
     },
     {
-      "q": "Which Indian cities does Agilent Technologies have GCC centers in?",
-      "a": "Agilent Technologies's India GCC footprint spans Ahmedabad, Manesar, Bengaluru, Mumbai and Hyderabad."
+      "q": "Which Indian cities does Agilent Technologies have centers in?",
+      "a": "Agilent Technologies's India footprint includes Manesar and 4 additional cities."
     },
     {
-      "q": "What types of GCC centers does Agilent Technologies run in India?",
-      "a": "Agilent Technologies runs CoE, gbs, it and R&D centers in India."
+      "q": "What types of centers does Agilent Technologies run in India?",
+      "a": "Agilent Technologies runs GBS and 3 additional center types centers in India."
     },
     {
-      "q": "How many people work at Agilent Technologies's India GCCs?",
-      "a": "Agilent Technologies's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Agilent Technologies's India centers?",
+      "a": "Aggregate and center-level headcount for Agilent Technologies's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Agilent Technologies's GCC in India?",
-      "a": "Bamboo Reports tracks 20 leaders at Agilent Technologies's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Agilent Technologies's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -126,8 +126,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

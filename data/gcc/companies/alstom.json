@@ -11,23 +11,18 @@
     "NASSCOM Listed"
   ],
   "h1": "Alstom's GCC footprint in India",
-  "lede": "<strong>Alstom runs thirteen capability centers across nine Indian cities.</strong> Vadodara, Bengaluru, Kolkata, Chittoor, Coimbatore, Gurugram, Hyderabad, New Delhi and Madhepura, covering CoE, engineering & design, manufacturing and sales & marketing, built over 25 years.",
-  "insight": "Search elsewhere and you will usually find one Alstom office in India. We map thirteen, across nine cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Alstom runs five centers across four Indian cities.</strong> Bengaluru, Kolkata, Hyderabad and Vadodara, covering CoE and engineering & design, built over 25 years.",
+  "insight": "Search elsewhere and you will usually find one Alstom office in India. We map five, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Alstom S.A. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Alstom runs 13 verified GCC centers across 9 Indian cities (Vadodara, Bengaluru, Kolkata, Chittoor, Coimbatore, Gurugram, Hyderabad, New Delhi, Madhepura), covering CoE, engineering & design, manufacturing and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Alstom runs 5 verified centers across 4 Indian cities (Bengaluru, Kolkata, Hyderabad, Vadodara), covering CoE and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 13,
-    "totalCenters": 13,
+    "activeCenters": 5,
+    "totalCenters": 5,
     "cities": [
-      "Vadodara",
       "Bengaluru",
       "Kolkata",
-      "Chittoor",
-      "Coimbatore",
-      "Gurugram",
       "Hyderabad",
-      "New Delhi",
-      "Madhepura"
+      "Vadodara"
     ],
     "yearsInIndia": 25,
     "sinceYear": 2001,
@@ -36,9 +31,7 @@
   },
   "centerTypes": [
     "CoE",
-    "Engineering & Design",
-    "Manufacturing",
-    "Sales & Marketing"
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -91,9 +84,9 @@
     ]
   },
   "about": {
-    "description": "Alstom's India footprint covers Vadodara, Bengaluru, Kolkata, Chittoor, Coimbatore, Gurugram, Hyderabad, New Delhi and Madhepura, spanning CoE, engineering & design, manufacturing and sales & marketing. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Railroad Equipment Manufacturing, Transportation Equipment Manufacturing",
-    "headquarters": "Saint-Ouen, Île-de-France, France",
+    "description": "Alstom's India footprint covers Bengaluru, Kolkata, Hyderabad and Vadodara, spanning CoE and engineering & design. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "France",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "Public"
@@ -101,25 +94,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 105 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Alstom operate in India?",
-      "a": "Alstom operates 13 active Global Capability Center sites in India."
+      "q": "How many centers does Alstom operate in India?",
+      "a": "Alstom operates 5 active centers in India."
     },
     {
-      "q": "Which Indian cities does Alstom have GCC centers in?",
-      "a": "Alstom's India GCC footprint spans Vadodara, Bengaluru, Kolkata, Chittoor, Coimbatore, Gurugram, Hyderabad, New Delhi and Madhepura."
+      "q": "Which Indian cities does Alstom have centers in?",
+      "a": "Alstom's India footprint includes Bengaluru and 3 additional cities."
     },
     {
-      "q": "What types of GCC centers does Alstom run in India?",
-      "a": "Alstom runs CoE, engineering & design, manufacturing and sales & marketing centers in India."
+      "q": "What types of centers does Alstom run in India?",
+      "a": "Alstom runs CoE and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Alstom's India GCCs?",
-      "a": "Alstom's India centers employ in the 5,000 to 10,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Alstom's India centers?",
+      "a": "Aggregate and center-level headcount for Alstom's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Alstom's GCC in India?",
-      "a": "Bamboo Reports tracks 105 leaders at Alstom's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Alstom's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -133,8 +126,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

@@ -11,17 +11,17 @@
     "NASSCOM Listed"
   ],
   "h1": "Assa Abloy's GCC footprint in India",
-  "lede": "<strong>Assa Abloy runs three capability centers across three Indian cities.</strong> Chennai, Gurugram and Mumbai, covering CoE, gbs and R&D, built over 21 years.",
+  "lede": "<strong>Assa Abloy runs three centers across three Indian cities.</strong> Mumbai, Chennai and Gurugram, covering GBS, R&D and CoE, built over 21 years.",
   "insight": "Search elsewhere and you will usually find one Assa Abloy office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Assa Abloy AB GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Assa Abloy runs 3 verified GCC centers across 3 Indian cities (Chennai, Gurugram, Mumbai), covering CoE, gbs and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Assa Abloy runs 3 verified centers across 3 Indian cities (Mumbai, Chennai, Gurugram), covering GBS, R&D and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 3,
     "totalCenters": 3,
     "cities": [
+      "Mumbai",
       "Chennai",
-      "Gurugram",
-      "Mumbai"
+      "Gurugram"
     ],
     "yearsInIndia": 21,
     "sinceYear": 2005,
@@ -29,9 +29,9 @@
     "headcountBandLong": "201 to 500"
   },
   "centerTypes": [
-    "CoE",
     "GBS",
-    "R&D"
+    "R&D",
+    "CoE"
   ],
   "functions": [
     "IT",
@@ -71,9 +71,9 @@
     ]
   },
   "about": {
-    "description": "Assa Abloy's India footprint covers Chennai, Gurugram and Mumbai, spanning CoE, gbs and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
-    "industry": "Window and Door Manufacturing, Construction and Building Materials",
-    "headquarters": "Stockholm, Stockholm, Sweden",
+    "description": "Assa Abloy's India footprint covers Mumbai, Chennai and Gurugram, spanning GBS, R&D and CoE. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "Sweden",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "ASSA-B, Public"
@@ -81,25 +81,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Assa Abloy operate in India?",
-      "a": "Assa Abloy operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Assa Abloy operate in India?",
+      "a": "Assa Abloy operates 3 active centers in India."
     },
     {
-      "q": "Which Indian cities does Assa Abloy have GCC centers in?",
-      "a": "Assa Abloy's India GCC footprint spans Chennai, Gurugram and Mumbai."
+      "q": "Which Indian cities does Assa Abloy have centers in?",
+      "a": "Assa Abloy's India footprint includes Mumbai and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Assa Abloy run in India?",
-      "a": "Assa Abloy runs CoE, gbs and R&D centers in India."
+      "q": "What types of centers does Assa Abloy run in India?",
+      "a": "Assa Abloy runs GBS and 2 additional center types centers in India."
     },
     {
-      "q": "How many people work at Assa Abloy's India GCCs?",
-      "a": "Assa Abloy's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Assa Abloy's India centers?",
+      "a": "Aggregate and center-level headcount for Assa Abloy's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Assa Abloy's GCC in India?",
-      "a": "Bamboo Reports tracks 7 leaders at Assa Abloy's India centers, across Finance, HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Assa Abloy's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -113,8 +113,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

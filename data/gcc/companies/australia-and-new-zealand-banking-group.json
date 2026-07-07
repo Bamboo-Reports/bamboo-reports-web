@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "ANZ, ANZ Bank's GCC footprint in India",
-  "lede": "<strong>ANZ, ANZ Bank runs two capability centers in Bengaluru.</strong> Bengaluru, covering gcc/gic, built over 37 years.",
+  "lede": "<strong>ANZ, ANZ Bank runs two centers in Bengaluru.</strong> Bengaluru, covering GCC/GIC, built over 37 years.",
   "insight": "Search elsewhere and you will usually find one ANZ, ANZ Bank office in India. We map two, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "ANZ, ANZ Bank GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "ANZ, ANZ Bank runs 2 verified GCC centers in Bengaluru, covering gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "ANZ, ANZ Bank runs 2 verified centers in Bengaluru, covering GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
@@ -65,9 +65,9 @@
     ]
   },
   "about": {
-    "description": "ANZ, ANZ Bank's India footprint covers Bengaluru, spanning gcc/gic. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Commercial Banking, Banks",
-    "headquarters": "Melbourne, Victoria, Australia",
+    "description": "ANZ, ANZ Bank's India footprint covers Bengaluru, spanning GCC/GIC. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "Australia",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "25,000 to 50,000",
     "tickerAndType": "ANZ, Public"
@@ -75,25 +75,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 27 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does ANZ, ANZ Bank operate in India?",
-      "a": "ANZ, ANZ Bank operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does ANZ, ANZ Bank operate in India?",
+      "a": "ANZ, ANZ Bank operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does ANZ, ANZ Bank have GCC centers in?",
-      "a": "ANZ, ANZ Bank's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does ANZ, ANZ Bank have centers in?",
+      "a": "ANZ, ANZ Bank's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does ANZ, ANZ Bank run in India?",
-      "a": "ANZ, ANZ Bank runs gcc/gic centers in India."
+      "q": "What types of centers does ANZ, ANZ Bank run in India?",
+      "a": "ANZ, ANZ Bank runs GCC/GIC centers in India."
     },
     {
-      "q": "How many people work at ANZ, ANZ Bank's India GCCs?",
-      "a": "ANZ, ANZ Bank's India centers employ in the 5,000 to 10,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at ANZ, ANZ Bank's India centers?",
+      "a": "Aggregate and center-level headcount for ANZ, ANZ Bank's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads ANZ, ANZ Bank's GCC in India?",
-      "a": "Bamboo Reports tracks 27 leaders at ANZ, ANZ Bank's India centers, across IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at ANZ, ANZ Bank's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -107,8 +107,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

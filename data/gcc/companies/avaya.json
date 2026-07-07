@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Avaya's GCC footprint in India",
-  "lede": "<strong>Avaya runs four capability centers across four Indian cities.</strong> Bengaluru, Gurugram, Hyderabad and Pune, covering gbs, built over 22 years.",
+  "lede": "<strong>Avaya runs four centers across four Indian cities.</strong> Bengaluru, Gurugram, Hyderabad and Pune, covering GBS, built over 22 years.",
   "insight": "Search elsewhere and you will usually find one Avaya office in India. We map four, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Avaya LLC GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Avaya runs 4 verified GCC centers across 4 Indian cities (Bengaluru, Gurugram, Hyderabad, Pune), covering gbs. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Avaya runs 4 verified centers across 4 Indian cities (Bengaluru, Gurugram, Hyderabad, Pune), covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 4,
     "totalCenters": 4,
@@ -79,9 +79,9 @@
     ]
   },
   "about": {
-    "description": "Avaya's India footprint covers Bengaluru, Gurugram, Hyderabad and Pune, spanning gbs. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Unified Communication & Contact Center Platform, Telecommunication Technology",
-    "headquarters": "Morristown, New Jersey, United States",
+    "description": "Avaya's India footprint covers Bengaluru, Gurugram, Hyderabad and Pune, spanning GBS. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "Telecom",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "Private"
@@ -89,25 +89,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 25 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Avaya operate in India?",
-      "a": "Avaya operates 4 active Global Capability Center sites in India."
+      "q": "How many centers does Avaya operate in India?",
+      "a": "Avaya operates 4 active centers in India."
     },
     {
-      "q": "Which Indian cities does Avaya have GCC centers in?",
-      "a": "Avaya's India GCC footprint spans Bengaluru, Gurugram, Hyderabad and Pune."
+      "q": "Which Indian cities does Avaya have centers in?",
+      "a": "Avaya's India footprint includes Bengaluru and 3 additional cities."
     },
     {
-      "q": "What types of GCC centers does Avaya run in India?",
-      "a": "Avaya runs gbs centers in India."
+      "q": "What types of centers does Avaya run in India?",
+      "a": "Avaya runs GBS centers in India."
     },
     {
-      "q": "How many people work at Avaya's India GCCs?",
-      "a": "Avaya's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Avaya's India centers?",
+      "a": "Aggregate and center-level headcount for Avaya's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Avaya's GCC in India?",
-      "a": "Bamboo Reports tracks 25 leaders at Avaya's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Avaya's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -121,8 +121,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

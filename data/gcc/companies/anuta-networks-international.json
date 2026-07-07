@@ -11,10 +11,10 @@
     "NASSCOM Listed"
   ],
   "h1": "Anuta Networks International's GCC footprint in India",
-  "lede": "<strong>Anuta Networks International runs one capability center in Bengaluru.</strong> Bengaluru, covering R&D, built over fourteen years.",
+  "lede": "<strong>Anuta Networks International runs one center in Bengaluru.</strong> Bengaluru, covering R&D, built over fourteen years.",
   "insight": "A single Anuta Networks International center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Anuta Networks International GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Anuta Networks International runs 1 verified GCC center in Bengaluru, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Anuta Networks International runs 1 verified center in Bengaluru, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -55,8 +55,8 @@
   },
   "about": {
     "description": "Anuta Networks International's India footprint covers Bengaluru, spanning R&D. The centers deliver IT for the group's global operations.",
-    "industry": "Telecommunication Software, Industry-Specific Software",
-    "headquarters": "Milpitas, California, United States",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$10Mn to $50Mn",
     "employeesBand": "101 to 200",
     "tickerAndType": "Private"
@@ -64,25 +64,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Anuta Networks International operate in India?",
-      "a": "Anuta Networks International operates 1 active Global Capability Center site in India."
+      "q": "How many centers does Anuta Networks International operate in India?",
+      "a": "Anuta Networks International operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Anuta Networks International have GCC centers in?",
-      "a": "Anuta Networks International's India GCC presence is in Bengaluru."
+      "q": "Which Indian cities does Anuta Networks International have centers in?",
+      "a": "Anuta Networks International's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Anuta Networks International run in India?",
+      "q": "What types of centers does Anuta Networks International run in India?",
       "a": "Anuta Networks International runs R&D centers in India."
     },
     {
-      "q": "How many people work at Anuta Networks International's India GCCs?",
-      "a": "Anuta Networks International's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Anuta Networks International's India centers?",
+      "a": "Aggregate and center-level headcount for Anuta Networks International's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Anuta Networks International's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at Anuta Networks International's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Anuta Networks International's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -96,8 +96,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

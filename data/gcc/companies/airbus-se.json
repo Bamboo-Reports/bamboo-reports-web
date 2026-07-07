@@ -11,17 +11,17 @@
     "NASSCOM Listed"
   ],
   "h1": "Airbus's GCC footprint in India",
-  "lede": "<strong>Airbus runs seven capability centers across three Indian cities.</strong> Bengaluru, Vadodara and New Delhi, covering CoE, engineering & design, gcc/gic, manufacturing and ssc, built over nineteen years.",
-  "insight": "Search elsewhere and you will usually find one Airbus office in India. We map seven, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Airbus runs six centers across three Indian cities.</strong> New Delhi, Bengaluru and Vadodara, covering SSC, CoE, GCC/GIC and engineering & design, built over nineteen years.",
+  "insight": "Search elsewhere and you will usually find one Airbus office in India. We map six, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Airbus SE GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Airbus runs 7 verified GCC centers across 3 Indian cities (Bengaluru, Vadodara, New Delhi), covering CoE, engineering & design, gcc/gic, manufacturing and ssc. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Airbus runs 6 verified centers across 3 Indian cities (New Delhi, Bengaluru, Vadodara), covering SSC, CoE, GCC/GIC and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 7,
-    "totalCenters": 7,
+    "activeCenters": 6,
+    "totalCenters": 6,
     "cities": [
+      "New Delhi",
       "Bengaluru",
-      "Vadodara",
-      "New Delhi"
+      "Vadodara"
     ],
     "yearsInIndia": 19,
     "sinceYear": 2007,
@@ -29,11 +29,10 @@
     "headcountBandLong": "5,000 to 10,000"
   },
   "centerTypes": [
+    "SSC",
     "CoE",
-    "Engineering & Design",
     "GCC/GIC",
-    "Manufacturing",
-    "SSC"
+    "Engineering & Design"
   ],
   "functions": [
     "IT",
@@ -80,9 +79,9 @@
     ]
   },
   "about": {
-    "description": "Airbus's India footprint covers Bengaluru, Vadodara and New Delhi, spanning CoE, engineering & design, gcc/gic, manufacturing and ssc. The centers deliver IT, R&D and ER&D, Procurement and Sales & Marketing for the group's global operations.",
-    "industry": "Aerospace Products and Parts, Aerospace Components Manufacturing",
-    "headquarters": "Leiden, South Holland, Netherlands",
+    "description": "Airbus's India footprint covers New Delhi, Bengaluru and Vadodara, spanning SSC, CoE, GCC/GIC and engineering & design. The centers deliver IT, R&D and ER&D, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Aerospace & Defense",
+    "headquarters": "Netherlands",
     "revenueBand": ">$50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "AIR, Public"
@@ -90,25 +89,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 35 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Airbus operate in India?",
-      "a": "Airbus operates 7 active Global Capability Center sites in India."
+      "q": "How many centers does Airbus operate in India?",
+      "a": "Airbus operates 6 active centers in India."
     },
     {
-      "q": "Which Indian cities does Airbus have GCC centers in?",
-      "a": "Airbus's India GCC footprint spans Bengaluru, Vadodara and New Delhi."
+      "q": "Which Indian cities does Airbus have centers in?",
+      "a": "Airbus's India footprint includes New Delhi and 2 additional cities."
     },
     {
-      "q": "What types of GCC centers does Airbus run in India?",
-      "a": "Airbus runs CoE, engineering & design, gcc/gic, manufacturing and ssc centers in India."
+      "q": "What types of centers does Airbus run in India?",
+      "a": "Airbus runs SSC and 3 additional center types centers in India."
     },
     {
-      "q": "How many people work at Airbus's India GCCs?",
-      "a": "Airbus's India centers employ in the 5,000 to 10,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Airbus's India centers?",
+      "a": "Aggregate and center-level headcount for Airbus's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Airbus's GCC in India?",
-      "a": "Bamboo Reports tracks 35 leaders at Airbus's India centers, across Finance, IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Airbus's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -122,8 +121,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

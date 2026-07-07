@@ -11,16 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Ansys's GCC footprint in India",
-  "lede": "<strong>Ansys runs two capability centers across two Indian cities.</strong> Bengaluru and Pune, covering gbs and it, built over 25 years.",
+  "lede": "<strong>Ansys runs two centers across two Indian cities.</strong> Pune and Bengaluru, covering GBS and IT, built over 25 years.",
   "insight": "Search elsewhere and you will usually find one Ansys office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Ansys, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Ansys runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Pune), covering gbs and it. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Ansys runs 2 verified centers across 2 Indian cities (Pune, Bengaluru), covering GBS and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 2,
     "totalCenters": 2,
     "cities": [
-      "Bengaluru",
-      "Pune"
+      "Pune",
+      "Bengaluru"
     ],
     "yearsInIndia": 25,
     "sinceYear": 2001,
@@ -67,9 +67,9 @@
     ]
   },
   "about": {
-    "description": "Ansys's India footprint covers Bengaluru and Pune, spanning gbs and it. The centers deliver IT, HR, Procurement and Sales & Marketing for the group's global operations.",
-    "industry": "Engineering, Scientific and CAD Software, Industry-Specific Software",
-    "headquarters": "Canonsburg, Pennsylvania, United States",
+    "description": "Ansys's India footprint covers Pune and Bengaluru, spanning GBS and IT. The centers deliver IT, HR, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$1Bn to $5Bn",
     "employeesBand": "5,000 to 10,000",
     "tickerAndType": "ANSS, ACQSP"
@@ -77,25 +77,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 24 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Ansys operate in India?",
-      "a": "Ansys operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Ansys operate in India?",
+      "a": "Ansys operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Ansys have GCC centers in?",
-      "a": "Ansys's India GCC footprint spans Bengaluru and Pune."
+      "q": "Which Indian cities does Ansys have centers in?",
+      "a": "Ansys's India footprint includes Pune and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Ansys run in India?",
-      "a": "Ansys runs gbs and it centers in India."
+      "q": "What types of centers does Ansys run in India?",
+      "a": "Ansys runs GBS and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Ansys's India GCCs?",
-      "a": "Ansys's India centers employ in the 501 to 1,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Ansys's India centers?",
+      "a": "Aggregate and center-level headcount for Ansys's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Ansys's GCC in India?",
-      "a": "Bamboo Reports tracks 24 leaders at Ansys's India centers, across IT, HR, GCC leadership and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Ansys's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -109,8 +109,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

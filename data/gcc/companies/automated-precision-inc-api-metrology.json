@@ -9,10 +9,10 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "API Metrology's GCC footprint in India",
-  "lede": "<strong>API Metrology runs one capability center in Pune.</strong> Pune, covering engineering & design, built over nine years.",
+  "lede": "<strong>API Metrology runs one center in Pune.</strong> Pune, covering engineering & design, built over nine years.",
   "insight": "A single API Metrology center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "API Metrology GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "API Metrology runs 1 verified GCC center in Pune, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "API Metrology runs 1 verified center in Pune, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
     "activeCenters": 1,
     "totalCenters": 1,
@@ -49,8 +49,8 @@
   },
   "about": {
     "description": "API Metrology's India footprint covers Pune, spanning engineering & design. The centers deliver R&D and ER&D for the group's global operations.",
-    "industry": "Quality Assurance Software, Business Software Solutions",
-    "headquarters": "Rockville, Maryland, United States",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
     "revenueBand": "$51Mn to $100Mn",
     "employeesBand": "101 to 200",
     "tickerAndType": "Private"
@@ -58,25 +58,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does API Metrology operate in India?",
-      "a": "API Metrology operates 1 active Global Capability Center site in India."
+      "q": "How many centers does API Metrology operate in India?",
+      "a": "API Metrology operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does API Metrology have GCC centers in?",
-      "a": "API Metrology's India GCC presence is in Pune."
+      "q": "Which Indian cities does API Metrology have centers in?",
+      "a": "API Metrology's India presence is in Pune."
     },
     {
-      "q": "What types of GCC centers does API Metrology run in India?",
+      "q": "What types of centers does API Metrology run in India?",
       "a": "API Metrology runs engineering & design centers in India."
     },
     {
-      "q": "How many people work at API Metrology's India GCCs?",
-      "a": "API Metrology's India centers employ in the <50 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at API Metrology's India centers?",
+      "a": "Aggregate and center-level headcount for API Metrology's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads API Metrology's GCC in India?",
-      "a": "Bamboo Reports tracks 1 leaders at API Metrology's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at API Metrology's India centers, across GCC leadership. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -90,8 +90,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

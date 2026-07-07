@@ -11,16 +11,16 @@
     "NASSCOM Listed"
   ],
   "h1": "Adidas's GCC footprint in India",
-  "lede": "<strong>Adidas runs three capability centers across two Indian cities.</strong> Gurugram and Chennai, covering distribution, gbs and gcc/gic, built over ten years.",
-  "insight": "Search elsewhere and you will usually find one Adidas office in India. We map three, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Adidas runs two centers across two Indian cities.</strong> Chennai and Gurugram, covering GBS and GCC/GIC, built over ten years.",
+  "insight": "Search elsewhere and you will usually find one Adidas office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
   "metaTitle": "Adidas AG GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Adidas runs 3 verified GCC centers across 2 Indian cities (Gurugram, Chennai), covering distribution, gbs and gcc/gic. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Adidas runs 2 verified centers across 2 Indian cities (Chennai, Gurugram), covering GBS and GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 3,
-    "totalCenters": 3,
+    "activeCenters": 2,
+    "totalCenters": 2,
     "cities": [
-      "Gurugram",
-      "Chennai"
+      "Chennai",
+      "Gurugram"
     ],
     "yearsInIndia": 10,
     "sinceYear": 2016,
@@ -28,7 +28,6 @@
     "headcountBandLong": "1,000 to 5,000"
   },
   "centerTypes": [
-    "Distribution",
     "GBS",
     "GCC/GIC"
   ],
@@ -68,9 +67,9 @@
     ]
   },
   "about": {
-    "description": "Adidas's India footprint covers Gurugram and Chennai, spanning distribution, gbs and gcc/gic. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
-    "industry": "Sporting Goods, Outdoor Gear and Apparel, Consumer Product",
-    "headquarters": "Portland, Oregon, Germany",
+    "description": "Adidas's India footprint covers Chennai and Gurugram, spanning GBS and GCC/GIC. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "Consumer Goods Manufacturing",
+    "headquarters": "Germany",
     "revenueBand": "$25Bn to $50Bn",
     "employeesBand": "Over 50,000",
     "tickerAndType": "ADS, Public"
@@ -78,25 +77,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 49 decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Adidas operate in India?",
-      "a": "Adidas operates 3 active Global Capability Center sites in India."
+      "q": "How many centers does Adidas operate in India?",
+      "a": "Adidas operates 2 active centers in India."
     },
     {
-      "q": "Which Indian cities does Adidas have GCC centers in?",
-      "a": "Adidas's India GCC footprint spans Gurugram and Chennai."
+      "q": "Which Indian cities does Adidas have centers in?",
+      "a": "Adidas's India footprint includes Chennai and 1 additional cities."
     },
     {
-      "q": "What types of GCC centers does Adidas run in India?",
-      "a": "Adidas runs distribution, gbs and gcc/gic centers in India."
+      "q": "What types of centers does Adidas run in India?",
+      "a": "Adidas runs GBS and 1 additional center types centers in India."
     },
     {
-      "q": "How many people work at Adidas's India GCCs?",
-      "a": "Adidas's India centers employ in the 1,000 to 5,000 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Adidas's India centers?",
+      "a": "Aggregate and center-level headcount for Adidas's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Adidas's GCC in India?",
-      "a": "Bamboo Reports tracks 49 leaders at Adidas's India centers, across Finance, IT, HR and Procurement. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Adidas's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -110,8 +109,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null

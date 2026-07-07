@@ -9,16 +9,15 @@
   "fortuneRank": null,
   "badges": [],
   "h1": "Astellas's GCC footprint in India",
-  "lede": "<strong>Astellas runs two capability centers across two Indian cities.</strong> Bengaluru and Mumbai, covering gcc/gic and sales & marketing.",
-  "insight": "Search elsewhere and you will usually find one Astellas office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "lede": "<strong>Astellas runs one center in Bengaluru.</strong> Bengaluru, covering GCC/GIC.",
+  "insight": "A single Astellas center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
   "metaTitle": "Astellas Pharma Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
-  "metaDescription": "Astellas runs 2 verified GCC centers across 2 Indian cities (Bengaluru, Mumbai), covering gcc/gic and sales & marketing. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "metaDescription": "Astellas runs 1 verified center in Bengaluru, covering GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
   "stats": {
-    "activeCenters": 2,
-    "totalCenters": 2,
+    "activeCenters": 1,
+    "totalCenters": 1,
     "cities": [
-      "Bengaluru",
-      "Mumbai"
+      "Bengaluru"
     ],
     "yearsInIndia": 1,
     "sinceYear": 2026,
@@ -26,8 +25,7 @@
     "headcountBandLong": "201 to 500"
   },
   "centerTypes": [
-    "GCC/GIC",
-    "Sales & Marketing"
+    "GCC/GIC"
   ],
   "functions": [
     "IT",
@@ -57,9 +55,9 @@
     ]
   },
   "about": {
-    "description": "Astellas's India footprint covers Bengaluru and Mumbai, spanning gcc/gic and sales & marketing. The centers deliver IT and Sales & Marketing for the group's global operations.",
-    "industry": "Language Technology Software, Miscellaneous Software",
-    "headquarters": "Tokyo, Tokyo, Japan",
+    "description": "Astellas's India footprint covers Bengaluru, spanning GCC/GIC. The centers deliver IT and Sales & Marketing for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "Japan",
     "revenueBand": "$10Bn to $25Bn",
     "employeesBand": "10,000 to 25,000",
     "tickerAndType": "Public"
@@ -67,25 +65,25 @@
   "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
   "faq": [
     {
-      "q": "How many GCC centers does Astellas operate in India?",
-      "a": "Astellas operates 2 active Global Capability Center sites in India."
+      "q": "How many centers does Astellas operate in India?",
+      "a": "Astellas operates 1 active center in India."
     },
     {
-      "q": "Which Indian cities does Astellas have GCC centers in?",
-      "a": "Astellas's India GCC footprint spans Bengaluru and Mumbai."
+      "q": "Which Indian cities does Astellas have centers in?",
+      "a": "Astellas's India presence is in Bengaluru."
     },
     {
-      "q": "What types of GCC centers does Astellas run in India?",
-      "a": "Astellas runs gcc/gic and sales & marketing centers in India."
+      "q": "What types of centers does Astellas run in India?",
+      "a": "Astellas runs GCC/GIC centers in India."
     },
     {
-      "q": "How many people work at Astellas's India GCCs?",
-      "a": "Astellas's India centers employ in the 201 to 500 range. The exact aggregate and the headcount at each site are in the full profile.",
+      "q": "How many people work at Astellas's India centers?",
+      "a": "Aggregate and center-level headcount for Astellas's India operations is available in the full profile.",
       "excludeFromSchema": true
     },
     {
       "q": "Who leads Astellas's GCC in India?",
-      "a": "Bamboo Reports tracks 2 leaders at Astellas's India centers, across HR and GCC leadership. Names and contact details open with a free account.",
+      "a": "Bamboo Reports tracks leaders at Astellas's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
       "excludeFromSchema": true
     }
   ],
@@ -99,8 +97,8 @@
       "href": "/gcc/"
     },
     {
-      "label": "Open the GCC Tracker",
-      "href": "/tracker"
+      "label": "Explore India GCCs",
+      "href": "/gcc"
     }
   ],
   "sponsor": null
