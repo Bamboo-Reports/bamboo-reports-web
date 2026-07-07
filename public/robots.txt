@@ -1,4 +1,4 @@
-# Search and answer engines that cite and link back to us — full access.
+# Search and answer engines that cite and link back to us: full access.
 User-agent: Googlebot
 Allow: /
 
@@ -14,7 +14,7 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-# Training-only crawlers that consume without citing — disallowed.
+# Training-only crawlers that consume without citing: disallowed.
 # Blocking these does not affect search visibility.
 User-agent: GPTBot
 Disallow: /
