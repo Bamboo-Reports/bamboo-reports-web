@@ -1,5 +1,6 @@
 export interface StaticTrackerAccount {
-  name: string;
+  /** null for private accounts — they contribute to counts but are never named. */
+  name: string | null;
   industry: string | null;
   cities: Array<{
     name: string;
@@ -7,6 +8,7 @@ export interface StaticTrackerAccount {
   }>;
   centerCount: number;
   prospectCount: number;
+  visibility: "public" | "private";
 }
 
 import { TRACKER_ACCOUNT_CHUNKS } from "./trackerAccountChunks";

@@ -10,11 +10,12 @@ import { AccountSearchFilter } from "@/components/AccountSearchFilter";
 import { MultiSelectFilter } from "@/components/MultiSelectFilter";
 import { useSEO } from "@/hooks/useSEO";
 import { EMPTY_FILTERS, type FacetOption, type TrackerFilters } from "@/lib/tracker";
-import { fetchStaticTrackerAccounts } from "@/lib/trackerAccounts";
+import { fetchStaticTrackerAccounts, type StaticTrackerAccount } from "@/lib/trackerAccounts";
 import {
   ArrowDown,
   Building2,
   Layers,
+  Lock,
   RotateCcw,
   Target,
   TrendingUp,
@@ -114,11 +115,12 @@ const USE_CASES = [
 
 const Tracker = () => {
   useSEO({
-    title: "Free India GCC Market Size Calculator | Bamboo Reports",
+    title: "GCC Companies in India: Directory & Market Size Calculator | Bamboo Reports",
     description:
-      "Estimate your India GCC addressable market in seconds. Filter by industry, city, or company to see matching accounts, centres, and decision-makers.",
+      "Browse a directory of 1,800+ Global Capability Centers in India, from 2,400+ GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.",
     keywords:
-      "India GCC market size, GCC TAM calculator, GCC tracker, India GCC company search, GCC cities, GCC decision makers",
+      "list of GCCs in India, GCC companies in India, India GCC companies directory, India GCC list, Global Capability Centers India, GCC company directory, India GCC market size, GCC TAM calculator, GCC cities, GCC decision makers",
+    canonicalUrl: "https://www.bambooreports.com/gcc",
   });
 
   const [filters, setFilters] = useState<TrackerFilters>(EMPTY_FILTERS);
@@ -179,7 +181,8 @@ const Tracker = () => {
     const matchesAccount =
       ignoredFilter === "account" ||
       filters.account_global_legal_name.length === 0 ||
-      filters.account_global_legal_name.includes(account.name);
+      (account.name !== null &&
+        filters.account_global_legal_name.includes(account.name));
     return matchesIndustry && matchesCity && matchesAccount;
   };
 
@@ -187,6 +190,16 @@ const Tracker = () => {
     () => staticAccounts.filter((account) => matchesFilters(account)),
     [staticAccounts, filters]
   );
+
+  const visibleAccounts = useMemo(
+    () =>
+      filteredAccounts.filter(
+        (account): account is StaticTrackerAccount & { name: string } =>
+          account.visibility !== "private" && account.name !== null
+      ),
+    [filteredAccounts]
+  );
+  const hiddenCount = filteredAccounts.length - visibleAccounts.length;
 
   const counts = useMemo(
     () =>
@@ -228,7 +241,9 @@ const Tracker = () => {
     const accountSuggestions = staticAccounts
       .filter((account) => matchesFilters(account, "account"))
       .filter(
-        (account) =>
+        (account): account is StaticTrackerAccount & { name: string } =>
+          account.visibility !== "private" &&
+          account.name !== null &&
           normalizedSearch.length >= 2 &&
           account.name.toLowerCase().includes(normalizedSearch)
       )
@@ -247,8 +262,8 @@ const Tracker = () => {
     };
   }, [staticAccounts, filters, debouncedAccountSearch]);
 
-  const totalPages = Math.max(1, Math.ceil(filteredAccounts.length / PAGE_SIZE));
-  const accounts = filteredAccounts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const totalPages = Math.max(1, Math.ceil(visibleAccounts.length / PAGE_SIZE));
+  const accounts = visibleAccounts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const isLoadingFirstTime = isLoadingStaticAccounts;
   const isSearchingAccounts =
     accountSearch.trim().length >= 2 &&
@@ -273,16 +288,16 @@ const Tracker = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
           <p className="mb-5 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs sm:text-sm font-semibold text-primary">
-            Free India GCC market size calculator
+            India GCC companies directory
           </p>
           <h1 className="leading-[1.05] max-w-5xl">
-            <span className="block text-foreground">How big is your</span>
-            <span className="block text-accent">India GCC market?</span>
+            <span className="block text-foreground">GCC companies in India,</span>
+            <span className="block text-accent">sized for your market</span>
           </h1>
           <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
-            Filter 1,900+ GCC accounts by company, industry, or city and get a live
-            count of the centres and decision-makers in your target market. Free to
-            use, with no sign-up and no sales call.
+            We track 2,400+ Global Capability Centers in India. Browse 1,800+ of them
+            free, filter by industry and city, and get a live count of the centres and
+            decision-makers in your target market.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -295,6 +310,14 @@ const Tracker = () => {
                 Size your market
                 <ArrowDown className="ml-2 h-4 w-4" />
               </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-full px-8 font-bold text-base"
+            >
+              <a href="/signup?src=gcc-hero">Create free account</a>
             </Button>
           </div>
         </div>
@@ -501,40 +524,71 @@ const Tracker = () => {
                       </tr>
                     ))
                   ) : accounts.length > 0 ? (
-                    accounts.map((account) => (
-                      <tr key={account.name}>
-                        <td className="overflow-hidden px-5 py-4 font-medium text-foreground">
-                          <div className="truncate" title={account.name}>
-                            {account.name}
-                          </div>
-                        </td>
-                        <td className="overflow-hidden px-5 py-4 text-muted-foreground">
-                          <div
-                            className="truncate"
-                            title={account.industry || "Not specified"}
-                          >
-                            {account.industry || "Not specified"}
-                          </div>
-                        </td>
-                        <td className="overflow-hidden px-5 py-4 text-muted-foreground">
-                          {account.cities?.length > 0 ? (
-                            <div
-                              className="flex min-w-0 items-center gap-1.5"
-                              title={account.cities.map((city) => city.name).join(", ")}
-                            >
-                              <span className="truncate">{account.cities[0].name}</span>
-                              {account.cities.length > 1 && (
-                                <span className="shrink-0 text-xs font-semibold text-primary">
-                                  +{account.cities.length - 1} more
-                                </span>
-                              )}
+                    <>
+                      {accounts.map((account) => (
+                        <tr key={account.name}>
+                          <td className="overflow-hidden px-5 py-4 font-medium text-foreground">
+                            <div className="truncate" title={account.name}>
+                              {account.name}
                             </div>
-                          ) : (
-                            "Not specified"
-                          )}
-                        </td>
-                      </tr>
-                    ))
+                          </td>
+                          <td className="overflow-hidden px-5 py-4 text-muted-foreground">
+                            <div
+                              className="truncate"
+                              title={account.industry || "Not specified"}
+                            >
+                              {account.industry || "Not specified"}
+                            </div>
+                          </td>
+                          <td className="overflow-hidden px-5 py-4 text-muted-foreground">
+                            {account.cities?.length > 0 ? (
+                              <div
+                                className="flex min-w-0 items-center gap-1.5"
+                                title={account.cities.map((city) => city.name).join(", ")}
+                              >
+                                <span className="truncate">{account.cities[0].name}</span>
+                                {account.cities.length > 1 && (
+                                  <span className="shrink-0 text-xs font-semibold text-primary">
+                                    +{account.cities.length - 1} more
+                                  </span>
+                                )}
+                              </div>
+                            ) : (
+                              "Not specified"
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                      {page >= totalPages && hiddenCount > 0 && (
+                        <tr>
+                          <td colSpan={3} className="px-5 py-4">
+                            <a
+                              href="/signup?src=gcc-tracker-private"
+                              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                            >
+                              <Lock className="h-4 w-4" />
+                              +{hiddenCount.toLocaleString()} more{" "}
+                              {hiddenCount === 1 ? "company" : "companies"} available
+                              with a free account
+                            </a>
+                          </td>
+                        </tr>
+                      )}
+                    </>
+                  ) : hiddenCount > 0 ? (
+                    <tr>
+                      <td colSpan={3} className="px-5 py-10 text-center">
+                        <a
+                          href="/signup?src=gcc-tracker-private"
+                          className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                        >
+                          <Lock className="h-4 w-4" />
+                          All {hiddenCount.toLocaleString()} matching{" "}
+                          {hiddenCount === 1 ? "company is" : "companies are"} available
+                          with a free account
+                        </a>
+                      </td>
+                    </tr>
                   ) : (
                     <tr>
                       <td colSpan={3} className="px-5 py-10 text-center text-muted-foreground">
@@ -546,10 +600,7 @@ const Tracker = () => {
               </table>
             </div>
 
-            <div className="flex flex-col gap-3 border-t px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-muted-foreground">
-                Page {Math.min(page, totalPages).toLocaleString()} of {totalPages.toLocaleString()}
-              </p>
+            <div className="flex flex-col gap-3 border-t px-5 py-4 sm:flex-row sm:items-center sm:justify-end">
               <div className="flex gap-2">
                 <Button
                   type="button"

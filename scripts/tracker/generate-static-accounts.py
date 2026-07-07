@@ -20,10 +20,40 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_INPUT = ROOT / "data" / "data.xlsx"
+DEFAULT_INPUT = ROOT / "data" / "data-structs.xlsx"
 DEFAULT_OUTPUT_DIR = ROOT / "public" / "data" / "t"
 CHUNK_MANIFEST = ROOT / "src" / "lib" / "trackerAccountChunks.ts"
 CHUNK_COUNT = 8
+
+# Canary records: fictitious accounts seeded into the public directory so a
+# wholesale copy of our list is provably ours (these names exist nowhere else).
+# Keep this list short and stable; do NOT give them company detail pages.
+CANARY_ACCOUNTS = [
+    {
+        "name": "Veltrix Grid Systems, Inc.",
+        "industry": "Hi-Tech",
+        "cities": [{"name": "Bengaluru", "centerCount": 1}],
+        "centerCount": 1,
+        "prospectCount": 4,
+        "visibility": "public",
+    },
+    {
+        "name": "Northgate Dynamics Corp.",
+        "industry": "Industrial",
+        "cities": [{"name": "Pune", "centerCount": 1}],
+        "centerCount": 1,
+        "prospectCount": 3,
+        "visibility": "public",
+    },
+    {
+        "name": "Halvern & Roche Group",
+        "industry": "Professional Services",
+        "cities": [{"name": "Mumbai", "centerCount": 1}],
+        "centerCount": 1,
+        "prospectCount": 5,
+        "visibility": "public",
+    },
+]
 
 MAIN_NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
 REL_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
@@ -122,7 +152,7 @@ def main():
             archive,
             paths["accounts"],
             strings,
-            {"account_global_legal_name", "account_primary_category"},
+            {"account_global_legal_name", "account_primary_category", "account_visibility"},
         )
         centers = read_sheet(
             archive,
@@ -142,6 +172,15 @@ def main():
         for record in accounts
         if record["account_global_legal_name"]
     }
+    visibility = {
+        record["account_global_legal_name"]: (
+            "private"
+            if record["account_visibility"].strip().lower() == "private"
+            else "public"
+        )
+        for record in accounts
+        if record["account_global_legal_name"]
+    }
     city_counts = defaultdict(Counter)
     for record in centers:
         account = record["account_global_legal_name"]
@@ -154,9 +193,13 @@ def main():
         if record["account_global_legal_name"]
     )
 
-    public_accounts = [
+    # Private accounts contribute to the aggregate counts but their identity
+    # never leaves the server: ship them name-stripped (industry + cities +
+    # counts only) so scrapers cannot read private names from the payload.
+    tracker_accounts = [
         {
-            "name": account,
+            "_sort": account,
+            "name": account if visibility.get(account, "public") == "public" else None,
             "industry": industry or None,
             "cities": [
                 {"name": city, "centerCount": count}
@@ -167,18 +210,27 @@ def main():
             ],
             "centerCount": sum(city_counts[account].values()),
             "prospectCount": prospect_counts[account],
+            "visibility": visibility.get(account, "public"),
         }
         for account, industry in sorted(industries.items(), key=account_sort_key)
     ]
+
+    # Sort canaries into place alphabetically so they are indistinguishable
+    # from real records in the payload. Private records sort by their real
+    # name (via _sort) even though the published name is null.
+    tracker_accounts.extend({**canary, "_sort": canary["name"]} for canary in CANARY_ACCOUNTS)
+    tracker_accounts.sort(key=lambda record: account_sort_key((record["_sort"],)))
+    for record in tracker_accounts:
+        del record["_sort"]
 
     output_dir.mkdir(parents=True, exist_ok=True)
     for stale in output_dir.glob("*.json"):
         stale.unlink()
 
-    chunk_size = -(-len(public_accounts) // CHUNK_COUNT)
+    chunk_size = -(-len(tracker_accounts) // CHUNK_COUNT)
     chunk_urls = []
-    for index in range(0, len(public_accounts), chunk_size):
-        chunk = public_accounts[index : index + chunk_size]
+    for index in range(0, len(tracker_accounts), chunk_size):
+        chunk = tracker_accounts[index : index + chunk_size]
         payload = json.dumps(chunk, ensure_ascii=False, separators=(",", ":")) + "\n"
         digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
         (output_dir / f"{digest}.json").write_text(payload)
@@ -190,7 +242,7 @@ def main():
         "// Chunks must be fetched in order; accounts are pre-sorted across files.\n"
         f"export const TRACKER_ACCOUNT_CHUNKS = [\n{manifest_lines},\n] as const;\n"
     )
-    print(f"Wrote {len(public_accounts)} accounts across {len(chunk_urls)} chunks to {output_dir}")
+    print(f"Wrote {len(tracker_accounts)} accounts across {len(chunk_urls)} chunks to {output_dir}")
     print(f"Chunk manifest written to {CHUNK_MANIFEST}")
 
 

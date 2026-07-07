@@ -17,6 +17,10 @@ const TEMPLATE_V2 = join(ROOT, "templates", "gcc", "company-v2.html");
 
 const outFlag = process.argv.indexOf("--out");
 const OUT_DIR = outFlag > -1 ? resolve(process.argv[outFlag + 1]) : join(ROOT, "public");
+// --only <slug>[,<slug>...] regenerates just those pages (e.g. the 3M approval
+// sample) without republishing every company in data/gcc/companies/.
+const onlyFlag = process.argv.indexOf("--only");
+const ONLY = onlyFlag > -1 ? new Set(process.argv[onlyFlag + 1].split(",")) : null;
 
 const esc = (s) =>
   String(s)
@@ -324,7 +328,9 @@ if (files.length === 0) {
 }
 
 let failures = 0;
+let written = 0;
 for (const file of files) {
+  if (ONLY && !ONLY.has(file.replace(/\.json$/, ""))) continue;
   const c = JSON.parse(await readFile(join(DATA_DIR, file), "utf8"));
   const html = render(templateV2, c, {
     V2_FACT_TILES: buildFactTilesV2(c),
@@ -341,6 +347,7 @@ for (const file of files) {
   const dir = join(OUT_DIR, "gcc", "companies", c.slug);
   await mkdir(dir, { recursive: true });
   await writeFile(join(dir, "index.html"), html);
+  written++;
   console.log(`OK   /gcc/companies/${c.slug}/ (${(html.length / 1024).toFixed(1)} KB)`);
 }
 
@@ -348,4 +355,4 @@ if (failures) {
   console.error(`\n${failures} page(s) failed QA and were not written.`);
   process.exit(1);
 }
-console.log(`\nGenerated ${files.length - failures} page(s) into ${OUT_DIR}/gcc/companies/`);
+console.log(`\nGenerated ${written} page(s) into ${OUT_DIR}/gcc/companies/`);

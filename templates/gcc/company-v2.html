@@ -37,6 +37,7 @@
       --border: #e6eaf0;
       --border-strong: #cbd5e1;
       --max-width: 1140px;
+      --promo-h: 38px;
       --timing: 180ms;
       --ease: cubic-bezier(.4, 0, .2, 1);
     }
@@ -83,9 +84,36 @@
     .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
     .btn-sm { min-height: 38px; padding: 7px 16px; font-size: 13px; }
 
-    .site-header {
+    .promo-bar {
       position: sticky;
       top: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: var(--promo-h);
+      padding: 0 16px;
+      overflow: hidden;
+      color: #fff;
+      background: var(--primary);
+      font-size: 13.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-align: center;
+    }
+    .promo-bar:hover { background: var(--primary-dark); color: #fff; }
+    .promo-bar .promo-cta { text-decoration: underline; text-underline-offset: 2px; }
+    .promo-short { display: none; }
+    @media (max-width: 640px) {
+      .promo-full { display: none; }
+      .promo-short { display: inline; }
+      .promo-bar { font-size: 12.5px; }
+    }
+
+    .site-header {
+      position: sticky;
+      top: var(--promo-h);
       z-index: 30;
       border-bottom: 1px solid var(--border);
       background: rgb(255 255 255 / .96);
@@ -172,7 +200,7 @@
 
     .subnav {
       position: sticky;
-      top: 96px;
+      top: calc(96px + var(--promo-h));
       z-index: 20;
       border-bottom: 1px solid var(--border);
       background: rgb(255 255 255 / .96);
@@ -194,7 +222,7 @@
     main { padding: 10px 0 40px; }
     .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; }
 
-    .section { padding: 34px 0 8px; scroll-margin-top: 160px; }
+    .section { padding: 34px 0 8px; scroll-margin-top: calc(160px + var(--promo-h)); }
     .section + .section { border-top: 1px solid var(--border); }
     .section h2 { margin: 0 0 6px; color: var(--heading); font-size: 22px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; }
     .section .desc { max-width: 70ch; margin: 0 0 20px; color: var(--muted); font-size: 14.5px; }
@@ -251,7 +279,7 @@
     details.faq[open] summary::after { content: "\2212"; }
     details.faq p { margin: -6px 28px 16px 0; color: var(--muted); font-size: 14px; }
 
-    .aside { position: sticky; top: 160px; display: grid; gap: 16px; }
+    .aside { position: sticky; top: calc(160px + var(--promo-h)); display: grid; gap: 16px; }
     .inline-cta { display: none; }
     .side-box { padding: 22px; border: 1px solid var(--border); border-radius: 12px; background: #fff; }
     .side-box h3 { margin: 0 0 8px; color: var(--heading); font-size: 15.5px; line-height: 1.35; }
@@ -309,7 +337,7 @@
       .facts .wrap::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--border); }
       .fact { border-right: 0; padding: 18px 16px 20px; }
       .fact:nth-child(odd) { padding-left: 0; }
-      .subnav { top: 96px; }
+      .subnav { top: calc(96px + var(--promo-h)); }
       .content-grid { grid-template-columns: 1fr; gap: 8px; }
       .aside { display: none; }
       .inline-cta { display: block; margin: 4px 0 30px; }
@@ -318,7 +346,7 @@
     @media (max-width: 640px) {
       .site-header .wrap { min-height: 66px; }
       .logo img { height: 40px; }
-      .subnav { top: 66px; }
+      .subnav { top: calc(66px + var(--promo-h)); }
       .hero { padding-top: 24px; }
       h1 { font-size: 31px; }
       .lede { font-size: 15.5px; }
@@ -336,6 +364,10 @@
   </style>
 </head>
 <body>
+  <a class="promo-bar" href="/signup?src={{SRC}}-q1report">
+    <span class="promo-full">The Q1 2026 India GCC Report drops soon. <span class="promo-cta">Register for early access &rarr;</span></span>
+    <span class="promo-short">Q1 2026 GCC Report soon. <span class="promo-cta">Register &rarr;</span></span>
+  </a>
   <header class="site-header">
     <div class="wrap">
       <a class="logo" href="/" aria-label="Bamboo Reports home">
