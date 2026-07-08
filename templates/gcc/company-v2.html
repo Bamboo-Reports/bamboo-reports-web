@@ -186,6 +186,9 @@
     .tag-external { display: block; width: 11px; height: 11px; opacity: .6; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .chip { padding: 7px 14px; font-size: 13px; }
     .source-line { margin: 18px 0 0; color: var(--faint); font-size: 12.5px; }
+    .tracked-line { margin: 10px 0 0; font-size: 14px; color: var(--muted); }
+    .tracked-line a { color: var(--primary); font-weight: 600; text-decoration: none; }
+    .tracked-line a:hover { text-decoration: underline; }
 
     .facts { border-block: 1px solid var(--border); background: #fbfdfe; }
     .facts .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
@@ -365,8 +368,8 @@
 </head>
 <body>
   <a class="promo-bar" href="/signup?src={{SRC}}-q1report">
-    <span class="promo-full">The Q1 2026 India GCC Report drops soon. <span class="promo-cta">Register for early access &rarr;</span></span>
-    <span class="promo-short">Q1 2026 GCC Report soon. <span class="promo-cta">Register &rarr;</span></span>
+    <span class="promo-full">The Q1 2026 India GCC Report drops July 20. <span class="promo-cta">Sign up free for early access &rarr;</span></span>
+    <span class="promo-short">Q1 2026 GCC Report July 20. <span class="promo-cta">Sign up free &rarr;</span></span>
   </a>
   <header class="site-header">
     <div class="wrap">
@@ -421,6 +424,7 @@
       <p class="lede">{{LEDE}}</p>
       <div class="tags">{{TAGS}}</div>
       <p class="source-line">Source: Bamboo Reports &middot; Updated {{LAST_UPDATED}}</p>
+      <p class="tracked-line">{{TRACKED_SUMMARY}} <a href="/signup?src={{SRC}}-tracked">Sign up free to see them all.</a></p>
     </div>
   </section>
 
@@ -508,7 +512,7 @@
             <div class="side-box featured inline-cta">
               <h3>Unlock {{COMPANY_SHORT}} in full</h3>
               <p>Exact centers, the org map and {{LEADER_COUNT}} leaders. Free accounts include credits to reveal contacts.</p>
-              <a class="btn btn-primary" href="/signup?src={{SRC}}-v2-inline">Create free account</a>
+              <a class="btn btn-primary" href="/signup?src={{SRC}}-v2-inline">Sign up free</a>
             </div>
           </section>
 
@@ -528,7 +532,7 @@
           <div class="side-box featured">
             <h3>Unlock {{COMPANY_SHORT}} in full</h3>
             <p>Exact centers, the org map and {{LEADER_COUNT}} leaders. Free accounts include credits to reveal contacts.</p>
-            <a class="btn btn-primary" href="/signup?src={{SRC}}-v2-side">Create free account</a>
+            <a class="btn btn-primary" href="/signup?src={{SRC}}-v2-side">Sign up free</a>
           </div>
           <div class="side-box">
             <h3>Size your market</h3>
@@ -579,7 +583,7 @@
         </nav>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Research NXT. All rights reserved.</span>
+        <span>&copy; 2026 Bamboo Reports &middot; A Research NXT company. All rights reserved.</span>
         <nav class="footer-legal" aria-label="Legal">
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms-conditions">Terms &amp; Conditions</a>
@@ -589,7 +593,7 @@
   </footer>
 
   <div class="mobile-cta" aria-label="Quick actions">
-    <a class="btn btn-primary" href="/signup?src={{SRC}}-v2-sticky">Create free account</a>
+    <a class="btn btn-primary" href="/signup?src={{SRC}}-v2-sticky">Sign up free</a>
     <a class="btn btn-accent" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Get a Demo</a>
   </div>
 </body>

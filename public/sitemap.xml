@@ -7,7 +7,10 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- GCC directory & company profiles -->
+  <!-- GCC directory, landing pages & company profiles.
+       The block below is REGENERATED at build time by
+       scripts/gcc/generate-sitemap.mjs into dist/sitemap.xml. -->
+  <!-- gcc:start -->
   <url>
     <loc>https://www.bambooreports.com/gcc</loc>
     <changefreq>weekly</changefreq>
@@ -18,6 +21,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- gcc:end -->
 
   <!-- Product & Offering Pages -->
   <url>

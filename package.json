@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:netlify": "netlify dev",
-    "build": "vite build && node scripts/gcc/generate-tracker-page.mjs",
+    "build": "vite build && node scripts/gcc/generate-tracker-page.mjs && node scripts/gcc/generate-landing-pages.mjs && node scripts/gcc/generate-sitemap.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "typecheck": "tsc -p tsconfig.app.json --noEmit",

@@ -1,108 +1,64 @@
 #!/usr/bin/env node
-// Post-build step: inject crawlable /gcc content into the built SPA shell.
+// Post-build step: inject crawlable /gcc content into the built SPA shell and
+// write the paginated static directory pages.
 //
 // The /gcc route is a React SPA (src/pages/Tracker.tsx). Its H1, counts and
-// company list only exist after JS runs, so non-JS crawlers see an empty shell.
-// This script reads the built dist/index.html, injects a static snapshot of the
-// directory (H1, headline counts, the public company list linked to detail
-// pages, and JSON-LD) into #root, and writes dist/gcc/index.html. React still
-// loads and replaces #root for interactive users — crawlers get the content.
+// company list only exist after JS runs, so non-JS crawlers see an empty
+// shell. This script reads the built dist/index.html and:
+//   1. Writes dist/gcc/index.html: title/description/og rewritten for /gcc,
+//      canonical + JSON-LD added, and a static snapshot (H1, headline counts,
+//      the FIRST 100 public companies, links to the full paginated directory
+//      and the industry/city landing pages) injected into #root. React still
+//      hydrates over it for interactive users.
+//   2. Writes dist/gcc/directory/<n>/index.html: standalone crawlable pages of
+//      100 companies each, so the full list is indexable without ever being
+//      served in a single response.
 //
 // Runs after `vite build` (see package.json build script). Browser-free.
 
-import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
+import {
+  DIRECTORY_PAGE_SIZE,
+  DIST,
+  SITE,
+  breadcrumbSchema,
+  companyListHtml,
+  esc,
+  itemListSchema,
+  landingIndexHtml,
+  landingSets,
+  ldJson,
+  loadAccounts,
+  loadNameToSlug,
+  nf,
+  organizationSchema,
+  publicAccounts,
+  staticPage,
+  trackedCounts,
+  trackedVsShownHtml,
+} from "./prerender-lib.mjs";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const SITE = "https://www.bambooreports.com";
-const DIST = join(ROOT, "dist");
 const SHELL = join(DIST, "index.html");
-const CHUNK_DIR = join(ROOT, "public", "data", "t");
-const COMPANY_DIR = join(ROOT, "data", "gcc", "companies");
 const OUT = join(DIST, "gcc", "index.html");
+const CANONICAL = `${SITE}/gcc`;
+const INLINE_COMPANIES = 100;
 
 const TITLE = "GCC Companies in India: Directory & Market Size Calculator | Bamboo Reports";
-const DESCRIPTION =
-  "Browse a directory of 1,800+ Global Capability Centers in India, from 2,400+ GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.";
-const CANONICAL = `${SITE}/gcc`;
 
-const esc = (s) =>
-  String(s ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-
-const nf = (n) => n.toLocaleString("en-US");
-
-async function loadAccounts() {
-  const files = (await readdir(CHUNK_DIR)).filter((f) => f.endsWith(".json"));
-  const all = [];
-  for (const f of files) {
-    all.push(...JSON.parse(await readFile(join(CHUNK_DIR, f), "utf8")));
-  }
-  return all;
+function replaceMeta(html, attr, name, content) {
+  const pattern = new RegExp(`<meta ${attr}="${name}"[^>]*>`);
+  const tag = `<meta ${attr}="${name}" content="${esc(content)}" />`;
+  return pattern.test(html)
+    ? html.replace(pattern, tag)
+    : html.replace(/<\/head>/, `  ${tag}\n</head>`);
 }
 
-async function loadNameToSlug() {
-  // Only link companies whose detail page is actually published under
-  // public/gcc/companies/ — data JSONs may exist for pages not yet launched.
-  const map = new Map();
-  const files = (await readdir(COMPANY_DIR)).filter((f) => f.endsWith(".json"));
-  for (const f of files) {
-    const c = JSON.parse(await readFile(join(COMPANY_DIR, f), "utf8"));
-    if (existsSync(join(ROOT, "public", "gcc", "companies", c.slug, "index.html"))) {
-      map.set(c.name, c.slug);
-    }
-  }
-  return map;
-}
+function buildTrackerPage(html, accounts, pub, nameToSlug, directoryPages) {
+  const totals = trackedCounts(accounts);
+  const description = `Browse a directory of ${nf(pub.length)}+ Global Capability Centers in India, from the ${nf(totals.accounts)} GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.`;
 
-function main(html, accounts, nameToSlug) {
-  const totals = accounts.reduce(
-    (t, a) => {
-      t.accounts += 1;
-      t.centers += a.centerCount;
-      t.prospects += a.prospectCount;
-      return t;
-    },
-    { accounts: 0, centers: 0, prospects: 0 }
-  );
-
-  const publicAccounts = accounts
-    .filter((a) => a.visibility === "public" && a.name)
-    .sort((a, b) => a.name.localeCompare(b.name));
-
-  const rows = publicAccounts
-    .map((a) => {
-      const cities = a.cities.map((c) => c.name).join(", ");
-      const industry = a.industry ? ` &middot; ${esc(a.industry)}` : "";
-      const slug = nameToSlug.get(a.name);
-      const label = slug
-        ? `<a href="/gcc/companies/${esc(slug)}/">${esc(a.name)}</a>`
-        : `<span>${esc(a.name)}</span>`;
-      const where = cities ? ` &middot; ${esc(cities)}` : "";
-      return `<li>${label}${industry}${where}</li>`;
-    })
-    .join("\n");
-
-  // ItemList: the linkable subset (companies with detail pages) — most useful
-  // to crawlers, and keeps the JSON-LD to a reasonable size.
-  const listed = publicAccounts.filter((a) => nameToSlug.get(a.name)).slice(0, 500);
-  const itemList = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "GCC companies in India",
-    numberOfItems: listed.length,
-    itemListElement: listed.map((a, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      url: `${SITE}/gcc/companies/${nameToSlug.get(a.name)}`,
-      name: a.name,
-    })),
-  };
   const dataset = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -115,59 +71,111 @@ function main(html, accounts, nameToSlug) {
       { "@type": "PropertyValue", name: "Decision-makers mapped", value: totals.prospects },
     ],
   };
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
-      { "@type": "ListItem", position: 2, name: "GCCs in India", item: CANONICAL },
-    ],
-  };
-  const organization = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Bamboo Reports",
-    url: SITE,
-  };
+  const schemas = [
+    organizationSchema,
+    dataset,
+    itemListSchema("GCC companies in India", pub, nameToSlug),
+    breadcrumbSchema([
+      ["Home", `${SITE}/`],
+      ["GCCs in India", CANONICAL],
+    ]),
+  ];
+
+  const directoryLinks = directoryPages
+    .map((p) => `<a href="${p.path}">${esc(p.label)}</a>`)
+    .join("\n        ");
 
   const content = `<main class="gcc-prerender">
       <p>India GCC companies directory</p>
       <h1>GCC companies in India, sized for your market</h1>
-      <p>We track ${nf(totals.accounts)}+ Global Capability Centers in India. Browse ${nf(publicAccounts.length)}+ of them free, filter by industry and city, and get a live count of the centres and decision-makers in your target market.</p>
+      <p>We track ${nf(totals.accounts)} Global Capability Centers in India. Browse ${nf(pub.length)}+ of them free, filter by industry and city, and get a live count of the centres and decision-makers in your target market.</p>
       <ul>
         <li><strong>${nf(totals.accounts)}</strong> GCC companies tracked</li>
         <li><strong>${nf(totals.centers)}</strong> centres</li>
         <li><strong>${nf(totals.prospects)}</strong> decision-makers</li>
       </ul>
       <h2>India GCC companies directory</h2>
-      <ul class="gcc-directory">
-${rows}
-      </ul>
+${companyListHtml(pub.slice(0, INLINE_COMPANIES), nameToSlug)}
+      <h2>Browse the full directory</h2>
+      <p>All ${nf(pub.length)} browsable companies, ${DIRECTORY_PAGE_SIZE} per page:</p>
+      <p>
+        ${directoryLinks}
+      </p>
+${landingIndexHtml(landingSets(accounts))}
     </main>`;
 
-  const schemas = [organization, dataset, itemList, breadcrumb]
-    .map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
-    .join("\n  ");
-
   let out = html;
-  // Rewrite title + description for the /gcc route (crawlers read served HTML).
   out = out.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(TITLE)}</title>`);
-  if (/<meta name="description"[^>]*>/.test(out)) {
-    out = out.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${esc(DESCRIPTION)}">`);
-  } else {
-    out = out.replace(/<\/head>/, `  <meta name="description" content="${esc(DESCRIPTION)}">\n</head>`);
-  }
-  // Canonical + structured data before </head>.
-  out = out.replace(
-    /<\/head>/,
-    `  <link rel="canonical" href="${CANONICAL}">\n  ${schemas}\n</head>`
-  );
-  // Inject crawlable content into the empty SPA root.
+  out = replaceMeta(out, "name", "description", description);
+  // Social tags: the SPA shell ships homepage og/twitter values; point them
+  // at /gcc (same pattern as the company pages).
+  out = replaceMeta(out, "property", "og:url", CANONICAL);
+  out = replaceMeta(out, "property", "og:title", TITLE);
+  out = replaceMeta(out, "property", "og:description", description);
+  out = replaceMeta(out, "property", "og:image", `${SITE}/logo.png`);
+  out = replaceMeta(out, "property", "twitter:url", CANONICAL);
+  out = replaceMeta(out, "property", "twitter:title", TITLE);
+  out = replaceMeta(out, "property", "twitter:description", description);
+  out = replaceMeta(out, "property", "twitter:image", `${SITE}/logo.png`);
+  out = out.replace(/<\/head>/, `  <link rel="canonical" href="${CANONICAL}">\n  ${ldJson(schemas)}\n</head>`);
   if (!out.includes('<div id="root"></div>')) {
     throw new Error('dist/index.html has no empty <div id="root"></div> to inject into');
   }
   out = out.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
-  return { out, totals, publicCount: publicAccounts.length };
+  return { out, totals };
+}
+
+function buildDirectoryPage(pageNumber, pageCount, slice, pub, accounts, nameToSlug) {
+  const canonical = `${SITE}/gcc/directory/${pageNumber}`;
+  const first = slice[0]?.name ?? "";
+  const last = slice[slice.length - 1]?.name ?? "";
+  const title = `GCC Companies in India: Directory Page ${pageNumber} of ${pageCount} | Bamboo Reports`;
+  const description = `Page ${pageNumber} of the India GCC companies directory (${esc(first)} to ${esc(last)}). ${nf(pub.length)}+ Global Capability Centers browsable free, from the ${nf(accounts.length)} GCCs Bamboo Reports tracks.`;
+
+  const pager = Array.from({ length: pageCount }, (_, i) => i + 1)
+    .map((n) =>
+      n === pageNumber
+        ? `<span class="current">${n}</span>`
+        : `<a href="/gcc/directory/${n}/">${n}</a>`
+    )
+    .join("\n        ");
+  const prevNext = [
+    pageNumber > 1 ? `<a href="/gcc/directory/${pageNumber - 1}/">&larr; Previous</a>` : "",
+    pageNumber < pageCount ? `<a href="/gcc/directory/${pageNumber + 1}/">Next &rarr;</a>` : "",
+  ]
+    .filter(Boolean)
+    .join("\n        ");
+
+  const body = `      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/gcc/">GCCs in India</a> / Directory page ${pageNumber}
+      </nav>
+      <h1>India GCC companies directory, page ${pageNumber} of ${pageCount}</h1>
+      <p class="lede">Companies ${nf((pageNumber - 1) * DIRECTORY_PAGE_SIZE + 1)} to ${nf((pageNumber - 1) * DIRECTORY_PAGE_SIZE + slice.length)} of the ${nf(pub.length)} Global Capability Centers browsable free. Use the <a href="/gcc/">live market size calculator</a> to filter by industry and city.</p>
+      ${trackedVsShownHtml("All India GCCs", trackedCounts(accounts), pub.length, "gcc-directory-hook")}
+      <ul class="companies">
+${companyListHtml(slice, nameToSlug)}
+      </ul>
+      <nav class="pager" aria-label="Directory pages">
+        ${prevNext}
+        ${pager}
+      </nav>`;
+
+  return staticPage({
+    title,
+    description,
+    canonical,
+    src: `gcc-directory-${pageNumber}`,
+    schemas: [
+      organizationSchema,
+      itemListSchema(`GCC companies in India, page ${pageNumber}`, slice, nameToSlug),
+      breadcrumbSchema([
+        ["Home", `${SITE}/`],
+        ["GCCs in India", CANONICAL],
+        [`Directory page ${pageNumber}`, canonical],
+      ]),
+    ],
+    body,
+  });
 }
 
 if (!existsSync(SHELL)) {
@@ -177,10 +185,23 @@ if (!existsSync(SHELL)) {
 const html = await readFile(SHELL, "utf8");
 const accounts = await loadAccounts();
 const nameToSlug = await loadNameToSlug();
-const { out, totals, publicCount } = main(html, accounts, nameToSlug);
+const pub = publicAccounts(accounts);
+
+const pageCount = Math.ceil(pub.length / DIRECTORY_PAGE_SIZE);
+const directoryPages = [];
+for (let n = 1; n <= pageCount; n++) {
+  const slice = pub.slice((n - 1) * DIRECTORY_PAGE_SIZE, n * DIRECTORY_PAGE_SIZE);
+  const pagePath = join(DIST, "gcc", "directory", String(n), "index.html");
+  await mkdir(dirname(pagePath), { recursive: true });
+  await writeFile(pagePath, buildDirectoryPage(n, pageCount, slice, pub, accounts, nameToSlug));
+  const first = slice[0].name.replace(/\W.*$/, "").slice(0, 12) || slice[0].name;
+  directoryPages.push({ path: `/gcc/directory/${n}/`, label: `Page ${n} (${first}…)` });
+}
+
+const { out, totals } = buildTrackerPage(html, accounts, pub, nameToSlug, directoryPages);
 await mkdir(dirname(OUT), { recursive: true });
 await writeFile(OUT, out);
 console.log(
-  `Wrote ${OUT}\n  ${nf(totals.accounts)} tracked / ${nf(publicCount)} public listed / ` +
+  `Wrote ${OUT} + ${pageCount} directory pages\n  ${nf(totals.accounts)} tracked / ${nf(pub.length)} public listed / ` +
     `${nf(totals.centers)} centres / ${nf(totals.prospects)} decision-makers`
 );

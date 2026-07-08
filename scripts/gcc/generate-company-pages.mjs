@@ -15,6 +15,13 @@ const SITE = "https://www.bambooreports.com";
 const DATA_DIR = join(ROOT, "data", "gcc", "companies");
 const TEMPLATE_V2 = join(ROOT, "templates", "gcc", "company-v2.html");
 
+// Standardized industry labels shared with the tracker directory and landing
+// pages (data/gcc/taxonomy.json); unmapped raw values pass through.
+const TAXONOMY = JSON.parse(
+  await readFile(join(ROOT, "data", "gcc", "taxonomy.json"), "utf8")
+).industries;
+const mapIndustry = (v) => (v ? (TAXONOMY[v] ?? v) : v);
+
 const outFlag = process.argv.indexOf("--out");
 const OUT_DIR = outFlag > -1 ? resolve(process.argv[outFlag + 1]) : join(ROOT, "public");
 // --only <slug>[,<slug>...] regenerates just those pages (e.g. the 3M approval
@@ -123,7 +130,7 @@ function buildLeaderRows(c) {
 function buildAboutRows(c) {
   const a = c.about;
   const rows = [
-    ["Industry", a.industry],
+    ["Industry", mapIndustry(a.industry)],
     ["Headquarters", a.headquarters],
     ["Global revenue", a.revenueBand],
     ["Global employees", a.employeesBand],
@@ -199,7 +206,7 @@ function buildFactTilesV2(c) {
 // "Years in India" tile is locked and the since-year would give it away.
 function buildAboutRowsV2(c) {
   const rows = [
-    ["Industry", c.about.industry],
+    ["Industry", mapIndustry(c.about.industry)],
     ["Headquarters", c.about.headquarters],
     ["Global revenue", c.about.revenueBand],
     ["Global employees", c.about.employeesBand],
@@ -288,6 +295,12 @@ function render(template, c, extraVars = {}) {
     LEADER_DEPTS: esc(c.leaders.departments),
     LEADER_ROWS: buildLeaderRows(c),
     LAST_UPDATED: esc(c.lastUpdated ?? ""),
+    // Tracked-vs-shown hook: platform depth stated next to the free teaser.
+    TRACKED_SUMMARY: esc(
+      `${c.shortName}: ${c.stats.totalCenters ?? c.stats.activeCenters} ` +
+        `${(c.stats.totalCenters ?? c.stats.activeCenters) === 1 ? "centre" : "centres"} and ` +
+        `${c.leaders.count} decision-makers tracked in Bamboo Reports.`
+    ),
     ABOUT_DESC: esc(c.about.description),
     ABOUT_ROWS: buildAboutRows(c),
     FAQ_ITEMS: buildFaqItems(c),
