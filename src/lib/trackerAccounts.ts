@@ -1,6 +1,9 @@
 export interface StaticTrackerAccount {
   /** null for private accounts — they contribute to counts but are never named. */
   name: string | null;
+  /** Private accounts only: truncated hash of the simplified name, so search
+   * can say "tracked, sign up to unlock" without shipping the private list. */
+  h?: string;
   industry: string | null;
   cities: Array<{
     name: string;
@@ -12,6 +15,38 @@ export interface StaticTrackerAccount {
 }
 
 import { TRACKER_ACCOUNT_CHUNKS } from "./trackerAccountChunks";
+
+// Legal-suffix tokens dropped when hashing names for gated-company search.
+// Must stay in sync with LEGAL_SUFFIXES in scripts/tracker/generate-static-accounts.py.
+const LEGAL_SUFFIXES = new Set([
+  "inc", "incorporated", "corp", "corporation", "co", "company", "ltd",
+  "limited", "llc", "llp", "lp", "plc", "gmbh", "ag", "sa", "nv", "bv", "pvt",
+]);
+
+export function simplifyCompanyName(name: string): string {
+  const words = name
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  while (words.length > 1 && LEGAL_SUFFIXES.has(words[words.length - 1])) {
+    words.pop();
+  }
+  return words.join(" ");
+}
+
+/** Truncated SHA-256 of the simplified name; matches the generator's `h` field. */
+export async function hashCompanyName(name: string): Promise<string | null> {
+  if (!globalThis.crypto?.subtle) return null;
+  const bytes = new TextEncoder().encode(simplifyCompanyName(name));
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("")
+    .slice(0, 16);
+}
 
 export async function fetchStaticTrackerAccounts(
   signal?: AbortSignal

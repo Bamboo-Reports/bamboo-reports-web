@@ -33,20 +33,10 @@ NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 SENIORITY = ["CXO", "Head", "VP", "Director", "GM", "Leader", "Senior Manager"]
 LEADER_LEVELS = set(SENIORITY)
 
-# Center types surfaced first on the page, in this order; anything else
-# follows by center count. The lead city is the top type's busiest city.
-TYPE_PRIORITY = ["GBS", "SSC", "R&D", "CoE", "GCC/GIC", "Engineering & Design", "IT"]
-
-# Non-GCC center types. These are excluded from the headline center count, the
-# city list and the type labels, so "N centers" reflects true GCC centers only
-# (R&D, IT, GBS, CoE, GCC/GIC, Engineering, SSC), not manufacturing/sales/
-# distribution sites. If a company has ONLY non-GCC centers we fall back to the
-# full set so the page still renders (that case is caught by account_type later).
-NON_GCC_TYPES = {"Manufacturing", "Sales & Marketing", "Distribution"}
-
-# Center types that stay upper/mixed-case in prose (acronyms). Everything else
-# (e.g. "Engineering & Design") is lowercased to read naturally in a sentence.
-ACRONYM_TYPES = {"GBS", "SSC", "R&D", "CoE", "GCC/GIC", "IT", "BPO"}
+# GCC classification rules shared with the tracker directory generator, so
+# the /gcc list and the company pages always agree on what counts as a center.
+sys.path.insert(0, str(ROOT / "scripts"))
+from gcc_rules import ACRONYM_TYPES, NON_GCC_TYPES, TYPE_PRIORITY  # noqa: E402
 
 SERVICE_LABELS = {
     "service_it": "IT",
@@ -287,10 +277,18 @@ def build_company(a, aliases, centers, services, prospects, tech):
     types_lower = join_and(type_labels) or "capability work"
     city_preview = cities[0] if cities else ""
     if n_cities > 1:
-        city_preview += f" and {n_cities - 1} additional cities"
-    type_preview = type_labels[0] if type_labels else "capability"
+        extra_cities = n_cities - 1
+        city_preview += f" and {extra_cities} additional {'city' if extra_cities == 1 else 'cities'}"
     if len(type_labels) > 1:
-        type_preview += f" and {len(type_labels) - 1} additional center types"
+        extra_types = len(type_labels) - 1
+        types_faq = (
+            f"runs {type_labels[0]} and {extra_types} additional "
+            f"center {'type' if extra_types == 1 else 'types'} in India"
+        )
+    elif type_labels:
+        types_faq = f"runs {type_labels[0]} centers in India"
+    else:
+        types_faq = "runs capability centers in India"
     department_preview = depts[0] if depts else ""
     if len(depts) > 1:
         department_preview += " and other leadership functions"
@@ -327,7 +325,7 @@ def build_company(a, aliases, centers, services, prospects, tech):
         },
         {
             "q": f"What types of centers does {short} run in India?",
-            "a": f"{short} runs {type_preview} centers in India.",
+            "a": f"{short} {types_faq}.",
         },
     ]
     if hc_long:
