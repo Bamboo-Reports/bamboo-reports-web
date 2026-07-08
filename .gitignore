@@ -57,3 +57,4 @@ data/*.xlsx
 # Vendored reference copy of the old repo - not project source
 ref/
 scripts/__pycache__/
+sheets/
