@@ -216,10 +216,15 @@ def main():
 
     # Standardized industry labels shared with the landing pages and company
     # pages (data/gcc/taxonomy.json); unmapped raw values pass through.
-    taxonomy = json.loads(TAXONOMY_FILE.read_text())["industries"]
+    # Per-account corrections (wrong tags awaiting a warehouse fix) win over
+    # the exported value.
+    taxonomy_data = json.loads(TAXONOMY_FILE.read_text())
+    taxonomy = taxonomy_data["industries"]
+    account_fixes = taxonomy_data.get("accounts", {})
     industries = {
-        record["account_global_legal_name"]: taxonomy.get(
-            record["account_primary_category"], record["account_primary_category"]
+        record["account_global_legal_name"]: account_fixes.get(
+            record["account_global_legal_name"],
+            taxonomy.get(record["account_primary_category"], record["account_primary_category"]),
         )
         for record in accounts
         if record["account_global_legal_name"]

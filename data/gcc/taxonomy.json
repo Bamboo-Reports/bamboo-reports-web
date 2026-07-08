@@ -1,10 +1,15 @@
 {
-  "_comment": "Raw account_primary_category -> standardized public label. Applied by scripts/tracker/generate-static-accounts.py and scripts/gcc/generate-company-pages.mjs so the directory, filters, landing pages and company pages all show the same industry names. Unmapped values pass through unchanged. Pending Ranu's review: TTLH expansion and any further merges.",
+  "_comment": "Raw account_primary_category -> standardized public label. Applied by scripts/tracker/generate-static-accounts.py and scripts/gcc/generate-company-pages.mjs so the directory, filters, landing pages and company pages all show the same industry names. Unmapped values pass through unchanged. Pending Ranu's review: TTLH expansion and any further merges. The accounts section corrects per-company industry tags (Ranu's data-hygiene list) until fixed in the warehouse.",
   "industries": {
     "TTLH": "Travel, Transport, Logistics & Hospitality",
     "Energy & Utilities": "Utilities",
     "Market Place": "Marketplace",
     "Media and Entertainment": "Media & Entertainment",
     "Mining and Natural Resources": "Mining & Natural Resources"
+  },
+  "accounts": {
+    "AiDash, Inc.": "Hi-Tech",
+    "Albemarle Corp.": "Chemicals",
+    "AlphaSense, Inc.": "Hi-Tech"
   }
 }
