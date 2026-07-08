@@ -59,7 +59,7 @@ function landingPage(set, sets, accounts, nameToSlug) {
       </nav>
       <h1>${esc(heading)}</h1>
       <p class="lede">Every ${isCity ? `Global Capability Center company with a presence in ${esc(set.label)}` : `${esc(set.label)} company running Global Capability Centers in India`} that Bamboo Reports tracks. Filter further with the <a href="/gcc/?${filterParam}">live market size calculator</a>.</p>
-      ${trackedVsShownHtml(set.label, tracked, set.public.length, `gcc-${set.kind}-${set.slug}`)}
+      ${trackedVsShownHtml(set.label, tracked, set.public.length, `gcc-${set.kind}-${set.slug}`, !isCity)}
       <h2>Browse the ${nf(set.public.length)} public ${set.public.length === 1 ? "company" : "companies"}</h2>
       <ul class="companies">
 ${companyListHtml(set.public, nameToSlug)}

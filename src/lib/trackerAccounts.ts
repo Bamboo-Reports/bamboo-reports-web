@@ -10,6 +10,9 @@ export interface StaticTrackerAccount {
     centerCount: number;
   }>;
   centerCount: number;
+  /** All active facilities incl. manufacturing/sales/distribution sites;
+   * centerCount is the true-GCC subset. */
+  siteCount: number;
   prospectCount: number;
   visibility: "public" | "private";
 }

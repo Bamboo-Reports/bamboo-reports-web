@@ -4,9 +4,13 @@ import { TRACKER_STATS } from "@/lib/trackerStats";
 
 const nf = (n: number) => n.toLocaleString("en-US");
 
-const STATS = [
+const STATS: Array<{ label: string; value: string; sub?: string }> = [
   { label: "GCCs tracked", value: nf(TRACKER_STATS.accountsTracked) },
-  { label: "Centres", value: nf(TRACKER_STATS.centers) },
+  {
+    label: "GCC centres",
+    value: nf(TRACKER_STATS.centers),
+    sub: `of ${nf(TRACKER_STATS.sites)} sites tracked`,
+  },
   { label: "Indian cities", value: nf(TRACKER_STATS.cities) },
   { label: "Industries", value: nf(TRACKER_STATS.industries) },
   { label: "Decision-makers", value: nf(TRACKER_STATS.decisionMakers) },
@@ -26,6 +30,9 @@ const GccStatsBand = () => (
             <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground md:text-sm">
               {stat.label}
             </div>
+            {stat.sub && (
+              <div className="mt-0.5 text-xs text-muted-foreground/80">{stat.sub}</div>
+            )}
           </div>
         ))}
       </div>

@@ -5,6 +5,7 @@ export const TRACKER_STATS = {
   "accountsTracked": 2436,
   "accountsBrowsable": 1880,
   "centers": 4432,
+  "sites": 5904,
   "decisionMakers": 61421,
   "cities": 101,
   "industries": 28

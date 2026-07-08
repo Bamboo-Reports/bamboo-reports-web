@@ -76,6 +76,7 @@ CANARY_ACCOUNTS = [
         "industry": "Hi-Tech",
         "cities": [{"name": "Bengaluru", "centerCount": 1}],
         "centerCount": 1,
+        "siteCount": 1,
         "prospectCount": 4,
         "visibility": "public",
     },
@@ -84,6 +85,7 @@ CANARY_ACCOUNTS = [
         "industry": "Industrial",
         "cities": [{"name": "Pune", "centerCount": 1}],
         "centerCount": 1,
+        "siteCount": 1,
         "prospectCount": 3,
         "visibility": "public",
     },
@@ -92,6 +94,7 @@ CANARY_ACCOUNTS = [
         "industry": "Professional Services",
         "cities": [{"name": "Mumbai", "centerCount": 1}],
         "centerCount": 1,
+        "siteCount": 1,
         "prospectCount": 5,
         "visibility": "public",
     },
@@ -244,6 +247,16 @@ def main():
             "export includes center_type.",
             file=sys.stderr,
         )
+    # siteCount is every facility on record (all types and statuses, incl.
+    # manufacturing/sales and upcoming/non-operational sites), surfaced as
+    # "across N total sites tracked" context next to the GCC metric.
+    site_counts = Counter(
+        record["account_global_legal_name"]
+        for record in centers
+        if record["account_global_legal_name"] and record["center_city"]
+    )
+
+    # centerCount/cities follow the true-GCC rule over active centers only.
     if has_status:
         centers = [c for c in centers if c["center_status"] == ACTIVE_CENTER_STATUS]
 
@@ -284,6 +297,7 @@ def main():
                 )
             ],
             "centerCount": sum(city_counts[account].values()),
+            "siteCount": site_counts[account],
             "prospectCount": prospect_counts[account],
             "visibility": visibility.get(account, "public"),
         }
@@ -357,6 +371,7 @@ def main():
         "accountsTracked": len(tracker_accounts),
         "accountsBrowsable": len(browsable),
         "centers": sum(r["centerCount"] for r in tracker_accounts),
+        "sites": sum(r["siteCount"] for r in tracker_accounts),
         "decisionMakers": sum(r["prospectCount"] for r in tracker_accounts),
         "cities": len(all_cities),
         "industries": len(all_industries),
