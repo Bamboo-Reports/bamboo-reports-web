@@ -15,6 +15,8 @@ interface AccountSearchFilterProps {
   selectedAccount?: string;
   suggestions: FacetOption[];
   isSearching: boolean;
+  /** True when the query exactly matches a tracked-but-gated (private) company. */
+  isGatedMatch?: boolean;
   disabled?: boolean;
   onQueryChange: (query: string) => void;
   onSelect: (account: string) => void;
@@ -26,6 +28,7 @@ export function AccountSearchFilter({
   selectedAccount,
   suggestions,
   isSearching,
+  isGatedMatch = false,
   disabled,
   onQueryChange,
   onSelect,
@@ -111,8 +114,28 @@ export function AccountSearchFilter({
               {option.value}
             </button>
           ))
+        ) : isGatedMatch ? (
+          <div className="px-3 py-4 text-sm">
+            <p className="text-muted-foreground">
+              This company is tracked in Bamboo Reports.
+            </p>
+            <a
+              href="/signup?src=gcc-search-gated"
+              className="mt-1 inline-block font-medium text-primary hover:underline"
+            >
+              Sign up free to unlock it
+            </a>
+          </div>
         ) : (
-          <p className="px-3 py-4 text-sm text-muted-foreground">No companies found</p>
+          <div className="px-3 py-4 text-sm">
+            <p className="text-muted-foreground">Not in our directory yet.</p>
+            <a
+              href="/signup?src=gcc-search-missing"
+              className="mt-1 inline-block font-medium text-primary hover:underline"
+            >
+              Sign up free to request it
+            </a>
+          </div>
         )}
       </PopoverContent>
     </Popover>

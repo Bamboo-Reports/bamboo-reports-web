@@ -1,4 +1,5 @@
 import logo from "@/assets/bamboo-logo.svg";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight, User, LogOut } from "lucide-react";
@@ -70,6 +71,8 @@ const Header = () => {
   const avatarUrl = user?.user_metadata?.avatar_url;
 
   return (
+    <>
+    <AnnouncementBar />
     <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
@@ -82,7 +85,7 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link to="/platform">
+                <Link to="/gcc">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Platform
                   </NavigationMenuLink>
@@ -166,7 +169,8 @@ const Header = () => {
               <div className="overflow-hidden">
                 <Button
                   asChild
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow whitespace-nowrap"
+                  variant="outline"
+                  className="rounded-full font-semibold whitespace-nowrap"
                   tabIndex={showDemoCta ? undefined : -1}
                 >
                   <GoogleCalendarSchedulingButton>
@@ -175,6 +179,15 @@ const Header = () => {
                 </Button>
               </div>
             </div>
+
+            {!user && (
+              <Button
+                asChild
+                className="rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow whitespace-nowrap"
+              >
+                <Link to="/signup?src=header">Sign up free</Link>
+              </Button>
+            )}
 
             {user ? (
               <DropdownMenu>
@@ -241,7 +254,7 @@ const Header = () => {
               <nav className="flex-1 overflow-y-auto">
                 <div className="px-6 space-y-1">
                   <Link
-                    to="/platform"
+                    to="/gcc"
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -314,9 +327,19 @@ const Header = () => {
 
                 {/* CTAs */}
                 <div className="px-6 space-y-3 pb-6">
+                  {!user && (
+                    <Button
+                      asChild
+                      className="w-full rounded-full font-semibold"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <Link to="/signup?src=header">Sign up free</Link>
+                    </Button>
+                  )}
                   <Button
                     asChild
-                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold"
+                    variant="outline"
+                    className="w-full rounded-full font-semibold"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <GoogleCalendarSchedulingButton>
@@ -369,6 +392,7 @@ const Header = () => {
         </Sheet >
       </div >
     </header >
+    </>
   );
 };
 

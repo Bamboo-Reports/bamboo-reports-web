@@ -10,7 +10,12 @@ import { AccountSearchFilter } from "@/components/AccountSearchFilter";
 import { MultiSelectFilter } from "@/components/MultiSelectFilter";
 import { useSEO } from "@/hooks/useSEO";
 import { EMPTY_FILTERS, type FacetOption, type TrackerFilters } from "@/lib/tracker";
-import { fetchStaticTrackerAccounts, type StaticTrackerAccount } from "@/lib/trackerAccounts";
+import {
+  fetchStaticTrackerAccounts,
+  hashCompanyName,
+  type StaticTrackerAccount,
+} from "@/lib/trackerAccounts";
+import { TRACKER_STATS } from "@/lib/trackerStats";
 import {
   ArrowDown,
   Building2,
@@ -25,6 +30,12 @@ import {
 
 const DEBOUNCE_MS = 250;
 const PAGE_SIZE = 25;
+// Filters surface only the top N industries/cities; the long tail is public
+// on the crawlable /gcc/industries/* and /gcc/cities/* landing pages and
+// unlocks in-app with a free account.
+const TOP_FACET_LIMIT = 10;
+
+const nf = (n: number) => n.toLocaleString("en-US");
 
 function useDebouncedValue<T>(value: T, delay: number): T {
   const [debounced, setDebounced] = useState(value);
@@ -116,14 +127,25 @@ const USE_CASES = [
 const Tracker = () => {
   useSEO({
     title: "GCC Companies in India: Directory & Market Size Calculator | Bamboo Reports",
-    description:
-      "Browse a directory of 1,800+ Global Capability Centers in India, from 2,400+ GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.",
+    description: `Browse a directory of ${nf(TRACKER_STATS.accountsBrowsable)}+ Global Capability Centers in India, from the ${nf(TRACKER_STATS.accountsTracked)} GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.`,
     keywords:
       "list of GCCs in India, GCC companies in India, India GCC companies directory, India GCC list, Global Capability Centers India, GCC company directory, India GCC market size, GCC TAM calculator, GCC cities, GCC decision makers",
     canonicalUrl: "https://www.bambooreports.com/gcc",
   });
 
-  const [filters, setFilters] = useState<TrackerFilters>(EMPTY_FILTERS);
+  // ?industry=…&city=… deep-links (homepage widget, landing pages) preselect filters.
+  const [filters, setFilters] = useState<TrackerFilters>(() => {
+    if (typeof window === "undefined") return EMPTY_FILTERS;
+    const params = new URLSearchParams(window.location.search);
+    const industry = params.get("industry");
+    const city = params.get("city");
+    if (!industry && !city) return EMPTY_FILTERS;
+    return {
+      ...EMPTY_FILTERS,
+      account_primary_category: industry ? [industry] : [],
+      center_city: city ? [city] : [],
+    };
+  });
   const [accountSearch, setAccountSearch] = useState("");
   const [page, setPage] = useState(1);
   const debouncedAccountSearch = useDebouncedValue(accountSearch, DEBOUNCE_MS);
@@ -143,6 +165,27 @@ const Tracker = () => {
       toast.error("Couldn't load the account directory. Please try again.");
     }
   }, [isStaticAccountsError]);
+
+  // Gated-company detection: private records ship only a hash of their
+  // simplified name, so an exact-name search can say "tracked, sign up to
+  // unlock" without the private list ever being in the payload.
+  const [gatedMatch, setGatedMatch] = useState(false);
+  useEffect(() => {
+    const q = debouncedAccountSearch.trim();
+    if (q.length < 2) {
+      setGatedMatch(false);
+      return;
+    }
+    let cancelled = false;
+    hashCompanyName(q).then((hash) => {
+      if (!cancelled) {
+        setGatedMatch(hash !== null && staticAccounts.some((a) => a.h === hash));
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [debouncedAccountSearch, staticAccounts]);
 
   const hasAppliedFilters =
     filters.account_primary_category.length > 0 ||
@@ -255,12 +298,26 @@ const Tracker = () => {
       .slice(0, 8)
       .map((account) => ({ value: account.name, count: 1 }));
 
+    const industryFacets = toFacetOptions(industries);
+    const cityFacets = toFacetOptions(cities);
     return {
-      account_primary_category: toFacetOptions(industries),
-      center_city: toFacetOptions(cities),
+      account_primary_category: industryFacets.slice(0, TOP_FACET_LIMIT),
+      industriesLocked: Math.max(0, industryFacets.length - TOP_FACET_LIMIT),
+      center_city: cityFacets.slice(0, TOP_FACET_LIMIT),
+      citiesLocked: Math.max(0, cityFacets.length - TOP_FACET_LIMIT),
       account_global_legal_name: accountSuggestions,
     };
   }, [staticAccounts, filters, debouncedAccountSearch]);
+
+  // Human label for the active filter set, e.g. "BFSI in Bengaluru".
+  const filterSummary = useMemo(() => {
+    const parts = [
+      filters.account_global_legal_name.join(", "),
+      filters.account_primary_category.join(", "),
+      filters.center_city.length > 0 ? `in ${filters.center_city.join(", ")}` : "",
+    ].filter(Boolean);
+    return parts.length > 0 ? parts.join(" ") : "All India GCCs";
+  }, [filters]);
 
   const totalPages = Math.max(1, Math.ceil(visibleAccounts.length / PAGE_SIZE));
   const accounts = visibleAccounts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -295,8 +352,9 @@ const Tracker = () => {
             <span className="block text-accent">sized for your market</span>
           </h1>
           <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
-            We track 2,400+ Global Capability Centers in India. Browse 1,800+ of them
-            free, filter by industry and city, and get a live count of the centres and
+            We track {nf(TRACKER_STATS.accountsTracked)} Global Capability Centers in
+            India. Browse {nf(TRACKER_STATS.accountsBrowsable)}+ of them free, filter
+            by industry and city, and get a live count of the centres and
             decision-makers in your target market.
           </p>
 
@@ -306,10 +364,7 @@ const Tracker = () => {
               size="lg"
               className="rounded-full px-8 font-bold text-base"
             >
-              <a href="#size-your-market">
-                Size your market
-                <ArrowDown className="ml-2 h-4 w-4" />
-              </a>
+              <a href="/signup?src=gcc-hero">Sign up free</a>
             </Button>
             <Button
               asChild
@@ -317,7 +372,10 @@ const Tracker = () => {
               variant="outline"
               className="rounded-full px-8 font-bold text-base"
             >
-              <a href="/signup?src=gcc-hero">Create free account</a>
+              <a href="#size-your-market">
+                Size your market
+                <ArrowDown className="ml-2 h-4 w-4" />
+              </a>
             </Button>
           </div>
         </div>
@@ -351,6 +409,7 @@ const Tracker = () => {
                   selectedAccount={filters.account_global_legal_name[0]}
                   suggestions={facets.account_global_legal_name}
                   isSearching={isSearchingAccounts}
+                  isGatedMatch={gatedMatch}
                   disabled={isLoadingFirstTime}
                   onQueryChange={(next) => {
                     setAccountSearch(next);
@@ -393,6 +452,9 @@ const Tracker = () => {
                     setPage(1);
                   }}
                   disabled={isLoadingFirstTime}
+                  lockedCount={facets.industriesLocked}
+                  lockedNoun="industries"
+                  lockedHref="/signup?src=gcc-filter-industries"
                 />
               </div>
               <div className="flex-1 min-w-0">
@@ -408,6 +470,9 @@ const Tracker = () => {
                     setPage(1);
                   }}
                   disabled={isLoadingFirstTime}
+                  lockedCount={facets.citiesLocked}
+                  lockedNoun="cities"
+                  lockedHref="/signup?src=gcc-filter-cities"
                 />
               </div>
               <Button
@@ -477,11 +542,27 @@ const Tracker = () => {
             />
           </div>
 
-          <p className="mt-6 text-sm text-muted-foreground">
-            {hasAppliedFilters
-              ? `Your current market contains ${counts.accounts.toLocaleString()} target accounts across ${counts.centers.toLocaleString()} centres, with ${counts.prospects.toLocaleString()} mapped decision-makers.`
-              : "You're looking at the full India GCC ecosystem. Apply a filter to isolate the market that fits your offer."}
-          </p>
+          {/* Tracked vs shown: the platform depth is the hook. */}
+          <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-5 md:flex md:items-center md:justify-between md:gap-6">
+            <p className="text-sm md:text-base leading-relaxed">
+              <span className="font-semibold text-foreground">{filterSummary}: </span>
+              {nf(counts.accounts)} {counts.accounts === 1 ? "company" : "companies"},{" "}
+              {nf(counts.centers)} {counts.centers === 1 ? "centre" : "centres"} and{" "}
+              {nf(counts.prospects)} decision-makers tracked in Bamboo Reports. Showing{" "}
+              {nf(visibleAccounts.length)}{" "}
+              {visibleAccounts.length === 1 ? "company" : "companies"} free here.
+              {hiddenCount > 0 && (
+                <>
+                  {" "}
+                  Sign up free to unlock the other {nf(hiddenCount)}, plus every centre
+                  and decision-maker.
+                </>
+              )}
+            </p>
+            <Button asChild className="mt-4 shrink-0 rounded-full px-6 font-bold md:mt-0">
+              <a href="/signup?src=gcc-tracked-shown">Sign up free</a>
+            </Button>
+          </div>
 
           {/* Directory */}
           <div className="mt-10 overflow-hidden rounded-lg border bg-card">
@@ -567,9 +648,8 @@ const Tracker = () => {
                               className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                             >
                               <Lock className="h-4 w-4" />
-                              +{hiddenCount.toLocaleString()} more{" "}
-                              {hiddenCount === 1 ? "company" : "companies"} available
-                              with a free account
+                              Sign up free to unlock {hiddenCount.toLocaleString()} more{" "}
+                              {hiddenCount === 1 ? "company" : "companies"}
                             </a>
                           </td>
                         </tr>
@@ -583,9 +663,8 @@ const Tracker = () => {
                           className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                         >
                           <Lock className="h-4 w-4" />
-                          All {hiddenCount.toLocaleString()} matching{" "}
-                          {hiddenCount === 1 ? "company is" : "companies are"} available
-                          with a free account
+                          Sign up free to see all {hiddenCount.toLocaleString()} matching{" "}
+                          {hiddenCount === 1 ? "company" : "companies"}
                         </a>
                       </td>
                     </tr>

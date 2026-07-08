@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Check, ChevronsUpDown, Search } from "lucide-react";
+import { Check, ChevronsUpDown, Lock, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +21,10 @@ interface MultiSelectFilterProps {
   value: string[];
   onValueChange: (next: string[]) => void;
   disabled?: boolean;
+  /** Options beyond the public top-N; shown as a sign-up gate, not listed. */
+  lockedCount?: number;
+  lockedNoun?: string;
+  lockedHref?: string;
 }
 
 export function MultiSelectFilter({
@@ -29,6 +33,9 @@ export function MultiSelectFilter({
   value,
   onValueChange,
   disabled,
+  lockedCount = 0,
+  lockedNoun = "options",
+  lockedHref = "/signup",
 }: MultiSelectFilterProps) {
   const [open, setOpen] = React.useState(false);
   const [query, setQuery] = React.useState("");
@@ -111,6 +118,17 @@ export function MultiSelectFilter({
             })
           )}
         </div>
+        {lockedCount > 0 && (
+          <div className="border-t p-1">
+            <a
+              href={lockedHref}
+              className="flex w-full items-center gap-2 rounded-sm px-2 py-2 text-sm font-medium text-primary transition-colors hover:bg-accent"
+            >
+              <Lock className="h-3.5 w-3.5 shrink-0" />
+              Sign up free to unlock {lockedCount.toLocaleString()} more {lockedNoun}
+            </a>
+          </div>
+        )}
         {value.length > 0 && (
           <div className="border-t p-1">
             <Button
