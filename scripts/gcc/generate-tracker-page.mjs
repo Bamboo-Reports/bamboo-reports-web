@@ -65,6 +65,7 @@ function buildTrackerPage(html, accounts, pub, nameToSlug, directoryPages) {
     name: "Global Capability Centers (GCCs) in India",
     description: `Directory of ${nf(totals.accounts)} GCCs in India across ${nf(totals.centers)} centres, with ${nf(totals.prospects)} mapped decision-makers.`,
     creator: { "@type": "Organization", name: "Bamboo Reports" },
+    license: `${SITE}/terms-conditions`,
     variableMeasured: [
       { "@type": "PropertyValue", name: "GCC companies tracked", value: totals.accounts },
       { "@type": "PropertyValue", name: "GCC centres in India", value: totals.centers },

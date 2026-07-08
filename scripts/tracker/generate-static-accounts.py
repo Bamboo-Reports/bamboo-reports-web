@@ -187,6 +187,20 @@ def account_sort_key(item):
     return group, visible_name.casefold()
 
 
+def published_slugs():
+    """name -> slug for companies whose detail page is actually published,
+    so the hydrated directory table can link them (the prerendered HTML and
+    directory pages carry the same links server-side for crawlers)."""
+    slugs = {}
+    for path in (ROOT / "data" / "gcc" / "companies").glob("*.json"):
+        company = json.loads(path.read_text())
+        page = ROOT / "public" / "gcc" / "companies" / company["slug"] / "index.html"
+        if page.exists():
+            slugs[company["name"]] = company["slug"]
+            slugs[clean_display_name(company["name"])] = company["slug"]
+    return slugs
+
+
 def main():
     source = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_INPUT
     output_dir = Path(sys.argv[2]) if len(sys.argv) > 2 else DEFAULT_OUTPUT_DIR
@@ -288,11 +302,13 @@ def main():
     # Each private record carries `h`, a truncated hash of the simplified
     # name, so the search box can say "tracked, sign up to unlock" on an
     # exact-name query without revealing the private list.
+    slugs = published_slugs()
     tracker_accounts = [
         {
             "_sort": clean_display_name(account),
             "name": clean_display_name(account) if visibility.get(account, "public") == "public" else None,
             "h": private_name_hash(account) if visibility.get(account, "public") == "private" else None,
+            "slug": slugs.get(account) if visibility.get(account, "public") == "public" else None,
             "industry": industry or None,
             "cities": [
                 {"name": city, "centerCount": count}
@@ -316,8 +332,9 @@ def main():
     tracker_accounts.sort(key=lambda record: account_sort_key((record["_sort"],)))
     for record in tracker_accounts:
         del record["_sort"]
-        if record.get("h") is None:
-            record.pop("h", None)
+        for optional in ("h", "slug"):
+            if record.get(optional) is None:
+                record.pop(optional, None)
 
     output_dir.mkdir(parents=True, exist_ok=True)
     for stale in output_dir.glob("*.json"):

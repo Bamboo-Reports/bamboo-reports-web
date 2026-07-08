@@ -618,7 +618,16 @@ const Tracker = () => {
                         <tr key={account.name}>
                           <td className="overflow-hidden px-5 py-4 font-medium text-foreground">
                             <div className="truncate" title={account.name}>
-                              {account.name}
+                              {account.slug ? (
+                                <a
+                                  href={`/gcc/companies/${account.slug}/`}
+                                  className="hover:text-primary hover:underline"
+                                >
+                                  {account.name}
+                                </a>
+                              ) : (
+                                account.name
+                              )}
                             </div>
                           </td>
                           <td className="overflow-hidden px-5 py-4 text-muted-foreground">

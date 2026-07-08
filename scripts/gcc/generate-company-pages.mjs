@@ -233,6 +233,7 @@ function buildSchemas(c, canonical) {
     name: `${c.displayName} Global Capability Centers in India`,
     description: `${c.shortName} operates ${s.activeCenters} active centers across ${s.cities.length} Indian cities.`,
     creator: { "@type": "Organization", name: "Bamboo Reports" },
+    license: `${SITE}/terms-conditions`,
     dateModified: c.dateModified,
     variableMeasured: [
       { "@type": "PropertyValue", name: "Active centers in India", value: s.activeCenters },

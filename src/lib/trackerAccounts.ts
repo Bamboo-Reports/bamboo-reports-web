@@ -4,6 +4,9 @@ export interface StaticTrackerAccount {
   /** Private accounts only: truncated hash of the simplified name, so search
    * can say "tracked, sign up to unlock" without shipping the private list. */
   h?: string;
+  /** Present only when the company's detail page is published; the table
+   * links to /gcc/companies/<slug>/. */
+  slug?: string;
   industry: string | null;
   cities: Array<{
     name: string;

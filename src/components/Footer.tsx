@@ -1,4 +1,4 @@
-import logo from "@/assets/researchnxt-logo.png";
+import logo from "@/assets/bamboo-logo.svg";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
