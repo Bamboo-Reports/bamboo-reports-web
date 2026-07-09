@@ -476,13 +476,13 @@ const Tracker = () => {
           {/* Counts */}
           <div className="mt-6 grid md:grid-cols-3 gap-4 md:gap-6">
             <CountCard
-              label="Target accounts"
+              label="Accounts"
               value={counts.accounts}
               icon={Building2}
               isLoading={isLoadingFirstTime}
             />
             <CountCard
-              label="Matching centres"
+              label="Centres"
               value={counts.centers}
               icon={Layers}
               isLoading={isLoadingFirstTime}
