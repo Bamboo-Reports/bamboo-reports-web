@@ -125,7 +125,7 @@
     .site-nav, .nav-actions { display: flex; align-items: center; gap: 4px; }
     .header-right { display: flex; align-items: center; gap: 14px; }
     .nav-link, .nav-dropdown summary { display: inline-flex; min-height: 40px; align-items: center; padding: 8px 16px; border-radius: 8px; color: var(--heading); font-size: 14px; font-weight: 500; cursor: pointer; list-style: none; white-space: nowrap; }
-    .nav-link:hover, .nav-dropdown summary:hover { color: var(--accent); }
+    .nav-link:hover, .nav-dropdown summary:hover { color: var(--primary); }
     .nav-dropdown { position: relative; }
     .nav-dropdown summary::-webkit-details-marker { display: none; }
     .nav-dropdown summary::after { margin-left: 6px; content: "\2304"; }
@@ -148,7 +148,7 @@
     .kicker {
       display: inline-block;
       margin-bottom: 14px;
-      color: var(--accent-dark);
+      color: var(--primary-dark);
       font-size: 11.5px;
       font-weight: 800;
       letter-spacing: .14em;
@@ -220,24 +220,23 @@
       font-weight: 600;
       white-space: nowrap;
     }
-    .subnav a:hover { color: var(--heading); border-bottom-color: var(--accent); }
+    .subnav a:hover { color: var(--heading); border-bottom-color: var(--primary); }
 
     main { padding: 10px 0 40px; }
     .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; }
 
     .section { padding: 34px 0 8px; scroll-margin-top: calc(160px + var(--promo-h)); }
     .section + .section { border-top: 1px solid var(--border); }
-    .section h2 { margin: 0 0 6px; color: var(--heading); font-size: 22px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; }
+    .section h2 { margin: 0 0 8px; color: var(--heading); font-size: 22px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; }
     .section .desc { max-width: 70ch; margin: 0 0 20px; color: var(--muted); font-size: 14.5px; }
-    .section-kicker { display: block; margin-bottom: 8px; color: var(--accent-dark); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
     .prose { max-width: 72ch; margin: 0 0 20px; color: #334155; font-size: 15.5px; line-height: 1.75; }
 
     .insight {
       max-width: 72ch;
       margin: 4px 0 22px;
       padding: 18px 22px;
-      border-left: 3px solid var(--accent);
-      border-radius: 0 8px 8px 0;
+      border: 1px solid #cde7f7;
+      border-radius: 10px;
       color: #20384a;
       background: var(--surface-blue);
       font-size: 15px;
@@ -392,7 +391,8 @@
           <a class="nav-link" href="/map-your-gcc-opportunity">Pricing</a>
         </nav>
         <div class="nav-actions">
-          <a class="btn btn-accent btn-sm" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Get a Demo</a>
+          <a class="btn btn-ghost btn-sm" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Get a Demo</a>
+          <a class="btn btn-primary btn-sm" href="/signup?src=gcc-company-3m-co-header">Sign up free</a>
           <a class="nav-link" href="/signin">Sign In</a>
         </div>
         <details class="mobile-nav">
@@ -405,6 +405,7 @@
             <a href="/success-stories">Success Stories</a>
             <a href="/resources">Resources</a>
             <a href="/map-your-gcc-opportunity">Pricing</a>
+            <a href="/signup?src=gcc-company-3m-co-header">Sign up free</a>
             <a href="/signin">Sign In</a>
           </nav>
         </details>
@@ -455,7 +456,6 @@
       <div class="content-grid">
         <div>
           <section class="section" id="overview">
-            <span class="section-kicker">Overview</span>
             <h2>About 3M in India</h2>
             <p class="prose">3M's India centers pair product engineering with shared-services and enterprise IT work. The footprint supports global product development, supply-chain analytics and enterprise IT for 3M's safety, transportation and healthcare businesses.</p>
             <blockquote class="insight"><strong>The Bamboo Reports view.</strong> Search elsewhere and you will usually find one 3M office in India. We map every GCC center in the footprint, each tagged by type, function and city, so a name on a list becomes an account you can plan against.</blockquote>
@@ -468,7 +468,6 @@
           </section>
 
           <section class="section" id="footprint">
-            <span class="section-kicker">India footprint</span>
             <h2>Where 3M operates</h2>
             <p class="desc">Cities with active centers, and the kind of work each center does. Exact street addresses, per-center headcount and the live map open inside a free account.</p>
             <div class="chip-row"><span class="chip">Bengaluru</span><span class="chip chip-more">+1 more city</span></div>
@@ -485,7 +484,6 @@
           </section>
 
           <section class="section" id="capabilities">
-            <span class="section-kicker">Capabilities</span>
             <h2>What the India centers deliver</h2>
             <p class="desc">The functions running out of India today. The service lines behind each one sit in the full profile.</p>
             <div class="data-preview"><span class="preview-value">IT</span><span class="preview-separator" aria-hidden="true">/</span><span class="preview-more">+6 more functions</span></div>
@@ -496,7 +494,6 @@
           </section>
 
           <section class="section" id="technology">
-            <span class="section-kicker">Technology</span>
             <h2>Technology in use</h2>
             <p class="desc">We track the platforms 3M's India centers run. The named stack and vendors are part of the paid profile.</p>
             <div class="data-preview"><span class="preview-category">Cloud Platform</span><span class="preview-value">AWS</span></div>
@@ -508,7 +505,6 @@
           </section>
 
           <section class="section" id="leadership">
-            <span class="section-kicker">Leadership</span>
             <h2>Who runs it</h2>
             <p class="desc">A sample of decision-maker titles across Finance, IT, HR, GCC leadership and Procurement is shown below. Names, email and LinkedIn for the full leadership map (26 tracked) open with a free account, and your signup includes credits to reveal a few.</p>
             <div class="decision-makers">
@@ -528,7 +524,6 @@
           </section>
 
           <section class="section" id="faq">
-            <span class="section-kicker">FAQ</span>
             <h2>Common questions</h2>
             <details class="faq" open>
               <summary>How many centers does 3M operate in India?</summary>
@@ -550,11 +545,6 @@
               <summary>Who leads 3M's GCC in India?</summary>
               <p>Bamboo Reports tracks leaders at 3M's India centers, across Finance and other leadership functions. Names and contact details open with a free account.</p>
             </details>
-            <div class="side-box inline-cta" style="margin-top: 24px;">
-              <h3>Map Your India GCC Opportunity</h3>
-              <p>Get a 30-minute assessment to size your India GCC opportunity and identify the accounts that best match your ICP.</p>
-              <a class="btn btn-ghost" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Book Now</a>
-            </div>
           </section>
         </div>
 
@@ -568,11 +558,6 @@
             <h3>Size your market</h3>
             <p>Filter India's GCC universe by company, industry and city.</p>
             <a class="btn btn-ghost" href="/gcc?src=gcc-company-3m-co-v2-side">Explore India GCCs</a>
-          </div>
-          <div class="side-box">
-            <h3>Map Your India GCC Opportunity</h3>
-            <p>Get a 30-minute assessment to size your India GCC opportunity and identify the accounts that best match your ICP.</p>
-            <a class="btn btn-ghost" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Book Now</a>
           </div>
         </aside>
       </div>
@@ -614,7 +599,7 @@
         </nav>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Bamboo Reports &middot; A Research NXT company. All rights reserved.</span>
+        <span>&copy; 2026 Bamboo Reports &middot; A Research NXT Product. All rights reserved.</span>
         <nav class="footer-legal" aria-label="Legal">
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms-conditions">Terms &amp; Conditions</a>
@@ -625,7 +610,7 @@
 
   <div class="mobile-cta" aria-label="Quick actions">
     <a class="btn btn-primary" href="/signup?src=gcc-company-3m-co-v2-sticky">Sign up free</a>
-    <a class="btn btn-accent" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Get a Demo</a>
+    <a class="btn btn-ghost" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true" target="_blank" rel="noopener noreferrer">Get a Demo</a>
   </div>
 </body>
 </html>

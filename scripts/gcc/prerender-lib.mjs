@@ -293,7 +293,7 @@ ${body}
   </main>
   <footer class="site-footer">
     <div class="wrap">
-      <span>&copy; 2026 Bamboo Reports &middot; A Research NXT company. All rights reserved.</span>
+      <span>&copy; 2026 Bamboo Reports &middot; A Research NXT Product. All rights reserved.</span>
       <span><a href="/gcc/">GCC companies in India</a> &middot; <a href="/privacy-policy">Privacy Policy</a> &middot; <a href="/terms-conditions">Terms &amp; Conditions</a></span>
     </div>
   </footer>

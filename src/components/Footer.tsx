@@ -96,7 +96,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col gap-4 border-t pt-6 md:flex-row md:items-center md:justify-between">
           <div className="text-sm text-muted-foreground">
-            &copy; {currentYear} Bamboo Reports &middot; A Research NXT company. All rights reserved.
+            &copy; {currentYear} Bamboo Reports &middot; A Research NXT Product. All rights reserved.
           </div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <Link to="/privacy-policy" className="transition-colors duration-micro ease-smooth hover:text-primary">
