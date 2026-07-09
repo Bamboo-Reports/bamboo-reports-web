@@ -15,6 +15,10 @@ export interface StaticTrackerAccount {
   /** Every center row of the account counts: GCC-ness is decided at the
    * account level (account_type in the export), not per center. */
   centerCount: number;
+  /** Strict count (active, GCC-type centers only), matching the company's
+   * public page; present only when it differs from centerCount. Shown when
+   * the company is explicitly selected. */
+  gccCenterCount?: number;
   prospectCount: number;
   visibility: "public" | "private";
 }

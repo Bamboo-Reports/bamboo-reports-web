@@ -34,6 +34,13 @@ TOP_FACETS = 10
 # centers and prospects.
 GCC_ACCOUNT_TYPE = "gcc"
 
+# Strict per-company count (same two conditions as the company pages: active
+# centers, non-GCC types dropped) shipped alongside the account-level count.
+# The tracker shows it when a single company is explicitly selected, so the
+# drill-down matches that company's public page.
+sys.path.insert(0, str(ROOT / "scripts"))
+from gcc_rules import ACTIVE_CENTER_STATUS, gcc_centers  # noqa: E402
+
 # Acquired/merged parentheticals are stripped from the public display name
 # ("AbsolutData (Acquired by Infogain)" -> "AbsolutData"); the full legal name
 # is kept internally for sorting and page-slug matching.
@@ -194,6 +201,7 @@ def main():
             paths["centers"],
             strings,
             {"account_global_legal_name", "center_city"},
+            optional_columns={"center_type", "center_status"},
         )
         prospects = read_sheet(
             archive,
@@ -258,10 +266,28 @@ def main():
     # Every center row of a gcc account counts (any type, any status): the
     # account-level flag is the single GCC definition.
     city_counts = defaultdict(Counter)
+    centers_by_account = defaultdict(list)
     for record in centers:
         account = record["account_global_legal_name"]
         if account in industries and record["center_city"]:
             city_counts[account][record["center_city"]] += 1
+            centers_by_account[account].append(record)
+
+    # Strict count per account, mirroring the company-page pipeline exactly.
+    strict_counts = {}
+    has_rule_columns = bool(centers) and "center_type" in centers[0] and "center_status" in centers[0]
+    if has_rule_columns:
+        for account, records in centers_by_account.items():
+            active = [r for r in records if r["center_status"] == ACTIVE_CENTER_STATUS]
+            strict_counts[account] = len(
+                gcc_centers(active, lambda c: c.get("center_type", "").strip())
+            )
+    else:
+        print(
+            "WARNING: centers sheet has no center_type/center_status columns; "
+            "strict per-company counts fall back to the account-level count.",
+            file=sys.stderr,
+        )
     prospect_counts = Counter(
         record["account_global_legal_name"]
         for record in prospects
@@ -290,6 +316,7 @@ def main():
                 )
             ],
             "centerCount": sum(city_counts[account].values()),
+            "gccCenterCount": strict_counts.get(account),
             "prospectCount": prospect_counts[account],
             "visibility": visibility.get(account, "public"),
         }
@@ -304,6 +331,10 @@ def main():
         for optional in ("h", "slug"):
             if record.get(optional) is None:
                 record.pop(optional, None)
+        # Omitted when it matches the account-level count; the client falls
+        # back to centerCount.
+        if record["gccCenterCount"] is None or record["gccCenterCount"] == record["centerCount"]:
+            record.pop("gccCenterCount")
 
     output_dir.mkdir(parents=True, exist_ok=True)
     for stale in output_dir.glob("*.json"):

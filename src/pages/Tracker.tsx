@@ -251,14 +251,19 @@ const Tracker = () => {
   );
   const hiddenCount = filteredAccounts.length - visibleAccounts.length;
 
+  // With a company explicitly selected, the centres count uses the strict
+  // definition its public page uses (active, GCC-type centers only) and
+  // overrides the city dimension; aggregate views stay account-level.
+  const companySelected = filters.account_global_legal_name.length > 0;
   const counts = useMemo(
     () =>
       filteredAccounts.reduce(
         (sums, account) => {
           sums.accounts += 1;
           sums.prospects += account.prospectCount;
-          sums.centers +=
-            filters.center_city.length > 0
+          sums.centers += companySelected
+            ? account.gccCenterCount ?? account.centerCount
+            : filters.center_city.length > 0
               ? account.cities
                   .filter((city) => filters.center_city.includes(city.name))
                   .reduce((sum, city) => sum + city.centerCount, 0)
@@ -267,7 +272,7 @@ const Tracker = () => {
         },
         { accounts: 0, centers: 0, prospects: 0 }
       ),
-    [filteredAccounts, filters.center_city]
+    [filteredAccounts, filters.center_city, companySelected]
   );
 
   const facets = useMemo(() => {
