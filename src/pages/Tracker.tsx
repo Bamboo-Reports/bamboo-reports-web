@@ -548,13 +548,16 @@ const Tracker = () => {
                   ) : accounts.length > 0 ? (
                     <>
                       {accounts.map((account) => (
-                        <tr key={account.name}>
+                        <tr
+                          key={account.name}
+                          className="transition-colors duration-micro hover:bg-muted/40"
+                        >
                           <td className="overflow-hidden px-5 py-4 font-medium text-foreground">
                             <div className="truncate" title={account.name}>
                               {account.slug ? (
                                 <a
                                   href={`/gcc/companies/${account.slug}/`}
-                                  className="hover:text-primary hover:underline"
+                                  className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                                 >
                                   {account.name}
                                 </a>
@@ -620,8 +623,20 @@ const Tracker = () => {
                     </tr>
                   ) : (
                     <tr>
-                      <td colSpan={3} className="px-5 py-10 text-center text-muted-foreground">
-                        No accounts match the current filters.
+                      <td colSpan={3} className="px-5 py-10 text-center">
+                        <p className="text-muted-foreground">
+                          No accounts match the current filters.
+                        </p>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          onClick={reset}
+                          className="mt-3"
+                        >
+                          <RotateCcw className="mr-2 h-4 w-4" />
+                          Reset filters
+                        </Button>
                       </td>
                     </tr>
                   )}
@@ -629,28 +644,45 @@ const Tracker = () => {
               </table>
             </div>
 
-            <div className="flex flex-col gap-3 border-t px-5 py-4 sm:flex-row sm:items-center sm:justify-end">
-              <div className="flex gap-2">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setPage((current) => Math.max(1, current - 1))}
-                  disabled={page <= 1 || isLoadingStaticAccounts}
-                >
-                  Previous
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
-                  disabled={page >= totalPages || isLoadingStaticAccounts}
-                >
-                  Next
-                </Button>
+            <nav
+              aria-label="Directory pages"
+              className="flex flex-col gap-3 border-t px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <p className="text-sm text-muted-foreground tabular-nums" aria-live="polite">
+                {isLoadingStaticAccounts || visibleAccounts.length === 0
+                  ? " "
+                  : `Showing ${nf((page - 1) * PAGE_SIZE + 1)}–${nf(
+                      (page - 1) * PAGE_SIZE + accounts.length
+                    )} of ${nf(visibleAccounts.length)} companies`}
+              </p>
+              <div className="flex items-center gap-3">
+                {totalPages > 1 && !isLoadingStaticAccounts && (
+                  <span className="text-sm text-muted-foreground tabular-nums">
+                    Page {nf(page)} of {nf(totalPages)}
+                  </span>
+                )}
+                <div className="flex gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setPage((current) => Math.max(1, current - 1))}
+                    disabled={page <= 1 || isLoadingStaticAccounts}
+                  >
+                    Previous
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
+                    disabled={page >= totalPages || isLoadingStaticAccounts}
+                  >
+                    Next
+                  </Button>
+                </div>
               </div>
-            </div>
+            </nav>
           </div>
         </div>
       </section>
