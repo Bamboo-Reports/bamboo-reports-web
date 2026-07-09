@@ -15,7 +15,7 @@ import {
   hashCompanyName,
   type StaticTrackerAccount,
 } from "@/lib/trackerAccounts";
-import { TRACKER_STATS } from "@/lib/trackerStats";
+import { TRACKER_STATS, TRACKER_NON_GCC_NOTES } from "@/lib/trackerStats";
 import {
   ArrowDown,
   Building2,
@@ -168,18 +168,22 @@ const Tracker = () => {
 
   // Gated-company detection: private records ship only a hash of their
   // simplified name, so an exact-name search can say "tracked, sign up to
-  // unlock" without the private list ever being in the payload.
+  // unlock" without the private list ever being in the payload. Excluded
+  // non-gcc accounts get their explanatory note the same way.
   const [gatedMatch, setGatedMatch] = useState(false);
+  const [nonGccNote, setNonGccNote] = useState<string | null>(null);
   useEffect(() => {
     const q = debouncedAccountSearch.trim();
     if (q.length < 2) {
       setGatedMatch(false);
+      setNonGccNote(null);
       return;
     }
     let cancelled = false;
     hashCompanyName(q).then((hash) => {
       if (!cancelled) {
         setGatedMatch(hash !== null && staticAccounts.some((a) => a.h === hash));
+        setNonGccNote(hash !== null ? TRACKER_NON_GCC_NOTES[hash] ?? null : null);
       }
     });
     return () => {
@@ -410,6 +414,7 @@ const Tracker = () => {
                   suggestions={facets.account_global_legal_name}
                   isSearching={isSearchingAccounts}
                   isGatedMatch={gatedMatch}
+                  nonGccNote={nonGccNote}
                   disabled={isLoadingFirstTime}
                   onQueryChange={(next) => {
                     setAccountSearch(next);

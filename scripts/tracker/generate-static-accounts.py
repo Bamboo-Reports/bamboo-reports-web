@@ -187,6 +187,7 @@ def main():
                 "account_type",
                 "account_visibility",
             },
+            optional_columns={"account_note"},
         )
         centers = read_sheet(
             archive,
@@ -213,6 +214,23 @@ def main():
     dropped = sum(1 for r in accounts if r["account_global_legal_name"]) - len(gcc_accounts)
     if dropped:
         print(f"Excluded {dropped} non-gcc accounts (and their centers/prospects)")
+
+    # Non-gcc accounts never enter the directory, but an exact-name search can
+    # explain why (e.g. "Only Manufacturing presence in India"). Keyed by the
+    # same truncated name hash as gated search so the excluded list is not
+    # readable from the payload.
+    non_gcc_notes = {}
+    for record in accounts:
+        name = record["account_global_legal_name"]
+        note = record.get("account_note", "").strip()
+        if not name or not note:
+            continue
+        if record["account_type"].strip().lower() == GCC_ACCOUNT_TYPE:
+            print(f"Ignoring account_note on gcc account {name!r}: {note!r}")
+            continue
+        # Warehouse glitch glues the words together ("ManufacturingPresence").
+        note = re.sub(r"\s*Presence In India$", " presence in India", note)
+        non_gcc_notes[private_name_hash(name)] = note
 
     # Standardized industry labels shared with the landing pages and company
     # pages (data/gcc/taxonomy.json); unmapped raw values pass through.
@@ -356,7 +374,12 @@ def main():
         f"export const TRACKER_TOP_INDUSTRIES = {json.dumps(top_industries)} as const;\n\n"
         f"export const TRACKER_TOP_CITIES = {json.dumps(top_cities)} as const;\n\n"
         "export const TRACKER_COMBOS: Record<string, { a: number; c: number; p: number }> =\n"
-        f"  {json.dumps(combos, separators=(',', ':'))};\n"
+        f"  {json.dumps(combos, separators=(',', ':'))};\n\n"
+        "// Excluded non-gcc accounts, keyed by the truncated hash of the\n"
+        "// simplified name (same scheme as gated search): search shows the note\n"
+        "// on an exact-name match without shipping the excluded list.\n"
+        "export const TRACKER_NON_GCC_NOTES: Record<string, string> =\n"
+        f"  {json.dumps(non_gcc_notes, separators=(',', ':'), ensure_ascii=False)};\n"
     )
     print(f"Wrote {len(tracker_accounts)} accounts across {len(chunk_urls)} chunks to {output_dir}")
     print(f"Chunk manifest written to {CHUNK_MANIFEST}")

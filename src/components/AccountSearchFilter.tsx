@@ -17,6 +17,9 @@ interface AccountSearchFilterProps {
   isSearching: boolean;
   /** True when the query exactly matches a tracked-but-gated (private) company. */
   isGatedMatch?: boolean;
+  /** Set when the query exactly matches an account excluded from the GCC
+   * directory; explains why (e.g. "Only Manufacturing presence in India"). */
+  nonGccNote?: string | null;
   disabled?: boolean;
   onQueryChange: (query: string) => void;
   onSelect: (account: string) => void;
@@ -29,6 +32,7 @@ export function AccountSearchFilter({
   suggestions,
   isSearching,
   isGatedMatch = false,
+  nonGccNote = null,
   disabled,
   onQueryChange,
   onSelect,
@@ -114,6 +118,13 @@ export function AccountSearchFilter({
               {option.value}
             </button>
           ))
+        ) : nonGccNote ? (
+          <div className="px-3 py-4 text-sm">
+            <p className="font-medium text-foreground">
+              Not counted as a GCC in our directory.
+            </p>
+            <p className="mt-1 text-muted-foreground">{nonGccNote}.</p>
+          </div>
         ) : isGatedMatch ? (
           <div className="px-3 py-4 text-sm">
             <p className="text-muted-foreground">
