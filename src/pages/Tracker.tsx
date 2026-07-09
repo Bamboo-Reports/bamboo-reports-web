@@ -85,21 +85,21 @@ const CountCard = ({
   icon: React.ElementType;
   isLoading: boolean;
 }) => (
-  <Card className="p-6 md:p-8">
+  <Card className="p-5 md:p-6">
     <div className="flex items-start justify-between">
       <div>
         <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
           {label}
         </p>
-        <div className="mt-3 text-4xl md:text-5xl font-bold tracking-tight tabular-nums">
+        <div className="mt-2 text-3xl md:text-4xl font-bold tracking-tight tabular-nums">
           {isLoading ? (
-            <span className="inline-block h-10 w-28 animate-pulse rounded-md bg-muted" />
+            <span className="inline-block h-9 w-24 animate-pulse rounded-md bg-muted" />
           ) : (
             value.toLocaleString()
           )}
         </div>
       </div>
-      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-accent">
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">
         <Icon className="h-5 w-5" />
       </div>
     </div>
@@ -343,10 +343,10 @@ const Tracker = () => {
       <Header />
 
       {/* TRACKER */}
-      <section id="size-your-market" className="scroll-mt-24 py-14 md:py-20 px-4">
+      <section id="size-your-market" className="scroll-mt-24 pt-10 pb-14 md:pt-14 md:pb-20 px-4">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <div className="mb-10 max-w-3xl">
+            <div className="mb-8 max-w-3xl">
               <h1 className="text-2xl md:text-4xl font-bold tracking-tight">
                 Size your market in three clicks
               </h1>
@@ -506,7 +506,7 @@ const Tracker = () => {
 
 
           {/* Directory */}
-          <div className="mt-10 overflow-hidden rounded-lg border bg-card">
+          <div className="mt-8 overflow-hidden rounded-lg border bg-card">
             <div className="border-b px-5 py-4">
               <h3 className="text-lg font-semibold tracking-tight">Browse GCCs</h3>
             </div>
@@ -519,9 +519,9 @@ const Tracker = () => {
             >
               <table className="w-full min-w-[720px] table-fixed text-left text-sm">
                 <colgroup>
-                  <col className="w-[34%]" />
                   <col className="w-[42%]" />
-                  <col className="w-[24%]" />
+                  <col className="w-[30%]" />
+                  <col className="w-[28%]" />
                 </colgroup>
                 <thead className="bg-muted/40 text-xs uppercase tracking-wide text-muted-foreground">
                   <tr>
@@ -646,42 +646,26 @@ const Tracker = () => {
 
             <nav
               aria-label="Directory pages"
-              className="flex flex-col gap-3 border-t px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
+              className="flex justify-end gap-2 border-t px-5 py-4"
             >
-              <p className="text-sm text-muted-foreground tabular-nums" aria-live="polite">
-                {isLoadingStaticAccounts || visibleAccounts.length === 0
-                  ? " "
-                  : `Showing ${nf((page - 1) * PAGE_SIZE + 1)}–${nf(
-                      (page - 1) * PAGE_SIZE + accounts.length
-                    )} of ${nf(visibleAccounts.length)} companies`}
-              </p>
-              <div className="flex items-center gap-3">
-                {totalPages > 1 && !isLoadingStaticAccounts && (
-                  <span className="text-sm text-muted-foreground tabular-nums">
-                    Page {nf(page)} of {nf(totalPages)}
-                  </span>
-                )}
-                <div className="flex gap-2">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setPage((current) => Math.max(1, current - 1))}
-                    disabled={page <= 1 || isLoadingStaticAccounts}
-                  >
-                    Previous
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
-                    disabled={page >= totalPages || isLoadingStaticAccounts}
-                  >
-                    Next
-                  </Button>
-                </div>
-              </div>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => setPage((current) => Math.max(1, current - 1))}
+                disabled={page <= 1 || isLoadingStaticAccounts}
+              >
+                Previous
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
+                disabled={page >= totalPages || isLoadingStaticAccounts}
+              >
+                Next
+              </Button>
             </nav>
           </div>
         </div>
