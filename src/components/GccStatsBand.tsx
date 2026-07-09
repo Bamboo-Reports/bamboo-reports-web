@@ -12,30 +12,40 @@ const STATS: Array<{ label: string; value: string }> = [
   { label: "Decision-makers", value: nf(TRACKER_STATS.decisionMakers) },
 ];
 
-// Homepage headline numbers, generated at build time from the tracker data so
-// they can never drift from the /gcc directory.
+// The dataset readout: the one dark section on the page. Figures are
+// generated at build time from the tracker data so they can never drift
+// from the /gcc directory.
 const GccStatsBand = () => (
-  <section className="bg-primary text-primary-foreground">
-    <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
-      <div className="grid grid-cols-2 gap-y-8 text-center sm:grid-cols-3 lg:grid-cols-5 lg:divide-x lg:divide-white/15">
+  <section className="bg-[#07253A] text-white">
+    <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
+      <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/12 pb-4">
+        <h2 className="flex items-center gap-2.5 text-sm font-semibold uppercase tracking-wider">
+          <span className="h-2 w-2 rounded-full bg-accent" aria-hidden />
+          The India GCC dataset
+        </h2>
+        <p className="text-sm text-white/65">Updated July 2026</p>
+      </div>
+
+      <dl className="grid grid-cols-2 gap-x-6 gap-y-10 pt-10 sm:grid-cols-3 lg:grid-cols-5">
         {STATS.map((stat) => (
-          <div key={stat.label} className="px-4">
-            <div className="text-3xl font-bold tracking-tight tabular-nums md:text-4xl">
+          <div key={stat.label}>
+            <dd className="text-4xl font-bold tracking-tight tabular-nums md:text-[44px] md:leading-none">
               {stat.value}
-            </div>
-            <div className="mt-1.5 text-xs font-semibold uppercase tracking-wide text-primary-foreground/90 md:text-sm">
+            </dd>
+            <dt className="mt-2.5 text-sm font-medium text-white/65">
               {stat.label}
-            </div>
+            </dt>
           </div>
         ))}
-      </div>
-      <div className="mt-8 flex justify-center border-t border-white/15 pt-6">
+      </dl>
+
+      <div className="mt-12 border-t border-white/12 pt-5">
         <Link
           to="/gcc"
-          className="inline-flex items-center gap-2 text-sm font-semibold hover:underline"
+          className="inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-white hover:text-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
         >
           Explore the India GCC directory
-          <ArrowRight className="h-4 w-4" />
+          <ArrowRight className="h-4 w-4" aria-hidden />
         </Link>
       </div>
     </div>
