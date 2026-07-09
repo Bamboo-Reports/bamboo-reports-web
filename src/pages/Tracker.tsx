@@ -15,7 +15,12 @@ import {
   hashCompanyName,
   type StaticTrackerAccount,
 } from "@/lib/trackerAccounts";
-import { TRACKER_STATS, TRACKER_NON_GCC_NOTES } from "@/lib/trackerStats";
+import {
+  TRACKER_STATS,
+  TRACKER_NON_GCC_NOTES,
+  TRACKER_TOP_INDUSTRIES,
+  TRACKER_TOP_CITIES,
+} from "@/lib/trackerStats";
 import {
   Building2,
   Layers,
@@ -29,10 +34,9 @@ import {
 
 const DEBOUNCE_MS = 250;
 const PAGE_SIZE = 20;
-// Filters surface only the top N industries/cities; the long tail is public
-// on the crawlable /gcc/industries/* and /gcc/cities/* landing pages and
-// unlocks in-app with a free account.
-const TOP_FACET_LIMIT = 10;
+// Filters surface only the global top-10 industries/cities; the long tail is
+// public on the crawlable /gcc/industries/* and /gcc/cities/* landing pages
+// and unlocks in-app with a free account.
 
 const nf = (n: number) => n.toLocaleString("en-US");
 
@@ -303,11 +307,21 @@ const Tracker = () => {
 
     const industryFacets = toFacetOptions(industries);
     const cityFacets = toFacetOptions(cities);
+    // The unlocked options are the stable global top-10 lists (the same ones
+    // the homepage widget and landing pages use), not the top 10 of the
+    // current selection: picking an industry must never hide a headline city
+    // like Kolkata just because that industry is small there.
+    const unlocked = (facetOptions: FacetOption[], top: readonly string[]) =>
+      facetOptions
+        .filter((option) => top.includes(option.value))
+        .sort((a, b) => top.indexOf(a.value) - top.indexOf(b.value));
+    const industryOptions = unlocked(industryFacets, TRACKER_TOP_INDUSTRIES);
+    const cityOptions = unlocked(cityFacets, TRACKER_TOP_CITIES);
     return {
-      account_primary_category: industryFacets.slice(0, TOP_FACET_LIMIT),
-      industriesLocked: Math.max(0, industryFacets.length - TOP_FACET_LIMIT),
-      center_city: cityFacets.slice(0, TOP_FACET_LIMIT),
-      citiesLocked: Math.max(0, cityFacets.length - TOP_FACET_LIMIT),
+      account_primary_category: industryOptions,
+      industriesLocked: Math.max(0, industryFacets.length - industryOptions.length),
+      center_city: cityOptions,
+      citiesLocked: Math.max(0, cityFacets.length - cityOptions.length),
       account_global_legal_name: accountSuggestions,
     };
   }, [staticAccounts, filters, debouncedAccountSearch]);
