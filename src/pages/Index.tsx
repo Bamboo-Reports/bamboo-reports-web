@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import GccStatsBand from "@/components/GccStatsBand";
-import FindGccWidget from "@/components/FindGccWidget";
 import Q1ReportSection from "@/components/Q1ReportSection";
 import Features from "@/components/Features";
 import IntelligenceSpans from "@/components/IntelligenceSpans";
@@ -27,7 +26,6 @@ const Index = () => {
       <Header />
       <Hero />
       <GccStatsBand />
-      <FindGccWidget />
       <Q1ReportSection />
       <Features />
       <IntelligenceSpans />
