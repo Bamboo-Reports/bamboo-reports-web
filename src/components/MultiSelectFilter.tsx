@@ -109,9 +109,6 @@ export function MultiSelectFilter({
                 >
                   <Checkbox checked={checked} tabIndex={-1} className="pointer-events-none" />
                   <span className="flex-1 text-left">{option.value}</span>
-                  <span className="text-xs tabular-nums text-muted-foreground">
-                    {option.count.toLocaleString()}
-                  </span>
                   {checked && <Check className="h-4 w-4 text-primary" />}
                 </button>
               );
