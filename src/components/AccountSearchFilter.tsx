@@ -120,7 +120,7 @@ export function AccountSearchFilter({
           ))
         ) : nonGccNote ? (
           <div className="px-3 py-4 text-sm">
-            <p className="font-medium text-foreground">NON-GCC</p>
+            <p className="font-medium text-foreground">{query.trim()}</p>
             <p className="mt-1 text-muted-foreground">{nonGccNote}.</p>
           </div>
         ) : isGatedMatch ? (
