@@ -331,16 +331,6 @@ const Tracker = () => {
     };
   }, [staticAccounts, filters, debouncedAccountSearch]);
 
-  // Human label for the active filter set, e.g. "BFSI in Bengaluru".
-  const filterSummary = useMemo(() => {
-    const parts = [
-      filters.account_global_legal_name.join(", "),
-      filters.account_primary_category.join(", "),
-      filters.center_city.length > 0 ? `in ${filters.center_city.join(", ")}` : "",
-    ].filter(Boolean);
-    return parts.length > 0 ? parts.join(" ") : "All India GCCs";
-  }, [filters]);
-
   const totalPages = Math.max(1, Math.ceil(visibleAccounts.length / PAGE_SIZE));
   const accounts = visibleAccounts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const isLoadingFirstTime = isLoadingStaticAccounts;
@@ -514,27 +504,6 @@ const Tracker = () => {
             />
           </div>
 
-          {/* Tracked vs shown: the platform depth is the hook. */}
-          <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-5 md:flex md:items-center md:justify-between md:gap-6">
-            <p className="text-sm md:text-base leading-relaxed">
-              <span className="font-semibold text-foreground">{filterSummary}: </span>
-              {nf(counts.accounts)} {counts.accounts === 1 ? "company" : "companies"},{" "}
-              {nf(counts.centers)} GCC {counts.centers === 1 ? "centre" : "centres"} and{" "}
-              {nf(counts.prospects)} decision-makers tracked in Bamboo Reports. Showing{" "}
-              {nf(visibleAccounts.length)}{" "}
-              {visibleAccounts.length === 1 ? "company" : "companies"} free here.
-              {hiddenCount > 0 && (
-                <>
-                  {" "}
-                  Sign up free to unlock the other {nf(hiddenCount)}, plus every centre
-                  and decision-maker.
-                </>
-              )}
-            </p>
-            <Button asChild className="mt-4 shrink-0 rounded-full px-6 font-bold md:mt-0">
-              <a href="/signup?src=gcc-tracked-shown">Sign up free</a>
-            </Button>
-          </div>
 
           {/* Directory */}
           <div className="mt-10 overflow-hidden rounded-lg border bg-card">
