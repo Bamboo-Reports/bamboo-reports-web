@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Generates static /gcc/companies/{slug}/index.html pages from data/gcc/companies/*.json
-// using templates/gcc/company.html. Per doc/ref.md: fully static crawlable HTML, ~10% data
+// using templates/gcc/company-v2.html. Per doc/ref.md: fully static crawlable HTML, ~10% data
 // rule, contact titles only (no names in source), no password gate, four schema blocks.
 //
 // Usage: node scripts/gcc/generate-company-pages.mjs [--out <dir>]

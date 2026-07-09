@@ -59,9 +59,7 @@ const Resources = () => {
               backgroundSize: "56px 56px",
             }}
           />
-          <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
-
+    
           <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
             <h1 className="leading-[1.05] max-w-5xl">
               <span className="block text-foreground">Resources.</span>
@@ -74,11 +72,11 @@ const Resources = () => {
           </div>
         </section>
 
-        <section className="relative max-w-6xl mx-auto px-4 py-14 lg:py-20 space-y-12">
+        <section className="relative max-w-6xl mx-auto px-4 py-14 md:py-20 space-y-12">
           <section className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Resources</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Resources</p>
                 <h2 className="text-3xl lg:text-4xl font-black">Recent Roundtables</h2>
               </div>
               <Button variant="outline" className="rounded-full" asChild>
@@ -90,7 +88,7 @@ const Resources = () => {
                 <Link
                   key={article.slug}
                   to={`/roundtables/${article.slug}`}
-                  className="group relative h-full rounded-3xl border bg-gradient-to-br from-background to-muted/50 shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] overflow-hidden"
+                  className="group relative h-full rounded-2xl border bg-card shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 overflow-hidden"
                 >
                   <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
                   <div className="aspect-video overflow-hidden">
@@ -116,7 +114,7 @@ const Resources = () => {
           <section className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Resources</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Resources</p>
                 <h2 className="text-3xl lg:text-4xl font-black">Interesting Reads</h2>
               </div>
               <Button variant="outline" className="rounded-full" asChild>
@@ -128,7 +126,7 @@ const Resources = () => {
                 <Link
                   key={read.to}
                   to={read.to}
-                  className="group relative h-full rounded-3xl border bg-gradient-to-br from-background to-muted/50 shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] overflow-hidden"
+                  className="group relative h-full rounded-2xl border bg-card shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 overflow-hidden"
                 >
                   <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
                   <div className="aspect-video overflow-hidden">

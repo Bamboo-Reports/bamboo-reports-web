@@ -26,8 +26,12 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 33 100% 57%;
+    --accent: 33 100% 45%;
     --accent-foreground: 0 0% 100%;
+
+    /* Ledger navy: the ink used for the stats band, report cover, and
+       announcement bar. Darker and quieter than --primary. */
+    --navy: 205 78% 13%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
@@ -282,5 +286,11 @@ All colors MUST be HSL.
   @keyframes trustLogosScroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trust-logos-track {
+      animation: none;
+    }
   }
 }

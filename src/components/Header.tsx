@@ -87,20 +87,28 @@ const Header = () => {
               <NavigationMenuItem>
                 <Link to="/gcc">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    GCC Tracker
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link to="/platform">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Platform
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>What we Offer</NavigationMenuTrigger>
+                <NavigationMenuTrigger>What we offer</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[320px] gap-1 p-2">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
                           to="/gcc-prospect-data"
-                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           GCC Prospect Data
                         </Link>
@@ -110,7 +118,7 @@ const Header = () => {
                       <NavigationMenuLink asChild>
                         <Link
                           to="/account-market-intelligence"
-                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           Account and Market Intelligence
                         </Link>
@@ -120,7 +128,7 @@ const Header = () => {
                       <NavigationMenuLink asChild>
                         <Link
                           to="/gcc-abm"
-                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           GCC ABM
                         </Link>
@@ -174,7 +182,7 @@ const Header = () => {
                   tabIndex={showDemoCta ? undefined : -1}
                 >
                   <GoogleCalendarSchedulingButton>
-                    Get a Demo
+                    Get a demo
                   </GoogleCalendarSchedulingButton>
                 </Button>
               </div>
@@ -222,13 +230,13 @@ const Header = () => {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
                     <LogOut className="mr-2 h-4 w-4" />
-                    Sign Out
+                    Sign out
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
               <Button asChild variant="ghost" className="rounded-full">
-                <Link to="/signin">Sign In</Link>
+                <Link to="/signin">Sign in</Link>
               </Button>
             )}
           </div>
@@ -258,13 +266,22 @@ const Header = () => {
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
                     onClick={() => setMobileMenuOpen(false)}
                   >
+                    GCC Tracker
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
+
+                  <Link
+                    to="/platform"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     Platform
                     <ChevronRight className="h-5 w-5" />
                   </Link>
 
                   <details className="group border-b pb-2">
                     <summary className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth cursor-pointer list-none">
-                      What we Offer
+                      What we offer
                       <ChevronRight className="h-5 w-5 transition-transform group-open:rotate-90" />
                     </summary>
                     <div className="pl-4 space-y-1">
@@ -343,7 +360,7 @@ const Header = () => {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <GoogleCalendarSchedulingButton>
-                      Get a Demo
+                      Get a demo
                     </GoogleCalendarSchedulingButton>
                   </Button>
                   {user ? (
@@ -370,7 +387,7 @@ const Header = () => {
                         }}
                       >
                         <LogOut className="mr-2 h-4 w-4" />
-                        Sign Out
+                        Sign out
                       </Button>
                     </>
                   ) : (
@@ -381,7 +398,7 @@ const Header = () => {
                         className="w-full rounded-full font-semibold"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <Link to="/signin">Sign In</Link>
+                        <Link to="/signin">Sign in</Link>
                       </Button>
                     </div>
                   )}

@@ -177,7 +177,7 @@ const H1BStrategicReset = () => {
 
       <main className="py-16 lg:py-20 px-4">
         <div className="max-w-6xl mx-auto space-y-10">
-          <section className="rounded-3xl border bg-gradient-to-br from-primary/10 via-background to-background p-8 lg:p-12 space-y-6 shadow-sm">
+          <section className="rounded-2xl border bg-card p-8 lg:p-12 space-y-6 shadow-sm">
             <div className="inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
               Roundtable Recap
             </div>
@@ -207,15 +207,15 @@ const H1BStrategicReset = () => {
           <section className="grid md:grid-cols-3 gap-4">
             {highlights.map((item) => (
               <div key={item.title} className="h-full rounded-2xl border bg-card p-5 shadow-sm space-y-2">
-                <p className="text-sm font-semibold text-primary uppercase tracking-[0.14em]">{item.title}</p>
+                <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">{item.title}</p>
                 <p className="text-base text-muted-foreground leading-relaxed">{item.copy}</p>
               </div>
             ))}
           </section>
 
-          <section className="rounded-3xl border bg-card p-8 lg:p-10 shadow-sm space-y-4">
+          <section className="rounded-2xl border bg-card p-8 lg:p-10 shadow-sm space-y-4">
             <div className="space-y-2">
-              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Setting the context</p>
+              <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">Setting the context</p>
               <h2 className="text-3xl font-bold">This is not outsourcing shock. It is intelligent insourcing.</h2>
             </div>
             <p className="text-base text-muted-foreground leading-relaxed">
@@ -223,13 +223,13 @@ const H1BStrategicReset = () => {
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="rounded-2xl border bg-muted/40 px-4 py-3">
-                <p className="text-sm font-semibold text-primary uppercase tracking-[0.14em]">India vs Southeast Asia</p>
+                <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">India vs Southeast Asia</p>
                 <p className="text-sm text-foreground leading-relaxed">
                   Vietnam can build strong 5k-member teams, but for 10k to 50k enterprise-grade scale with consistency, India still leads. Capability plus scale remains the differentiator.
                 </p>
               </div>
               <div className="rounded-2xl border bg-muted/40 px-4 py-3">
-                <p className="text-sm font-semibold text-primary uppercase tracking-[0.14em]">What changes inside GCCs</p>
+                <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">What changes inside GCCs</p>
                 <p className="text-sm text-foreground leading-relaxed">
                   Decision rights are shifting to India across R&D, engineering, marketing, customer support, and procurement. Leaders are pushing for strategic roles to sit in-market to avoid translation layers.
                 </p>
@@ -237,9 +237,9 @@ const H1BStrategicReset = () => {
             </div>
           </section>
 
-          <section className="rounded-3xl border bg-muted/40 p-8 lg:p-10 shadow-sm space-y-5">
+          <section className="rounded-2xl border bg-muted/40 p-8 lg:p-10 shadow-sm space-y-5">
             <div className="space-y-2">
-              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Signals from the room</p>
+              <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">Signals from the room</p>
               <h3 className="text-2xl font-bold">What leaders are already acting on</h3>
             </div>
             <div className="grid gap-3">
@@ -252,9 +252,9 @@ const H1BStrategicReset = () => {
             </div>
           </section>
 
-          <section className="rounded-3xl border bg-card p-8 lg:p-10 shadow-sm space-y-5">
+          <section className="rounded-2xl border bg-card p-8 lg:p-10 shadow-sm space-y-5">
             <div className="space-y-2">
-              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Playbook prompts</p>
+              <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">Playbook prompts</p>
               <h3 className="text-2xl font-bold">How GCC teams and vendors should respond</h3>
             </div>
             <div className="grid md:grid-cols-3 gap-4">
@@ -266,10 +266,10 @@ const H1BStrategicReset = () => {
             </div>
           </section>
 
-          <section className="rounded-3xl border bg-muted/40 p-8 lg:p-10 shadow-sm space-y-6">
+          <section className="rounded-2xl border bg-muted/40 p-8 lg:p-10 shadow-sm space-y-6">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">The panel</p>
+                <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">The panel</p>
                 <h3 className="text-2xl font-bold">Leaders steering the conversation</h3>
                 <p className="text-base text-muted-foreground mt-2">
                   A cross-section of marketing, sales, digital transformation, and GCC leaders who unpacked the shift from outsourcing to intelligent insourcing.
@@ -296,9 +296,9 @@ const H1BStrategicReset = () => {
             </div>
           </section>
 
-          <section className="rounded-3xl border bg-background p-8 lg:p-10 shadow-sm space-y-4">
+          <section className="rounded-2xl border bg-background p-8 lg:p-10 shadow-sm space-y-4">
             <div className="space-y-2">
-              <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Gallery</p>
+              <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">Gallery</p>
               <h3 className="text-2xl font-bold">Moments from the Bengaluru roundtable</h3>
               <p className="text-base text-muted-foreground leading-relaxed">
                 A quick look at the conversations, working sessions, and the leaders in the room.
@@ -326,8 +326,8 @@ const H1BStrategicReset = () => {
             </div>
           </section>
 
-          <section className="rounded-3xl border bg-card p-8 lg:p-10 shadow-sm space-y-3">
-            <p className="text-sm font-semibold text-primary uppercase tracking-[0.18em]">Final takeaway</p>
+          <section className="rounded-2xl border bg-card p-8 lg:p-10 shadow-sm space-y-3">
+            <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">Final takeaway</p>
             <h3 className="text-2xl font-bold">Global capability centers are in India because capability is higher.</h3>
             <p className="text-base text-muted-foreground leading-relaxed">
               The Bengaluru roundtable made one point clear: the outsourcing era is ending. As GCCs take on strategic mandates and own budgets, India is positioned to be the primary strategy hub for global enterprises. The call to action is simple: market your wins internally, elevate strategic roles in India, and treat capability plus scale as the advantage to defend.

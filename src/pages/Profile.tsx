@@ -270,7 +270,7 @@ const Profile = () => {
 
           <div className="grid gap-6 lg:grid-cols-[320px,1fr]">
             {/* Left column: avatar + member info */}
-            <aside className="rounded-lg border bg-card p-6 h-fit">
+            <aside className="rounded-2xl border bg-card p-6 h-fit">
               <div className="flex flex-col items-center text-center">
                 <div className="relative mb-4">
                   <Avatar className="h-24 w-24">
@@ -332,7 +332,7 @@ const Profile = () => {
             {/* Right column: editable fields */}
             <section className="space-y-4">
               {/* Profile details */}
-              <div className="rounded-lg border bg-card p-6">
+              <div className="rounded-2xl border bg-card p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <User className="h-4 w-4 text-primary" />
@@ -462,7 +462,7 @@ const Profile = () => {
               </div>
 
               {/* Email */}
-              <div className="rounded-lg border bg-card p-6">
+              <div className="rounded-2xl border bg-card p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-primary" />
@@ -528,7 +528,7 @@ const Profile = () => {
               </div>
 
               {/* Password */}
-              <div className="rounded-lg border bg-card p-6">
+              <div className="rounded-2xl border bg-card p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <Lock className="h-4 w-4 text-primary" />

@@ -1,11 +1,11 @@
 /* ============================================================
    /platform — "The Intelligence Grid"
-   Editorial SaaS system: Archivo display, hairline grid,
+   Editorial SaaS system: DM Sans throughout, hairline grid,
    indexed sections, GSAP-choreographed motion. Scoped to .pf
    ============================================================ */
 
 .pf {
-  --pf-display: "Archivo", "DM Sans", system-ui, sans-serif;
+  --pf-display: "DM Sans", system-ui, sans-serif;
   --pf-line: hsl(var(--foreground) / 0.08);
   --pf-line-strong: hsl(var(--foreground) / 0.18);
   --pf-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -20,7 +20,7 @@
 .pf-label {
   font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: hsl(var(--muted-foreground));
   font-variant-numeric: tabular-nums;
@@ -37,7 +37,6 @@
 .pf-h2 {
   font-family: var(--pf-display);
   font-weight: 750;
-  font-stretch: 92%;
   font-size: clamp(2.1rem, 4.2vw, 3.5rem);
   line-height: 1.04;
   letter-spacing: -0.02em;
@@ -50,7 +49,6 @@
 .pf-h3 {
   font-family: var(--pf-display);
   font-weight: 700;
-  font-stretch: 92%;
   font-size: clamp(1.35rem, 2vw, 1.7rem);
   line-height: 1.1;
   letter-spacing: -0.015em;
@@ -82,22 +80,8 @@
   will-change: transform;
 }
 
-.pf-btn-primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(105deg, transparent 25%, hsl(var(--background) / 0.3), transparent 75%);
-  transform: translateX(-130%);
-  transition: transform 0.55s var(--pf-ease);
-}
-
 .pf-btn-primary:hover {
   box-shadow: 0 20px 44px hsl(var(--accent) / 0.38);
-}
-
-.pf-btn-primary:hover::after {
-  transform: translateX(130%);
 }
 
 .pf-btn-arrow {
@@ -133,10 +117,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 60% 50% at 82% 0%, hsl(var(--accent) / 0.12), transparent 70%),
-    radial-gradient(ellipse 55% 40% at 12% 35%, hsl(var(--primary) / 0.09), transparent 65%),
-    linear-gradient(180deg, hsl(36 60% 99%) 0%, hsl(var(--background)) 70%);
+  background: hsl(var(--background));
 }
 
 .pf-hero-grid {
@@ -171,7 +152,6 @@
 .pf-hero-title {
   font-family: var(--pf-display);
   font-weight: 800;
-  font-stretch: 92%;
   font-size: clamp(2.3rem, 5vw, 4.75rem);
   /* roomy enough that the SplitText line masks don't clip descenders (g, p) */
   line-height: 1.1;
@@ -257,9 +237,7 @@
 }
 
 .pf-section-wash {
-  background:
-    radial-gradient(ellipse 60% 40% at 50% 0%, hsl(var(--accent) / 0.04), transparent 70%),
-    linear-gradient(180deg, hsl(var(--background)), hsl(36 50% 98.5%));
+  background: hsl(var(--background));
 }
 
 /* ---------- lens scrollytelling ---------- */
@@ -292,7 +270,7 @@
 .pf-lens-idx {
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   font-variant-numeric: tabular-nums;
   color: hsl(var(--muted-foreground) / 0.7);
   transition: color 0.3s;
@@ -301,7 +279,6 @@
 .pf-lens-title {
   font-family: var(--pf-display);
   font-weight: 700;
-  font-stretch: 92%;
   font-size: 1.45rem;
   letter-spacing: -0.015em;
   color: hsl(var(--muted-foreground) / 0.75);
@@ -402,30 +379,12 @@
   overflow: hidden;
 }
 
-.pf-cap::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    240px circle at var(--mx, 50%) var(--my, 50%),
-    hsl(var(--accent) / 0.09),
-    transparent 70%
-  );
-  transition: opacity 0.35s;
-}
-
-.pf-cap:hover::before {
-  opacity: 1;
-}
-
 .pf-cap-icon {
   position: relative;
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 0.85rem;
-  background: linear-gradient(135deg, hsl(var(--accent) / 0.12), hsl(var(--primary) / 0.08));
+  background: hsl(var(--accent) / 0.1);
   box-shadow: 0 0 0 1px hsl(var(--accent) / 0.18) inset;
   color: hsl(var(--accent));
   display: inline-flex;
@@ -443,7 +402,6 @@
   position: relative;
   font-family: var(--pf-display);
   font-weight: 700;
-  font-stretch: 92%;
   font-size: 1.1rem;
   letter-spacing: -0.01em;
 }
@@ -473,7 +431,6 @@
 .pf-persona-num {
   font-family: var(--pf-display);
   font-weight: 800;
-  font-stretch: 92%;
   font-size: 2.4rem;
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -488,7 +445,6 @@
 .pf-persona-name {
   font-family: var(--pf-display);
   font-weight: 700;
-  font-stretch: 92%;
   font-size: 1.25rem;
   letter-spacing: -0.01em;
 }
@@ -530,11 +486,9 @@
 .pf-final {
   position: relative;
   overflow: hidden;
-  color: hsl(var(--background));
-  background:
-    radial-gradient(circle at 18% 0%, hsl(var(--primary) / 0.18), transparent 55%),
-    radial-gradient(circle at 82% 100%, hsl(var(--accent) / 0.22), transparent 55%),
-    hsl(var(--foreground));
+  border-top: 1px solid var(--pf-line);
+  color: hsl(var(--foreground));
+  background: hsl(var(--secondary) / 0.5);
 }
 
 .pf-final::before {
@@ -543,8 +497,8 @@
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, hsl(var(--background) / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--background) / 0.05) 1px, transparent 1px);
+    linear-gradient(to right, hsl(var(--foreground) / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(circle at center, black, transparent 78%);
 }

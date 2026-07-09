@@ -41,7 +41,7 @@ type Props = { eyebrow?: string };
 const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem" }: Props) => (
   <div className="trust-logos">
     {eyebrow ? (
-      <div className="text-center text-xs uppercase tracking-[0.22em] text-muted-foreground mb-8">
+      <div className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8">
         {eyebrow}
       </div>
     ) : null}

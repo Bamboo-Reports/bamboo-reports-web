@@ -40,7 +40,7 @@ const logos = [
 
 const ResearchNXT = () => {
   return (
-    <section className="py-16 px-4 bg-background">
+    <section className="py-14 md:py-20 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-3">
@@ -101,6 +101,12 @@ const ResearchNXT = () => {
 
         .animate-scroll:hover {
           animation-play-state: paused;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scroll {
+            animation: none;
+          }
         }
       `,
         }}

@@ -1,16 +1,22 @@
 import logo from "@/assets/bamboo-logo.svg";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 
+const exploreLinks = [
+  { label: "GCC Tracker", to: "/gcc" },
+  { label: "Success Stories", to: "/success-stories" },
+  { label: "Resources", to: "/resources" },
+];
+
 const Footer = () => {
+  const { user } = useAuth();
   const { openInquiryForm } = useInquiryForm();
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="relative overflow-hidden border-t bg-gradient-to-b from-background via-muted/20 to-background">
-      <div className="pointer-events-none absolute inset-x-0 -top-32 h-64 bg-gradient-to-br from-primary/20 via-transparent to-accent/10 blur-3xl opacity-70" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.06),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.06),transparent_30%)]" />
+    <footer className="relative border-t bg-background">
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 lg:py-16 space-y-12">
         {/* CTA Card */}
@@ -35,21 +41,21 @@ const Footer = () => {
               <GoogleCalendarSchedulingButton
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition duration-micro ease-smooth hover:shadow-md"
               >
-                Book a demo
+                Get a demo
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
               </GoogleCalendarSchedulingButton>
               <button
                 onClick={openInquiryForm}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition duration-micro ease-smooth hover:border-primary hover:text-primary"
               >
-                View pricing
+                Pricing
               </button>
             </div>
           </div>
         </div>
 
         {/* Main Footer */}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-5">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           <div className="space-y-4 md:col-span-2">
             <img
               src={logo}
@@ -62,24 +68,33 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground">Resources</h3>
+            <h3 className="text-sm font-semibold text-foreground">Explore</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>
-                <Link to="/roundtables" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                  Roundtables
-                </Link>
-              </li>
+              {exploreLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="transition-colors duration-micro ease-smooth hover:text-primary">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-foreground">Get Started</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
+              {!user && (
+                <li>
+                  <Link to="/signup?src=footer" className="transition-colors duration-micro ease-smooth hover:text-primary">
+                    Sign up free
+                  </Link>
+                </li>
+              )}
               <li>
                 <GoogleCalendarSchedulingButton
                   className="inline-flex items-center gap-1 transition-colors duration-micro ease-smooth hover:text-primary"
                 >
-                  Book a Demo
+                  Get a demo
                   <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
                 </GoogleCalendarSchedulingButton>
               </li>

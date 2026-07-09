@@ -84,7 +84,7 @@ export function MultiSelectFilter({
             placeholder={`Search ${label.toLowerCase()}...`}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="h-9 border-0 px-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+            className="h-9 border-0 px-0 focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-0"
           />
         </div>
         <div className="max-h-64 overflow-y-auto p-1">
@@ -103,8 +103,8 @@ export function MultiSelectFilter({
                   aria-selected={checked}
                   onClick={() => toggle(option.value)}
                   className={cn(
-                    "flex w-full items-center gap-3 rounded-sm px-2 py-2 text-sm outline-none transition-colors duration-micro ease-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                    checked && "bg-accent/50"
+                    "flex w-full items-center gap-3 rounded-sm px-2 py-2 text-sm outline-none transition-colors duration-micro ease-smooth hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground",
+                    checked && "bg-muted/70"
                   )}
                 >
                   <Checkbox checked={checked} tabIndex={-1} className="pointer-events-none" />
@@ -119,7 +119,7 @@ export function MultiSelectFilter({
           <div className="border-t p-1">
             <a
               href={lockedHref}
-              className="flex w-full items-center gap-2 rounded-sm px-2 py-2 text-sm font-medium text-primary transition-colors hover:bg-accent"
+              className="flex w-full items-center gap-2 rounded-sm px-2 py-2 text-sm font-medium text-primary transition-colors hover:bg-muted"
             >
               <Lock className="h-3.5 w-3.5 shrink-0" />
               Sign up free to unlock {lockedCount.toLocaleString()} more {lockedNoun}

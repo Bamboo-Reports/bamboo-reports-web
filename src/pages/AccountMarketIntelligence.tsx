@@ -79,8 +79,6 @@ const AccountMarketIntelligence = () => {
             backgroundSize: "56px 56px",
           }}
         />
-        <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
           <h1 className="leading-[1.05] max-w-5xl">
@@ -101,7 +99,7 @@ const AccountMarketIntelligence = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
               <GoogleCalendarSchedulingButton>
-                Talk to Us
+                Get a demo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </GoogleCalendarSchedulingButton>
             </Button>
@@ -242,26 +240,26 @@ const AccountMarketIntelligence = () => {
                 <li className="flex gap-3"><span className="text-accent">→</span> Where should we add a new practice, and what does hiring look like?</li>
               </ul>
             </div>
-            <div className="p-8 border rounded-2xl bg-foreground text-background">
+            <div className="p-8 border rounded-2xl bg-secondary/50">
               <div className="text-xs uppercase tracking-[0.2em] text-accent mb-3">
                 / Measurable Impact
               </div>
               <div className="space-y-5">
                 <div>
                   <div className="text-3xl font-bold text-accent">6 months → under 1 month</div>
-                  <div className="text-background/80 text-sm mt-1">
+                  <div className="text-muted-foreground text-sm mt-1">
                     GCC discovery cycle for a leading global IT services firm.
                   </div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-accent">Weeks → minutes</div>
-                  <div className="text-background/80 text-sm mt-1">
+                  <div className="text-muted-foreground text-sm mt-1">
                     Strategy-meeting intelligence via AI-powered custom insights.
                   </div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-accent">₹30–50L saved</div>
-                  <div className="text-background/80 text-sm mt-1">
+                  <div className="text-muted-foreground text-sm mt-1">
                     vs. stitching GCC intelligence from fragmented sources.
                   </div>
                 </div>
@@ -325,20 +323,20 @@ const AccountMarketIntelligence = () => {
       </section>
 
       {/* WHY */}
-      <section className="py-20 md:py-28 px-4 bg-foreground text-background">
+      <section className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16">
           <div className="md:col-span-5">
             <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Why It's Different
             </div>
-            <h2 className="leading-tight text-background">
+            <h2 className="leading-tight">
               Structured Data.
               <br />
               <span className="text-accent">Not Another Survey Report.</span>
             </h2>
           </div>
           <div className="md:col-span-7 md:pt-3">
-            <p className="text-lg text-background/80 leading-relaxed mb-10">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10">
               Most GCC market reports are survey-based, delayed by months, and impossible to slice.
               Bamboo Reports' intelligence is:
             </p>
@@ -353,12 +351,13 @@ const AccountMarketIntelligence = () => {
                   <span className="text-sm text-accent pt-1.5 w-8 flex-shrink-0">
                     0{i + 1}
                   </span>
-                  <span className="text-lg leading-relaxed text-background/90">{t}</span>
+                  <span className="text-lg leading-relaxed text-muted-foreground">{t}</span>
                 </li>
               ))}
             </ul>
 
-            <blockquote className="border-l-4 border-accent pl-6">
+            <blockquote>
+              <span className="mb-5 block h-1 w-8 rounded-full bg-accent" aria-hidden />
               <p className="text-2xl md:text-3xl font-semibold leading-snug">
                 "Nasscom publishes GCC counts.{" "}
                 <span className="text-accent font-bold">
@@ -383,7 +382,7 @@ const AccountMarketIntelligence = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
               <GoogleCalendarSchedulingButton>
-                Talk to Us
+                Get a demo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </GoogleCalendarSchedulingButton>
             </Button>

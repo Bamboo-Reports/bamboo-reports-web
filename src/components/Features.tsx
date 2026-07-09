@@ -2,7 +2,7 @@ import { featureItems } from "@/lib/featuresData";
 
 const Features = () => {
   return (
-    <section className="py-16 px-4 bg-secondary/30">
+    <section className="py-14 md:py-20 px-4 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-4">Why Bamboo Reports</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">

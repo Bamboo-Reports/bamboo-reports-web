@@ -50,14 +50,15 @@ const ThankYou = () => {
                 Book a time directly with our team
               </p>
               <div className="mt-3 sm:mt-4 flex items-center justify-center gap-1 text-xs sm:text-sm font-medium text-primary">
-                Book now
+                Get a demo
                 <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
               </div>
             </GoogleCalendarSchedulingButton>
 
-            <div
+            <button
+              type="button"
               onClick={() => navigate("/resources")}
-              className="group rounded-2xl border border-border bg-card p-4 sm:p-6 text-center cursor-pointer transition-all hover:shadow-lg hover:border-primary/40 hover:-translate-y-1"
+              className="group rounded-2xl border border-border bg-card p-4 sm:p-6 text-center cursor-pointer transition-all hover:shadow-lg hover:border-primary/40 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               <div className="mb-3 sm:mb-4 mx-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-muted text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                 <FileText className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -70,7 +71,7 @@ const ThankYou = () => {
                 View resources
                 <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
               </div>
-            </div>
+            </button>
           </div>
         </div>
       </main>

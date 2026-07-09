@@ -145,34 +145,34 @@ const JotFormEmbed = ({
     <div className={`relative overflow-hidden ${className}`} style={{ height }}>
       {/* Loading skeleton */}
       <div
-        className={`absolute inset-0 z-10 bg-white flex flex-col items-center justify-center gap-4 transition-opacity duration-300 ${
+        className={`absolute inset-0 z-10 bg-background flex flex-col items-center justify-center gap-4 transition-opacity duration-300 ${
           isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
         <div className="w-full max-w-[320px] px-4 space-y-4 animate-pulse">
           {/* Fake header dots */}
           <div className="flex gap-2 justify-center mb-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-            <div className="w-2.5 h-2.5 rounded-full bg-gray-300" />
-            <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
+            <div className="w-2.5 h-2.5 rounded-full bg-muted" />
+            <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30" />
+            <div className="w-2.5 h-2.5 rounded-full bg-muted" />
           </div>
           {/* Fake label + input */}
           <div>
-            <div className="h-3 w-20 bg-gray-200 rounded mb-2" />
-            <div className="h-10 w-full bg-gray-100 rounded-lg border border-gray-200" />
+            <div className="h-3 w-20 bg-muted rounded mb-2" />
+            <div className="h-10 w-full bg-muted/60 rounded-md border border-border" />
           </div>
           <div>
-            <div className="h-3 w-28 bg-gray-200 rounded mb-2" />
-            <div className="h-10 w-full bg-gray-100 rounded-lg border border-gray-200" />
+            <div className="h-3 w-28 bg-muted rounded mb-2" />
+            <div className="h-10 w-full bg-muted/60 rounded-md border border-border" />
           </div>
           <div>
-            <div className="h-3 w-16 bg-gray-200 rounded mb-2" />
-            <div className="h-10 w-full bg-gray-100 rounded-lg border border-gray-200" />
+            <div className="h-3 w-16 bg-muted rounded mb-2" />
+            <div className="h-10 w-full bg-muted/60 rounded-md border border-border" />
           </div>
           {/* Fake button */}
-          <div className="h-11 w-full bg-gray-200 rounded-lg mt-2" />
+          <div className="h-11 w-full bg-muted rounded-full mt-2" />
         </div>
-        <p className="text-xs text-gray-400 mt-2">Loading form…</p>
+        <p className="text-xs text-muted-foreground mt-2">Loading form…</p>
       </div>
 
       {/* Actual JotForm iframe */}

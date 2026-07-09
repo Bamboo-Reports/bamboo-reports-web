@@ -31,7 +31,7 @@ const Articles = () => {
 
       <main className="flex-1">
         <section className="relative overflow-hidden border-b">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,hsl(var(--accent)/0.16),transparent_30%),radial-gradient(circle_at_88%_12%,hsl(var(--primary)/0.16),transparent_36%),linear-gradient(140deg,hsl(var(--background))_0%,hsl(var(--muted)/0.42)_100%)]" />
+          <div className="absolute inset-0 bg-secondary/40" />
           <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(90deg,hsl(var(--foreground))_1px,transparent_1px),linear-gradient(180deg,hsl(var(--foreground))_1px,transparent_1px)] bg-[size:44px_44px]" />
 
           <div className="relative max-w-6xl mx-auto px-4 py-16 lg:py-24 space-y-4">
@@ -42,9 +42,9 @@ const Articles = () => {
           </div>
         </section>
 
-        <section className="relative max-w-6xl mx-auto px-4 py-14 lg:py-20 space-y-6">
+        <section className="relative max-w-6xl mx-auto px-4 py-14 md:py-20 space-y-6">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Library</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Library</p>
             <h2 className="text-3xl lg:text-4xl font-black">Recent Roundtables</h2>
           </div>
 
@@ -53,7 +53,7 @@ const Articles = () => {
               <Link
                 key={blog.slug}
                 to={`/roundtables/${blog.slug}`}
-                className="group relative h-full rounded-3xl border bg-gradient-to-br from-background to-muted/50 shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] overflow-hidden"
+                className="group relative h-full rounded-2xl border bg-card shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 overflow-hidden"
               >
                 <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
                 <div className="aspect-video overflow-hidden">
@@ -64,7 +64,7 @@ const Articles = () => {
                   />
                 </div>
                 <div className="relative p-6 space-y-3">
-                  <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                  <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                     {blog.tags.map((tag) => (
                       <span key={tag} className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1">
                         {tag}

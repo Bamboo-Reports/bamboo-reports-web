@@ -58,7 +58,7 @@ const SignIn = () => {
             </p>
           </div>
 
-          <div className="rounded-lg border bg-card p-6 sm:p-8">
+          <div className="rounded-2xl border bg-card p-6 sm:p-8">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-1.5">
                 <Label htmlFor="email">Email</Label>
@@ -90,8 +90,8 @@ const SignIn = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                    tabIndex={-1}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -135,7 +135,7 @@ const SignIn = () => {
               to={redirectTo && redirectTo !== '/profile' ? `/signup?redirect=${encodeURIComponent(redirectTo)}` : '/signup'}
               className="text-primary font-semibold hover:underline"
             >
-              Create account
+              Sign up free
             </Link>
           </p>
         </div>

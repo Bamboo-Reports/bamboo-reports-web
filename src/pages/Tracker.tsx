@@ -4,6 +4,8 @@ import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
+import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { AccountSearchFilter } from "@/components/AccountSearchFilter";
@@ -128,6 +130,7 @@ const USE_CASES = [
 ];
 
 const Tracker = () => {
+  const { user } = useAuth();
   useSEO({
     title: "GCC Companies in India: Directory & Market Size Calculator | Bamboo Reports",
     description: `Browse a directory of ${nf(TRACKER_STATS.accountsBrowsable)}+ Global Capability Centers in India, from the ${nf(TRACKER_STATS.accountsTracked)} GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.`,
@@ -251,6 +254,20 @@ const Tracker = () => {
   );
   const hiddenCount = filteredAccounts.length - visibleAccounts.length;
 
+  // Names the current selection for the tracked-vs-shown line, e.g.
+  // "BFSI in Bengaluru" or "All India GCCs" when nothing is selected.
+  const selectionLabel = useMemo(() => {
+    const subject = [
+      ...filters.account_global_legal_name,
+      ...filters.account_primary_category,
+    ].join(", ");
+    const cities = filters.center_city.join(", ");
+    if (subject && cities) return `${subject} in ${cities}`;
+    if (subject) return subject;
+    if (cities) return `GCCs in ${cities}`;
+    return "All India GCCs";
+  }, [filters]);
+
   // With a company explicitly selected, the centres count uses the strict
   // definition its public page uses (active, GCC-type centers only) and
   // overrides the city dimension; aggregate views stay account-level.
@@ -339,7 +356,9 @@ const Tracker = () => {
     accountSearch !== debouncedAccountSearch;
 
   return (
-    <div className="tracker-page min-h-screen bg-background">
+    <div
+      className={`tracker-page min-h-screen bg-background ${user ? "" : "pb-20 md:pb-0"}`}
+    >
       <Header />
 
       {/* TRACKER */}
@@ -355,6 +374,25 @@ const Tracker = () => {
                 instantly. Start broad, then narrow until the numbers match the
                 market you actually sell to.
               </p>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                {!user && (
+                  <Button
+                    asChild
+                    className="rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <a href="/signup?src=gcc-hero">Sign up free</a>
+                  </Button>
+                )}
+                <Button
+                  asChild
+                  variant="outline"
+                  className="rounded-full font-semibold"
+                >
+                  <GoogleCalendarSchedulingButton>
+                    Get a demo
+                  </GoogleCalendarSchedulingButton>
+                </Button>
+              </div>
             </div>
           </FadeIn>
 
@@ -504,6 +542,38 @@ const Tracker = () => {
             />
           </div>
 
+          {/* Tracked vs shown: the gap between what we track and what is
+              browsable free is the sign-up hook. */}
+          {!isLoadingFirstTime && counts.accounts > 0 && (
+            <div className="mt-4 flex flex-col gap-4 rounded-lg border bg-card px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                <span className="font-semibold text-foreground">
+                  {selectionLabel}:
+                </span>{" "}
+                {nf(counts.accounts)}{" "}
+                {counts.accounts === 1 ? "company" : "companies"},{" "}
+                {nf(counts.centers)} {counts.centers === 1 ? "centre" : "centres"}{" "}
+                and {nf(counts.prospects)} decision-makers tracked in Bamboo
+                Reports.{" "}
+                {hiddenCount > 0
+                  ? `Showing ${nf(visibleAccounts.length)} ${
+                      visibleAccounts.length === 1 ? "company" : "companies"
+                    } free here.`
+                  : "Every matching company is free to browse here."}
+              </p>
+              {!user && hiddenCount > 0 && (
+                <Button
+                  asChild
+                  size="sm"
+                  className="shrink-0 self-start rounded-full font-semibold sm:self-auto"
+                >
+                  <a href="/signup?src=gcc-filter">
+                    Sign up free to unlock the other {nf(hiddenCount)}
+                  </a>
+                </Button>
+              )}
+            </div>
+          )}
 
           {/* Directory */}
           <div className="mt-8 overflow-hidden rounded-lg border bg-card">
@@ -706,6 +776,15 @@ const Tracker = () => {
       </section>
 
       <Footer />
+
+      {/* Mobile-only sticky sign-up bar */}
+      {!user && (
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80 md:hidden">
+          <Button asChild className="w-full rounded-full font-semibold">
+            <a href="/signup?src=gcc-sticky">Sign up free</a>
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

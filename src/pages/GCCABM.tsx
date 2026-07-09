@@ -97,8 +97,6 @@ const GCCABM = () => {
             backgroundSize: "56px 56px",
           }}
         />
-        <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
           <h1 className="leading-[1.05] max-w-5xl">
@@ -121,7 +119,7 @@ const GCCABM = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
               <GoogleCalendarSchedulingButton>
-                Talk to Us
+                Get a demo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </GoogleCalendarSchedulingButton>
             </Button>
@@ -225,19 +223,19 @@ const GCCABM = () => {
       </section>
 
       {/* PROVEN RESULTS */}
-      <section className="py-20 md:py-28 px-4 bg-foreground text-background border-b">
+      <section className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center mb-14">
             <div className="md:col-span-5">
               <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
                 / Proven Results
               </div>
-              <h2 className="leading-tight text-background">
+              <h2 className="leading-tight">
                 Qualified Pipeline. Measurable Outcomes.
               </h2>
             </div>
             <div className="md:col-span-7">
-              <p className="text-base md:text-lg leading-relaxed text-background/90">
+              <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
                 ABM campaigns for SaaS vendors, enterprise software, and professional services
                 firms, delivered across India's top GCC cities with{" "}
                 <span className="text-accent font-semibold">
@@ -248,34 +246,34 @@ const GCCABM = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-8 rounded-2xl bg-background/10 border border-background/15">
+            <div className="p-8 rounded-2xl bg-background border">
               <div className="text-5xl font-bold text-accent leading-none">250+</div>
-              <div className="mt-3 text-sm text-background/70 uppercase tracking-wider">
+              <div className="mt-3 text-sm text-muted-foreground uppercase tracking-wider">
                 MQLs, single campaign
               </div>
-              <p className="mt-4 text-background/90 leading-relaxed">
+              <p className="mt-4 text-muted-foreground leading-relaxed">
                 One enterprise software client, one GCC-native ABM programme.
               </p>
             </div>
-            <div className="p-8 rounded-2xl bg-background/10 border border-background/15">
+            <div className="p-8 rounded-2xl bg-background border">
               <div className="text-5xl font-bold text-accent leading-none">
                 600+ <span className="text-3xl">/ 40+</span>
               </div>
-              <div className="mt-3 text-sm text-background/70 uppercase tracking-wider">
+              <div className="mt-3 text-sm text-muted-foreground uppercase tracking-wider">
                 MQLs / SQLs, enterprise client
               </div>
-              <p className="mt-4 text-background/90 leading-relaxed">
+              <p className="mt-4 text-muted-foreground leading-relaxed">
                 Multi-quarter programme into a named GCC account list.
               </p>
             </div>
-            <div className="p-8 rounded-2xl bg-background/10 border border-background/15">
+            <div className="p-8 rounded-2xl bg-background border">
               <div className="text-5xl font-bold text-accent leading-none">
                 1,050 <span className="text-3xl">/ 364</span>
               </div>
-              <div className="mt-3 text-sm text-background/70 uppercase tracking-wider">
+              <div className="mt-3 text-sm text-muted-foreground uppercase tracking-wider">
                 BFSI GCCs profiled / contacts mapped
               </div>
-              <p className="mt-4 text-background/90 leading-relaxed">
+              <p className="mt-4 text-muted-foreground leading-relaxed">
                 4-year ongoing BFSI GCC programme for a leading global IT services firm.
               </p>
             </div>
@@ -316,20 +314,20 @@ const GCCABM = () => {
       </section>
 
       {/* WHY */}
-      <section className="py-20 md:py-28 px-4 bg-foreground text-background">
+      <section className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
             <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Why Bamboo Reports
             </div>
-            <h2 className="leading-tight text-background">
+            <h2 className="leading-tight">
               We Don't Just Run Campaigns.
               <br />
               <span className="text-accent">We Know the Market.</span>
             </h2>
           </div>
 
-          <p className="text-base md:text-lg text-background/80 leading-relaxed max-w-3xl mb-12">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl mb-12">
             Most ABM agencies build your list, send your emails, and call it done. We're different
             because the data is ours, built and maintained by us, not licensed from a third party.
           </p>
@@ -355,12 +353,12 @@ const GCCABM = () => {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex gap-5 items-start p-6 border border-background/10 rounded-xl hover:bg-background/5 transition-colors duration-200"
+                className="flex gap-5 items-start p-6 bg-background border rounded-xl hover:border-accent transition-colors duration-200"
               >
-                <div className="w-11 h-11 rounded-xl bg-accent/20 text-accent flex items-center justify-center flex-shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5" />
                 </div>
-                <p className="text-lg leading-relaxed text-background/90 pt-2">{item.text}</p>
+                <p className="text-lg leading-relaxed text-muted-foreground pt-2">{item.text}</p>
               </div>
             ))}
           </div>
@@ -379,7 +377,7 @@ const GCCABM = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
               <GoogleCalendarSchedulingButton>
-                Talk to Us
+                Get a demo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </GoogleCalendarSchedulingButton>
             </Button>

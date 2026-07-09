@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { useAuth } from "@/contexts/AuthContext";
 import gccIllustration from "@/assets/gcc-illustration.png";
 
 const Hero = () => {
+  const { user } = useAuth();
   return (
     <section className="py-8 md:py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -19,7 +22,7 @@ const Hero = () => {
             {["GCC Prospect Data", "Account & Market Intelligence", "GCC Focused ABM"].map((item) => (
               <li
                 key={item}
-                className="rounded-full bg-primary/10 text-primary px-4 py-1.5 text-xs sm:text-sm md:text-base font-semibold border border-primary/20"
+                className="rounded-full border border-border bg-background px-4 py-1.5 text-xs sm:text-sm md:text-base font-medium text-muted-foreground"
               >
                 {item}
               </li>
@@ -27,19 +30,29 @@ const Hero = () => {
           </ul>
 
           {/* --- Button Wrapper --- */}
-          <div className="flex items-center justify-center gap-4 mb-3 md:mb-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-3 md:mb-4">
+            {!user && (
+              <Button
+                asChild
+                className="px-6 py-5 md:px-8 md:py-6 rounded-full font-semibold text-base md:text-lg shadow-sm hover:shadow-md transition-shadow"
+              >
+                <Link to="/signup?src=home-hero">Sign up free</Link>
+              </Button>
+            )}
             <Button
-              asChild // Use asChild to render the anchor tag
-              className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
+              asChild
+              variant="outline"
+              className="px-6 py-5 md:px-8 md:py-6 rounded-full font-semibold text-base md:text-lg"
             >
               <GoogleCalendarSchedulingButton>
-                Get a Demo
+                Get a demo
               </GoogleCalendarSchedulingButton>
             </Button>
           </div>
 
           <p className="text-xs sm:text-sm text-muted-foreground px-4">
-            Get expert advice to supercharge your GCC strategy
+            Free access to the India GCC directory, plus expert advice to
+            supercharge your GCC strategy
           </p>
         </div>
 

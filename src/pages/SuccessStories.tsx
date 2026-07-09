@@ -28,8 +28,6 @@ const SuccessStories = () => {
             backgroundSize: "56px 56px",
           }}
         />
-        <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
           <h1 className="leading-[1.05] max-w-5xl">
@@ -60,7 +58,7 @@ const SuccessStories = () => {
                   4 Years
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" aria-hidden />
                   Ongoing
                 </span>
               </div>
@@ -76,7 +74,8 @@ const SuccessStories = () => {
                 shortlist.
               </p>
 
-              <div className="inline-flex items-center gap-3 mt-2 pl-4 py-2 border-l-2 border-primary">
+              <div className="inline-flex items-center gap-3 mt-2 py-2">
+                <span className="h-1 w-8 flex-none rounded-full bg-primary" aria-hidden />
                 <span className="text-sm md:text-base font-semibold text-foreground">
                   The programme is still running 4 years on.
                 </span>
@@ -120,12 +119,12 @@ const SuccessStories = () => {
       </section>
 
       {/* THEME DIVIDER */}
-      <section className="py-14 md:py-20 px-4 bg-foreground text-background border-b">
+      <section className="py-14 md:py-20 px-4 bg-secondary/40 border-b">
         <div className="max-w-5xl mx-auto text-center">
           <div className="text-xs uppercase tracking-[0.2em] text-accent mb-5">
             / Two Sides of the Same Ecosystem
           </div>
-          <p className="text-2xl md:text-3xl font-semibold leading-snug text-background/95">
+          <p className="text-2xl md:text-3xl font-semibold leading-snug text-foreground">
             One platform. Two audiences.{" "}
             <span className="text-accent">
               The same centre-level intelligence that wins mandates also builds business cases.
@@ -160,7 +159,8 @@ const SuccessStories = () => {
                 their board-level business case.
               </p>
 
-              <div className="inline-flex items-center gap-3 mt-2 pl-4 py-2 border-l-2 border-accent">
+              <div className="inline-flex items-center gap-3 mt-2 py-2">
+                <span className="h-1 w-8 flex-none rounded-full bg-accent" aria-hidden />
                 <span className="text-sm md:text-base font-semibold text-foreground">
                   Intelligence presented to global leadership. A seat at the table.
                 </span>
@@ -210,7 +210,7 @@ const SuccessStories = () => {
                     </div>
                     <div className="pt-1">
                       <div
-                        className={`text-sm font-bold uppercase tracking-[0.18em] mb-1 ${
+                        className={`text-sm font-bold uppercase tracking-[0.2em] mb-1 ${
                           r.emphasis ? "text-accent" : "text-foreground"
                         }`}
                       >
@@ -250,7 +250,7 @@ const SuccessStories = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
               <GoogleCalendarSchedulingButton>
-                Talk to Us
+                Get a demo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </GoogleCalendarSchedulingButton>
             </Button>

@@ -40,8 +40,6 @@ const GCCProspectData = () => {
             backgroundSize: "56px 56px",
           }}
         />
-        <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
           <h1 className="leading-[1.05] max-w-5xl">
@@ -61,7 +59,7 @@ const GCCProspectData = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
               <GoogleCalendarSchedulingButton>
-                Talk to Us
+                Get a demo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </GoogleCalendarSchedulingButton>
             </Button>
@@ -218,13 +216,13 @@ const GCCProspectData = () => {
       </section>
 
       {/* WHY */}
-      <section className="py-20 md:py-28 px-4 bg-foreground text-background">
+      <section className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
             <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
               / Why Bamboo Reports
             </div>
-            <h2 className="leading-tight text-background">
+            <h2 className="leading-tight">
               This Isn't a Scraped List.
               <br />
               <span className="text-accent">This Is a Research Asset.</span>
@@ -251,15 +249,16 @@ const GCCProspectData = () => {
               },
             ].map((item, i) => (
               <div key={i} className="flex gap-5 items-start">
-                <div className="w-10 h-10 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5" />
                 </div>
-                <p className="text-lg leading-relaxed text-background/90 pt-1">{item.text}</p>
+                <p className="text-lg leading-relaxed text-muted-foreground pt-1">{item.text}</p>
               </div>
             ))}
           </div>
 
-          <blockquote className="border-l-4 border-accent pl-6 md:pl-8 max-w-3xl">
+          <blockquote className="max-w-3xl">
+            <span className="mb-5 block h-1 w-8 rounded-full bg-accent" aria-hidden />
             <p className="text-2xl md:text-3xl font-semibold leading-snug">
               "We don't resell third-party databases. We built ours from scratch, and it shows."
             </p>
@@ -282,7 +281,7 @@ const GCCProspectData = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
             >
               <GoogleCalendarSchedulingButton>
-                Talk to Us
+                Get a demo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </GoogleCalendarSchedulingButton>
             </Button>

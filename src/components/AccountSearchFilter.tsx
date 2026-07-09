@@ -113,7 +113,7 @@ export function AccountSearchFilter({
               role="option"
               aria-selected={false}
               onClick={() => handleSelect(option.value)}
-              className="block w-full rounded-sm px-3 py-2 text-left text-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground focus-visible:outline-none"
+              className="block w-full rounded-sm px-3 py-2 text-left text-sm transition-colors hover:bg-muted hover:text-foreground focus-visible:bg-muted focus-visible:text-foreground focus-visible:outline-none"
             >
               {option.value}
             </button>
@@ -133,7 +133,7 @@ export function AccountSearchFilter({
               href="/signup?src=gcc-search-gated"
               className="mt-1 inline-block font-medium text-primary hover:underline"
             >
-              Sign Up To Unlock
+              Sign up free to unlock
             </a>
           </div>
         ) : (

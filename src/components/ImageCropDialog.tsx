@@ -60,7 +60,7 @@ const ImageCropDialog = ({ open, imageSrc, onCropComplete, onClose }: ImageCropD
           <DialogTitle>Crop Your Profile Picture</DialogTitle>
         </DialogHeader>
 
-        <div className="relative h-[400px] w-full bg-gray-900 rounded-lg overflow-hidden">
+        <div className="relative h-[400px] w-full bg-navy rounded-xl overflow-hidden">
           <Cropper
             image={imageSrc}
             crop={crop}

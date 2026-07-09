@@ -247,24 +247,6 @@ const Platform = () => {
         };
       });
 
-      /* ---------- pointer microinteractions ---------- */
-      mm.add("(hover: hover) and (prefers-reduced-motion: no-preference)", () => {
-        const cleanups: Array<() => void> = [];
-
-        // cursor spotlight on capability tiles
-        gsap.utils.toArray<HTMLElement>(".pf-cap").forEach((card) => {
-          const onMove = (e: MouseEvent) => {
-            const r = card.getBoundingClientRect();
-            card.style.setProperty("--mx", `${e.clientX - r.left}px`);
-            card.style.setProperty("--my", `${e.clientY - r.top}px`);
-          };
-          card.addEventListener("mousemove", onMove);
-          cleanups.push(() => card.removeEventListener("mousemove", onMove));
-        });
-
-        return () => cleanups.forEach((fn) => fn());
-      });
-
       // re-measure once webfonts and images have settled
       document.fonts?.ready.then(() => ScrollTrigger.refresh());
       const onLoad = () => ScrollTrigger.refresh();
@@ -298,7 +280,7 @@ const Platform = () => {
               </p>
               <div className="pf-hero-actions lg:col-span-5 flex flex-wrap items-center gap-4 lg:justify-end">
                 <GoogleCalendarSchedulingButton className="pf-btn-primary">
-                  Request a Demo
+                  Get a demo
                   <ArrowRight className="pf-btn-arrow h-4 w-4" />
                 </GoogleCalendarSchedulingButton>
                 <a className="pf-btn-ghost" href="#tour" onClick={scrollToTour}>
@@ -542,7 +524,7 @@ const Platform = () => {
               <GoogleCalendarSchedulingButton
                 key={p.tag}
                 className="pf-persona"
-                aria-label={`Book a demo — ${p.name}`}
+                aria-label={`Get a demo: ${p.name}`}
                 data-reveal-item
               >
                 <span className="pf-persona-num">{p.tag}</span>
@@ -570,7 +552,7 @@ const Platform = () => {
             <span className="pf-accent-text">Start operating on structured GCC intelligence.</span>
           </h2>
           <p
-            className="mt-6 mb-10 max-w-3xl mx-auto text-base md:text-lg leading-relaxed text-background/75"
+            className="mt-6 mb-10 max-w-3xl mx-auto text-base md:text-lg leading-relaxed text-muted-foreground"
             data-reveal
           >
             Book a focused 30-minute walkthrough. We'll tailor it to your ICP, territory or sector
@@ -578,7 +560,7 @@ const Platform = () => {
           </p>
           <div data-reveal>
             <GoogleCalendarSchedulingButton className="pf-btn-primary">
-              Book a Demo
+              Get a demo
               <ArrowRight className="pf-btn-arrow h-4 w-4" />
             </GoogleCalendarSchedulingButton>
           </div>

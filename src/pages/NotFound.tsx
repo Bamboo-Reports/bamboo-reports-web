@@ -31,7 +31,7 @@ const NotFound = () => {
       </header>
 
       <main className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,hsl(var(--primary)/0.12),transparent_30%),radial-gradient(circle_at_84%_20%,hsl(var(--accent)/0.18),transparent_34%),linear-gradient(140deg,hsl(var(--background))_0%,hsl(var(--secondary)/0.72)_100%)]" />
+        <div className="absolute inset-0 bg-secondary/40" />
         <div className="relative mx-auto grid min-h-[calc(100vh-81px)] max-w-7xl items-center gap-10 px-4 py-14 lg:grid-cols-[1fr_0.82fr] lg:px-6">
           <section className="max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
@@ -67,7 +67,7 @@ const NotFound = () => {
             </div>
           </section>
 
-          <aside className="rounded-3xl border bg-card/95 p-5 shadow-[0_24px_70px_-42px_hsl(var(--primary)/0.45)] backdrop-blur">
+          <aside className="rounded-2xl border bg-card/95 p-5 shadow-[0_24px_70px_-42px_hsl(var(--primary)/0.45)] backdrop-blur">
             <div className="rounded-2xl border bg-secondary/35 p-5">
               <div className="flex items-center justify-between border-b pb-4">
                 <div>
@@ -92,7 +92,7 @@ const NotFound = () => {
                   <Link
                     key={href}
                     to={href}
-                    className="group flex items-center justify-between rounded-xl border bg-background p-4 transition-colors hover:border-primary/35 hover:bg-primary/5"
+                    className="group flex items-center justify-between rounded-xl border bg-background p-4 transition-colors hover:border-primary/35 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   >
                     <span>
                       <span className="block text-sm font-semibold text-foreground">

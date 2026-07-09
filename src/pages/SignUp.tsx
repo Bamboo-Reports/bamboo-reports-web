@@ -158,12 +158,18 @@ const SignUp = () => {
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Create your account</h1>
-            <p className="text-muted-foreground">
-              Use your work email to get started.
+            <p className="text-sm text-muted-foreground mt-3">
+              Already have an account?{' '}
+              <Link
+                to={redirectTo !== '/profile' ? `/signin?redirect=${encodeURIComponent(redirectTo)}` : '/signin'}
+                className="text-primary font-semibold hover:underline"
+              >
+                Sign in
+              </Link>
             </p>
           </div>
 
-          <div className="rounded-lg border bg-card p-6 sm:p-8">
+          <div className="rounded-2xl border bg-card p-6 sm:p-8">
             <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-1.5">
                 <Label htmlFor="firstName">First name</Label>
@@ -311,8 +317,8 @@ const SignUp = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                    tabIndex={-1}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -371,8 +377,8 @@ const SignUp = () => {
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                    tabIndex={-1}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    aria-label={showConfirmPassword ? "Hide password" : "Show password"}
                   >
                     {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -418,16 +424,6 @@ const SignUp = () => {
               </p>
             </form>
           </div>
-
-          <p className="text-sm text-center text-muted-foreground mt-6">
-            Already have an account?{' '}
-            <Link
-              to={redirectTo !== '/profile' ? `/signin?redirect=${encodeURIComponent(redirectTo)}` : '/signin'}
-              className="text-primary font-semibold hover:underline"
-            >
-              Sign in
-            </Link>
-          </p>
         </div>
       </main>
 

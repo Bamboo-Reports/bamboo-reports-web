@@ -17,7 +17,7 @@ const categories = [
 
 const IntelligenceSpans = () => {
   return (
-    <section className="py-16 px-4" style={{ backgroundColor: "#f9f9f9" }}>
+    <section className="py-14 md:py-20 px-4 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold mb-8 lg:mb-2">Our Intelligence Spans Across</h2>
         

@@ -228,14 +228,17 @@ export function staticPage({ title, description, canonical, schemas, body, src }
   <meta property="og:image" content="${SITE}/logo.png">
   <meta property="twitter:card" content="summary">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   ${ldJson(schemas)}
   <style>
     :root { --text:#17202a; --heading:#0b1320; --muted:#64748b; --faint:#94a3b8; --primary:#0084d1; --primary-dark:#006fae; --border:#e6eaf0; --surface:#f0f8fd; }
     * { box-sizing: border-box; }
-    body { margin:0; font-family:"DM Sans","Inter",system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--text); line-height:1.55; }
+    body { margin:0; font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--text); line-height:1.55; }
     a { color: var(--primary); }
     .wrap { max-width:1140px; margin:0 auto; padding:0 20px; }
-    .promo-bar { display:block; background:var(--primary); color:#fff; text-align:center; font-size:13.5px; font-weight:600; padding:9px 16px; text-decoration:none; }
+    .promo-bar { display:block; background:#07253a; color:#fff; text-align:center; font-size:13.5px; font-weight:600; padding:9px 16px; text-decoration:none; }
     .promo-bar u { text-underline-offset:2px; }
     .site-header { border-bottom:1px solid var(--border); padding:14px 0; }
     .site-header .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; }
@@ -275,13 +278,13 @@ export function staticPage({ title, description, canonical, schemas, body, src }
   </style>
 </head>
 <body>
-  <a class="promo-bar" href="/signup?src=${esc(src)}-q1report">The Q1 2026 India GCC Report drops July 20. <u>Sign up free for early access &rarr;</u></a>
+  <a class="promo-bar" href="/signup?src=${esc(src)}-q1report">The Q1 2026 India GCC Report drops this July. <u>Sign up free for early access &rarr;</u></a>
   <header class="site-header">
     <div class="wrap">
       <a href="/"><img src="/logo.png" alt="Bamboo Reports"></a>
       <nav>
         <a class="nav-link" href="/gcc/">GCC directory</a>
-        <a class="nav-link" href="/signin">Sign In</a>
+        <a class="nav-link" href="/signin">Sign in</a>
         <a class="btn" href="/signup?src=${esc(src)}-header">Sign up free</a>
       </nav>
     </div>
