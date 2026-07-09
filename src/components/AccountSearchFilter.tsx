@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import { Search, X } from "lucide-react";
+import { Lock, Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
   Popover,
@@ -125,14 +125,15 @@ export function AccountSearchFilter({
           </div>
         ) : isGatedMatch ? (
           <div className="px-3 py-4 text-sm">
-            <p className="text-muted-foreground">
-              This company is tracked in Bamboo Reports.
+            <p className="flex items-center gap-1.5 font-medium text-foreground">
+              {query.trim()}
+              <Lock className="h-3.5 w-3.5 text-muted-foreground" aria-hidden />
             </p>
             <a
               href="/signup?src=gcc-search-gated"
               className="mt-1 inline-block font-medium text-primary hover:underline"
             >
-              Sign up free to unlock it
+              Sign Up To Unlock
             </a>
           </div>
         ) : (
