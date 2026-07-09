@@ -17,7 +17,6 @@ import {
 } from "@/lib/trackerAccounts";
 import { TRACKER_STATS, TRACKER_NON_GCC_NOTES } from "@/lib/trackerStats";
 import {
-  ArrowDown,
   Building2,
   Layers,
   Lock,
@@ -29,7 +28,7 @@ import {
 } from "lucide-react";
 
 const DEBOUNCE_MS = 250;
-const PAGE_SIZE = 25;
+const PAGE_SIZE = 20;
 // Filters surface only the top N industries/cities; the long tail is public
 // on the crawlable /gcc/industries/* and /gcc/cities/* landing pages and
 // unlocks in-app with a free account.
@@ -334,65 +333,14 @@ const Tracker = () => {
     <div className="tracker-page min-h-screen bg-background">
       <Header />
 
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b">
-        <div
-          className="absolute inset-0 opacity-[0.035] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
-        <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
-          <p className="mb-5 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs sm:text-sm font-semibold text-primary">
-            India GCC companies directory
-          </p>
-          <h1 className="leading-[1.05] max-w-5xl">
-            <span className="block text-foreground">GCC companies in India,</span>
-            <span className="block text-accent">sized for your market</span>
-          </h1>
-          <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
-            We track {nf(TRACKER_STATS.accountsTracked)} Global Capability Centers in
-            India. Browse {nf(TRACKER_STATS.accountsBrowsable)}+ of them free, filter
-            by industry and city, and get a live count of the centres and
-            decision-makers in your target market.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-full px-8 font-bold text-base"
-            >
-              <a href="/signup?src=gcc-hero">Sign up free</a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-full px-8 font-bold text-base"
-            >
-              <a href="#size-your-market">
-                Size your market
-                <ArrowDown className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* TRACKER */}
       <section id="size-your-market" className="scroll-mt-24 py-14 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
             <div className="mb-10 max-w-3xl">
-              <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
+              <h1 className="text-2xl md:text-4xl font-bold tracking-tight">
                 Size your market in three clicks
-              </h2>
+              </h1>
               <p className="mt-3 text-muted-foreground md:text-lg">
                 Pick a company, an industry, or a city and every count updates
                 instantly. Start broad, then narrow until the numbers match the
