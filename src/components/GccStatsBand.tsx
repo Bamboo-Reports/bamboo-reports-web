@@ -4,7 +4,7 @@ import { TRACKER_STATS } from "@/lib/trackerStats";
 
 const nf = (n: number) => n.toLocaleString("en-US");
 
-const STATS: Array<{ label: string; value: string; sub?: string }> = [
+const STATS: Array<{ label: string; value: string }> = [
   { label: "GCCs tracked", value: nf(TRACKER_STATS.accountsTracked) },
   { label: "GCC centres", value: nf(TRACKER_STATS.centers) },
   { label: "Indian cities", value: nf(TRACKER_STATS.cities) },
@@ -15,27 +15,24 @@ const STATS: Array<{ label: string; value: string; sub?: string }> = [
 // Homepage headline numbers, generated at build time from the tracker data so
 // they can never drift from the /gcc directory.
 const GccStatsBand = () => (
-  <section className="border-y bg-muted/30 px-4 py-10 md:py-14">
-    <div className="mx-auto max-w-7xl">
-      <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+  <section className="bg-primary text-primary-foreground">
+    <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
+      <div className="grid grid-cols-2 gap-y-8 text-center sm:grid-cols-3 lg:grid-cols-5 lg:divide-x lg:divide-white/15">
         {STATS.map((stat) => (
-          <div key={stat.label} className="text-center">
-            <div className="text-3xl font-bold tracking-tight text-foreground md:text-4xl tabular-nums">
+          <div key={stat.label} className="px-4">
+            <div className="text-3xl font-bold tracking-tight tabular-nums md:text-4xl">
               {stat.value}
             </div>
-            <div className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground md:text-sm">
+            <div className="mt-1.5 text-xs font-semibold uppercase tracking-wide text-primary-foreground/90 md:text-sm">
               {stat.label}
             </div>
-            {stat.sub && (
-              <div className="mt-0.5 text-xs text-muted-foreground/80">{stat.sub}</div>
-            )}
           </div>
         ))}
       </div>
-      <div className="mt-8 text-center">
+      <div className="mt-8 flex justify-center border-t border-white/15 pt-6">
         <Link
           to="/gcc"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+          className="inline-flex items-center gap-2 text-sm font-semibold hover:underline"
         >
           Explore the India GCC directory
           <ArrowRight className="h-4 w-4" />
