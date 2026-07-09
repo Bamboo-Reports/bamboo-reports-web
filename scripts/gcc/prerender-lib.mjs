@@ -75,27 +75,20 @@ export function trackedCounts(accounts, city = null) {
     (t, a) => {
       t.accounts += 1;
       t.prospects += a.prospectCount;
-      t.sites += a.siteCount ?? a.centerCount;
       t.centers += city
         ? a.cities.filter((c) => c.name === city).reduce((s, c) => s + c.centerCount, 0)
         : a.centerCount;
       return t;
     },
-    { accounts: 0, centers: 0, prospects: 0, sites: 0 }
+    { accounts: 0, centers: 0, prospects: 0 }
   );
 }
 
-/** The tracked-vs-shown hook line used on every static GCC page.
- * withSites adds the all-facilities total; omit on city-scoped pages where
- * centres are city-scoped but sites are not. */
-export function trackedVsShownHtml(label, tracked, shownCount, src, withSites = false) {
+/** The tracked-vs-shown hook line used on every static GCC page. */
+export function trackedVsShownHtml(label, tracked, shownCount, src) {
   const hidden = tracked.accounts - shownCount;
-  const sites =
-    withSites && tracked.sites > tracked.centers
-      ? `, across ${nf(tracked.sites)} total sites including manufacturing and sales offices`
-      : "";
   return `<div class="hook">
-      <p><strong>${esc(label)}:</strong> ${nf(tracked.accounts)} ${plural(tracked.accounts, "company", "companies")}, ${nf(tracked.centers)} GCC ${plural(tracked.centers, "centre", "centres")} and ${nf(tracked.prospects)} decision-makers tracked in Bamboo Reports${sites}. Showing ${nf(shownCount)} ${plural(shownCount, "company", "companies")} free here.${hidden > 0 ? ` Sign up free to unlock the other ${nf(hidden)}, plus every centre and decision-maker.` : ""}</p>
+      <p><strong>${esc(label)}:</strong> ${nf(tracked.accounts)} ${plural(tracked.accounts, "company", "companies")}, ${nf(tracked.centers)} GCC ${plural(tracked.centers, "centre", "centres")} and ${nf(tracked.prospects)} decision-makers tracked in Bamboo Reports. Showing ${nf(shownCount)} ${plural(shownCount, "company", "companies")} free here.${hidden > 0 ? ` Sign up free to unlock the other ${nf(hidden)}, plus every centre and decision-maker.` : ""}</p>
       <a class="btn" href="/signup?src=${esc(src)}">Sign up free</a>
     </div>`;
 }

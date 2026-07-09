@@ -28,9 +28,11 @@ TAXONOMY_FILE = ROOT / "data" / "gcc" / "taxonomy.json"
 CHUNK_COUNT = 8
 TOP_FACETS = 10
 
-# Shared GCC-center rules (same definition as the company-page importer).
-sys.path.insert(0, str(ROOT / "scripts"))
-from gcc_rules import ACTIVE_CENTER_STATUS, gcc_centers  # noqa: E402
+# GCC-ness is decided at the ACCOUNT level (account_type column): every center
+# row of a gcc account counts, regardless of center_type or status. Accounts
+# marked non-gcc are excluded from the directory entirely, along with their
+# centers and prospects.
+GCC_ACCOUNT_TYPE = "gcc"
 
 # Acquired/merged parentheticals are stripped from the public display name
 # ("AbsolutData (Acquired by Infogain)" -> "AbsolutData"); the full legal name
@@ -66,39 +68,6 @@ def simplify_company_name(name):
 
 def private_name_hash(name):
     return hashlib.sha256(simplify_company_name(name).encode("utf-8")).hexdigest()[:16]
-
-# Canary records: fictitious accounts seeded into the public directory so a
-# wholesale copy of our list is provably ours (these names exist nowhere else).
-# Keep this list short and stable; do NOT give them company detail pages.
-CANARY_ACCOUNTS = [
-    {
-        "name": "Veltrix Grid Systems, Inc.",
-        "industry": "Hi-Tech",
-        "cities": [{"name": "Bengaluru", "centerCount": 1}],
-        "centerCount": 1,
-        "siteCount": 1,
-        "prospectCount": 4,
-        "visibility": "public",
-    },
-    {
-        "name": "Northgate Dynamics Corp.",
-        "industry": "Industrial",
-        "cities": [{"name": "Pune", "centerCount": 1}],
-        "centerCount": 1,
-        "siteCount": 1,
-        "prospectCount": 3,
-        "visibility": "public",
-    },
-    {
-        "name": "Halvern & Roche Group",
-        "industry": "Professional Services",
-        "cities": [{"name": "Mumbai", "centerCount": 1}],
-        "centerCount": 1,
-        "siteCount": 1,
-        "prospectCount": 5,
-        "visibility": "public",
-    },
-]
 
 MAIN_NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
 REL_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
@@ -212,14 +181,18 @@ def main():
             archive,
             paths["accounts"],
             strings,
-            {"account_global_legal_name", "account_primary_category", "account_visibility"},
+            {
+                "account_global_legal_name",
+                "account_primary_category",
+                "account_type",
+                "account_visibility",
+            },
         )
         centers = read_sheet(
             archive,
             paths["centers"],
             strings,
             {"account_global_legal_name", "center_city"},
-            optional_columns={"center_type", "center_status"},
         )
         prospects = read_sheet(
             archive,
@@ -227,6 +200,19 @@ def main():
             strings,
             {"account_global_legal_name"},
         )
+
+    # Only gcc-type accounts enter the directory; their centers and prospects
+    # are counted in full. Non-gcc accounts (and everything under them) are
+    # dropped here so no downstream surface can disagree on the definition.
+    gcc_accounts = [
+        record
+        for record in accounts
+        if record["account_global_legal_name"]
+        and record["account_type"].strip().lower() == GCC_ACCOUNT_TYPE
+    ]
+    dropped = sum(1 for r in accounts if r["account_global_legal_name"]) - len(gcc_accounts)
+    if dropped:
+        print(f"Excluded {dropped} non-gcc accounts (and their centers/prospects)")
 
     # Standardized industry labels shared with the landing pages and company
     # pages (data/gcc/taxonomy.json); unmapped raw values pass through.
@@ -240,8 +226,7 @@ def main():
             record["account_global_legal_name"],
             taxonomy.get(record["account_primary_category"], record["account_primary_category"]),
         )
-        for record in accounts
-        if record["account_global_legal_name"]
+        for record in gcc_accounts
     }
     visibility = {
         record["account_global_legal_name"]: (
@@ -249,51 +234,20 @@ def main():
             if record["account_visibility"].strip().lower() == "private"
             else "public"
         )
-        for record in accounts
-        if record["account_global_legal_name"]
+        for record in gcc_accounts
     }
-    # Same true-GCC center definition as the company pages: drop non-GCC types
-    # (manufacturing/sales/distribution) from the counts, falling back to the
-    # full set when a company has ONLY non-GCC centers. Requires center_type in
-    # the export; without it we keep everything and warn, so the directory can
-    # disagree with the company pages until the column is re-exported.
-    has_type = bool(centers) and "center_type" in centers[0]
-    has_status = bool(centers) and "center_status" in centers[0]
-    if not has_type:
-        print(
-            "WARNING: centers sheet has no center_type column; counting ALL "
-            "centers. Directory counts will not match company pages until the "
-            "export includes center_type.",
-            file=sys.stderr,
-        )
-    # siteCount is every facility on record (all types and statuses, incl.
-    # manufacturing/sales and upcoming/non-operational sites), surfaced as
-    # "across N total sites tracked" context next to the GCC metric.
-    site_counts = Counter(
-        record["account_global_legal_name"]
-        for record in centers
-        if record["account_global_legal_name"] and record["center_city"]
-    )
 
-    # centerCount/cities follow the true-GCC rule over active centers only.
-    if has_status:
-        centers = [c for c in centers if c["center_status"] == ACTIVE_CENTER_STATUS]
-
-    centers_by_account = defaultdict(list)
-    for record in centers:
-        if record["account_global_legal_name"] and record["center_city"]:
-            centers_by_account[record["account_global_legal_name"]].append(record)
-
+    # Every center row of a gcc account counts (any type, any status): the
+    # account-level flag is the single GCC definition.
     city_counts = defaultdict(Counter)
-    for account, records in centers_by_account.items():
-        if has_type:
-            records = gcc_centers(records, lambda c: c.get("center_type", "").strip())
-        for record in records:
+    for record in centers:
+        account = record["account_global_legal_name"]
+        if account in industries and record["center_city"]:
             city_counts[account][record["center_city"]] += 1
     prospect_counts = Counter(
         record["account_global_legal_name"]
         for record in prospects
-        if record["account_global_legal_name"]
+        if record["account_global_legal_name"] in industries
     )
 
     # Private accounts contribute to the aggregate counts but their identity
@@ -318,17 +272,14 @@ def main():
                 )
             ],
             "centerCount": sum(city_counts[account].values()),
-            "siteCount": site_counts[account],
             "prospectCount": prospect_counts[account],
             "visibility": visibility.get(account, "public"),
         }
-        for account, industry in sorted(industries.items(), key=account_sort_key)
+        for account, industry in industries.items()
     ]
 
-    # Sort canaries into place alphabetically so they are indistinguishable
-    # from real records in the payload. Private records sort by their real
-    # name (via _sort) even though the published name is null.
-    tracker_accounts.extend({**canary, "_sort": canary["name"]} for canary in CANARY_ACCOUNTS)
+    # Sort by the cleaned display name (private records sort by their real
+    # name via _sort even though the published name is null).
     tracker_accounts.sort(key=lambda record: account_sort_key((record["_sort"],)))
     for record in tracker_accounts:
         del record["_sort"]
@@ -393,7 +344,6 @@ def main():
         "accountsTracked": len(tracker_accounts),
         "accountsBrowsable": len(browsable),
         "centers": sum(r["centerCount"] for r in tracker_accounts),
-        "sites": sum(r["siteCount"] for r in tracker_accounts),
         "decisionMakers": sum(r["prospectCount"] for r in tracker_accounts),
         "cities": len(all_cities),
         "industries": len(all_industries),

@@ -12,10 +12,9 @@ export interface StaticTrackerAccount {
     name: string;
     centerCount: number;
   }>;
+  /** Every center row of the account counts: GCC-ness is decided at the
+   * account level (account_type in the export), not per center. */
   centerCount: number;
-  /** All active facilities incl. manufacturing/sales/distribution sites;
-   * centerCount is the true-GCC subset. */
-  siteCount: number;
   prospectCount: number;
   visibility: "public" | "private";
 }

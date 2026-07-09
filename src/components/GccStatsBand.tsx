@@ -6,11 +6,7 @@ const nf = (n: number) => n.toLocaleString("en-US");
 
 const STATS: Array<{ label: string; value: string; sub?: string }> = [
   { label: "GCCs tracked", value: nf(TRACKER_STATS.accountsTracked) },
-  {
-    label: "GCC centres",
-    value: nf(TRACKER_STATS.centers),
-    sub: `of ${nf(TRACKER_STATS.sites)} sites tracked`,
-  },
+  { label: "GCC centres", value: nf(TRACKER_STATS.centers) },
   { label: "Indian cities", value: nf(TRACKER_STATS.cities) },
   { label: "Industries", value: nf(TRACKER_STATS.industries) },
   { label: "Decision-makers", value: nf(TRACKER_STATS.decisionMakers) },

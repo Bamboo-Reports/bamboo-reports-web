@@ -250,7 +250,6 @@ const Tracker = () => {
         (sums, account) => {
           sums.accounts += 1;
           sums.prospects += account.prospectCount;
-          sums.sites += account.siteCount ?? account.centerCount;
           sums.centers +=
             filters.center_city.length > 0
               ? account.cities
@@ -259,7 +258,7 @@ const Tracker = () => {
               : account.centerCount;
           return sums;
         },
-        { accounts: 0, centers: 0, prospects: 0, sites: 0 }
+        { accounts: 0, centers: 0, prospects: 0 }
       ),
     [filteredAccounts, filters.center_city]
   );
@@ -549,14 +548,7 @@ const Tracker = () => {
               <span className="font-semibold text-foreground">{filterSummary}: </span>
               {nf(counts.accounts)} {counts.accounts === 1 ? "company" : "companies"},{" "}
               {nf(counts.centers)} GCC {counts.centers === 1 ? "centre" : "centres"} and{" "}
-              {nf(counts.prospects)} decision-makers tracked in Bamboo Reports
-              {counts.sites > counts.centers && filters.center_city.length === 0 && (
-                <>
-                  , across {nf(counts.sites)} total sites including manufacturing and
-                  sales offices
-                </>
-              )}
-              . Showing{" "}
+              {nf(counts.prospects)} decision-makers tracked in Bamboo Reports. Showing{" "}
               {nf(visibleAccounts.length)}{" "}
               {visibleAccounts.length === 1 ? "company" : "companies"} free here.
               {hiddenCount > 0 && (

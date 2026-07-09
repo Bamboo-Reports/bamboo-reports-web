@@ -69,7 +69,6 @@ function buildTrackerPage(html, accounts, pub, nameToSlug, directoryPages) {
     variableMeasured: [
       { "@type": "PropertyValue", name: "GCC companies tracked", value: totals.accounts },
       { "@type": "PropertyValue", name: "GCC centres in India", value: totals.centers },
-      { "@type": "PropertyValue", name: "Total sites tracked", value: totals.sites },
       { "@type": "PropertyValue", name: "Decision-makers mapped", value: totals.prospects },
     ],
   };
@@ -93,7 +92,7 @@ function buildTrackerPage(html, accounts, pub, nameToSlug, directoryPages) {
       <p>We track ${nf(totals.accounts)} Global Capability Centers in India. Browse ${nf(pub.length)}+ of them free, filter by industry and city, and get a live count of the centres and decision-makers in your target market.</p>
       <ul>
         <li><strong>${nf(totals.accounts)}</strong> GCC companies tracked</li>
-        <li><strong>${nf(totals.centers)}</strong> GCC centres, of ${nf(totals.sites)} total sites tracked</li>
+        <li><strong>${nf(totals.centers)}</strong> GCC centres</li>
         <li><strong>${nf(totals.prospects)}</strong> decision-makers</li>
       </ul>
       <h2>India GCC companies directory</h2>
@@ -153,7 +152,7 @@ function buildDirectoryPage(pageNumber, pageCount, slice, pub, accounts, nameToS
       </nav>
       <h1>India GCC companies directory, page ${pageNumber} of ${pageCount}</h1>
       <p class="lede">Companies ${nf((pageNumber - 1) * DIRECTORY_PAGE_SIZE + 1)} to ${nf((pageNumber - 1) * DIRECTORY_PAGE_SIZE + slice.length)} of the ${nf(pub.length)} Global Capability Centers browsable free. Use the <a href="/gcc/">live market size calculator</a> to filter by industry and city.</p>
-      ${trackedVsShownHtml("All India GCCs", trackedCounts(accounts), pub.length, "gcc-directory-hook", true)}
+      ${trackedVsShownHtml("All India GCCs", trackedCounts(accounts), pub.length, "gcc-directory-hook")}
       <ul class="companies">
 ${companyListHtml(slice, nameToSlug)}
       </ul>
