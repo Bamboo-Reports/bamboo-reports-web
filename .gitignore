@@ -58,3 +58,5 @@ data/*.xlsx
 ref/
 scripts/__pycache__/
 sheets/
+.agents/
+.codex/
