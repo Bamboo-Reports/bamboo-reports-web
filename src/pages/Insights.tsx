@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { MarketingHero } from "@/components/B2BMarketingPage";
 import { useSEO } from "@/hooks/useSEO";
 
 const Insights = () => {
@@ -10,17 +11,16 @@ const Insights = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      
-      <main className="py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6">Insights</h1>
-          <p className="text-2xl text-muted-foreground">Coming Soon</p>
-        </div>
+      <main className="flex-1">
+        <MarketingHero
+          showAction={false}
+          title="Insights"
+          description={<p>Coming Soon</p>}
+        />
       </main>
-      
-      <Footer />
+      <Footer showCta={false} />
     </div>
   );
 };

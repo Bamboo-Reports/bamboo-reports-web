@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import Header from "@/components/Header";
@@ -7,7 +7,6 @@ import FadeIn from "@/components/FadeIn";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { AccountSearchFilter } from "@/components/AccountSearchFilter";
 import { MultiSelectFilter } from "@/components/MultiSelectFilter";
 import { useSEO } from "@/hooks/useSEO";
@@ -35,7 +34,9 @@ import {
 } from "lucide-react";
 
 const DEBOUNCE_MS = 250;
-const PAGE_SIZE = 20;
+// The free directory shows only the first 20 matching companies, A to Z, with
+// no pagination; the closing row points at the full version for the rest.
+const DIRECTORY_ROW_LIMIT = 20;
 // Filters surface only the global top-10 industries/cities; the long tail is
 // public on the crawlable /gcc/industries/* and /gcc/cities/* landing pages
 // and unlocks in-app with a free account.
@@ -87,25 +88,19 @@ const CountCard = ({
   icon: React.ElementType;
   isLoading: boolean;
 }) => (
-  <Card className="p-5 md:p-6">
-    <div className="flex items-start justify-between">
-      <div>
-        <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
-          {label}
-        </p>
-        <div className="mt-2 text-3xl md:text-4xl font-bold tracking-tight tabular-nums">
-          {isLoading ? (
-            <span className="inline-block h-9 w-24 animate-pulse rounded-md bg-muted" />
-          ) : (
-            value.toLocaleString()
-          )}
-        </div>
-      </div>
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">
-        <Icon className="h-5 w-5" />
-      </div>
+  <div className="border-t py-5 md:py-6">
+    <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+      <Icon className="h-4 w-4 text-primary" aria-hidden />
+      {label}
     </div>
-  </Card>
+    <div className="mt-3 text-3xl font-bold tracking-tight tabular-nums md:text-4xl">
+      {isLoading ? (
+        <span className="inline-block h-9 w-24 animate-pulse rounded-md bg-muted" />
+      ) : (
+        value.toLocaleString()
+      )}
+    </div>
+  </div>
 );
 
 const USE_CASES = [
@@ -153,7 +148,6 @@ const Tracker = () => {
     };
   });
   const [accountSearch, setAccountSearch] = useState("");
-  const [page, setPage] = useState(1);
   const debouncedAccountSearch = useDebouncedValue(accountSearch, DEBOUNCE_MS);
 
   const {
@@ -207,7 +201,6 @@ const Tracker = () => {
   const reset = () => {
     setFilters(EMPTY_FILTERS);
     setAccountSearch("");
-    setPage(1);
   };
 
   const removeFilterValue = (key: keyof TrackerFilters, value: string) => {
@@ -215,44 +208,47 @@ const Tracker = () => {
       ...current,
       [key]: current[key].filter((item) => item !== value),
     }));
-    setPage(1);
   };
 
-  const matchesFilters = (
-    account: (typeof staticAccounts)[number],
-    ignoredFilter?: "industry" | "city" | "account"
-  ) => {
-    const matchesIndustry =
-      ignoredFilter === "industry" ||
-      filters.account_primary_category.length === 0 ||
-      (account.industry !== null &&
-        filters.account_primary_category.includes(account.industry));
-    const matchesCity =
-      ignoredFilter === "city" ||
-      filters.center_city.length === 0 ||
-      account.cities.some((city) => filters.center_city.includes(city.name));
-    const matchesAccount =
-      ignoredFilter === "account" ||
-      filters.account_global_legal_name.length === 0 ||
-      (account.name !== null &&
-        filters.account_global_legal_name.includes(account.name));
-    return matchesIndustry && matchesCity && matchesAccount;
-  };
+  const matchesFilters = useCallback(
+    (
+      account: (typeof staticAccounts)[number],
+      ignoredFilter?: "industry" | "city" | "account"
+    ) => {
+      const matchesIndustry =
+        ignoredFilter === "industry" ||
+        filters.account_primary_category.length === 0 ||
+        (account.industry !== null &&
+          filters.account_primary_category.includes(account.industry));
+      const matchesCity =
+        ignoredFilter === "city" ||
+        filters.center_city.length === 0 ||
+        account.cities.some((city) => filters.center_city.includes(city.name));
+      const matchesAccount =
+        ignoredFilter === "account" ||
+        filters.account_global_legal_name.length === 0 ||
+        (account.name !== null &&
+          filters.account_global_legal_name.includes(account.name));
+      return matchesIndustry && matchesCity && matchesAccount;
+    },
+    [filters]
+  );
 
   const filteredAccounts = useMemo(
     () => staticAccounts.filter((account) => matchesFilters(account)),
-    [staticAccounts, filters]
+    [staticAccounts, matchesFilters]
   );
 
   const visibleAccounts = useMemo(
     () =>
-      filteredAccounts.filter(
-        (account): account is StaticTrackerAccount & { name: string } =>
-          account.visibility !== "private" && account.name !== null
-      ),
+      filteredAccounts
+        .filter(
+          (account): account is StaticTrackerAccount & { name: string } =>
+            account.visibility !== "private" && account.name !== null
+        )
+        .sort((a, b) => a.name.localeCompare(b.name)),
     [filteredAccounts]
   );
-  const hiddenCount = filteredAccounts.length - visibleAccounts.length;
 
   // Names the current selection for the tracked-vs-shown line, e.g.
   // "BFSI in Bengaluru" or "All India GCCs" when nothing is selected.
@@ -346,10 +342,12 @@ const Tracker = () => {
       citiesLocked: Math.max(0, cityFacets.length - cityOptions.length),
       account_global_legal_name: accountSuggestions,
     };
-  }, [staticAccounts, filters, debouncedAccountSearch]);
+  }, [staticAccounts, matchesFilters, debouncedAccountSearch]);
 
-  const totalPages = Math.max(1, Math.ceil(visibleAccounts.length / PAGE_SIZE));
-  const accounts = visibleAccounts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const accounts = visibleAccounts.slice(0, DIRECTORY_ROW_LIMIT);
+  // Everything matching the filters but not in the free A-Z preview, whether
+  // beyond the row limit or private, lives in the full version.
+  const remainingCount = filteredAccounts.length - accounts.length;
   const isLoadingFirstTime = isLoadingStaticAccounts;
   const isSearchingAccounts =
     accountSearch.trim().length >= 2 &&
@@ -362,14 +360,14 @@ const Tracker = () => {
       <Header />
 
       {/* TRACKER */}
-      <section id="size-your-market" className="scroll-mt-24 pt-10 pb-14 md:pt-14 md:pb-20 px-4">
+      <section id="size-your-market" className="scroll-mt-24 px-4 pb-14 pt-10 md:pb-20 md:pt-14">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <div className="mb-8 max-w-3xl">
-              <h1 className="text-2xl md:text-4xl font-bold tracking-tight">
+            <div className="mb-10">
+              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
                 Size your market in three clicks
               </h1>
-              <p className="mt-3 text-muted-foreground md:text-lg">
+              <p className="mt-4 max-w-6xl text-muted-foreground md:text-lg">
                 Pick a company, an industry, or a city and every count updates
                 instantly. Start broad, then narrow until the numbers match the
                 market you actually sell to.
@@ -397,7 +395,7 @@ const Tracker = () => {
           </FadeIn>
 
           {/* Filters */}
-          <div className="rounded-xl border bg-card p-5 md:p-6 shadow-sm">
+          <div className="border-y bg-secondary/30 px-4 py-6 md:px-6">
             <div className="flex flex-col md:flex-row md:items-end gap-4">
               <div className="flex-1 min-w-0">
                 <label className="mb-2 block text-sm font-medium text-foreground">
@@ -413,7 +411,6 @@ const Tracker = () => {
                   disabled={isLoadingFirstTime}
                   onQueryChange={(next) => {
                     setAccountSearch(next);
-                    setPage(1);
                     if (filters.account_global_legal_name.length > 0) {
                       setFilters((current) => ({
                         ...current,
@@ -423,7 +420,6 @@ const Tracker = () => {
                   }}
                   onSelect={(account) => {
                     setAccountSearch("");
-                    setPage(1);
                     setFilters((current) => ({
                       ...current,
                       account_global_legal_name: [account],
@@ -431,7 +427,6 @@ const Tracker = () => {
                   }}
                   onClear={() => {
                     setAccountSearch("");
-                    setPage(1);
                     setFilters((current) => ({
                       ...current,
                       account_global_legal_name: [],
@@ -447,10 +442,9 @@ const Tracker = () => {
                   label="Industry"
                   options={facets.account_primary_category}
                   value={filters.account_primary_category}
-                  onValueChange={(next) => {
-                    setFilters((f) => ({ ...f, account_primary_category: next }));
-                    setPage(1);
-                  }}
+                  onValueChange={(next) =>
+                    setFilters((f) => ({ ...f, account_primary_category: next }))
+                  }
                   disabled={isLoadingFirstTime}
                   lockedCount={facets.industriesLocked}
                   lockedNoun="industries"
@@ -465,10 +459,9 @@ const Tracker = () => {
                   label="City"
                   options={facets.center_city}
                   value={filters.center_city}
-                  onValueChange={(next) => {
-                    setFilters((f) => ({ ...f, center_city: next }));
-                    setPage(1);
-                  }}
+                  onValueChange={(next) =>
+                    setFilters((f) => ({ ...f, center_city: next }))
+                  }
                   disabled={isLoadingFirstTime}
                   lockedCount={facets.citiesLocked}
                   lockedNoun="cities"
@@ -521,7 +514,7 @@ const Tracker = () => {
           </div>
 
           {/* Counts */}
-          <div className="mt-6 grid md:grid-cols-3 gap-4 md:gap-6">
+          <div className="mt-8 grid gap-x-8 md:grid-cols-3">
             <CountCard
               label="Accounts"
               value={counts.accounts}
@@ -545,7 +538,7 @@ const Tracker = () => {
           {/* Tracked vs shown: the gap between what we track and what is
               browsable free is the sign-up hook. */}
           {!isLoadingFirstTime && counts.accounts > 0 && (
-            <div className="mt-4 flex flex-col gap-4 rounded-lg border bg-card px-5 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-2 flex flex-col gap-4 border-y py-4 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm leading-relaxed text-muted-foreground">
                 <span className="font-semibold text-foreground">
                   {selectionLabel}:
@@ -555,20 +548,20 @@ const Tracker = () => {
                 {nf(counts.centers)} {counts.centers === 1 ? "centre" : "centres"}{" "}
                 and {nf(counts.prospects)} decision-makers tracked in Bamboo
                 Reports.{" "}
-                {hiddenCount > 0
-                  ? `Showing ${nf(visibleAccounts.length)} ${
-                      visibleAccounts.length === 1 ? "company" : "companies"
-                    } free here.`
+                {remainingCount > 0
+                  ? `Showing the first ${nf(accounts.length)} ${
+                      accounts.length === 1 ? "company" : "companies"
+                    }, A to Z, free here.`
                   : "Every matching company is free to browse here."}
               </p>
-              {!user && hiddenCount > 0 && (
+              {!user && remainingCount > 0 && (
                 <Button
                   asChild
                   size="sm"
                   className="shrink-0 self-start rounded-full font-semibold sm:self-auto"
                 >
                   <a href="/signup?src=gcc-filter">
-                    Sign up free to unlock the other {nf(hiddenCount)}
+                    Sign up free to unlock the other {nf(remainingCount)}
                   </a>
                 </Button>
               )}
@@ -663,7 +656,7 @@ const Tracker = () => {
                           </td>
                         </tr>
                       ))}
-                      {page >= totalPages && hiddenCount > 0 && (
+                      {remainingCount > 0 && (
                         <tr>
                           <td colSpan={3} className="px-5 py-4">
                             <a
@@ -671,14 +664,15 @@ const Tracker = () => {
                               className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                             >
                               <Lock className="h-4 w-4" />
-                              Sign up free to unlock {hiddenCount.toLocaleString()} more{" "}
-                              {hiddenCount === 1 ? "company" : "companies"}
+                              +{nf(remainingCount)}{" "}
+                              {remainingCount === 1 ? "company" : "companies"} available
+                              in the full version
                             </a>
                           </td>
                         </tr>
                       )}
                     </>
-                  ) : hiddenCount > 0 ? (
+                  ) : remainingCount > 0 ? (
                     <tr>
                       <td colSpan={3} className="px-5 py-10 text-center">
                         <a
@@ -686,8 +680,9 @@ const Tracker = () => {
                           className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                         >
                           <Lock className="h-4 w-4" />
-                          Sign up free to see all {hiddenCount.toLocaleString()} matching{" "}
-                          {hiddenCount === 1 ? "company" : "companies"}
+                          +{nf(remainingCount)}{" "}
+                          {remainingCount === 1 ? "company" : "companies"} available in
+                          the full version
                         </a>
                       </td>
                     </tr>
@@ -713,62 +708,36 @@ const Tracker = () => {
                 </tbody>
               </table>
             </div>
-
-            <nav
-              aria-label="Directory pages"
-              className="flex justify-end gap-2 border-t px-5 py-4"
-            >
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={() => setPage((current) => Math.max(1, current - 1))}
-                disabled={page <= 1 || isLoadingStaticAccounts}
-              >
-                Previous
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
-                disabled={page >= totalPages || isLoadingStaticAccounts}
-              >
-                Next
-              </Button>
-            </nav>
           </div>
         </div>
       </section>
 
       {/* USE CASES */}
-      <section className="border-t bg-muted/30 py-14 md:py-20 px-4">
+      <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <div className="mb-10 max-w-3xl">
-              <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
+            <div className="mb-10">
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
                 Built for go-to-market teams targeting GCCs
               </h2>
-              <p className="mt-3 text-muted-foreground md:text-lg">
+              <p className="mt-4 max-w-6xl text-muted-foreground md:text-lg">
                 The same live numbers, three different jobs: from the first
                 territory plan to the board deck.
               </p>
             </div>
           </FadeIn>
-          <div className="grid gap-4 md:gap-6 md:grid-cols-3">
+          <div className="grid gap-x-8 md:grid-cols-3">
             {USE_CASES.map((useCase, index) => (
               <FadeIn key={useCase.title} delay={index * 100}>
-                <Card className="h-full p-6 md:p-8">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <useCase.icon className="h-5 w-5" />
-                  </div>
+                <div className="h-full border-t py-6">
+                  <useCase.icon className="h-6 w-6 text-primary" aria-hidden />
                   <h3 className="mt-5 text-lg font-semibold tracking-tight">
                     {useCase.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {useCase.description}
                   </p>
-                </Card>
+                </div>
               </FadeIn>
             ))}
           </div>

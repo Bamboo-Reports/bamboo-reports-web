@@ -47,11 +47,30 @@ const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem" 
     ) : null}
     <div className="trust-logos-track-wrap">
       <div className="trust-logos-track">
-        {[...logos, ...logos].map((logo, i) => (
-          <div key={i} className="trust-logos-item">
-            <img src={logo.src} alt={logo.alt} className="h-9 md:h-11 object-contain" loading="lazy" />
+        {logos.map((logo) => (
+          <div key={logo.alt} className="trust-logos-item">
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              className="h-9 object-contain md:h-11"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         ))}
+        <div className="contents" aria-hidden="true">
+          {logos.map((logo) => (
+            <div key={`duplicate-${logo.alt}`} className="trust-logos-item">
+              <img
+                src={logo.src}
+                alt=""
+                className="h-9 object-contain md:h-11"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>

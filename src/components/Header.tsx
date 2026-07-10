@@ -72,16 +72,17 @@ const Header = () => {
 
   return (
     <>
+    <div className="sticky top-0 z-40">
     <AnnouncementBar />
-    <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80 md:py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/">
+        <Link to="/" className="inline-flex min-h-11 items-center">
           <img src={logo} alt="Bamboo Reports" className="h-10 md:h-12" />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-5 xl:flex">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -155,11 +156,14 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  className={navigationMenuTriggerStyle() + " cursor-pointer"}
-                  onClick={() => openInquiryForm()}
-                >
-                  Pricing
+                <NavigationMenuLink asChild>
+                  <button
+                    type="button"
+                    className={navigationMenuTriggerStyle()}
+                    onClick={() => openInquiryForm()}
+                  >
+                    Pricing
+                  </button>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -244,9 +248,9 @@ const Header = () => {
 
         {/* Mobile Hamburger Menu */}
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6" />
+          <SheetTrigger asChild className="xl:hidden">
+            <Button variant="ghost" size="icon" className="h-11 w-11" aria-label="Open navigation menu">
+              <Menu className="h-6 w-6" aria-hidden />
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-full sm:w-[400px] p-0">
@@ -409,6 +413,7 @@ const Header = () => {
         </Sheet >
       </div >
     </header >
+    </div>
     </>
   );
 };

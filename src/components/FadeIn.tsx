@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { createElement, useEffect, useRef, useState } from "react";
 
 type FadeInProps = {
   children: React.ReactNode;
@@ -42,14 +42,14 @@ const FadeIn = ({
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
-  return (
-    <Tag
-      ref={ref as never}
-      className={`fade-in ${visible ? "is-visible" : ""} ${className}`.trim()}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </Tag>
+  return createElement(
+    Tag,
+    {
+      ref: ref as never,
+      className: `fade-in ${visible ? "is-visible" : ""} ${className}`.trim(),
+      style: { transitionDelay: `${delay}ms` },
+    },
+    children,
   );
 };
 

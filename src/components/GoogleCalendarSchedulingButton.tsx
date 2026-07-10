@@ -1,4 +1,4 @@
-import { useEffect, type ButtonHTMLAttributes, type MouseEvent } from "react";
+import { type ButtonHTMLAttributes, type MouseEvent } from "react";
 
 const APPOINTMENT_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true";
@@ -122,10 +122,6 @@ export const GoogleCalendarSchedulingButton = ({
   type = "button",
   ...props
 }: GoogleCalendarSchedulingButtonProps) => {
-  useEffect(() => {
-    void ensureSchedulingAssets().catch(() => undefined);
-  }, []);
-
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     onClick?.(event);
     if (!event.defaultPrevented) {

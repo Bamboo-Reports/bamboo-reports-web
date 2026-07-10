@@ -1,9 +1,10 @@
+import type { SyntheticEvent } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
-import { useSEO } from "@/hooks/useSEO";
+import { MarketingHero } from "@/components/B2BMarketingPage";
 import { Button } from "@/components/ui/button";
-import type { SyntheticEvent } from "react";
+import { useSEO } from "@/hooks/useSEO";
 
 const REPORT_THUMBNAIL_FALLBACK = "/placeholder.svg";
 
@@ -20,8 +21,6 @@ const articles = [
 
 const recentArticles = articles.slice(0, 3);
 
-// Interesting Reads — curated whitepapers / long-form pieces. Each links to
-// its own landing page.
 const interestingReads = [
   {
     to: "/reads/agentic-enterprise",
@@ -49,105 +48,89 @@ const Resources = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <main className="flex-1">
-        <section className="relative overflow-hidden border-b">
-          <div
-            className="absolute inset-0 opacity-[0.035] pointer-events-none"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)",
-              backgroundSize: "56px 56px",
-            }}
-          />
-    
-          <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
-            <h1 className="leading-[1.05] max-w-5xl">
-              <span className="block text-foreground">Resources.</span>
-              <span className="block text-accent">Intelligence You Can Use.</span>
-            </h1>
-            <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              Roundtables, guides, and data-driven insights from the team building India's GCC
-              intelligence layer.
-            </p>
-          </div>
-        </section>
+      <main>
+        <MarketingHero
+          showAction={false}
+          title={<><span className="block">Resources.</span><span className="block text-primary">Intelligence You Can Use.</span></>}
+          description={<p>Roundtables, guides, and data-driven insights from the team building India's GCC intelligence layer.</p>}
+        />
 
-        <section className="relative max-w-6xl mx-auto px-4 py-14 md:py-20 space-y-12">
-          <section className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <section className="px-4 py-14 md:py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Resources</p>
-                <h2 className="text-3xl lg:text-4xl font-black">Recent Roundtables</h2>
+                <p className="text-sm font-semibold text-accent">Resources</p>
+                <h2 className="mt-2 text-3xl font-bold md:text-4xl">Recent Roundtables</h2>
               </div>
-              <Button variant="outline" className="rounded-full" asChild>
+              <Button variant="outline" asChild>
                 <Link to="/roundtables">View All</Link>
               </Button>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+
+            <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {recentArticles.map((article) => (
                 <Link
                   key={article.slug}
                   to={`/roundtables/${article.slug}`}
-                  className="group relative h-full rounded-2xl border bg-card shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 overflow-hidden"
+                  className="group overflow-hidden rounded-md border bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
-                  <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={article.thumbnail}
                       alt={article.title}
                       onError={handleThumbnailError}
-                      className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
+                      loading="lazy"
+                      className="h-full w-full object-cover"
                     />
                   </div>
-                  <div className="relative p-5 space-y-2">
-                    <h3 className="text-lg font-black leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
-                      {article.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{article.summary}</p>
-                    <p className="text-xs font-semibold text-primary">{article.date}</p>
+                  <div className="p-5">
+                    <h3 className="text-lg font-bold leading-tight transition-colors group-hover:text-primary">{article.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{article.summary}</p>
+                    <p className="mt-3 text-xs font-semibold text-primary">{article.date}</p>
                   </div>
                 </Link>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Resources</p>
-                <h2 className="text-3xl lg:text-4xl font-black">Interesting Reads</h2>
+                <p className="text-sm font-semibold text-accent">Resources</p>
+                <h2 className="mt-2 text-3xl font-bold md:text-4xl">Interesting Reads</h2>
               </div>
-              <Button variant="outline" className="rounded-full" asChild>
+              <Button variant="outline" asChild>
                 <Link to="/reads">View All</Link>
               </Button>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+
+            <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {interestingReads.map((read) => (
                 <Link
                   key={read.to}
                   to={read.to}
-                  className="group relative h-full rounded-2xl border bg-card shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 overflow-hidden"
+                  className="group overflow-hidden rounded-md border bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
-                  <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={read.thumbnail}
                       alt={read.title}
                       onError={handleThumbnailError}
-                      className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
+                      loading="lazy"
+                      className="h-full w-full object-cover"
                     />
                   </div>
-                  <div className="relative p-5 space-y-2">
+                  <div className="p-5">
                     <p className="text-xs font-semibold text-primary">{read.label}</p>
-                    <h3 className="text-lg font-black leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
-                      {read.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{read.summary}</p>
+                    <h3 className="mt-2 text-lg font-bold leading-tight transition-colors group-hover:text-primary">{read.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{read.summary}</p>
                   </div>
                 </Link>
               ))}
             </div>
-          </section>
+          </div>
         </section>
       </main>
 

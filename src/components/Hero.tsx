@@ -4,83 +4,99 @@ import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSched
 import { useAuth } from "@/contexts/AuthContext";
 import gccIllustration from "@/assets/gcc-illustration.png";
 
+const CAPABILITIES = [
+  "GCC Prospect Data",
+  "Account & Market Intelligence",
+  "GCC Focused ABM",
+];
+
 const Hero = () => {
   const { user } = useAuth();
-  return (
-    <section className="py-8 md:py-16 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 md:mb-12">
-          <h1 className="leading-tight mb-4 md:mb-6">
-            <span className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold block mb-2">
-              Your Trusted Partner for
-            </span>
-            <span className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold block">
-              GCC GTM Enablement
-            </span>
-          </h1>
-          <ul className="mb-6 md:mb-8 px-2 max-w-3xl mx-auto flex flex-wrap gap-2 sm:gap-3 justify-center items-center">
-            {["GCC Prospect Data", "Account & Market Intelligence", "GCC Focused ABM"].map((item) => (
-              <li
-                key={item}
-                className="rounded-full border border-border bg-background px-4 py-1.5 text-xs sm:text-sm md:text-base font-medium text-muted-foreground"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
 
-          {/* --- Button Wrapper --- */}
-          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-3 md:mb-4">
-            {!user && (
+  return (
+    <section className="px-4 pb-12 pt-10 md:pb-16 md:pt-16">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-14">
+          <div>
+            <h1 className="text-balance leading-tight">
+              <span className="mb-2 block text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
+                Your Trusted Partner for
+              </span>
+              <span className="block text-4xl font-extrabold text-primary sm:text-5xl lg:text-6xl">
+                GCC GTM Enablement
+              </span>
+            </h1>
+
+            <ul className="mt-7 space-y-3">
+              {CAPABILITIES.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-sm font-semibold text-muted-foreground sm:text-base"
+                >
+                  <span className="h-1.5 w-1.5 flex-none rounded-full bg-accent" aria-hidden />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              {!user && (
+                <Button
+                  asChild
+                  size="lg"
+                  className="px-7 text-base font-semibold"
+                >
+                  <Link to="/signup?src=home-hero">Sign up free</Link>
+                </Button>
+              )}
               <Button
                 asChild
-                className="px-6 py-5 md:px-8 md:py-6 rounded-full font-semibold text-base md:text-lg shadow-sm hover:shadow-md transition-shadow"
+                size="lg"
+                variant="outline"
+                className="px-7 text-base font-semibold"
               >
-                <Link to="/signup?src=home-hero">Sign up free</Link>
+                <GoogleCalendarSchedulingButton>
+                  Get a demo
+                </GoogleCalendarSchedulingButton>
               </Button>
-            )}
-            <Button
-              asChild
-              variant="outline"
-              className="px-6 py-5 md:px-8 md:py-6 rounded-full font-semibold text-base md:text-lg"
-            >
-              <GoogleCalendarSchedulingButton>
-                Get a demo
-              </GoogleCalendarSchedulingButton>
-            </Button>
+            </div>
+
+            <p className="mt-4 max-w-lg text-sm text-muted-foreground">
+              Free access to the India GCC directory, plus expert advice to
+              supercharge your GCC strategy
+            </p>
           </div>
 
-          <p className="text-xs sm:text-sm text-muted-foreground px-4">
-            Free access to the India GCC directory, plus expert advice to
-            supercharge your GCC strategy
-          </p>
+          <div className="flex justify-center">
+            <img
+              src={gccIllustration}
+              alt="GCC Intelligence Platform - Global Capability Centers Data Analytics and Market Intelligence Illustration"
+              width="1024"
+              height="714"
+              fetchPriority="high"
+              className="h-auto w-full max-w-2xl"
+            />
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
-          <div className="px-2">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-              What is GCC Intelligence?
-            </h2>
-            <p className="text-justify leading-relaxed mb-4 text-sm md:text-base">
+        <div className="mt-16 border-t pt-10 md:mt-20 md:pt-12">
+          <h2 className="text-2xl font-bold leading-tight md:text-3xl">
+            What is GCC Intelligence?
+          </h2>
+          <div className="mt-5 max-w-6xl space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+            <p>
               GCC Intelligence refers to the structured, data-driven
               understanding of Global Capability Centers (GCCs), also known as
               Global In-house Centers (GICs). These are offshore operations of
               multinational companies and handle a wide range of strategic,
               operational, and innovation-driven functions.
             </p>
-            <p className="text-justify leading-relaxed text-sm md:text-base">
+            <p>
               India has become a key destination for these centers, thanks to
               its talent density, mature ecosystems, and infrastructure. The
               role of GCCs has expanded well beyond cost efficiency to driving
               innovation, agility, and business continuity.
             </p>
-          </div>
-          <div className="flex justify-center px-2">
-            <img
-              src={gccIllustration}
-              alt="GCC Intelligence Platform - Global Capability Centers Data Analytics and Market Intelligence Illustration"
-              className="w-full max-w-sm md:max-w-lg"
-            />
           </div>
         </div>
       </div>

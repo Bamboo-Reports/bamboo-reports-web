@@ -1,5 +1,4 @@
 import { TrendingUp, Users, FileText, TrendingDown } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
 const beneficiaries = [
   {
@@ -24,33 +23,33 @@ const beneficiaries = [
   }
 ];
 
-const WhoBenefits = () => {
-  return (
-    <section className="py-14 md:py-20 px-4 bg-secondary/30">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4">Who Benefits from Bamboo Reports?</h2>
-        <p className="text-center text-muted-foreground mb-12">
+const WhoBenefits = () => (
+  <section className="bg-background px-4 py-14 md:py-20">
+    <div className="mx-auto max-w-7xl">
+      <div>
+        <h2 className="text-3xl font-bold leading-tight md:text-4xl">
+          Who Benefits from Bamboo Reports?
+        </h2>
+        <p className="mt-4 max-w-6xl text-muted-foreground">
           Bamboo Reports serves stakeholders across industries who require more than just dashboards
         </p>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {beneficiaries.map((beneficiary, index) => (
-            <Card key={index} className="bg-card">
-              <CardContent className="pt-8 pb-6 px-6 text-center">
-                <div className="flex justify-center mb-4">
-                  <beneficiary.icon className="text-primary" size={40} />
-                </div>
-                <h3 className="font-bold text-lg mb-3">{beneficiary.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {beneficiary.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
       </div>
-    </section>
-  );
-};
+
+      <div className="mt-10 grid gap-x-8 md:grid-cols-2 lg:grid-cols-4">
+        {beneficiaries.map((beneficiary) => (
+          <div key={beneficiary.title} className="border-t py-6">
+            <beneficiary.icon className="h-6 w-6 text-primary" aria-hidden />
+            <h3 className="mt-5 text-lg font-bold leading-snug">
+              {beneficiary.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              {beneficiary.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default WhoBenefits;

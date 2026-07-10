@@ -20,34 +20,42 @@ const benefits = [
   }
 ];
 
-const RealTimeData = () => {
-  return (
-    <section className="py-14 md:py-20 px-4 bg-secondary/30">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16">Real-time Data on GCCs Can Help You</h2>
-        
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex gap-4 items-start">
-                <div className="bg-primary/10 text-primary p-3 rounded-full flex-shrink-0">
-                  <Check size={24} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl mb-2">{benefit.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
-                </div>
+const RealTimeData = () => (
+  <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
+    <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
+      <div className="flex justify-center">
+        <img
+          src={dataHelpIllustration}
+          alt="Real-time Data Illustration"
+          width="1024"
+          height="637"
+          loading="lazy"
+          className="h-auto w-full max-w-2xl"
+        />
+      </div>
+
+      <div>
+        <h2 className="max-w-xl text-3xl font-bold leading-tight md:text-4xl">
+          Real-time Data on GCCs Can Help You
+        </h2>
+
+        <div className="mt-8 border-t">
+          {benefits.map((benefit) => (
+            <div
+              key={benefit.title}
+              className="grid grid-cols-[1.5rem_1fr] gap-4 border-b py-5"
+            >
+              <Check className="mt-1 h-5 w-5 text-primary" aria-hidden />
+              <div>
+                <h3 className="text-lg font-bold">{benefit.title}</h3>
+                <p className="mt-2 text-muted-foreground">{benefit.description}</p>
               </div>
-            ))}
-          </div>
-          
-          <div className="flex justify-center">
-            <img src={dataHelpIllustration} alt="Real-time Data Illustration" className="w-full max-w-2xl" />
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default RealTimeData;

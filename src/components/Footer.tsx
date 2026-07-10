@@ -11,22 +11,20 @@ const exploreLinks = [
   { label: "Resources", to: "/resources" },
 ];
 
-const Footer = () => {
+const Footer = ({ showCta = true }: { showCta?: boolean }) => {
   const { user } = useAuth();
   const { openInquiryForm } = useInquiryForm();
   const currentYear = new Date().getFullYear();
   return (
     <footer className="relative border-t bg-background">
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 lg:py-16 space-y-12">
-        {/* CTA Card */}
-        <div className="rounded-2xl border bg-card/80 p-6 md:p-8 shadow-sm ring-1 ring-primary/10 backdrop-blur">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <div className="relative z-10 mx-auto max-w-7xl space-y-12 px-4 py-12 lg:py-16">
+        {showCta && <div className="border-y py-8 md:py-10">
+          <div className="flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                <span className="h-2 w-2 rounded-full bg-primary animate-pulse" aria-hidden />
-                <span>Always-on GCC intelligence</span>
-              </div>
+              <p className="text-sm font-semibold text-primary">
+                Always-on GCC intelligence
+              </p>
               <div className="space-y-2">
                 <h3 className="text-xl md:text-2xl font-semibold text-foreground">
                   Ready to unlock GCC intelligence for your team?
@@ -37,22 +35,22 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex w-full flex-col gap-3 md:w-auto">
+            <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto md:flex-col">
               <GoogleCalendarSchedulingButton
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition duration-micro ease-smooth hover:shadow-md"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors duration-micro ease-smooth hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 Get a demo
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
               </GoogleCalendarSchedulingButton>
               <button
                 onClick={openInquiryForm}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition duration-micro ease-smooth hover:border-primary hover:text-primary"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors duration-micro ease-smooth hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 Pricing
               </button>
             </div>
           </div>
-        </div>
+        </div>}
 
         {/* Main Footer */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
