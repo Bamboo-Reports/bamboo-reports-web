@@ -1,35 +1,22 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FadeIn from "@/components/FadeIn";
 import { DemoCta, MarketingHero, SectionIntro } from "@/components/B2BMarketingPage";
 import { useSEO } from "@/hooks/useSEO";
-import {
-  CalendarDays,
-  Crosshair,
-  HandshakeIcon,
-  Layers,
-  Mail,
-  MapPin,
-  Megaphone,
-  Rocket,
-  ShieldCheck,
-  Target,
-  UserCheck,
-  Zap,
-} from "lucide-react";
 
 const STEPS = [
-  { icon: Target, title: "Account selection", body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database, with full context on each centre's size, age, parent company, and leadership." },
-  { icon: UserCheck, title: "Contact targeting", body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies. No duplication. No guesswork." },
-  { icon: Megaphone, title: "Campaign execution", body: "We run multi-channel campaigns across LinkedIn, email, curated roundtables, and content syndication through the Bamboo Reports audience." },
-  { icon: HandshakeIcon, title: "MQL handoff", body: "We deliver qualified leads: contacts who've engaged with your content, attended your events, or raised their hand. Not raw lists. Not cold traffic." },
+  { title: "Account selection", body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database, with full context on each centre's size, age, parent company, and leadership." },
+  { title: "Contact targeting", body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies. No duplication. No guesswork." },
+  { title: "Campaign execution", body: "We run multi-channel campaigns across LinkedIn, email, curated roundtables, and content syndication through the Bamboo Reports audience." },
+  { title: "MQL handoff", body: "We deliver qualified leads: contacts who've engaged with your content, attended your events, or raised their hand. Not raw lists. Not cold traffic." },
 ];
 
 const FORMATS = [
-  { icon: Zap, name: "Focused ABM sprint", desc: "Short, sharp campaign targeting a defined account list." },
-  { icon: MapPin, name: "City blitz", desc: "Concentrated push in one GCC cluster." },
-  { icon: CalendarDays, name: "Roundtable programme", desc: "Curated events with senior GCC leaders." },
-  { icon: Mail, name: "Content + nurture", desc: "LinkedIn and email sequence across named accounts." },
-  { icon: Rocket, name: "Full GTM programme", desc: "Multi-city, multi-channel, long-form engagement." },
+  { name: "Focused ABM sprint", desc: "Short, sharp campaign targeting a defined account list." },
+  { name: "City blitz", desc: "Concentrated push in one GCC cluster." },
+  { name: "Roundtable programme", desc: "Curated events with senior GCC leaders." },
+  { name: "Content + nurture", desc: "LinkedIn and email sequence across named accounts." },
+  { name: "Full GTM programme", desc: "Multi-city, multi-channel, long-form engagement." },
 ];
 
 const RESULTS = [
@@ -56,6 +43,7 @@ const GCCABM = () => {
         description={<p>From prospect data and account planning to campaign execution and performance reporting, we run focused GCC outreach programmes end to end. We handle the signals, scoring, segmentation, and insights, so your team can run personalised GCC campaigns without drowning in operational work.</p>}
       />
 
+      <FadeIn>
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro label="The problem" title="GCC buyers are hard to reach. Generic ABM doesn't work here.">
@@ -66,29 +54,31 @@ const GCCABM = () => {
           </SectionIntro>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section id="how-it-works" className="scroll-mt-24 border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro label="How it works" title="Full-funnel ABM, end to end." />
           <div className="mt-10 grid gap-x-8 md:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((step) => (
               <div key={step.title} className="border-t py-6">
-                <step.icon className="h-5 w-5 text-primary" aria-hidden />
-                <h3 className="mt-4 text-xl font-bold">{step.title}</h3>
+                <h3 className="text-xl font-bold">{step.title}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{step.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro label="Campaign formats" title="Pick your play." />
           <div className="mt-10">
             {FORMATS.map((format) => (
-              <div key={format.name} className="grid gap-4 border-t py-6 md:grid-cols-[2rem_0.8fr_1.2fr] md:items-center md:gap-8">
-                <format.icon className="h-5 w-5 text-primary" aria-hidden />
+              <div key={format.name} className="grid gap-4 border-t py-6 md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-8">
                 <h3 className="text-xl font-bold">{format.name}</h3>
                 <p className="text-lg leading-relaxed text-muted-foreground">{format.desc}</p>
               </div>
@@ -96,7 +86,9 @@ const GCCABM = () => {
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro label="Proven results" title="Qualified pipeline. Measurable outcomes.">
@@ -113,7 +105,9 @@ const GCCABM = () => {
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro label="Who it's for" title="Built for B2B teams selling into GCCs." />
@@ -130,7 +124,9 @@ const GCCABM = () => {
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro label="Why Bamboo Reports" title={<>We don't just run campaigns.<br /><span className="text-primary">We know the market.</span></>}>
@@ -138,18 +134,21 @@ const GCCABM = () => {
           </SectionIntro>
           <div className="mt-10 grid gap-x-10 md:grid-cols-2">
             {[
-              { icon: ShieldCheck, text: "No data middlemen. No stale records. 260+ man-months of structured research, AI-refreshed weekly." },
-              { icon: Layers, text: "Campaigns that reflect actual centre-level org structures: service-mix, function splits, tech stacks." },
-              { icon: Crosshair, text: "Audience segments no competitor can replicate. 21x more structured data per GCC than the nearest alternative." },
-              { icon: Megaphone, text: "Messaging context from the same team publishing the India GCC intelligence layer." },
+              { text: "No data middlemen. No stale records. 260+ man-months of structured research, AI-refreshed weekly." },
+              { text: "Campaigns that reflect actual centre-level org structures: service-mix, function splits, tech stacks." },
+              { text: "Audience segments no competitor can replicate. 21x more structured data per GCC than the nearest alternative." },
+              { text: "Messaging context from the same team publishing the India GCC intelligence layer." },
             ].map((item) => (
-              <div key={item.text} className="grid grid-cols-[1.5rem_1fr] gap-4 border-t py-6"><item.icon className="mt-1 h-5 w-5 text-primary" aria-hidden /><p className="text-lg leading-relaxed text-muted-foreground">{item.text}</p></div>
+              <div key={item.text} className="border-t py-6"><p className="text-lg leading-relaxed text-muted-foreground">{item.text}</p></div>
             ))}
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <DemoCta title="Let's build the pipeline your competitors can't." />
+      </FadeIn>
       <Footer showCta={false} />
     </div>
   );

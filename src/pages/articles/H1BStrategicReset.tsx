@@ -189,10 +189,7 @@ const H1BStrategicReset = () => {
                 <p className="text-lg text-muted-foreground max-w-3xl">
                   Hosted by Research NXT - Bamboo Reports, leaders across marketing, strategy, sales, and GCC operations debated how global delivery and decision-making are being rebuilt around India.
                 </p>
-                <div className="flex flex-wrap gap-3 text-sm font-semibold text-primary">
-                  <span className="rounded-full bg-primary/10 px-3 py-1 border border-primary/30">13 November 2025</span>
-                  <span className="rounded-full bg-primary/10 px-3 py-1 border border-primary/30">Hilton Bengaluru</span>
-                </div>
+                <p className="text-sm font-semibold text-muted-foreground">13 November 2025 · Hilton Bengaluru</p>
               </div>
               <div className="overflow-hidden rounded-md">
                 <img

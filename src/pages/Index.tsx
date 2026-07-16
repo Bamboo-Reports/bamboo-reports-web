@@ -9,6 +9,7 @@ import RealTimeData from "@/components/RealTimeData";
 import ResearchNXT from "@/components/ResearchNXT";
 import WhatIsGccIntelligence from "@/components/WhatIsGccIntelligence";
 import Footer from "@/components/Footer";
+import FadeIn from "@/components/FadeIn";
 import { useSEO } from "@/hooks/useSEO";
 import StructuredData from "@/components/StructuredData";
 
@@ -26,14 +27,30 @@ const Index = () => {
       <StructuredData type="product" />
       <Header />
       <Hero />
-      <GccStatsBand />
-      <Q1ReportSection />
-      <Features />
-      <IntelligenceSpans />
-      <WhoBenefits />
-      <RealTimeData />
-      <ResearchNXT />
-      <WhatIsGccIntelligence />
+      <FadeIn>
+        <GccStatsBand />
+      </FadeIn>
+      <FadeIn>
+        <Q1ReportSection />
+      </FadeIn>
+      <FadeIn>
+        <Features />
+      </FadeIn>
+      <FadeIn>
+        <IntelligenceSpans />
+      </FadeIn>
+      <FadeIn>
+        <WhoBenefits />
+      </FadeIn>
+      <FadeIn>
+        <RealTimeData />
+      </FadeIn>
+      <FadeIn>
+        <ResearchNXT />
+      </FadeIn>
+      <FadeIn>
+        <WhatIsGccIntelligence />
+      </FadeIn>
       <Footer />
     </div>
   );

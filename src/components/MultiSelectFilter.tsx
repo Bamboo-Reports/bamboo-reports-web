@@ -2,6 +2,7 @@ import * as React from "react";
 import { Check, ChevronsUpDown, Lock, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -9,6 +10,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export interface MultiSelectOption {
   value: string;
@@ -24,7 +31,8 @@ interface MultiSelectFilterProps {
   /** Options beyond the public top-N; shown as a sign-up gate, not listed. */
   lockedCount?: number;
   lockedNoun?: string;
-  lockedHref?: string;
+  /** Extra detail per option value, shown as a list in a tooltip on hover. */
+  optionHints?: Record<string, readonly string[]>;
 }
 
 export function MultiSelectFilter({
@@ -35,7 +43,7 @@ export function MultiSelectFilter({
   disabled,
   lockedCount = 0,
   lockedNoun = "options",
-  lockedHref = "/signup",
+  optionHints,
 }: MultiSelectFilterProps) {
   const [open, setOpen] = React.useState(false);
   const [query, setQuery] = React.useState("");
@@ -95,7 +103,9 @@ export function MultiSelectFilter({
           ) : (
             filtered.map((option) => {
               const checked = selectedSet.has(option.value);
-              return (
+              const hint = optionHints?.[option.value];
+              const hasHint = hint && hint.length > 0;
+              const optionButton = (
                 <button
                   key={option.value}
                   type="button"
@@ -112,18 +122,33 @@ export function MultiSelectFilter({
                   {checked && <Check className="h-4 w-4 text-primary" />}
                 </button>
               );
+              if (!hasHint) return optionButton;
+              return (
+                <TooltipProvider key={option.value} delayDuration={200}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>{optionButton}</TooltipTrigger>
+                    <TooltipContent side="right" align="start" className="max-w-xs">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        Includes
+                      </p>
+                      <ul className="mt-1.5 space-y-1 text-sm leading-snug">
+                        {hint.map((entry) => (
+                          <li key={entry}>{entry}</li>
+                        ))}
+                      </ul>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              );
             })
           )}
         </div>
         {lockedCount > 0 && (
           <div className="border-t p-1">
-            <a
-              href={lockedHref}
-              className="flex w-full items-center gap-2 rounded-sm px-2 py-2 text-sm font-medium text-primary transition-colors hover:bg-muted"
-            >
+            <GoogleCalendarSchedulingButton className="flex w-full items-center gap-2 rounded-sm px-2 py-2 text-left text-sm font-medium text-primary transition-colors hover:bg-muted">
               <Lock className="h-3.5 w-3.5 shrink-0" />
-              Sign up for free to unlock {lockedCount.toLocaleString()} more {lockedNoun}
-            </a>
+              {lockedCount.toLocaleString()} more {lockedNoun} available in the full version
+            </GoogleCalendarSchedulingButton>
           </div>
         )}
         {value.length > 0 && (

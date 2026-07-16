@@ -194,7 +194,7 @@ def main():
                 "account_type",
                 "account_visibility",
             },
-            optional_columns={"account_note"},
+            optional_columns={"account_note", "account_visibility_note", "account_industry_classification"},
         )
         centers = read_sheet(
             archive,
@@ -230,11 +230,11 @@ def main():
     non_gcc_notes = {}
     for record in accounts:
         name = record["account_global_legal_name"]
-        note = record.get("account_note", "").strip()
+        note = (record.get("account_visibility_note") or record.get("account_note", "")).strip()
         if not name or not note:
             continue
         if record["account_type"].strip().lower() == GCC_ACCOUNT_TYPE:
-            print(f"Ignoring account_note on gcc account {name!r}: {note!r}")
+            print(f"Ignoring visibility note on gcc account {name!r}: {note!r}")
             continue
         # Warehouse glitch glues the words together ("ManufacturingPresence").
         note = re.sub(r"\s*Presence In India$", " presence in India", note)
@@ -254,6 +254,16 @@ def main():
         )
         for record in gcc_accounts
     }
+    # Sub-classifications per standardized industry label, shown as hover
+    # detail on the tracker's industry filter options. Generic catch-all
+    # labels are excluded from the display.
+    hidden_classifications = {"Corporate Services", "Holding Companies", "Personal Services"}
+    industry_classifications = defaultdict(set)
+    for record in gcc_accounts:
+        classification = record.get("account_industry_classification", "").strip()
+        if classification and classification not in hidden_classifications:
+            industry_classifications[industries[record["account_global_legal_name"]]].add(classification)
+
     visibility = {
         record["account_global_legal_name"]: (
             "private"
@@ -410,7 +420,11 @@ def main():
         "// simplified name (same scheme as gated search): search shows the note\n"
         "// on an exact-name match without shipping the excluded list.\n"
         "export const TRACKER_NON_GCC_NOTES: Record<string, string> =\n"
-        f"  {json.dumps(non_gcc_notes, separators=(',', ':'), ensure_ascii=False)};\n"
+        f"  {json.dumps(non_gcc_notes, separators=(',', ':'), ensure_ascii=False)};\n\n"
+        "// Sub-classifications per industry label, shown on hover in the\n"
+        "// tracker's industry filter.\n"
+        "export const TRACKER_INDUSTRY_CLASSIFICATIONS: Record<string, string[]> =\n"
+        f"  {json.dumps({k: sorted(v) for k, v in sorted(industry_classifications.items())}, separators=(',', ':'), ensure_ascii=False)};\n"
     )
     print(f"Wrote {len(tracker_accounts)} accounts across {len(chunk_urls)} chunks to {output_dir}")
     print(f"Chunk manifest written to {CHUNK_MANIFEST}")

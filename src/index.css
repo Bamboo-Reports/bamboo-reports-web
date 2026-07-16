@@ -232,22 +232,51 @@ All colors MUST be HSL.
   .fade-in {
     opacity: 0;
     transform: translateY(20px);
+    filter: blur(6px);
     transition:
       opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
-      transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
+      transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+      filter 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
   }
 
   .fade-in.is-visible {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+    will-change: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .fade-in {
       opacity: 1;
       transform: none;
+      filter: none;
       transition: none;
+    }
+  }
+
+  /* Hero staggered entrance */
+  .hero-rise {
+    animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes heroRise {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: blur(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-rise {
+      animation: none;
     }
   }
 

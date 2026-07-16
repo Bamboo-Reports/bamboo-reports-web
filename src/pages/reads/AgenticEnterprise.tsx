@@ -29,9 +29,9 @@ const AgenticEnterprise = () => {
             <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">MIT found that 95% of generative AI pilots fail to deliver value. The problem isn't the technology, it's transformation built to a fixed end-state. This Thoughtworks and AWS report shows how a composable architecture of agents, data and governance lets your enterprise adapt as fast as AI evolves.</p>
             <ul className="mt-10 border-t">
               {PILLARS.map((pillar) => (
-                <li key={pillar.number} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b py-5">
-                  <span className="text-sm font-semibold tabular-nums text-accent">{pillar.number}</span>
-                  <span><strong className="block font-semibold">{pillar.title}</strong><span className="mt-1 block text-sm leading-relaxed text-muted-foreground">{pillar.description}</span></span>
+                <li key={pillar.title} className="border-b py-5">
+                  <strong className="block font-semibold">{pillar.title}</strong>
+                  <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">{pillar.description}</span>
                 </li>
               ))}
             </ul>

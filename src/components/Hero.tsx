@@ -19,12 +19,18 @@ const Hero = () => {
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
           <div>
-            <h1 className="text-balance text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            <h1
+              className="hero-rise text-balance text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
+              style={{ animationDelay: "0ms" }}
+            >
               Your trusted partner for{" "}
               <span className="text-primary">GCC GTM enablement</span>
             </h1>
 
-            <div className="mt-9 max-w-md border-t">
+            <div
+              className="hero-rise mt-9 max-w-md border-t"
+              style={{ animationDelay: "120ms" }}
+            >
               {CAPABILITIES.map((item) => (
                 <Link
                   key={item.title}
@@ -40,7 +46,10 @@ const Hero = () => {
               ))}
             </div>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <div
+              className="hero-rise mt-9 flex flex-wrap items-center gap-3"
+              style={{ animationDelay: "220ms" }}
+            >
               {!user && (
                 <Button
                   asChild
@@ -62,13 +71,19 @@ const Hero = () => {
               </Button>
             </div>
 
-            <p className="mt-5 max-w-lg text-sm text-muted-foreground">
-              Free access to the India GCC directory, plus expert advice to
-              sharpen your GCC strategy.
+            <p
+              className="hero-rise mt-5 max-w-lg text-sm text-muted-foreground"
+              style={{ animationDelay: "300ms" }}
+            >
+              Built and refreshed by analysts who track the India GCC market
+              every day.
             </p>
           </div>
 
-          <div className="flex justify-center">
+          <div
+            className="hero-rise flex justify-center"
+            style={{ animationDelay: "200ms" }}
+          >
             <img
               src={gccIllustration}
               alt="GCC Intelligence Platform - Global Capability Centers Data Analytics and Market Intelligence Illustration"

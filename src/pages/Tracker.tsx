@@ -21,15 +21,9 @@ import {
   TRACKER_NON_GCC_NOTES,
   TRACKER_TOP_INDUSTRIES,
   TRACKER_TOP_CITIES,
+  TRACKER_INDUSTRY_CLASSIFICATIONS,
 } from "@/lib/trackerStats";
-import {
-  Building2,
-  Lock,
-  RotateCcw,
-  Target,
-  TrendingUp,
-  X,
-} from "lucide-react";
+import { Lock, RotateCcw, X } from "lucide-react";
 
 const DEBOUNCE_MS = 250;
 // The free directory shows only the first 20 matching companies, A to Z, with
@@ -40,6 +34,7 @@ const DIRECTORY_ROW_LIMIT = 20;
 // and unlocks in-app with a free account.
 
 const nf = (n: number) => n.toLocaleString("en-US");
+
 
 function useDebouncedValue<T>(value: T, delay: number): T {
   const [debounced, setDebounced] = useState(value);
@@ -98,19 +93,16 @@ const CountCard = ({
 
 const USE_CASES = [
   {
-    icon: Target,
     title: "Sales teams",
     description:
       "Carve territories around real GCC presence, by industry, city, or named account, so your SDRs call into accounts that actually exist, not a stale list.",
   },
   {
-    icon: TrendingUp,
     title: "Marketing teams",
     description:
       "Put a hard number on your addressable market before you plan an ABM program, and know exactly how many decision-makers sit inside your ICP.",
   },
   {
-    icon: Building2,
     title: "Strategy & leadership",
     description:
       "Walk into the board meeting with a defensible India GCC number for market entry, expansion planning, or next year's targets.",
@@ -427,7 +419,7 @@ const Tracker = () => {
                   disabled={isLoadingFirstTime}
                   lockedCount={facets.industriesLocked}
                   lockedNoun="industries"
-                  lockedHref="/signup?src=gcc-filter-industries"
+                  optionHints={TRACKER_INDUSTRY_CLASSIFICATIONS}
                 />
               </div>
               <div className="flex-1 min-w-0">
@@ -444,7 +436,6 @@ const Tracker = () => {
                   disabled={isLoadingFirstTime}
                   lockedCount={facets.citiesLocked}
                   lockedNoun="cities"
-                  lockedHref="/signup?src=gcc-filter-cities"
                 />
               </div>
               <Button
@@ -493,6 +484,7 @@ const Tracker = () => {
           </div>
 
           {/* Counts */}
+          <FadeIn>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3">
             <CountCard
               label="Companies"
@@ -510,6 +502,7 @@ const Tracker = () => {
               isLoading={isLoadingFirstTime}
             />
           </div>
+          </FadeIn>
 
           {/* Directory */}
           <div className="mt-8 overflow-hidden rounded-lg border bg-card">
@@ -602,15 +595,12 @@ const Tracker = () => {
                       {remainingCount > 0 && (
                         <tr>
                           <td colSpan={3} className="px-5 py-4">
-                            <a
-                              href="/signup?src=gcc-tracker-private"
-                              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-                            >
+                            <GoogleCalendarSchedulingButton className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
                               <Lock className="h-4 w-4" />
                               +{nf(remainingCount)}{" "}
                               {remainingCount === 1 ? "company" : "companies"} available
                               in the full version
-                            </a>
+                            </GoogleCalendarSchedulingButton>
                           </td>
                         </tr>
                       )}
@@ -618,15 +608,12 @@ const Tracker = () => {
                   ) : remainingCount > 0 ? (
                     <tr>
                       <td colSpan={3} className="px-5 py-10 text-center">
-                        <a
-                          href="/signup?src=gcc-tracker-private"
-                          className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-                        >
+                        <GoogleCalendarSchedulingButton className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
                           <Lock className="h-4 w-4" />
                           +{nf(remainingCount)}{" "}
                           {remainingCount === 1 ? "company" : "companies"} available in
                           the full version
-                        </a>
+                        </GoogleCalendarSchedulingButton>
                       </td>
                     </tr>
                   ) : (
@@ -673,8 +660,7 @@ const Tracker = () => {
             {USE_CASES.map((useCase, index) => (
               <FadeIn key={useCase.title} delay={index * 100}>
                 <div className="h-full border-t py-6">
-                  <useCase.icon className="h-6 w-6 text-primary" aria-hidden />
-                  <h3 className="mt-5 text-lg font-semibold tracking-tight">
+                  <h3 className="text-lg font-semibold tracking-tight">
                     {useCase.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

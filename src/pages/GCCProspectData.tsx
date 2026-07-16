@@ -1,27 +1,16 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FadeIn from "@/components/FadeIn";
 import { DemoCta, MarketingHero, SectionIntro } from "@/components/B2BMarketingPage";
 import { useSEO } from "@/hooks/useSEO";
-import {
-  Briefcase,
-  Building2,
-  Database,
-  Globe,
-  Layers,
-  MapPin,
-  RefreshCw,
-  Sparkles,
-  Tag,
-  Users,
-} from "lucide-react";
 
 const COVERAGE = [
-  { icon: Users, title: "250K+ decision-makers", desc: "Named C-suite, VPs, directors, and function heads across the ecosystem." },
-  { icon: Building2, title: "Centre-level mapping", desc: "Contacts tied to 5,900+ individual centres, not just parent companies." },
-  { icon: Briefcase, title: "Function coverage", desc: "Engineering, Product, Data, Finance, HR, Legal, Operations, IT, and more." },
-  { icon: MapPin, title: "Geospatial precision", desc: "Every centre geo-coded across India's GCC cities and clusters." },
-  { icon: Layers, title: "Service-mix context", desc: "5–12 structured service classifications per centre: what each GCC actually does." },
-  { icon: Tag, title: "Sector & tech tagging", desc: "BFSI, Tech, Pharma, Retail, Manufacturing, with tech-stack signals layered in." },
+  { title: "250K+ decision-makers", desc: "Named C-suite, VPs, directors, and function heads across the ecosystem." },
+  { title: "Centre-level mapping", desc: "Contacts tied to 5,900+ individual centres, not just parent companies." },
+  { title: "Function coverage", desc: "Engineering, Product, Data, Finance, HR, Legal, Operations, IT, and more." },
+  { title: "Geospatial precision", desc: "Every centre geo-coded across India's GCC cities and clusters." },
+  { title: "Service-mix context", desc: "5–12 structured service classifications per centre: what each GCC actually does." },
+  { title: "Sector & tech tagging", desc: "BFSI, Tech, Pharma, Retail, Manufacturing, with tech-stack signals layered in." },
 ];
 
 const USERS = [
@@ -33,10 +22,10 @@ const USERS = [
 ];
 
 const RESEARCH = [
-  { icon: Database, text: "260+ man-months of structured research since 2022, built centre by centre, not scraped." },
-  { icon: Globe, text: "250+ structured data points per GCC across 6 interlinked data tables." },
-  { icon: RefreshCw, text: "AI-augmented weekly refresh cycles with automated change detection as leaders move." },
-  { icon: Sparkles, text: "Every field mapped to an AI agent for enrichment, validation, and quality checks." },
+  { text: "260+ man-months of structured research since 2022, built centre by centre, not scraped." },
+  { text: "250+ structured data points per GCC across 6 interlinked data tables." },
+  { text: "AI-augmented weekly refresh cycles with automated change detection as leaders move." },
+  { text: "Every field mapped to an AI agent for enrichment, validation, and quality checks." },
 ];
 
 const GCCProspectData = () => {
@@ -68,6 +57,7 @@ const GCCProspectData = () => {
         }
       />
 
+      <FadeIn>
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro label="The problem" title="Your outreach is only as good as your data.">
@@ -86,15 +76,16 @@ const GCCProspectData = () => {
           </SectionIntro>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro label="What's inside" title="Built for GCC go-to-market." />
           <div className="mt-10 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
             {COVERAGE.map((item) => (
               <div key={item.title} className="border-t py-6">
-                <item.icon className="h-5 w-5 text-primary" aria-hidden />
-                <h3 className="mt-4 text-lg font-bold">{item.title}</h3>
+                <h3 className="text-lg font-bold">{item.title}</h3>
                 <p className="mt-2 leading-relaxed text-muted-foreground">{item.desc}</p>
               </div>
             ))}
@@ -104,7 +95,9 @@ const GCCProspectData = () => {
           </p>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro label="Who uses this" title="Built for teams that sell into GCCs." />
@@ -120,7 +113,9 @@ const GCCProspectData = () => {
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
@@ -129,14 +124,14 @@ const GCCProspectData = () => {
           />
           <div className="mt-10 grid gap-x-10 md:grid-cols-2">
             {RESEARCH.map((item) => (
-              <div key={item.text} className="grid grid-cols-[1.5rem_1fr] gap-4 border-t py-6">
-                <item.icon className="mt-1 h-5 w-5 text-primary" aria-hidden />
+              <div key={item.text} className="border-t py-6">
                 <p className="text-lg leading-relaxed text-muted-foreground">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+      </FadeIn>
 
       <DemoCta
         title="Get custom GCC coverage built around your market."

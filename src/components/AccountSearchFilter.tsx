@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
 import { Lock, Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import {
   Popover,
   PopoverContent,
@@ -129,12 +130,9 @@ export function AccountSearchFilter({
               {query.trim()}
               <Lock className="h-3.5 w-3.5 text-muted-foreground" aria-hidden />
             </p>
-            <a
-              href="/signup?src=gcc-search-gated"
-              className="mt-1 inline-block font-medium text-primary hover:underline"
-            >
-              Sign up for free to unlock
-            </a>
+            <GoogleCalendarSchedulingButton className="mt-1 inline-block font-medium text-primary hover:underline">
+              Available in the full version
+            </GoogleCalendarSchedulingButton>
           </div>
         ) : (
           <div className="px-3 py-4 text-sm">

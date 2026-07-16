@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FadeIn from "@/components/FadeIn";
 import TrustLogos from "@/components/TrustLogos";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { DemoCta } from "@/components/B2BMarketingPage";
@@ -93,6 +94,7 @@ const Platform = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
+      <FadeIn>
       <section className="px-4 pb-14 pt-10 md:pb-20 md:pt-16">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-14">
           <div>
@@ -137,13 +139,17 @@ const Platform = () => {
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="border-y px-4 py-12 md:py-16">
         <div className="mx-auto max-w-7xl">
           <TrustLogos />
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section id="tour" className="scroll-mt-24 border-b bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
@@ -186,7 +192,9 @@ const Platform = () => {
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
@@ -214,7 +222,9 @@ const Platform = () => {
           </p>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
@@ -257,7 +267,9 @@ const Platform = () => {
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
@@ -282,7 +294,9 @@ const Platform = () => {
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
@@ -315,8 +329,11 @@ const Platform = () => {
           </div>
         </div>
       </section>
+      </FadeIn>
 
+      <FadeIn>
       <DemoCta title="Start operating on structured GCC intelligence." />
+      </FadeIn>
 
       <Footer showCta={false} />
     </div>
