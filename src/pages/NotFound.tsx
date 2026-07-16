@@ -19,7 +19,7 @@ const NotFound = () => {
       <Header />
       <main className="flex-1 border-b bg-secondary/30 px-4 py-12 md:py-16">
         <div className="mx-auto max-w-7xl">
-          <div className="flex items-center gap-2 text-sm font-semibold text-accent"><SearchX className="h-4 w-4" aria-hidden />404 - Signal not found</div>
+          <div className="flex items-center gap-2 text-sm font-semibold text-accent"><SearchX className="h-4 w-4" aria-hidden />404: Signal not found</div>
           <h1 className="mt-5 max-w-5xl text-4xl font-bold tracking-tight md:text-5xl">This GCC signal slipped off the map.</h1>
           <p className="mt-5 max-w-5xl text-lg leading-relaxed text-muted-foreground">The page you requested does not exist or has moved. Bamboo Reports still has the intelligence you need across GCC accounts, reports, and market activity.</p>
           <div className="mt-8 flex flex-wrap gap-3">

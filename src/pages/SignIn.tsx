@@ -37,8 +37,8 @@ const SignIn = () => {
       setIsLoading(false);
     } else {
       toast({
-        title: "Success!",
-        description: "Signed in successfully",
+        title: "Signed in",
+        description: "Welcome back to Bamboo Reports.",
       });
       navigate(redirectTo);
     }
@@ -117,7 +117,7 @@ const SignIn = () => {
           to={redirectTo && redirectTo !== "/profile" ? `/signup?redirect=${encodeURIComponent(redirectTo)}` : "/signup"}
           className="font-semibold text-primary hover:underline"
         >
-          Sign up free
+          Sign up for free
         </Link>
       </p>
     </AuthPageShell>

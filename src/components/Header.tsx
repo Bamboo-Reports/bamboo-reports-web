@@ -1,9 +1,9 @@
 import logo from "@/assets/bamboo-logo.svg";
 import AnnouncementBar from "@/components/AnnouncementBar";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight, User, LogOut } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { getDisplayName } from "@/lib/auth";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
@@ -36,24 +36,6 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, signOut } = useAuth();
   const { openInquiryForm } = useInquiryForm();
-  const { pathname } = useLocation();
-  const isHome = pathname === "/";
-  const [showDemoCta, setShowDemoCta] = useState(!isHome);
-
-  useEffect(() => {
-    if (!isHome) {
-      setShowDemoCta(true);
-      return;
-    }
-    setShowDemoCta(false);
-    const onScroll = () => {
-      setShowDemoCta(window.scrollY > window.innerHeight * 0.7);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
-
   const getInitials = (name: string) => {
     return name
       .split(' ')
@@ -142,7 +124,7 @@ const Header = () => {
               <NavigationMenuItem>
                 <Link to="/success-stories">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Success Stories
+                    Success stories
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -170,47 +152,17 @@ const Header = () => {
           </NavigationMenu>
 
           <div className="flex items-center gap-3">
-            <div
-              className={`grid transition-all duration-500 ease-out ${
-                showDemoCta
-                  ? "grid-cols-[1fr] opacity-100 translate-x-0"
-                  : "grid-cols-[0fr] opacity-0 -translate-x-2"
-              }`}
-              aria-hidden={!showDemoCta}
-            >
-              <div className="overflow-hidden">
-                <Button
-                  asChild
-                  variant="outline"
-                  className="rounded-full font-semibold whitespace-nowrap"
-                  tabIndex={showDemoCta ? undefined : -1}
-                >
-                  <GoogleCalendarSchedulingButton>
-                    Get a demo
-                  </GoogleCalendarSchedulingButton>
-                </Button>
-              </div>
-            </div>
-
-            {!user && (
-              <Button
-                asChild
-                className="rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow whitespace-nowrap"
-              >
-                <Link to="/signup?src=header">Sign up free</Link>
-              </Button>
-            )}
-
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                    <Avatar className="h-10 w-10">
+                  <Button variant="outline" className="h-10 rounded-full font-semibold">
+                    <Avatar className="h-8 w-8">
                       {avatarUrl && <AvatarImage src={avatarUrl} alt={userFullName} />}
                       <AvatarFallback className="bg-primary text-primary-foreground">
                         {getInitials(userFullName)}
                       </AvatarFallback>
                     </Avatar>
+                    <span className="max-w-40 truncate">{userFullName}</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56" align="end" forceMount>
@@ -239,8 +191,8 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Button asChild variant="ghost" className="rounded-full">
-                <Link to="/signin">Sign in</Link>
+              <Button asChild variant="outline" className="rounded-full font-semibold">
+                <Link to="/signin">My account</Link>
               </Button>
             )}
           </div>
@@ -318,7 +270,7 @@ const Header = () => {
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Success Stories
+                    Success stories
                     <ChevronRight className="h-5 w-5" />
                   </Link>
 
@@ -354,7 +306,7 @@ const Header = () => {
                       className="w-full rounded-full font-semibold"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <Link to="/signup?src=header">Sign up free</Link>
+                      <Link to="/signup?src=header">Sign up for free</Link>
                     </Button>
                   )}
                   <Button

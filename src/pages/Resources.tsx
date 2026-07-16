@@ -1,47 +1,25 @@
-import type { SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
+import { coverGradient } from "@/lib/coverGradients";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { MarketingHero } from "@/components/B2BMarketingPage";
+import { DemoCta, MarketingHero } from "@/components/B2BMarketingPage";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
-
-const REPORT_THUMBNAIL_FALLBACK = "/placeholder.svg";
-
-const articles = [
-  {
-    slug: "h1b-shock-strategic-reset",
-    title: "H-1B Shock or Strategic Reset? Bengaluru Roundtable",
-    summary:
-      "Leaders unpack how India is shifting from scalable execution to decision-grade capability as GCC operating models get rebuilt.",
-    date: "13 November 2025",
-    thumbnail: "https://files.catbox.moe/v7a2ub.jpg",
-  },
-];
-
-const recentArticles = articles.slice(0, 3);
 
 const interestingReads = [
   {
     to: "/reads/agentic-enterprise",
-    title: "The Agentic Enterprise · Thoughtworks × AWS",
+    title: "The Agentic Enterprise",
     summary:
       "Build an enterprise that adapts, not just automates. A composable architecture of agents, data and governance that evolves as fast as AI does.",
     label: "Whitepaper",
-    thumbnail: "https://3lqbm904a5.ufs.sh/f/qFKrZopOp2VTGMv7iissIv8NxSL4WbOHyQrMJZ3VzREBim0P",
   },
 ];
 
 const Resources = () => {
-  const handleThumbnailError = (event: SyntheticEvent<HTMLImageElement>) => {
-    const img = event.currentTarget;
-    img.onerror = null;
-    img.src = REPORT_THUMBNAIL_FALLBACK;
-  };
-
   useSEO({
     title: "Resources | Bamboo Reports",
-    description: "Explore the latest roundtables and insights from Bamboo Reports in one place.",
+    description: "Explore the latest guides and insights from Bamboo Reports in one place.",
   });
 
   return (
@@ -51,8 +29,8 @@ const Resources = () => {
       <main>
         <MarketingHero
           showAction={false}
-          title={<><span className="block">Resources.</span><span className="block text-primary">Intelligence You Can Use.</span></>}
-          description={<p>Roundtables, guides, and data-driven insights from the team building India's GCC intelligence layer.</p>}
+          title={<><span className="block">Resources.</span><span className="block text-primary">Intelligence you can use.</span></>}
+          description={<p>Guides and data-driven insights from the team building India's GCC intelligence layer.</p>}
         />
 
         <section className="px-4 py-14 md:py-20">
@@ -60,36 +38,40 @@ const Resources = () => {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-sm font-semibold text-accent">Resources</p>
-                <h2 className="mt-2 text-3xl font-bold md:text-4xl">Recent Roundtables</h2>
+                <h2 className="mt-2 text-3xl font-bold md:text-4xl">Reports</h2>
               </div>
               <Button variant="outline" asChild>
-                <Link to="/roundtables">View All</Link>
+                <Link to="/reports">View all</Link>
               </Button>
             </div>
 
             <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {recentArticles.map((article) => (
-                <Link
-                  key={article.slug}
-                  to={`/roundtables/${article.slug}`}
-                  className="group overflow-hidden rounded-md border bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                >
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={article.thumbnail}
-                      alt={article.title}
-                      onError={handleThumbnailError}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                    />
+              <Link
+                to="/reports/india-gcc-report-q1-fy27"
+                className="group overflow-hidden rounded-md border bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                <div className={`relative flex aspect-video flex-col justify-end overflow-hidden p-6 ${coverGradient(0).base}`}>
+                  <div
+                    className={`absolute inset-0 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none ${coverGradient(0).hover}`}
+                    aria-hidden
+                  />
+                  <div
+                    className="gradient-noise pointer-events-none absolute inset-0 opacity-[0.06]"
+                    aria-hidden
+                  />
+                  <div className="relative">
+                    <p className="text-xs font-semibold text-foreground">Quarterly report</p>
+                    <h3 className="mt-2 text-lg font-bold leading-tight text-navy">The Q1 FY27 India GCC report</h3>
+                    <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] group-hover:grid-rows-[1fr] group-focus-visible:grid-rows-[1fr] motion-reduce:transition-none">
+                      <div className="overflow-hidden">
+                        <p className="pt-2 text-sm leading-relaxed text-muted-foreground opacity-0 blur-[5px] transition-[opacity,filter] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] group-hover:opacity-100 group-hover:blur-none group-focus-visible:opacity-100 group-focus-visible:blur-none motion-reduce:blur-none motion-reduce:transition-none">
+                          A centre-level read of who entered, who expanded, and where the next buying windows are opening.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-bold leading-tight transition-colors group-hover:text-primary">{article.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{article.summary}</p>
-                    <p className="mt-3 text-xs font-semibold text-primary">{article.date}</p>
-                  </div>
-                </Link>
-              ))}
+                </div>
+              </Link>
             </div>
           </div>
         </section>
@@ -99,33 +81,40 @@ const Resources = () => {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-sm font-semibold text-accent">Resources</p>
-                <h2 className="mt-2 text-3xl font-bold md:text-4xl">Interesting Reads</h2>
+                <h2 className="mt-2 text-3xl font-bold md:text-4xl">Interesting reads</h2>
               </div>
               <Button variant="outline" asChild>
-                <Link to="/reads">View All</Link>
+                <Link to="/reads">View all</Link>
               </Button>
             </div>
 
             <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {interestingReads.map((read) => (
+              {interestingReads.map((read, index) => (
                 <Link
                   key={read.to}
                   to={read.to}
                   className="group overflow-hidden rounded-md border bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={read.thumbnail}
-                      alt={read.title}
-                      onError={handleThumbnailError}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
+                  <div className={`relative flex aspect-video flex-col justify-end overflow-hidden p-6 ${coverGradient(index + 1).base}`}>
+                    <div
+                      className={`absolute inset-0 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none ${coverGradient(index + 1).hover}`}
+                      aria-hidden
                     />
-                  </div>
-                  <div className="p-5">
-                    <p className="text-xs font-semibold text-primary">{read.label}</p>
-                    <h3 className="mt-2 text-lg font-bold leading-tight transition-colors group-hover:text-primary">{read.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{read.summary}</p>
+                    <div
+                      className="gradient-noise pointer-events-none absolute inset-0 opacity-[0.06]"
+                      aria-hidden
+                    />
+                    <div className="relative">
+                      <p className="text-xs font-semibold text-foreground">{read.label}</p>
+                      <h3 className="mt-2 text-lg font-bold leading-tight text-navy">{read.title}</h3>
+                      <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] group-hover:grid-rows-[1fr] group-focus-visible:grid-rows-[1fr] motion-reduce:transition-none">
+                        <div className="overflow-hidden">
+                          <p className="pt-2 text-sm leading-relaxed text-muted-foreground opacity-0 blur-[5px] transition-[opacity,filter] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] group-hover:opacity-100 group-hover:blur-none group-focus-visible:opacity-100 group-focus-visible:blur-none motion-reduce:blur-none motion-reduce:transition-none">
+                            {read.summary}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </Link>
               ))}
@@ -134,7 +123,9 @@ const Resources = () => {
         </section>
       </main>
 
-      <Footer />
+      <DemoCta title="Put GCC intelligence to work for your team." />
+
+      <Footer showCta={false} />
     </div>
   );
 };

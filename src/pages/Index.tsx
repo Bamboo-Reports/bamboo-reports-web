@@ -7,6 +7,7 @@ import IntelligenceSpans from "@/components/IntelligenceSpans";
 import WhoBenefits from "@/components/WhoBenefits";
 import RealTimeData from "@/components/RealTimeData";
 import ResearchNXT from "@/components/ResearchNXT";
+import WhatIsGccIntelligence from "@/components/WhatIsGccIntelligence";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
 import StructuredData from "@/components/StructuredData";
@@ -32,6 +33,7 @@ const Index = () => {
       <WhoBenefits />
       <RealTimeData />
       <ResearchNXT />
+      <WhatIsGccIntelligence />
       <Footer />
     </div>
   );

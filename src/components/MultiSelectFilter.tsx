@@ -122,7 +122,7 @@ export function MultiSelectFilter({
               className="flex w-full items-center gap-2 rounded-sm px-2 py-2 text-sm font-medium text-primary transition-colors hover:bg-muted"
             >
               <Lock className="h-3.5 w-3.5 shrink-0" />
-              Sign up free to unlock {lockedCount.toLocaleString()} more {lockedNoun}
+              Sign up for free to unlock {lockedCount.toLocaleString()} more {lockedNoun}
             </a>
           </div>
         )}

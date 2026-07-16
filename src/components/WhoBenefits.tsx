@@ -1,25 +1,25 @@
-import { TrendingUp, Users, FileText, TrendingDown } from "lucide-react";
+import { TrendingUp, Users, FileText, Briefcase } from "lucide-react";
 
 const beneficiaries = [
   {
     icon: TrendingUp,
-    title: "Marketing & GTM Leaders",
-    description: "Navigate market dynamics with precision and foresight"
+    title: "Marketing & GTM leaders",
+    description: "Size your market, sharpen your targeting, and time campaigns to real GCC activity."
   },
   {
     icon: Users,
-    title: "Enterprise & Tech Sales Teams",
-    description: "Accelerate sales strategies with targeted market insights"
+    title: "Enterprise & tech sales teams",
+    description: "Find the accounts that are ready to buy and reach the leaders who decide."
   },
   {
     icon: FileText,
-    title: "Investment & Strategy Groups",
-    description: "Identify emerging opportunities and make informed decisions"
+    title: "Investment & strategy groups",
+    description: "Spot emerging opportunities early and back every decision with verified data."
   },
   {
-    icon: TrendingDown,
-    title: "Consulting & Advisory firms",
-    description: "Strategic insights for advisory and consulting professionals"
+    icon: Briefcase,
+    title: "Consulting & advisory firms",
+    description: "Ground client recommendations in evidence from the ecosystem, not estimates."
   }
 ];
 
@@ -28,10 +28,11 @@ const WhoBenefits = () => (
     <div className="mx-auto max-w-7xl">
       <div>
         <h2 className="text-3xl font-bold leading-tight md:text-4xl">
-          Who Benefits from Bamboo Reports?
+          Who benefits from Bamboo Reports?
         </h2>
         <p className="mt-4 max-w-6xl text-muted-foreground">
-          Bamboo Reports serves stakeholders across industries who require more than just dashboards
+          Bamboo Reports serves stakeholders across industries who need more
+          than dashboards to make decisions.
         </p>
       </div>
 

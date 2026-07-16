@@ -1,86 +1,46 @@
-import { ArrowRight, CalendarDays } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const REPORT_COVERAGE = [
-  {
-    label: "Market movement",
-    detail: "New GCC entrants, center launches, and expansion activity.",
-  },
-  {
-    label: "Location shifts",
-    detail: "City-by-city movement across the Bengaluru and Hyderabad corridors.",
-  },
-  {
-    label: "Commercial signals",
-    detail: "Hiring patterns, BFSI activity, and the buying windows they reveal.",
-  },
-];
-
 const Q1ReportSection = () => (
-  <section className="mt-12 border-y border-navy/15 bg-navy px-4 py-14 md:mt-16 md:py-20">
-    <div className="mx-auto max-w-7xl">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 pb-5">
-        <p className="text-sm font-semibold text-white">
-          Bamboo Reports Quarterly Intelligence
+  <section className="relative overflow-hidden bg-navy px-4 py-12 md:py-16">
+    <div className="absolute inset-x-0 top-0 flex h-1" aria-hidden>
+      <div className="w-2/3 bg-primary" />
+      <div className="w-1/3 bg-accent" />
+    </div>
+
+    <div className="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-14 gap-y-8">
+      <div>
+        <p className="flex items-center gap-3 text-sm font-semibold tabular-nums text-white/70">
+          <span className="h-px w-8 bg-accent" aria-hidden />
+          Q1 FY27
         </p>
-        <p className="text-sm font-medium tabular-nums text-white/65">
-          Q1 2026 <span className="mx-2 text-accent">/</span> India GCC
+
+        <h2 className="mt-4 max-w-2xl text-balance text-2xl font-bold leading-tight tracking-tight text-white md:text-3xl">
+          The India GCC build is going{" "}
+          <span className="whitespace-nowrap text-accent">AI-first</span>, and
+          it is concentrating.
+        </h2>
+
+        <p className="mt-3 max-w-xl leading-relaxed text-white/70">
+          A centre-level read of who entered, who expanded, and where the next
+          buying windows are opening.
         </p>
       </div>
 
-      <div className="grid gap-12 pt-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20 lg:pt-14">
-        <div>
-          <h2 className="max-w-xl text-3xl font-bold leading-tight text-white md:text-4xl">
-            The Q1 2026 India GCC Report
-          </h2>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-            A decision-ready view of who entered and expanded, where activity
-            concentrated, and which signals point to new GCC opportunities.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-4">
-            <Button
-              asChild
-              size="lg"
-              className="group rounded-full bg-white px-7 font-semibold text-navy hover:bg-white/90"
-            >
-              <Link to="/signup?src=home-q1report">
-                Get the report
-                <ArrowRight
-                  className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-                  aria-hidden
-                />
-              </Link>
-            </Button>
-            <p className="inline-flex items-center gap-2 text-sm text-white/65">
-              <CalendarDays className="h-4 w-4 text-accent" aria-hidden />
-              Releases July 2026. Free with an account.
-            </p>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-base font-semibold text-white">
-            What this report covers
-          </h3>
-          <dl className="mt-5 border-t border-white/15">
-            {REPORT_COVERAGE.map((item) => (
-              <div
-                key={item.label}
-                className="grid gap-2 border-b border-white/15 py-5 sm:grid-cols-[9.5rem_1fr] sm:gap-6"
-              >
-                <dt className="text-sm font-semibold text-accent">
-                  {item.label}
-                </dt>
-                <dd className="text-[15px] leading-relaxed text-white/80">
-                  {item.detail}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </div>
+      <Button
+        asChild
+        size="lg"
+        className="group h-12 rounded-full bg-white px-8 text-base font-semibold text-navy hover:bg-white/90"
+      >
+        <Link to="/reports/india-gcc-report-q1-fy27?src=home-q1report">
+          Register for the report
+          <ArrowRight
+            className="ml-2.5 h-4 w-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+            aria-hidden
+          />
+        </Link>
+      </Button>
     </div>
   </section>
 );

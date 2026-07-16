@@ -99,7 +99,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           } : undefined,
           "featureList": data?.features || [
             "2400+ MNC GCC Database",
-            "5800+ GCC Centers Mapping",
+            "5900+ GCC Centers Mapping",
             "India GCC Market Intelligence",
             "GTM Research Tools",
             "GCC Contact Database",

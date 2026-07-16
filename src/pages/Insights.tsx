@@ -17,7 +17,7 @@ const Insights = () => {
         <MarketingHero
           showAction={false}
           title="Insights"
-          description={<p>Coming Soon</p>}
+          description={<p>Insights are coming soon.</p>}
         />
       </main>
       <Footer showCta={false} />

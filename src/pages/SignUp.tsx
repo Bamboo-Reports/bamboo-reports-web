@@ -138,8 +138,8 @@ const SignUp = () => {
       setIsLoading(false);
     } else {
       toast({
-        title: 'Success!',
-        description: 'Account created successfully. Please check your email to verify your account.',
+        title: 'Account created',
+        description: 'Your account is ready. Please check your email to verify your account.',
       });
       setTimeout(() => {
         navigate(`/signin?redirect=${encodeURIComponent(redirectTo)}`);

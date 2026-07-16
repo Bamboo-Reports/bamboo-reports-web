@@ -133,7 +133,7 @@ export function AccountSearchFilter({
               href="/signup?src=gcc-search-gated"
               className="mt-1 inline-block font-medium text-primary hover:underline"
             >
-              Sign up free to unlock
+              Sign up for free to unlock
             </a>
           </div>
         ) : (
@@ -143,7 +143,7 @@ export function AccountSearchFilter({
               href="/signup?src=gcc-search-missing"
               className="mt-1 inline-block font-medium text-primary hover:underline"
             >
-              Sign up free to request it
+              Sign up for free to request it
             </a>
           </div>
         )}

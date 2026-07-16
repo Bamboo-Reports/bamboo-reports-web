@@ -20,7 +20,7 @@ const IntelligenceSpans = () => (
     <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
       <div>
         <h2 className="max-w-lg text-3xl font-bold leading-tight md:text-4xl">
-          Our Intelligence Spans Across
+          Our intelligence spans
         </h2>
 
         <div className="mt-8 border-t">
@@ -41,8 +41,10 @@ const IntelligenceSpans = () => (
 
       <div className="flex justify-center">
         <img
-          src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvJndE6eBxTSsyCtN4UrElocuAhdMjDkZBHnO0"
+          src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKv3iFm7IZwbvcl46Y0TeIWHQqgfDiXB2SkZdxA"
           alt="GCC Intelligence Coverage Map"
+          width="2280"
+          height="2282"
           loading="lazy"
           className="h-auto w-full max-w-2xl"
         />

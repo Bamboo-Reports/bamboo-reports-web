@@ -7,7 +7,7 @@ import { useSEO } from "@/hooks/useSEO";
 const blogs = [
   {
     slug: "h1b-shock-strategic-reset",
-    title: "H-1B Shock or Strategic Reset? Bengaluru Roundtable",
+    title: "H-1B shock or strategic reset? Bengaluru roundtable",
     summary: "Leaders unpack how India is shifting from scalable execution to decision-grade capability as GCC operating models get rebuilt.",
     date: "13 November 2025",
     location: "Hilton Bengaluru",
@@ -35,7 +35,7 @@ const Articles = () => {
         <section className="px-4 py-14 md:py-20">
           <div className="mx-auto max-w-7xl">
             <p className="text-sm font-semibold text-accent">Library</p>
-            <h2 className="mt-2 text-3xl font-bold md:text-4xl">Recent Roundtables</h2>
+            <h2 className="mt-2 text-3xl font-bold md:text-4xl">Recent roundtables</h2>
             <div className="mt-10 grid gap-8 md:grid-cols-2">
               {blogs.map((blog) => (
                 <Link key={blog.slug} to={`/roundtables/${blog.slug}`} className="group overflow-hidden rounded-md border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">

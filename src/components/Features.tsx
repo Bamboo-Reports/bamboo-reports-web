@@ -8,7 +8,8 @@ const Features = () => (
           Why Bamboo Reports
         </h2>
         <p className="mt-4 max-w-6xl text-muted-foreground">
-          Bamboo Reports is a research-backed intelligence solution designed to make the GCC opportunities in India more accessible and actionable.
+          Bamboo Reports is a research-backed intelligence solution built to
+          make the India GCC opportunity accessible and actionable.
         </p>
       </div>
 

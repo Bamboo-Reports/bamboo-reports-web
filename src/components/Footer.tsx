@@ -7,7 +7,7 @@ import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSched
 
 const exploreLinks = [
   { label: "GCC Tracker", to: "/gcc" },
-  { label: "Success Stories", to: "/success-stories" },
+  { label: "Success stories", to: "/success-stories" },
   { label: "Resources", to: "/resources" },
 ];
 
@@ -26,9 +26,9 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
                 Always-on GCC intelligence
               </p>
               <div className="space-y-2">
-                <h3 className="text-xl md:text-2xl font-semibold text-foreground">
+                <h2 className="text-xl md:text-2xl font-semibold text-foreground">
                   Ready to unlock GCC intelligence for your team?
-                </h3>
+                </h2>
                 <p className="text-sm md:text-base text-muted-foreground max-w-2xl">
                   See how Bamboo Reports keeps you ahead with verified GCC data, benchmarks, and weekly insight drops tailored to strategy, location, and talent teams.
                 </p>
@@ -57,16 +57,16 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
           <div className="space-y-4 md:col-span-2">
             <img
               src={logo}
-              alt="Bamboo Reports - GCC Intelligence Provider"
+              alt="Bamboo Reports: GCC Intelligence Provider"
               className="h-12 w-auto"
             />
             <p className="max-w-xl text-sm text-muted-foreground">
-              Leading GCC Intelligence platform for Global Capability Centers research, market intelligence, and executive-ready insights.
+              The leading GCC intelligence platform for Global Capability Centers research, market intelligence, and executive-ready insights.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground">Explore</h3>
+            <h2 className="text-sm font-semibold text-foreground">Explore</h2>
             <ul className="space-y-3 text-sm text-muted-foreground">
               {exploreLinks.map((link) => (
                 <li key={link.to}>
@@ -79,12 +79,12 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground">Get Started</h3>
+            <h2 className="text-sm font-semibold text-foreground">Get started</h2>
             <ul className="space-y-3 text-sm text-muted-foreground">
               {!user && (
                 <li>
                   <Link to="/signup?src=footer" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                    Sign up free
+                    Sign up for free
                   </Link>
                 </li>
               )}

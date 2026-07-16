@@ -2,30 +2,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TrustLogos from "@/components/TrustLogos";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { DemoCta } from "@/components/B2BMarketingPage";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
-import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUpRight,
-  BarChart3,
-  Bookmark,
-  Command,
-  Database,
-  Filter,
-  Layers,
-  LayoutGrid,
-  Map as MapIcon,
-  Search,
-  Sparkles,
-  Table as TableIcon,
-} from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 
 const LENSES = [
   {
     id: "charts",
-    index: "01",
-    icon: BarChart3,
     title: "Charts",
     desc: "The market, already visualised. Region, sector, function, headcount and revenue splits, boardroom-ready out of the box. Zero BI tickets, zero dashboard projects.",
     src: "/platform/charts-view.png",
@@ -33,8 +17,6 @@ const LENSES = [
   },
   {
     id: "map",
-    index: "02",
-    icon: MapIcon,
     title: "Map",
     desc: "Watch India's GCC footprint light up. An interactive heatmap drillable from state to city to locality. Every centre geocoded, every account stitched to the places it operates.",
     src: "/platform/centers-map.png",
@@ -42,8 +24,6 @@ const LENSES = [
   },
   {
     id: "data",
-    index: "03",
-    icon: TableIcon,
     title: "Data",
     desc: "When it's time to ship the list, drop into the grid. Filter, sort and export the exact slice, straight into your CRM, Excel or analytics stack. No reformatting. No cleanup.",
     src: "/platform/accounts-grid.png",
@@ -53,37 +33,33 @@ const LENSES = [
 
 const WORKFLOWS = [
   {
-    icon: Command,
-    index: "01",
     title: "Quick search",
     desc: "Reach any account, centre or prospect in two keystrokes. Recent activity, fuzzy match and entity scoping, all without your hands leaving the keyboard.",
     src: "/platform/quick-search.png",
     alt: "Bamboo Reports quick search overlay with recently viewed records",
   },
   {
-    icon: Bookmark,
-    index: "02",
     title: "Saved filter sets",
-    desc: "Build a target query once. Re-run, rename, share or fork it the moment your ICP shifts. Your best queries become reusable assets your team compounds, not throwaway clicks.",
+    desc: "Build a target query once. Re-run, rename, share or fork it the moment your ICP shifts. Your best queries become reusable assets for your whole team, not throwaway clicks.",
     src: "/platform/saved-filters.png",
     alt: "Bamboo Reports saved filter sets manager",
   },
 ];
 
 const CAPABILITIES = [
-  { icon: Filter, title: "Layered filters", desc: "Stack geography, sector, function, size and centre status to carve out the perfect segment in seconds." },
-  { icon: Search, title: "Global search", desc: "Reach any account, centre or prospect with a single keystroke. The whole ecosystem at your fingertips." },
-  { icon: LayoutGrid, title: "Table & Grid modes", desc: "Scan fast in grid view, analyse deep in table view. Same data, your way of working." },
-  { icon: Layers, title: "Linked entities", desc: "Accounts, centres, prospects and headcount cross-reference automatically. No reconciliation, no joins." },
-  { icon: Database, title: "Clean exports", desc: "Push any slice straight into your CRM, Excel or analytics stack. Always tidy, always ready to ship." },
-  { icon: Sparkles, title: "Built centre by centre", desc: "Bottom-up research with 250+ structured data points per GCC centre. Current, centre-level data, not a 12-month-old published report." },
+  { title: "Layered filters", desc: "Stack geography, sector, function, size and centre status to carve out the perfect segment in seconds." },
+  { title: "Global search", desc: "Reach any account, centre or prospect with a single keystroke. The whole ecosystem at your fingertips." },
+  { title: "Table & grid modes", desc: "Scan fast in grid view, analyse deep in table view. Same data, your way of working." },
+  { title: "Linked entities", desc: "Accounts, centres, prospects and headcount cross-reference automatically. No reconciliation, no joins." },
+  { title: "Clean exports", desc: "Push any slice straight into your CRM, Excel or analytics stack. Always tidy, always ready to ship." },
+  { title: "Built centre by centre", desc: "Bottom-up research with 250+ structured data points per GCC centre. Current, centre-level data, not a 12-month-old published report." },
 ];
 
 const PERSONAS = [
-  { tag: "01", name: "GTM Leaders & Sellers", desc: "Surface ICP-fit accounts, prioritise the right centres and put a clean, ranked target list in every seller's hands every Monday morning." },
-  { tag: "02", name: "GCC Site & PMO Leaders", desc: "Benchmark against the peer set, watch the ecosystem move in real time and walk into your next location decision with conviction." },
-  { tag: "03", name: "Staffing, RPO & Talent Firms", desc: "Reach the right HR and function leaders across every growing centre in India, mapped by role, function and headcount." },
-  { tag: "04", name: "CRE, Facilities & Infra", desc: "See new centres, expansions and relocations weeks before your competitors do, and turn signal into pipeline." },
+  { name: "GTM leaders & sellers", desc: "Surface ICP-fit accounts, prioritise the right centres and put a clean, ranked target list in every seller's hands every Monday morning." },
+  { name: "GCC site & PMO leaders", desc: "Benchmark against the peer set, watch the ecosystem move in real time and walk into your next location decision with conviction." },
+  { name: "Staffing, RPO & talent firms", desc: "Reach the right HR and function leaders across every growing centre in India, mapped by role, function and headcount." },
+  { name: "CRE, facilities & infra", desc: "See new centres, expansions and relocations weeks before your competitors do, and turn signal into pipeline." },
 ];
 
 const SectionIntro = ({
@@ -171,8 +147,8 @@ const Platform = () => {
       <section id="tour" className="scroll-mt-24 border-b bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
-            label="One dataset, three lenses"
-            title="See the market through Charts, Map and Data, without ever losing your thread."
+            label="Same data, three lenses"
+            title="See the market through charts, map, and data without ever losing your thread."
           >
             <p>
               Every filter follows you across every view. Spot a hotspot on the map, pivot to
@@ -192,11 +168,7 @@ const Platform = () => {
                 }`}
               >
                 <div className={index % 2 ? "lg:order-2" : ""}>
-                  <div className="flex items-center gap-3 text-sm font-semibold text-primary">
-                    <span className="tabular-nums text-accent">{lens.index}</span>
-                    <lens.icon className="h-4 w-4" aria-hidden />
-                  </div>
-                  <h3 className="mt-3 text-2xl font-bold">{lens.title}</h3>
+                  <h3 className="text-2xl font-bold">{lens.title}</h3>
                   <p className="mt-3 leading-relaxed text-muted-foreground">{lens.desc}</p>
                 </div>
                 <div className={`overflow-hidden rounded-md ${index % 2 ? "lg:order-1" : ""}`}>
@@ -267,11 +239,7 @@ const Platform = () => {
                 }`}
               >
                 <div className={index % 2 ? "lg:order-2" : ""}>
-                  <div className="flex items-center gap-3 text-sm font-semibold text-primary">
-                    <span className="tabular-nums text-accent">Workflow {workflow.index}</span>
-                    <workflow.icon className="h-4 w-4" aria-hidden />
-                  </div>
-                  <h3 className="mt-3 text-2xl font-bold">{workflow.title}</h3>
+                  <h3 className="text-2xl font-bold">{workflow.title}</h3>
                   <p className="mt-3 leading-relaxed text-muted-foreground">{workflow.desc}</p>
                 </div>
                 <div className={`overflow-hidden rounded-md ${index % 2 ? "lg:order-1" : ""}`}>
@@ -297,7 +265,7 @@ const Platform = () => {
             title="A workspace your team lives in. Not a report they forget."
           >
             <p>
-              Every capability you need to find, qualify, segment and action the India GCC
+              Every capability you need to find, qualify, segment and act on the India GCC
               opportunity, in one purpose-built environment.
             </p>
           </SectionIntro>
@@ -305,8 +273,7 @@ const Platform = () => {
           <div className="mt-10 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
             {CAPABILITIES.map((capability) => (
               <div key={capability.title} className="border-t py-6">
-                <capability.icon className="h-5 w-5 text-primary" aria-hidden />
-                <h3 className="mt-4 text-lg font-bold">{capability.title}</h3>
+                <h3 className="text-lg font-bold">{capability.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {capability.desc}
                 </p>
@@ -332,11 +299,10 @@ const Platform = () => {
           <div className="mt-10">
             {PERSONAS.map((persona) => (
               <GoogleCalendarSchedulingButton
-                key={persona.tag}
-                className="group grid min-h-20 w-full grid-cols-[2.5rem_1fr_auto] items-center gap-4 border-t px-2 py-6 text-left transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:grid-cols-[3.5rem_1fr_auto] sm:gap-6"
+                key={persona.name}
+                className="group grid min-h-20 w-full grid-cols-[1fr_auto] items-center gap-4 border-t px-2 py-6 text-left transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:gap-6"
                 aria-label={`Get a demo: ${persona.name}`}
               >
-                <span className="text-sm font-semibold tabular-nums text-accent">{persona.tag}</span>
                 <span>
                   <span className="block text-lg font-bold">{persona.name}</span>
                   <span className="mt-1 block leading-relaxed text-muted-foreground">
@@ -350,25 +316,7 @@ const Platform = () => {
         </div>
       </section>
 
-      <section className="px-4 py-14 md:py-20">
-        <div className="mx-auto max-w-7xl border-y py-10 md:py-14">
-          <h2 className="text-3xl font-bold leading-tight md:text-4xl">
-            Stop stitching together PDFs and stale lists.
-            <br />
-            <span className="text-primary">Start operating on structured GCC intelligence.</span>
-          </h2>
-          <p className="mb-8 mt-5 max-w-6xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Book a focused 30-minute walkthrough. We'll tailor it to your ICP, territory or sector
-            and send you off with a target list you can action the same afternoon.
-          </p>
-          <Button asChild size="lg" className="px-7 text-base font-semibold">
-            <GoogleCalendarSchedulingButton>
-              Get a demo
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </GoogleCalendarSchedulingButton>
-          </Button>
-        </div>
-      </section>
+      <DemoCta title="Start operating on structured GCC intelligence." />
 
       <Footer showCta={false} />
     </div>

@@ -18,8 +18,8 @@ const ThankYou = () => {
       <main className="flex-1 border-b bg-secondary/30 px-4 py-12 md:py-16">
         <div className="mx-auto max-w-3xl">
           <CheckCircle className="h-10 w-10 text-primary" aria-hidden />
-          <h1 className="mt-6 text-3xl font-bold tracking-tight md:text-4xl">Thank You!</h1>
-          <p className="mt-4 text-lg text-muted-foreground">We've received your details successfully. Our team will be in touch shortly.</p>
+          <h1 className="mt-6 text-3xl font-bold tracking-tight md:text-4xl">Thank you.</h1>
+          <p className="mt-4 text-lg text-muted-foreground">We've received your details. Our team will be in touch shortly.</p>
           <p className="mt-3 text-muted-foreground">In the meantime, explore our latest GCC reports and insights.</p>
 
           <div className="mt-10 border-t">
@@ -30,7 +30,7 @@ const ThankYou = () => {
             </GoogleCalendarSchedulingButton>
             <Link to="/resources" className="group grid min-h-20 w-full grid-cols-[1.5rem_1fr_auto] items-center gap-4 border-b py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
               <FileText className="h-5 w-5 text-primary" aria-hidden />
-              <span><span className="block text-lg font-semibold">Explore Resources</span><span className="mt-1 block text-sm text-muted-foreground">Roundtables and insights from our team</span></span>
+              <span><span className="block text-lg font-semibold">Explore Resources</span><span className="mt-1 block text-sm text-muted-foreground">Guides and insights from our team</span></span>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">View resources<ArrowRight className="h-4 w-4" aria-hidden /></span>
             </Link>
           </div>

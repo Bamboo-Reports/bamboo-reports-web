@@ -18,18 +18,18 @@ import {
 } from "lucide-react";
 
 const STEPS = [
-  { num: "Step 1", icon: Target, title: "Account Selection", body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database, with full context on each centre's size, age, parent company, and leadership." },
-  { num: "Step 2", icon: UserCheck, title: "Contact Targeting", body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies. No duplication. No guesswork." },
-  { num: "Step 3", icon: Megaphone, title: "Campaign Execution", body: "We run multi-channel campaigns across LinkedIn, email, curated roundtables, and content syndication through the Bamboo Reports audience." },
-  { num: "Step 4", icon: HandshakeIcon, title: "MQL Handoff", body: "We deliver qualified leads: contacts who've engaged with your content, attended your events, or raised their hand. Not raw lists. Not cold traffic." },
+  { icon: Target, title: "Account selection", body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database, with full context on each centre's size, age, parent company, and leadership." },
+  { icon: UserCheck, title: "Contact targeting", body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies. No duplication. No guesswork." },
+  { icon: Megaphone, title: "Campaign execution", body: "We run multi-channel campaigns across LinkedIn, email, curated roundtables, and content syndication through the Bamboo Reports audience." },
+  { icon: HandshakeIcon, title: "MQL handoff", body: "We deliver qualified leads: contacts who've engaged with your content, attended your events, or raised their hand. Not raw lists. Not cold traffic." },
 ];
 
 const FORMATS = [
-  { icon: Zap, name: "Focused ABM Sprint", desc: "Short, sharp campaign targeting a defined account list." },
-  { icon: MapPin, name: "City Blitz", desc: "Concentrated push in one GCC cluster." },
-  { icon: CalendarDays, name: "Roundtable Programme", desc: "Curated events with senior GCC leaders." },
-  { icon: Mail, name: "Content + Nurture", desc: "LinkedIn and email sequence across named accounts." },
-  { icon: Rocket, name: "Full GTM Programme", desc: "Multi-city, multi-channel, long-form engagement." },
+  { icon: Zap, name: "Focused ABM sprint", desc: "Short, sharp campaign targeting a defined account list." },
+  { icon: MapPin, name: "City blitz", desc: "Concentrated push in one GCC cluster." },
+  { icon: CalendarDays, name: "Roundtable programme", desc: "Curated events with senior GCC leaders." },
+  { icon: Mail, name: "Content + nurture", desc: "LinkedIn and email sequence across named accounts." },
+  { icon: Rocket, name: "Full GTM programme", desc: "Multi-city, multi-channel, long-form engagement." },
 ];
 
 const RESULTS = [
@@ -52,13 +52,13 @@ const GCCABM = () => {
       <Header />
 
       <MarketingHero
-        title={<><span className="block">Account-Based Marketing</span><span className="block">for the India GCC Market,</span><span className="block text-primary">Built on the Best Data in the Business.</span></>}
-        description={<p>From prospect data creation, account planning, account level strategy, campaign planning and performance reporting, we have all the capabilities to create a focussed GCC outreach programme. Reduce operational work, maintain signals, scoring, segmentation, insights without losing sight of the big picture and manage personalised GCC focussed campaigns seamlessly.</p>}
+        title={<><span className="block">Account-based marketing</span><span className="block">for the India GCC market.</span><span className="block text-primary">Built on the best data in the business.</span></>}
+        description={<p>From prospect data and account planning to campaign execution and performance reporting, we run focused GCC outreach programmes end to end. We handle the signals, scoring, segmentation, and insights, so your team can run personalised GCC campaigns without drowning in operational work.</p>}
       />
 
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro label="/ The Problem" title="GCC Buyers Are Hard to Reach. Generic ABM Doesn't Work Here.">
+          <SectionIntro label="The problem" title="GCC buyers are hard to reach. Generic ABM doesn't work here.">
             <div className="space-y-4">
               <p>India's GCC ecosystem doesn't behave like the broader enterprise market. Decision-makers aren't always visible. Org charts are opaque. Titles vary wildly. And most ABM platforms don't understand what a GCC actually is.</p>
               <p className="text-xl font-semibold leading-snug text-foreground md:text-2xl">Running campaigns into this market without GCC-native data means <span className="text-primary">wasted spend, wrong targets,</span> and messaging that lands with the wrong people.</p>
@@ -69,14 +69,11 @@ const GCCABM = () => {
 
       <section id="how-it-works" className="scroll-mt-24 border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro label="/ How It Works" title="Full-Funnel ABM, End to End." />
+          <SectionIntro label="How it works" title="Full-funnel ABM, end to end." />
           <div className="mt-10 grid gap-x-8 md:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((step) => (
-              <div key={step.num} className="border-t py-6">
-                <div className="flex items-center justify-between gap-3">
-                  <span className="text-sm font-semibold text-accent">{step.num}</span>
-                  <step.icon className="h-5 w-5 text-primary" aria-hidden />
-                </div>
+              <div key={step.title} className="border-t py-6">
+                <step.icon className="h-5 w-5 text-primary" aria-hidden />
                 <h3 className="mt-4 text-xl font-bold">{step.title}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{step.body}</p>
               </div>
@@ -87,7 +84,7 @@ const GCCABM = () => {
 
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro label="/ Campaign Formats" title="Pick Your Play." />
+          <SectionIntro label="Campaign formats" title="Pick your play." />
           <div className="mt-10">
             {FORMATS.map((format) => (
               <div key={format.name} className="grid gap-4 border-t py-6 md:grid-cols-[2rem_0.8fr_1.2fr] md:items-center md:gap-8">
@@ -102,7 +99,7 @@ const GCCABM = () => {
 
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro label="/ Proven Results" title="Qualified Pipeline. Measurable Outcomes.">
+          <SectionIntro label="Proven results" title="Qualified pipeline. Measurable outcomes.">
             <p>ABM campaigns for SaaS vendors, enterprise software, and professional services firms, delivered across India's top GCC cities with <span className="font-semibold text-primary">guaranteed MQL outcomes, not just impressions.</span></p>
           </SectionIntro>
           <div className="mt-10 grid gap-x-8 md:grid-cols-3">
@@ -119,7 +116,7 @@ const GCCABM = () => {
 
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro label="/ Who It's For" title="Built for B2B Teams Selling Into GCCs." />
+          <SectionIntro label="Who it's for" title="Built for B2B teams selling into GCCs." />
           <div className="mt-10 grid gap-x-10 md:grid-cols-2">
             {[
               "SaaS and Tech vendors entering or expanding in the India GCC market.",
@@ -127,8 +124,8 @@ const GCCABM = () => {
               "Real estate and facilities companies selling to GCC Admin and CRE heads.",
               "Professional services firms building pipeline among GCC C-suite leaders.",
               "Any B2B brand whose buyers sit inside GCC organisations.",
-            ].map((item, index) => (
-              <div key={item} className="grid grid-cols-[2.5rem_1fr] gap-4 border-t py-6"><span className="text-sm font-semibold tabular-nums text-accent">0{index + 1}</span><p className="text-lg leading-relaxed">{item}</p></div>
+            ].map((item) => (
+              <div key={item} className="border-t py-6"><p className="text-lg leading-relaxed">{item}</p></div>
             ))}
           </div>
         </div>
@@ -136,7 +133,7 @@ const GCCABM = () => {
 
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro label="/ Why Bamboo Reports" title={<>We Don't Just Run Campaigns.<br /><span className="text-primary">We Know the Market.</span></>}>
+          <SectionIntro label="Why Bamboo Reports" title={<>We don't just run campaigns.<br /><span className="text-primary">We know the market.</span></>}>
             <p>Most ABM agencies build your list, send your emails, and call it done. We're different because the data is ours, built and maintained by us, not licensed from a third party.</p>
           </SectionIntro>
           <div className="mt-10 grid gap-x-10 md:grid-cols-2">

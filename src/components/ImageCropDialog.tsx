@@ -57,7 +57,7 @@ const ImageCropDialog = ({ open, imageSrc, onCropComplete, onClose }: ImageCropD
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle>Crop Your Profile Picture</DialogTitle>
+          <DialogTitle>Crop your profile picture</DialogTitle>
         </DialogHeader>
 
         <div className="relative h-[400px] w-full bg-navy rounded-xl overflow-hidden">

@@ -53,7 +53,6 @@ const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem" 
               src={logo.src}
               alt={logo.alt}
               className="h-9 object-contain md:h-11"
-              loading="lazy"
               decoding="async"
             />
           </div>

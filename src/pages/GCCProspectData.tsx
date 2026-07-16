@@ -16,8 +16,8 @@ import {
 } from "lucide-react";
 
 const COVERAGE = [
-  { icon: Users, title: "250K+ decision-makers", desc: "Named C-suite, VPs, Directors, and function heads across the ecosystem." },
-  { icon: Building2, title: "Centre-level mapping", desc: "Contacts tied to 5,800+ individual centres, not just parent companies." },
+  { icon: Users, title: "250K+ decision-makers", desc: "Named C-suite, VPs, directors, and function heads across the ecosystem." },
+  { icon: Building2, title: "Centre-level mapping", desc: "Contacts tied to 5,900+ individual centres, not just parent companies." },
   { icon: Briefcase, title: "Function coverage", desc: "Engineering, Product, Data, Finance, HR, Legal, Operations, IT, and more." },
   { icon: MapPin, title: "Geospatial precision", desc: "Every centre geo-coded across India's GCC cities and clusters." },
   { icon: Layers, title: "Service-mix context", desc: "5–12 structured service classifications per centre: what each GCC actually does." },
@@ -25,11 +25,11 @@ const COVERAGE = [
 ];
 
 const USERS = [
-  { tag: "01", name: "SaaS & Tech Vendors", desc: "Pipeline generation for India GCC accounts." },
-  { tag: "02", name: "Staffing & RPO Firms", desc: "Reach HR and TA heads at scale." },
-  { tag: "03", name: "Real Estate & Facilities", desc: "Connect with Admin, CRE, and Operations leaders." },
-  { tag: "04", name: "Consulting & Advisory", desc: "Identify and prioritise target accounts fast." },
-  { tag: "05", name: "Event & Community Platforms", desc: "Grow your GCC practitioner network." },
+  { name: "SaaS & tech vendors", desc: "Pipeline generation for India GCC accounts." },
+  { name: "Staffing & RPO firms", desc: "Reach HR and TA heads at scale." },
+  { name: "Real estate & facilities", desc: "Connect with admin, CRE, and operations leaders." },
+  { name: "Consulting & advisory", desc: "Identify and prioritise target accounts fast." },
+  { name: "Event & community platforms", desc: "Grow your GCC practitioner network." },
 ];
 
 const RESEARCH = [
@@ -56,13 +56,13 @@ const GCCProspectData = () => {
         title={
           <>
             <span className="block">Every GCC in India.</span>
-            <span className="block text-primary">Every Decision-Maker Who Matters.</span>
+            <span className="block text-primary">Every decision-maker who matters.</span>
           </>
         }
         description={
           <p>
             Bamboo Reports gives you the most complete, structured contact intelligence on India's
-            Global Capability Centre ecosystem: 250K+ verified decision-makers across 5,800+
+            Global Capability Centre ecosystem: 250K+ verified decision-makers across 5,900+
             centres, continuously refreshed and ready to power your outreach.
           </p>
         }
@@ -70,7 +70,7 @@ const GCCProspectData = () => {
 
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro label="/ The Problem" title="Your Outreach Is Only as Good as Your Data.">
+          <SectionIntro label="The problem" title="Your outreach is only as good as your data.">
             <div className="space-y-4">
               <p>
                 India's GCC market is moving fast. New centres open every quarter. Leaders change
@@ -89,7 +89,7 @@ const GCCProspectData = () => {
 
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro label="/ What's Inside" title="Built for GCC Go-To-Market." />
+          <SectionIntro label="What's inside" title="Built for GCC go-to-market." />
           <div className="mt-10 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
             {COVERAGE.map((item) => (
               <div key={item.title} className="border-t py-6">
@@ -107,11 +107,10 @@ const GCCProspectData = () => {
 
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro label="/ Who Uses This" title="Built for Teams That Sell Into GCCs." />
+          <SectionIntro label="Who uses this" title="Built for teams that sell into GCCs." />
           <div className="mt-10 grid gap-x-10 md:grid-cols-2">
             {USERS.map((item) => (
-              <div key={item.tag} className="grid grid-cols-[2.5rem_1fr] gap-4 border-t py-6">
-                <span className="text-sm font-semibold tabular-nums text-accent">{item.tag}</span>
+              <div key={item.name} className="border-t py-6">
                 <div>
                   <h3 className="text-xl font-bold">{item.name}</h3>
                   <p className="mt-2 text-muted-foreground">{item.desc}</p>
@@ -125,8 +124,8 @@ const GCCProspectData = () => {
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
-            label="/ Why Bamboo Reports"
-            title={<>This Isn't a Scraped List.<br /><span className="text-primary">This Is a Research Asset.</span></>}
+            label="Why Bamboo Reports"
+            title={<>This isn't a scraped list.<br /><span className="text-primary">This is a research asset.</span></>}
           />
           <div className="mt-10 grid gap-x-10 md:grid-cols-2">
             {RESEARCH.map((item) => (
@@ -140,7 +139,7 @@ const GCCProspectData = () => {
       </section>
 
       <DemoCta
-        title="Get a custom GCC dataset built around your market."
+        title="Get custom GCC coverage built around your market."
       />
 
       <Footer showCta={false} />

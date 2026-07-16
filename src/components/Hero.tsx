@@ -1,52 +1,53 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { useAuth } from "@/contexts/AuthContext";
 import gccIllustration from "@/assets/gcc-illustration.png";
 
 const CAPABILITIES = [
-  "GCC Prospect Data",
-  "Account & Market Intelligence",
-  "GCC Focused ABM",
+  { title: "GCC Prospect Data", href: "/gcc-prospect-data" },
+  { title: "Account & Market Intelligence", href: "/account-market-intelligence" },
+  { title: "GCC Focused ABM", href: "/gcc-abm" },
 ];
 
 const Hero = () => {
   const { user } = useAuth();
 
   return (
-    <section className="px-4 pb-12 pt-10 md:pb-16 md:pt-16">
+    <section className="overflow-hidden px-4 pb-14 pt-12 md:pb-20 md:pt-16">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-14">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
           <div>
-            <h1 className="text-balance leading-tight">
-              <span className="mb-2 block text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
-                Your Trusted Partner for
-              </span>
-              <span className="block text-4xl font-extrabold text-primary sm:text-5xl lg:text-6xl">
-                GCC GTM Enablement
-              </span>
+            <h1 className="text-balance text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+              Your trusted partner for{" "}
+              <span className="text-primary">GCC GTM enablement</span>
             </h1>
 
-            <ul className="mt-7 space-y-3">
+            <div className="mt-9 max-w-md border-t">
               {CAPABILITIES.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-center gap-3 text-sm font-semibold text-muted-foreground sm:text-base"
+                <Link
+                  key={item.title}
+                  to={item.href}
+                  className="group flex items-center justify-between gap-4 border-b py-3.5 text-sm font-semibold text-foreground transition-colors hover:text-primary sm:text-base"
                 >
-                  <span className="h-1.5 w-1.5 flex-none rounded-full bg-accent" aria-hidden />
-                  {item}
-                </li>
+                  {item.title}
+                  <ArrowRight
+                    className="h-4 w-4 flex-none text-border transition-all group-hover:translate-x-0.5 group-hover:text-primary motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+                    aria-hidden
+                  />
+                </Link>
               ))}
-            </ul>
+            </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-9 flex flex-wrap items-center gap-3">
               {!user && (
                 <Button
                   asChild
                   size="lg"
                   className="px-7 text-base font-semibold"
                 >
-                  <Link to="/signup?src=home-hero">Sign up free</Link>
+                  <Link to="/signup?src=home-hero">Sign up for free</Link>
                 </Button>
               )}
               <Button
@@ -61,9 +62,9 @@ const Hero = () => {
               </Button>
             </div>
 
-            <p className="mt-4 max-w-lg text-sm text-muted-foreground">
+            <p className="mt-5 max-w-lg text-sm text-muted-foreground">
               Free access to the India GCC directory, plus expert advice to
-              supercharge your GCC strategy
+              sharpen your GCC strategy.
             </p>
           </div>
 
@@ -74,29 +75,8 @@ const Hero = () => {
               width="1024"
               height="714"
               fetchPriority="high"
-              className="h-auto w-full max-w-2xl"
+              className="h-auto w-full max-w-xl"
             />
-          </div>
-        </div>
-
-        <div className="mt-16 border-t pt-10 md:mt-20 md:pt-12">
-          <h2 className="text-2xl font-bold leading-tight md:text-3xl">
-            What is GCC Intelligence?
-          </h2>
-          <div className="mt-5 max-w-6xl space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-            <p>
-              GCC Intelligence refers to the structured, data-driven
-              understanding of Global Capability Centers (GCCs), also known as
-              Global In-house Centers (GICs). These are offshore operations of
-              multinational companies and handle a wide range of strategic,
-              operational, and innovation-driven functions.
-            </p>
-            <p>
-              India has become a key destination for these centers, thanks to
-              its talent density, mature ecosystems, and infrastructure. The
-              role of GCCs has expanded well beyond cost efficiency to driving
-              innovation, agility, and business continuity.
-            </p>
           </div>
         </div>
       </div>

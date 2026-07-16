@@ -62,14 +62,14 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/roundtables</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.bambooreports.com/reports</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/roundtables/h1b-shock-strategic-reset</loc>
+    <loc>https://www.bambooreports.com/reports/india-gcc-report-q1-fy27</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bambooreports.com/reads</loc>

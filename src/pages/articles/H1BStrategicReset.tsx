@@ -184,7 +184,7 @@ const H1BStrategicReset = () => {
             <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-6 items-center">
               <div className="space-y-3">
                 <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-                  H-1B Shock or Strategic Reset? Bengaluru Roundtable Reveals India's GCC Power Shift
+                  H-1B shock or strategic reset? Bengaluru roundtable reveals India's GCC power shift
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-3xl">
                   Hosted by Research NXT - Bamboo Reports, leaders across marketing, strategy, sales, and GCC operations debated how global delivery and decision-making are being rebuilt around India.
@@ -240,7 +240,7 @@ const H1BStrategicReset = () => {
           <section className="space-y-5 border-t pt-10">
             <div className="space-y-2">
               <p className="text-sm font-semibold text-accent">Signals from the room</p>
-              <h3 className="text-2xl font-bold">What leaders are already acting on</h3>
+              <h2 className="text-2xl font-bold">What leaders are already acting on</h2>
             </div>
             <div className="grid gap-3">
               {signalBullets.map((bullet) => (
@@ -255,7 +255,7 @@ const H1BStrategicReset = () => {
           <section className="space-y-5 border-t pt-10">
             <div className="space-y-2">
               <p className="text-sm font-semibold text-accent">Playbook prompts</p>
-              <h3 className="text-2xl font-bold">How GCC teams and vendors should respond</h3>
+              <h2 className="text-2xl font-bold">How GCC teams and vendors should respond</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-4">
               {playbookPrompts.map((prompt) => (
@@ -270,7 +270,7 @@ const H1BStrategicReset = () => {
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               <div>
                 <p className="text-sm font-semibold text-accent">The panel</p>
-                <h3 className="text-2xl font-bold">Leaders steering the conversation</h3>
+                <h2 className="text-2xl font-bold">Leaders steering the conversation</h2>
                 <p className="text-base text-muted-foreground mt-2">
                   A cross-section of marketing, sales, digital transformation, and GCC leaders who unpacked the shift from outsourcing to intelligent insourcing.
                 </p>
@@ -299,7 +299,7 @@ const H1BStrategicReset = () => {
           <section className="space-y-4 border-t pt-10">
             <div className="space-y-2">
               <p className="text-sm font-semibold text-accent">Gallery</p>
-              <h3 className="text-2xl font-bold">Moments from the Bengaluru roundtable</h3>
+              <h2 className="text-2xl font-bold">Moments from the Bengaluru roundtable</h2>
               <p className="text-base text-muted-foreground leading-relaxed">
                 A quick look at the conversations, working sessions, and the leaders in the room.
               </p>
@@ -328,7 +328,7 @@ const H1BStrategicReset = () => {
 
           <section className="space-y-3 border-y py-10">
             <p className="text-sm font-semibold text-accent">Final takeaway</p>
-            <h3 className="text-2xl font-bold">Global capability centers are in India because capability is higher.</h3>
+            <h2 className="text-2xl font-bold">Global capability centres are in India because capability is higher.</h2>
             <p className="text-base text-muted-foreground leading-relaxed">
               The Bengaluru roundtable made one point clear: the outsourcing era is ending. As GCCs take on strategic mandates and own budgets, India is positioned to be the primary strategy hub for global enterprises. The call to action is simple: market your wins internally, elevate strategic roles in India, and treat capability plus scale as the advantage to defend.
             </p>

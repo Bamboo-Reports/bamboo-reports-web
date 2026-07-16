@@ -32,22 +32,22 @@ const SuccessStories = () => {
 
       <MarketingHero
         showAction={false}
-        title={<><span className="block">Intelligence at Work.</span><span className="block text-primary">Outcomes, Not Headlines.</span></>}
+        title={<><span className="block">Intelligence at work.</span><span className="block text-primary">Outcomes, not headlines.</span></>}
         description={<p>Two long-running engagements that show what structured, centre-level intelligence delivers in practice. One for a solution provider selling into GCCs. One for a GCC building its own future.</p>}
       />
 
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <p className="text-sm font-semibold text-accent">/ Case 01 · Leading Global IT Services Firm</p>
+          <p className="text-sm font-semibold text-accent">/ Case 01 · Leading global IT services firm</p>
           <div className="mt-4 flex flex-wrap items-center gap-3 text-sm">
             <span className="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary">4 Years</span>
             <span className="font-medium text-muted-foreground">Ongoing</span>
           </div>
-          <h2 className="mt-5 text-3xl font-bold leading-tight md:text-4xl">BFSI GCC Strategy &amp; Intelligence</h2>
+          <h2 className="mt-5 text-3xl font-bold leading-tight md:text-4xl">BFSI GCC strategy &amp; intelligence</h2>
           <p className="mt-4 max-w-6xl text-lg leading-relaxed text-muted-foreground">A global technology and consulting firm needed to expand its India BFSI GCC pipeline. The mandate: map global customers with India GCC presence, add look-alike accounts beyond their book, then go deep on the BFSI strategic shortlist.</p>
           <p className="mt-5 font-semibold">The programme is still running 4 years on.</p>
 
-          <p className="mt-10 text-sm font-semibold text-accent">/ What We Delivered</p>
+          <p className="mt-10 text-sm font-semibold text-accent">/ What we delivered</p>
           <div className="mt-4 grid gap-x-8 md:grid-cols-2 lg:grid-cols-4">
             {CASE_ONE_RESULTS.map((result) => (
               <div key={result.label} className="border-t py-6">
@@ -61,23 +61,23 @@ const SuccessStories = () => {
 
       <section className="border-y bg-secondary/30 px-4 py-12 md:py-16">
         <div className="mx-auto max-w-7xl">
-          <p className="text-sm font-semibold text-accent">/ Two Sides of the Same Ecosystem</p>
+          <p className="text-sm font-semibold text-accent">/ Two sides of the same ecosystem</p>
           <p className="mt-4 max-w-6xl text-2xl font-semibold leading-snug md:text-3xl">One platform. Two audiences. <span className="text-primary">The same centre-level intelligence that wins mandates also builds business cases.</span></p>
         </div>
       </section>
 
       <section className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <p className="text-sm font-semibold text-accent">/ Case 02 · Global Medical Device Company GCC</p>
+          <p className="text-sm font-semibold text-accent">/ Case 02 · Global medical device company GCC</p>
           <div className="mt-4 flex flex-wrap items-center gap-3 text-sm">
             <span className="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary">Fortune 500</span>
             <span className="font-medium text-muted-foreground">Phased · Strategic</span>
           </div>
-          <h2 className="mt-5 text-3xl font-bold leading-tight md:text-4xl">GCC Benchmarking, Talent &amp; Expansion</h2>
+          <h2 className="mt-5 text-3xl font-bold leading-tight md:text-4xl">GCC benchmarking, talent &amp; expansion</h2>
           <p className="mt-4 max-w-6xl text-lg leading-relaxed text-muted-foreground">A Fortune 500 medical device company setting up their India GCC needed structured intelligence on peer GCCs, talent landscapes, and a benchmarking framework to build their board-level business case.</p>
           <p className="mt-5 font-semibold">Intelligence presented to global leadership. A seat at the table.</p>
 
-          <p className="mt-10 text-sm font-semibold text-accent">/ The Engagement Arc</p>
+          <p className="mt-10 text-sm font-semibold text-accent">/ The engagement arc</p>
           <ol className="mt-4 grid gap-x-8 md:grid-cols-2 lg:grid-cols-4">
             {ENGAGEMENT_ARC.map((item, index) => (
               <li key={item.phase} className="border-t py-6">

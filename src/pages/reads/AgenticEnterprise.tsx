@@ -38,8 +38,7 @@ const AgenticEnterprise = () => {
           </section>
 
           <aside className="border-t pt-10 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
-            <p className="text-sm font-semibold text-accent">Free whitepaper</p>
-            <h2 className="mt-3 text-2xl font-bold leading-tight">Build an enterprise where humans and AI evolve together.</h2>
+            <h2 className="text-2xl font-bold leading-tight">Build an enterprise where humans and AI evolve together.</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Enter your details to get the full report. Free and instant.</p>
             <div className="mt-6 overflow-hidden rounded-md border bg-background">
               <JotFormEmbed formId="261590831475462" title="Thoughtworks x AWS - C1" height="780px" />

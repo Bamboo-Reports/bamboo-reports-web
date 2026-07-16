@@ -14,6 +14,8 @@ import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
 import Resources from "./pages/Resources";
 import Reads from "./pages/Reads";
 import AgenticEnterprise from "./pages/reads/AgenticEnterprise";
+import Reports from "./pages/Reports";
+import IndiaGccReportQ1FY27 from "./pages/reports/IndiaGccReportQ1FY27";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
@@ -55,6 +57,8 @@ const App = () => {
             <Route path="/resources" element={<Resources />} />
             <Route path="/reads" element={<Reads />} />
             <Route path="/reads/agentic-enterprise" element={<AgenticEnterprise />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/reports/india-gcc-report-q1-fy27" element={<IndiaGccReportQ1FY27 />} />
             <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />

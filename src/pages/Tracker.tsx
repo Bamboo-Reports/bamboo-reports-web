@@ -24,12 +24,10 @@ import {
 } from "@/lib/trackerStats";
 import {
   Building2,
-  Layers,
   Lock,
   RotateCcw,
   Target,
   TrendingUp,
-  Users,
   X,
 } from "lucide-react";
 
@@ -80,19 +78,14 @@ const FilterChip = ({
 const CountCard = ({
   label,
   value,
-  icon: Icon,
   isLoading,
 }: {
   label: string;
   value: number;
-  icon: React.ElementType;
   isLoading: boolean;
 }) => (
-  <div className="border-t py-5 md:py-6">
-    <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-      <Icon className="h-4 w-4 text-primary" aria-hidden />
-      {label}
-    </div>
+  <div className="py-5 text-center md:border-l md:py-6 md:first:border-l-0">
+    <div className="text-sm font-medium text-muted-foreground">{label}</div>
     <div className="mt-3 text-3xl font-bold tracking-tight tabular-nums md:text-4xl">
       {isLoading ? (
         <span className="inline-block h-9 w-24 animate-pulse rounded-md bg-muted" />
@@ -250,20 +243,6 @@ const Tracker = () => {
     [filteredAccounts]
   );
 
-  // Names the current selection for the tracked-vs-shown line, e.g.
-  // "BFSI in Bengaluru" or "All India GCCs" when nothing is selected.
-  const selectionLabel = useMemo(() => {
-    const subject = [
-      ...filters.account_global_legal_name,
-      ...filters.account_primary_category,
-    ].join(", ");
-    const cities = filters.center_city.join(", ");
-    if (subject && cities) return `${subject} in ${cities}`;
-    if (subject) return subject;
-    if (cities) return `GCCs in ${cities}`;
-    return "All India GCCs";
-  }, [filters]);
-
   // With a company explicitly selected, the centres count uses the strict
   // definition its public page uses (active, GCC-type centers only) and
   // overrides the city dimension; aggregate views stay account-level.
@@ -378,7 +357,7 @@ const Tracker = () => {
                     asChild
                     className="rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow"
                   >
-                    <a href="/signup?src=gcc-hero">Sign up free</a>
+                    <a href="/signup?src=gcc-hero">Sign up for free</a>
                   </Button>
                 )}
                 <Button
@@ -514,64 +493,28 @@ const Tracker = () => {
           </div>
 
           {/* Counts */}
-          <div className="mt-8 grid gap-x-8 md:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3">
             <CountCard
-              label="Accounts"
+              label="Companies"
               value={counts.accounts}
-              icon={Building2}
               isLoading={isLoadingFirstTime}
             />
             <CountCard
-              label="Centres"
+              label="Centers"
               value={counts.centers}
-              icon={Layers}
               isLoading={isLoadingFirstTime}
             />
             <CountCard
-              label="Decision-makers"
+              label="Leaders"
               value={counts.prospects}
-              icon={Users}
               isLoading={isLoadingFirstTime}
             />
           </div>
 
-          {/* Tracked vs shown: the gap between what we track and what is
-              browsable free is the sign-up hook. */}
-          {!isLoadingFirstTime && counts.accounts > 0 && (
-            <div className="mt-2 flex flex-col gap-4 border-y py-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                <span className="font-semibold text-foreground">
-                  {selectionLabel}:
-                </span>{" "}
-                {nf(counts.accounts)}{" "}
-                {counts.accounts === 1 ? "company" : "companies"},{" "}
-                {nf(counts.centers)} {counts.centers === 1 ? "centre" : "centres"}{" "}
-                and {nf(counts.prospects)} decision-makers tracked in Bamboo
-                Reports.{" "}
-                {remainingCount > 0
-                  ? `Showing the first ${nf(accounts.length)} ${
-                      accounts.length === 1 ? "company" : "companies"
-                    }, A to Z, free here.`
-                  : "Every matching company is free to browse here."}
-              </p>
-              {!user && remainingCount > 0 && (
-                <Button
-                  asChild
-                  size="sm"
-                  className="shrink-0 self-start rounded-full font-semibold sm:self-auto"
-                >
-                  <a href="/signup?src=gcc-filter">
-                    Sign up free to unlock the other {nf(remainingCount)}
-                  </a>
-                </Button>
-              )}
-            </div>
-          )}
-
           {/* Directory */}
           <div className="mt-8 overflow-hidden rounded-lg border bg-card">
             <div className="border-b px-5 py-4">
-              <h3 className="text-lg font-semibold tracking-tight">Browse GCCs</h3>
+              <h2 className="text-lg font-semibold tracking-tight">Browse GCCs</h2>
             </div>
 
             <div
@@ -750,7 +693,7 @@ const Tracker = () => {
       {!user && (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80 md:hidden">
           <Button asChild className="w-full rounded-full font-semibold">
-            <a href="/signup?src=gcc-sticky">Sign up free</a>
+            <a href="/signup?src=gcc-sticky">Sign up for free</a>
           </Button>
         </div>
       )}
