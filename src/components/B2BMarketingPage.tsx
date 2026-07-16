@@ -22,7 +22,7 @@ export const MarketingHero = ({
       </div>
       {showAction && (
         <div className="mt-8">
-          <Button asChild size="lg" className="px-7 text-base font-semibold">
+          <Button asChild size="lg" className="w-full px-7 text-base font-semibold sm:w-auto">
             <GoogleCalendarSchedulingButton>
               Get a demo
               <ArrowRight className="h-4 w-4" aria-hidden />
@@ -82,7 +82,7 @@ export const DemoCta = ({
         <Button
           asChild
           size="lg"
-          className="bg-white px-7 text-base font-semibold text-navy hover:bg-white/90"
+          className="w-full bg-white px-7 text-base font-semibold text-navy hover:bg-white/90 sm:w-auto"
         >
           <GoogleCalendarSchedulingButton>
             Get a demo

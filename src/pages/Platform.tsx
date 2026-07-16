@@ -111,14 +111,14 @@ const Platform = () => {
               pulls decision-maker lists. No more stitching intel together from fragmented
               sources.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button asChild size="lg" className="px-7 text-base font-semibold">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <Button asChild size="lg" className="w-full px-7 text-base font-semibold sm:w-auto">
                 <GoogleCalendarSchedulingButton>
                   Get a demo
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </GoogleCalendarSchedulingButton>
               </Button>
-              <Button asChild size="lg" variant="outline" className="px-7 text-base font-semibold">
+              <Button asChild size="lg" variant="outline" className="w-full px-7 text-base font-semibold sm:w-auto">
                 <a href="#tour">
                   Take the tour
                   <ArrowDown className="h-4 w-4" aria-hidden />

@@ -108,9 +108,9 @@ const AccountMarketIntelligence = () => {
             <div className="border-t py-7">
               <p className="text-sm font-semibold text-accent">Measurable impact</p>
               <div className="mt-4 divide-y">
-                <div className="py-4"><div className="text-2xl font-bold text-primary">6 months → under 1 month</div><div className="mt-1 text-sm text-muted-foreground">GCC discovery cycle for a leading global IT services firm.</div></div>
-                <div className="py-4"><div className="text-2xl font-bold text-primary">Weeks → minutes</div><div className="mt-1 text-sm text-muted-foreground">Strategy-meeting intelligence via AI-powered custom insights.</div></div>
-                <div className="py-4"><div className="text-2xl font-bold text-primary">₹30–50L saved</div><div className="mt-1 text-sm text-muted-foreground">vs. stitching GCC intelligence from fragmented sources.</div></div>
+                <div className="py-4"><div className="text-xl font-bold text-primary sm:text-2xl">6 months → under 1 month</div><div className="mt-1 text-sm text-muted-foreground">GCC discovery cycle for a leading global IT services firm.</div></div>
+                <div className="py-4"><div className="text-xl font-bold text-primary sm:text-2xl">Weeks → minutes</div><div className="mt-1 text-sm text-muted-foreground">Strategy-meeting intelligence via AI-powered custom insights.</div></div>
+                <div className="py-4"><div className="text-xl font-bold text-primary sm:text-2xl">₹30–50L saved</div><div className="mt-1 text-sm text-muted-foreground">vs. stitching GCC intelligence from fragmented sources.</div></div>
               </div>
             </div>
           </div>

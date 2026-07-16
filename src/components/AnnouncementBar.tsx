@@ -10,7 +10,7 @@ const AnnouncementBar = () => (
       <span className="sm:hidden">The Q1 India GCC report.</span>
       <Link
         to="/reports/india-gcc-report-q1-fy27?src=q1-announce"
-        className="inline-flex min-h-11 flex-none items-center gap-1.5 rounded-full bg-white px-3 text-xs font-semibold text-navy transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-navy sm:min-h-8 sm:text-sm"
+        className="relative inline-flex min-h-8 flex-none items-center gap-1.5 rounded-full bg-white px-3 text-xs font-semibold text-navy transition-colors before:absolute before:-inset-y-2 before:-inset-x-1 before:content-[''] hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-navy sm:text-sm"
       >
         <span className="hidden sm:inline">Register for free</span>
         <span className="sm:hidden">Register</span>

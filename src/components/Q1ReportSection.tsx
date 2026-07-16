@@ -31,7 +31,7 @@ const Q1ReportSection = () => (
       <Button
         asChild
         size="lg"
-        className="group h-12 rounded-full bg-white px-8 text-base font-semibold text-navy hover:bg-white/90"
+        className="group h-12 w-full rounded-full bg-white px-8 text-base font-semibold text-navy hover:bg-white/90 sm:w-auto"
       >
         <Link to="/reports/india-gcc-report-q1-fy27?src=home-q1report">
           Register for the report

@@ -104,6 +104,16 @@ const IndiaGccReportQ1FY27 = () => {
               actually moves: one centre at a time. Where most coverage counts
               companies, we track centres as they open, expand, and hire.
             </p>
+            <Button
+              onClick={goToForm}
+              className="group mt-7 w-full font-semibold sm:w-auto lg:hidden"
+            >
+              Register for the report
+              <ArrowRight
+                className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+                aria-hidden
+              />
+            </Button>
             <ul className="mt-10 border-t">
               {TAKEAWAYS.map((takeaway) => (
                 <li
@@ -158,8 +168,8 @@ const IndiaGccReportQ1FY27 = () => {
               the next buying windows are opening.
             </DialogDescription>
           </DialogHeader>
-          <div className="mt-2 flex flex-wrap items-center gap-3">
-            <Button onClick={goToForm} className="group font-semibold">
+          <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <Button onClick={goToForm} className="group w-full font-semibold sm:w-auto">
               Register for the report
               <ArrowRight
                 className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"

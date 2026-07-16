@@ -47,14 +47,14 @@ const Hero = () => {
             </div>
 
             <div
-              className="hero-rise mt-9 flex flex-wrap items-center gap-3"
+              className="hero-rise mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
               style={{ animationDelay: "220ms" }}
             >
               {!user && (
                 <Button
                   asChild
                   size="lg"
-                  className="px-7 text-base font-semibold"
+                  className="w-full px-7 text-base font-semibold sm:w-auto"
                 >
                   <Link to="/signup?src=home-hero">Sign up for free</Link>
                 </Button>
@@ -63,7 +63,7 @@ const Hero = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="px-7 text-base font-semibold"
+                className="w-full px-7 text-base font-semibold sm:w-auto"
               >
                 <GoogleCalendarSchedulingButton>
                   Get a demo

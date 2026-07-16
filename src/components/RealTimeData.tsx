@@ -22,7 +22,7 @@ const benefits = [
 const RealTimeData = () => (
   <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
     <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
-      <div className="flex justify-center">
+      <div className="order-last flex justify-center lg:order-first">
         <img
           src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKv6x96AJVfJmWpqyeiMB7DU82nCjPtSuIkENHA"
           alt="Real-time Data Illustration"

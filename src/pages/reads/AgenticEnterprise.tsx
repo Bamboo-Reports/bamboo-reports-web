@@ -1,6 +1,8 @@
+import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JotFormEmbed from "@/components/JotFormEmbed";
+import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 
 const PILLARS = [
@@ -27,6 +29,12 @@ const AgenticEnterprise = () => {
             <h1 className="mt-10 text-4xl font-bold leading-tight md:text-5xl">The agentic enterprise<span className="text-primary">.</span></h1>
             <p className="mt-5 text-xl font-semibold leading-snug">Stop building AI to a blueprint. <span className="text-primary">Start building for constant change.</span></p>
             <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">MIT found that 95% of generative AI pilots fail to deliver value. The problem isn't the technology, it's transformation built to a fixed end-state. This Thoughtworks and AWS report shows how a composable architecture of agents, data and governance lets your enterprise adapt as fast as AI evolves.</p>
+            <Button asChild className="group mt-7 w-full font-semibold sm:w-auto lg:hidden">
+              <a href="#register-form">
+                Get the whitepaper
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" aria-hidden />
+              </a>
+            </Button>
             <ul className="mt-10 border-t">
               {PILLARS.map((pillar) => (
                 <li key={pillar.title} className="border-b py-5">
@@ -37,7 +45,7 @@ const AgenticEnterprise = () => {
             </ul>
           </section>
 
-          <aside className="border-t pt-10 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+          <aside id="register-form" className="scroll-mt-24 border-t pt-10 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
             <h2 className="text-2xl font-bold leading-tight">Build an enterprise where humans and AI evolve together.</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Enter your details to get the full report. Free and instant.</p>
             <div className="mt-6 overflow-hidden rounded-md border bg-background">

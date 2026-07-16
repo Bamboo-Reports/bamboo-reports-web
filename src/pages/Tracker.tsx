@@ -63,7 +63,7 @@ const FilterChip = ({
       type="button"
       onClick={onRemove}
       aria-label={`Remove ${category.toLowerCase()} ${value}`}
-      className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="relative flex h-5 w-5 shrink-0 items-center justify-center rounded-full transition-colors before:absolute before:-inset-2.5 before:content-[''] hover:bg-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
       <X className="h-3.5 w-3.5" />
     </button>
@@ -79,11 +79,11 @@ const CountCard = ({
   value: number;
   isLoading: boolean;
 }) => (
-  <div className="py-5 text-center md:border-l md:py-6 md:first:border-l-0">
-    <div className="text-sm font-medium text-muted-foreground">{label}</div>
-    <div className="mt-3 text-3xl font-bold tracking-tight tabular-nums md:text-4xl">
+  <div className="border-l px-2 py-5 text-center first:border-l-0 md:px-6 md:py-6">
+    <div className="text-xs font-medium text-muted-foreground sm:text-sm">{label}</div>
+    <div className="mt-2 text-2xl font-bold tracking-tight tabular-nums sm:text-3xl md:mt-3 md:text-4xl">
       {isLoading ? (
-        <span className="inline-block h-9 w-24 animate-pulse rounded-md bg-muted" />
+        <span className="inline-block h-7 w-16 animate-pulse rounded-md bg-muted sm:h-9 sm:w-24" />
       ) : (
         value.toLocaleString()
       )}
@@ -343,11 +343,11 @@ const Tracker = () => {
                 instantly. Start broad, then narrow until the numbers match the
                 market you actually sell to.
               </p>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 {!user && (
                   <Button
                     asChild
-                    className="rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow"
+                    className="w-full rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow sm:w-auto"
                   >
                     <a href="/signup?src=gcc-hero">Sign up for free</a>
                   </Button>
@@ -355,7 +355,7 @@ const Tracker = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="rounded-full font-semibold"
+                  className="w-full rounded-full font-semibold sm:w-auto"
                 >
                   <GoogleCalendarSchedulingButton>
                     Get a demo
@@ -442,7 +442,7 @@ const Tracker = () => {
                 variant="outline"
                 onClick={reset}
                 disabled={!hasFilterInput}
-                className="md:mb-0 shrink-0"
+                className="w-full shrink-0 md:mb-0 md:w-auto"
               >
                 <RotateCcw className="mr-2 h-4 w-4" />
                 Reset
@@ -485,7 +485,7 @@ const Tracker = () => {
 
           {/* Counts */}
           <FadeIn>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3">
+          <div className="mt-8 grid grid-cols-3">
             <CountCard
               label="Companies"
               value={counts.accounts}
@@ -511,11 +511,90 @@ const Tracker = () => {
             </div>
 
             <div
-              className="select-none overflow-x-auto"
+              className="select-none"
               onCopy={(event) => event.preventDefault()}
               onCut={(event) => event.preventDefault()}
               onContextMenu={(event) => event.preventDefault()}
             >
+              {/* Mobile: stacked list (no sideways scrolling) */}
+              <ul className="divide-y md:hidden">
+                {isLoadingStaticAccounts ? (
+                  Array.from({ length: 5 }).map((_, index) => (
+                    <li key={index} className="px-5 py-4">
+                      <span className="block h-4 w-44 animate-pulse rounded bg-muted" />
+                      <span className="mt-2 block h-3.5 w-56 animate-pulse rounded bg-muted" />
+                    </li>
+                  ))
+                ) : accounts.length > 0 ? (
+                  <>
+                    {accounts.map((account) => (
+                      <li key={account.name} className="px-5 py-4">
+                        <p className="truncate font-medium text-foreground" title={account.name ?? undefined}>
+                          {account.slug ? (
+                            <a
+                              href={`/gcc/companies/${account.slug}/`}
+                              className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                            >
+                              {account.name}
+                            </a>
+                          ) : (
+                            account.name
+                          )}
+                        </p>
+                        <p className="mt-1 flex min-w-0 items-center gap-1.5 text-sm text-muted-foreground">
+                          <span className="truncate">
+                            {account.industry || "Not specified"}
+                            {account.cities?.length > 0 && ` · ${account.cities[0].name}`}
+                          </span>
+                          {account.cities?.length > 1 && (
+                            <span className="shrink-0 text-xs font-semibold text-primary">
+                              +{account.cities.length - 1} more
+                            </span>
+                          )}
+                        </p>
+                      </li>
+                    ))}
+                    {remainingCount > 0 && (
+                      <li className="px-5 py-4">
+                        <GoogleCalendarSchedulingButton className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">
+                          <Lock className="h-4 w-4" />
+                          +{nf(remainingCount)}{" "}
+                          {remainingCount === 1 ? "company" : "companies"} available in
+                          the full version
+                        </GoogleCalendarSchedulingButton>
+                      </li>
+                    )}
+                  </>
+                ) : remainingCount > 0 ? (
+                  <li className="px-5 py-10 text-center">
+                    <GoogleCalendarSchedulingButton className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">
+                      <Lock className="h-4 w-4" />
+                      +{nf(remainingCount)}{" "}
+                      {remainingCount === 1 ? "company" : "companies"} available in the
+                      full version
+                    </GoogleCalendarSchedulingButton>
+                  </li>
+                ) : (
+                  <li className="px-5 py-10 text-center">
+                    <p className="text-muted-foreground">
+                      No accounts match the current filters.
+                    </p>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={reset}
+                      className="mt-3"
+                    >
+                      <RotateCcw className="mr-2 h-4 w-4" />
+                      Reset filters
+                    </Button>
+                  </li>
+                )}
+              </ul>
+
+              {/* Desktop: full table */}
+              <div className="hidden overflow-x-auto md:block">
               <table className="w-full min-w-[720px] table-fixed text-left text-sm">
                 <colgroup>
                   <col className="w-[42%]" />
@@ -637,6 +716,7 @@ const Tracker = () => {
                   )}
                 </tbody>
               </table>
+              </div>
             </div>
           </div>
         </div>

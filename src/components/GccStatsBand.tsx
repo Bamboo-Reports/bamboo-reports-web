@@ -62,15 +62,18 @@ const StatCell = ({
   const hasPlus = formatted.endsWith("+");
   const digits = hasPlus ? formatted.slice(0, -1) : formatted;
   return (
-    <div className="flex flex-col text-center sm:border-l sm:px-6 sm:first:border-l-0">
-      <dt className="order-2 mt-2.5 text-sm font-medium text-muted-foreground">
+    <div className="flex flex-col border-l px-2 text-center first:border-l-0 sm:px-6">
+      <dt className="order-2 mt-2.5 text-xs font-medium text-muted-foreground sm:text-sm">
         {label}
       </dt>
-      <dd className="order-1 text-4xl font-bold tracking-tight tabular-nums text-navy md:text-5xl md:leading-none">
+      <dd className="order-1 text-3xl font-bold tracking-tight tabular-nums text-navy sm:text-4xl md:text-5xl md:leading-none">
         <span className="relative">
           {digits}
           {hasPlus && (
-            <span className="absolute left-full text-accent" aria-hidden>
+            <span
+              className="text-accent sm:absolute sm:left-full"
+              aria-hidden
+            >
               +
             </span>
           )}
@@ -116,7 +119,7 @@ const GccStatsBand = () => {
           </h2>
         </div>
 
-        <dl className="grid grid-cols-1 gap-y-8 pt-10 sm:grid-cols-3 sm:gap-y-0">
+        <dl className="grid grid-cols-3 pt-8 sm:pt-10">
           {STATS.map((stat) => (
             <StatCell
               key={stat.label}
@@ -132,7 +135,7 @@ const GccStatsBand = () => {
             asChild
             size="lg"
             variant="outline"
-            className="group px-7 text-base font-semibold"
+            className="group w-full max-w-sm px-4 text-base font-semibold sm:w-auto sm:px-7"
           >
             <Link to="/gcc">
               Explore the India GCC directory

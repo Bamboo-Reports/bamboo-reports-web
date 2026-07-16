@@ -104,9 +104,11 @@ export const ResourceCard = ({ item }: { item: ResourceItem }) => (
       gradientIndex={item.gradientIndex}
       titleClassName="text-lg"
     >
-      <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] group-hover:grid-rows-[1fr] group-focus-visible:grid-rows-[1fr] motion-reduce:transition-none">
+      {/* Touch has no hover: the summary is always visible below md and
+          becomes the hover reveal on pointer devices. */}
+      <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] md:group-focus-visible:grid-rows-[1fr] motion-reduce:transition-none">
         <div className="overflow-hidden">
-          <p className="pt-2 text-sm leading-relaxed text-muted-foreground opacity-0 blur-[5px] transition-[opacity,filter] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] group-hover:opacity-100 group-hover:blur-none group-focus-visible:opacity-100 group-focus-visible:blur-none motion-reduce:blur-none motion-reduce:transition-none">
+          <p className="pt-2 text-sm leading-relaxed text-muted-foreground transition-[opacity,filter] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] md:opacity-0 md:blur-[5px] md:group-hover:opacity-100 md:group-hover:blur-none md:group-focus-visible:opacity-100 md:group-focus-visible:blur-none motion-reduce:blur-none motion-reduce:transition-none">
             {item.summary}
           </p>
         </div>
