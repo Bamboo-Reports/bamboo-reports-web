@@ -15,34 +15,42 @@ const categories = [
   }
 ];
 
-const IntelligenceSpans = () => {
-  return (
-    <section className="py-16 px-4" style={{ backgroundColor: "#f9f9f9" }}>
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-8 lg:mb-2">Our Intelligence Spans Across</h2>
-        
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            {categories.map((category, index) => (
-              <div key={index} className="flex gap-4 items-start">
-                <div className="bg-primary/10 text-primary p-3 rounded-full flex-shrink-0">
-                  <Check size={24} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl mb-2">{category.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{category.description}</p>
-                </div>
+const IntelligenceSpans = () => (
+  <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
+    <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
+      <div>
+        <h2 className="max-w-lg text-3xl font-bold leading-tight md:text-4xl">
+          Our intelligence spans
+        </h2>
+
+        <div className="mt-8 border-t">
+          {categories.map((category) => (
+            <div
+              key={category.title}
+              className="grid grid-cols-[1.5rem_1fr] gap-4 border-b py-5"
+            >
+              <Check className="mt-1 h-5 w-5 text-primary" aria-hidden />
+              <div>
+                <h3 className="text-lg font-bold">{category.title}</h3>
+                <p className="mt-2 text-muted-foreground">{category.description}</p>
               </div>
-            ))}
-          </div>
-          
-          <div className="flex justify-center">
-            <img src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvJndE6eBxTSsyCtN4UrElocuAhdMjDkZBHnO0" alt="GCC Intelligence Coverage Map" className="w-full max-w-2xl" />
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
-  );
-};
+
+      <div className="flex justify-center">
+        <img
+          src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKv3iFm7IZwbvcl46Y0TeIWHQqgfDiXB2SkZdxA"
+          alt="GCC Intelligence Coverage Map"
+          width="2280"
+          height="2282"
+          loading="lazy"
+          className="h-auto w-full max-w-2xl"
+        />
+      </div>
+    </div>
+  </section>
+);
 
 export default IntelligenceSpans;

@@ -8,14 +8,17 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, Eye, EyeOff, Check, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { getPasswordChecks, getSafeRedirectPath, signupSchema } from '@/lib/auth';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import AuthPageShell from '@/components/AuthPageShell';
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [jobTitle, setJobTitle] = useState('');
+  const [companyOffering, setCompanyOffering] = useState('');
+  const [primaryGoal, setPrimaryGoal] = useState('');
+  const [primaryGoalOther, setPrimaryGoalOther] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -68,6 +71,10 @@ const SignUp = () => {
       lastName,
       companyName,
       phoneNumber,
+      jobTitle,
+      companyOffering,
+      primaryGoal,
+      primaryGoalOther,
       email,
       password,
       confirmPassword,
@@ -116,6 +123,10 @@ const SignUp = () => {
       signupValues.lastName,
       signupValues.phoneNumber,
       signupValues.companyName,
+      signupValues.jobTitle,
+      signupValues.companyOffering,
+      signupValues.primaryGoal,
+      signupValues.primaryGoalOther,
     );
 
     if (error) {
@@ -127,8 +138,8 @@ const SignUp = () => {
       setIsLoading(false);
     } else {
       toast({
-        title: 'Success!',
-        description: 'Account created successfully. Please check your email to verify your account.',
+        title: 'Account created',
+        description: 'Your account is ready. Please check your email to verify your account.',
       });
       setTimeout(() => {
         navigate(`/signin?redirect=${encodeURIComponent(redirectTo)}`);
@@ -139,20 +150,22 @@ const SignUp = () => {
   const passwordsMatch = password && confirmPassword && password === confirmPassword;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <Header />
-
-      <main className="flex-1 py-12 md:py-16 px-4">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Create your account</h1>
-            <p className="text-muted-foreground">
-              Use your work email to get started.
-            </p>
-          </div>
-
-          <div className="rounded-lg border bg-card p-6 sm:p-8">
-            <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
+    <AuthPageShell
+      wide
+      title="Create your account"
+      description={
+        <p>
+          Already have an account?{' '}
+          <Link
+            to={redirectTo !== '/profile' ? `/signin?redirect=${encodeURIComponent(redirectTo)}` : '/signin'}
+            className="font-semibold text-primary hover:underline"
+          >
+            Sign in
+          </Link>
+        </p>
+      }
+    >
+            <form onSubmit={handleSubmit} className="grid gap-5 sm:grid-cols-2 [&_input]:h-11 [&_select]:h-11">
               <div className="space-y-1.5">
                 <Label htmlFor="firstName">First name</Label>
                 <Input
@@ -180,16 +193,16 @@ const SignUp = () => {
                 />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="companyName">Company name</Label>
+                <Label htmlFor="email">Email</Label>
                 <Input
-                  id="companyName"
-                  placeholder="Infosys"
-                  type="text"
-                  value={companyName}
-                  onChange={(e) => setCompanyName(e.target.value)}
+                  id="email"
+                  placeholder="name@company.com"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   disabled={isLoading}
-                  autoComplete="organization"
+                  autoComplete="email"
                 />
               </div>
               <div className="space-y-1.5">
@@ -205,19 +218,83 @@ const SignUp = () => {
                   autoComplete="tel"
                 />
               </div>
-              <div className="space-y-1.5 sm:col-span-2">
-                <Label htmlFor="email">Email</Label>
+              <div className="space-y-1.5">
+                <Label htmlFor="companyName">Company name</Label>
                 <Input
-                  id="email"
-                  placeholder="name@company.com"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  id="companyName"
+                  placeholder="Infosys"
+                  type="text"
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
                   required
                   disabled={isLoading}
-                  autoComplete="email"
+                  autoComplete="organization"
                 />
               </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="jobTitle">Job title</Label>
+                <Input
+                  id="jobTitle"
+                  placeholder="Head of Growth"
+                  type="text"
+                  value={jobTitle}
+                  onChange={(e) => setJobTitle(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  autoComplete="organization-title"
+                />
+              </div>
+              <div className="space-y-1.5 sm:col-span-2">
+                <Label htmlFor="companyOffering">What does your company offer, and who do you serve?</Label>
+                <textarea
+                  id="companyOffering"
+                  placeholder="We provide cloud security services to enterprise technology teams."
+                  value={companyOffering}
+                  onChange={(e) => setCompanyOffering(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  maxLength={500}
+                  rows={3}
+                  className="flex min-h-24 w-full resize-y rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                />
+              </div>
+              <div className="space-y-1.5 sm:col-span-2">
+                <Label htmlFor="primaryGoal">What would you like to achieve with Bamboo Reports?</Label>
+                <select
+                  id="primaryGoal"
+                  value={primaryGoal}
+                  onChange={(e) => {
+                    setPrimaryGoal(e.target.value);
+                    if (e.target.value !== 'other') setPrimaryGoalOther('');
+                  }}
+                  required
+                  disabled={isLoading}
+                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                >
+                  <option value="" disabled>Select your primary goal</option>
+                  <option value="gcc_data">GCC data and decision-maker intelligence</option>
+                  <option value="market_intelligence">Market intelligence and opportunity mapping</option>
+                  <option value="lead_generation">Lead generation and account targeting</option>
+                  <option value="benchmarking">Benchmarking and competitive analysis</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+              {primaryGoal === 'other' && (
+                <div className="space-y-1.5 sm:col-span-2">
+                  <Label htmlFor="primaryGoalOther">Tell us what you’re looking to achieve</Label>
+                  <textarea
+                    id="primaryGoalOther"
+                    placeholder="Describe the outcome you need help with."
+                    value={primaryGoalOther}
+                    onChange={(e) => setPrimaryGoalOther(e.target.value)}
+                    required
+                    disabled={isLoading}
+                    maxLength={300}
+                    rows={3}
+                    className="flex min-h-24 w-full resize-y rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  />
+                </div>
+              )}
               <div className="space-y-1.5">
                 <Label htmlFor="password">Password</Label>
                 <div className="relative">
@@ -235,8 +312,8 @@ const SignUp = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                    tabIndex={-1}
+                    className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -295,8 +372,8 @@ const SignUp = () => {
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                    tabIndex={-1}
+                    className="absolute right-0 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    aria-label={showConfirmPassword ? "Hide password" : "Show password"}
                   >
                     {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -316,7 +393,7 @@ const SignUp = () => {
               </div>
               <Button
                 type="submit"
-                className="w-full rounded-full sm:col-span-2"
+                className="w-full sm:col-span-2"
                 disabled={isLoading}
                 size="lg"
               >
@@ -341,22 +418,7 @@ const SignUp = () => {
                 .
               </p>
             </form>
-          </div>
-
-          <p className="text-sm text-center text-muted-foreground mt-6">
-            Already have an account?{' '}
-            <Link
-              to={redirectTo !== '/profile' ? `/signin?redirect=${encodeURIComponent(redirectTo)}` : '/signin'}
-              className="text-primary font-semibold hover:underline"
-            >
-              Sign in
-            </Link>
-          </p>
-        </div>
-      </main>
-
-      <Footer />
-    </div>
+    </AuthPageShell>
   );
 };
 

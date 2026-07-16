@@ -1,81 +1,40 @@
+import { ArrowRight, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CheckCircle, FileText, ArrowRight, Calendar } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { useSEO } from "@/hooks/useSEO";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { useSEO } from "@/hooks/useSEO";
 
 const ThankYou = () => {
   useSEO({
     title: "Thank You | Bamboo Reports",
-    description:
-      "Thank you for reaching out to Bamboo Reports. Our team will review your request and get in touch shortly.",
-    keywords:
-      "Bamboo Reports, GCC Intelligence, Thank You, Inquiry Received",
+    description: "Thank you for reaching out to Bamboo Reports. Our team will review your request and get in touch shortly.",
+    keywords: "Bamboo Reports, GCC Intelligence, Thank You, Inquiry Received",
   });
 
-  const navigate = useNavigate();
-
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="flex min-h-screen flex-col bg-background">
       <Header />
+      <main className="flex-1 border-b bg-secondary/30 px-4 py-12 md:py-16">
+        <div className="mx-auto max-w-3xl">
+          <CheckCircle className="h-10 w-10 text-primary" aria-hidden />
+          <h1 className="mt-6 text-3xl font-bold tracking-tight md:text-4xl">Thank you.</h1>
+          <p className="mt-4 text-lg text-muted-foreground">We've received your details. Our team will be in touch shortly.</p>
+          <p className="mt-3 text-muted-foreground">In the meantime, explore our latest GCC reports and insights.</p>
 
-      <main className="flex-grow flex items-center justify-center py-20 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-green-100 p-4 animate-check-bounce">
-              <CheckCircle className="h-16 w-16 text-green-500" />
-            </div>
-          </div>
-
-          <h1 className="text-4xl font-bold mb-4">Thank You!</h1>
-
-          <p className="text-base sm:text-lg text-muted-foreground mb-4">
-            We've received your details successfully. Our team will be in touch shortly.
-          </p>
-
-          <p className="text-sm sm:text-base text-muted-foreground mb-10">
-            In the meantime, explore our latest GCC reports and insights.
-          </p>
-
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-lg mx-auto">
-            <GoogleCalendarSchedulingButton
-              className="group rounded-2xl border border-primary/20 bg-primary/5 p-4 sm:p-6 text-center transition-all hover:shadow-lg hover:border-primary/40 hover:-translate-y-1"
-            >
-              <div className="mb-3 sm:mb-4 mx-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                <Calendar className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <h3 className="text-sm sm:text-lg font-semibold mb-1">Schedule a Discussion</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                Book a time directly with our team
-              </p>
-              <div className="mt-3 sm:mt-4 flex items-center justify-center gap-1 text-xs sm:text-sm font-medium text-primary">
-                Book now
-                <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
-              </div>
+          <div className="mt-10 border-t">
+            <GoogleCalendarSchedulingButton className="group grid min-h-20 w-full grid-cols-[1fr_auto] items-center gap-4 border-b py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <span><span className="block text-lg font-semibold">Schedule a Discussion</span><span className="mt-1 block text-sm text-muted-foreground">Book a time directly with our team</span></span>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">Get a demo<ArrowRight className="h-4 w-4" aria-hidden /></span>
             </GoogleCalendarSchedulingButton>
-
-            <div
-              onClick={() => navigate("/resources")}
-              className="group rounded-2xl border border-border bg-card p-4 sm:p-6 text-center cursor-pointer transition-all hover:shadow-lg hover:border-primary/40 hover:-translate-y-1"
-            >
-              <div className="mb-3 sm:mb-4 mx-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-muted text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                <FileText className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <h3 className="text-sm sm:text-lg font-semibold mb-1">Explore Resources</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                Roundtables and insights from our team
-              </p>
-              <div className="mt-3 sm:mt-4 flex items-center justify-center gap-1 text-xs sm:text-sm font-medium text-primary">
-                View resources
-                <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </div>
+            <Link to="/resources" className="group grid min-h-20 w-full grid-cols-[1fr_auto] items-center gap-4 border-b py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <span><span className="block text-lg font-semibold">Explore Resources</span><span className="mt-1 block text-sm text-muted-foreground">Guides and insights from our team</span></span>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">View resources<ArrowRight className="h-4 w-4" aria-hidden /></span>
+            </Link>
           </div>
         </div>
       </main>
-
-      <Footer />
+      <Footer showCta={false} />
     </div>
   );
 };

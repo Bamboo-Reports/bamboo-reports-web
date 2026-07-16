@@ -1,8 +1,9 @@
 import logo from "@/assets/bamboo-logo.svg";
-import { Link, useLocation } from "react-router-dom";
+import AnnouncementBar from "@/components/AnnouncementBar";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight, User, LogOut } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { getDisplayName } from "@/lib/auth";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
@@ -21,6 +22,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -35,24 +37,6 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, signOut } = useAuth();
   const { openInquiryForm } = useInquiryForm();
-  const { pathname } = useLocation();
-  const isHome = pathname === "/";
-  const [showDemoCta, setShowDemoCta] = useState(!isHome);
-
-  useEffect(() => {
-    if (!isHome) {
-      setShowDemoCta(true);
-      return;
-    }
-    setShowDemoCta(false);
-    const onScroll = () => {
-      setShowDemoCta(window.scrollY > window.innerHeight * 0.7);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
-
   const getInitials = (name: string) => {
     return name
       .split(' ')
@@ -70,17 +54,30 @@ const Header = () => {
   const avatarUrl = user?.user_metadata?.avatar_url;
 
   return (
-    <header className="sticky top-0 z-40 py-4 md:py-6 px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <>
+    <div className="sticky top-0 z-40">
+    <AnnouncementBar />
+    <header className="border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80 md:py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="transition-transform duration-micro ease-smooth hover:scale-[1.02]">
+        <Link to="/" className="inline-flex min-h-11 items-center">
           <img src={logo} alt="Bamboo Reports" className="h-10 md:h-12" />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-5 xl:flex">
           <NavigationMenu>
             <NavigationMenuList>
+              {GCC_TRACKER_ENABLED && (
+                <NavigationMenuItem>
+                  <Link to="/gcc">
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                      GCC Tracker
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              )}
+
               <NavigationMenuItem>
                 <Link to="/platform">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -90,14 +87,14 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>What we Offer</NavigationMenuTrigger>
+                <NavigationMenuTrigger>What we offer</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[320px] gap-1 p-2">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
                           to="/gcc-prospect-data"
-                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           GCC Prospect Data
                         </Link>
@@ -107,7 +104,7 @@ const Header = () => {
                       <NavigationMenuLink asChild>
                         <Link
                           to="/account-market-intelligence"
-                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           Account and Market Intelligence
                         </Link>
@@ -117,7 +114,7 @@ const Header = () => {
                       <NavigationMenuLink asChild>
                         <Link
                           to="/gcc-abm"
-                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           GCC ABM
                         </Link>
@@ -130,7 +127,7 @@ const Header = () => {
               <NavigationMenuItem>
                 <Link to="/success-stories">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Success Stories
+                    Success stories
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -144,48 +141,31 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  className={navigationMenuTriggerStyle() + " cursor-pointer"}
-                  onClick={() => openInquiryForm()}
-                >
-                  Pricing
+                <NavigationMenuLink asChild>
+                  <button
+                    type="button"
+                    className={navigationMenuTriggerStyle()}
+                    onClick={() => openInquiryForm()}
+                  >
+                    Pricing
+                  </button>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
           <div className="flex items-center gap-3">
-            <div
-              className={`grid transition-all duration-500 ease-out ${
-                showDemoCta
-                  ? "grid-cols-[1fr] opacity-100 translate-x-0"
-                  : "grid-cols-[0fr] opacity-0 -translate-x-2"
-              }`}
-              aria-hidden={!showDemoCta}
-            >
-              <div className="overflow-hidden">
-                <Button
-                  asChild
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow whitespace-nowrap"
-                  tabIndex={showDemoCta ? undefined : -1}
-                >
-                  <GoogleCalendarSchedulingButton>
-                    Get a Demo
-                  </GoogleCalendarSchedulingButton>
-                </Button>
-              </div>
-            </div>
-
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                    <Avatar className="h-10 w-10">
+                  <Button variant="outline" className="h-10 rounded-full font-semibold">
+                    <Avatar className="h-8 w-8">
                       {avatarUrl && <AvatarImage src={avatarUrl} alt={userFullName} />}
                       <AvatarFallback className="bg-primary text-primary-foreground">
                         {getInitials(userFullName)}
                       </AvatarFallback>
                     </Avatar>
+                    <span className="max-w-40 truncate">{userFullName}</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56" align="end" forceMount>
@@ -209,13 +189,13 @@ const Header = () => {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
                     <LogOut className="mr-2 h-4 w-4" />
-                    Sign Out
+                    Sign out
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Button asChild variant="ghost" className="rounded-full">
-                <Link to="/signin">Sign In</Link>
+              <Button asChild variant="outline" className="rounded-full font-semibold">
+                <Link to="/signin">My account</Link>
               </Button>
             )}
           </div>
@@ -223,16 +203,16 @@ const Header = () => {
 
         {/* Mobile Hamburger Menu */}
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6" />
+          <SheetTrigger asChild className="xl:hidden">
+            <Button variant="ghost" size="icon" className="h-11 w-11" aria-label="Open navigation menu">
+              <Menu className="h-6 w-6" aria-hidden />
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-full sm:w-[400px] p-0">
             <div className="flex flex-col h-full">
               {/* Logo at top */}
               <div className="p-6 pb-4">
-                <Link to="/" onClick={() => setMobileMenuOpen(false)} className="inline-block transition-transform duration-micro ease-smooth hover:scale-[1.02]">
+                <Link to="/" onClick={() => setMobileMenuOpen(false)} className="inline-block">
                   <img src={logo} alt="Bamboo Reports" className="h-10" />
                 </Link>
               </div>
@@ -240,6 +220,17 @@ const Header = () => {
               {/* Navigation */}
               <nav className="flex-1 overflow-y-auto">
                 <div className="px-6 space-y-1">
+                  {GCC_TRACKER_ENABLED && (
+                    <Link
+                      to="/gcc"
+                      className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      GCC Tracker
+                      <ChevronRight className="h-5 w-5" />
+                    </Link>
+                  )}
+
                   <Link
                     to="/platform"
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
@@ -251,7 +242,7 @@ const Header = () => {
 
                   <details className="group border-b pb-2">
                     <summary className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth cursor-pointer list-none">
-                      What we Offer
+                      What we offer
                       <ChevronRight className="h-5 w-5 transition-transform group-open:rotate-90" />
                     </summary>
                     <div className="pl-4 space-y-1">
@@ -284,7 +275,7 @@ const Header = () => {
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Success Stories
+                    Success stories
                     <ChevronRight className="h-5 w-5" />
                   </Link>
 
@@ -314,13 +305,23 @@ const Header = () => {
 
                 {/* CTAs */}
                 <div className="px-6 space-y-3 pb-6">
+                  {!user && (
+                    <Button
+                      asChild
+                      className="w-full rounded-full font-semibold"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <Link to="/signup?src=header">Sign up for free</Link>
+                    </Button>
+                  )}
                   <Button
                     asChild
-                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold"
+                    variant="outline"
+                    className="w-full rounded-full font-semibold"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <GoogleCalendarSchedulingButton>
-                      Get a Demo
+                      Get a demo
                     </GoogleCalendarSchedulingButton>
                   </Button>
                   {user ? (
@@ -347,7 +348,7 @@ const Header = () => {
                         }}
                       >
                         <LogOut className="mr-2 h-4 w-4" />
-                        Sign Out
+                        Sign out
                       </Button>
                     </>
                   ) : (
@@ -358,7 +359,7 @@ const Header = () => {
                         className="w-full rounded-full font-semibold"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <Link to="/signin">Sign In</Link>
+                        <Link to="/signin">Sign in</Link>
                       </Button>
                     </div>
                   )}
@@ -369,6 +370,8 @@ const Header = () => {
         </Sheet >
       </div >
     </header >
+    </div>
+    </>
   );
 };
 

@@ -14,6 +14,8 @@ import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
 import Resources from "./pages/Resources";
 import Reads from "./pages/Reads";
 import AgenticEnterprise from "./pages/reads/AgenticEnterprise";
+import Reports from "./pages/Reports";
+import IndiaGccReportQ1FY27 from "./pages/reports/IndiaGccReportQ1FY27";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
@@ -26,9 +28,11 @@ import AccountMarketIntelligence from "./pages/AccountMarketIntelligence";
 import GCCABM from "./pages/GCCABM";
 import Platform from "./pages/Platform";
 import SuccessStories from "./pages/SuccessStories";
+import Tracker from "./pages/Tracker";
 import MapYourGCCOpportunity from "./pages/MapYourGCCOpportunity";
 import ScrollToTop from "./components/ScrollToTop";
 import { ensureJotformEmbedHandler } from "@/lib/jotform";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +58,8 @@ const App = () => {
             <Route path="/resources" element={<Resources />} />
             <Route path="/reads" element={<Reads />} />
             <Route path="/reads/agentic-enterprise" element={<AgenticEnterprise />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/reports/india-gcc-report-q1-fy27" element={<IndiaGccReportQ1FY27 />} />
             <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
@@ -62,6 +68,11 @@ const App = () => {
             <Route path="/gcc-abm" element={<GCCABM />} />
             <Route path="/platform" element={<Platform />} />
             <Route path="/success-stories" element={<SuccessStories />} />
+            <Route path="/gcc" element={GCC_TRACKER_ENABLED ? <Tracker /> : <NotFound />} />
+            <Route
+              path="/tracker"
+              element={GCC_TRACKER_ENABLED ? <Navigate to="/gcc" replace /> : <NotFound />}
+            />
             <Route path="/map-your-gcc-opportunity" element={<MapYourGCCOpportunity />} />
             <Route
               path="/map-your-gcc-oppurtunity"

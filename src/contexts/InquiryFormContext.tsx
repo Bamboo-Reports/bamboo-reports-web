@@ -33,21 +33,24 @@ export const InquiryFormProvider = ({ children }: { children: ReactNode }) => {
           if (e.target === e.currentTarget) setIsOpen(false);
         }}
         aria-hidden={!isOpen}
+        // React 18 lacks a typed `inert` prop; the empty string keeps the closed
+        // modal (close button, iframe) out of the tab order.
+        {...(!isOpen ? ({ inert: "" } as Record<string, string>) : {})}
       >
         <div
-          className={`bg-white rounded-3xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden ${
+          className={`bg-white rounded-2xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden ${
             isOpen ? "animate-modal-content" : ""
           }`}
         >
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-5 bg-[#f39122] hover:bg-[#f39122]/90 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 transition-transform duration-micro ease-smooth hover:scale-105"
+            className="absolute top-4 right-5 bg-accent hover:bg-accent/90 text-accent-foreground w-9 h-9 rounded-full flex items-center justify-center z-10 transition-colors duration-micro ease-smooth"
             aria-label="Close inquiry form"
           >
             <X size={20} />
           </button>
 
-          <div className="bg-gradient-to-br from-[#F2994A] to-[#F2C94C] text-white p-6 text-center">
+          <div className="bg-accent text-accent-foreground p-6 text-center">
             <h2 className="text-2xl font-bold mb-2">Bamboo Reports</h2>
             <p className="text-sm opacity-90">Fill out the form below to get started</p>
           </div>

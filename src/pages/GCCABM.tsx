@@ -1,23 +1,29 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
-import { Button } from "@/components/ui/button";
+import FadeIn from "@/components/FadeIn";
+import { DemoCta, MarketingHero, SectionIntro } from "@/components/B2BMarketingPage";
 import { useSEO } from "@/hooks/useSEO";
-import {
-  ArrowRight,
-  Target,
-  UserCheck,
-  Megaphone,
-  HandshakeIcon,
-  Zap,
-  MapPin,
-  CalendarDays,
-  Mail,
-  Rocket,
-  ShieldCheck,
-  Layers,
-  Crosshair,
-} from "lucide-react";
+
+const STEPS = [
+  { title: "Account selection", body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database, with full context on each centre's size, age, parent company, and leadership." },
+  { title: "Contact targeting", body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies. No duplication. No guesswork." },
+  { title: "Campaign execution", body: "We run multi-channel campaigns across LinkedIn, email, curated roundtables, and content syndication through the Bamboo Reports audience." },
+  { title: "MQL handoff", body: "We deliver qualified leads: contacts who've engaged with your content, attended your events, or raised their hand. Not raw lists. Not cold traffic." },
+];
+
+const FORMATS = [
+  { name: "Focused ABM sprint", desc: "Short, sharp campaign targeting a defined account list." },
+  { name: "City blitz", desc: "Concentrated push in one GCC cluster." },
+  { name: "Roundtable programme", desc: "Curated events with senior GCC leaders." },
+  { name: "Content + nurture", desc: "LinkedIn and email sequence across named accounts." },
+  { name: "Full GTM programme", desc: "Multi-city, multi-channel, long-form engagement." },
+];
+
+const RESULTS = [
+  { value: "250+", label: "MQLs, single campaign", detail: "One enterprise software client, one GCC-native ABM programme." },
+  { value: "600+ / 40+", label: "MQLs / SQLs, enterprise client", detail: "Multi-quarter programme into a named GCC account list." },
+  { value: "1,050 / 364", label: "BFSI GCCs profiled / contacts mapped", detail: "4-year ongoing BFSI GCC programme for a leading global IT services firm." },
+];
 
 const GCCABM = () => {
   useSEO({
@@ -28,366 +34,122 @@ const GCCABM = () => {
       "GCC ABM, India ABM, account based marketing GCC, GCC campaigns, GCC demand generation",
   });
 
-  const steps = [
-    {
-      num: "Step 1",
-      icon: Target,
-      title: "Account Selection",
-      body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database, with full context on each centre's size, age, parent company, and leadership.",
-    },
-    {
-      num: "Step 2",
-      icon: UserCheck,
-      title: "Contact Targeting",
-      body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies. No duplication. No guesswork.",
-    },
-    {
-      num: "Step 3",
-      icon: Megaphone,
-      title: "Campaign Execution",
-      body: "We run multi-channel campaigns across LinkedIn, email, curated roundtables, and content syndication through the Bamboo Reports audience.",
-    },
-    {
-      num: "Step 4",
-      icon: HandshakeIcon,
-      title: "MQL Handoff",
-      body: "We deliver qualified leads: contacts who've engaged with your content, attended your events, or raised their hand. Not raw lists. Not cold traffic.",
-    },
-  ];
-
-  const formats = [
-    {
-      icon: Zap,
-      name: "Focused ABM Sprint",
-      desc: "Short, sharp campaign targeting a defined account list.",
-    },
-    {
-      icon: MapPin,
-      name: "City Blitz",
-      desc: "Concentrated push in one GCC cluster.",
-    },
-    {
-      icon: CalendarDays,
-      name: "Roundtable Programme",
-      desc: "Curated events with senior GCC leaders.",
-    },
-    {
-      icon: Mail,
-      name: "Content + Nurture",
-      desc: "LinkedIn and email sequence across named accounts.",
-    },
-    {
-      icon: Rocket,
-      name: "Full GTM Programme",
-      desc: "Multi-city, multi-channel, long-form engagement.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b">
-        <div
-          className="absolute inset-0 opacity-[0.035] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
-        <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+      <MarketingHero
+        title={<><span className="block">Account-based marketing</span><span className="block">for the India GCC market.</span><span className="block text-primary">Built on the best data in the business.</span></>}
+        description={<p>From prospect data and account planning to campaign execution and performance reporting, we run focused GCC outreach programmes end to end. We handle the signals, scoring, segmentation, and insights, so your team can run personalised GCC campaigns without drowning in operational work.</p>}
+      />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
-          <h1 className="leading-[1.05] max-w-5xl">
-            <span className="block text-foreground">Account-Based Marketing</span>
-            <span className="block text-foreground">for the India GCC Market,</span>
-            <span className="block text-accent">Built on the Best Data in the Business.</span>
-          </h1>
-
-          <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
-            From prospect data creation, account planning, account level strategy, campaign
-            planning and performance reporting, we have all the capabilities to create a focussed
-            GCC outreach programme. Reduce operational work, maintain signals, scoring,
-            segmentation, insights without losing sight of the big picture and manage personalised
-            GCC focussed campaigns seamlessly.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button
-              asChild
-              className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
-            >
-              <GoogleCalendarSchedulingButton>
-                Talk to Us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </GoogleCalendarSchedulingButton>
-            </Button>
-          </div>
+      <FadeIn>
+      <section className="px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="The problem" title="GCC buyers are hard to reach. Generic ABM doesn't work here.">
+            <div className="space-y-4">
+              <p>India's GCC ecosystem doesn't behave like the broader enterprise market. Decision-makers aren't always visible. Org charts are opaque. Titles vary wildly. And most ABM platforms don't understand what a GCC actually is.</p>
+              <p className="text-xl font-semibold leading-snug text-foreground md:text-2xl">Running campaigns into this market without GCC-native data means <span className="text-primary">wasted spend, wrong targets,</span> and messaging that lands with the wrong people.</p>
+            </div>
+          </SectionIntro>
         </div>
       </section>
+      </FadeIn>
 
-      {/* PROBLEM */}
-      <section className="py-20 md:py-28 px-4 border-b">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-start">
-          <div className="md:col-span-5">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-              / The Problem
-            </div>
-            <h2 className="leading-tight">
-              GCC Buyers Are Hard to Reach. Generic ABM Doesn't Work Here.
-            </h2>
-          </div>
-          <div className="md:col-span-7 md:pt-4">
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              India's GCC ecosystem doesn't behave like the broader enterprise market.
-              Decision-makers aren't always visible. Org charts are opaque. Titles vary wildly. And
-              most ABM platforms don't understand what a GCC actually is.
-            </p>
-            <p className="text-xl md:text-2xl font-semibold leading-snug">
-              Running campaigns into this market without GCC-native data means{" "}
-              <span className="text-accent">wasted spend, wrong targets,</span> and messaging that
-              lands with the wrong people.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section id="how-it-works" className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-14">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-              / How It Works
-            </div>
-            <h2 className="leading-tight">Full-Funnel ABM, End to End.</h2>
-          </div>
-
-          <div className="relative grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step, i) => (
-              <div
-                key={step.num}
-                className="relative bg-background border rounded-2xl p-7 hover:border-accent transition-colors duration-200"
-              >
-                <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-                  {step.num}
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-5">
-                  <step.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-[15px]">{step.body}</p>
-
-                {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-[2px] bg-accent/30" />
-                )}
+      <FadeIn>
+      <section id="how-it-works" className="scroll-mt-24 border-y bg-secondary/30 px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="How it works" title="Full-funnel ABM, end to end." />
+          <div className="mt-10 grid gap-x-8 md:grid-cols-2 lg:grid-cols-4">
+            {STEPS.map((step) => (
+              <div key={step.title} className="border-t py-6">
+                <h3 className="text-xl font-bold">{step.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{step.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+      </FadeIn>
 
-      {/* CAMPAIGN FORMATS */}
-      <section className="py-20 md:py-28 px-4 border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-14">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-              / Campaign Formats
-            </div>
-            <h2 className="leading-tight">Pick Your Play.</h2>
-          </div>
-
-          <div className="border rounded-2xl overflow-hidden divide-y">
-            {formats.map((f) => (
-              <div
-                key={f.name}
-                className="grid md:grid-cols-12 gap-4 md:gap-8 p-6 md:p-8 items-center hover:bg-secondary/30 transition-colors duration-200 group"
-              >
-                <div className="md:col-span-1 flex items-center">
-                  <div className="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-200">
-                    <f.icon className="w-5 h-5" />
-                  </div>
-                </div>
-                <div className="md:col-span-4">
-                  <h3 className="text-xl font-bold">{f.name}</h3>
-                </div>
-                <div className="md:col-span-7">
-                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-                    {f.desc}
-                  </p>
-                </div>
+      <FadeIn>
+      <section className="px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="Campaign formats" title="Pick your play." />
+          <div className="mt-10">
+            {FORMATS.map((format) => (
+              <div key={format.name} className="grid gap-4 border-t py-6 md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-8">
+                <h3 className="text-xl font-bold">{format.name}</h3>
+                <p className="text-lg leading-relaxed text-muted-foreground">{format.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+      </FadeIn>
 
-      {/* PROVEN RESULTS */}
-      <section className="py-20 md:py-28 px-4 bg-foreground text-background border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center mb-14">
-            <div className="md:col-span-5">
-              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-                / Proven Results
+      <FadeIn>
+      <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="Proven results" title="Qualified pipeline. Measurable outcomes.">
+            <p>ABM campaigns for SaaS vendors, enterprise software, and professional services firms, delivered across India's top GCC cities with <span className="font-semibold text-primary">guaranteed MQL outcomes, not just impressions.</span></p>
+          </SectionIntro>
+          <div className="mt-10 grid gap-x-8 md:grid-cols-3">
+            {RESULTS.map((result) => (
+              <div key={result.label} className="border-t py-6">
+                <div className="text-4xl font-bold leading-none tracking-tight text-primary">{result.value}</div>
+                <div className="mt-4 text-sm font-semibold text-foreground">{result.label}</div>
+                <p className="mt-3 leading-relaxed text-muted-foreground">{result.detail}</p>
               </div>
-              <h2 className="leading-tight text-background">
-                Qualified Pipeline. Measurable Outcomes.
-              </h2>
-            </div>
-            <div className="md:col-span-7">
-              <p className="text-base md:text-lg leading-relaxed text-background/90">
-                ABM campaigns for SaaS vendors, enterprise software, and professional services
-                firms, delivered across India's top GCC cities with{" "}
-                <span className="text-accent font-semibold">
-                  guaranteed MQL outcomes, not just impressions.
-                </span>
-              </p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-8 rounded-2xl bg-background/10 border border-background/15">
-              <div className="text-5xl font-bold text-accent leading-none">250+</div>
-              <div className="mt-3 text-sm text-background/70 uppercase tracking-wider">
-                MQLs, single campaign
-              </div>
-              <p className="mt-4 text-background/90 leading-relaxed">
-                One enterprise software client, one GCC-native ABM programme.
-              </p>
-            </div>
-            <div className="p-8 rounded-2xl bg-background/10 border border-background/15">
-              <div className="text-5xl font-bold text-accent leading-none">
-                600+ <span className="text-3xl">/ 40+</span>
-              </div>
-              <div className="mt-3 text-sm text-background/70 uppercase tracking-wider">
-                MQLs / SQLs, enterprise client
-              </div>
-              <p className="mt-4 text-background/90 leading-relaxed">
-                Multi-quarter programme into a named GCC account list.
-              </p>
-            </div>
-            <div className="p-8 rounded-2xl bg-background/10 border border-background/15">
-              <div className="text-5xl font-bold text-accent leading-none">
-                1,050 <span className="text-3xl">/ 364</span>
-              </div>
-              <div className="mt-3 text-sm text-background/70 uppercase tracking-wider">
-                BFSI GCCs profiled / contacts mapped
-              </div>
-              <p className="mt-4 text-background/90 leading-relaxed">
-                4-year ongoing BFSI GCC programme for a leading global IT services firm.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+      </FadeIn>
 
-      {/* WHO IT'S FOR */}
-      <section className="py-20 md:py-28 px-4 border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-14">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-              / Who It's For
-            </div>
-            <h2 className="leading-tight">Built for B2B Teams Selling Into GCCs.</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-5">
+      <FadeIn>
+      <section className="px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="Who it's for" title="Built for B2B teams selling into GCCs." />
+          <div className="mt-10 grid gap-x-10 md:grid-cols-2">
             {[
               "SaaS and Tech vendors entering or expanding in the India GCC market.",
               "Staffing, RPO, and HR tech firms targeting TA and HR leaders at scale.",
               "Real estate and facilities companies selling to GCC Admin and CRE heads.",
               "Professional services firms building pipeline among GCC C-suite leaders.",
               "Any B2B brand whose buyers sit inside GCC organisations.",
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex gap-5 items-start p-6 border rounded-xl hover:border-accent transition-colors duration-200"
-              >
-                <div className="text-2xl font-bold text-accent/40 leading-none pt-1">
-                  0{i + 1}
-                </div>
-                <p className="text-base md:text-lg leading-relaxed">{item}</p>
-              </div>
+            ].map((item) => (
+              <div key={item} className="border-t py-6"><p className="text-lg leading-relaxed">{item}</p></div>
             ))}
           </div>
         </div>
       </section>
+      </FadeIn>
 
-      {/* WHY */}
-      <section className="py-20 md:py-28 px-4 bg-foreground text-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-14">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-              / Why Bamboo Reports
-            </div>
-            <h2 className="leading-tight text-background">
-              We Don't Just Run Campaigns.
-              <br />
-              <span className="text-accent">We Know the Market.</span>
-            </h2>
-          </div>
-
-          <p className="text-base md:text-lg text-background/80 leading-relaxed max-w-3xl mb-12">
-            Most ABM agencies build your list, send your emails, and call it done. We're different
-            because the data is ours, built and maintained by us, not licensed from a third party.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-6">
+      <FadeIn>
+      <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="Why Bamboo Reports" title={<>We don't just run campaigns.<br /><span className="text-primary">We know the market.</span></>}>
+            <p>Most ABM agencies build your list, send your emails, and call it done. We're different because the data is ours, built and maintained by us, not licensed from a third party.</p>
+          </SectionIntro>
+          <div className="mt-10 grid gap-x-10 md:grid-cols-2">
             {[
-              {
-                icon: ShieldCheck,
-                text: "No data middlemen. No stale records. 260+ man-months of structured research, AI-refreshed weekly.",
-              },
-              {
-                icon: Layers,
-                text: "Campaigns that reflect actual centre-level org structures: service-mix, function splits, tech stacks.",
-              },
-              {
-                icon: Crosshair,
-                text: "Audience segments no competitor can replicate. 21x more structured data per GCC than the nearest alternative.",
-              },
-              {
-                icon: Megaphone,
-                text: "Messaging context from the same team publishing the India GCC intelligence layer.",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex gap-5 items-start p-6 border border-background/10 rounded-xl hover:bg-background/5 transition-colors duration-200"
-              >
-                <div className="w-11 h-11 rounded-xl bg-accent/20 text-accent flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-5 h-5" />
-                </div>
-                <p className="text-lg leading-relaxed text-background/90 pt-2">{item.text}</p>
-              </div>
+              { text: "No data middlemen. No stale records. 260+ man-months of structured research, AI-refreshed weekly." },
+              { text: "Campaigns that reflect actual centre-level org structures: service-mix, function splits, tech stacks." },
+              { text: "Audience segments no competitor can replicate. 21x more structured data per GCC than the nearest alternative." },
+              { text: "Messaging context from the same team publishing the India GCC intelligence layer." },
+            ].map((item) => (
+              <div key={item.text} className="border-t py-6"><p className="text-lg leading-relaxed text-muted-foreground">{item.text}</p></div>
             ))}
           </div>
         </div>
       </section>
+      </FadeIn>
 
-      {/* CTA */}
-      <section className="py-20 md:py-28 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="leading-tight mb-10">
-            Let's build the pipeline your competitors can't.
-          </h2>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button
-              asChild
-              className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
-            >
-              <GoogleCalendarSchedulingButton>
-                Talk to Us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </GoogleCalendarSchedulingButton>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
+      <FadeIn>
+      <DemoCta title="Let's build the pipeline your competitors can't." />
+      </FadeIn>
+      <Footer showCta={false} />
     </div>
   );
 };

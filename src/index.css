@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 204 100% 41%;
+    --primary: 204 100% 39%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
@@ -26,8 +26,12 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 33 100% 57%;
+    --accent: 33 100% 45%;
     --accent-foreground: 0 0% 100%;
+
+    /* Ledger navy: the ink used for the stats band, report cover, and
+       announcement bar. Darker and quieter than --primary. */
+    --navy: 205 78% 13%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
@@ -139,30 +143,43 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Film-grain texture for gradient cover tiles (SVG turbulence noise). */
+  .gradient-noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+
   /* Unified Micro-Interaction System */
 
-  /* Button interactions - subtle scale on hover/active */
+  /* The tracker is intentionally static: no hover lifts, scaling, or pulsing. */
+  .tracker-page a:hover,
+  .tracker-page a:active,
+  .tracker-page button:hover,
+  .tracker-page button:active,
+  .tracker-page [class*="hover:-translate-y"]:hover {
+    transform: none !important;
+  }
+
+  .tracker-page .animate-pulse {
+    animation: none;
+  }
+
+  /* Button interactions - visual feedback without positional movement */
   .animate-button {
-    transition: transform var(--timing-micro) var(--easing-smooth),
-                box-shadow var(--timing-micro) var(--easing-smooth);
+    transition: box-shadow var(--timing-micro) var(--easing-smooth);
   }
 
   .animate-button:hover {
-    transform: scale(1.02);
+    box-shadow: 0 4px 12px hsl(var(--foreground) / 0.12);
   }
 
-  .animate-button:active {
-    transform: scale(0.98);
-  }
-
-  /* Card/Container interactions - subtle lift */
+  /* Card/Container interactions - shadow feedback without lifting */
   .animate-card {
-    transition: transform var(--timing-micro) var(--easing-smooth),
-                box-shadow var(--timing-micro) var(--easing-smooth);
+    transition: box-shadow var(--timing-micro) var(--easing-smooth);
   }
 
   .animate-card:hover {
-    transform: translateY(-2px);
+    box-shadow: 0 4px 12px hsl(var(--foreground) / 0.08);
   }
 
   /* Link interactions - opacity change */
@@ -215,22 +232,51 @@ All colors MUST be HSL.
   .fade-in {
     opacity: 0;
     transform: translateY(20px);
+    filter: blur(6px);
     transition:
       opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
-      transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
+      transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+      filter 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
   }
 
   .fade-in.is-visible {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+    will-change: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .fade-in {
       opacity: 1;
       transform: none;
+      filter: none;
       transition: none;
+    }
+  }
+
+  /* Hero staggered entrance */
+  .hero-rise {
+    animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes heroRise {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: blur(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-rise {
+      animation: none;
     }
   }
 
@@ -258,22 +304,21 @@ All colors MUST be HSL.
   .trust-logos-item {
     flex-shrink: 0;
     margin: 0 2rem;
-    opacity: 0.65;
-    filter: grayscale(100%);
-    transition: opacity 220ms, filter 220ms;
+    opacity: 1;
   }
 
   @media (min-width: 768px) {
     .trust-logos-item { margin: 0 3rem; }
   }
 
-  .trust-logos-item:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-  }
-
   @keyframes trustLogosScroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trust-logos-track {
+      animation: none;
+    }
   }
 }

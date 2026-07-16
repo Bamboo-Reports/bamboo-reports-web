@@ -1,159 +1,114 @@
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
-import { useSEO } from "@/hooks/useSEO";
+import FadeIn from "@/components/FadeIn";
+import { DemoCta, MarketingHero } from "@/components/B2BMarketingPage";
+import { ResourceCard, type ResourceItem } from "@/components/ResourceCards";
 import { Button } from "@/components/ui/button";
-import type { SyntheticEvent } from "react";
+import { useSEO } from "@/hooks/useSEO";
 
-const REPORT_THUMBNAIL_FALLBACK = "/placeholder.svg";
+const reports: ResourceItem[] = [{
+  to: "/reports/india-gcc-report-q1-fy27",
+  label: "Quarterly report",
+  title: "The Q1 FY27 India GCC report",
+  summary:
+    "A centre-level read of who entered, who expanded, and where the next buying windows are opening.",
+  gradientIndex: 0,
+}];
 
-const articles = [
-  {
-    slug: "h1b-shock-strategic-reset",
-    title: "H-1B Shock or Strategic Reset? Bengaluru Roundtable",
-    summary:
-      "Leaders unpack how India is shifting from scalable execution to decision-grade capability as GCC operating models get rebuilt.",
-    date: "13 November 2025",
-    thumbnail: "https://files.catbox.moe/v7a2ub.jpg",
-  },
-];
-
-const recentArticles = articles.slice(0, 3);
-
-// Interesting Reads — curated whitepapers / long-form pieces. Each links to
-// its own landing page.
-const interestingReads = [
-  {
-    to: "/reads/agentic-enterprise",
-    title: "The Agentic Enterprise · Thoughtworks × AWS",
-    summary:
-      "Build an enterprise that adapts, not just automates. A composable architecture of agents, data and governance that evolves as fast as AI does.",
-    label: "Whitepaper",
-    thumbnail: "https://3lqbm904a5.ufs.sh/f/qFKrZopOp2VTGMv7iissIv8NxSL4WbOHyQrMJZ3VzREBim0P",
-  },
-];
+const reads: ResourceItem[] = [{
+  to: "/reads/agentic-enterprise",
+  label: "Whitepaper",
+  title: "The Agentic Enterprise",
+  summary:
+    "Build an enterprise that adapts, not just automates. A composable architecture of agents, data and governance that evolves as fast as AI does.",
+  gradientIndex: 1,
+}];
 
 const Resources = () => {
-  const handleThumbnailError = (event: SyntheticEvent<HTMLImageElement>) => {
-    const img = event.currentTarget;
-    img.onerror = null;
-    img.src = REPORT_THUMBNAIL_FALLBACK;
-  };
-
   useSEO({
-    title: "Resources | Bamboo Reports",
-    description: "Explore the latest roundtables and insights from Bamboo Reports in one place.",
+    title: "Resources | GCC Reports & Reads | Bamboo Reports",
+    description:
+      "Market reports, insights, and curated long-form reads from the team tracking India's GCC ecosystem centre by centre.",
   });
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <main className="flex-1">
-        <section className="relative overflow-hidden border-b">
-          <div
-            className="absolute inset-0 opacity-[0.035] pointer-events-none"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)",
-              backgroundSize: "56px 56px",
-            }}
-          />
-          <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
-
-          <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
-            <h1 className="leading-[1.05] max-w-5xl">
-              <span className="block text-foreground">Resources.</span>
-              <span className="block text-accent">Intelligence You Can Use.</span>
-            </h1>
-            <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              Roundtables, guides, and data-driven insights from the team building India's GCC
-              intelligence layer.
+      <main>
+        <MarketingHero
+          showAction={false}
+          title={
+            <>
+              <span className="block">Everything we publish,</span>
+              <span className="block text-primary">in one place.</span>
+            </>
+          }
+          description={
+            <p>
+              Market reports, insights, and curated long-form reads from the
+              team tracking India's GCC ecosystem{" "}
+              <span className="whitespace-nowrap">centre by centre.</span>
             </p>
-          </div>
-        </section>
+          }
+        />
 
-        <section className="relative max-w-6xl mx-auto px-4 py-14 lg:py-20 space-y-12">
-          <section className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Resources</p>
-                <h2 className="text-3xl lg:text-4xl font-black">Recent Roundtables</h2>
+        <FadeIn>
+          <section className="px-4 py-14 md:py-20">
+            <div className="mx-auto max-w-7xl">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <h2 className="text-3xl font-bold md:text-4xl">Reports</h2>
+                  <p className="mt-3 max-w-2xl text-muted-foreground md:text-lg">
+                    Built from what we track, not what we survey. Market
+                    reads, sector deep-dives, and focused insights on India's
+                    GCC ecosystem.
+                  </p>
+                </div>
+                <Button variant="outline" asChild>
+                  <Link to="/reports">View all</Link>
+                </Button>
               </div>
-              <Button variant="outline" className="rounded-full" asChild>
-                <Link to="/roundtables">View All</Link>
-              </Button>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {recentArticles.map((article) => (
-                <Link
-                  key={article.slug}
-                  to={`/roundtables/${article.slug}`}
-                  className="group relative h-full rounded-3xl border bg-gradient-to-br from-background to-muted/50 shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] overflow-hidden"
-                >
-                  <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={article.thumbnail}
-                      alt={article.title}
-                      onError={handleThumbnailError}
-                      className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="relative p-5 space-y-2">
-                    <h3 className="text-lg font-black leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
-                      {article.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{article.summary}</p>
-                    <p className="text-xs font-semibold text-primary">{article.date}</p>
-                  </div>
-                </Link>
-              ))}
+              <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {reports.map((report) => (
+                  <ResourceCard key={report.to} item={report} />
+                ))}
+              </div>
             </div>
           </section>
+        </FadeIn>
 
-          <section className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Resources</p>
-                <h2 className="text-3xl lg:text-4xl font-black">Interesting Reads</h2>
+        <FadeIn>
+          <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
+            <div className="mx-auto max-w-7xl">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <h2 className="text-3xl font-bold md:text-4xl">Interesting reads</h2>
+                  <p className="mt-3 max-w-2xl text-muted-foreground md:text-lg">
+                    Not everything worth reading comes from us. These are the
+                    outside reports we think senior leaders should see.
+                  </p>
+                </div>
+                <Button variant="outline" asChild>
+                  <Link to="/reads">View all</Link>
+                </Button>
               </div>
-              <Button variant="outline" className="rounded-full" asChild>
-                <Link to="/reads">View All</Link>
-              </Button>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {interestingReads.map((read) => (
-                <Link
-                  key={read.to}
-                  to={read.to}
-                  className="group relative h-full rounded-3xl border bg-gradient-to-br from-background to-muted/50 shadow-[0_12px_36px_-28px_hsl(var(--foreground)/0.28)] transition-all duration-micro ease-smooth hover:shadow-[0_20px_44px_-28px_hsl(var(--primary)/0.38)] hover:-translate-y-[2px] overflow-hidden"
-                >
-                  <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(120deg,hsl(var(--foreground))_0.6px,transparent_0.6px)] bg-[size:12px_12px]" />
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={read.thumbnail}
-                      alt={read.title}
-                      onError={handleThumbnailError}
-                      className="w-full h-full object-cover transition-transform duration-micro ease-smooth group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="relative p-5 space-y-2">
-                    <p className="text-xs font-semibold text-primary">{read.label}</p>
-                    <h3 className="text-lg font-black leading-tight group-hover:text-primary transition-colors duration-micro ease-smooth">
-                      {read.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{read.summary}</p>
-                  </div>
-                </Link>
-              ))}
+              <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {reads.map((read) => (
+                  <ResourceCard key={read.to} item={read} />
+                ))}
+              </div>
             </div>
           </section>
-        </section>
+        </FadeIn>
       </main>
 
-      <Footer />
+      <FadeIn>
+        <DemoCta title="Put GCC intelligence to work for your team." />
+      </FadeIn>
+
+      <Footer showCta={false} />
     </div>
   );
 };

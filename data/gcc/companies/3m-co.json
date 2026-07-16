@@ -1,0 +1,139 @@
+{
+  "slug": "3m-co",
+  "name": "3M Co.",
+  "shortName": "3M",
+  "displayName": "3M Co.",
+  "website": "https://www.3m.com",
+  "linkedin": "http://www.linkedin.com/company/3m",
+  "forbesRank": 334,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "3M's GCC footprint in India",
+  "lede": "<strong>3M runs three centers across two Indian cities.</strong> Bengaluru and Gurugram, covering R&D and CoE, built over fifteen years.",
+  "insight": "Search elsewhere and you will usually find one 3M office in India. We map every GCC center in the footprint, each tagged by type, function and city, so a name on a list becomes an account you can plan against.",
+  "metaTitle": "3M Co. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "3M runs 3 verified centers across 2 Indian cities (Bengaluru, Gurugram), covering R&D and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Bengaluru",
+      "Gurugram"
+    ],
+    "yearsInIndia": 15,
+    "sinceYear": 2011,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "R&D",
+    "CoE"
+  ],
+  "functions": [
+    "IT",
+    "R&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 11,
+    "categories": 9,
+    "categoryList": [
+      "Cloud Platform",
+      "CRM",
+      "ERP",
+      "Human Capital Management",
+      "Data Warehouse",
+      "Global Trade Services",
+      "In-Memory Database",
+      "Materials Management",
+      "Production Planning"
+    ],
+    "categorySamples": [
+      {
+        "category": "Cloud Platform",
+        "software": [
+          "AWS",
+          "Microsoft Azure"
+        ]
+      },
+      {
+        "category": "CRM",
+        "software": [
+          "Salesforce"
+        ]
+      }
+    ]
+  },
+  "leaders": {
+    "count": 26,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "COE Engineering & Site Leader (GCC Head) - Global Technology Center - 3M",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head - IT Infrastructure and Security - India Region",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Senior General Manager - Human Resources",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "3M's India centers pair product engineering with shared-services and enterprise IT work. The footprint supports global product development, supply-chain analytics and enterprise IT for 3M's safety, transportation and healthcare businesses.",
+    "industry": "Industrial",
+    "headquarters": "United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "MMM, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 26 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does 3M operate in India?",
+      "a": "3M operates 3 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does 3M have centers in?",
+      "a": "3M's India footprint includes Bengaluru and 1 additional city."
+    },
+    {
+      "q": "What types of centers does 3M run in India?",
+      "a": "3M runs R&D and 1 additional center type in India."
+    },
+    {
+      "q": "How many people work at 3M's India centers?",
+      "a": "Aggregate and center-level headcount for 3M's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads 3M's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at 3M's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

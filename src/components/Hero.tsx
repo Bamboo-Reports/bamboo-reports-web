@@ -1,72 +1,96 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { useAuth } from "@/contexts/AuthContext";
 import gccIllustration from "@/assets/gcc-illustration.png";
 
+const CAPABILITIES = [
+  { title: "GCC Prospect Data", href: "/gcc-prospect-data" },
+  { title: "Account & Market Intelligence", href: "/account-market-intelligence" },
+  { title: "GCC Focused ABM", href: "/gcc-abm" },
+];
+
 const Hero = () => {
+  const { user } = useAuth();
+
   return (
-    <section className="py-8 md:py-16 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 md:mb-12">
-          <h1 className="leading-tight mb-4 md:mb-6">
-            <span className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold block mb-2">
-              Your Trusted Partner for
-            </span>
-            <span className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold block">
-              GCC GTM Enablement
-            </span>
-          </h1>
-          <ul className="mb-6 md:mb-8 px-2 max-w-3xl mx-auto flex flex-wrap gap-2 sm:gap-3 justify-center items-center">
-            {["GCC Prospect Data", "Account & Market Intelligence", "GCC Focused ABM"].map((item) => (
-              <li
-                key={item}
-                className="rounded-full bg-primary/10 text-primary px-4 py-1.5 text-xs sm:text-sm md:text-base font-semibold border border-primary/20"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          {/* --- Button Wrapper --- */}
-          <div className="flex items-center justify-center gap-4 mb-3 md:mb-4">
-            <Button
-              asChild // Use asChild to render the anchor tag
-              className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-5 md:px-8 md:py-6 rounded-full font-extrabold text-base md:text-xl"
+    <section className="overflow-hidden px-4 pb-14 pt-12 md:pb-20 md:pt-16">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
+          <div>
+            <h1
+              className="hero-rise text-balance text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
+              style={{ animationDelay: "0ms" }}
             >
-              <GoogleCalendarSchedulingButton>
-                Get a Demo
-              </GoogleCalendarSchedulingButton>
-            </Button>
+              Your trusted partner for{" "}
+              <span className="text-primary">GCC GTM enablement</span>
+            </h1>
+
+            <div
+              className="hero-rise mt-9 max-w-md border-t"
+              style={{ animationDelay: "120ms" }}
+            >
+              {CAPABILITIES.map((item) => (
+                <Link
+                  key={item.title}
+                  to={item.href}
+                  className="group flex items-center justify-between gap-4 border-b py-3.5 text-sm font-semibold text-foreground transition-colors hover:text-primary sm:text-base"
+                >
+                  {item.title}
+                  <ArrowRight
+                    className="h-4 w-4 flex-none text-border transition-all group-hover:translate-x-0.5 group-hover:text-primary motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+                    aria-hidden
+                  />
+                </Link>
+              ))}
+            </div>
+
+            <div
+              className="hero-rise mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+              style={{ animationDelay: "220ms" }}
+            >
+              {!user && (
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full px-7 text-base font-semibold sm:w-auto"
+                >
+                  <Link to="/signup?src=home-hero">Sign up for free</Link>
+                </Button>
+              )}
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="w-full px-7 text-base font-semibold sm:w-auto"
+              >
+                <GoogleCalendarSchedulingButton>
+                  Get a demo
+                </GoogleCalendarSchedulingButton>
+              </Button>
+            </div>
+
+            <p
+              className="hero-rise mt-5 max-w-lg text-sm text-muted-foreground"
+              style={{ animationDelay: "300ms" }}
+            >
+              Built and refreshed by analysts who track the India GCC market
+              every day.
+            </p>
           </div>
 
-          <p className="text-xs sm:text-sm text-muted-foreground px-4">
-            Get expert advice to supercharge your GCC strategy
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-20">
-          <div className="px-2">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-              What is GCC Intelligence?
-            </h2>
-            <p className="text-justify leading-relaxed mb-4 text-sm md:text-base">
-              GCC Intelligence refers to the structured, data-driven
-              understanding of Global Capability Centers (GCCs), also known as
-              Global In-house Centers (GICs). These are offshore operations of
-              multinational companies and handle a wide range of strategic,
-              operational, and innovation-driven functions.
-            </p>
-            <p className="text-justify leading-relaxed text-sm md:text-base">
-              India has become a key destination for these centers, thanks to
-              its talent density, mature ecosystems, and infrastructure. The
-              role of GCCs has expanded well beyond cost efficiency to driving
-              innovation, agility, and business continuity.
-            </p>
-          </div>
-          <div className="flex justify-center px-2">
+          <div
+            className="hero-rise flex justify-center"
+            style={{ animationDelay: "200ms" }}
+          >
             <img
               src={gccIllustration}
               alt="GCC Intelligence Platform - Global Capability Centers Data Analytics and Market Intelligence Illustration"
-              className="w-full max-w-sm md:max-w-lg"
+              width="1024"
+              height="714"
+              fetchPriority="high"
+              className="h-auto w-full max-w-xl"
             />
           </div>
         </div>

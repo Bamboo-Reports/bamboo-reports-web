@@ -1,25 +1,31 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
-import { Button } from "@/components/ui/button";
+import FadeIn from "@/components/FadeIn";
+import { DemoCta, MarketingHero, SectionIntro } from "@/components/B2BMarketingPage";
 import { useSEO } from "@/hooks/useSEO";
-import {
-  ArrowRight,
-  Building,
-  BarChart3,
-  PieChart,
-  Boxes,
-  FileSearch,
-  Target,
-  Users,
-  TrendingUp,
-  Briefcase,
-  Landmark,
-  LayoutDashboard,
-  Map,
-  Sparkles,
-  UserCog,
-} from "lucide-react";
+
+const PRODUCTS = [
+  { title: "City GCC intelligence reports", body: "Deep-dives into India's top GCC cities. Each edition covers active and upcoming centre counts, workforce composition, sector and function mix, micro-geography clustering, and growth signals. Delivered as interactive reports built for executive audiences." },
+  { title: "Sector snapshot reports", body: "Fast intelligence on high-priority verticals: BFSI, Technology, Pharma, Retail, Manufacturing. Covers centre counts, top employers, function breakdown, and city spread. Ideal for product teams, sales leaders, and consultants targeting a specific vertical." },
+  { title: "Function-mix intelligence", badge: "Exclusive", body: "Understand how GCCs are staffing themselves across functions: Engineering vs. Finance vs. Legal vs. HR. Identify white spaces. Benchmark your accounts. No one else produces this." },
+  { title: "Software vendor market share reports", badge: "Exclusive", body: "Which ERP, HCM, or IT platforms dominate inside India GCCs? Track adoption by sector, size, and city. Built from thousands of verified tech and software records." },
+  { title: "Custom research briefs", body: "Need a bespoke market view? We build custom intelligence packs for specific account clusters, geographies, or competitive questions." },
+];
+
+const PLATFORM_CAPABILITIES = [
+  { title: "Interactive dashboards", desc: "Real-time analytics across accounts, centres, and functions with instant filtering." },
+  { title: "Geospatial intelligence", desc: "WebGL-rendered maps with thousands of GCC data points, clustered by any attribute." },
+  { title: "AI-powered insights", desc: "Generate tailored intelligence for any meeting via AI prompts. From weeks to minutes." },
+  { title: "My BambooReports©", desc: "Personalised workspace: your target accounts, your ICP, your watermarked views." },
+];
+
+const USERS = [
+  { name: "Enterprise sales teams", desc: "Account prioritisation and territory planning." },
+  { name: "Product & strategy leaders", desc: "Market sizing and white-space identification." },
+  { name: "Private equity & investors", desc: "GCC ecosystem mapping for due diligence." },
+  { name: "Consulting firms", desc: "Client-facing intelligence with differentiated data." },
+  { name: "GCC leaders themselves", desc: "Benchmark against peers, track market shifts." },
+];
 
 const AccountMarketIntelligence = () => {
   useSEO({
@@ -30,368 +36,128 @@ const AccountMarketIntelligence = () => {
       "GCC market intelligence, India GCC research, account intelligence, city GCC report, sector snapshot",
   });
 
-  const products = [
-    {
-      num: "01",
-      icon: Building,
-      title: "City GCC Intelligence Reports",
-      body: "Deep-dives into India's top GCC cities. Each edition covers active and upcoming centre counts, workforce composition, sector and function mix, micro-geography clustering, and growth signals. Delivered as interactive reports built for executive audiences.",
-    },
-    {
-      num: "02",
-      icon: BarChart3,
-      title: "Sector Snapshot Reports",
-      body: "Fast intelligence on high-priority verticals: BFSI, Technology, Pharma, Retail, Manufacturing. Covers centre counts, top employers, function breakdown, and city spread. Ideal for product teams, sales leaders, and consultants targeting a specific vertical.",
-    },
-    {
-      num: "03",
-      icon: PieChart,
-      title: "Function-Mix Intelligence",
-      badge: "Exclusive",
-      body: "Understand how GCCs are staffing themselves across functions: Engineering vs. Finance vs. Legal vs. HR. Identify white spaces. Benchmark your accounts. No one else produces this.",
-    },
-    {
-      num: "04",
-      icon: Boxes,
-      title: "Software Vendor Market Share Reports",
-      badge: "Exclusive",
-      body: "Which ERP, HCM, or IT platforms dominate inside India GCCs? Track adoption by sector, size, and city. Built from thousands of verified tech and software records.",
-    },
-    {
-      num: "05",
-      icon: FileSearch,
-      title: "Custom Research Briefs",
-      body: "Need a bespoke market view? We build custom intelligence packs for specific account clusters, geographies, or competitive questions.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b">
-        <div
-          className="absolute inset-0 opacity-[0.035] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
-        <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+      <MarketingHero
+        title={<><span className="block">Know the GCC market</span><span className="block text-primary">before your competitor does.</span></>}
+        description={<p>Up-to-date coverage you can filter by city, sector, function, or company, with three years of historical movement and tech adoption trends at the GCC level. Not a survey report. Not a parent-level picture. Structured, centre-level intelligence.</p>}
+      />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
-          <h1 className="leading-[1.05] max-w-5xl">
-            <span className="block text-foreground">Know the GCC Market</span>
-            <span className="block text-accent">Before Your Competitor Does.</span>
-          </h1>
-
-          <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
-            An up-to-date dataset that can be filtered by city, sector, function, or company; it
-            includes three years of historical movement data and trends in tech adoption at the GCC
-            level. Not a report on a survey. Not a picture at the parent level. Structured,
-            center-level intelligence.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button
-              asChild
-              className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
-            >
-              <GoogleCalendarSchedulingButton>
-                Talk to Us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </GoogleCalendarSchedulingButton>
-            </Button>
-          </div>
+      <FadeIn>
+      <section className="px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="The problem" title="GCC strategy without data is just guesswork.">
+            <div className="space-y-4">
+              <p>Published reports track GCCs at parent-company level and go stale in months. Consulting decks arrive weeks later as 80-page PDFs. Neither answers what a specific centre actually does, or how your sector is moving right now.</p>
+              <p className="text-xl font-semibold leading-snug text-foreground md:text-2xl">You need ground-truth intelligence: <span className="text-primary">centre-level, structured, and queryable.</span></p>
+            </div>
+          </SectionIntro>
         </div>
       </section>
+      </FadeIn>
 
-      {/* PROBLEM */}
-      <section className="py-20 md:py-28 px-4 border-b">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-start">
-          <div className="md:col-span-5">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-              / The Problem
-            </div>
-            <h2 className="leading-tight">
-              GCC Strategy Without Data Is Just Guesswork.
-            </h2>
-          </div>
-          <div className="md:col-span-7 md:pt-4">
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Published reports track GCCs at parent-company level and go stale in months. Consulting
-              decks arrive weeks later as 80-page PDFs. Neither answers what a specific centre
-              actually does, or how your sector is moving right now.
-            </p>
-            <p className="text-xl md:text-2xl font-semibold leading-snug">
-              You need ground-truth intelligence:{" "}
-              <span className="text-accent">centre-level, structured, and queryable.</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* PRODUCT SUITE */}
-      <section className="py-20 md:py-28 px-4 bg-secondary/40 border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-14">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-              / Product Suite
-            </div>
-            <h2 className="leading-tight">
-              Intelligence Products for Every Stage of Strategy.
-            </h2>
-          </div>
-
-          <div className="space-y-5">
-            {products.map((p) => (
-              <div
-                key={p.num}
-                className="relative bg-background border rounded-2xl p-6 md:p-10 hover:border-accent transition-colors duration-200 group"
-              >
-                <div className="grid md:grid-cols-12 gap-6 md:gap-10 items-start">
-                  <div className="md:col-span-3 flex md:flex-col gap-4 items-center md:items-start">
-                    <div className="text-5xl md:text-6xl font-bold text-accent/40 group-hover:text-accent transition-colors duration-200 leading-none">
-                      {p.num}
-                    </div>
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
-                      <p.icon className="w-6 h-6" />
-                    </div>
-                  </div>
-                  <div className="md:col-span-9">
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <h3 className="text-2xl md:text-3xl font-bold">{p.title}</h3>
-                      {p.badge && (
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent/15 text-accent text-xs font-semibold uppercase tracking-wider">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                          {p.badge} to Bamboo Reports
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-                      {p.body}
-                    </p>
+      <FadeIn>
+      <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="Product suite" title="Intelligence products for every stage of strategy." />
+          <div className="mt-10">
+            {PRODUCTS.map((product) => (
+              <div key={product.title} className="grid gap-4 border-t py-7 md:grid-cols-[1.1fr_1.9fr] md:gap-8">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-xl font-bold">{product.title}</h3>
+                    {product.badge && <span className="text-xs font-semibold uppercase tracking-wide text-primary">{product.badge} to Bamboo Reports</span>}
                   </div>
                 </div>
+                <p className="leading-relaxed text-muted-foreground md:text-lg">{product.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+      </FadeIn>
 
-      {/* PLATFORM IN ACTION */}
-      <section className="py-20 md:py-28 px-4 border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-14">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-              / Platform In Action
-            </div>
-            <h2 className="leading-tight">Live Intelligence, Not Static PDFs.</h2>
-            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-              Filter to Pharma + Hyderabad and see 41 accounts, 57 centres in seconds. Click into
-              Bayer AG and drill to 18 centres across India, headcount, full tech stack, and 3 years
-              of historical movement. This is what centre-level, queryable intelligence looks like.
-            </p>
-          </div>
+      <FadeIn>
+      <section className="px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="Platform in action" title="Live intelligence, not static PDFs.">
+            <p>Filter to Pharma + Hyderabad and see 41 accounts, 57 centres in seconds. Click into Bayer AG and drill into its 18 centres across India: headcount, full tech stack, and 3 years of historical movement. This is what centre-level, queryable intelligence looks like.</p>
+          </SectionIntro>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-border border rounded-2xl overflow-hidden">
-            {[
-              {
-                icon: LayoutDashboard,
-                title: "Interactive Dashboards",
-                desc: "Real-time analytics across accounts, centres, and functions with instant filtering.",
-              },
-              {
-                icon: Map,
-                title: "Geospatial Intelligence",
-                desc: "WebGL-rendered maps with thousands of GCC data points, clustered by any attribute.",
-              },
-              {
-                icon: Sparkles,
-                title: "AI-Powered Insights",
-                desc: "Generate tailored intelligence for any meeting via AI prompts. Weeks to minutes.",
-              },
-              {
-                icon: UserCog,
-                title: "My BambooReports©",
-                desc: "Personalised workspace: your target accounts, your ICP, your watermarked views.",
-              },
-            ].map((c) => (
-              <div key={c.title} className="bg-background p-8 md:p-10">
-                <div className="w-11 h-11 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-5">
-                  <c.icon className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold mb-2">{c.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{c.desc}</p>
+          <div className="mt-10 grid gap-x-10 md:grid-cols-2 lg:grid-cols-4">
+            {PLATFORM_CAPABILITIES.map((capability) => (
+              <div key={capability.title} className="border-t py-6">
+                <h3 className="text-lg font-bold">{capability.title}</h3>
+                <p className="mt-2 leading-relaxed text-muted-foreground">{capability.desc}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-14 grid md:grid-cols-2 gap-6">
-            <div className="p-8 border rounded-2xl bg-secondary/30">
-              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-3">
-                / What-If Scenario Intelligence
-              </div>
-              <ul className="space-y-3 text-base md:text-lg leading-relaxed">
-                <li className="flex gap-3"><span className="text-accent">→</span> How do we compare against peer GCCs in our sector and size band?</li>
-                <li className="flex gap-3"><span className="text-accent">→</span> Which cities offer the right talent for a new capability centre?</li>
-                <li className="flex gap-3"><span className="text-accent">→</span> What functions are peers expanding or consolidating right now?</li>
-                <li className="flex gap-3"><span className="text-accent">→</span> Where should we add a new practice, and what does hiring look like?</li>
+          <div className="mt-8 grid gap-x-12 md:grid-cols-2">
+            <div className="border-t py-7">
+              <p className="text-sm font-semibold text-accent">What-if scenario intelligence</p>
+              <ul className="mt-4 space-y-3 text-lg leading-relaxed">
+                <li>How do we compare against peer GCCs in our sector and size band?</li>
+                <li>Which cities offer the right talent for a new capability centre?</li>
+                <li>What functions are peers expanding or consolidating right now?</li>
+                <li>Where should we add a new practice, and what does hiring look like?</li>
               </ul>
             </div>
-            <div className="p-8 border rounded-2xl bg-foreground text-background">
-              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-3">
-                / Measurable Impact
-              </div>
-              <div className="space-y-5">
-                <div>
-                  <div className="text-3xl font-bold text-accent">6 months → under 1 month</div>
-                  <div className="text-background/80 text-sm mt-1">
-                    GCC discovery cycle for a leading global IT services firm.
-                  </div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-accent">Weeks → minutes</div>
-                  <div className="text-background/80 text-sm mt-1">
-                    Strategy-meeting intelligence via AI-powered custom insights.
-                  </div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-accent">₹30–50L saved</div>
-                  <div className="text-background/80 text-sm mt-1">
-                    vs. stitching GCC intelligence from fragmented sources.
-                  </div>
-                </div>
+            <div className="border-t py-7">
+              <p className="text-sm font-semibold text-accent">Measurable impact</p>
+              <div className="mt-4 divide-y">
+                <div className="py-4"><div className="text-xl font-bold text-primary sm:text-2xl">6 months → under 1 month</div><div className="mt-1 text-sm text-muted-foreground">GCC discovery cycle for a leading global IT services firm.</div></div>
+                <div className="py-4"><div className="text-xl font-bold text-primary sm:text-2xl">Weeks → minutes</div><div className="mt-1 text-sm text-muted-foreground">Strategy-meeting intelligence via AI-powered custom insights.</div></div>
+                <div className="py-4"><div className="text-xl font-bold text-primary sm:text-2xl">₹30–50L saved</div><div className="mt-1 text-sm text-muted-foreground">vs. stitching GCC intelligence from fragmented sources.</div></div>
               </div>
             </div>
           </div>
         </div>
       </section>
+      </FadeIn>
 
-      {/* WHO USES THIS */}
-      <section className="py-20 md:py-28 px-4 border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-14">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-              / Who Uses This
-            </div>
-            <h2 className="leading-tight">Intelligence for the Decisions That Matter.</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Target,
-                name: "Enterprise Sales Teams",
-                desc: "Account prioritisation and territory planning.",
-              },
-              {
-                icon: TrendingUp,
-                name: "Product & Strategy Leaders",
-                desc: "Market sizing and white-space identification.",
-              },
-              {
-                icon: Landmark,
-                name: "Private Equity & Investors",
-                desc: "GCC ecosystem mapping for due diligence.",
-              },
-              {
-                icon: Briefcase,
-                name: "Consulting Firms",
-                desc: "Client-facing intelligence with differentiated data.",
-              },
-              {
-                icon: Users,
-                name: "GCC Leaders Themselves",
-                desc: "Benchmark against peers, track market shifts.",
-              },
-            ].map((item) => (
-              <div
-                key={item.name}
-                className="p-8 border rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
-              >
-                <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-5">
-                  <item.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold mb-2">{item.name}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
+      <FadeIn>
+      <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="Who uses this" title="Intelligence for the decisions that matter." />
+          <div className="mt-10 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
+            {USERS.map((item) => (
+              <div key={item.name} className="border-t py-6">
+                <h3 className="text-lg font-bold">{item.name}</h3>
+                <p className="mt-2 text-muted-foreground">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+      </FadeIn>
 
-      {/* WHY */}
-      <section className="py-20 md:py-28 px-4 bg-foreground text-background">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16">
-          <div className="md:col-span-5">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-              / Why It's Different
-            </div>
-            <h2 className="leading-tight text-background">
-              Structured Data.
-              <br />
-              <span className="text-accent">Not Another Survey Report.</span>
-            </h2>
-          </div>
-          <div className="md:col-span-7 md:pt-3">
-            <p className="text-lg text-background/80 leading-relaxed mb-10">
-              Most GCC market reports are survey-based, delayed by months, and impossible to slice.
-              Bamboo Reports' intelligence is:
-            </p>
-            <ul className="space-y-5 mb-12">
-              {[
-                "Built bottom-up from 2,400+ accounts and 5,800+ centres. 260+ man-months of structured research.",
-                "Sliceable by city, sector, function, size, tech stack, and centre status.",
-                "AI-augmented weekly refresh, not an annual survey report.",
-                "Exclusive datasets: service-mix, function-mix, and software vendor market share at centre level.",
-              ].map((t, i) => (
-                <li key={i} className="flex gap-4 items-start">
-                  <span className="text-sm text-accent pt-1.5 w-8 flex-shrink-0">
-                    0{i + 1}
-                  </span>
-                  <span className="text-lg leading-relaxed text-background/90">{t}</span>
-                </li>
-              ))}
-            </ul>
-
-            <blockquote className="border-l-4 border-accent pl-6">
-              <p className="text-2xl md:text-3xl font-semibold leading-snug">
-                "Nasscom publishes GCC counts.{" "}
-                <span className="text-accent font-bold">
-                  We publish the underlying data.
-                </span>
-                "
-              </p>
-            </blockquote>
-          </div>
+      <FadeIn>
+      <section className="px-4 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionIntro label="Why it's different" title={<>Structured data.<br /><span className="text-primary">Not another survey report.</span></>}>
+            <p>Most GCC market reports are survey-based, delayed by months, and impossible to slice. Bamboo Reports' intelligence is:</p>
+          </SectionIntro>
+          <ol className="mt-8 max-w-6xl border-t">
+            {[
+              "Built bottom-up from 2,400+ accounts and 5,900+ centres. 260+ man-months of structured research.",
+              "Sliceable by city, sector, function, size, tech stack, and centre status.",
+              "AI-augmented weekly refresh, not an annual survey report.",
+              "Exclusive coverage: service-mix, function-mix, and software vendor market share at centre level.",
+            ].map((text) => (
+              <li key={text} className="border-b py-5"><span className="text-lg leading-relaxed text-muted-foreground">{text}</span></li>
+            ))}
+          </ol>
         </div>
       </section>
+      </FadeIn>
 
-      {/* CTA */}
-      <section className="py-20 md:py-28 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="leading-tight mb-10">
-            Ready to see what your market really looks like?
-          </h2>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button
-              asChild
-              className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-7 py-6 text-base"
-            >
-              <GoogleCalendarSchedulingButton>
-                Talk to Us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </GoogleCalendarSchedulingButton>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
+      <FadeIn>
+      <DemoCta title="Ready to see what your market really looks like?" />
+      </FadeIn>
+      <Footer showCta={false} />
     </div>
   );
 };

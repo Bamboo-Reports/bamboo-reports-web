@@ -1,33 +1,34 @@
 import { featureItems } from "@/lib/featuresData";
 
-const Features = () => {
-  return (
-    <section className="py-16 px-4 bg-secondary/30">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-4">Why Bamboo Reports</h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-          Bamboo Reports is a research-backed intelligence solution designed to make the GCC opportunities in India more accessible and actionable.
+const Features = () => (
+  <section className="bg-background px-4 py-14 md:py-20">
+    <div className="mx-auto max-w-7xl">
+      <div>
+        <h2 className="text-3xl font-bold leading-tight md:text-4xl">
+          Why Bamboo Reports
+        </h2>
+        <p className="mt-4 max-w-6xl text-muted-foreground">
+          Bamboo Reports is a research-backed intelligence solution built to
+          make the India GCC opportunity accessible and actionable.
         </p>
-        {/* Added responsive padding for desktop */}
-        <div className="grid md:grid-cols-2 gap-8 md:px-10 lg:px-20">
-          {featureItems.map((feature) => (
-            <div
-              key={feature.id}
-              className="flex gap-4 items-start group"
-            >
-              <div className="bg-primary/10 text-primary p-3 rounded-full flex-shrink-0 transition-transform duration-micro ease-smooth group-hover:scale-105">
-                <feature.icon size={24} />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.summary}</p>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
-    </section>
-  );
-};
+
+      <div className="mt-10 grid gap-x-12 md:grid-cols-2">
+        {featureItems.map((feature) => (
+          <div
+            key={feature.id}
+            className="grid grid-cols-[1.5rem_1fr] gap-4 border-t py-6"
+          >
+            <feature.icon className="mt-0.5 h-5 w-5 text-primary" aria-hidden />
+            <div>
+              <h3 className="text-lg font-bold">{feature.title}</h3>
+              <p className="mt-2 text-muted-foreground">{feature.summary}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Features;

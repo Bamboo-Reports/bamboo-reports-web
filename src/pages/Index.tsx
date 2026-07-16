@@ -1,11 +1,15 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import GccStatsBand from "@/components/GccStatsBand";
+import Q1ReportSection from "@/components/Q1ReportSection";
 import Features from "@/components/Features";
 import IntelligenceSpans from "@/components/IntelligenceSpans";
 import WhoBenefits from "@/components/WhoBenefits";
 import RealTimeData from "@/components/RealTimeData";
 import ResearchNXT from "@/components/ResearchNXT";
+import WhatIsGccIntelligence from "@/components/WhatIsGccIntelligence";
 import Footer from "@/components/Footer";
+import FadeIn from "@/components/FadeIn";
 import { useSEO } from "@/hooks/useSEO";
 import StructuredData from "@/components/StructuredData";
 
@@ -23,11 +27,30 @@ const Index = () => {
       <StructuredData type="product" />
       <Header />
       <Hero />
-      <Features />
-      <IntelligenceSpans />
-      <WhoBenefits />
-      <RealTimeData />
-      <ResearchNXT />
+      <FadeIn>
+        <GccStatsBand />
+      </FadeIn>
+      <FadeIn>
+        <Q1ReportSection />
+      </FadeIn>
+      <FadeIn>
+        <Features />
+      </FadeIn>
+      <FadeIn>
+        <IntelligenceSpans />
+      </FadeIn>
+      <FadeIn>
+        <WhoBenefits />
+      </FadeIn>
+      <FadeIn>
+        <RealTimeData />
+      </FadeIn>
+      <FadeIn>
+        <ResearchNXT />
+      </FadeIn>
+      <FadeIn>
+        <WhatIsGccIntelligence />
+      </FadeIn>
       <Footer />
     </div>
   );
