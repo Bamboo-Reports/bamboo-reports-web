@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/bamboo-logo.svg";
+import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -59,18 +60,22 @@ const IndiaGccReportQ1FY27ThankYou = () => {
               it, in your inbox, on the day it goes out. Nothing more to do
               from your side.
             </p>
-            <div className="hero-rise mt-8 flex flex-col gap-3 [animation-delay:280ms] sm:flex-row">
+            <p className="hero-rise mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground [animation-delay:240ms]">
+              While you wait, see the platform behind the report in a short
+              walkthrough with our team.
+            </p>
+            <div className="hero-rise mt-4 flex flex-col gap-3 [animation-delay:280ms] sm:flex-row">
               <Button asChild className="group font-semibold">
-                <Link to="/">
-                  Explore Bamboo Reports
+                <GoogleCalendarSchedulingButton>
+                  Book a demo
                   <ArrowRight
                     className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
                     aria-hidden
                   />
-                </Link>
+                </GoogleCalendarSchedulingButton>
               </Button>
               <Button asChild variant="outline" className="font-semibold">
-                <Link to="/resources">Browse resources</Link>
+                <Link to="/">Explore Bamboo Reports</Link>
               </Button>
             </div>
           </section>
