@@ -13,9 +13,9 @@ const reports: ResourceItem[] = [
   {
     to: "/reports/india-gcc-report-q1-fy27",
     label: "Quarterly report",
-    title: "The Q1 FY27 India GCC report",
+    title: "The Q1 2026-27 India GCC report",
     summary:
-      "A centre-level read of who entered, who expanded, and where the next buying windows are opening.",
+      "Who set up or expanded near you, where the hiring went, and which corridors are opening next.",
     gradientIndex: 0,
   },
 ];
@@ -35,24 +35,7 @@ const Reports = () => {
       <Header />
 
       <main>
-        <MarketingHero
-          showAction={false}
-          title={
-            <>
-              <span className="block">Reports.</span>
-              <span className="block text-primary">
-                Research on the India GCC market.
-              </span>
-            </>
-          }
-          description={
-            <p>
-              Market reads, sector deep-dives, and focused insight reports,
-              all built on what we track across India's GCC ecosystem and
-              written for the teams <span className="whitespace-nowrap">selling into it.</span>
-            </p>
-          }
-        />
+        <MarketingHero showAction={false} title="Reports" />
 
         <FadeIn>
           <section className="px-4 py-14 md:py-20">

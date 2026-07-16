@@ -34,24 +34,7 @@ const Reads = () => {
       <Header />
 
       <main>
-        <MarketingHero
-          showAction={false}
-          title={
-            <>
-              <span className="block">Interesting reads.</span>
-              <span className="block text-primary">
-                Curated, not churned out.
-              </span>
-            </>
-          }
-          description={
-            <p>
-              Whitepapers and long-form reads from partners and peers on the
-              ideas shaping the enterprise, hand-picked for busy{" "}
-              <span className="whitespace-nowrap">decision-makers.</span>
-            </p>
-          }
-        />
+        <MarketingHero showAction={false} title="Interesting reads" />
 
         <FadeIn>
           <section className="px-4 py-14 md:py-20">

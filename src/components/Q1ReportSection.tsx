@@ -13,18 +13,16 @@ const Q1ReportSection = () => (
       <div>
         <p className="flex items-center gap-3 text-sm font-semibold tabular-nums text-white/70">
           <span className="h-px w-8 bg-accent" aria-hidden />
-          Q1 FY27
+          Q1 2026-27
         </p>
 
         <h2 className="mt-4 max-w-2xl text-balance text-2xl font-bold leading-tight tracking-tight text-white md:text-3xl">
-          The India GCC build is going{" "}
-          <span className="whitespace-nowrap text-accent">AI-first</span>, and
-          it is concentrating.
+          Every GCC move, <span className="text-accent">tracked.</span>
         </h2>
 
         <p className="mt-3 max-w-xl leading-relaxed text-white/70">
-          A centre-level read of who entered, who expanded, and where the next
-          buying windows are opening.
+          This free quarterly report tells you who set up or expanded near
+          you, where the hiring went, and which corridors are opening next.
         </p>
       </div>
 

@@ -5,7 +5,7 @@ const AnnouncementBar = () => (
   <div className="bg-navy px-4 py-2 text-white">
     <div className="mx-auto flex min-h-8 max-w-7xl items-center justify-center gap-3 text-center text-sm font-semibold">
       <span className="hidden sm:inline">
-        The Q1 India GCC report: every centre move, decoded.
+        The Q1 India GCC report: every GCC move, tracked.
       </span>
       <span className="sm:hidden">The Q1 India GCC report.</span>
       <Link

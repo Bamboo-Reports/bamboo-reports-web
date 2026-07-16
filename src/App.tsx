@@ -16,6 +16,7 @@ import Reads from "./pages/Reads";
 import AgenticEnterprise from "./pages/reads/AgenticEnterprise";
 import Reports from "./pages/Reports";
 import IndiaGccReportQ1FY27 from "./pages/reports/IndiaGccReportQ1FY27";
+import IndiaGccReportQ1FY27ThankYou from "./pages/reports/IndiaGccReportQ1FY27ThankYou";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
@@ -60,6 +61,7 @@ const App = () => {
             <Route path="/reads/agentic-enterprise" element={<AgenticEnterprise />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/reports/india-gcc-report-q1-fy27" element={<IndiaGccReportQ1FY27 />} />
+            <Route path="/reports/india-gcc-report-q1-fy27/thank-you" element={<IndiaGccReportQ1FY27ThankYou />} />
             <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
