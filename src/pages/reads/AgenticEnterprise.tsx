@@ -1,6 +1,4 @@
 import { ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import JotFormEmbed from "@/components/JotFormEmbed";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
@@ -19,7 +17,6 @@ const AgenticEnterprise = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="border-b px-4 py-12 md:py-16">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
           <section>
@@ -54,7 +51,6 @@ const AgenticEnterprise = () => {
           </aside>
         </div>
       </main>
-      <Footer showCta={false} />
     </div>
   );
 };

@@ -32,6 +32,7 @@ import Tracker from "./pages/Tracker";
 import MapYourGCCOpportunity from "./pages/MapYourGCCOpportunity";
 import ScrollToTop from "./components/ScrollToTop";
 import { ensureJotformEmbedHandler } from "@/lib/jotform";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const queryClient = new QueryClient();
 
@@ -67,8 +68,11 @@ const App = () => {
             <Route path="/gcc-abm" element={<GCCABM />} />
             <Route path="/platform" element={<Platform />} />
             <Route path="/success-stories" element={<SuccessStories />} />
-            <Route path="/gcc" element={<Tracker />} />
-            <Route path="/tracker" element={<Navigate to="/gcc" replace />} />
+            <Route path="/gcc" element={GCC_TRACKER_ENABLED ? <Tracker /> : <NotFound />} />
+            <Route
+              path="/tracker"
+              element={GCC_TRACKER_ENABLED ? <Navigate to="/gcc" replace /> : <NotFound />}
+            />
             <Route path="/map-your-gcc-opportunity" element={<MapYourGCCOpportunity />} />
             <Route
               path="/map-your-gcc-oppurtunity"

@@ -22,6 +22,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -67,13 +68,15 @@ const Header = () => {
         <div className="hidden items-center gap-5 xl:flex">
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link to="/gcc">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    GCC Tracker
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
+              {GCC_TRACKER_ENABLED && (
+                <NavigationMenuItem>
+                  <Link to="/gcc">
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                      GCC Tracker
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              )}
 
               <NavigationMenuItem>
                 <Link to="/platform">
@@ -217,14 +220,16 @@ const Header = () => {
               {/* Navigation */}
               <nav className="flex-1 overflow-y-auto">
                 <div className="px-6 space-y-1">
-                  <Link
-                    to="/gcc"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    GCC Tracker
-                    <ChevronRight className="h-5 w-5" />
-                  </Link>
+                  {GCC_TRACKER_ENABLED && (
+                    <Link
+                      to="/gcc"
+                      className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      GCC Tracker
+                      <ChevronRight className="h-5 w-5" />
+                    </Link>
+                  )}
 
                   <Link
                     to="/platform"

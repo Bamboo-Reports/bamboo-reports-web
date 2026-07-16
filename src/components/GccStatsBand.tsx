@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TRACKER_STATS } from "@/lib/trackerStats";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const STATS: Array<{ label: string; value: number }> = [
   { label: "Companies", value: TRACKER_STATS.accountsTracked },
@@ -130,22 +131,24 @@ const GccStatsBand = () => {
           ))}
         </dl>
 
-        <div className="mt-10 flex justify-center md:mt-12">
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="group w-full max-w-sm px-4 text-base font-semibold sm:w-auto sm:px-7"
-          >
-            <Link to="/gcc">
-              Explore the India GCC directory
-              <ArrowRight
-                className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-                aria-hidden
-              />
-            </Link>
-          </Button>
-        </div>
+        {GCC_TRACKER_ENABLED && (
+          <div className="mt-10 flex justify-center md:mt-12">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="group w-full max-w-sm px-4 text-base font-semibold sm:w-auto sm:px-7"
+            >
+              <Link to="/gcc">
+                Explore the India GCC directory
+                <ArrowRight
+                  className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+                  aria-hidden
+                />
+              </Link>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

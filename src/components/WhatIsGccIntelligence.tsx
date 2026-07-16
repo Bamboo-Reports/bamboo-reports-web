@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const WhatIsGccIntelligence = () => (
   <section className="border-t bg-secondary/30 px-4 py-14 md:py-20">
@@ -11,13 +12,15 @@ const WhatIsGccIntelligence = () => (
         <p className="mt-4 max-w-sm text-muted-foreground">
           A quick primer on the market Bamboo Reports tracks every day.
         </p>
-        <Link
-          to="/gcc"
-          className="mt-6 inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-primary/80"
-        >
-          Explore the India GCC directory
-          <ArrowRight className="h-4 w-4" aria-hidden />
-        </Link>
+        {GCC_TRACKER_ENABLED && (
+          <Link
+            to="/gcc"
+            className="mt-6 inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-primary/80"
+          >
+            Explore the India GCC directory
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+        )}
       </div>
 
       <div>

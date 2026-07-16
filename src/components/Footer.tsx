@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const exploreLinks = [
-  { label: "GCC Tracker", to: "/gcc" },
+  ...(GCC_TRACKER_ENABLED ? [{ label: "GCC Tracker", to: "/gcc" }] : []),
   { label: "Success stories", to: "/success-stories" },
   { label: "Resources", to: "/resources" },
 ];
