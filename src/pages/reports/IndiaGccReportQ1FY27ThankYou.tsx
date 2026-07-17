@@ -84,7 +84,7 @@ const IndiaGccReportQ1FY27ThankYou = () => {
               </Button>
               <Button asChild variant="outline" className="font-semibold">
                 <a
-                  href="https://www.linkedin.com/company/bambooreports"
+                  href="https://www.linkedin.com/company/bamboo-reports/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
