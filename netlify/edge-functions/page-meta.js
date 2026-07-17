@@ -5,6 +5,14 @@ const PAGE_META = {
     title: "Map your India GCC opportunity | Bamboo Reports",
     description: "Map your India GCC opportunity with Bamboo Reports.",
   },
+  "/reports/india-gcc-report-q1-fy27": {
+    title: "India GCC Quarterly Report, Q1 2026 (April to June) | Bamboo Reports",
+    description:
+      "The Q1 2026 India GCC Quarterly Report: 110 centre events across 27 cities, mapped to corridor level. Free, publishing late July 2026. Register to receive it first.",
+    image:
+      "https://www.bambooreports.com/gcc/india-gcc-report-share-card-q1-2026.png",
+    url: "https://www.bambooreports.com/reports/india-gcc-report-q1-fy27",
+  },
 };
 
 export default async (request, context) => {
@@ -54,6 +62,27 @@ export default async (request, context) => {
         /(<meta\s+property="twitter:description"[\s\S]*?content=")[^"]*(")/i,
         `$1${description}$2`
       );
+  }
+
+  if (meta.image) {
+    const image = escape(meta.image);
+    html = html
+      .replace(
+        /(<meta\s+property="og:image"[\s\S]*?content=")[^"]*(")/i,
+        `$1${image}$2`
+      )
+      .replace(
+        /(<meta\s+property="twitter:image"[\s\S]*?content=")[^"]*(")/i,
+        `$1${image}$2`
+      );
+  }
+
+  if (meta.url) {
+    const url = escape(meta.url);
+    html = html.replace(
+      /(<meta\s+property="og:url"[\s\S]*?content=")[^"]*(")/i,
+      `$1${url}$2`
+    );
   }
 
   const headers = new Headers(response.headers);

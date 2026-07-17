@@ -58,7 +58,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
             "url": "https://researchnxt.com"
           },
           "sameAs": [
-            "https://www.linkedin.com/company/bambooreports"
+            "https://www.linkedin.com/company/bamboo-reports/"
           ],
           "address": {
             "@type": "PostalAddress",
