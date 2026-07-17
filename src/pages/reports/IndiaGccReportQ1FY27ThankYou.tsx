@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/bamboo-logo.svg";
+import logo from "@/assets/research-nxt-logo.png";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
@@ -36,7 +36,13 @@ const IndiaGccReportQ1FY27ThankYou = () => {
       <header className="border-b px-4">
         <div className="mx-auto flex max-w-7xl items-center py-4">
           <Link to="/" aria-label="Bamboo Reports home">
-            <img src={logo} alt="Bamboo Reports" className="h-9 md:h-10" />
+            <img
+              src={logo}
+              alt="Research NXT"
+              width={376}
+              height={61}
+              className="h-7 w-auto md:h-8"
+            />
           </Link>
         </div>
       </header>

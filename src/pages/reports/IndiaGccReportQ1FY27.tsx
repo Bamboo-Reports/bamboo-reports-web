@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import logo from "@/assets/bamboo-logo.svg";
+import logo from "@/assets/research-nxt-logo.png";
 import JotFormEmbed from "@/components/JotFormEmbed";
 import { Button } from "@/components/ui/button";
 import {
@@ -161,7 +161,13 @@ const IndiaGccReportQ1FY27 = () => {
 
       <header className="border-b px-4">
         <div className="mx-auto flex max-w-7xl items-center py-4">
-          <img src={logo} alt="Bamboo Reports" className="h-9 md:h-10" />
+          <img
+            src={logo}
+            alt="Research NXT"
+            width={376}
+            height={61}
+            className="h-7 w-auto md:h-8"
+          />
         </div>
       </header>
 
