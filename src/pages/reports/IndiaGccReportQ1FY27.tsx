@@ -52,7 +52,7 @@ const FAQS = [
   {
     question: "What does the India GCC Quarterly Report cover?",
     answer:
-      "One quarter of GCC activity in India: new centres, expansions, announced pipeline, hiring signals, one sector in focus, and predictions for the next quarter. The Q1 2026 edition covers April to June 2026.",
+      "One quarter of GCC activity in India: new centres, expansions, announced pipeline, hiring signals, one sector in focus, and predictions for the next quarter. The Q1 2026-27 edition covers April to June 2026.",
     open: true,
   },
   {
@@ -68,7 +68,7 @@ const FAQS = [
   {
     question: "When does the next edition come out?",
     answer:
-      "Every quarter. The Q1 2026 edition releases in late July 2026; the next edition covers July to September 2026.",
+      "Every quarter. The Q1 2026-27 edition releases in late July 2026; the next edition covers July to September 2026.",
   },
 ];
 
@@ -138,13 +138,13 @@ const IndiaGccReportQ1FY27 = () => {
   };
 
   const seoDescription = Q1_REPORT_NUMBERS_CONFIRMED
-    ? "The Q1 2026 India GCC Quarterly Report: 110 centre events across 27 cities, mapped to corridor level. Free, publishing late July 2026. Register to receive it first."
-    : "The Q1 2026 India GCC Quarterly Report: every centre event of the quarter, mapped to corridor level. Free, publishing late July 2026. Register to receive it first.";
+    ? "The Q1 2026-27 India GCC Quarterly Report: 110 centre events across 27 cities, mapped to corridor level. Free, publishing late July 2026. Register to receive it first."
+    : "The Q1 2026-27 India GCC Quarterly Report: every centre event of the quarter, mapped to corridor level. Free, publishing late July 2026. Register to receive it first.";
 
   useSEO({
-    title: "India GCC Quarterly Report, Q1 2026 (April to June) | Bamboo Reports",
+    title: "India GCC Quarterly Report, Q1 2026-27 (April to June) | Bamboo Reports",
     description: seoDescription,
-    ogTitle: "India GCC Quarterly Report, Q1 2026 (April to June)",
+    ogTitle: "India GCC Quarterly Report, Q1 2026-27 (April to June)",
     ogDescription: seoDescription,
     ogImage:
       "https://www.bambooreports.com/gcc/india-gcc-report-share-card-q1-2026.png",
@@ -170,7 +170,7 @@ const IndiaGccReportQ1FY27 = () => {
           <section>
             <p className="hero-rise flex flex-wrap items-center gap-x-3 text-sm font-semibold text-muted-foreground">
               <span className="h-px w-8 bg-accent" aria-hidden />
-              India GCC Quarterly Report &middot; Q1 2026, April to June
+              India GCC Quarterly Report &middot; Q1 2026-27, April to June
               &middot; First edition
             </p>
             <p className="hero-rise mt-1 text-sm text-muted-foreground">
@@ -184,7 +184,7 @@ const IndiaGccReportQ1FY27 = () => {
               Intelligence
             </p>
             <h1 className="hero-rise mt-4 text-balance text-4xl font-bold leading-tight [animation-delay:80ms] md:text-5xl lg:whitespace-nowrap lg:text-[clamp(2rem,3.2vw,2.75rem)]">
-              India GCC Quarterly Report, Q1 2026
+              India GCC Quarterly Report, Q1 2026-27
             </h1>
             <p className="hero-rise mt-3 text-xl leading-snug text-muted-foreground [animation-delay:120ms]">
               The quarter&apos;s new centres, expansions, hiring and
@@ -268,7 +268,7 @@ const IndiaGccReportQ1FY27 = () => {
             <div className="mt-6 grid items-center gap-8 sm:grid-cols-[auto_1fr] sm:gap-10">
               <img
                 src="/gcc/india-gcc-report-cover-q1-fy27.webp"
-                alt="Report cover: India GCC Quarterly Report, Q1 2026, April to June, showing every centre event of the quarter on the India map"
+                alt="Report cover: India GCC Quarterly Report, Q1 2026-27, April to June, showing every centre event of the quarter on the India map"
                 width={640}
                 height={905}
                 loading="lazy"
@@ -311,7 +311,7 @@ const IndiaGccReportQ1FY27 = () => {
                 Get the report on release day
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Free. Registrants receive the Q1 2026 edition by email the day
+                Free. Registrants receive the Q1 2026-27 edition by email the day
                 it publishes.
               </p>
               <div className="mt-4 overflow-hidden rounded-md border">
@@ -440,8 +440,8 @@ const IndiaGccReportQ1FY27 = () => {
             </DialogTitle>
             <DialogDescription className="pt-2 leading-relaxed">
               {Q1_REPORT_NUMBERS_CONFIRMED
-                ? "Registration takes under a minute and reserves your copy of the Q1 2026 India GCC Quarterly Report: 110 centre events across 27 cities, mapped to corridor level, publishing late July 2026."
-                : "Registration takes under a minute and reserves your copy of the Q1 2026 India GCC Quarterly Report: every centre event of the quarter, mapped to corridor level, publishing late July 2026."}
+                ? "Registration takes under a minute and reserves your copy of the Q1 2026-27 India GCC Quarterly Report: 110 centre events across 27 cities, mapped to corridor level, publishing late July 2026."
+                : "Registration takes under a minute and reserves your copy of the Q1 2026-27 India GCC Quarterly Report: every centre event of the quarter, mapped to corridor level, publishing late July 2026."}
             </DialogDescription>
           </DialogHeader>
           <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
