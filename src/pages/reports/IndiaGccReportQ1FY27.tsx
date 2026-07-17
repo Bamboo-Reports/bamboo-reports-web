@@ -11,10 +11,12 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useSEO } from "@/hooks/useSEO";
+import { Q1_REPORT_NUMBERS_CONFIRMED } from "@/lib/featureFlags";
 
 const REPORT_FORM_ID = "261952514660458";
 
-// Figures must match the frozen count set before launch.
+// Figures must match the frozen count set before launch; they stay hidden
+// until VITE_Q1_REPORT_NUMBERS_CONFIRMED is "true" (see featureFlags.ts).
 const NUMBERS = [
   { value: "110", label: "centre events this quarter", highlight: false },
   { value: "27", label: "cities with activity", highlight: false },
@@ -37,10 +39,14 @@ const FINDINGS = [
 ];
 
 const METHOD_STATS = [
-  { value: "2,400+", label: "companies under coverage" },
-  { value: "5,900+", label: "centres tracked at coordinate level" },
-  { value: "Since 2022", label: "continuous analyst enrichment" },
+  { value: "2,400+", label: "companies under coverage", gated: true },
+  { value: "5,900+", label: "centres tracked at coordinate level", gated: true },
+  { value: "Since 2022", label: "continuous analyst enrichment", gated: false },
 ];
+
+const VISIBLE_METHOD_STATS = Q1_REPORT_NUMBERS_CONFIRMED
+  ? METHOD_STATS
+  : METHOD_STATS.filter((stat) => !stat.gated);
 
 const FAQS = [
   {
@@ -131,15 +137,17 @@ const IndiaGccReportQ1FY27 = () => {
     });
   };
 
+  const seoDescription = Q1_REPORT_NUMBERS_CONFIRMED
+    ? "The Q1 2026 India GCC Quarterly Report: 110 centre events across 27 cities, mapped to corridor level. Free, publishing late July 2026. Register to receive it first."
+    : "The Q1 2026 India GCC Quarterly Report: every centre event of the quarter, mapped to corridor level. Free, publishing late July 2026. Register to receive it first.";
+
   useSEO({
     title: "India GCC Quarterly Report, Q1 2026 (April to June) | Bamboo Reports",
-    description:
-      "The Q1 2026 India GCC Quarterly Report: 110 centre events across 27 cities, mapped to corridor level. Free, publishing late July 2026. Register to receive it first.",
+    description: seoDescription,
     ogTitle: "India GCC Quarterly Report, Q1 2026 (April to June)",
-    ogDescription:
-      "110 centre events across 27 cities, mapped to corridor level. Free report, publishing late July 2026.",
+    ogDescription: seoDescription,
     ogImage:
-      "https://www.bambooreports.com/gcc/india-gcc-report-cover-q1-fy27.webp",
+      "https://www.bambooreports.com/gcc/india-gcc-report-share-card-q1-2026.png",
     ogType: "article",
     canonicalUrl: "https://www.bambooreports.com/reports/india-gcc-report-q1-fy27",
   });
@@ -182,14 +190,26 @@ const IndiaGccReportQ1FY27 = () => {
               The quarter&apos;s new centres, expansions, hiring and
               corridors, read at centre level.
             </p>
-            <p className="hero-rise mt-6 max-w-2xl leading-relaxed [animation-delay:160ms]">
-              Between April and June 2026,{" "}
-              <strong className="font-semibold">99 companies</strong> opened
-              or grew <strong className="font-semibold">110 GCC centres</strong>{" "}
-              across <strong className="font-semibold">27 Indian cities</strong>.
-              This report maps each one to the corridor it landed in and reads
-              what the quarter changed for the leaders already operating here.
-            </p>
+            {Q1_REPORT_NUMBERS_CONFIRMED ? (
+              <p className="hero-rise mt-6 max-w-2xl leading-relaxed [animation-delay:160ms]">
+                Between April and June 2026,{" "}
+                <strong className="font-semibold">99 companies</strong> opened
+                or grew{" "}
+                <strong className="font-semibold">110 GCC centres</strong>{" "}
+                across{" "}
+                <strong className="font-semibold">27 Indian cities</strong>.
+                This report maps each one to the corridor it landed in and
+                reads what the quarter changed for the leaders already
+                operating here.
+              </p>
+            ) : (
+              <p className="hero-rise mt-6 max-w-2xl leading-relaxed [animation-delay:160ms]">
+                Between April and June 2026, we tracked every company that
+                opened or grew a GCC centre in India. This report maps each
+                one to the corridor it landed in and reads what the quarter
+                changed for the leaders already operating here.
+              </p>
+            )}
             <p className="hero-rise mt-4 text-sm text-muted-foreground [animation-delay:200ms]">
               <strong className="font-semibold text-foreground">
                 Publishing late July 2026.
@@ -207,6 +227,7 @@ const IndiaGccReportQ1FY27 = () => {
               />
             </Button>
 
+            {Q1_REPORT_NUMBERS_CONFIRMED && (
             <div className="hero-rise mt-8 rounded-lg border border-t-4 border-t-navy bg-background shadow-sm [animation-delay:240ms]">
               <dl className="grid gap-5 p-6 sm:grid-cols-3 sm:gap-0 md:p-7">
                 {NUMBERS.map((stat, index) => (
@@ -235,6 +256,7 @@ const IndiaGccReportQ1FY27 = () => {
                 Source: Bamboo Reports platform, July 2026.
               </p>
             </div>
+            )}
 
             <p className="mt-14 flex items-center gap-3 text-sm font-semibold text-muted-foreground">
               <span className="h-px w-8 bg-accent" aria-hidden />
@@ -334,7 +356,7 @@ const IndiaGccReportQ1FY27 = () => {
             </p>
           </div>
           <dl className="flex flex-wrap self-center">
-            {METHOD_STATS.map((stat) => (
+            {VISIBLE_METHOD_STATS.map((stat) => (
               <div
                 key={stat.label}
                 className="min-w-[40%] flex-1 border-t-2 border-navy py-3 pr-3"
@@ -417,9 +439,9 @@ const IndiaGccReportQ1FY27 = () => {
               Before you go, reserve your copy.
             </DialogTitle>
             <DialogDescription className="pt-2 leading-relaxed">
-              Registration takes under a minute and reserves your copy of the
-              Q1 2026 India GCC Quarterly Report: 110 centre events across 27
-              cities, mapped to corridor level, publishing late July 2026.
+              {Q1_REPORT_NUMBERS_CONFIRMED
+                ? "Registration takes under a minute and reserves your copy of the Q1 2026 India GCC Quarterly Report: 110 centre events across 27 cities, mapped to corridor level, publishing late July 2026."
+                : "Registration takes under a minute and reserves your copy of the Q1 2026 India GCC Quarterly Report: every centre event of the quarter, mapped to corridor level, publishing late July 2026."}
             </DialogDescription>
           </DialogHeader>
           <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
