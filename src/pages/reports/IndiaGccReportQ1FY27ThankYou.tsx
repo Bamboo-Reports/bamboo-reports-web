@@ -55,15 +55,37 @@ const IndiaGccReportQ1FY27ThankYou = () => {
               Thank you for pre-registering for the India GCC Quarterly
               Report, Q1 2026-27, April to June.
             </p>
-            <p className="hero-rise mt-4 max-w-2xl leading-relaxed text-muted-foreground [animation-delay:200ms]">
-              The report releases in late July. You will be among the first to
-              receive it, in your inbox, on the day it goes out. Nothing more
-              to do from your side.
+
+            <p className="hero-rise mt-10 flex items-center gap-3 text-sm font-semibold text-muted-foreground [animation-delay:200ms]">
+              <span className="h-px w-8 bg-accent" aria-hidden />
+              What happens next
             </p>
-            <p className="hero-rise mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground [animation-delay:280ms]">
-              While you wait, explore the platform the report is built on.
-            </p>
-            <div className="hero-rise mt-4 flex flex-col gap-3 [animation-delay:280ms] sm:flex-row">
+            <dl className="hero-rise mt-4 max-w-2xl border-t-2 border-navy [animation-delay:240ms]">
+              <div className="grid grid-cols-[6.5rem_1fr] gap-4 border-b py-4">
+                <dt className="text-sm font-semibold text-navy">Now</dt>
+                <dd className="text-sm leading-relaxed text-muted-foreground">
+                  Your spot on the list is confirmed. Nothing more to do from
+                  your side.
+                </dd>
+              </div>
+              <div className="grid grid-cols-[6.5rem_1fr] gap-4 border-b py-4">
+                <dt className="text-sm font-semibold text-navy">Late July</dt>
+                <dd className="text-sm leading-relaxed text-muted-foreground">
+                  The report releases. It reaches registrants first, by email,
+                  on the day it goes out.
+                </dd>
+              </div>
+              <div className="grid grid-cols-[6.5rem_1fr] gap-4 border-b py-4">
+                <dt className="text-sm font-semibold text-navy">
+                  Every quarter
+                </dt>
+                <dd className="text-sm leading-relaxed text-muted-foreground">
+                  Each new edition lands in your inbox the day it publishes.
+                </dd>
+              </div>
+            </dl>
+
+            <div className="hero-rise mt-8 flex flex-col gap-3 [animation-delay:280ms] sm:flex-row">
               <Button asChild className="group font-semibold">
                 <Link to="/">
                   Explore Bamboo Reports
@@ -93,14 +115,19 @@ const IndiaGccReportQ1FY27ThankYou = () => {
             </p>
           </section>
 
-          <img
-            src="/gcc/india-gcc-report-cover-q1-fy27.webp"
-            alt="Report cover: India GCC Quarterly Report, Q1 FY 2026-27, April to June"
-            width={640}
-            height={905}
-            loading="lazy"
-            className="hero-rise w-44 justify-self-center rounded-md shadow-xl shadow-navy/25 [animation-delay:160ms] sm:w-52 md:w-60"
-          />
+          <figure className="hero-rise justify-self-center [animation-delay:160ms]">
+            <img
+              src="/gcc/india-gcc-report-cover-q1-fy27.webp"
+              alt="Report cover: India GCC Quarterly Report, Q1 FY 2026-27, April to June"
+              width={640}
+              height={905}
+              loading="lazy"
+              className="w-44 rounded-md shadow-xl shadow-navy/25 sm:w-52 md:w-64"
+            />
+            <figcaption className="mt-4 text-center text-xs text-muted-foreground">
+              Your copy, reserved &middot; Q1 2026-27
+            </figcaption>
+          </figure>
         </div>
       </main>
 
