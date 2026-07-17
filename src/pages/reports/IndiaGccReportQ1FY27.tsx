@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import logo from "@/assets/research-nxt-logo.png";
+import logo from "@/assets/research-nxt-logo.svg";
 import JotFormEmbed from "@/components/JotFormEmbed";
 import { Button } from "@/components/ui/button";
 import {
@@ -164,8 +164,8 @@ const IndiaGccReportQ1FY27 = () => {
           <img
             src={logo}
             alt="Research NXT"
-            width={376}
-            height={61}
+            width={94}
+            height={16}
             className="h-7 w-auto md:h-8"
           />
         </div>

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/research-nxt-logo.png";
+import logo from "@/assets/research-nxt-logo.svg";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
@@ -39,8 +39,8 @@ const IndiaGccReportQ1FY27ThankYou = () => {
             <img
               src={logo}
               alt="Research NXT"
-              width={376}
-              height={61}
+              width={94}
+              height={16}
               className="h-7 w-auto md:h-8"
             />
           </Link>
