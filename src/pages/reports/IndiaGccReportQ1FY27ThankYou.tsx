@@ -115,19 +115,14 @@ const IndiaGccReportQ1FY27ThankYou = () => {
             </p>
           </section>
 
-          <figure className="hero-rise justify-self-center [animation-delay:160ms]">
-            <img
-              src="/gcc/india-gcc-report-cover-q1-fy27.webp"
-              alt="Report cover: India GCC Quarterly Report, Q1 FY 2026-27, April to June"
-              width={640}
-              height={905}
-              loading="lazy"
-              className="w-44 rounded-md shadow-xl shadow-navy/25 sm:w-52 md:w-64"
-            />
-            <figcaption className="mt-4 text-center text-xs text-muted-foreground">
-              Your copy, reserved &middot; Q1 2026-27
-            </figcaption>
-          </figure>
+          <img
+            src="/gcc/india-gcc-report-cover-q1-fy27.webp"
+            alt="Report cover: India GCC Quarterly Report, Q1 FY 2026-27, April to June"
+            width={640}
+            height={905}
+            loading="lazy"
+            className="hero-rise w-44 justify-self-center rounded-md shadow-xl shadow-navy/25 [animation-delay:160ms] sm:w-52 md:w-64"
+          />
         </div>
       </main>
 
