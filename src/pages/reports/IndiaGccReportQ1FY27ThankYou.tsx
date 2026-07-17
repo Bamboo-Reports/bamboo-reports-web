@@ -56,28 +56,50 @@ const IndiaGccReportQ1FY27ThankYou = () => {
               Report, Q1 2026-27, April to June.
             </p>
             <p className="hero-rise mt-4 max-w-2xl leading-relaxed text-muted-foreground [animation-delay:200ms]">
-              The report releases soon. You will be among the first to receive
-              it, in your inbox, on the day it goes out. Nothing more to do
-              from your side.
+              The report releases in late July. You will be among the first to
+              receive it, in your inbox, on the day it goes out. Nothing more
+              to do from your side.
             </p>
-            <p className="hero-rise mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground [animation-delay:240ms]">
-              While you wait, see the platform behind the report in a short
-              walkthrough with our team.
+            <p className="hero-rise mt-6 max-w-2xl rounded-md border bg-muted p-4 text-sm leading-relaxed [animation-delay:240ms]">
+              One small thing: add{" "}
+              <strong className="font-semibold">
+                santosh@researchnxt.com
+              </strong>{" "}
+              to your contacts, so the report lands in your inbox and not in a
+              filter.
+            </p>
+            <p className="hero-rise mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground [animation-delay:280ms]">
+              While you wait, the free GCC tracker shows part of what the
+              report is built on.
             </p>
             <div className="hero-rise mt-4 flex flex-col gap-3 [animation-delay:280ms] sm:flex-row">
               <Button asChild className="group font-semibold">
-                <GoogleCalendarSchedulingButton>
-                  Book a demo
+                <Link to="/">
+                  Explore the free GCC tracker
                   <ArrowRight
                     className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
                     aria-hidden
                   />
-                </GoogleCalendarSchedulingButton>
+                </Link>
               </Button>
               <Button asChild variant="outline" className="font-semibold">
-                <Link to="/">Explore Bamboo Reports</Link>
+                <a
+                  href="https://www.linkedin.com/company/bambooreports"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Follow us on LinkedIn
+                </a>
               </Button>
             </div>
+            <p className="hero-rise mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground [animation-delay:320ms]">
+              Working on GCC plans right now and want the platform behind the
+              report?{" "}
+              <GoogleCalendarSchedulingButton className="font-semibold text-primary hover:underline">
+                Book a walkthrough with our team
+              </GoogleCalendarSchedulingButton>
+              .
+            </p>
           </section>
 
           <img
@@ -90,6 +112,28 @@ const IndiaGccReportQ1FY27ThankYou = () => {
           />
         </div>
       </main>
+
+      <footer className="border-t px-4 py-5">
+        <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 text-xs text-muted-foreground">
+          <span>&copy; 2026 Research NXT &middot; Pune, India</span>
+          <span>
+            Powered by{" "}
+            <a
+              href="https://bambooreports.com"
+              className="text-primary hover:underline"
+            >
+              Bamboo Reports
+            </a>{" "}
+            Intelligence &middot;{" "}
+            <a
+              href="https://bambooreports.com/privacy"
+              className="text-primary hover:underline"
+            >
+              Privacy policy
+            </a>
+          </span>
+        </div>
+      </footer>
     </div>
   );
 };
