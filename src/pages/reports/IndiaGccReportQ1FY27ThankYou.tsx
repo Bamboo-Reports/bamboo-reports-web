@@ -1,27 +1,12 @@
-import { useEffect, useState } from "react";
-import { ArrowRight, Check, CheckCircle, Copy, UserPlus } from "lucide-react";
+import { useEffect } from "react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/bamboo-logo.svg";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 
-const SENDER_EMAIL = "sabraham@bambooreports.com";
-
 const IndiaGccReportQ1FY27ThankYou = () => {
-  const [copied, setCopied] = useState(false);
-
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(SENDER_EMAIL);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Clipboard unavailable (e.g. insecure context); the address is
-      // visible in the callout, so there is nothing further to do.
-    }
-  };
-
   useSEO({
     title: "You are on the list | Bamboo Reports",
     description:
@@ -75,53 +60,13 @@ const IndiaGccReportQ1FY27ThankYou = () => {
               receive it, in your inbox, on the day it goes out. Nothing more
               to do from your side.
             </p>
-            <div className="hero-rise mt-6 max-w-2xl rounded-md border bg-muted p-4 [animation-delay:240ms]">
-              <p className="text-sm leading-relaxed">
-                One small thing: add{" "}
-                <strong className="font-semibold">{SENDER_EMAIL}</strong> to
-                your contacts, so the report lands in your inbox and not in a
-                filter.
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <Button
-                  asChild
-                  size="sm"
-                  variant="outline"
-                  className="bg-background font-semibold"
-                >
-                  <a href="/santosh-abraham.vcf" download>
-                    <UserPlus className="mr-2 h-4 w-4" aria-hidden />
-                    Add to contacts
-                  </a>
-                </Button>
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  onClick={copyEmail}
-                  className="font-semibold"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="mr-2 h-4 w-4 text-primary" aria-hidden />
-                      Copied
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="mr-2 h-4 w-4" aria-hidden />
-                      Copy email address
-                    </>
-                  )}
-                </Button>
-              </div>
-            </div>
             <p className="hero-rise mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground [animation-delay:280ms]">
-              While you wait, the free GCC tracker shows part of what the
-              report is built on.
+              While you wait, explore the platform the report is built on.
             </p>
             <div className="hero-rise mt-4 flex flex-col gap-3 [animation-delay:280ms] sm:flex-row">
               <Button asChild className="group font-semibold">
                 <Link to="/">
-                  Explore the free GCC tracker
+                  Explore Bamboo Reports
                   <ArrowRight
                     className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
                     aria-hidden
