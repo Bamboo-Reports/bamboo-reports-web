@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Q1_REPORT_NUMBERS_CONFIRMED } from "@/lib/featureFlags";
 
 const Q1ReportSection = () => (
   <section className="relative overflow-hidden bg-navy px-4 py-12 md:py-16">
@@ -13,16 +14,18 @@ const Q1ReportSection = () => (
       <div>
         <p className="flex items-center gap-3 text-sm font-semibold tabular-nums text-white/70">
           <span className="h-px w-8 bg-accent" aria-hidden />
-          Q1 2026-27
+          Q1 2026, April to June
         </p>
 
         <h2 className="mt-4 max-w-2xl text-balance text-2xl font-bold leading-tight tracking-tight text-white md:text-3xl">
-          Every GCC move, <span className="text-accent">tracked.</span>
+          India GCC Quarterly Report,{" "}
+          <span className="text-accent">Q1 2026</span>
         </h2>
 
         <p className="mt-3 max-w-xl leading-relaxed text-white/70">
-          This free quarterly report tells you who set up or expanded near
-          you, where the hiring went, and which corridors are opening next.
+          {Q1_REPORT_NUMBERS_CONFIRMED
+            ? "Between April and June 2026, 99 companies opened or grew 110 GCC centres across 27 Indian cities. This free report reads each move at centre level, publishing late July."
+            : "The quarter's new centres, expansions, hiring and corridors, read at centre level. Free, publishing late July."}
         </p>
       </div>
 

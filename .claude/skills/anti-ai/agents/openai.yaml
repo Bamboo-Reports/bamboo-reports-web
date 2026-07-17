@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anti-AI Writing Review"
+  short_description: "Review text for possible AI-writing signals"
+  default_prompt: "Use $anti-ai to review this text for AI-writing signals and underlying quality risks."
