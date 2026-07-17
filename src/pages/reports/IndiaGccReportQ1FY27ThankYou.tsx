@@ -10,7 +10,7 @@ const IndiaGccReportQ1FY27ThankYou = () => {
   useSEO({
     title: "You are on the list | Bamboo Reports",
     description:
-      "Your registration for the Q1 2026-27 India GCC report is confirmed. The report reaches your inbox the day it releases.",
+      "Your registration for the Q1 2026 India GCC report is confirmed. The report reaches your inbox the day it releases.",
     canonicalUrl:
       "https://www.bambooreports.com/reports/india-gcc-report-q1-fy27/thank-you",
   });
@@ -59,7 +59,7 @@ const IndiaGccReportQ1FY27ThankYou = () => {
             </h1>
             <p className="hero-rise mt-5 max-w-2xl leading-relaxed text-muted-foreground [animation-delay:160ms]">
               Thank you for pre-registering for the India GCC Quarterly
-              Report, Q1 2026-27, April to June.
+              Report, Q1 2026, April to June.
             </p>
 
             <p className="hero-rise mt-10 flex items-center gap-3 text-sm font-semibold text-muted-foreground [animation-delay:200ms]">
@@ -123,7 +123,7 @@ const IndiaGccReportQ1FY27ThankYou = () => {
 
           <img
             src="/gcc/india-gcc-report-cover-q1-fy27.webp"
-            alt="Report cover: India GCC Quarterly Report, Q1 FY 2026-27, April to June"
+            alt="Report cover: India GCC Quarterly Report, Q1 2026, April to June"
             width={640}
             height={905}
             loading="lazy"
