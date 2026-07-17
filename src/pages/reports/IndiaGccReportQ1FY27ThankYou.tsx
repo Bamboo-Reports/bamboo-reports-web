@@ -81,14 +81,6 @@ const IndiaGccReportQ1FY27ThankYou = () => {
                   on the day it goes out.
                 </dd>
               </div>
-              <div className="grid grid-cols-[6.5rem_1fr] gap-4 border-b py-4">
-                <dt className="text-sm font-semibold text-navy">
-                  Every quarter
-                </dt>
-                <dd className="text-sm leading-relaxed text-muted-foreground">
-                  Each new edition lands in your inbox the day it publishes.
-                </dd>
-              </div>
             </dl>
 
             <div className="hero-rise mt-8 flex flex-col gap-3 [animation-delay:280ms] sm:flex-row">

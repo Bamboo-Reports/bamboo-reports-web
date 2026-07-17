@@ -76,6 +76,7 @@ const EXIT_INTENT_KEY = "q1fy27-report-exit-intent-shown";
 
 const IndiaGccReportQ1FY27 = () => {
   const [exitIntentOpen, setExitIntentOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
   const [formInView, setFormInView] = useState(false);
   const [pastHero, setPastHero] = useState(false);
   const formAsideRef = useRef<HTMLElement>(null);
@@ -129,12 +130,18 @@ const IndiaGccReportQ1FY27 = () => {
 
   const goToForm = () => {
     setExitIntentOpen(false);
-    formAsideRef.current?.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "auto"
-        : "smooth",
-      block: "start",
-    });
+    // Desktop keeps the sticky sidebar form in view; on smaller screens the
+    // form lives at the end of the page, so open it in a dialog instead.
+    if (window.matchMedia("(min-width: 1024px)").matches) {
+      formAsideRef.current?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+        block: "start",
+      });
+    } else {
+      setFormOpen(true);
+    }
   };
 
   const seoDescription = Q1_REPORT_NUMBERS_CONFIRMED
@@ -426,17 +433,52 @@ const IndiaGccReportQ1FY27 = () => {
         </div>
       </footer>
 
-      {pastHero && !formInView && (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 px-4 pt-3 backdrop-blur pb-[calc(0.75rem+env(safe-area-inset-bottom))] lg:hidden">
-          <Button onClick={goToForm} className="group w-full font-semibold">
-            Register for the report
-            <ArrowRight
-              className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-              aria-hidden
+      {/* Stays mounted; sliding instead of mount/unmount avoids flicker when
+          the show conditions oscillate (URL-bar resizes, threshold edges). */}
+      <div
+        aria-hidden={!(pastHero && !formInView && !formOpen)}
+        className={`fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 px-4 pt-3 backdrop-blur transition-transform duration-300 ease-out pb-[calc(0.75rem+env(safe-area-inset-bottom))] motion-reduce:transition-none lg:hidden ${
+          pastHero && !formInView && !formOpen
+            ? "translate-y-0"
+            : "pointer-events-none translate-y-full"
+        }`}
+      >
+        <Button
+          onClick={goToForm}
+          tabIndex={pastHero && !formInView && !formOpen ? 0 : -1}
+          className="group w-full font-semibold"
+        >
+          Register for the report
+          <ArrowRight
+            className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+            aria-hidden
+          />
+        </Button>
+      </div>
+
+      <Dialog open={formOpen} onOpenChange={setFormOpen}>
+        <DialogContent className="max-h-[90dvh] max-w-md overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold leading-tight">
+              Get the report on release day
+            </DialogTitle>
+            <DialogDescription className="pt-1 leading-relaxed">
+              Free. Registrants receive the Q1 2026 edition by email the day
+              it publishes.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="overflow-hidden rounded-md border">
+            <JotFormEmbed
+              formId={REPORT_FORM_ID}
+              title="BR - Q1 2027 (Registration)"
+              height="500px"
             />
-          </Button>
-        </div>
-      )}
+          </div>
+          <p className="text-center text-xs text-muted-foreground">
+            One report per quarter. Unsubscribe any time.
+          </p>
+        </DialogContent>
+      </Dialog>
 
       <Dialog open={exitIntentOpen} onOpenChange={setExitIntentOpen}>
         <DialogContent className="max-w-md">
