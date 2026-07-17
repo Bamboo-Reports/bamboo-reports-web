@@ -7,9 +7,8 @@ const PAGE_META = {
   },
   "/reports/india-gcc-report-q1-fy27": {
     title: "India GCC Quarterly Report, Q1 2026 (April to June) | Bamboo Reports",
-    // Kept figure-free until the count reconciliation is frozen.
     description:
-      "The Q1 2026 India GCC Quarterly Report: every centre event of the quarter, mapped to corridor level. Free, publishing late July 2026. Register to receive it first.",
+      "The Q1 2026 India GCC Quarterly Report: 110 centre events across 27 cities, mapped to corridor level. Free, publishing late July 2026. Register to receive it first.",
     image:
       "https://www.bambooreports.com/gcc/india-gcc-report-share-card-q1-2026.png",
     url: "https://www.bambooreports.com/reports/india-gcc-report-q1-fy27",
