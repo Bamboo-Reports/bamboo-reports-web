@@ -61,3 +61,6 @@ sheets/
 .agents/
 .codex/
 .impeccable/
+
+# Claude Code local settings (personal permission grants)
+.claude/
