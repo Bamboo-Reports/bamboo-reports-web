@@ -322,3 +322,119 @@ All colors MUST be HSL.
     }
   }
 }
+
+/* ============================================================
+   /platform — page-local styling.
+
+   The page runs one idea: an orbital dark hero that resolves into
+   a light editorial body, mirroring what the product does — start
+   at the whole ecosystem, land on a single centre-level record.
+
+   Everything here is scoped under .platform-page so no other route
+   can inherit it. Kept in @layer components so Tailwind utilities
+   applied on the same element still win.
+   ============================================================ */
+@layer components {
+  .platform-page {
+    /* The hero's field colour. Change this one value to recolour it.
+       Try: 208 88% 11% (deep blue), 205 80% 6% (near-black),
+       224 70% 12% (indigo), 190 80% 9% (petrol).
+       Kept off --navy (205 78% 13%) on purpose so the hero does not
+       match the navy CTA band at the foot of the page. */
+    --pf-void: 208 88% 11%;
+
+    /* The site puts the second line of a headline in --primary blue
+       (see components/Hero.tsx, GCCProspectData, SuccessStories). That
+       blue is mixed for white backgrounds and only clears 3.6:1 on this
+       hero's dark ground, so the hero uses the same hue lightened to
+       read properly against it: 7.9:1, comfortably past AA. */
+    --pf-blue: 204 100% 66%;
+
+  }
+
+  .platform-hero {
+    background-color: hsl(var(--pf-void));
+  }
+
+  /* Dissolves the hero into the white body rather than cutting to it.
+
+     Eased rather than left as a plain two-stop ramp. A linear alpha ramp
+     does not read as linear: the eye tracks the midpoint hardest, so a
+     straight fade shows up as a soft edge lying across the hero. This
+     steps through a smoothstep curve (3t² - 2t³), which flattens at both
+     ends and concentrates the change in the middle where it is least
+     visible, so the fall has no discernible start or finish.
+
+     Every stop is the same colour at varying alpha. Fading white to a
+     transparent *dark* would interpolate through the greys between the
+     two and lay a dirty band across the middle of the transition. */
+  .platform-hero-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      hsl(var(--background) / 1) 0%,
+      hsl(var(--background) / 0.972) 4%,
+      hsl(var(--background) / 0.896) 8%,
+      hsl(var(--background) / 0.784) 11%,
+      hsl(var(--background) / 0.648) 15%,
+      hsl(var(--background) / 0.5) 19%,
+      hsl(var(--background) / 0.352) 23%,
+      hsl(var(--background) / 0.216) 27%,
+      hsl(var(--background) / 0.104) 30%,
+      hsl(var(--background) / 0.028) 34%,
+      hsl(var(--background) / 0) 38%
+    );
+  }
+
+  /* The screenshots ship pre-cropped with their own rounded corners, so
+     they get no frame and no backing plate — either would double up on
+     what the asset already has, and a backing plate would square off the
+     corners the PNG deliberately rounds. drop-shadow (not box-shadow)
+     follows the alpha channel, so the shadow traces the real corner
+     radius and lifts the shot off the page on its own. */
+  .platform-shot {
+    filter:
+      drop-shadow(0 1px 1px hsl(var(--navy) / 0.04))
+      drop-shadow(0 12px 24px hsl(var(--navy) / 0.08));
+  }
+
+
+  .platform-hero-accent {
+    color: hsl(var(--pf-blue));
+  }
+
+  /* Brand marks run larger here than elsewhere. Scoped to .platform-page
+     rather than changed in TrustLogos itself, because that component is
+     shared with the home page through ResearchNXT and the smaller mark
+     is correct there. The descendant selector outranks the component's
+     own h-9 / md:h-11 utilities on specificity. */
+  .platform-page .trust-logos-item img {
+    height: 3.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .platform-page .trust-logos-item img {
+      height: 4.5rem;
+    }
+  }
+
+  /* Frame for the wide product shots: a thin matte and rule that give a
+     screenshot a defined edge where its own content runs pale at the
+     border. Radius sits a little above the shots' own corner radius so
+     the two curves nest instead of fighting.
+
+     box-shadow rather than the drop-shadow used on unframed shots: the
+     frame is a solid rectangle, so there is no alpha channel to trace
+     and box-shadow is markedly cheaper to composite. */
+  .platform-frame {
+    padding: 0.5rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.875rem;
+    background: linear-gradient(155deg, hsl(0 0% 100%), hsl(210 40% 97%));
+    box-shadow:
+      0 1px 2px hsl(var(--navy) / 0.05),
+      0 18px 36px -20px hsl(var(--navy) / 0.22);
+  }
+
+}
