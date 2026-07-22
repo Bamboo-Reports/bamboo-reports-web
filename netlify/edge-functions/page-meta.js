@@ -6,11 +6,11 @@ const PAGE_META = {
     description: "Map your India GCC opportunity with Bamboo Reports.",
   },
   "/reports/india-gcc-report-q1-fy27": {
-    title: "India GCC Quarterly Report, Q1 2026 (April to June) | Bamboo Reports",
+    title: "India GCC Quarterly Report, Q2 2026 (April to June) | Bamboo Reports",
     description:
-      "The Q1 2026 India GCC Quarterly Report: 110 centre events across 27 cities, mapped to corridor level. Free, publishing late July 2026. Register to receive it first.",
+      "The Q2 2026 India GCC Quarterly Report: 110 centres from 99 companies, mapped to corridor level. Free, publishing late July 2026. Register to receive it first.",
     image:
-      "https://www.bambooreports.com/gcc/india-gcc-report-share-card-q1-2026.png",
+      "https://www.bambooreports.com/gcc/india-gcc-report-share-card-q2-2026.png",
     url: "https://www.bambooreports.com/reports/india-gcc-report-q1-fy27",
   },
 };

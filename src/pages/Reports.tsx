@@ -13,7 +13,7 @@ const reports: ResourceItem[] = [
   {
     to: "/reports/india-gcc-report-q1-fy27",
     label: "Quarterly report",
-    title: "The Q1 2026-27 India GCC report",
+    title: "The Q2 2026 India GCC report",
     summary:
       "Who set up or expanded near you, where the hiring went, and which corridors are opening next.",
     gradientIndex: 0,
