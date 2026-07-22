@@ -11,9 +11,8 @@ const Q1ReportSection = () => (
 
     <div className="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-14 gap-y-8">
       <div>
-        <p className="flex items-center gap-3 text-sm font-semibold tabular-nums text-white/70">
-          <span className="h-px w-8 bg-accent" aria-hidden />
-          Q1 2026-27
+        <p className="text-sm font-semibold tabular-nums text-white/70">
+          Q2 2026
         </p>
 
         <h2 className="mt-4 max-w-2xl text-balance text-2xl font-bold leading-tight tracking-tight text-white md:text-3xl">

@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/research-nxt-logo.svg";
+import logo from "@/assets/bamboo-logo.svg";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 
 const IndiaGccReportQ1FY27ThankYou = () => {
   useSEO({
-    title: "You are on the list | Bamboo Reports",
+    title: "You're all set | Bamboo Reports",
     description:
-      "Your registration for the Q1 2026 India GCC report is confirmed. The report reaches your inbox the day it releases.",
+      "Your registration for the Q2 2026 India GCC report is confirmed. The report reaches your inbox the day it releases.",
     canonicalUrl:
       "https://www.bambooreports.com/reports/india-gcc-report-q1-fy27/thank-you",
   });
@@ -38,55 +38,45 @@ const IndiaGccReportQ1FY27ThankYou = () => {
           <Link to="/" aria-label="Bamboo Reports home">
             <img
               src={logo}
-              alt="Research NXT"
-              width={94}
-              height={16}
-              className="h-7 w-auto md:h-8"
+              alt="Bamboo Reports"
+              width={777}
+              height={336}
+              className="h-10 w-auto md:h-12"
             />
           </Link>
         </div>
       </header>
 
       <main className="px-4 py-12 md:py-20">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16">
-          <section>
+        <div className="mx-auto grid max-w-5xl items-start gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:grid-rows-[auto_1fr] md:gap-x-16 md:gap-y-0">
+          <section className="md:col-start-1 md:row-start-1">
             <p className="hero-rise flex items-center gap-2.5 text-sm font-semibold text-muted-foreground">
               <CheckCircle className="h-5 w-5 text-primary" aria-hidden />
               Registration confirmed
             </p>
             <h1 className="hero-rise mt-4 text-balance text-4xl font-bold leading-tight [animation-delay:80ms] md:text-5xl">
-              You are on <span className="text-primary">the list.</span>
+              You&apos;re all set{" "}
+              <span className="text-primary">and on the list.</span>
             </h1>
             <p className="hero-rise mt-5 max-w-2xl leading-relaxed text-muted-foreground [animation-delay:160ms]">
-              Thank you for pre-registering for the India GCC Quarterly
-              Report, Q1 2026, April to June.
+              Thank you for pre-registering. You&apos;ll receive your copy the
+              day it releases.
             </p>
+          </section>
 
-            <p className="hero-rise mt-10 flex items-center gap-3 text-sm font-semibold text-muted-foreground [animation-delay:200ms]">
-              <span className="h-px w-8 bg-accent" aria-hidden />
-              What happens next
-            </p>
-            <dl className="hero-rise mt-4 max-w-2xl border-t-2 border-navy [animation-delay:240ms]">
-              <div className="grid grid-cols-[6.5rem_1fr] gap-4 border-b py-4">
-                <dt className="text-sm font-semibold text-navy">Now</dt>
-                <dd className="text-sm leading-relaxed text-muted-foreground">
-                  Your spot on the list is confirmed. Nothing more to do from
-                  your side.
-                </dd>
-              </div>
-              <div className="grid grid-cols-[6.5rem_1fr] gap-4 border-b py-4">
-                <dt className="text-sm font-semibold text-navy">Late July</dt>
-                <dd className="text-sm leading-relaxed text-muted-foreground">
-                  The report releases. It reaches registrants first, by email,
-                  on the day it goes out.
-                </dd>
-              </div>
-            </dl>
+          <img
+            src="/gcc/india-gcc-report-cover-q2-2026.webp"
+            alt="Report cover: India GCC Quarterly Report, Q2 2026, April to June"
+            width={880}
+            height={1245}
+            className="hero-rise w-44 justify-self-center rounded-md shadow-xl shadow-navy/25 [animation-delay:160ms] sm:w-52 md:col-start-2 md:row-start-1 md:row-span-2 md:w-64 md:self-center"
+          />
 
-            <div className="hero-rise mt-8 flex flex-col gap-3 [animation-delay:280ms] sm:flex-row">
+          <section className="md:col-start-1 md:row-start-2">
+            <div className="hero-rise flex flex-col gap-3 [animation-delay:200ms] sm:flex-row md:mt-8">
               <Button asChild className="group font-semibold">
                 <Link to="/">
-                  Explore Bamboo Reports
+                  Explore the platform
                   <ArrowRight
                     className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
                     aria-hidden
@@ -103,24 +93,14 @@ const IndiaGccReportQ1FY27ThankYou = () => {
                 </a>
               </Button>
             </div>
-            <p className="hero-rise mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground [animation-delay:320ms]">
-              Working on GCC plans right now and want the platform behind the
-              report?{" "}
+            <p className="hero-rise mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground [animation-delay:240ms]">
+              Want the data behind the report, live and in full?{" "}
               <GoogleCalendarSchedulingButton className="font-semibold text-primary hover:underline">
                 Book a walkthrough with our team
               </GoogleCalendarSchedulingButton>
               .
             </p>
           </section>
-
-          <img
-            src="/gcc/india-gcc-report-cover-q1-fy27.webp"
-            alt="Report cover: India GCC Quarterly Report, Q1 2026, April to June"
-            width={640}
-            height={905}
-            loading="lazy"
-            className="hero-rise w-44 justify-self-center rounded-md shadow-xl shadow-navy/25 [animation-delay:160ms] sm:w-52 md:w-64"
-          />
         </div>
       </main>
 
@@ -135,7 +115,7 @@ const IndiaGccReportQ1FY27ThankYou = () => {
             >
               Bamboo Reports
             </a>{" "}
-            Intelligence &middot;{" "}
+            GCC Intelligence &middot;{" "}
             <a
               href="https://bambooreports.com/privacy"
               className="text-primary hover:underline"

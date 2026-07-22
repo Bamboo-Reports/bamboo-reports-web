@@ -278,7 +278,7 @@ export function staticPage({ title, description, canonical, schemas, body, src }
   </style>
 </head>
 <body>
-  <a class="promo-bar" href="/signup?src=${esc(src)}-q1report">The Q1 2026 India GCC Report drops this July. <u>Sign up free for early access &rarr;</u></a>
+  <a class="promo-bar" href="/signup?src=${esc(src)}-q1report">The Q2 2026 India GCC Report drops this July. <u>Sign up free for early access &rarr;</u></a>
   <header class="site-header">
     <div class="wrap">
       <a href="/"><img src="/logo.png" alt="Bamboo Reports"></a>
