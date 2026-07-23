@@ -3,123 +3,110 @@
 // lives here and in PlatformBody rather than being duplicated per page.
 
 export const HERO_SHOT = {
-  src: "https://xd2d5vjp71.ufs.sh/f/0V27W3GsJ8f2kyQ1ard2BXN70GreCs2D1mJHRucVizM9KI3O",
-  alt: "Bamboo Reports platform: accounts, centres and prospects explorable across data, filters and map",
+  src: "/platform/page/hero-1280.webp",
+  srcSet:
+    "/platform/page/hero-640.webp 640w, /platform/page/hero-1280.webp 1280w, /platform/page/hero-1920.webp 1920w",
+  sizes: "(min-width: 1280px) 1152px, calc(100vw - 24px)",
+  alt: "Bamboo Reports showing accounts, centres and prospects across data, filters and geographic views",
   width: 7680,
   height: 4800,
 };
 
 export const HERO_HEADLINE = {
-  lead: "India’s GCC market,",
-  trail: "down to the centre.",
+  lead: "Know every GCC in India.",
+  trail: "Act on the right ones.",
 };
 
 export const HERO_DESCRIPTION =
-  "Move from the market landscape to the individual accounts, centres and decision-makers behind it with structured intelligence built for GTM and strategy teams.";
+  "Search accounts. See every centre by location. Find the decision-makers behind them. Bamboo Reports gives GTM and strategy teams the data to choose where to act next.";
 
 // Ordered as the work is actually done, not as the product is built:
-// scope a market, find it on the ground, scan it, open one account,
-// keep the query, run it every week. The verbs carry that sequence, so
-// the numbering is information rather than decoration.
+// scope a market, find it on the ground, scan it, open an account,
+// keep the query, run it regularly.
 export const STAGES: Array<{
   id: string;
   verb: string;
-  title: string;
   headline: string;
   desc: string;
   src: string;
+  srcSet: string;
   alt: string;
   width: number;
   height: number;
 }> = [
   {
     id: "filters",
-    verb: "Scope",
-    title: "Filters",
-    headline: "Ask precise questions, get precise answers.",
-    desc: "Include, exclude and band any combination of country, industry, revenue, headcount, tech stack, function and seniority, with alias-aware search that finds a company by its brand name or its former identity.",
-    src: "https://xd2d5vjp71.ufs.sh/f/0V27W3GsJ8f2EOlAl3HfMHwsL89m3gv7PNkiCYKtRFJ1ucB0",
+    verb: "Define",
+    headline: "Define the market you want.",
+    desc: "Combine geography, industry, revenue, headcount, technology, function and seniority. Include what matters. Exclude what does not. Find companies by current or former names.",
+    src: "/platform/page/filters-1280.webp",
+    srcSet:
+      "/platform/page/filters-640.webp 640w, /platform/page/filters-1280.webp 1280w, /platform/page/filters-1920.webp 1920w",
     alt: "Bamboo Reports filters across account, centre and prospect attributes",
-    width: 2800,
-    height: 3920,
+    width: 5132,
+    height: 4880,
   },
   {
     id: "map",
     verb: "Locate",
-    title: "Map",
-    headline: "See where the opportunity actually is.",
-    desc: "Thousands of delivery centres on an interactive cluster map, rolled up into a state-level heat map, so geography becomes a filter rather than a guess.",
-    src: "https://xd2d5vjp71.ufs.sh/f/0V27W3GsJ8f2hwn1bjtMDouzwg3ZY21PLxb65Ut0RTkyIAeN",
-    alt: "Bamboo Reports map: interactive cluster map and state-level heat map of delivery centres",
+    headline: "See where every centre operates.",
+    desc: "See Global Capability centres by location, cluster and state. Compare where companies operate, spot concentrations and turn geography into a search criterion.",
+    src: "/platform/page/map-1280.webp",
+    srcSet:
+      "/platform/page/map-640.webp 640w, /platform/page/map-1280.webp 1280w, /platform/page/map-1920.webp 1920w",
+    alt: "Bamboo Reports map: interactive cluster map and state-level heat map of Global Capability centres",
     width: 6080,
     height: 2728,
   },
   {
     id: "data-view",
-    verb: "Scan",
-    title: "Data View",
-    headline: "Every account, centre, and contact in one clean, fast table.",
-    desc: "Every Account, Centre, Prospect and Service in a single structured grid built for speed at scale, where you can sort, scan and open a full detail view on any record in one click.",
-    src: "https://xd2d5vjp71.ufs.sh/f/0V27W3GsJ8f2prKtyxXrHBoz1jGMIlnYvTFRQiLZUkPcN5mg",
-    alt: "Bamboo Reports data view: accounts, centres, prospects and services in a single grid",
+    verb: "Prioritise",
+    headline: "Find the accounts worth your time.",
+    desc: "Sort and compare accounts, centres, prospects and services in one structured view. Open any record for the detail behind the row.",
+    src: "/platform/page/data-view-1280.webp",
+    srcSet:
+      "/platform/page/data-view-640.webp 640w, /platform/page/data-view-1280.webp 1280w, /platform/page/data-view-1920.webp 1920w",
+    alt: "Bamboo Reports data view with accounts, centres, prospects and services in a structured grid",
     width: 6076,
     height: 2256,
   },
   {
     id: "extended-data-view",
-    verb: "Drill",
-    title: "Extended Data View",
-    headline: "Open any account, see every centre behind it.",
-    desc: "Click into any account to unfold every delivery centre tied to it, mapped and tabulated with headcount, location and centre type, so you can see at a glance whether a company runs one office or twenty.",
-    src: "https://xd2d5vjp71.ufs.sh/f/0V27W3GsJ8f2eQJTklrIRFAYJNvBOT3lyhjVbQW9pUgKr4GZ",
+    verb: "Understand",
+    headline: "See the full India footprint.",
+    desc: "Open an account to see every linked Global Capability centre, with location, headcount and centre type. Understand the company behind the logo before you make contact.",
+    src: "/platform/page/account-detail-1280.webp",
+    srcSet:
+      "/platform/page/account-detail-640.webp 640w, /platform/page/account-detail-1280.webp 1280w, /platform/page/account-detail-1920.webp 1920w",
     alt: "Bamboo Reports extended data view: an account's linked centres with headcount, location and centre type",
     width: 7320,
     height: 3760,
   },
   {
     id: "saved-filters",
-    verb: "Keep",
-    title: "Saved Filters",
-    headline: "Build it once, use it forever.",
-    desc: "Save any filter combination to the cloud, pull it back up in a click and share it with the team, so a weekly prospecting list or a standing market view survives without re-explaining the criteria.",
-    src: "https://xd2d5vjp71.ufs.sh/f/0V27W3GsJ8f2B8T3GtFh8k2dXSZtvPegjaRiOoUJ1E7C0zG5",
+    verb: "Return",
+    headline: "Return to the same answer next week.",
+    desc: "Save any search, reopen it in one click and share it with your team. Keep recurring prospect lists and market views consistent without rebuilding the criteria.",
+    src: "/platform/page/saved-filters-current-1280.webp",
+    srcSet:
+      "/platform/page/saved-filters-current-640.webp 640w, /platform/page/saved-filters-current-1280.webp 1280w, /platform/page/saved-filters-current-1920.webp 1920w",
     alt: "Bamboo Reports saved filters manager, shareable across the team",
     width: 4612,
     height: 3352,
   },
-  {
-    id: "quick-actions",
-    verb: "Operate",
-    title: "Quick Actions",
-    headline: "Everything you need, one click away.",
-    desc: "Refresh your data, check what's changed, switch to dark mode or manage your account from a single always-accessible bar, with no hunting through menus to catch up on the latest updates.",
-    src: "https://xd2d5vjp71.ufs.sh/f/0V27W3GsJ8f2f2yUL2EqyfrhepADqo4KsalcwOndS5NgEMzj",
-    alt: "Bamboo Reports quick actions bar for refresh, updates, dark mode and account management",
-    width: 4704,
-    height: 3452,
-  },
-];
-
-export const CAPABILITIES = [
-  { title: "Layered filters", desc: "Stack geography, sector, function, size and centre status to carve out the perfect segment in seconds." },
-  { title: "Global search", desc: "Reach any account, centre or prospect with a single keystroke. The whole ecosystem at your fingertips." },
-  { title: "Table & grid modes", desc: "Scan fast in grid view, analyse deep in table view. Same data, your way of working." },
-  { title: "Linked entities", desc: "Accounts, centres, prospects and headcount cross-reference automatically. No reconciliation, no joins." },
-  { title: "Clean exports", desc: "Push any slice straight into your CRM, Excel or analytics stack. Always tidy, always ready to ship." },
-  { title: "Built centre by centre", desc: "Bottom-up research with 250+ structured data points per GCC centre. Current, centre-level data, not a 12-month-old published report." },
 ];
 
 export const PERSONAS = [
-  { name: "GTM leaders & sellers", desc: "Surface ICP-fit accounts, prioritise the right centres and put a clean, ranked target list in every seller's hands every Monday morning." },
-  { name: "GCC site & PMO leaders", desc: "Benchmark against the peer set, watch the ecosystem move in real time and walk into your next location decision with conviction." },
-  { name: "Staffing, RPO & talent firms", desc: "Reach the right HR and function leaders across every growing centre in India, mapped by role, function and headcount." },
-  { name: "CRE, facilities & infra", desc: "See new centres, expansions and relocations weeks before your competitors do, and turn signal into pipeline." },
+  { name: "GTM leaders & sellers", desc: "Find ICP-fit accounts, rank the right centres and give every seller a target list they can explain." },
+  { name: "GCC site & PMO leaders", desc: "Compare peer footprints, track market movement and bring stronger evidence to location and expansion decisions." },
+  { name: "Staffing, RPO & talent firms", desc: "Find growing centres and reach the HR and function leaders behind their hiring demand." },
+  { name: "CRE, facilities & infrastructure", desc: "Track new centres, expansions and relocations. Reach the companies creating demand in each market." },
 ];
 
 export const PLATFORM_SEO = {
-  title: "Platform | The Definitive India GCC Intelligence Workspace | Bamboo Reports",
+  title: "India GCC Intelligence Platform | Bamboo Reports",
   description:
-    "The intelligence layer India's GCC ecosystem was missing. 2,400+ accounts, 5,900+ centres and 60K+ named decision-makers, explorable across map, data and filters.",
+    "Search India GCC accounts, compare Global Capability centre locations and find the decision-makers behind them with Bamboo Reports.",
   keywords:
     "GCC platform, India GCC intelligence, GCC analytics, GCC database, account analytics, centre analytics",
 };

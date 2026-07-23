@@ -86,7 +86,7 @@ const Hero = () => {
           >
             <img
               src={gccIllustration}
-              alt="GCC Intelligence Platform - Global Capability Centers Data Analytics and Market Intelligence Illustration"
+              alt="GCC Intelligence Platform - Global Capability Centres Data Analytics and Market Intelligence Illustration"
               width="1024"
               height="714"
               fetchPriority="high"

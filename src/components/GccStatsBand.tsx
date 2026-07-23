@@ -7,7 +7,7 @@ import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const STATS: Array<{ label: string; value: number }> = [
   { label: "Companies", value: TRACKER_STATS.accountsTracked },
-  { label: "Centers", value: TRACKER_STATS.centers },
+  { label: "Centres", value: TRACKER_STATS.centers },
   { label: "Leaders", value: TRACKER_STATS.decisionMakers },
 ];
 

@@ -40,7 +40,7 @@ export const featureItems: FeatureItem[] = [
   {
     id: "what-if-scenarios",
     title: "What-if scenarios",
-    summary: "Model GCC decisions before you make them.",
+    summary: "Model critical GCC decisions before you commit resources.",
     description: "Run structured scenario comparisons using verified centre-level data so strategic decisions are grounded in reality, not spreadsheet assumptions or anecdotes.",
     icon: Lightbulb,
     href: "/features/what-if-scenarios",
@@ -90,7 +90,7 @@ export const featureItems: FeatureItem[] = [
   {
     id: "tailor-made-market-insights",
     title: "Tailor-made market insights",
-    summary: "Analyst-led intelligence built around your question, not a template dashboard.",
+    summary: "Analyst-led answers, not another template dashboard.",
     description: "Custom market insights designed around specific business questions using verified GCC data, analyst interpretation, and contextual narratives teams can act on immediately.",
     icon: Target,
     href: "/features/tailor-made-market-insights",

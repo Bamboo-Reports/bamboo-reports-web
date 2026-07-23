@@ -13,8 +13,8 @@ interface SEOConfig {
 
 const DEFAULT_CONFIG: SEOConfig = {
   title: "GCC Intelligence India | GTM Market Intelligence | Bamboo Reports",
-  description: "India's leading GCC Intelligence platform with 2400+ Global Capability Centers data. GTM market intelligence, India GCC insights, and Go-to-market research for strategic GCC expansion in India.",
-  keywords: "GCC Intelligence India, GTM Intelligence, GCC India, India GCC Intelligence, Global Capability Centers India, GTM Market Intelligence, Go-to-market Intelligence India, India GCC market intelligence, GCC GTM strategy, India GCC expansion, GCC Intelligence platform, GTM research India",
+  description: "India's leading GCC Intelligence platform with 2400+ Global Capability Centres data. GTM market intelligence, India GCC insights, and Go-to-market research for strategic GCC expansion in India.",
+  keywords: "GCC Intelligence India, GTM Intelligence, GCC India, India GCC Intelligence, Global Capability Centres India, GTM Market Intelligence, Go-to-market Intelligence India, India GCC market intelligence, GCC GTM strategy, India GCC expansion, GCC Intelligence platform, GTM research India",
   ogType: "website",
 };
 

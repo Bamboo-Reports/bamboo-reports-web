@@ -7,11 +7,11 @@ const categories = [
   },
   {
     title: "Functions",
-    description: "Analysis of all capability center types, including R&D, Engineering, IT, Manufacturing, GBS, GCC/GIC, SSC, and Sales & Marketing."
+    description: "Analysis of all capability centre types, including R&D, Engineering, IT, Manufacturing, GBS, GCC/GIC, SSC, and Sales & Marketing."
   },
   {
     title: "Geographies",
-    description: "A unified platform mapping Global Capability Centers (GCCs) from multinational corporations headquartered in 50+ countries."
+    description: "A unified platform covering Global Capability Centres (GCCs) from multinational corporations headquartered in 50+ countries."
   }
 ];
 
@@ -42,7 +42,7 @@ const IntelligenceSpans = () => (
       <div className="flex justify-center">
         <img
           src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvtzygjYwUp8Nhz4JPlI9VjQ2s5H0dy6CEAk1g"
-          alt="GCC Intelligence Coverage Map"
+          alt="GCC Intelligence Coverage"
           width="2280"
           height="2282"
           loading="lazy"

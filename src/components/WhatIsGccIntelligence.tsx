@@ -26,11 +26,11 @@ const WhatIsGccIntelligence = () => (
       <div>
         <p className="text-pretty text-lg font-medium leading-relaxed text-foreground md:text-xl">
           GCC Intelligence is the structured, data-driven understanding of
-          Global Capability Centers (GCCs), also known as Global In-house
-          Centers (GICs).
+          Global Capability Centres (GCCs), also known as Global In-house
+          Centres (GICs).
         </p>
         <p className="mt-5 max-w-prose leading-relaxed text-muted-foreground">
-          These centers are the offshore operations of multinational companies,
+          These centres are the offshore operations of multinational companies,
           handling a wide range of strategic, operational, and
           innovation-driven functions.
         </p>
@@ -38,7 +38,7 @@ const WhatIsGccIntelligence = () => (
         <div className="mt-8 border-t pt-6">
           <h3 className="text-lg font-bold">Why India leads</h3>
           <p className="mt-2 max-w-prose leading-relaxed text-muted-foreground">
-            India has become a key destination for these centers, thanks to its
+            India has become a key destination for these centres, thanks to its
             talent density, mature ecosystems, and infrastructure. The role of
             GCCs has expanded well beyond cost efficiency to driving
             innovation, agility, and business continuity.

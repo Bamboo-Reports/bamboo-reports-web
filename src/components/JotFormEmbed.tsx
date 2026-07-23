@@ -9,6 +9,7 @@ interface JotFormEmbedProps {
   formId: string;
   title: string;
   height?: string;
+  heightClassName?: string;
   className?: string;
 }
 
@@ -21,6 +22,7 @@ const JotFormEmbed = ({
   formId,
   title,
   height = "539px",
+  heightClassName,
   className = "",
 }: JotFormEmbedProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -142,7 +144,10 @@ const JotFormEmbed = ({
   };
 
   return (
-    <div className={`relative overflow-hidden ${className}`} style={{ height }}>
+    <div
+      className={`relative overflow-hidden ${heightClassName ?? ""} ${className}`}
+      style={heightClassName ? undefined : { height }}
+    >
       {/* Loading skeleton */}
       <div
         className={`absolute inset-0 z-10 bg-background flex flex-col items-center justify-center gap-4 transition-opacity duration-300 ${
@@ -187,7 +192,7 @@ const JotFormEmbed = ({
         style={{
           minWidth: "100%",
           maxWidth: "100%",
-          height,
+          height: heightClassName ? "100%" : height,
           border: "none",
         }}
         scrolling="no"
