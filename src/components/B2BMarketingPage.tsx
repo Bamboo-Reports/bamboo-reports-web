@@ -7,29 +7,57 @@ export const MarketingHero = ({
   title,
   description,
   showAction = true,
+  pageIntro = false,
 }: {
   title: ReactNode;
-  description: ReactNode;
+  description?: ReactNode;
   showAction?: boolean;
+  pageIntro?: boolean;
 }) => (
-  <section className="border-b px-4 pb-14 pt-10 md:pb-20 md:pt-16">
-    <div className="mx-auto max-w-7xl">
-      <h1 className="max-w-6xl break-words text-3xl font-bold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
+  <section
+    className={`border-b px-4 ${
+      pageIntro
+        ? "bg-secondary/30 py-6 md:py-8"
+        : "pb-14 pt-10 md:pb-20 md:pt-16"
+    }`}
+  >
+    <div
+      className={`mx-auto max-w-7xl ${
+        pageIntro && description
+          ? "grid gap-2 md:grid-cols-[minmax(12rem,0.65fr)_minmax(22rem,1fr)] md:items-center md:gap-10"
+          : ""
+      }`}
+    >
+      <h1
+        className={`max-w-6xl break-words font-bold leading-tight text-balance ${
+          pageIntro
+            ? "text-3xl md:text-4xl"
+            : "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+        }`}
+      >
         {title}
       </h1>
-      <div className="mt-6 max-w-6xl text-base leading-relaxed text-muted-foreground md:text-lg">
-        {description}
+      <div>
+        {description && (
+          <div
+            className={`max-w-6xl text-base leading-relaxed text-muted-foreground md:text-lg ${
+              pageIntro ? "" : "mt-6"
+            }`}
+          >
+            {description}
+          </div>
+        )}
+        {showAction && (
+          <div className="mt-8">
+            <Button asChild size="lg" className="w-full px-7 text-base font-semibold sm:w-auto">
+              <GoogleCalendarSchedulingButton>
+                Get a demo
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </GoogleCalendarSchedulingButton>
+            </Button>
+          </div>
+        )}
       </div>
-      {showAction && (
-        <div className="mt-8">
-          <Button asChild size="lg" className="w-full px-7 text-base font-semibold sm:w-auto">
-            <GoogleCalendarSchedulingButton>
-              Get a demo
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </GoogleCalendarSchedulingButton>
-          </Button>
-        </div>
-      )}
     </div>
   </section>
 );

@@ -37,14 +37,18 @@ const Resources = () => {
       <Header />
 
       <main>
-        <MarketingHero showAction={false} title="Resources" />
+        <MarketingHero
+          showAction={false}
+          pageIntro
+          title="Resources"
+        />
 
         <FadeIn>
-          <section className="px-4 py-14 md:py-20">
+          <section id="reports" className="scroll-mt-36 px-4 py-14 md:py-16">
             <div className="mx-auto max-w-7xl">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="flex items-end justify-between">
                 <h2 className="text-3xl font-bold md:text-4xl">Reports</h2>
-                <Button variant="outline" asChild>
+                <Button variant="outline" className="hidden sm:inline-flex" asChild>
                   <Link to="/reports">View all</Link>
                 </Button>
               </div>
@@ -53,18 +57,23 @@ const Resources = () => {
                   <ResourceCard key={report.to} item={report} />
                 ))}
               </div>
+              <div className="mt-6 flex justify-end sm:hidden">
+                <Button variant="outline" asChild>
+                  <Link to="/reports">View all reports</Link>
+                </Button>
+              </div>
             </div>
           </section>
         </FadeIn>
 
         <FadeIn>
-          <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
+          <section id="interesting-reads" className="scroll-mt-36 border-y bg-secondary/30 px-4 py-14 md:py-16">
             <div className="mx-auto max-w-7xl">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="flex items-end justify-between">
                 <h2 className="text-3xl font-bold md:text-4xl">
                   Interesting reads
                 </h2>
-                <Button variant="outline" asChild>
+                <Button variant="outline" className="hidden sm:inline-flex" asChild>
                   <Link to="/reads">View all</Link>
                 </Button>
               </div>
@@ -72,6 +81,11 @@ const Resources = () => {
                 {reads.map((read) => (
                   <ResourceCard key={read.to} item={read} />
                 ))}
+              </div>
+              <div className="mt-6 flex justify-end sm:hidden">
+                <Button variant="outline" asChild>
+                  <Link to="/reads">View all reads</Link>
+                </Button>
               </div>
             </div>
           </section>

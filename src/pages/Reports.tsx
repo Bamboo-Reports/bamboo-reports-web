@@ -35,10 +35,14 @@ const Reports = () => {
       <Header />
 
       <main>
-        <MarketingHero showAction={false} title="Reports" />
+        <MarketingHero
+          showAction={false}
+          pageIntro
+          title="Reports"
+        />
 
         <FadeIn>
-          <section className="px-4 py-14 md:py-20">
+          <section className="px-4 py-14 md:py-16">
             <div className="mx-auto max-w-7xl">
               <p className="text-sm font-semibold text-accent">Latest report</p>
               <div className="mt-6">
