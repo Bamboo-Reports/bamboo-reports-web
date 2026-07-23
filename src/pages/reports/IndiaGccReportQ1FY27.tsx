@@ -140,8 +140,8 @@ const IndiaGccReportQ1FY27 = () => {
   };
 
   const seoDescription = Q1_REPORT_NUMBERS_CONFIRMED
-    ? "The Q2 2026 India GCC Quarterly Report: 110 centres from 99 companies, mapped to corridor level. Free, publishing late July 2026. Register to receive it first."
-    : "The Q2 2026 India GCC Quarterly Report: every centre event of the quarter, mapped to corridor level. Free, publishing late July 2026. Register to receive it first.";
+    ? "The Q2 2026 India GCC Quarterly Report covers 110 centres across 99 companies, including new entrants, expansions and hiring shifts. Free, publishing late July 2026."
+    : "The Q2 2026 India GCC Quarterly Report covers new centres, expansions and hiring shifts across India. Free, publishing late July 2026.";
 
   useSEO({
     title: "India GCC Quarterly Report, Q2 2026 (April to June) | Bamboo Reports",
@@ -200,17 +200,6 @@ const IndiaGccReportQ1FY27 = () => {
               Be the first to get your free copy, delivered to your inbox the
               day it releases.
             </p>
-            <Button
-              onClick={goToForm}
-              className="hero-rise group mt-5 w-full font-semibold [animation-delay:200ms] sm:w-auto lg:hidden"
-            >
-              Register now
-              <ArrowRight
-                className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-                aria-hidden
-              />
-            </Button>
-
             {Q1_REPORT_NUMBERS_CONFIRMED && (
               <div className="hero-rise mt-6 rounded-lg border border-t-4 border-t-navy bg-background shadow-sm [animation-delay:220ms]">
                 <dl className="grid grid-cols-3 gap-3 p-4 sm:gap-0 sm:p-6 md:p-7">
@@ -228,17 +217,29 @@ const IndiaGccReportQ1FY27 = () => {
                       >
                         {stat.value}
                       </dd>
-                      <dt className="mt-1.5 text-xs leading-snug text-muted-foreground sm:text-sm">
+                      <dt className="mt-1.5 text-[13px] leading-snug text-muted-foreground sm:text-sm">
                         {stat.label}
                       </dt>
                     </div>
                   ))}
                 </dl>
-                <p className="border-t px-4 py-3 text-xs text-muted-foreground sm:px-6 md:px-7">
+                <p className="border-t px-4 py-3 text-[13px] text-muted-foreground sm:px-6 md:px-7">
                   Source: Bamboo Reports platform, July 2026.
                 </p>
               </div>
             )}
+
+            <Button
+              onClick={goToForm}
+              size="lg"
+              className="hero-rise group mt-5 w-full font-semibold [animation-delay:240ms] sm:w-auto lg:hidden"
+            >
+              Register now
+              <ArrowRight
+                className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+                aria-hidden
+              />
+            </Button>
           </section>
 
           <aside
@@ -257,7 +258,7 @@ const IndiaGccReportQ1FY27 = () => {
                 <JotFormEmbed
                   formId={REPORT_FORM_ID}
                   title="BR - Q2 2026 (Registration)"
-                  height="500px"
+                  heightClassName="h-[620px] lg:h-[500px]"
                 />
               </div>
               <p className="mt-3 text-center text-xs text-muted-foreground">
@@ -297,7 +298,7 @@ const IndiaGccReportQ1FY27 = () => {
               </ol>
             </div>
 
-            <p className="mt-5 max-w-2xl text-sm leading-loose text-muted-foreground">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
               <strong className="font-semibold text-foreground">
                 Also inside:
               </strong>{" "}
@@ -320,7 +321,7 @@ const IndiaGccReportQ1FY27 = () => {
             <h2 className="mt-3 text-2xl font-bold leading-snug tracking-tight md:text-3xl">
               Counted from the ground up, not estimated from the top down
             </h2>
-            <p className="mt-3 text-sm leading-loose text-muted-foreground md:text-[15px]">
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
               Research NXT has worked on India&apos;s GCC ecosystem since 2018.
               The report is built on{" "}
               <a
@@ -370,7 +371,7 @@ const IndiaGccReportQ1FY27 = () => {
                   </span>
                   {faq.question}
                 </summary>
-                <p className="max-w-2xl pt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="max-w-2xl pt-2 text-base leading-relaxed text-muted-foreground">
                   {faq.answer}
                 </p>
               </details>
@@ -414,6 +415,7 @@ const IndiaGccReportQ1FY27 = () => {
         <Button
           onClick={goToForm}
           tabIndex={pastHero && !formInView ? 0 : -1}
+          size="lg"
           className="group w-full font-semibold"
         >
           Register now
@@ -431,9 +433,9 @@ const IndiaGccReportQ1FY27 = () => {
               Before you go, reserve your copy.
             </DialogTitle>
             <DialogDescription className="pt-2 leading-relaxed">
-              {Q1_REPORT_NUMBERS_CONFIRMED
-                ? "Registration takes under a minute and reserves your copy of the Q2 2026 India GCC Quarterly Report: 110 centres from 99 companies, mapped to corridor level, publishing late July 2026."
-                : "Registration takes under a minute and reserves your copy of the Q2 2026 India GCC Quarterly Report: every centre event of the quarter, mapped to corridor level, publishing late July 2026."}
+              Register in under a minute to receive the Q2 2026 India GCC
+              Quarterly Report on release day. Explore the new centres,
+              expansions and hiring shifts that shaped the quarter.
             </DialogDescription>
           </DialogHeader>
           <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">

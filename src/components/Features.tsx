@@ -13,17 +13,16 @@ const Features = () => (
         </p>
       </div>
 
-      <div className="mt-10 grid gap-x-12 md:grid-cols-2">
+      <div className="mt-10 grid gap-x-8 md:grid-cols-2 lg:grid-cols-4">
         {featureItems.map((feature) => (
-          <div
-            key={feature.id}
-            className="grid grid-cols-[1.5rem_1fr] gap-4 border-t py-6"
-          >
-            <feature.icon className="mt-0.5 h-5 w-5 text-primary" aria-hidden />
-            <div>
-              <h3 className="text-lg font-bold">{feature.title}</h3>
-              <p className="mt-2 text-muted-foreground">{feature.summary}</p>
-            </div>
+          <div key={feature.id} className="border-t py-6">
+            <feature.icon className="h-6 w-6 text-primary" aria-hidden />
+            <h3 className="mt-5 text-lg font-bold leading-snug">
+              {feature.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              {feature.summary}
+            </p>
           </div>
         ))}
       </div>

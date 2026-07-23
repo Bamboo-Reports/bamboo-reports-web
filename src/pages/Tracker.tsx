@@ -100,7 +100,7 @@ const USE_CASES = [
   {
     title: "Marketing teams",
     description:
-      "Put a hard number on your addressable market before you plan an ABM program, and know exactly how many decision-makers sit inside your ICP.",
+      "Put a hard number on your addressable market before you plan an ABM programme, and know exactly how many decision-makers sit inside your ICP.",
   },
   {
     title: "Strategy & leadership",
@@ -113,9 +113,9 @@ const Tracker = () => {
   const { user } = useAuth();
   useSEO({
     title: "GCC Companies in India: Directory & Market Size Calculator | Bamboo Reports",
-    description: `Browse a directory of ${nf(TRACKER_STATS.accountsBrowsable)}+ Global Capability Centers in India, from the ${nf(TRACKER_STATS.accountsTracked)} GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.`,
+    description: `Browse a directory of ${nf(TRACKER_STATS.accountsBrowsable)}+ Global Capability Centres in India, from the ${nf(TRACKER_STATS.accountsTracked)} GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.`,
     keywords:
-      "list of GCCs in India, GCC companies in India, India GCC companies directory, India GCC list, Global Capability Centers India, GCC company directory, India GCC market size, GCC TAM calculator, GCC cities, GCC decision makers",
+      "list of GCCs in India, GCC companies in India, India GCC companies directory, India GCC list, Global Capability Centres India, GCC company directory, India GCC market size, GCC TAM calculator, GCC cities, GCC decision makers",
     canonicalUrl: "https://www.bambooreports.com/gcc",
   });
 
@@ -235,7 +235,7 @@ const Tracker = () => {
     [filteredAccounts]
   );
 
-  // With a company explicitly selected, the centres count uses the strict
+  // With a company explicitly selected, the centers count uses the strict
   // definition its public page uses (active, GCC-type centers only) and
   // overrides the city dimension; aggregate views stay account-level.
   const companySelected = filters.account_global_legal_name.length > 0;
@@ -492,7 +492,7 @@ const Tracker = () => {
               isLoading={isLoadingFirstTime}
             />
             <CountCard
-              label="Centers"
+              label="Centres"
               value={counts.centers}
               isLoading={isLoadingFirstTime}
             />

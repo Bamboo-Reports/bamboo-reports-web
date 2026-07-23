@@ -127,7 +127,7 @@ const PlatformBody = () => (
           >
             <p>
               Build pipeline, compare locations, find talent demand or track expansion
-              from the same center-level data.
+              from the same centre-level data.
             </p>
           </SectionIntro>
 

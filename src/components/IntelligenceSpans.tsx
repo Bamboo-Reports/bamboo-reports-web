@@ -7,11 +7,11 @@ const categories = [
   },
   {
     title: "Functions",
-    description: "Analysis of all capability center types, including R&D, Engineering, IT, Manufacturing, GBS, GCC/GIC, SSC, and Sales & Marketing."
+    description: "Analysis of all capability centre types, including R&D, Engineering, IT, Manufacturing, GBS, GCC/GIC, SSC, and Sales & Marketing."
   },
   {
     title: "Geographies",
-    description: "A unified platform covering Global Capability Centers (GCCs) from multinational corporations headquartered in 50+ countries."
+    description: "A unified platform covering Global Capability Centres (GCCs) from multinational corporations headquartered in 50+ countries."
   }
 ];
 

@@ -15,7 +15,7 @@ export type FeatureItem = {
 export const featureItems: FeatureItem[] = [
   {
     id: "coverage",
-    title: "90% more center-level coverage",
+    title: "90% more centre-level coverage",
     summary: "Get the deepest view of GCCs in India with verified, site-level intelligence.",
     description: "Bamboo Reports tracks India's GCC ecosystem at the centre level, not just the company level. This gives you a clearer picture of where teams operate, how they are structured, and where real opportunities exist.",
     icon: TrendingUp,
@@ -40,7 +40,7 @@ export const featureItems: FeatureItem[] = [
   {
     id: "what-if-scenarios",
     title: "What-if scenarios",
-    summary: "Model GCC decisions before you make them.",
+    summary: "Model critical GCC decisions before you commit resources.",
     description: "Run structured scenario comparisons using verified centre-level data so strategic decisions are grounded in reality, not spreadsheet assumptions or anecdotes.",
     icon: Lightbulb,
     href: "/features/what-if-scenarios",

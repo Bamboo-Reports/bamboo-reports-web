@@ -14,19 +14,19 @@ const TermsConditions = () => {
       <p>By accessing Bamboo Reports, you agree to these Terms. If you disagree, please do not use the platform.</p>
       <h2>2. Licence & usage rights</h2>
       <ul>
-        <li>Access is granted on a subscription or enterprise-license basis.</li>
-        <li>Users may view, analyze, and download insights for internal business use only.</li>
+        <li>Access is granted on a subscription or enterprise-licence basis.</li>
+        <li>Users may view, analyse, and download insights for internal business use only.</li>
         <li>Redistribution, repackaging, resale, or public disclosure of Bamboo Reports content without written consent is strictly prohibited.</li>
-        <li>Automated access, scraping, crawling, or bulk extraction of the platform's data, whether by bots, scripts, or any automated means, is prohibited without prior written authorization. This includes using the content to train machine learning or AI models.</li>
+        <li>Automated access, scraping, crawling, or bulk extraction of the platform's data, whether by bots, scripts, or any automated means, is prohibited without prior written authorisation. This includes using the content to train machine learning or AI models.</li>
       </ul>
       <h2>3. Intellectual property</h2>
-      <p>All data frameworks, visualizations, content, UI, and analytics presented are the proprietary intellectual property of Research NXT.</p>
+      <p>All data frameworks, visualisations, content, UI, and analytics presented are the proprietary intellectual property of Research NXT.</p>
       <h2>4. Data accuracy & limitations</h2>
       <p>While insights are derived from verified sources, we do not guarantee complete or error-free information. Decisions taken using Bamboo Reports data are at the user's risk.</p>
       <h2>5. User responsibilities</h2>
       <ul><li>Maintain confidentiality of login access.</li><li>Do not copy, circumvent, reverse-engineer, or export platform technology.</li><li>Ensure content usage complies with ethical, legal, and data privacy standards.</li></ul>
       <h2>6. Payments & subscription</h2>
-      <ul><li>Subscription fees must be paid as agreed in advance.</li><li>Licenses will auto-expire unless renewed.</li><li>No refunds unless validated under a separate agreement.</li></ul>
+      <ul><li>Subscription fees must be paid as agreed in advance.</li><li>Licences will auto-expire unless renewed.</li><li>No refunds unless validated under a separate agreement.</li></ul>
       <h2>7. Confidentiality</h2>
       <p>All user-uploaded or shared internal data shall remain confidential. Research NXT will not disclose or use such data except for service delivery under NDA.</p>
       <h2>8. Service modifications</h2>

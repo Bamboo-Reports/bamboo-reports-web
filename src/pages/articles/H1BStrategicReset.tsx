@@ -149,7 +149,7 @@ const H1BStrategicReset = () => {
     description:
       "Roundtable recap on how India's GCCs are shifting from delivery hubs to decision engines. Key signals, panelists, and playbook prompts from the Bengaluru discussion.",
     keywords:
-      "India GCC roundtable, GCC strategy India, H-1B impact India, Global Capability Centers insights, Bengaluru GCC event, GCC operating models India",
+      "India GCC roundtable, GCC strategy India, H-1B impact India, Global Capability Centres insights, Bengaluru GCC event, GCC operating models India",
   });
 
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);

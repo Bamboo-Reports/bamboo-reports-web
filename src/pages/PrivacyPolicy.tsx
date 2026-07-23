@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
 
   return (
     <LegalPageShell title="Privacy Policy – Bamboo Reports">
-      <p>Bamboo Reports (“we,” “our,” or “us”) is a product by <strong>Research NXT</strong> that provides data intelligence, insights, and analytics on Global Capability Centers (GCCs) and related enterprise information. This Privacy Policy explains how we collect, process, use, and safeguard your information.</p>
+      <p>Bamboo Reports (“we,” “our,” or “us”) is a product by <strong>Research NXT</strong> that provides data intelligence, insights, and analytics on Global Capability Centres (GCCs) and related enterprise information. This Privacy Policy explains how we collect, process, use, and safeguard your information.</p>
 
       <h2>1. Information we collect</h2>
       <ul>
@@ -24,7 +24,7 @@ const PrivacyPolicy = () => {
       <h2>2. How we use your information</h2>
       <ul>
         <li>To deliver and improve Bamboo Reports services.</li>
-        <li>To personalize dashboards, recommendations, and user experience.</li>
+        <li>To personalise dashboards, recommendations, and user experience.</li>
         <li>To provide research insights, analytics updates, and notifications.</li>
         <li>For account administration, billing, and support.</li>
         <li>For internal analytics, product enhancement, and security monitoring.</li>

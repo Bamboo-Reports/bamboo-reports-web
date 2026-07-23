@@ -62,7 +62,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
               className="h-12 w-auto"
             />
             <p className="max-w-xl text-sm text-muted-foreground">
-              The leading GCC intelligence platform for Global Capability Centers research, market intelligence, and executive-ready insights.
+              The leading GCC intelligence platform for Global Capability Centres research, market intelligence, and executive-ready insights.
             </p>
           </div>
 

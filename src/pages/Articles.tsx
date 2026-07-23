@@ -19,8 +19,8 @@ const blogs = [
 const Articles = () => {
   useSEO({
     title: "GCC Roundtables | Bamboo Reports",
-    description: "Explore roundtables hosted by Bamboo Reports on Global Capability Centers, India GCC ecosystem, strategy, and industry insights.",
-    keywords: "GCC Roundtable, Bamboo Reports Roundtable, Global Capability Centers, GCC Strategy, GCC benchmarking, GTM research India",
+    description: "Explore roundtables hosted by Bamboo Reports on Global Capability Centres, India GCC ecosystem, strategy, and industry insights.",
+    keywords: "GCC Roundtable, Bamboo Reports Roundtable, Global Capability Centres, GCC Strategy, GCC benchmarking, GTM research India",
   });
 
   return (

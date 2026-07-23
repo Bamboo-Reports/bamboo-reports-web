@@ -49,7 +49,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Bamboo Reports",
-          "description": "Leading GCC Intelligence platform providing actionable insights on Global Capability Centers across India. Comprehensive market intelligence, GTM research, and GCC benchmarking solutions. A Research NXT product.",
+          "description": "Leading GCC Intelligence platform providing actionable insights on Global Capability Centres across India. Comprehensive market intelligence, GTM research, and GCC benchmarking solutions. A Research NXT product.",
           "url": "https://www.bambooreports.com",
           "logo": "https://www.bambooreports.com/logo.png",
           "parentOrganization": {
@@ -70,7 +70,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           },
           "knowsAbout": [
             "GCC Intelligence",
-            "Global Capability Centers",
+            "Global Capability Centres",
             "India GCC Market Intelligence",
             "GTM Research",
             "Market Intelligence Solutions",
@@ -84,7 +84,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           "@type": "SoftwareApplication",
           "name": data?.name || "Bamboo Reports GCC Intelligence Platform",
           "applicationCategory": "BusinessApplication",
-          "description": data?.description || "Comprehensive GCC Intelligence platform with India's largest repository of Global Capability Centers data, GTM research, and market intelligence solutions.",
+          "description": data?.description || "Comprehensive GCC Intelligence platform with India's largest repository of Global Capability Centres data, GTM research, and market intelligence solutions.",
           "operatingSystem": "Web",
           "offers": {
             "@type": "Offer",
@@ -99,7 +99,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           } : undefined,
           "featureList": data?.features || [
             "2400+ MNC GCC Database",
-            "5900+ GCC Centers Mapping",
+            "5900+ GCC Centres Mapping",
             "India GCC Market Intelligence",
             "GTM Research Tools",
             "GCC Contact Database",

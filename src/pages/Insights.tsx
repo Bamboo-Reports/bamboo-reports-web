@@ -5,9 +5,9 @@ import { useSEO } from "@/hooks/useSEO";
 
 const Insights = () => {
   useSEO({
-    title: "GCC Insights | Global Capability Centers Analysis & Trends | Bamboo Reports",
-    description: "Expert GCC insights and analysis on Global Capability Centers in India. Stay updated with the latest GCC trends, market intelligence, and strategic perspectives on India's GCC ecosystem.",
-    keywords: "GCC Insights, GCC Analysis, Global Capability Centers Insights, GCC Trends, India GCC Intelligence, Market Intelligence India, GCC Research",
+    title: "GCC Insights | Global Capability Centres Analysis & Trends | Bamboo Reports",
+    description: "Expert GCC insights and analysis on Global Capability Centres in India. Stay updated with the latest GCC trends, market intelligence, and strategic perspectives on India's GCC ecosystem.",
+    keywords: "GCC Insights, GCC Analysis, Global Capability Centres Insights, GCC Trends, India GCC Intelligence, Market Intelligence India, GCC Research",
   });
 
   return (

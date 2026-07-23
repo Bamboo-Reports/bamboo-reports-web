@@ -20,7 +20,7 @@ const Q1ReportSection = () => (
         </h2>
 
         <p className="mt-3 max-w-xl leading-relaxed text-white/70">
-          Get the new centers, expansions, hiring shifts and emerging locations
+          Get the new centres, expansions, hiring shifts and emerging locations
           shaping India&apos;s GCC market in one free quarterly report.
         </p>
       </div>
