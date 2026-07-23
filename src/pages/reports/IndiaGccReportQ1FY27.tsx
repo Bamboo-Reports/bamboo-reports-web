@@ -189,40 +189,20 @@ const IndiaGccReportQ1FY27 = () => {
               </a>{" "}
               GCC Intelligence
             </p>
-            <h1 className="hero-rise mt-4 text-balance text-4xl font-bold leading-tight [animation-delay:80ms] md:text-5xl lg:whitespace-nowrap lg:text-[clamp(2rem,3.2vw,2.75rem)]">
+            <h1 className="hero-rise mt-5 text-balance text-4xl font-bold leading-tight [animation-delay:80ms] md:text-5xl lg:whitespace-nowrap lg:text-[clamp(2rem,3.2vw,2.75rem)]">
               India GCC Quarterly Report, Q2 2026
             </h1>
-            <p className="hero-rise mt-3 text-xl leading-snug text-muted-foreground [animation-delay:120ms]">
+            <p className="hero-rise mt-4 max-w-3xl text-xl leading-snug text-muted-foreground [animation-delay:120ms]">
               Get insights on new centres, expansions, hiring and the key
               trends shaping India&apos;s GCC ecosystem.
             </p>
-            {Q1_REPORT_NUMBERS_CONFIRMED ? (
-              <p className="hero-rise mt-6 max-w-2xl leading-relaxed [animation-delay:160ms]">
-                Between April and June 2026,{" "}
-                <strong className="font-semibold">99 companies</strong> opened
-                or grew{" "}
-                <strong className="font-semibold">110 GCC centres</strong>{" "}
-                across India, and{" "}
-                <strong className="font-semibold">40%</strong> of them were
-                new entrants. This report maps each one to the corridor
-                it landed in and reads what the quarter changed for the
-                leaders already operating here.
-              </p>
-            ) : (
-              <p className="hero-rise mt-6 max-w-2xl leading-relaxed [animation-delay:160ms]">
-                Between April and June 2026, we tracked every company that
-                opened or grew a GCC centre in India. This report maps each
-                one to the corridor it landed in and reads what the quarter
-                changed for the leaders already operating here.
-              </p>
-            )}
-            <p className="hero-rise mt-4 text-sm text-muted-foreground [animation-delay:200ms]">
+            <p className="hero-rise mt-5 text-sm text-muted-foreground [animation-delay:160ms]">
               Be the first to get your free copy, delivered to your inbox the
               day it releases.
             </p>
             <Button
               onClick={goToForm}
-              className="hero-rise group mt-7 w-full font-semibold [animation-delay:240ms] sm:w-auto lg:hidden"
+              className="hero-rise group mt-5 w-full font-semibold [animation-delay:200ms] sm:w-auto lg:hidden"
             >
               Register now
               <ArrowRight
@@ -232,32 +212,32 @@ const IndiaGccReportQ1FY27 = () => {
             </Button>
 
             {Q1_REPORT_NUMBERS_CONFIRMED && (
-            <div className="hero-rise mt-8 rounded-lg border border-t-4 border-t-navy bg-background shadow-sm [animation-delay:240ms]">
-              <dl className="grid grid-cols-3 gap-3 p-4 sm:gap-0 sm:p-6 md:p-7">
-                {NUMBERS.map((stat, index) => (
-                  <div
-                    key={stat.label}
-                    className={
-                      index === 0 ? "" : "border-l pl-3 sm:pl-8"
-                    }
-                  >
-                    <dd
-                      className={`text-3xl font-bold tabular-nums tracking-tight sm:text-4xl ${
-                        stat.highlight ? "text-accent" : "text-navy"
-                      }`}
+              <div className="hero-rise mt-6 rounded-lg border border-t-4 border-t-navy bg-background shadow-sm [animation-delay:220ms]">
+                <dl className="grid grid-cols-3 gap-3 p-4 sm:gap-0 sm:p-6 md:p-7">
+                  {NUMBERS.map((stat, index) => (
+                    <div
+                      key={stat.label}
+                      className={
+                        index === 0 ? "" : "border-l pl-3 sm:pl-8"
+                      }
                     >
-                      {stat.value}
-                    </dd>
-                    <dt className="mt-1.5 text-xs leading-snug text-muted-foreground sm:text-sm">
-                      {stat.label}
-                    </dt>
-                  </div>
-                ))}
-              </dl>
-              <p className="border-t px-4 py-3 text-xs text-muted-foreground sm:px-6 md:px-7">
-                Source: Bamboo Reports platform, July 2026.
-              </p>
-            </div>
+                      <dd
+                        className={`text-3xl font-bold tabular-nums tracking-tight sm:text-4xl ${
+                          stat.highlight ? "text-accent" : "text-navy"
+                        }`}
+                      >
+                        {stat.value}
+                      </dd>
+                      <dt className="mt-1.5 text-xs leading-snug text-muted-foreground sm:text-sm">
+                        {stat.label}
+                      </dt>
+                    </div>
+                  ))}
+                </dl>
+                <p className="border-t px-4 py-3 text-xs text-muted-foreground sm:px-6 md:px-7">
+                  Source: Bamboo Reports platform, July 2026.
+                </p>
+              </div>
             )}
           </section>
 
@@ -287,7 +267,7 @@ const IndiaGccReportQ1FY27 = () => {
           </aside>
 
           <section className="lg:col-start-1 lg:row-start-2">
-            <p className="text-sm font-semibold text-muted-foreground lg:mt-14">
+            <p className="text-sm font-semibold text-muted-foreground lg:mt-10">
               In this edition
             </p>
             <h2 className="mt-3 text-2xl font-bold leading-snug tracking-tight md:text-3xl">

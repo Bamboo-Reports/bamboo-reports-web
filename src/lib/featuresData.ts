@@ -15,7 +15,7 @@ export type FeatureItem = {
 export const featureItems: FeatureItem[] = [
   {
     id: "coverage",
-    title: "90% more centre-level coverage",
+    title: "90% more center-level coverage",
     summary: "Get the deepest view of GCCs in India with verified, site-level intelligence.",
     description: "Bamboo Reports tracks India's GCC ecosystem at the centre level, not just the company level. This gives you a clearer picture of where teams operate, how they are structured, and where real opportunities exist.",
     icon: TrendingUp,
@@ -90,7 +90,7 @@ export const featureItems: FeatureItem[] = [
   {
     id: "tailor-made-market-insights",
     title: "Tailor-made market insights",
-    summary: "Analyst-led intelligence built around your question, not a template dashboard.",
+    summary: "Analyst-led answers, not another template dashboard.",
     description: "Custom market insights designed around specific business questions using verified GCC data, analyst interpretation, and contextual narratives teams can act on immediately.",
     icon: Target,
     href: "/features/tailor-made-market-insights",

@@ -16,12 +16,12 @@ const Q1ReportSection = () => (
         </p>
 
         <h2 className="mt-4 max-w-2xl text-balance text-2xl font-bold leading-tight tracking-tight text-white md:text-3xl">
-          Every GCC move, <span className="text-accent">tracked.</span>
+          The GCC market moved. <span className="text-accent">See where.</span>
         </h2>
 
         <p className="mt-3 max-w-xl leading-relaxed text-white/70">
-          This free quarterly report tells you who set up or expanded near
-          you, where the hiring went, and which corridors are opening next.
+          Get the new centers, expansions, hiring shifts and emerging locations
+          shaping India&apos;s GCC market in one free quarterly report.
         </p>
       </div>
 

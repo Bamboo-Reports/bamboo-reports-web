@@ -11,7 +11,7 @@ const categories = [
   },
   {
     title: "Geographies",
-    description: "A unified platform mapping Global Capability Centers (GCCs) from multinational corporations headquartered in 50+ countries."
+    description: "A unified platform covering Global Capability Centers (GCCs) from multinational corporations headquartered in 50+ countries."
   }
 ];
 
@@ -42,7 +42,7 @@ const IntelligenceSpans = () => (
       <div className="flex justify-center">
         <img
           src="https://6xcp0wpjej.ufs.sh/f/9zK5qxoTPnKvtzygjYwUp8Nhz4JPlI9VjQ2s5H0dy6CEAk1g"
-          alt="GCC Intelligence Coverage Map"
+          alt="GCC Intelligence Coverage"
           width="2280"
           height="2282"
           loading="lazy"
