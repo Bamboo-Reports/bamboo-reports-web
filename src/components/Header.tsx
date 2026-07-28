@@ -22,7 +22,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
+import { ACCOUNT_CREATION_ENABLED, GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -155,48 +155,50 @@ const Header = () => {
           </NavigationMenu>
 
           <div className="flex items-center gap-3">
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="h-10 rounded-full font-semibold">
-                    <Avatar className="h-8 w-8">
-                      {avatarUrl && <AvatarImage src={avatarUrl} alt={userFullName} />}
-                      <AvatarFallback className="bg-primary text-primary-foreground">
-                        {getInitials(userFullName)}
-                      </AvatarFallback>
-                    </Avatar>
-                    <span className="max-w-40 truncate">{userFullName}</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56" align="end" forceMount>
-                  <DropdownMenuLabel className="font-normal">
-                    <div className="flex flex-col space-y-1">
-                      <p className="text-sm font-medium leading-none">
-                        {userFullName}
-                      </p>
-                      <p className="text-xs leading-none text-muted-foreground">
-                        {user.email}
-                      </p>
-                    </div>
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link to="/profile" className="cursor-pointer">
-                      <User className="mr-2 h-4 w-4" />
-                      Profile
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
-                    <LogOut className="mr-2 h-4 w-4" />
-                    Sign out
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <Button asChild variant="outline" className="rounded-full font-semibold">
-                <Link to="/signin">My account</Link>
-              </Button>
+            {ACCOUNT_CREATION_ENABLED && (
+              user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="h-10 rounded-full font-semibold">
+                      <Avatar className="h-8 w-8">
+                        {avatarUrl && <AvatarImage src={avatarUrl} alt={userFullName} />}
+                        <AvatarFallback className="bg-primary text-primary-foreground">
+                          {getInitials(userFullName)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <span className="max-w-40 truncate">{userFullName}</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-56" align="end" forceMount>
+                    <DropdownMenuLabel className="font-normal">
+                      <div className="flex flex-col space-y-1">
+                        <p className="text-sm font-medium leading-none">
+                          {userFullName}
+                        </p>
+                        <p className="text-xs leading-none text-muted-foreground">
+                          {user.email}
+                        </p>
+                      </div>
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link to="/profile" className="cursor-pointer">
+                        <User className="mr-2 h-4 w-4" />
+                        Profile
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
+                      <LogOut className="mr-2 h-4 w-4" />
+                      Sign out
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Button asChild variant="outline" className="rounded-full font-semibold">
+                  <Link to="/signin">My account</Link>
+                </Button>
+              )
             )}
           </div>
         </div>
@@ -305,7 +307,7 @@ const Header = () => {
 
                 {/* CTAs */}
                 <div className="px-6 space-y-3 pb-6">
-                  {!user && (
+                  {!user && ACCOUNT_CREATION_ENABLED && (
                     <Button
                       asChild
                       className="w-full rounded-full font-semibold"
@@ -324,7 +326,7 @@ const Header = () => {
                       Get a demo
                     </GoogleCalendarSchedulingButton>
                   </Button>
-                  {user ? (
+                  {ACCOUNT_CREATION_ENABLED && (user ? (
                     <>
                       <div className="border-t pt-3">
                         <Button
@@ -362,7 +364,7 @@ const Header = () => {
                         <Link to="/signin">Sign in</Link>
                       </Button>
                     </div>
-                  )}
+                  ))}
                 </div>
               </nav>
             </div>
