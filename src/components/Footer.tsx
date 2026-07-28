@@ -19,9 +19,9 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
   return (
     <footer className="relative border-t bg-background">
 
-      <div className="relative z-10 mx-auto max-w-7xl space-y-12 px-4 py-12 lg:py-16">
-        {showCta && <div className="border-y py-8 md:py-10">
-          <div className="flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
+      <div className="relative z-10 mx-auto max-w-7xl space-y-10 px-5 py-10 sm:px-4 md:space-y-12 md:py-12 lg:py-16">
+        {showCta && <div className="border-y py-7 md:py-10">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-7">
             <div className="space-y-4">
               <p className="text-sm font-semibold text-primary">
                 Always-on GCC intelligence
@@ -54,8 +54,8 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
         </div>}
 
         {/* Main Footer */}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
-          <div className="space-y-4 md:col-span-2">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 md:gap-10">
+          <div className="col-span-2 space-y-4 md:col-span-2">
             <img
               src={logo}
               alt="Bamboo Reports: GCC Intelligence Provider"
@@ -71,7 +71,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               {exploreLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="transition-colors duration-micro ease-smooth hover:text-primary">
+                  <Link to={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
                     {link.label}
                   </Link>
                 </li>
@@ -91,14 +91,14 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
               )}
               <li>
                 <GoogleCalendarSchedulingButton
-                  className="inline-flex items-center gap-1 transition-colors duration-micro ease-smooth hover:text-primary"
+                  className="inline-flex min-h-11 items-center gap-1 transition-colors duration-micro ease-smooth hover:text-primary"
                 >
                   Get a demo
                   <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
                 </GoogleCalendarSchedulingButton>
               </li>
               <li>
-                <button onClick={openInquiryForm} className="transition-colors duration-micro ease-smooth hover:text-primary">
+                <button onClick={openInquiryForm} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
                   Pricing
                 </button>
               </li>

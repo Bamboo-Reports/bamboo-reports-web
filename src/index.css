@@ -338,6 +338,14 @@ All colors MUST be HSL.
     }
   }
 
+  @media (max-width: 639px) {
+    .hero-animated-background::before,
+    .hero-animated-background::after {
+      inset: -10%;
+      filter: blur(24px);
+    }
+  }
+
   /* Trust logos marquee */
   .trust-logos {
     width: 100%;

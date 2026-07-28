@@ -9,17 +9,25 @@ export const MarketingHero = ({
   showAction = true,
 }: {
   title: ReactNode;
-  description: ReactNode;
+  description?: ReactNode;
   showAction?: boolean;
 }) => (
-  <section className="border-b px-4 pb-14 pt-10 md:pb-20 md:pt-16">
+  <section
+    className={`border-b px-5 sm:px-4 ${
+      description || showAction
+        ? "pb-12 pt-10 md:pb-20 md:pt-16"
+        : "py-10 md:py-14"
+    }`}
+  >
     <div className="mx-auto max-w-7xl">
       <h1 className="max-w-6xl break-words text-3xl font-bold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
         {title}
       </h1>
-      <div className="mt-6 max-w-6xl text-base leading-relaxed text-muted-foreground md:text-lg">
-        {description}
-      </div>
+      {description && (
+        <div className="mt-6 max-w-6xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          {description}
+        </div>
+      )}
       {showAction && (
         <div className="mt-8">
           <Button asChild size="lg" className="w-full px-7 text-base font-semibold sm:w-auto">
