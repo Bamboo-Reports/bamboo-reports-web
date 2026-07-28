@@ -40,7 +40,11 @@ const SignIn = () => {
         title: "Signed in",
         description: "Welcome back to Bamboo Reports.",
       });
-      navigate(redirectTo);
+      if (redirectTo.startsWith("/gcc/companies/")) {
+        window.location.assign(redirectTo);
+      } else {
+        navigate(redirectTo);
+      }
     }
   };
 
