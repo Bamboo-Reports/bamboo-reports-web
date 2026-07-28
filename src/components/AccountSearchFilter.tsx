@@ -17,8 +17,11 @@ interface AccountSearchFilterProps {
   selectedAccount?: string;
   suggestions: FacetOption[];
   isSearching: boolean;
-  /** True when the query exactly matches a tracked-but-gated (private) company. */
+  /** True when the query exactly matches a tracked-but-gated company. */
   isGatedMatch?: boolean;
+  /** Canonical database name for a gated public company. Private company names
+   * are not shipped to the page, so this remains null for those matches. */
+  gatedMatchName?: string | null;
   /** Set when the query exactly matches an account excluded from the GCC
    * directory; explains why (e.g. "Only Manufacturing presence in India"). */
   nonGccNote?: string | null;
@@ -34,6 +37,7 @@ export function AccountSearchFilter({
   suggestions,
   isSearching,
   isGatedMatch = false,
+  gatedMatchName = null,
   nonGccNote = null,
   disabled,
   onQueryChange,
@@ -107,6 +111,21 @@ export function AccountSearchFilter({
       >
         {isSearching ? (
           <p className="px-3 py-4 text-sm text-muted-foreground">Searching companies…</p>
+        ) : nonGccNote ? (
+          <div className="px-3 py-4 text-sm">
+            <p className="font-medium text-foreground">{query.trim()}</p>
+            <p className="mt-1 text-muted-foreground">{nonGccNote}.</p>
+          </div>
+        ) : isGatedMatch ? (
+          <div className="px-3 py-4 text-sm">
+            <p className="flex items-center gap-1.5 font-medium text-foreground">
+              {gatedMatchName ?? query.trim()}
+              <Lock className="h-3.5 w-3.5 text-muted-foreground" aria-hidden />
+            </p>
+            <GoogleCalendarSchedulingButton className="mt-1 inline-block font-medium text-primary hover:underline">
+              Available in the full version
+            </GoogleCalendarSchedulingButton>
+          </div>
         ) : suggestions.length > 0 ? (
           suggestions.map((option) => (
             <button
@@ -120,21 +139,6 @@ export function AccountSearchFilter({
               {option.value}
             </button>
           ))
-        ) : nonGccNote ? (
-          <div className="px-3 py-4 text-sm">
-            <p className="font-medium text-foreground">{query.trim()}</p>
-            <p className="mt-1 text-muted-foreground">{nonGccNote}.</p>
-          </div>
-        ) : isGatedMatch ? (
-          <div className="px-3 py-4 text-sm">
-            <p className="flex items-center gap-1.5 font-medium text-foreground">
-              {query.trim()}
-              <Lock className="h-3.5 w-3.5 text-muted-foreground" aria-hidden />
-            </p>
-            <GoogleCalendarSchedulingButton className="mt-1 inline-block font-medium text-primary hover:underline">
-              Available in the full version
-            </GoogleCalendarSchedulingButton>
-          </div>
         ) : (
           <div className="px-3 py-4 text-sm">
             <p className="text-muted-foreground">Not in our directory yet.</p>

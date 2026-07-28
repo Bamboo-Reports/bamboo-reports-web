@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  type MouseEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import Header from "@/components/Header";
@@ -7,6 +13,14 @@ import FadeIn from "@/components/FadeIn";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { AccountSearchFilter } from "@/components/AccountSearchFilter";
 import { MultiSelectFilter } from "@/components/MultiSelectFilter";
 import { useSEO } from "@/hooks/useSEO";
@@ -15,6 +29,7 @@ import { ACCOUNT_CREATION_ENABLED } from "@/lib/featureFlags";
 import {
   fetchStaticTrackerAccounts,
   hashCompanyName,
+  simplifyCompanyName,
   type StaticTrackerAccount,
 } from "@/lib/trackerAccounts";
 import {
@@ -36,6 +51,20 @@ const DIRECTORY_ROW_LIMIT = 20;
 
 const nf = (n: number) => n.toLocaleString("en-US");
 
+const combinedFilterSignupUrl = (filters: TrackerFilters) => {
+  const redirectParams = new URLSearchParams();
+  filters.account_primary_category.forEach((industry) =>
+    redirectParams.append("industry", industry)
+  );
+  filters.center_city.forEach((city) => redirectParams.append("city", city));
+  const redirectPath = `/gcc?${redirectParams.toString()}`;
+  return `/signup?src=gcc-combined-filters&redirect=${encodeURIComponent(redirectPath)}`;
+};
+
+interface PendingCompanyProfile {
+  name: string;
+  href: string;
+}
 
 function useDebouncedValue<T>(value: T, delay: number): T {
   const [debounced, setDebounced] = useState(value);
@@ -111,7 +140,7 @@ const USE_CASES = [
 ];
 
 const Tracker = () => {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   useSEO({
     title: "GCC Companies in India: Directory & Market Size Calculator | Bamboo Reports",
     description: `Browse a directory of ${nf(TRACKER_STATS.accountsBrowsable)}+ Global Capability Centres in India, from the ${nf(TRACKER_STATS.accountsTracked)} GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.`,
@@ -124,16 +153,20 @@ const Tracker = () => {
   const [filters, setFilters] = useState<TrackerFilters>(() => {
     if (typeof window === "undefined") return EMPTY_FILTERS;
     const params = new URLSearchParams(window.location.search);
-    const industry = params.get("industry");
-    const city = params.get("city");
-    if (!industry && !city) return EMPTY_FILTERS;
+    const industries = params.getAll("industry");
+    const cities = params.getAll("city");
+    if (industries.length === 0 && cities.length === 0) return EMPTY_FILTERS;
     return {
       ...EMPTY_FILTERS,
-      account_primary_category: industry ? [industry] : [],
-      center_city: city ? [city] : [],
+      account_primary_category: industries,
+      center_city: cities,
     };
   });
   const [accountSearch, setAccountSearch] = useState("");
+  const [pendingSignupFilters, setPendingSignupFilters] =
+    useState<TrackerFilters | null>(null);
+  const [pendingCompanyProfile, setPendingCompanyProfile] =
+    useState<PendingCompanyProfile | null>(null);
   const debouncedAccountSearch = useDebouncedValue(accountSearch, DEBOUNCE_MS);
 
   const {
@@ -152,30 +185,84 @@ const Tracker = () => {
     }
   }, [isStaticAccountsError]);
 
+  // Anonymous company search is limited to the same names that can surface in
+  // the free 20-row previews across the public industry/city filters.
+  const searchableCompanyNames = useMemo(() => {
+    const publicAccounts = staticAccounts
+      .filter(
+        (account): account is StaticTrackerAccount & { name: string } =>
+          account.visibility !== "private" && account.name !== null
+      )
+      .sort((a, b) => a.name.localeCompare(b.name));
+    const names = new Set<string>();
+    const addPreview = (
+      matches: (account: StaticTrackerAccount & { name: string }) => boolean
+    ) => {
+      publicAccounts
+        .filter(matches)
+        .slice(0, DIRECTORY_ROW_LIMIT)
+        .forEach((account) => names.add(account.name));
+    };
+
+    TRACKER_TOP_INDUSTRIES.forEach((industry) =>
+      addPreview((account) => account.industry === industry)
+    );
+    TRACKER_TOP_CITIES.forEach((city) =>
+      addPreview((account) =>
+        account.cities.some((accountCity) => accountCity.name === city)
+      )
+    );
+    TRACKER_TOP_INDUSTRIES.forEach((industry) => {
+      TRACKER_TOP_CITIES.forEach((city) =>
+        addPreview(
+          (account) =>
+            account.industry === industry &&
+            account.cities.some((accountCity) => accountCity.name === city)
+        )
+      );
+    });
+
+    return names;
+  }, [staticAccounts]);
+
   // Gated-company detection: private records ship only a hash of their
   // simplified name, so an exact-name search can say "tracked, sign up to
-  // unlock" without the private list ever being in the payload. Excluded
-  // non-gcc accounts get their explanatory note the same way.
+  // unlock" without the private list ever being in the payload. Public names
+  // outside the free preview set receive the same full-version treatment.
+  // Excluded non-gcc accounts get their explanatory note via their hash.
   const [gatedMatch, setGatedMatch] = useState(false);
+  const [gatedMatchName, setGatedMatchName] = useState<string | null>(null);
   const [nonGccNote, setNonGccNote] = useState<string | null>(null);
   useEffect(() => {
     const q = debouncedAccountSearch.trim();
     if (q.length < 2) {
       setGatedMatch(false);
+      setGatedMatchName(null);
       setNonGccNote(null);
       return;
     }
     let cancelled = false;
     hashCompanyName(q).then((hash) => {
       if (!cancelled) {
-        setGatedMatch(hash !== null && staticAccounts.some((a) => a.h === hash));
+        const simplifiedQuery = simplifyCompanyName(q);
+        const matchesPrivate =
+          hash !== null && staticAccounts.some((account) => account.h === hash);
+        const lockedPublicAccount = staticAccounts.find(
+          (account) =>
+            account.visibility !== "private" &&
+            account.name !== null &&
+            !searchableCompanyNames.has(account.name) &&
+            simplifyCompanyName(account.name) === simplifiedQuery
+        );
+        setGatedMatch(matchesPrivate || lockedPublicAccount !== undefined);
+        setGatedMatchName(lockedPublicAccount?.name ?? null);
         setNonGccNote(hash !== null ? TRACKER_NON_GCC_NOTES[hash] ?? null : null);
       }
     });
     return () => {
       cancelled = true;
     };
-  }, [debouncedAccountSearch, staticAccounts]);
+  }, [debouncedAccountSearch, staticAccounts, searchableCompanyNames]);
 
   const hasAppliedFilters =
     filters.account_primary_category.length > 0 ||
@@ -183,6 +270,60 @@ const Tracker = () => {
     filters.account_global_legal_name.length > 0;
 
   const hasFilterInput = hasAppliedFilters || accountSearch.length > 0;
+
+  useEffect(() => {
+    if (
+      authLoading ||
+      user ||
+      !ACCOUNT_CREATION_ENABLED ||
+      filters.account_primary_category.length === 0 ||
+      filters.center_city.length === 0
+    ) {
+      return;
+    }
+
+    setPendingSignupFilters(filters);
+    setFilters((current) => ({ ...current, center_city: [] }));
+  }, [authLoading, user, filters]);
+
+  const updateIndustryFilter = (next: string[]) => {
+    const nextFilters = { ...filters, account_primary_category: next };
+    if (
+      !authLoading &&
+      !user &&
+      ACCOUNT_CREATION_ENABLED &&
+      next.length > 0 &&
+      filters.center_city.length > 0
+    ) {
+      setPendingSignupFilters(nextFilters);
+      return;
+    }
+    setFilters(nextFilters);
+  };
+
+  const updateCityFilter = (next: string[]) => {
+    const nextFilters = { ...filters, center_city: next };
+    if (
+      !authLoading &&
+      !user &&
+      ACCOUNT_CREATION_ENABLED &&
+      next.length > 0 &&
+      filters.account_primary_category.length > 0
+    ) {
+      setPendingSignupFilters(nextFilters);
+      return;
+    }
+    setFilters(nextFilters);
+  };
+
+  const openCompanyProfile = (
+    event: MouseEvent<HTMLAnchorElement>,
+    company: PendingCompanyProfile
+  ) => {
+    if (user || !ACCOUNT_CREATION_ENABLED) return;
+    event.preventDefault();
+    setPendingCompanyProfile(company);
+  };
 
   const reset = () => {
     setFilters(EMPTY_FILTERS);
@@ -284,6 +425,7 @@ const Tracker = () => {
         (account): account is StaticTrackerAccount & { name: string } =>
           account.visibility !== "private" &&
           account.name !== null &&
+          searchableCompanyNames.has(account.name) &&
           normalizedSearch.length >= 2 &&
           account.name.toLowerCase().includes(normalizedSearch)
       )
@@ -314,9 +456,52 @@ const Tracker = () => {
       citiesLocked: Math.max(0, cityFacets.length - cityOptions.length),
       account_global_legal_name: accountSuggestions,
     };
-  }, [staticAccounts, matchesFilters, debouncedAccountSearch]);
+  }, [
+    staticAccounts,
+    matchesFilters,
+    debouncedAccountSearch,
+    searchableCompanyNames,
+  ]);
 
-  const accounts = visibleAccounts.slice(0, DIRECTORY_ROW_LIMIT);
+  const accounts = useMemo(() => {
+    if (hasAppliedFilters || accountSearch.trim().length > 0) {
+      return visibleAccounts.slice(0, DIRECTORY_ROW_LIMIT);
+    }
+
+    // Keep the default preview representative of both public filters: one
+    // unique company for each of the 10 industries and each of the 10 cities.
+    // Within every group, the first unused company is selected alphabetically.
+    const accountGroups = [
+      ...TRACKER_TOP_INDUSTRIES.map((industry) =>
+        visibleAccounts.filter((account) => account.industry === industry)
+      ),
+      ...TRACKER_TOP_CITIES.map((city) =>
+        visibleAccounts.filter((account) =>
+          account.cities.some((accountCity) => accountCity.name === city)
+        )
+      ),
+    ];
+    const balancedAccounts: typeof visibleAccounts = [];
+    const selectedNames = new Set<string>();
+
+    for (const group of accountGroups) {
+      const account = group.find((candidate) => !selectedNames.has(candidate.name));
+      if (!account) continue;
+      balancedAccounts.push(account);
+      selectedNames.add(account.name);
+    }
+
+    // Preserve the 20-row preview if a future data change leaves one of the
+    // configured groups empty.
+    for (const account of visibleAccounts) {
+      if (balancedAccounts.length === DIRECTORY_ROW_LIMIT) break;
+      if (selectedNames.has(account.name)) continue;
+      balancedAccounts.push(account);
+      selectedNames.add(account.name);
+    }
+
+    return balancedAccounts;
+  }, [visibleAccounts, hasAppliedFilters, accountSearch]);
   // Everything matching the filters but not in the free A-Z preview, whether
   // beyond the row limit or private, lives in the full version.
   const remainingCount = filteredAccounts.length - accounts.length;
@@ -379,6 +564,7 @@ const Tracker = () => {
                   suggestions={facets.account_global_legal_name}
                   isSearching={isSearchingAccounts}
                   isGatedMatch={gatedMatch}
+                  gatedMatchName={gatedMatchName}
                   nonGccNote={nonGccNote}
                   disabled={isLoadingFirstTime}
                   onQueryChange={(next) => {
@@ -414,9 +600,7 @@ const Tracker = () => {
                   label="Industry"
                   options={facets.account_primary_category}
                   value={filters.account_primary_category}
-                  onValueChange={(next) =>
-                    setFilters((f) => ({ ...f, account_primary_category: next }))
-                  }
+                  onValueChange={updateIndustryFilter}
                   disabled={isLoadingFirstTime}
                   lockedCount={facets.industriesLocked}
                   lockedNoun="industries"
@@ -431,9 +615,7 @@ const Tracker = () => {
                   label="City"
                   options={facets.center_city}
                   value={filters.center_city}
-                  onValueChange={(next) =>
-                    setFilters((f) => ({ ...f, center_city: next }))
-                  }
+                  onValueChange={updateCityFilter}
                   disabled={isLoadingFirstTime}
                   lockedCount={facets.citiesLocked}
                   lockedNoun="cities"
@@ -534,6 +716,12 @@ const Tracker = () => {
                           {account.slug ? (
                             <a
                               href={`/gcc/companies/${account.slug}/`}
+                              onClick={(event) =>
+                                openCompanyProfile(event, {
+                                  name: account.name,
+                                  href: `/gcc/companies/${account.slug}/`,
+                                })
+                              }
                               className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                             >
                               {account.name}
@@ -636,6 +824,12 @@ const Tracker = () => {
                               {account.slug ? (
                                 <a
                                   href={`/gcc/companies/${account.slug}/`}
+                                  onClick={(event) =>
+                                    openCompanyProfile(event, {
+                                      name: account.name,
+                                      href: `/gcc/companies/${account.slug}/`,
+                                    })
+                                  }
                                   className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                                 >
                                   {account.name}
@@ -755,6 +949,87 @@ const Tracker = () => {
       </section>
 
       <Footer />
+
+      <Dialog
+        open={pendingSignupFilters !== null}
+        onOpenChange={(open) => {
+          if (!open) setPendingSignupFilters(null);
+        }}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Combine filters with a free account</DialogTitle>
+            <DialogDescription>
+              Sign up to narrow the directory by both industry and city. Your
+              current selections will be ready when you return.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="gap-2 sm:gap-0">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setPendingSignupFilters(null)}
+            >
+              Continue browsing
+            </Button>
+            {pendingSignupFilters && (
+              <Button asChild>
+                <a href={combinedFilterSignupUrl(pendingSignupFilters)}>
+                  Sign up to combine filters
+                </a>
+              </Button>
+            )}
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog
+        open={pendingCompanyProfile !== null}
+        onOpenChange={(open) => {
+          if (!open) setPendingCompanyProfile(null);
+        }}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Sign up to view company profiles</DialogTitle>
+            <DialogDescription>
+              Create a free account to explore additional details about{" "}
+              {pendingCompanyProfile?.name}&apos;s GCC footprint in India.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="gap-2 sm:gap-0">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setPendingCompanyProfile(null)}
+            >
+              Continue browsing
+            </Button>
+            {pendingCompanyProfile && (
+              <>
+                <Button asChild variant="outline">
+                  <a
+                    href={`/signin?redirect=${encodeURIComponent(
+                      pendingCompanyProfile.href
+                    )}`}
+                  >
+                    Sign in
+                  </a>
+                </Button>
+                <Button asChild>
+                  <a
+                    href={`/signup?src=gcc-company-profile&redirect=${encodeURIComponent(
+                      pendingCompanyProfile.href
+                    )}`}
+                  >
+                    Sign up to view {pendingCompanyProfile.name}
+                  </a>
+                </Button>
+              </>
+            )}
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* Mobile-only sticky sign-up bar */}
       {!user && ACCOUNT_CREATION_ENABLED && (
