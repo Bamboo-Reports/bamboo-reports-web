@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
-import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
+import { ACCOUNT_CREATION_ENABLED, GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const exploreLinks = [
   ...(GCC_TRACKER_ENABLED ? [{ label: "GCC Tracker", to: "/gcc" }] : []),
@@ -82,7 +82,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
           <div className="space-y-4">
             <h2 className="text-sm font-semibold text-foreground">Get started</h2>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              {!user && (
+              {!user && ACCOUNT_CREATION_ENABLED && (
                 <li>
                   <Link to="/signup?src=footer" className="transition-colors duration-micro ease-smooth hover:text-primary">
                     Sign up for free

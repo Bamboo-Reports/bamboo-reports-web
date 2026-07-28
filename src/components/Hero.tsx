@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { useAuth } from "@/contexts/AuthContext";
+import { ACCOUNT_CREATION_ENABLED } from "@/lib/featureFlags";
 import gccIllustration from "@/assets/gcc-illustration.png";
 
 const CAPABILITIES = [
@@ -50,7 +51,7 @@ const Hero = () => {
               className="hero-rise mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
               style={{ animationDelay: "220ms" }}
             >
-              {!user && (
+              {!user && ACCOUNT_CREATION_ENABLED && (
                 <Button
                   asChild
                   size="lg"
@@ -62,11 +63,12 @@ const Hero = () => {
               <Button
                 asChild
                 size="lg"
-                variant="outline"
+                variant={ACCOUNT_CREATION_ENABLED ? "outline" : "default"}
                 className="w-full px-7 text-base font-semibold sm:w-auto"
               >
                 <GoogleCalendarSchedulingButton>
                   Get a demo
+                  <ArrowUpRight className="h-4 w-4" aria-hidden />
                 </GoogleCalendarSchedulingButton>
               </Button>
             </div>

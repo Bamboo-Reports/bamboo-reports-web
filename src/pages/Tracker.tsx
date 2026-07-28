@@ -11,6 +11,7 @@ import { AccountSearchFilter } from "@/components/AccountSearchFilter";
 import { MultiSelectFilter } from "@/components/MultiSelectFilter";
 import { useSEO } from "@/hooks/useSEO";
 import { EMPTY_FILTERS, type FacetOption, type TrackerFilters } from "@/lib/tracker";
+import { ACCOUNT_CREATION_ENABLED } from "@/lib/featureFlags";
 import {
   fetchStaticTrackerAccounts,
   hashCompanyName,
@@ -344,7 +345,7 @@ const Tracker = () => {
                 market you actually sell to.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                {!user && (
+                {!user && ACCOUNT_CREATION_ENABLED && (
                   <Button
                     asChild
                     className="w-full rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow sm:w-auto"
@@ -756,7 +757,7 @@ const Tracker = () => {
       <Footer />
 
       {/* Mobile-only sticky sign-up bar */}
-      {!user && (
+      {!user && ACCOUNT_CREATION_ENABLED && (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80 md:hidden">
           <Button asChild className="w-full rounded-full font-semibold">
             <a href="/signup?src=gcc-sticky">Sign up for free</a>

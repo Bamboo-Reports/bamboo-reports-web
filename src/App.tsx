@@ -33,7 +33,7 @@ import Tracker from "./pages/Tracker";
 import MapYourGCCOpportunity from "./pages/MapYourGCCOpportunity";
 import ScrollToTop from "./components/ScrollToTop";
 import { ensureJotformEmbedHandler } from "@/lib/jotform";
-import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
+import { ACCOUNT_CREATION_ENABLED, GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const queryClient = new QueryClient();
 
@@ -80,14 +80,18 @@ const App = () => {
               path="/map-your-gcc-oppurtunity"
               element={<Navigate to="/map-your-gcc-opportunity" replace />}
             />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={ACCOUNT_CREATION_ENABLED ? <SignUp /> : <NotFound />} />
+            <Route path="/signin" element={ACCOUNT_CREATION_ENABLED ? <SignIn /> : <NotFound />} />
             <Route
               path="/profile"
               element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
+                ACCOUNT_CREATION_ENABLED ? (
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                ) : (
+                  <NotFound />
+                )
               }
             />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
