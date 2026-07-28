@@ -24,7 +24,7 @@ const beneficiaries = [
 ];
 
 const WhoBenefits = () => (
-  <section className="bg-background px-4 py-14 md:py-20">
+  <section className="bg-background px-5 py-12 sm:px-4 md:py-20">
     <div className="mx-auto max-w-7xl">
       <div>
         <h2 className="text-3xl font-bold leading-tight md:text-4xl">
@@ -36,14 +36,14 @@ const WhoBenefits = () => (
         </p>
       </div>
 
-      <div className="mt-10 grid gap-x-8 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid gap-x-8 md:mt-10 md:grid-cols-2 lg:grid-cols-4">
         {beneficiaries.map((beneficiary) => (
-          <div key={beneficiary.title} className="border-t py-6">
+          <div key={beneficiary.title} className="border-t py-5 sm:py-6">
             <beneficiary.icon className="h-6 w-6 text-primary" aria-hidden />
-            <h3 className="mt-5 text-lg font-bold leading-snug">
+            <h3 className="mt-4 text-lg font-bold leading-snug sm:mt-5">
               {beneficiary.title}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:mt-3">
               {beneficiary.description}
             </p>
           </div>

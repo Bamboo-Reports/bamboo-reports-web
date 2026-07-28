@@ -38,7 +38,7 @@ const Reports = () => {
         <MarketingHero showAction={false} title="Reports" />
 
         <FadeIn>
-          <section className="px-4 py-14 md:py-20">
+          <section className="px-5 py-10 sm:px-4 md:py-20">
             <div className="mx-auto max-w-7xl">
               <p className="text-sm font-semibold text-accent">Latest report</p>
               <div className="mt-6">

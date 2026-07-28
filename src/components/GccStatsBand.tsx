@@ -112,7 +112,7 @@ const GccStatsBand = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="border-t px-4 pb-12 pt-12 md:pb-16 md:pt-16">
+    <section ref={sectionRef} className="border-t px-5 py-10 sm:px-4 md:py-16">
       <div className="mx-auto max-w-7xl">
         <div className="border-b pb-4">
           <h2 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-navy">
@@ -120,7 +120,7 @@ const GccStatsBand = () => {
           </h2>
         </div>
 
-        <dl className="grid grid-cols-3 pt-8 sm:pt-10">
+        <dl className="grid grid-cols-3 pt-6 sm:pt-10">
           {STATS.map((stat) => (
             <StatCell
               key={stat.label}
@@ -132,7 +132,7 @@ const GccStatsBand = () => {
         </dl>
 
         {GCC_TRACKER_ENABLED && (
-          <div className="mt-10 flex justify-center md:mt-12">
+          <div className="mt-8 flex justify-center md:mt-12">
             <Button
               asChild
               size="lg"

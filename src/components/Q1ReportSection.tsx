@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const Q1ReportSection = () => (
-  <section className="relative overflow-hidden bg-navy px-4 py-12 md:py-16">
+  <section className="relative overflow-hidden bg-navy px-5 py-10 sm:px-4 md:py-16">
     <div className="absolute inset-x-0 top-0 flex h-1" aria-hidden>
       <div className="w-2/3 bg-primary" />
       <div className="w-1/3 bg-accent" />
     </div>
 
-    <div className="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-14 gap-y-8">
+    <div className="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-14 gap-y-6 sm:gap-y-8">
       <div>
         <p className="text-sm font-semibold tabular-nums text-white/70">
           Q2 2026

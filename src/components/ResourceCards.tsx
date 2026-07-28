@@ -30,7 +30,7 @@ const CoverArt = ({
 }) => {
   const gradient = coverGradient(gradientIndex);
   return (
-    <div className={`relative flex aspect-video flex-col justify-end overflow-hidden p-6 ${gradient.base}`}>
+    <div className={`relative flex aspect-video flex-col justify-end overflow-hidden p-5 sm:p-6 ${gradient.base}`}>
       <div
         className={`absolute inset-0 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none ${gradient.hover}`}
         aria-hidden
@@ -76,7 +76,7 @@ export const FeaturedResourceRow = ({
       gradientIndex={item.gradientIndex}
       titleClassName="text-2xl md:text-3xl"
     />
-    <div className="flex flex-col justify-center gap-5 p-6 md:p-10">
+    <div className="flex flex-col justify-center gap-4 p-5 sm:gap-5 sm:p-6 md:p-10">
       <p className="leading-relaxed text-muted-foreground md:text-lg">{item.summary}</p>
       <span className="inline-flex items-center gap-2 font-semibold text-primary">
         {cta}
@@ -108,7 +108,7 @@ export const ResourceCard = ({ item }: { item: ResourceItem }) => (
           becomes the hover reveal on pointer devices. */}
       <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] md:group-focus-visible:grid-rows-[1fr] motion-reduce:transition-none">
         <div className="overflow-hidden">
-          <p className="pt-2 text-sm leading-relaxed text-muted-foreground transition-[opacity,filter] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] md:opacity-0 md:blur-[5px] md:group-hover:opacity-100 md:group-hover:blur-none md:group-focus-visible:opacity-100 md:group-focus-visible:blur-none motion-reduce:blur-none motion-reduce:transition-none">
+          <p className="pt-2 text-sm leading-relaxed text-navy/70 transition-[opacity,filter] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] md:opacity-0 md:blur-[5px] md:group-hover:opacity-100 md:group-hover:blur-none md:group-focus-visible:opacity-100 md:group-focus-visible:blur-none motion-reduce:blur-none motion-reduce:transition-none">
             {item.summary}
           </p>
         </div>

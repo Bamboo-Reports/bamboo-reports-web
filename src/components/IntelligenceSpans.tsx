@@ -16,18 +16,18 @@ const categories = [
 ];
 
 const IntelligenceSpans = () => (
-  <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
-    <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
+  <section className="border-y bg-secondary/30 px-5 py-12 sm:px-4 md:py-20">
+    <div className="mx-auto grid max-w-7xl items-center gap-8 sm:gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
       <div>
         <h2 className="max-w-lg text-3xl font-bold leading-tight md:text-4xl">
           Our intelligence spans
         </h2>
 
-        <div className="mt-8 border-t">
+        <div className="mt-6 border-t sm:mt-8">
           {categories.map((category) => (
             <div
               key={category.title}
-              className="grid grid-cols-[1.5rem_1fr] gap-4 border-b py-5"
+              className="grid grid-cols-[1.5rem_1fr] gap-3 border-b py-4 sm:gap-4 sm:py-5"
             >
               <Check className="mt-1 h-5 w-5 text-primary" aria-hidden />
               <div>
@@ -46,7 +46,7 @@ const IntelligenceSpans = () => (
           width="2280"
           height="2282"
           loading="lazy"
-          className="h-auto w-full max-w-2xl"
+          className="h-auto w-[88%] max-w-sm sm:w-full lg:max-w-2xl"
         />
       </div>
     </div>
