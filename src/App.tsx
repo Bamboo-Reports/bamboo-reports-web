@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { InquiryFormProvider } from "@/contexts/InquiryFormContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
-import Index from "./pages/Index";
+import IndexV2 from "./pages/IndexV2";
 import Insights from "./pages/Insights";
 import Articles from "./pages/Articles";
 import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
@@ -52,7 +52,8 @@ const App = () => {
           <BrowserRouter>
             <ScrollToTop />
             <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<IndexV2 />} />
+            <Route path="/v2" element={<Navigate to="/" replace />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/roundtables" element={<Articles />} />
             <Route path="/roundtables/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
