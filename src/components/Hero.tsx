@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
 import { useAuth } from "@/contexts/AuthContext";
 import { ACCOUNT_CREATION_ENABLED } from "@/lib/featureFlags";
-import gccIllustration from "@/assets/gcc-illustration.png";
+import gccIllustration from "@/assets/gcc-hero-intelligence-v2.png";
 
 const CAPABILITIES = [
   { title: "GCC Prospect Data", href: "/gcc-prospect-data" },
@@ -16,9 +16,9 @@ const Hero = () => {
   const { user } = useAuth();
 
   return (
-    <section className="overflow-hidden px-4 pb-14 pt-12 md:pb-20 md:pt-16">
+    <section className="overflow-hidden px-4 py-12 md:py-16">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
           <div>
             <h1
               className="hero-rise text-balance text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
@@ -29,7 +29,7 @@ const Hero = () => {
             </h1>
 
             <div
-              className="hero-rise mt-9 max-w-md border-t"
+              className="hero-rise mt-8 max-w-md border-t"
               style={{ animationDelay: "120ms" }}
             >
               {CAPABILITIES.map((item) => (
@@ -48,7 +48,7 @@ const Hero = () => {
             </div>
 
             <div
-              className="hero-rise mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+              className="hero-rise mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
               style={{ animationDelay: "220ms" }}
             >
               {!user && ACCOUNT_CREATION_ENABLED && (
@@ -72,14 +72,6 @@ const Hero = () => {
                 </GoogleCalendarSchedulingButton>
               </Button>
             </div>
-
-            <p
-              className="hero-rise mt-5 max-w-lg text-sm text-muted-foreground"
-              style={{ animationDelay: "300ms" }}
-            >
-              Built and refreshed by analysts who track the India GCC market
-              every day.
-            </p>
           </div>
 
           <div
@@ -89,10 +81,10 @@ const Hero = () => {
             <img
               src={gccIllustration}
               alt="GCC Intelligence Platform - Global Capability Centres Data Analytics and Market Intelligence Illustration"
-              width="1024"
-              height="714"
+              width="1536"
+              height="1024"
               fetchPriority="high"
-              className="h-auto w-full max-w-xl"
+              className="h-auto w-full max-w-2xl"
             />
           </div>
         </div>
