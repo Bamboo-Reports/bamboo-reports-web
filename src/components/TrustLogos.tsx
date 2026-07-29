@@ -52,7 +52,7 @@ const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem" 
             <img
               src={logo.src}
               alt={logo.alt}
-              className="h-12 object-contain md:h-14"
+              className="h-[4.5rem] object-contain"
               decoding="async"
             />
           </div>
@@ -63,7 +63,7 @@ const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem" 
               <img
                 src={logo.src}
                 alt=""
-                className="h-12 object-contain md:h-14"
+                className="h-[4.5rem] object-contain"
                 loading="lazy"
                 decoding="async"
               />
