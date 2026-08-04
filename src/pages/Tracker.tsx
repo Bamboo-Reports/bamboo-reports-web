@@ -39,7 +39,7 @@ import {
   TRACKER_TOP_CITIES,
   TRACKER_INDUSTRY_CLASSIFICATIONS,
 } from "@/lib/trackerStats";
-import { Lock, RotateCcw, X } from "lucide-react";
+import { ArrowUpRight, Info, Lock, RotateCcw, X } from "lucide-react";
 
 const DEBOUNCE_MS = 250;
 // The free directory shows only the first 20 matching companies, A to Z, with
@@ -50,16 +50,6 @@ const DIRECTORY_ROW_LIMIT = 20;
 // and unlocks in-app with a free account.
 
 const nf = (n: number) => n.toLocaleString("en-US");
-
-const combinedFilterSignupUrl = (filters: TrackerFilters) => {
-  const redirectParams = new URLSearchParams();
-  filters.account_primary_category.forEach((industry) =>
-    redirectParams.append("industry", industry)
-  );
-  filters.center_city.forEach((city) => redirectParams.append("city", city));
-  const redirectPath = `/gcc?${redirectParams.toString()}`;
-  return `/signup?src=gcc-combined-filters&redirect=${encodeURIComponent(redirectPath)}`;
-};
 
 interface PendingCompanyProfile {
   name: string;
@@ -99,6 +89,36 @@ const FilterChip = ({
     </button>
   </span>
 );
+
+// A company with a published profile has to advertise it: the name is tinted
+// and carries a corner arrow, so the row reads as clickable without hovering.
+// Companies without a page render as plain text.
+const CompanyCell = ({
+  account,
+  onOpen,
+}: {
+  account: { name: string | null; slug?: string };
+  onOpen: (event: MouseEvent<HTMLAnchorElement>, company: PendingCompanyProfile) => void;
+}) => {
+  if (!account.slug || !account.name) {
+    return <span className="truncate">{account.name}</span>;
+  }
+  const href = `/gcc/companies/${account.slug}/`;
+  return (
+    <a
+      href={href}
+      onClick={(event) => onOpen(event, { name: account.name as string, href })}
+      className="group inline-flex max-w-full items-center gap-1 rounded-sm font-medium text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+    >
+      <span className="truncate">{account.name}</span>
+      <ArrowUpRight
+        className="h-3.5 w-3.5 shrink-0 opacity-70 transition-opacity group-hover:opacity-100"
+        aria-hidden="true"
+      />
+      <span className="sr-only">— view GCC profile</span>
+    </a>
+  );
+};
 
 const CountCard = ({
   label,
@@ -140,7 +160,7 @@ const USE_CASES = [
 ];
 
 const Tracker = () => {
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
   useSEO({
     title: "GCC Companies in India: Directory & Market Size Calculator | Bamboo Reports",
     description: `Browse a directory of ${nf(TRACKER_STATS.accountsBrowsable)}+ Global Capability Centres in India, from the ${nf(TRACKER_STATS.accountsTracked)} GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.`,
@@ -149,7 +169,9 @@ const Tracker = () => {
     canonicalUrl: "https://www.bambooreports.com/gcc",
   });
 
-  // ?industry=…&city=… deep-links (homepage widget, landing pages) preselect filters.
+  // ?industry=…&city=… deep-links (homepage widget, landing pages) preselect
+  // filters. Only one dimension can be active, so a link carrying both keeps
+  // the industry and drops the city.
   const [filters, setFilters] = useState<TrackerFilters>(() => {
     if (typeof window === "undefined") return EMPTY_FILTERS;
     const params = new URLSearchParams(window.location.search);
@@ -159,12 +181,10 @@ const Tracker = () => {
     return {
       ...EMPTY_FILTERS,
       account_primary_category: industries,
-      center_city: cities,
+      center_city: industries.length > 0 ? [] : cities,
     };
   });
   const [accountSearch, setAccountSearch] = useState("");
-  const [pendingSignupFilters, setPendingSignupFilters] =
-    useState<TrackerFilters | null>(null);
   const [pendingCompanyProfile, setPendingCompanyProfile] =
     useState<PendingCompanyProfile | null>(null);
   const debouncedAccountSearch = useDebouncedValue(accountSearch, DEBOUNCE_MS);
@@ -185,8 +205,10 @@ const Tracker = () => {
     }
   }, [isStaticAccountsError]);
 
-  // Anonymous company search is limited to the same names that can surface in
-  // the free 20-row previews across the public industry/city filters.
+  // Company search reveals exactly what the filters can reveal: the 20-row
+  // previews of the top industries and the top cities. Filters apply one
+  // dimension at a time, so industry/city combinations are not seeded here --
+  // every other tracked company answers "available in the full version".
   const searchableCompanyNames = useMemo(() => {
     const publicAccounts = staticAccounts
       .filter(
@@ -212,23 +234,18 @@ const Tracker = () => {
         account.cities.some((accountCity) => accountCity.name === city)
       )
     );
-    TRACKER_TOP_INDUSTRIES.forEach((industry) => {
-      TRACKER_TOP_CITIES.forEach((city) =>
-        addPreview(
-          (account) =>
-            account.industry === industry &&
-            account.cities.some((accountCity) => accountCity.name === city)
-        )
-      );
-    });
-
     return names;
   }, [staticAccounts]);
 
   // Gated-company detection: private records ship only a hash of their
   // simplified name, so an exact-name search can say "tracked, sign up to
   // unlock" without the private list ever being in the payload. Public names
-  // outside the free preview set receive the same full-version treatment.
+  // outside the free preview set receive the same full-version treatment, and
+  // match on a partial query too -- typing "Wells" has to reach Wells Fargo,
+  // or a tracked company reads as one we do not cover. (Those names are
+  // already public on the crawlable /gcc/industries/* and /gcc/cities/*
+  // pages, so partial matching reveals nothing new.) Private accounts stay
+  // exact-only: a hash cannot be prefix-matched.
   // Excluded non-gcc accounts get their explanatory note via their hash.
   const [gatedMatch, setGatedMatch] = useState(false);
   const [gatedMatchName, setGatedMatchName] = useState<string | null>(null);
@@ -247,13 +264,39 @@ const Tracker = () => {
         const simplifiedQuery = simplifyCompanyName(q);
         const matchesPrivate =
           hash !== null && staticAccounts.some((account) => account.h === hash);
-        const lockedPublicAccount = staticAccounts.find(
-          (account) =>
-            account.visibility !== "private" &&
-            account.name !== null &&
-            !searchableCompanyNames.has(account.name) &&
-            simplifyCompanyName(account.name) === simplifiedQuery
-        );
+        // Best locked match: exact simplified name, then a leading match, then
+        // any containing one, so "wells" resolves to Wells Fargo rather than
+        // to a company that merely mentions it later in its name.
+        const lockedCandidates = (
+          simplifiedQuery.length < 2 ? [] : staticAccounts
+        )
+          .filter(
+            (account): account is StaticTrackerAccount & { name: string } =>
+              account.visibility !== "private" &&
+              account.name !== null &&
+              !searchableCompanyNames.has(account.name) &&
+              simplifyCompanyName(account.name).includes(simplifiedQuery)
+          )
+          .map((account) => {
+            const simplifiedName = simplifyCompanyName(account.name);
+            return {
+              account,
+              rank:
+                simplifiedName === simplifiedQuery
+                  ? 0
+                  : simplifiedName.startsWith(simplifiedQuery)
+                    ? 1
+                    : 2,
+              length: simplifiedName.length,
+            };
+          })
+          .sort(
+            (a, b) =>
+              a.rank - b.rank ||
+              a.length - b.length ||
+              a.account.name.localeCompare(b.account.name)
+          );
+        const lockedPublicAccount = lockedCandidates[0]?.account;
         setGatedMatch(matchesPrivate || lockedPublicAccount !== undefined);
         setGatedMatchName(lockedPublicAccount?.name ?? null);
         setNonGccNote(hash !== null ? TRACKER_NON_GCC_NOTES[hash] ?? null : null);
@@ -271,49 +314,42 @@ const Tracker = () => {
 
   const hasFilterInput = hasAppliedFilters || accountSearch.length > 0;
 
-  useEffect(() => {
-    if (
-      authLoading ||
-      user ||
-      !ACCOUNT_CREATION_ENABLED ||
-      filters.account_primary_category.length === 0 ||
-      filters.center_city.length === 0
-    ) {
-      return;
+  // Exactly one filter dimension is ever active, signed in or not: several
+  // industries can be ticked together, but choosing an industry drops any city
+  // and company selection, and vice versa. Dropping another dimension's
+  // selection is announced, so the chips vanishing never reads as a glitch.
+  const switchDimension = (
+    key: keyof TrackerFilters,
+    next: string[],
+    keptLabel: string
+  ) => {
+    const replacesAnother = (
+      ["account_global_legal_name", "account_primary_category", "center_city"] as const
+    ).some((other) => other !== key && filters[other].length > 0);
+    if (replacesAnother) {
+      toast(`Showing ${keptLabel} only`, {
+        description:
+          "The directory filters by one of company, industry or city at a time.",
+      });
     }
-
-    setPendingSignupFilters(filters);
-    setFilters((current) => ({ ...current, center_city: [] }));
-  }, [authLoading, user, filters]);
+    setAccountSearch("");
+    setFilters({ ...EMPTY_FILTERS, [key]: next });
+  };
 
   const updateIndustryFilter = (next: string[]) => {
-    const nextFilters = { ...filters, account_primary_category: next };
-    if (
-      !authLoading &&
-      !user &&
-      ACCOUNT_CREATION_ENABLED &&
-      next.length > 0 &&
-      filters.center_city.length > 0
-    ) {
-      setPendingSignupFilters(nextFilters);
+    if (next.length === 0) {
+      setFilters((current) => ({ ...current, account_primary_category: [] }));
       return;
     }
-    setFilters(nextFilters);
+    switchDimension("account_primary_category", next, "industry");
   };
 
   const updateCityFilter = (next: string[]) => {
-    const nextFilters = { ...filters, center_city: next };
-    if (
-      !authLoading &&
-      !user &&
-      ACCOUNT_CREATION_ENABLED &&
-      next.length > 0 &&
-      filters.account_primary_category.length > 0
-    ) {
-      setPendingSignupFilters(nextFilters);
+    if (next.length === 0) {
+      setFilters((current) => ({ ...current, center_city: [] }));
       return;
     }
-    setFilters(nextFilters);
+    switchDimension("center_city", next, "city");
   };
 
   const openCompanyProfile = (
@@ -464,7 +500,11 @@ const Tracker = () => {
   ]);
 
   const accounts = useMemo(() => {
-    if (hasAppliedFilters || accountSearch.trim().length > 0) {
+    // Only a committed selection redraws the table. Typing narrows the
+    // suggestion list, not the rows: the query is never applied to
+    // visibleAccounts, so reacting to it here would swap the curated preview
+    // for an unrelated A-Z slice and read as a broken search.
+    if (hasAppliedFilters) {
       return visibleAccounts.slice(0, DIRECTORY_ROW_LIMIT);
     }
 
@@ -501,7 +541,7 @@ const Tracker = () => {
     }
 
     return balancedAccounts;
-  }, [visibleAccounts, hasAppliedFilters, accountSearch]);
+  }, [visibleAccounts, hasAppliedFilters]);
   // Everything matching the filters but not in the free A-Z preview, whether
   // beyond the row limit or private, lives in the full version.
   const remainingCount = filteredAccounts.length - accounts.length;
@@ -526,8 +566,8 @@ const Tracker = () => {
               </h1>
               <p className="mt-4 max-w-6xl text-muted-foreground md:text-lg">
                 Pick a company, an industry, or a city and every count updates
-                instantly. Start broad, then narrow until the numbers match the
-                market you actually sell to.
+                instantly. Switch between them freely to see how the numbers
+                move across the market you actually sell to.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 {!user && ACCOUNT_CREATION_ENABLED && (
@@ -553,6 +593,13 @@ const Tracker = () => {
 
           {/* Filters */}
           <div className="border-y bg-secondary/30 px-4 py-6 md:px-6">
+            <p className="mb-4 flex items-start gap-2 text-sm text-muted-foreground">
+              <Info className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+              <span>
+                Filter by one of these at a time. Picking a company, an industry
+                or a city replaces whatever you had selected before.
+              </span>
+            </p>
             <div className="flex flex-col md:flex-row md:items-end gap-4">
               <div className="flex-1 min-w-0">
                 <label className="mb-2 block text-sm font-medium text-foreground">
@@ -576,13 +623,13 @@ const Tracker = () => {
                       }));
                     }
                   }}
-                  onSelect={(account) => {
-                    setAccountSearch("");
-                    setFilters((current) => ({
-                      ...current,
-                      account_global_legal_name: [account],
-                    }));
-                  }}
+                  onSelect={(account) =>
+                    switchDimension(
+                      "account_global_legal_name",
+                      [account],
+                      "this company"
+                    )
+                  }
                   onClear={() => {
                     setAccountSearch("");
                     setFilters((current) => ({
@@ -632,8 +679,14 @@ const Tracker = () => {
               </Button>
             </div>
 
-            {hasAppliedFilters && (
-              <div className="mt-4 flex flex-wrap items-center gap-2 border-t pt-4">
+            {/* Always laid out, hidden until something is selected: the chip
+                row sits above the counts, so rendering it conditionally
+                jolted every number down the page on each pick. */}
+            <div
+              className={`mt-4 flex min-h-[2.875rem] flex-wrap items-center gap-2 border-t pt-4 ${
+                hasAppliedFilters ? "" : "invisible"
+              }`}
+            >
                 {filters.account_global_legal_name.map((name) => (
                   <FilterChip
                     key={name}
@@ -662,8 +715,7 @@ const Tracker = () => {
                     onRemove={() => removeFilterValue("center_city", city)}
                   />
                 ))}
-              </div>
-            )}
+            </div>
           </div>
 
           {/* Counts */}
@@ -712,23 +764,11 @@ const Tracker = () => {
                   <>
                     {accounts.map((account) => (
                       <li key={account.name} className="px-5 py-4">
-                        <p className="truncate font-medium text-foreground" title={account.name ?? undefined}>
-                          {account.slug ? (
-                            <a
-                              href={`/gcc/companies/${account.slug}/`}
-                              onClick={(event) =>
-                                openCompanyProfile(event, {
-                                  name: account.name,
-                                  href: `/gcc/companies/${account.slug}/`,
-                                })
-                              }
-                              className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                            >
-                              {account.name}
-                            </a>
-                          ) : (
-                            account.name
-                          )}
+                        <p
+                          className="flex min-w-0 font-medium text-foreground"
+                          title={account.name ?? undefined}
+                        >
+                          <CompanyCell account={account} onOpen={openCompanyProfile} />
                         </p>
                         <p className="mt-1 flex min-w-0 items-center gap-1.5 text-sm text-muted-foreground">
                           <span className="truncate">
@@ -820,23 +860,8 @@ const Tracker = () => {
                           className="transition-colors duration-micro hover:bg-muted/40"
                         >
                           <td className="overflow-hidden px-5 py-4 font-medium text-foreground">
-                            <div className="truncate" title={account.name}>
-                              {account.slug ? (
-                                <a
-                                  href={`/gcc/companies/${account.slug}/`}
-                                  onClick={(event) =>
-                                    openCompanyProfile(event, {
-                                      name: account.name,
-                                      href: `/gcc/companies/${account.slug}/`,
-                                    })
-                                  }
-                                  className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                >
-                                  {account.name}
-                                </a>
-                              ) : (
-                                account.name
-                              )}
+                            <div className="flex min-w-0" title={account.name}>
+                              <CompanyCell account={account} onOpen={openCompanyProfile} />
                             </div>
                           </td>
                           <td className="overflow-hidden px-5 py-4 text-muted-foreground">
@@ -949,39 +974,6 @@ const Tracker = () => {
       </section>
 
       <Footer />
-
-      <Dialog
-        open={pendingSignupFilters !== null}
-        onOpenChange={(open) => {
-          if (!open) setPendingSignupFilters(null);
-        }}
-      >
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Combine filters with a free account</DialogTitle>
-            <DialogDescription>
-              Sign up to narrow the directory by both industry and city. Your
-              current selections will be ready when you return.
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter className="gap-2 sm:gap-0">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => setPendingSignupFilters(null)}
-            >
-              Continue browsing
-            </Button>
-            {pendingSignupFilters && (
-              <Button asChild>
-                <a href={combinedFilterSignupUrl(pendingSignupFilters)}>
-                  Sign up to combine filters
-                </a>
-              </Button>
-            )}
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
 
       <Dialog
         open={pendingCompanyProfile !== null}
