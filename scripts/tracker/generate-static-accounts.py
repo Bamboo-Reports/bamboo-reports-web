@@ -20,7 +20,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_INPUT = ROOT / "data" / "data-structs.xlsx"
+DEFAULT_INPUT = ROOT / "data" / "tracker-data.xlsx"
 DEFAULT_OUTPUT_DIR = ROOT / "public" / "data" / "t"
 CHUNK_MANIFEST = ROOT / "src" / "lib" / "trackerAccountChunks.ts"
 STATS_MODULE = ROOT / "src" / "lib" / "trackerStats.ts"
