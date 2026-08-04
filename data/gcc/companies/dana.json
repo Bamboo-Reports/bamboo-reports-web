@@ -1,0 +1,123 @@
+{
+  "slug": "dana",
+  "name": "Dana Inc.",
+  "shortName": "Dana",
+  "displayName": "Dana Inc.",
+  "website": "https://www.dana.com",
+  "linkedin": "http://www.linkedin.com/company/dana-incorporated",
+  "forbesRank": null,
+  "fortuneRank": 420,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Dana's GCC footprint in India",
+  "lede": "<strong>Dana runs one center in Pune.</strong> Pune, covering engineering & design, built over twelve years.",
+  "insight": "A single Dana center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Dana Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Dana runs 1 verified center in Pune, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Pune"
+    ],
+    "yearsInIndia": 12,
+    "sinceYear": 2014,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "Engineering & Design"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 14,
+    "categories": 12,
+    "categoryList": [
+      "ERP",
+      "Cloud Platform",
+      "Data Science",
+      "DevOps",
+      "Finance",
+      "Manufacturing",
+      "Methodology",
+      "Others",
+      "Project Management",
+      "Sales",
+      "Testing",
+      "Version Control"
+    ]
+  },
+  "leaders": {
+    "count": 21,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Managing Director - Dana India Technical Centre",
+        "city": "Pune"
+      },
+      {
+        "title": "IT Operations Head , India & Thailand",
+        "city": "Pune"
+      },
+      {
+        "title": "Head - Human Resources Engineering Center with Talent Management for APAC and Comp & Ben for India",
+        "city": "Pune"
+      }
+    ]
+  },
+  "about": {
+    "description": "Dana's India footprint covers Pune, spanning engineering & design. The centers deliver IT, R&D and ER&D, HR and Procurement for the group's global operations.",
+    "industry": "Automotive",
+    "headquarters": "United States",
+    "revenueBand": "$5Bn to $10Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "DAN, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 21 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Dana operate in India?",
+      "a": "Dana operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Dana have centers in?",
+      "a": "Dana's India presence is in Pune."
+    },
+    {
+      "q": "What types of centers does Dana run in India?",
+      "a": "Dana runs engineering & design centers in India."
+    },
+    {
+      "q": "How many people work at Dana's India centers?",
+      "a": "Aggregate and center-level headcount for Dana's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Dana's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Dana's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

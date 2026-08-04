@@ -36,6 +36,15 @@ const esc = (s) =>
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 
+// Coverage is uneven across the directory: a handful of companies have no
+// leaders, no tracked tools or no active center on record. Those sections say
+// TBA rather than rendering "0" or an empty block, which reads as broken.
+const TBA = "TBA";
+const orTba = (value) =>
+  value === null || value === undefined || value === "" || value === 0
+    ? TBA
+    : value;
+
 // Fields that intentionally carry inline markup (bold spans) from curated data.
 const RICH_FIELDS = new Set(["lede"]);
 
@@ -57,6 +66,9 @@ function teaserChips(items, singular, plural) {
 
 function buildTechPreview(tech) {
   const samples = tech.categorySamples ?? [];
+  if (!samples.length && !(tech.categoryList ?? []).length) {
+    return `<div class="data-preview"><span class="preview-value">${TBA}</span></div>`;
+  }
   if (!samples.length) {
     return `<div class="data-preview">${teaserChips(tech.categoryList ?? [], "category", "categories")}</div>`;
   }
@@ -101,10 +113,10 @@ function buildTags(c) {
 function buildStatTiles(c) {
   const s = c.stats;
   const tiles = [
-    { k: "Total centers", v: s.totalCenters ?? s.activeCenters },
-    { k: "Indian cities", v: s.cities.length },
-    { k: "Years in India", v: s.yearsInIndia },
-    { k: "India headcount", v: s.headcountBand },
+    { k: "Total centers", v: orTba(s.totalCenters ?? s.activeCenters) },
+    { k: "Indian cities", v: orTba(s.cities.length) },
+    { k: "Years in India", v: orTba(s.yearsInIndia) },
+    { k: "India headcount", v: orTba(s.headcountBand) },
   ];
   return tiles
     .map(
@@ -119,7 +131,11 @@ function buildStatTiles(c) {
 }
 
 function buildLeaderRows(c) {
-  return (c.leaders.titles ?? []).slice(0, 3)
+  const titles = c.leaders.titles ?? [];
+  if (!titles.length) {
+    return `              <div class="dm-row"><div class="dm-title">${TBA}</div></div>`;
+  }
+  return titles.slice(0, 3)
     .map(
       (l) =>
         `              <div class="dm-row"><div class="dm-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg></div><div class="dm-title">${esc(l.title)} <span>| ${esc(l.city)}</span></div></div>`
@@ -188,8 +204,8 @@ function buildFactTilesV2(c) {
   const lockIcon =
     '<svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>';
   const tiles = [
-    { k: "Total centers", v: s.totalCenters ?? s.activeCenters },
-    { k: "Indian cities", v: s.cities.length },
+    { k: "Total centers", v: orTba(s.totalCenters ?? s.activeCenters) },
+    { k: "Indian cities", v: orTba(s.cities.length) },
     { k: "Years in India", locked: true },
     { k: "India headcount", locked: true },
   ];
@@ -292,15 +308,15 @@ function render(template, c, extraVars = {}) {
     TYPE_CHIPS: teaserChips(c.centerTypes, "center type", "center types"),
     FUNCTION_CHIPS: teaserChips(c.functions, "function", "functions"),
     TECH_PREVIEW: buildTechPreview(c.tech),
-    LEADER_COUNT: esc(c.leaders.count),
-    LEADER_DEPTS: esc(c.leaders.departments),
+    LEADER_COUNT: esc(orTba(c.leaders.count)),
+    LEADER_DEPTS: esc(orTba(c.leaders.departments)),
     LEADER_ROWS: buildLeaderRows(c),
     LAST_UPDATED: esc(c.lastUpdated ?? ""),
     // Tracked-vs-shown hook: platform depth stated next to the free teaser.
     TRACKED_SUMMARY: esc(
       `${c.shortName}: ${c.stats.totalCenters ?? c.stats.activeCenters} ` +
         `${(c.stats.totalCenters ?? c.stats.activeCenters) === 1 ? "centre" : "centres"} and ` +
-        `${c.leaders.count} decision-makers tracked in Bamboo Reports.`
+        `${orTba(c.leaders.count)} decision-makers tracked in Bamboo Reports.`
     ),
     ABOUT_DESC: esc(c.about.description),
     ABOUT_ROWS: buildAboutRows(c),

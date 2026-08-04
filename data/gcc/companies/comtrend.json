@@ -1,0 +1,86 @@
+{
+  "slug": "comtrend",
+  "name": "Comtrend Corp.",
+  "shortName": "Comtrend",
+  "displayName": "Comtrend Corp.",
+  "website": "https://www.comtrend.com",
+  "linkedin": "https://www.linkedin.com/company/comtrend-corporation",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Comtrend's GCC footprint in India",
+  "lede": "<strong>Comtrend runs one center in Gurugram.</strong> Gurugram, covering R&D, built over two years.",
+  "insight": "A single Comtrend center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Comtrend Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Comtrend runs 1 verified center in Gurugram, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Gurugram"
+    ],
+    "yearsInIndia": 2,
+    "sinceYear": 2024,
+    "headcountBand": "<50",
+    "headcountBandLong": "<50"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "R&D and ER&D"
+  ],
+  "tech": {
+    "tools": 0,
+    "categories": 0,
+    "categoryList": []
+  },
+  "leaders": {
+    "count": 0,
+    "departments": "the India leadership team",
+    "titles": []
+  },
+  "about": {
+    "description": "Comtrend's India footprint covers Gurugram, spanning R&D. The centers deliver R&D and ER&D for the group's global operations.",
+    "industry": "Telecom",
+    "headquarters": "Taiwan",
+    "revenueBand": "$10Mn to $50Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "8089, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all zero decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Comtrend operate in India?",
+      "a": "Comtrend operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Comtrend have centers in?",
+      "a": "Comtrend's India presence is in Gurugram."
+    },
+    {
+      "q": "What types of centers does Comtrend run in India?",
+      "a": "Comtrend runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Comtrend's India centers?",
+      "a": "Aggregate and center-level headcount for Comtrend's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

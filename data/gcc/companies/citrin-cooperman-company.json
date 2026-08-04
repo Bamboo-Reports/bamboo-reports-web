@@ -1,0 +1,113 @@
+{
+  "slug": "citrin-cooperman-company",
+  "name": "Citrin Cooperman & Company, LLP",
+  "shortName": "Citrin Cooperman &",
+  "displayName": "Citrin Cooperman &",
+  "website": "https://www.citrincooperman.com",
+  "linkedin": "http://www.linkedin.com/company/citrin-cooperman",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Citrin Cooperman &'s GCC footprint in India",
+  "lede": "<strong>Citrin Cooperman & runs two centers across two Indian cities.</strong> Ahmedabad and Hyderabad, covering SSC and GCC/GIC, built over ten years.",
+  "insight": "Search elsewhere and you will usually find one Citrin Cooperman & office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Citrin Cooperman & GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Citrin Cooperman & runs 2 verified centers across 2 Indian cities (Ahmedabad, Hyderabad), covering SSC and GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Ahmedabad",
+      "Hyderabad"
+    ],
+    "yearsInIndia": 10,
+    "sinceYear": 2016,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "SSC",
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR"
+  ],
+  "tech": {
+    "tools": 3,
+    "categories": 2,
+    "categoryList": [
+      "ERP",
+      "Finance"
+    ]
+  },
+  "leaders": {
+    "count": 28,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "India Advisory Leader I Partner, Executive Director",
+        "city": "Gurugram"
+      },
+      {
+        "title": "IT Director",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "HR Director, India",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "Citrin Cooperman &'s India footprint covers Ahmedabad and Hyderabad, spanning SSC and GCC/GIC. The centers deliver IT, Finance & Accounting and HR for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "United States",
+    "revenueBand": "$501Mn to $1Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 28 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Citrin Cooperman & operate in India?",
+      "a": "Citrin Cooperman & operates 2 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Citrin Cooperman & have centers in?",
+      "a": "Citrin Cooperman &'s India footprint includes Ahmedabad and 1 additional city."
+    },
+    {
+      "q": "What types of centers does Citrin Cooperman & run in India?",
+      "a": "Citrin Cooperman & runs SSC and 1 additional center type in India."
+    },
+    {
+      "q": "How many people work at Citrin Cooperman &'s India centers?",
+      "a": "Aggregate and center-level headcount for Citrin Cooperman &'s India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Citrin Cooperman &'s GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Citrin Cooperman &'s India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

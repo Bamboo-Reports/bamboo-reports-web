@@ -1,0 +1,121 @@
+{
+  "slug": "alten",
+  "name": "Alten S.A.",
+  "shortName": "Alten",
+  "displayName": "Alten S.A.",
+  "website": "https://www.alten.com",
+  "linkedin": "http://www.linkedin.com/company/alten",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Alten's GCC footprint in India",
+  "lede": "<strong>Alten runs seven centers across four Indian cities.</strong> Bengaluru, Chennai, Pune and Hyderabad, covering GCC/GIC and engineering & design, built over sixteen years.",
+  "insight": "Search elsewhere and you will usually find one Alten office in India. We map seven, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Alten S.A. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Alten runs 7 verified centers across 4 Indian cities (Bengaluru, Chennai, Pune, Hyderabad), covering GCC/GIC and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 7,
+    "totalCenters": 7,
+    "cities": [
+      "Bengaluru",
+      "Chennai",
+      "Pune",
+      "Hyderabad"
+    ],
+    "yearsInIndia": 16,
+    "sinceYear": 2010,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "GCC/GIC",
+    "Engineering & Design"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Procurement"
+  ],
+  "tech": {
+    "tools": 14,
+    "categories": 10,
+    "categoryList": [
+      "ERP",
+      "Engineering Design",
+      "Analytics",
+      "Containers",
+      "Content Management",
+      "Document Management",
+      "Product Lifecycle Management",
+      "Programming Languages",
+      "Project Management",
+      "Supply Chain"
+    ]
+  },
+  "leaders": {
+    "count": 13,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Chief Executive Officer",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Delivery Head-Enterprise Applications",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Associate Director - HR & Admin",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Alten's India footprint covers Bengaluru, Chennai, Pune and Hyderabad, spanning GCC/GIC and engineering & design. The centers deliver IT, R&D and ER&D and Procurement for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "France",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "ATE, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all thirteen decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Alten operate in India?",
+      "a": "Alten operates 7 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Alten have centers in?",
+      "a": "Alten's India footprint includes Bengaluru and 3 additional cities."
+    },
+    {
+      "q": "What types of centers does Alten run in India?",
+      "a": "Alten runs GCC/GIC and 1 additional center type in India."
+    },
+    {
+      "q": "How many people work at Alten's India centers?",
+      "a": "Aggregate and center-level headcount for Alten's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Alten's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Alten's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

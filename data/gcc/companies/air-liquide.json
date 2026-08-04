@@ -1,0 +1,120 @@
+{
+  "slug": "air-liquide",
+  "name": "Air Liquide S.A.",
+  "shortName": "Air Liquide",
+  "displayName": "Air Liquide S.A.",
+  "website": "https://www.airliquide.com",
+  "linkedin": "http://www.linkedin.com/company/airliquide",
+  "forbesRank": 271,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Air Liquide's GCC footprint in India",
+  "lede": "<strong>Air Liquide runs one center in New Delhi.</strong> New Delhi, covering engineering & design, built over 34 years.",
+  "insight": "A single Air Liquide center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Air Liquide S.A. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Air Liquide runs 1 verified center in New Delhi, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "New Delhi"
+    ],
+    "yearsInIndia": 34,
+    "sinceYear": 1992,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "Engineering & Design"
+  ],
+  "functions": [
+    "R&D and ER&D",
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 12,
+    "categories": 10,
+    "categoryList": [
+      "Cloud Platform",
+      "Analytics",
+      "Application Frameworks",
+      "Big Data",
+      "Content Management",
+      "Data Engineering",
+      "Databases",
+      "Finance",
+      "Human Resources",
+      "Project Management"
+    ]
+  },
+  "leaders": {
+    "count": 16,
+    "departments": "IT, HR and Procurement",
+    "titles": [
+      {
+        "title": "Head of Global Digital & IT / Global Competency Center Lead",
+        "city": "Pune"
+      },
+      {
+        "title": "Head of Human Resources, Air Liquide India",
+        "city": "Noida"
+      },
+      {
+        "title": "Deputy Head of Engineering",
+        "city": "New Delhi"
+      }
+    ]
+  },
+  "about": {
+    "description": "Air Liquide's India footprint covers New Delhi, spanning engineering & design. The centers deliver R&D and ER&D, HR, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Chemicals",
+    "headquarters": "France",
+    "revenueBand": "$25Bn to $50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "AI, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all sixteen decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Air Liquide operate in India?",
+      "a": "Air Liquide operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Air Liquide have centers in?",
+      "a": "Air Liquide's India presence is in New Delhi."
+    },
+    {
+      "q": "What types of centers does Air Liquide run in India?",
+      "a": "Air Liquide runs engineering & design centers in India."
+    },
+    {
+      "q": "How many people work at Air Liquide's India centers?",
+      "a": "Aggregate and center-level headcount for Air Liquide's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Air Liquide's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Air Liquide's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

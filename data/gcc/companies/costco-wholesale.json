@@ -1,0 +1,100 @@
+{
+  "slug": "costco-wholesale",
+  "name": "Costco Wholesale Corp.",
+  "shortName": "Costco",
+  "displayName": "Costco Wholesale Corp.",
+  "website": "https://www.costco.com",
+  "linkedin": "http://www.linkedin.com/company/costco-wholesale",
+  "forbesRank": 87,
+  "fortuneRank": 13,
+  "badges": [],
+  "h1": "Costco's GCC footprint in India",
+  "lede": "<strong>Costco runs one center in Hyderabad.</strong> Hyderabad, covering GCC/GIC.",
+  "insight": "A single Costco center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Costco Wholesale Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Costco runs 1 verified center in Hyderabad, covering GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Hyderabad"
+    ],
+    "yearsInIndia": 1,
+    "sinceYear": 2025,
+    "headcountBand": "<50",
+    "headcountBandLong": "<50"
+  },
+  "centerTypes": [
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 3,
+    "categoryList": [
+      "Cloud Platform",
+      "IT Service Management",
+      "Project Management"
+    ]
+  },
+  "leaders": {
+    "count": 2,
+    "departments": "GCC leadership",
+    "titles": [
+      {
+        "title": "Vice president- Costco Digital Services/ Chief Executive Officer -Costco Wholesale India Pvt. Ltd.",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Costco's India footprint covers Hyderabad, spanning GCC/GIC. The centers deliver IT for the group's global operations.",
+    "industry": "Retail & Consumer Goods",
+    "headquarters": "United States",
+    "revenueBand": ">$50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "COST, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Costco operate in India?",
+      "a": "Costco operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Costco have centers in?",
+      "a": "Costco's India presence is in Hyderabad."
+    },
+    {
+      "q": "What types of centers does Costco run in India?",
+      "a": "Costco runs GCC/GIC centers in India."
+    },
+    {
+      "q": "How many people work at Costco's India centers?",
+      "a": "Aggregate and center-level headcount for Costco's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Costco's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Costco's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

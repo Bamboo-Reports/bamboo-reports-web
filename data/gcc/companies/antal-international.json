@@ -1,0 +1,104 @@
+{
+  "slug": "antal-international",
+  "name": "Antal International Ltd.",
+  "shortName": "Antal International",
+  "displayName": "Antal International Ltd.",
+  "website": "https://www.antal.com",
+  "linkedin": "https://www.linkedin.com/company/antal-international",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Antal International's GCC footprint in India",
+  "lede": "<strong>Antal International runs one center in Mumbai.</strong> Mumbai, covering SSC, built over nineteen years.",
+  "insight": "A single Antal International center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Antal International Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Antal International runs 1 verified center in Mumbai, covering SSC. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Mumbai"
+    ],
+    "yearsInIndia": 19,
+    "sinceYear": 2007,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "SSC"
+  ],
+  "functions": [
+    "HR"
+  ],
+  "tech": {
+    "tools": 0,
+    "categories": 0,
+    "categoryList": []
+  },
+  "leaders": {
+    "count": 3,
+    "departments": "HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Managing Director, India",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Senior Manager - Human Resources",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Specialist Head Hunter- Automotive R&D",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "Antal International's India footprint covers Mumbai, spanning SSC. The centers deliver HR for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "United Kingdom",
+    "revenueBand": "$251Mn to $500Mn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Antal International operate in India?",
+      "a": "Antal International operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Antal International have centers in?",
+      "a": "Antal International's India presence is in Mumbai."
+    },
+    {
+      "q": "What types of centers does Antal International run in India?",
+      "a": "Antal International runs SSC centers in India."
+    },
+    {
+      "q": "How many people work at Antal International's India centers?",
+      "a": "Aggregate and center-level headcount for Antal International's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Antal International's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Antal International's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

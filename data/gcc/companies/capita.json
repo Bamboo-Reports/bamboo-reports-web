@@ -1,0 +1,115 @@
+{
+  "slug": "capita",
+  "name": "Capita plc",
+  "shortName": "Capita",
+  "displayName": "Capita plc",
+  "website": "https://www.capita.com",
+  "linkedin": "http://www.linkedin.com/company/capita",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Capita's GCC footprint in India",
+  "lede": "<strong>Capita runs three centers across three Indian cities.</strong> Bengaluru, Mumbai and Pune, covering SSC, built over twenty years.",
+  "insight": "Search elsewhere and you will usually find one Capita office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Capita plc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Capita runs 3 verified centers across 3 Indian cities (Bengaluru, Mumbai, Pune), covering SSC. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Bengaluru",
+      "Mumbai",
+      "Pune"
+    ],
+    "yearsInIndia": 20,
+    "sinceYear": 2006,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "SSC"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 8,
+    "categories": 5,
+    "categoryList": [
+      "Human Resources",
+      "Analytics",
+      "Collaboration",
+      "Databases",
+      "IT Service Management"
+    ]
+  },
+  "leaders": {
+    "count": 19,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Managing Director of Digital Development Centre",
+        "city": "TBA"
+      },
+      {
+        "title": "Head of Engineering (Director of Engineering-Clarity)",
+        "city": "Pune"
+      },
+      {
+        "title": "Head of Resourcing",
+        "city": "Pune"
+      }
+    ]
+  },
+  "about": {
+    "description": "Capita's India footprint covers Bengaluru, Mumbai and Pune, spanning SSC. The centers deliver IT, Finance & Accounting, HR and Customer Support for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "United Kingdom",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "CPI, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all nineteen decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Capita operate in India?",
+      "a": "Capita operates 3 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Capita have centers in?",
+      "a": "Capita's India footprint includes Bengaluru and 2 additional cities."
+    },
+    {
+      "q": "What types of centers does Capita run in India?",
+      "a": "Capita runs SSC centers in India."
+    },
+    {
+      "q": "How many people work at Capita's India centers?",
+      "a": "Aggregate and center-level headcount for Capita's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Capita's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Capita's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

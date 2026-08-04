@@ -1,0 +1,117 @@
+{
+  "slug": "compagnie-generale-des-etablissements-michelin-sca",
+  "name": "Compagnie Generale des Etablissements Michelin SCA",
+  "shortName": "Michelin",
+  "displayName": "Michelin",
+  "website": "https://www.michelin.com",
+  "linkedin": "http://www.linkedin.com/company/michelin",
+  "forbesRank": 556,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Michelin's GCC footprint in India",
+  "lede": "<strong>Michelin runs two centers across two Indian cities.</strong> Gurugram and Pune, covering R&D and IT, built over twelve years.",
+  "insight": "Search elsewhere and you will usually find one Michelin office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Michelin GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Michelin runs 2 verified centers across 2 Indian cities (Gurugram, Pune), covering R&D and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Gurugram",
+      "Pune"
+    ],
+    "yearsInIndia": 12,
+    "sinceYear": 2014,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "R&D",
+    "IT"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 5,
+    "categoryList": [
+      "Human Resources",
+      "CRM",
+      "Cloud Platform",
+      "Databases",
+      "IT Service Management"
+    ]
+  },
+  "leaders": {
+    "count": 79,
+    "departments": "Finance, IT, HR and Procurement",
+    "titles": [
+      {
+        "title": "Chief Product Officer",
+        "city": "Pune"
+      },
+      {
+        "title": "Head of Talent Acquisition & Employee Experience - Africa India Middle East (AIM)",
+        "city": "Pune"
+      },
+      {
+        "title": "Demand Planning Head - Africa, India & Middle East",
+        "city": "Pune"
+      }
+    ]
+  },
+  "about": {
+    "description": "Michelin's India footprint covers Gurugram and Pune, spanning R&D and IT. The centers deliver IT, R&D and ER&D, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Automotive",
+    "headquarters": "France",
+    "revenueBand": "$25Bn to $50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "ML, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 79 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Michelin operate in India?",
+      "a": "Michelin operates 2 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Michelin have centers in?",
+      "a": "Michelin's India footprint includes Gurugram and 1 additional city."
+    },
+    {
+      "q": "What types of centers does Michelin run in India?",
+      "a": "Michelin runs R&D and 1 additional center type in India."
+    },
+    {
+      "q": "How many people work at Michelin's India centers?",
+      "a": "Aggregate and center-level headcount for Michelin's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Michelin's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Michelin's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

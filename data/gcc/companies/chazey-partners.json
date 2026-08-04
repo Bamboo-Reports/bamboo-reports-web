@@ -1,0 +1,122 @@
+{
+  "slug": "chazey-partners",
+  "name": "Chazey Partners Inc. (Acquired by QX Global Group)",
+  "shortName": "Chazey Partners",
+  "displayName": "Chazey Partners",
+  "website": "https://www.qxglobalgroup.com",
+  "linkedin": "http://www.linkedin.com/company/qxglobalgroup",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Chazey Partners's GCC footprint in India",
+  "lede": "<strong>Chazey Partners runs four centers across four Indian cities.</strong> Ahmedabad, Noida, Mumbai and Vadodara, covering GBS and CoE, built over thirteen years.",
+  "insight": "Search elsewhere and you will usually find one Chazey Partners office in India. We map four, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Chazey Partners GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Chazey Partners runs 4 verified centers across 4 Indian cities (Ahmedabad, Noida, Mumbai, Vadodara), covering GBS and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 4,
+    "totalCenters": 4,
+    "cities": [
+      "Ahmedabad",
+      "Noida",
+      "Mumbai",
+      "Vadodara"
+    ],
+    "yearsInIndia": 13,
+    "sinceYear": 2013,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "GBS",
+    "CoE"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR"
+  ],
+  "tech": {
+    "tools": 12,
+    "categories": 9,
+    "categoryList": [
+      "Application Frameworks",
+      "Collaboration",
+      "Databases",
+      "Content Management",
+      "Cybersecurity",
+      "DevOps",
+      "IT Service Management",
+      "Marketing",
+      "Networking"
+    ]
+  },
+  "leaders": {
+    "count": 7,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Senior Associate Vice President",
+        "city": "Ahmedabad"
+      },
+      {
+        "title": "Group CTO and Board Member",
+        "city": "TBA"
+      },
+      {
+        "title": "Chief Human Resources Officer",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Chazey Partners's India footprint covers Ahmedabad, Noida, Mumbai and Vadodara, spanning GBS and CoE. The centers deliver IT, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "United Kingdom",
+    "revenueBand": "$10Mn to $50Mn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "ACQMP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Chazey Partners operate in India?",
+      "a": "Chazey Partners operates 4 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Chazey Partners have centers in?",
+      "a": "Chazey Partners's India footprint includes Ahmedabad and 3 additional cities."
+    },
+    {
+      "q": "What types of centers does Chazey Partners run in India?",
+      "a": "Chazey Partners runs GBS and 1 additional center type in India."
+    },
+    {
+      "q": "How many people work at Chazey Partners's India centers?",
+      "a": "Aggregate and center-level headcount for Chazey Partners's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Chazey Partners's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Chazey Partners's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

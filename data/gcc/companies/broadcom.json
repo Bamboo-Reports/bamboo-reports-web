@@ -1,0 +1,122 @@
+{
+  "slug": "broadcom",
+  "name": "Broadcom Inc.",
+  "shortName": "Broadcom",
+  "displayName": "Broadcom Inc.",
+  "website": "https://www.broadcom.com",
+  "linkedin": "http://www.linkedin.com/company/broadcom",
+  "forbesRank": 53,
+  "fortuneRank": 70,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Broadcom's GCC footprint in India",
+  "lede": "<strong>Broadcom runs three centers across three Indian cities.</strong> Bengaluru, Pune and Hyderabad, covering R&D, built over 29 years.",
+  "insight": "Search elsewhere and you will usually find one Broadcom office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Broadcom Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Broadcom runs 3 verified centers across 3 Indian cities (Bengaluru, Pune, Hyderabad), covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Bengaluru",
+      "Pune",
+      "Hyderabad"
+    ],
+    "yearsInIndia": 29,
+    "sinceYear": 1997,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "HR",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 13,
+    "categories": 9,
+    "categoryList": [
+      "Cloud Platform",
+      "Analytics",
+      "Containers",
+      "Data Engineering",
+      "Databases",
+      "ERP",
+      "Messaging",
+      "Networking",
+      "Project Management"
+    ]
+  },
+  "leaders": {
+    "count": 23,
+    "departments": "IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Country head - Government & Public Sector, India",
+        "city": "Gurugram"
+      },
+      {
+        "title": "Director, Software Engineering",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Regional HR Director - APAC & MET. Director, Broadcom Entities, India",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Broadcom's India footprint covers Bengaluru, Pune and Hyderabad, spanning R&D. The centers deliver IT, R&D and ER&D, HR and Sales & Marketing for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
+    "revenueBand": ">$50Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "AVGO, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 23 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Broadcom operate in India?",
+      "a": "Broadcom operates 3 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Broadcom have centers in?",
+      "a": "Broadcom's India footprint includes Bengaluru and 2 additional cities."
+    },
+    {
+      "q": "What types of centers does Broadcom run in India?",
+      "a": "Broadcom runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Broadcom's India centers?",
+      "a": "Aggregate and center-level headcount for Broadcom's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Broadcom's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Broadcom's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

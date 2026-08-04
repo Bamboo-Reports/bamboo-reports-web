@@ -1,0 +1,100 @@
+{
+  "slug": "brainchip-holdings",
+  "name": "Brainchip Holdings, Ltd.",
+  "shortName": "Brainchip",
+  "displayName": "Brainchip Holdings, Ltd.",
+  "website": "https://www.brainchip.com",
+  "linkedin": "http://www.linkedin.com/company/brainchip-holdings-limited",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Brainchip's GCC footprint in India",
+  "lede": "<strong>Brainchip runs one center in Hyderabad.</strong> Hyderabad, covering IT, built over six years.",
+  "insight": "A single Brainchip center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Brainchip Holdings, Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Brainchip runs 1 verified center in Hyderabad, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Hyderabad"
+    ],
+    "yearsInIndia": 6,
+    "sinceYear": 2020,
+    "headcountBand": "<50",
+    "headcountBandLong": "<50"
+  },
+  "centerTypes": [
+    "IT"
+  ],
+  "functions": [
+    "IT"
+  ],
+  "tech": {
+    "tools": 1,
+    "categories": 1,
+    "categoryList": [
+      "Cloud Infrastructure"
+    ]
+  },
+  "leaders": {
+    "count": 1,
+    "departments": "GCC leadership",
+    "titles": [
+      {
+        "title": "Site Director",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Brainchip's India footprint covers Hyderabad, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "Australia",
+    "revenueBand": "<$10Mn",
+    "employeesBand": "51 to 100",
+    "tickerAndType": "BRN, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Brainchip operate in India?",
+      "a": "Brainchip operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Brainchip have centers in?",
+      "a": "Brainchip's India presence is in Hyderabad."
+    },
+    {
+      "q": "What types of centers does Brainchip run in India?",
+      "a": "Brainchip runs IT centers in India."
+    },
+    {
+      "q": "How many people work at Brainchip's India centers?",
+      "a": "Aggregate and center-level headcount for Brainchip's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Brainchip's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Brainchip's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

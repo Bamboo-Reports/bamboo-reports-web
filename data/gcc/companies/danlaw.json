@@ -1,0 +1,111 @@
+{
+  "slug": "danlaw",
+  "name": "Danlaw, Inc.",
+  "shortName": "Danlaw",
+  "displayName": "Danlaw, Inc.",
+  "website": "https://www.danlawinc.com",
+  "linkedin": "http://www.linkedin.com/company/danlaw-inc",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Danlaw's GCC footprint in India",
+  "lede": "<strong>Danlaw runs one center in Hyderabad.</strong> Hyderabad, covering R&D, built over 27 years.",
+  "insight": "A single Danlaw center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Danlaw, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Danlaw runs 1 verified center in Hyderabad, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Hyderabad"
+    ],
+    "yearsInIndia": 27,
+    "sinceYear": 1999,
+    "headcountBand": "101 to 200",
+    "headcountBandLong": "101 to 200"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D"
+  ],
+  "tech": {
+    "tools": 3,
+    "categories": 3,
+    "categoryList": [
+      "Application Frameworks",
+      "Cloud Platform",
+      "Messaging"
+    ]
+  },
+  "leaders": {
+    "count": 6,
+    "departments": "Finance, IT, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Technical Director",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Executive Vice President (EVP) - Engineering",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Vice President Operations",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Danlaw's India footprint covers Hyderabad, spanning R&D. The centers deliver IT and R&D and ER&D for the group's global operations.",
+    "industry": "Automotive",
+    "headquarters": "United States",
+    "revenueBand": "$101Mn to $250Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all six decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Danlaw operate in India?",
+      "a": "Danlaw operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Danlaw have centers in?",
+      "a": "Danlaw's India presence is in Hyderabad."
+    },
+    {
+      "q": "What types of centers does Danlaw run in India?",
+      "a": "Danlaw runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Danlaw's India centers?",
+      "a": "Aggregate and center-level headcount for Danlaw's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Danlaw's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Danlaw's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

@@ -1,0 +1,93 @@
+{
+  "slug": "chelsio-communications",
+  "name": "Chelsio Communications Inc.",
+  "shortName": "Chelsio Communications",
+  "displayName": "Chelsio Communications",
+  "website": "https://www.chelsio.com",
+  "linkedin": "http://www.linkedin.com/company/chelsio-communications",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Chelsio Communications's GCC footprint in India",
+  "lede": "<strong>Chelsio Communications runs one center in Bengaluru.</strong> Bengaluru, covering engineering & design, built over twenty years.",
+  "insight": "A single Chelsio Communications center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Chelsio Communications GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Chelsio Communications runs 1 verified center in Bengaluru, covering engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Bengaluru"
+    ],
+    "yearsInIndia": 20,
+    "sinceYear": 2006,
+    "headcountBand": "51 to 100",
+    "headcountBandLong": "51 to 100"
+  },
+  "centerTypes": [
+    "Engineering & Design"
+  ],
+  "functions": [
+    "R&D and ER&D"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 4,
+    "categoryList": [
+      "Analytics",
+      "Application Frameworks",
+      "Networking",
+      "Operating Systems"
+    ]
+  },
+  "leaders": {
+    "count": 0,
+    "departments": "the India leadership team",
+    "titles": []
+  },
+  "about": {
+    "description": "Chelsio Communications's India footprint covers Bengaluru, spanning engineering & design. The centers deliver R&D and ER&D for the group's global operations.",
+    "industry": "Telecom",
+    "headquarters": "United States",
+    "revenueBand": "$10Mn to $50Mn",
+    "employeesBand": "101 to 200",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all zero decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Chelsio Communications operate in India?",
+      "a": "Chelsio Communications operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Chelsio Communications have centers in?",
+      "a": "Chelsio Communications's India presence is in Bengaluru."
+    },
+    {
+      "q": "What types of centers does Chelsio Communications run in India?",
+      "a": "Chelsio Communications runs engineering & design centers in India."
+    },
+    {
+      "q": "How many people work at Chelsio Communications's India centers?",
+      "a": "Aggregate and center-level headcount for Chelsio Communications's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

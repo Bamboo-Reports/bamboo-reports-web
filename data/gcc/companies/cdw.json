@@ -1,0 +1,117 @@
+{
+  "slug": "cdw",
+  "name": "CDW Corp.",
+  "shortName": "CDW",
+  "displayName": "CDW Corp.",
+  "website": "https://www.cdw.com",
+  "linkedin": "http://www.linkedin.com/company/cdw",
+  "forbesRank": 1098,
+  "fortuneRank": 205,
+  "badges": [],
+  "h1": "CDW's GCC footprint in India",
+  "lede": "<strong>CDW runs three centers across three Indian cities.</strong> Bengaluru, Chennai and Hyderabad, covering IT, built over fifteen years.",
+  "insight": "Search elsewhere and you will usually find one CDW office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "CDW Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "CDW runs 3 verified centers across 3 Indian cities (Bengaluru, Chennai, Hyderabad), covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Bengaluru",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "yearsInIndia": 15,
+    "sinceYear": 2011,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "IT"
+  ],
+  "functions": [
+    "IT"
+  ],
+  "tech": {
+    "tools": 10,
+    "categories": 10,
+    "categoryList": [
+      "Analytics",
+      "Application Frameworks",
+      "Artificial Intelligence",
+      "Cloud Platform",
+      "Collaboration",
+      "Containers",
+      "Content Management",
+      "DevOps",
+      "Operating Systems",
+      "Programming Languages"
+    ]
+  },
+  "leaders": {
+    "count": 7,
+    "departments": "Finance, IT and GCC leadership",
+    "titles": [
+      {
+        "title": "Managing Director & Co-founder",
+        "city": "Chennai"
+      },
+      {
+        "title": "Head of India | Head of Services, Solution Delivery & Innovation",
+        "city": "New Delhi"
+      },
+      {
+        "title": "Head of Managed Services",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "CDW's India footprint covers Bengaluru, Chennai and Hyderabad, spanning IT. The centers deliver IT for the group's global operations.",
+    "industry": "Retail & Consumer Goods",
+    "headquarters": "United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "CDW, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does CDW operate in India?",
+      "a": "CDW operates 3 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does CDW have centers in?",
+      "a": "CDW's India footprint includes Bengaluru and 2 additional cities."
+    },
+    {
+      "q": "What types of centers does CDW run in India?",
+      "a": "CDW runs IT centers in India."
+    },
+    {
+      "q": "How many people work at CDW's India centers?",
+      "a": "Aggregate and center-level headcount for CDW's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads CDW's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at CDW's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

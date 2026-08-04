@@ -1,0 +1,127 @@
+{
+  "slug": "commscope-holding-co",
+  "name": "Commscope Holding Co., Inc.",
+  "shortName": "Commscope",
+  "displayName": "Commscope",
+  "website": "https://www.commscope.com",
+  "linkedin": "http://www.linkedin.com/company/commscope",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Commscope's GCC footprint in India",
+  "lede": "<strong>Commscope runs four centers across four Indian cities.</strong> Mormugao, Bengaluru, Hyderabad and Chennai, covering SSC, R&D and IT, built over 28 years.",
+  "insight": "Search elsewhere and you will usually find one Commscope office in India. We map four, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Commscope GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Commscope runs 4 verified centers across 4 Indian cities (Mormugao, Bengaluru, Hyderabad, Chennai), covering SSC, R&D and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 4,
+    "totalCenters": 4,
+    "cities": [
+      "Mormugao",
+      "Bengaluru",
+      "Hyderabad",
+      "Chennai"
+    ],
+    "yearsInIndia": 28,
+    "sinceYear": 1998,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "SSC",
+    "R&D",
+    "IT"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 10,
+    "categories": 9,
+    "categoryList": [
+      "Cloud Platform",
+      "Databases",
+      "ERP",
+      "Finance",
+      "Human Resources",
+      "IT Service Management",
+      "Others",
+      "Sales",
+      "Version Control"
+    ]
+  },
+  "leaders": {
+    "count": 12,
+    "departments": "Finance and IT",
+    "titles": [
+      {
+        "title": "Director, Software Engineering",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Director -Continuous Process Improvement , New Product Introduction and Process Engineering",
+        "city": "Margao"
+      },
+      {
+        "title": "Senior Director, Finance Shared Services",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Commscope's India footprint covers Mormugao, Bengaluru, Hyderabad and Chennai, spanning SSC, R&D and IT. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Telecom",
+    "headquarters": "United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "COMM, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all twelve decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Commscope operate in India?",
+      "a": "Commscope operates 4 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Commscope have centers in?",
+      "a": "Commscope's India footprint includes Mormugao and 3 additional cities."
+    },
+    {
+      "q": "What types of centers does Commscope run in India?",
+      "a": "Commscope runs SSC and 2 additional center types in India."
+    },
+    {
+      "q": "How many people work at Commscope's India centers?",
+      "a": "Aggregate and center-level headcount for Commscope's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Commscope's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Commscope's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

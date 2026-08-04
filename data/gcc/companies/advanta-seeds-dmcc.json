@@ -1,0 +1,119 @@
+{
+  "slug": "advanta-seeds-dmcc",
+  "name": "Advanta Seeds DMCC",
+  "shortName": "Advanta Seeds",
+  "displayName": "Advanta Seeds DMCC",
+  "website": "https://www.advantaseeds.com",
+  "linkedin": "http://www.linkedin.com/company/advantaseeds",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Advanta Seeds's GCC footprint in India",
+  "lede": "<strong>Advanta Seeds runs three centers across three Indian cities.</strong> Hyderabad, Sonipat and Pune, covering R&D, built over 32 years.",
+  "insight": "Search elsewhere and you will usually find one Advanta Seeds office in India. We map three, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Advanta Seeds DMCC GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Advanta Seeds runs 3 verified centers across 3 Indian cities (Hyderabad, Sonipat, Pune), covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 3,
+    "totalCenters": 3,
+    "cities": [
+      "Hyderabad",
+      "Sonipat",
+      "Pune"
+    ],
+    "yearsInIndia": 32,
+    "sinceYear": 1994,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 5,
+    "categoryList": [
+      "CRM",
+      "ERP",
+      "Human Resources",
+      "Manufacturing",
+      "Others"
+    ]
+  },
+  "leaders": {
+    "count": 7,
+    "departments": "HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Director",
+        "city": "TBA"
+      },
+      {
+        "title": "Head HR - Asia & Africa",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "REGIONAL HEAD ASIA AFRICA",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Advanta Seeds's India footprint covers Hyderabad, Sonipat and Pune, spanning R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Chemicals",
+    "headquarters": "United Arab Emirates",
+    "revenueBand": "$501Mn to $1Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "UPL, ACQSP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Advanta Seeds operate in India?",
+      "a": "Advanta Seeds operates 3 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Advanta Seeds have centers in?",
+      "a": "Advanta Seeds's India footprint includes Hyderabad and 2 additional cities."
+    },
+    {
+      "q": "What types of centers does Advanta Seeds run in India?",
+      "a": "Advanta Seeds runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Advanta Seeds's India centers?",
+      "a": "Aggregate and center-level headcount for Advanta Seeds's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Advanta Seeds's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Advanta Seeds's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

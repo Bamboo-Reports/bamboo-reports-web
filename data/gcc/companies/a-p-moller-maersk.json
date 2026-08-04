@@ -1,0 +1,136 @@
+{
+  "slug": "a-p-moller-maersk",
+  "name": "A.P. Moller Maersk A/S",
+  "shortName": "Maersk",
+  "displayName": "A.P. Moller Maersk A/S",
+  "website": "https://www.maersk.com",
+  "linkedin": "http://www.linkedin.com/company/maersk-group",
+  "forbesRank": 361,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Maersk's GCC footprint in India",
+  "lede": "<strong>Maersk runs six centers across five Indian cities.</strong> Kanchipuram, Chennai, Bengaluru, Mumbai and Pune, covering CoE and GCC/GIC, built over 23 years.",
+  "insight": "Search elsewhere and you will usually find one Maersk office in India. We map six, across five cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "A.P. Moller Maersk A/S GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Maersk runs 6 verified centers across 5 Indian cities (Kanchipuram, Chennai, Bengaluru, Mumbai, Pune), covering CoE and GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 6,
+    "totalCenters": 6,
+    "cities": [
+      "Kanchipuram",
+      "Chennai",
+      "Bengaluru",
+      "Mumbai",
+      "Pune"
+    ],
+    "yearsInIndia": 23,
+    "sinceYear": 2003,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "CoE",
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 24,
+    "categories": 19,
+    "categoryList": [
+      "Human Resources",
+      "ERP",
+      "Databases",
+      "Marketing",
+      "Supply Chain",
+      "Application Frameworks",
+      "Collaboration",
+      "Containers",
+      "DevOps",
+      "Finance",
+      "IT Service Management",
+      "Identity Management",
+      "Infrastructure as Code",
+      "Methodology",
+      "Monitoring",
+      "Networking",
+      "Product Lifecycle Management",
+      "Programming Languages",
+      "Project Management"
+    ]
+  },
+  "leaders": {
+    "count": 80,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Regional Head of Disputes GSC North America",
+        "city": "Chennai"
+      },
+      {
+        "title": "CIO",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head of Talent Attraction and Acquisition - IMEA",
+        "city": "Chennai"
+      }
+    ]
+  },
+  "about": {
+    "description": "Maersk's India footprint covers Kanchipuram, Chennai, Bengaluru, Mumbai and Pune, spanning CoE and GCC/GIC. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "TTLH",
+    "headquarters": "Denmark",
+    "revenueBand": ">$50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "MAERSK-B, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 80 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Maersk operate in India?",
+      "a": "Maersk operates 6 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Maersk have centers in?",
+      "a": "Maersk's India footprint includes Kanchipuram and 4 additional cities."
+    },
+    {
+      "q": "What types of centers does Maersk run in India?",
+      "a": "Maersk runs CoE and 1 additional center type in India."
+    },
+    {
+      "q": "How many people work at Maersk's India centers?",
+      "a": "Aggregate and center-level headcount for Maersk's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Maersk's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Maersk's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

@@ -1,0 +1,116 @@
+{
+  "slug": "covestro",
+  "name": "Covestro AG",
+  "shortName": "Covestro",
+  "displayName": "Covestro AG",
+  "website": "https://www.covestro.com",
+  "linkedin": "http://www.linkedin.com/company/covestro",
+  "forbesRank": 1608,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Covestro's GCC footprint in India",
+  "lede": "<strong>Covestro runs two centers across two Indian cities.</strong> Navi Mumbai and Noida, covering R&D and engineering & design, built over fifteen years.",
+  "insight": "Search elsewhere and you will usually find one Covestro office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Covestro AG GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Covestro runs 2 verified centers across 2 Indian cities (Navi Mumbai, Noida), covering R&D and engineering & design. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Navi Mumbai",
+      "Noida"
+    ],
+    "yearsInIndia": 15,
+    "sinceYear": 2011,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "R&D",
+    "Engineering & Design"
+  ],
+  "functions": [
+    "R&D and ER&D",
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 4,
+    "categoryList": [
+      "ERP",
+      "Analytics",
+      "Human Resources",
+      "Supply Chain"
+    ]
+  },
+  "leaders": {
+    "count": 8,
+    "departments": "Finance, IT and Procurement",
+    "titles": [
+      {
+        "title": "Head of Application and Market Development South Asia Pacific",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head Engineering and Projects",
+        "city": "Bharuch"
+      },
+      {
+        "title": "Head of Credit Management India",
+        "city": "Mumbai"
+      }
+    ]
+  },
+  "about": {
+    "description": "Covestro's India footprint covers Navi Mumbai and Noida, spanning R&D and engineering & design. The centers deliver R&D and ER&D, HR, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "Chemicals",
+    "headquarters": "Germany",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "1COV, ACQSP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eight decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Covestro operate in India?",
+      "a": "Covestro operates 2 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Covestro have centers in?",
+      "a": "Covestro's India footprint includes Navi Mumbai and 1 additional city."
+    },
+    {
+      "q": "What types of centers does Covestro run in India?",
+      "a": "Covestro runs R&D and 1 additional center type in India."
+    },
+    {
+      "q": "How many people work at Covestro's India centers?",
+      "a": "Aggregate and center-level headcount for Covestro's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Covestro's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Covestro's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

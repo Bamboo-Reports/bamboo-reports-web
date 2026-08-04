@@ -1,0 +1,126 @@
+{
+  "slug": "american-express-co",
+  "name": "American Express Co.",
+  "shortName": "Amex",
+  "displayName": "American Express Co.",
+  "website": "https://www.americanexpress.com",
+  "linkedin": "http://www.linkedin.com/company/american-express",
+  "forbesRank": 50,
+  "fortuneRank": 56,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Amex's GCC footprint in India",
+  "lede": "<strong>Amex runs five centers across four Indian cities.</strong> Gurugram, Mumbai, Bengaluru and New Delhi, covering GBS and CoE, built over 32 years.",
+  "insight": "Search elsewhere and you will usually find one Amex office in India. We map five, across four cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "American Express Co. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Amex runs 5 verified centers across 4 Indian cities (Gurugram, Mumbai, Bengaluru, New Delhi), covering GBS and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 5,
+    "totalCenters": 5,
+    "cities": [
+      "Gurugram",
+      "Mumbai",
+      "Bengaluru",
+      "New Delhi"
+    ],
+    "yearsInIndia": 32,
+    "sinceYear": 1994,
+    "headcountBand": ">10K",
+    "headcountBandLong": ">10K"
+  },
+  "centerTypes": [
+    "GBS",
+    "CoE"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 10,
+    "categories": 10,
+    "categoryList": [
+      "Analytics",
+      "Big Data",
+      "CRM",
+      "Cloud Platform",
+      "Customer Support",
+      "Databases",
+      "ERP",
+      "Human Resources",
+      "Programming Languages",
+      "Project Management"
+    ]
+  },
+  "leaders": {
+    "count": 328,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Chief Executive Officer & Country Manager of India",
+        "city": "New Delhi"
+      },
+      {
+        "title": "Global Head of Cloud & Platform Services | Site leader",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head of HR & Board Member- American Express",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Amex's India footprint covers Gurugram, Mumbai, Bengaluru and New Delhi, spanning GBS and CoE. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "BFSI",
+    "headquarters": "United States",
+    "revenueBand": ">$50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "AXP, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 328 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Amex operate in India?",
+      "a": "Amex operates 5 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Amex have centers in?",
+      "a": "Amex's India footprint includes Gurugram and 3 additional cities."
+    },
+    {
+      "q": "What types of centers does Amex run in India?",
+      "a": "Amex runs GBS and 1 additional center type in India."
+    },
+    {
+      "q": "How many people work at Amex's India centers?",
+      "a": "Aggregate and center-level headcount for Amex's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Amex's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Amex's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

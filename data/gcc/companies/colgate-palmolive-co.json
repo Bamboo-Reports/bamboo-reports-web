@@ -1,0 +1,123 @@
+{
+  "slug": "colgate-palmolive-co",
+  "name": "Colgate-Palmolive Co.",
+  "shortName": "Colgate",
+  "displayName": "Colgate-Palmolive Co.",
+  "website": "https://www.colgatepalmolive.com",
+  "linkedin": "http://www.linkedin.com/company/colgate-palmolive",
+  "forbesRank": 670,
+  "fortuneRank": 219,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Colgate's GCC footprint in India",
+  "lede": "<strong>Colgate runs one center in Mumbai.</strong> Mumbai, covering GBS, built over thirteen years.",
+  "insight": "A single Colgate center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Colgate-Palmolive Co. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Colgate runs 1 verified center in Mumbai, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Mumbai"
+    ],
+    "yearsInIndia": 13,
+    "sinceYear": 2013,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "GBS"
+  ],
+  "functions": [
+    "IT",
+    "HR",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 15,
+    "categories": 14,
+    "categoryList": [
+      "ERP",
+      "Application Frameworks",
+      "Cloud Platform",
+      "Cybersecurity",
+      "Ecommerce",
+      "Finance",
+      "Human Resources",
+      "IT Service Management",
+      "Manufacturing",
+      "Networking",
+      "Procurement",
+      "Programming Languages",
+      "Sales",
+      "Web Servers"
+    ]
+  },
+  "leaders": {
+    "count": 69,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Sr Vice President and Whole time Board of Directors",
+        "city": "Mumbai"
+      },
+      {
+        "title": "CDO",
+        "city": "TBA"
+      },
+      {
+        "title": "Global Head - Colgate Business Service HR",
+        "city": "Mumbai"
+      }
+    ]
+  },
+  "about": {
+    "description": "Colgate's India footprint covers Mumbai, spanning GBS. The centers deliver IT, HR and Customer Support for the group's global operations.",
+    "industry": "Retail & Consumer Goods",
+    "headquarters": "United States",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "CL, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 69 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Colgate operate in India?",
+      "a": "Colgate operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Colgate have centers in?",
+      "a": "Colgate's India presence is in Mumbai."
+    },
+    {
+      "q": "What types of centers does Colgate run in India?",
+      "a": "Colgate runs GBS centers in India."
+    },
+    {
+      "q": "How many people work at Colgate's India centers?",
+      "a": "Aggregate and center-level headcount for Colgate's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Colgate's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Colgate's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

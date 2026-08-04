@@ -1,0 +1,116 @@
+{
+  "slug": "cma-cgm",
+  "name": "CMA CGM S.A.",
+  "shortName": "CMA CGM",
+  "displayName": "CMA CGM S.A.",
+  "website": "https://www.cma-cgm.com",
+  "linkedin": "http://www.linkedin.com/company/cma-cgm",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "CMA CGM's GCC footprint in India",
+  "lede": "<strong>CMA CGM runs two centers across two Indian cities.</strong> Chennai and Thane, covering SSC, built over 21 years.",
+  "insight": "Search elsewhere and you will usually find one CMA CGM office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "CMA CGM S.A. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "CMA CGM runs 2 verified centers across 2 Indian cities (Chennai, Thane), covering SSC. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Chennai",
+      "Thane"
+    ],
+    "yearsInIndia": 21,
+    "sinceYear": 2005,
+    "headcountBand": "5K to 10K",
+    "headcountBandLong": "5,000 to 10,000"
+  },
+  "centerTypes": [
+    "SSC"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 4,
+    "categoryList": [
+      "Finance",
+      "CRM",
+      "Cloud Platform",
+      "ERP"
+    ]
+  },
+  "leaders": {
+    "count": 28,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "Global Delivery and Tower Head - GBS F&A",
+        "city": "Chennai"
+      },
+      {
+        "title": "Head Information and Digital Technology",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Location HR Head at CMA CGM Shared Service Centre",
+        "city": "Chennai"
+      }
+    ]
+  },
+  "about": {
+    "description": "CMA CGM's India footprint covers Chennai and Thane, spanning SSC. The centers deliver IT, Finance & Accounting, Procurement and Sales & Marketing for the group's global operations.",
+    "industry": "TTLH",
+    "headquarters": "France",
+    "revenueBand": ">$50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 28 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does CMA CGM operate in India?",
+      "a": "CMA CGM operates 2 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does CMA CGM have centers in?",
+      "a": "CMA CGM's India footprint includes Chennai and 1 additional city."
+    },
+    {
+      "q": "What types of centers does CMA CGM run in India?",
+      "a": "CMA CGM runs SSC centers in India."
+    },
+    {
+      "q": "How many people work at CMA CGM's India centers?",
+      "a": "Aggregate and center-level headcount for CMA CGM's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads CMA CGM's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at CMA CGM's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

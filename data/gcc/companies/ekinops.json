@@ -1,0 +1,100 @@
+{
+  "slug": "ekinops",
+  "name": "Ekinops S.A.",
+  "shortName": "Ekinops",
+  "displayName": "Ekinops S.A.",
+  "website": "https://www.ekinops.com",
+  "linkedin": "http://www.linkedin.com/company/ekinops",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Ekinops's GCC footprint in India",
+  "lede": "<strong>Ekinops runs one center in Bengaluru.</strong> Bengaluru, covering R&D, built over seventeen years.",
+  "insight": "A single Ekinops center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Ekinops S.A. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Ekinops runs 1 verified center in Bengaluru, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Bengaluru"
+    ],
+    "yearsInIndia": 17,
+    "sinceYear": 2009,
+    "headcountBand": "51 to 100",
+    "headcountBandLong": "51 to 100"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT"
+  ],
+  "tech": {
+    "tools": 3,
+    "categories": 3,
+    "categoryList": [
+      "Cloud Platform",
+      "Project Management",
+      "Version Control"
+    ]
+  },
+  "leaders": {
+    "count": 1,
+    "departments": "GCC leadership",
+    "titles": [
+      {
+        "title": "Director",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Ekinops's India footprint covers Bengaluru, spanning R&D. The centers deliver IT for the group's global operations.",
+    "industry": "Telecom",
+    "headquarters": "France",
+    "revenueBand": "$101Mn to $250Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "EKI, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all one decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Ekinops operate in India?",
+      "a": "Ekinops operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Ekinops have centers in?",
+      "a": "Ekinops's India presence is in Bengaluru."
+    },
+    {
+      "q": "What types of centers does Ekinops run in India?",
+      "a": "Ekinops runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Ekinops's India centers?",
+      "a": "Aggregate and center-level headcount for Ekinops's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Ekinops's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Ekinops's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

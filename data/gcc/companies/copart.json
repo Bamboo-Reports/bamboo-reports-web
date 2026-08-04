@@ -1,0 +1,106 @@
+{
+  "slug": "copart",
+  "name": "Copart, Inc.",
+  "shortName": "Copart",
+  "displayName": "Copart, Inc.",
+  "website": "https://www.copart.com",
+  "linkedin": "http://www.linkedin.com/company/copart",
+  "forbesRank": 1211,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Copart's GCC footprint in India",
+  "lede": "<strong>Copart runs one center in Hyderabad.</strong> Hyderabad, covering IT, built over nine years.",
+  "insight": "A single Copart center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Copart, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Copart runs 1 verified center in Hyderabad, covering IT. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Hyderabad"
+    ],
+    "yearsInIndia": 9,
+    "sinceYear": 2017,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "IT"
+  ],
+  "functions": [
+    "IT",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 4,
+    "categories": 4,
+    "categoryList": [
+      "Analytics",
+      "Cloud Platform",
+      "Databases",
+      "Manufacturing"
+    ]
+  },
+  "leaders": {
+    "count": 4,
+    "departments": "IT and HR",
+    "titles": [
+      {
+        "title": "Vice President",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Associate Director HR",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "Copart's India footprint covers Hyderabad, spanning IT. The centers deliver IT and Sales & Marketing for the group's global operations.",
+    "industry": "Automotive",
+    "headquarters": "United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "CPRT, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all four decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Copart operate in India?",
+      "a": "Copart operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Copart have centers in?",
+      "a": "Copart's India presence is in Hyderabad."
+    },
+    {
+      "q": "What types of centers does Copart run in India?",
+      "a": "Copart runs IT centers in India."
+    },
+    {
+      "q": "How many people work at Copart's India centers?",
+      "a": "Aggregate and center-level headcount for Copart's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Copart's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Copart's India centers, across IT and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

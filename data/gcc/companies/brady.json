@@ -1,0 +1,115 @@
+{
+  "slug": "brady",
+  "name": "Brady Corp.",
+  "shortName": "Brady",
+  "displayName": "Brady Corp.",
+  "website": "https://www.bradyid.com",
+  "linkedin": "http://www.linkedin.com/company/brady-corporation",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Brady's GCC footprint in India",
+  "lede": "<strong>Brady runs one center in Bengaluru.</strong> Bengaluru, covering SSC, built over twenty years.",
+  "insight": "A single Brady center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Brady Corp. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Brady runs 1 verified center in Bengaluru, covering SSC. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Bengaluru"
+    ],
+    "yearsInIndia": 20,
+    "sinceYear": 2006,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "SSC"
+  ],
+  "functions": [
+    "IT",
+    "Finance & Accounting",
+    "HR",
+    "Procurement"
+  ],
+  "tech": {
+    "tools": 6,
+    "categories": 5,
+    "categoryList": [
+      "ERP",
+      "Cloud Platform",
+      "Human Resources",
+      "Procurement",
+      "Sales"
+    ]
+  },
+  "leaders": {
+    "count": 7,
+    "departments": "Finance, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Site Director,Shared Services",
+        "city": "TBA"
+      },
+      {
+        "title": "General Manager - Human Resources",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Finance Operations Head",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Brady's India footprint covers Bengaluru, spanning SSC. The centers deliver IT, Finance & Accounting, HR and Procurement for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "5,000 to 10,000",
+    "tickerAndType": "BRC, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all seven decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Brady operate in India?",
+      "a": "Brady operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Brady have centers in?",
+      "a": "Brady's India presence is in Bengaluru."
+    },
+    {
+      "q": "What types of centers does Brady run in India?",
+      "a": "Brady runs SSC centers in India."
+    },
+    {
+      "q": "How many people work at Brady's India centers?",
+      "a": "Aggregate and center-level headcount for Brady's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Brady's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Brady's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

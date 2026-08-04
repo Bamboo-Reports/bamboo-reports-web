@@ -1,0 +1,121 @@
+{
+  "slug": "curia-global",
+  "name": "Curia Global, Inc.",
+  "shortName": "Curia Global",
+  "displayName": "Curia Global, Inc.",
+  "website": "https://www.curiaglobal.com",
+  "linkedin": "http://www.linkedin.com/company/curia-cdmo",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Curia Global's GCC footprint in India",
+  "lede": "<strong>Curia Global runs two centers in Hyderabad.</strong> Hyderabad, covering SSC and R&D, built over nineteen years.",
+  "insight": "Search elsewhere and you will usually find one Curia Global office in India. We map two, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Curia Global, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Curia Global runs 2 verified centers in Hyderabad, covering SSC and R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Hyderabad"
+    ],
+    "yearsInIndia": 19,
+    "sinceYear": 2007,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "SSC",
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 10,
+    "categories": 8,
+    "categoryList": [
+      "ERP",
+      "Databases",
+      "Data Engineering",
+      "Finance",
+      "Monitoring",
+      "Programming Languages",
+      "Project Management",
+      "Supply Chain"
+    ]
+  },
+  "leaders": {
+    "count": 5,
+    "departments": "HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Head of Global Shared Services",
+        "city": "TBA"
+      },
+      {
+        "title": "Head-HR",
+        "city": "TBA"
+      },
+      {
+        "title": "Site Quality Head",
+        "city": "Chhatrapati Sambhajinagar"
+      }
+    ]
+  },
+  "about": {
+    "description": "Curia Global's India footprint covers Hyderabad, spanning SSC and R&D. The centers deliver IT, R&D and ER&D, Finance & Accounting and Procurement for the group's global operations.",
+    "industry": "Healthcare Life Sciences & Pharma",
+    "headquarters": "United States",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "ACQSP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all five decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Curia Global operate in India?",
+      "a": "Curia Global operates 2 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Curia Global have centers in?",
+      "a": "Curia Global's India presence is in Hyderabad."
+    },
+    {
+      "q": "What types of centers does Curia Global run in India?",
+      "a": "Curia Global runs SSC and 1 additional center type in India."
+    },
+    {
+      "q": "How many people work at Curia Global's India centers?",
+      "a": "Aggregate and center-level headcount for Curia Global's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Curia Global's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Curia Global's India centers, across HR and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

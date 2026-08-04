@@ -1,0 +1,108 @@
+{
+  "slug": "carbon-clean-solutions",
+  "name": "Carbon Clean Solutions Ltd.",
+  "shortName": "Carbon Clean Solutions",
+  "displayName": "Carbon Clean Solutions",
+  "website": "https://www.carbonclean.com",
+  "linkedin": "http://www.linkedin.com/company/carbon-clean-solutions-pvt.-ltd.",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [],
+  "h1": "Carbon Clean Solutions's GCC footprint in India",
+  "lede": "<strong>Carbon Clean Solutions runs one center in Navi Mumbai.</strong> Navi Mumbai, covering R&D.",
+  "insight": "A single Carbon Clean Solutions center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Carbon Clean Solutions GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Carbon Clean Solutions runs 1 verified center in Navi Mumbai, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Navi Mumbai"
+    ],
+    "yearsInIndia": 1,
+    "sinceYear": 2025,
+    "headcountBand": "51 to 100",
+    "headcountBandLong": "51 to 100"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting"
+  ],
+  "tech": {
+    "tools": 1,
+    "categories": 1,
+    "categoryList": [
+      "Finance"
+    ]
+  },
+  "leaders": {
+    "count": 3,
+    "departments": "Finance",
+    "titles": [
+      {
+        "title": "Finance Controller (Head of Finance) - India/US",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head - Global Innovation Center",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Technical Director – R&D, Process & Technology (Oct 2022 – Present)",
+        "city": "Mumbai"
+      }
+    ]
+  },
+  "about": {
+    "description": "Carbon Clean Solutions's India footprint covers Navi Mumbai, spanning R&D. The centers deliver IT, R&D and ER&D and Finance & Accounting for the group's global operations.",
+    "industry": "IT Service",
+    "headquarters": "United Kingdom",
+    "revenueBand": "$51Mn to $100Mn",
+    "employeesBand": "101 to 200",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all three decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Carbon Clean Solutions operate in India?",
+      "a": "Carbon Clean Solutions operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Carbon Clean Solutions have centers in?",
+      "a": "Carbon Clean Solutions's India presence is in Navi Mumbai."
+    },
+    {
+      "q": "What types of centers does Carbon Clean Solutions run in India?",
+      "a": "Carbon Clean Solutions runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Carbon Clean Solutions's India centers?",
+      "a": "Aggregate and center-level headcount for Carbon Clean Solutions's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Carbon Clean Solutions's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Carbon Clean Solutions's India centers, across Finance. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

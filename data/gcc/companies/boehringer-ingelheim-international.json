@@ -1,0 +1,113 @@
+{
+  "slug": "boehringer-ingelheim-international",
+  "name": "Boehringer Ingelheim International GmbH",
+  "shortName": "Boehringer Ingelheim, Boehringer",
+  "displayName": "Boehringer Ingelheim, Boehringer",
+  "website": "https://www.boehringer-ingelheim.com",
+  "linkedin": "http://www.linkedin.com/company/boehringer-ingelheim",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Boehringer Ingelheim, Boehringer's GCC footprint in India",
+  "lede": "<strong>Boehringer Ingelheim, Boehringer runs one center in Kanpur.</strong> Kanpur, covering R&D, built over three years.",
+  "insight": "A single Boehringer Ingelheim, Boehringer center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Boehringer Ingelheim, Boehringer GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Boehringer Ingelheim, Boehringer runs 1 verified center in Kanpur, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Kanpur"
+    ],
+    "yearsInIndia": 3,
+    "sinceYear": 2023,
+    "headcountBand": "501 to 1K",
+    "headcountBandLong": "501 to 1,000"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "R&D and ER&D",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 5,
+    "categoryList": [
+      "Collaboration",
+      "Content Management",
+      "Document Management",
+      "ERP",
+      "Sales"
+    ]
+  },
+  "leaders": {
+    "count": 5,
+    "departments": "Finance, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Country Head AH Boehringer Ingelheim South Asia",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Director - Human Resources",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head- Security, Crisis Management and Administration.",
+        "city": "Mumbai"
+      }
+    ]
+  },
+  "about": {
+    "description": "Boehringer Ingelheim, Boehringer's India footprint covers Kanpur, spanning R&D. The centers deliver R&D and ER&D and Sales & Marketing for the group's global operations.",
+    "industry": "Healthcare Life Sciences & Pharma",
+    "headquarters": "Germany",
+    "revenueBand": "$25Bn to $50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all five decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Boehringer Ingelheim, Boehringer operate in India?",
+      "a": "Boehringer Ingelheim, Boehringer operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Boehringer Ingelheim, Boehringer have centers in?",
+      "a": "Boehringer Ingelheim, Boehringer's India presence is in Kanpur."
+    },
+    {
+      "q": "What types of centers does Boehringer Ingelheim, Boehringer run in India?",
+      "a": "Boehringer Ingelheim, Boehringer runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Boehringer Ingelheim, Boehringer's India centers?",
+      "a": "Aggregate and center-level headcount for Boehringer Ingelheim, Boehringer's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Boehringer Ingelheim, Boehringer's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Boehringer Ingelheim, Boehringer's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

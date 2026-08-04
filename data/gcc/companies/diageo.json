@@ -1,0 +1,126 @@
+{
+  "slug": "diageo",
+  "name": "Diageo plc",
+  "shortName": "Diageo",
+  "displayName": "Diageo plc",
+  "website": "https://www.diageo.com",
+  "linkedin": "http://www.linkedin.com/company/diageo",
+  "forbesRank": 453,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Diageo's GCC footprint in India",
+  "lede": "<strong>Diageo runs four centers across three Indian cities.</strong> Bengaluru, Gurugram and Ponda, covering GBS, R&D and CoE, built over 33 years.",
+  "insight": "Search elsewhere and you will usually find one Diageo office in India. We map four, across three cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Diageo plc GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Diageo runs 4 verified centers across 3 Indian cities (Bengaluru, Gurugram, Ponda), covering GBS, R&D and CoE. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 4,
+    "totalCenters": 4,
+    "cities": [
+      "Bengaluru",
+      "Gurugram",
+      "Ponda"
+    ],
+    "yearsInIndia": 33,
+    "sinceYear": 1993,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "GBS",
+    "R&D",
+    "CoE"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 13,
+    "categories": 9,
+    "categoryList": [
+      "Finance",
+      "Cloud Platform",
+      "Big Data",
+      "Analytics",
+      "CRM",
+      "Collaboration",
+      "Databases",
+      "ERP",
+      "Supply Chain"
+    ]
+  },
+  "leaders": {
+    "count": 53,
+    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "titles": [
+      {
+        "title": "MD & CEO United Spirits Ltd ( USL ) & Member Global Diageo Executive Committee",
+        "city": "TBA"
+      },
+      {
+        "title": "Global Head – Infrastructure Architecture and Governance – Cloud, DC, Network and Identity",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Head HR Operations",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Diageo's India footprint covers Bengaluru, Gurugram and Ponda, spanning GBS, R&D and CoE. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Retail & Consumer Goods",
+    "headquarters": "United Kingdom",
+    "revenueBand": "$10Bn to $25Bn",
+    "employeesBand": "25,000 to 50,000",
+    "tickerAndType": "DGE, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 53 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Diageo operate in India?",
+      "a": "Diageo operates 4 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Diageo have centers in?",
+      "a": "Diageo's India footprint includes Bengaluru and 2 additional cities."
+    },
+    {
+      "q": "What types of centers does Diageo run in India?",
+      "a": "Diageo runs GBS and 2 additional center types in India."
+    },
+    {
+      "q": "How many people work at Diageo's India centers?",
+      "a": "Aggregate and center-level headcount for Diageo's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Diageo's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Diageo's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

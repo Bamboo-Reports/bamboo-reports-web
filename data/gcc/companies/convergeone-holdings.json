@@ -1,0 +1,112 @@
+{
+  "slug": "convergeone-holdings",
+  "name": "ConvergeOne Holdings, Inc.",
+  "shortName": "ConvergeOne",
+  "displayName": "ConvergeOne",
+  "website": "https://www.onec1.com",
+  "linkedin": "http://www.linkedin.com/company/onec1",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "ConvergeOne's GCC footprint in India",
+  "lede": "<strong>ConvergeOne runs one center in Hyderabad.</strong> Hyderabad, covering GCC/GIC, built over three years.",
+  "insight": "A single ConvergeOne center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "ConvergeOne GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "ConvergeOne runs 1 verified center in Hyderabad, covering GCC/GIC. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Hyderabad"
+    ],
+    "yearsInIndia": 3,
+    "sinceYear": 2023,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "GCC/GIC"
+  ],
+  "functions": [
+    "IT"
+  ],
+  "tech": {
+    "tools": 5,
+    "categories": 5,
+    "categoryList": [
+      "Application Frameworks",
+      "Databases",
+      "Human Resources",
+      "Networking",
+      "Version Control"
+    ]
+  },
+  "leaders": {
+    "count": 9,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Country Head",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Head - IT Delivery | GICC Operations",
+        "city": "Hyderabad"
+      },
+      {
+        "title": "Sr. Director - Human Resources",
+        "city": "Hyderabad"
+      }
+    ]
+  },
+  "about": {
+    "description": "ConvergeOne's India footprint covers Hyderabad, spanning GCC/GIC. The centers deliver IT for the group's global operations.",
+    "industry": "Telecom",
+    "headquarters": "United States",
+    "revenueBand": "$501Mn to $1Bn",
+    "employeesBand": "1,000 to 5,000",
+    "tickerAndType": "ACQSP"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all nine decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does ConvergeOne operate in India?",
+      "a": "ConvergeOne operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does ConvergeOne have centers in?",
+      "a": "ConvergeOne's India presence is in Hyderabad."
+    },
+    {
+      "q": "What types of centers does ConvergeOne run in India?",
+      "a": "ConvergeOne runs GCC/GIC centers in India."
+    },
+    {
+      "q": "How many people work at ConvergeOne's India centers?",
+      "a": "Aggregate and center-level headcount for ConvergeOne's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads ConvergeOne's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at ConvergeOne's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

@@ -5,8 +5,8 @@
   "displayName": "3M Co.",
   "website": "https://www.3m.com",
   "linkedin": "http://www.linkedin.com/company/3m",
-  "forbesRank": 334,
-  "fortuneRank": null,
+  "forbesRank": 403,
+  "fortuneRank": 183,
   "badges": [
     "NASSCOM Listed"
   ],
@@ -41,18 +41,17 @@
     "Customer Support"
   ],
   "tech": {
-    "tools": 11,
-    "categories": 9,
+    "tools": 10,
+    "categories": 8,
     "categoryList": [
       "Cloud Platform",
-      "CRM",
       "ERP",
-      "Human Capital Management",
-      "Data Warehouse",
-      "Global Trade Services",
-      "In-Memory Database",
-      "Materials Management",
-      "Production Planning"
+      "CRM",
+      "Human Resources",
+      "Analytics",
+      "Databases",
+      "Manufacturing",
+      "Supply Chain"
     ],
     "categorySamples": [
       {
@@ -71,19 +70,19 @@
     ]
   },
   "leaders": {
-    "count": 26,
-    "departments": "Finance, IT, HR, GCC leadership and Procurement",
+    "count": 24,
+    "departments": "Finance, IT, HR and Procurement",
     "titles": [
       {
-        "title": "COE Engineering & Site Leader (GCC Head) - Global Technology Center - 3M",
+        "title": "Head of Design - Digitization & Advanced Analytics",
         "city": "Bengaluru"
       },
       {
-        "title": "Head - IT Infrastructure and Security - India Region",
+        "title": "Country Head- Human Resources - India",
         "city": "Bengaluru"
       },
       {
-        "title": "Senior General Manager - Human Resources",
+        "title": "Chief Financial Officer 3M India Ltd",
         "city": "Bengaluru"
       }
     ]
@@ -96,7 +95,7 @@
     "employeesBand": "Over 50,000",
     "tickerAndType": "MMM, Public"
   },
-  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 26 decision-makers, in one profile.",
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 24 decision-makers, in one profile.",
   "faq": [
     {
       "q": "How many centers does 3M operate in India?",

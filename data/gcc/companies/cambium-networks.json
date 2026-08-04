@@ -1,0 +1,111 @@
+{
+  "slug": "cambium-networks",
+  "name": "Cambium Networks, Ltd.",
+  "shortName": "Cambium Networks",
+  "displayName": "Cambium Networks, Ltd.",
+  "website": "https://www.cambiumnetworks.com",
+  "linkedin": "http://www.linkedin.com/company/cambium-networks",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Cambium Networks's GCC footprint in India",
+  "lede": "<strong>Cambium Networks runs one center in Bengaluru.</strong> Bengaluru, covering R&D, built over twelve years.",
+  "insight": "A single Cambium Networks center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Cambium Networks, Ltd. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Cambium Networks runs 1 verified center in Bengaluru, covering R&D. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Bengaluru"
+    ],
+    "yearsInIndia": 12,
+    "sinceYear": 2014,
+    "headcountBand": "101 to 200",
+    "headcountBandLong": "101 to 200"
+  },
+  "centerTypes": [
+    "R&D"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting"
+  ],
+  "tech": {
+    "tools": 2,
+    "categories": 2,
+    "categoryList": [
+      "Cloud Infrastructure",
+      "ERP"
+    ]
+  },
+  "leaders": {
+    "count": 6,
+    "departments": "Finance and IT",
+    "titles": [
+      {
+        "title": "Senior Director of Engineering",
+        "city": "Bengaluru"
+      },
+      {
+        "title": "Country Head & Sr. Director sales, India & SAARC",
+        "city": "New Delhi"
+      },
+      {
+        "title": "Senior Director and Head of Finance - India, APAC and CALA",
+        "city": "Bengaluru"
+      }
+    ]
+  },
+  "about": {
+    "description": "Cambium Networks's India footprint covers Bengaluru, spanning R&D. The centers deliver IT, R&D and ER&D and Finance & Accounting for the group's global operations.",
+    "industry": "Hi-Tech",
+    "headquarters": "United States",
+    "revenueBand": "$101Mn to $250Mn",
+    "employeesBand": "501 to 1,000",
+    "tickerAndType": "CMBM, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all six decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Cambium Networks operate in India?",
+      "a": "Cambium Networks operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Cambium Networks have centers in?",
+      "a": "Cambium Networks's India presence is in Bengaluru."
+    },
+    {
+      "q": "What types of centers does Cambium Networks run in India?",
+      "a": "Cambium Networks runs R&D centers in India."
+    },
+    {
+      "q": "How many people work at Cambium Networks's India centers?",
+      "a": "Aggregate and center-level headcount for Cambium Networks's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Cambium Networks's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Cambium Networks's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

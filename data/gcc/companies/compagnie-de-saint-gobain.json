@@ -1,0 +1,124 @@
+{
+  "slug": "compagnie-de-saint-gobain",
+  "name": "Compagnie de Saint-Gobain S.A.",
+  "shortName": "Saint-Gobain",
+  "displayName": "Saint-Gobain",
+  "website": "https://www.saint-gobain.com",
+  "linkedin": "http://www.linkedin.com/company/saint-gobain",
+  "forbesRank": 297,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Saint-Gobain's GCC footprint in India",
+  "lede": "<strong>Saint-Gobain runs two centers across two Indian cities.</strong> Chennai and Mumbai, covering R&D and IT, built over 21 years.",
+  "insight": "Search elsewhere and you will usually find one Saint-Gobain office in India. We map two, across two cities, each tagged by center type and function. Knowing the whole footprint is what turns a name on a list into an account you can plan against.",
+  "metaTitle": "Saint-Gobain GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Saint-Gobain runs 2 verified centers across 2 Indian cities (Chennai, Mumbai), covering R&D and IT. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 2,
+    "totalCenters": 2,
+    "cities": [
+      "Chennai",
+      "Mumbai"
+    ],
+    "yearsInIndia": 21,
+    "sinceYear": 2005,
+    "headcountBand": "1K to 5K",
+    "headcountBandLong": "1,000 to 5,000"
+  },
+  "centerTypes": [
+    "R&D",
+    "IT"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D"
+  ],
+  "tech": {
+    "tools": 28,
+    "categories": 14,
+    "categoryList": [
+      "ERP",
+      "Databases",
+      "Cloud Platform",
+      "Collaboration",
+      "Sales",
+      "Version Control",
+      "Analytics",
+      "Procurement",
+      "Programming Languages",
+      "Project Management",
+      "Application Frameworks",
+      "Data Engineering",
+      "Manufacturing",
+      "Web Servers"
+    ]
+  },
+  "leaders": {
+    "count": 32,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "Head Of Operations -India",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head - IT | Saint-Gobain Construction Chemicals",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head of Human Resources",
+        "city": "TBA"
+      }
+    ]
+  },
+  "about": {
+    "description": "Saint-Gobain's India footprint covers Chennai and Mumbai, spanning R&D and IT. The centers deliver IT and R&D and ER&D for the group's global operations.",
+    "industry": "Industrial",
+    "headquarters": "France",
+    "revenueBand": ">$50Bn",
+    "employeesBand": "Over 50,000",
+    "tickerAndType": "SGO, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all 32 decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Saint-Gobain operate in India?",
+      "a": "Saint-Gobain operates 2 active centers in India."
+    },
+    {
+      "q": "Which Indian cities does Saint-Gobain have centers in?",
+      "a": "Saint-Gobain's India footprint includes Chennai and 1 additional city."
+    },
+    {
+      "q": "What types of centers does Saint-Gobain run in India?",
+      "a": "Saint-Gobain runs R&D and 1 additional center type in India."
+    },
+    {
+      "q": "How many people work at Saint-Gobain's India centers?",
+      "a": "Aggregate and center-level headcount for Saint-Gobain's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Saint-Gobain's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Saint-Gobain's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

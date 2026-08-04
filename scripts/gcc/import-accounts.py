@@ -413,6 +413,19 @@ def main():
     accounts = sheets["accounts"]
     aliases = {r["account_global_legal_name"]: r for r in sheets.get("alias", []) if r.get("account_global_legal_name")}
 
+    # Newer exports ship the stock ticker on its own sheet; fold it onto the
+    # account row so build_company keeps reading a single record.
+    tickers = {
+        clean(r.get("account_global_legal_name")): clean(r.get("account_hq_stock_ticker"))
+        for r in sheets.get("ticker", [])
+        if clean(r.get("account_global_legal_name"))
+    }
+    for row in accounts:
+        if not clean(row.get("account_hq_stock_ticker")):
+            row["account_hq_stock_ticker"] = tickers.get(
+                clean(row.get("account_global_legal_name")), ""
+            )
+
     def by_account(rows):
         d = {}
         for r in rows:

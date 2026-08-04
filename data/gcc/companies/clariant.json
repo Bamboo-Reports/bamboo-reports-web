@@ -1,0 +1,119 @@
+{
+  "slug": "clariant",
+  "name": "Clariant AG",
+  "shortName": "Clariant",
+  "displayName": "Clariant AG",
+  "website": "https://www.clariant.com",
+  "linkedin": "http://www.linkedin.com/company/clariant",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Clariant's GCC footprint in India",
+  "lede": "<strong>Clariant runs one center in Navi Mumbai.</strong> Navi Mumbai, covering GBS, built over twelve years.",
+  "insight": "A single Clariant center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Clariant AG GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Clariant runs 1 verified center in Navi Mumbai, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Navi Mumbai"
+    ],
+    "yearsInIndia": 12,
+    "sinceYear": 2014,
+    "headcountBand": "201 to 500",
+    "headcountBandLong": "201 to 500"
+  },
+  "centerTypes": [
+    "GBS"
+  ],
+  "functions": [
+    "IT",
+    "R&D and ER&D",
+    "Finance & Accounting",
+    "HR",
+    "Procurement",
+    "Sales & Marketing"
+  ],
+  "tech": {
+    "tools": 8,
+    "categories": 7,
+    "categoryList": [
+      "ERP",
+      "Application Frameworks",
+      "Cloud Platform",
+      "IT Service Management",
+      "Manufacturing",
+      "Procurement",
+      "Sales"
+    ]
+  },
+  "leaders": {
+    "count": 18,
+    "departments": "Finance, IT, HR and GCC leadership",
+    "titles": [
+      {
+        "title": "CEO & GM",
+        "city": "Mumbai"
+      },
+      {
+        "title": "Head Of Technology",
+        "city": "Ahmedabad"
+      },
+      {
+        "title": "Head of HR Services Hub APAC",
+        "city": "Mumbai"
+      }
+    ]
+  },
+  "about": {
+    "description": "Clariant's India footprint covers Navi Mumbai, spanning GBS. The centers deliver IT, R&D and ER&D, Finance & Accounting and HR for the group's global operations.",
+    "industry": "Chemicals",
+    "headquarters": "Switzerland",
+    "revenueBand": "$1Bn to $5Bn",
+    "employeesBand": "10,000 to 25,000",
+    "tickerAndType": "CLN, Public"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all eighteen decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Clariant operate in India?",
+      "a": "Clariant operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Clariant have centers in?",
+      "a": "Clariant's India presence is in Navi Mumbai."
+    },
+    {
+      "q": "What types of centers does Clariant run in India?",
+      "a": "Clariant runs GBS centers in India."
+    },
+    {
+      "q": "How many people work at Clariant's India centers?",
+      "a": "Aggregate and center-level headcount for Clariant's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Clariant's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Clariant's India centers, across Finance and other leadership functions. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}

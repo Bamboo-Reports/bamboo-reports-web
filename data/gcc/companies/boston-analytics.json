@@ -1,0 +1,106 @@
+{
+  "slug": "boston-analytics",
+  "name": "Boston Analytics, Inc.",
+  "shortName": "Boston Analytics",
+  "displayName": "Boston Analytics, Inc.",
+  "website": "https://www.bostonanalytics.com",
+  "linkedin": "http://www.linkedin.com/company/boston-analytics",
+  "forbesRank": null,
+  "fortuneRank": null,
+  "badges": [
+    "NASSCOM Listed"
+  ],
+  "h1": "Boston Analytics's GCC footprint in India",
+  "lede": "<strong>Boston Analytics runs one center in Gurugram.</strong> Gurugram, covering GBS, built over 21 years.",
+  "insight": "A single Boston Analytics center is easy to miss and easier to misread. We track its type, functions and the people who run it, so you can decide if it belongs on your target list.",
+  "metaTitle": "Boston Analytics, Inc. GCC in India: Centers, Footprint & Leaders | Bamboo Reports",
+  "metaDescription": "Boston Analytics runs 1 verified center in Gurugram, covering GBS. See the full India footprint, org map and contacts on Bamboo Reports.",
+  "stats": {
+    "activeCenters": 1,
+    "totalCenters": 1,
+    "cities": [
+      "Gurugram"
+    ],
+    "yearsInIndia": 21,
+    "sinceYear": 2005,
+    "headcountBand": "<50",
+    "headcountBandLong": "<50"
+  },
+  "centerTypes": [
+    "GBS"
+  ],
+  "functions": [
+    "Sales & Marketing",
+    "Customer Support"
+  ],
+  "tech": {
+    "tools": 2,
+    "categories": 2,
+    "categoryList": [
+      "Cloud Platform",
+      "Others"
+    ]
+  },
+  "leaders": {
+    "count": 2,
+    "departments": "GCC leadership",
+    "titles": [
+      {
+        "title": "Director",
+        "city": "Kottayam"
+      },
+      {
+        "title": "Sr. Manager Facilities",
+        "city": "Gurugram"
+      }
+    ]
+  },
+  "about": {
+    "description": "Boston Analytics's India footprint covers Gurugram, spanning GBS. The centers deliver Sales & Marketing and Customer Support for the group's global operations.",
+    "industry": "Professional Services",
+    "headquarters": "United States",
+    "revenueBand": "$10Mn to $50Mn",
+    "employeesBand": "51 to 100",
+    "tickerAndType": "Private"
+  },
+  "bandCopy": "Exact center locations, per-center headcount, the technology stack and all two decision-makers, in one profile.",
+  "faq": [
+    {
+      "q": "How many centers does Boston Analytics operate in India?",
+      "a": "Boston Analytics operates 1 active center in India."
+    },
+    {
+      "q": "Which Indian cities does Boston Analytics have centers in?",
+      "a": "Boston Analytics's India presence is in Gurugram."
+    },
+    {
+      "q": "What types of centers does Boston Analytics run in India?",
+      "a": "Boston Analytics runs GBS centers in India."
+    },
+    {
+      "q": "How many people work at Boston Analytics's India centers?",
+      "a": "Aggregate and center-level headcount for Boston Analytics's India operations is available in the full profile.",
+      "excludeFromSchema": true
+    },
+    {
+      "q": "Who leads Boston Analytics's GCC in India?",
+      "a": "Bamboo Reports tracks leaders at Boston Analytics's India centers, across GCC leadership. Names and contact details open with a free account.",
+      "excludeFromSchema": true
+    }
+  ],
+  "dateModified": "2026-07-04",
+  "lastUpdated": "July 2026",
+  "sources": "company filings, LinkedIn, NASSCOM and Bamboo Reports' primary research",
+  "confidence": "high",
+  "related": [
+    {
+      "label": "GCCs in India",
+      "href": "/gcc/"
+    },
+    {
+      "label": "Explore India GCCs",
+      "href": "/gcc"
+    }
+  ],
+  "sponsor": null
+}
