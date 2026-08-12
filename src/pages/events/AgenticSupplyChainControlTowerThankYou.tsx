@@ -57,12 +57,18 @@ const AgenticSupplyChainControlTowerThankYou = () => {
             Registration received
           </p>
           <h1 className="mt-4 text-balance text-4xl font-bold leading-tight tracking-tight md:text-5xl">
-            Thank you<span className={CORAL_INK}>.</span> See you at the roundtable.
+            Thank you for registering<span className={CORAL_INK}>.</span>
           </h1>
           <p className="mt-5 max-w-[55ch] text-base leading-relaxed text-muted-foreground md:text-lg">
-            We have received your registration for the Agentic Supply Chain Control Tower
-            roundtable. Our team will review your submission and share a confirmation on the
-            email you provided.
+            We&rsquo;re excited to have you join us at the roundtable on September 9th, 2026.
+          </p>
+          <p className="mt-4 max-w-[55ch] text-base leading-relaxed text-foreground md:text-lg">
+            <strong>Please note:</strong> Your participation is subject to approval. We will
+            confirm your spot via email.
+          </p>
+          <p className="mt-4 max-w-[55ch] text-base leading-relaxed text-muted-foreground md:text-lg">
+            If you have any questions in the meantime, feel free to reach out. Looking forward
+            to seeing you soon!
           </p>
 
           <dl className="mt-10 divide-y divide-border rounded-lg border">
@@ -86,17 +92,6 @@ const AgenticSupplyChainControlTowerThankYou = () => {
         </div>
       </main>
 
-      <footer className="border-t">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-6 md:px-6">
-          <p className="text-sm text-muted-foreground">Hosted by Thoughtworks</p>
-          <Link
-            to="/privacy-policy"
-            className="-my-2 inline-flex items-center py-2 text-sm text-muted-foreground underline-offset-4 transition-opacity duration-micro ease-smooth hover:underline hover:opacity-80"
-          >
-            Privacy policy
-          </Link>
-        </div>
-      </footer>
     </div>
   );
 };
