@@ -1,6 +1,9 @@
+import { useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import FadeIn from "@/components/FadeIn";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
+import { autoOpenGoogleCalendarScheduler } from "@/components/GoogleCalendarSchedulingButton";
 import GccStatsBand from "@/components/GccStatsBand";
 import Header from "@/components/Header";
 import HeroV2 from "@/components/HeroV2";
@@ -14,6 +17,23 @@ import WhoBenefits from "@/components/WhoBenefits";
 import { useSEO } from "@/hooks/useSEO";
 
 const IndexV2 = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const demoPopupOpened = useRef(false);
+
+  useEffect(() => {
+    if (searchParams.get("demo") !== "true" || demoPopupOpened.current) {
+      return;
+    }
+    demoPopupOpened.current = true;
+    void autoOpenGoogleCalendarScheduler();
+
+    // Drop only the demo flag so UTM params stay intact for analytics and
+    // a refresh/back doesn't reopen the popup.
+    const nextParams = new URLSearchParams(searchParams);
+    nextParams.delete("demo");
+    setSearchParams(nextParams, { replace: true });
+  }, [searchParams, setSearchParams]);
+
   useSEO({
     title: "GCC GTM Enablement | Bamboo Reports",
     description:

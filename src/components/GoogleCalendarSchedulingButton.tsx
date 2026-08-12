@@ -114,6 +114,17 @@ const openGoogleCalendarScheduler = async () => {
   }
 };
 
+// Auto-open (no user gesture): popup blockers would eat the window.open
+// fallback, so fail silently and leave the page usable instead.
+export const autoOpenGoogleCalendarScheduler = async () => {
+  try {
+    const trigger = await getPopupTrigger();
+    trigger.click();
+  } catch {
+    // Scheduler assets failed to load; keep the normal homepage.
+  }
+};
+
 type GoogleCalendarSchedulingButtonProps =
   ButtonHTMLAttributes<HTMLButtonElement>;
 
