@@ -128,9 +128,9 @@ const AgenticSupplyChainControlTower = () => {
               </div>
 
               <p className="mt-8 max-w-[62ch] leading-relaxed text-foreground sm:text-lg">
-                A closed-door breakfast for retail and GCC leaders to explore the future of
-                supply-chain decision-making, experience the Agentic Supply Chain Control Tower,
-                and tackle a real-world Black Friday scenario alongside industry peers.
+                A closed-door breakfast roundtable bringing together a select group of retail
+                GCC, supply chain and technology leaders to see the control tower in action and
+                work through a real Black Friday scenario together.
               </p>
 
               <dl className="mt-10 grid divide-y rounded-lg border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
@@ -292,7 +292,18 @@ const AgenticSupplyChainControlTower = () => {
 
       <footer className="border-t">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-6 md:px-6">
-          <p className="text-sm text-muted-foreground">Hosted by Thoughtworks</p>
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-semibold text-muted-foreground">Event Partner</span>
+            <a
+              href="https://researchnxt.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="ResearchNXT"
+              className="-my-2 inline-flex items-center py-2 transition-opacity duration-micro ease-smooth hover:opacity-70"
+            >
+              <img src="/logos/researchnxt.svg" alt="ResearchNXT" className="h-4 w-auto" />
+            </a>
+          </div>
           <Link
             to="/privacy-policy"
             className="-my-2 inline-flex items-center py-2 text-sm text-muted-foreground underline-offset-4 transition-opacity duration-micro ease-smooth hover:underline hover:opacity-80"

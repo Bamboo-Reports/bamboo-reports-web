@@ -89,6 +89,19 @@ const AgenticSupplyChainControlTowerThankYou = () => {
           >
             Back to the event page
           </Link>
+
+          <div className="mt-10 flex items-center gap-3 border-t pt-6">
+            <span className="text-xs font-semibold text-muted-foreground">Event Partner</span>
+            <a
+              href="https://researchnxt.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="ResearchNXT"
+              className="-my-2 inline-flex items-center py-2 transition-opacity duration-micro ease-smooth hover:opacity-70"
+            >
+              <img src="/logos/researchnxt.svg" alt="ResearchNXT" className="h-4 w-auto" />
+            </a>
+          </div>
         </div>
       </main>
 
