@@ -14,6 +14,8 @@ import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
 import Resources from "./pages/Resources";
 import Reads from "./pages/Reads";
 import AgenticEnterprise from "./pages/reads/AgenticEnterprise";
+import AgenticSupplyChainControlTower from "./pages/events/AgenticSupplyChainControlTower";
+import AgenticSupplyChainControlTowerThankYou from "./pages/events/AgenticSupplyChainControlTowerThankYou";
 import Reports from "./pages/Reports";
 import IndiaGccReportQ1FY27 from "./pages/reports/IndiaGccReportQ1FY27";
 import IndiaGccReportQ1FY27ThankYou from "./pages/reports/IndiaGccReportQ1FY27ThankYou";
@@ -57,6 +59,14 @@ const App = () => {
             <Route path="/insights" element={<Insights />} />
             <Route path="/roundtables" element={<Articles />} />
             <Route path="/roundtables/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
+            <Route
+              path="/events/agentic-supply-chain-control-tower"
+              element={<AgenticSupplyChainControlTower />}
+            />
+            <Route
+              path="/events/agentic-supply-chain-control-tower/thank-you"
+              element={<AgenticSupplyChainControlTowerThankYou />}
+            />
             <Route path="/resources" element={<Resources />} />
             <Route path="/reads" element={<Reads />} />
             <Route path="/reads/agentic-enterprise" element={<AgenticEnterprise />} />

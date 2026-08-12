@@ -10,6 +10,9 @@ interface JotFormEmbedProps {
   title: string;
   height?: string;
   heightClassName?: string;
+  /** Size the embed to the height this form reports via setHeight messages,
+   *  falling back to height/heightClassName until the first report arrives. */
+  autoHeight?: boolean;
   className?: string;
 }
 
@@ -23,9 +26,11 @@ const JotFormEmbed = ({
   title,
   height = "539px",
   heightClassName,
+  autoHeight = false,
   className = "",
 }: JotFormEmbedProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [reportedHeight, setReportedHeight] = useState<string | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const fallbackTimerRef = useRef<number | null>(null);
   const resetTimerRef = useRef<number | null>(null);
@@ -84,6 +89,13 @@ const JotFormEmbed = ({
           showForm();
         }
 
+        // Height reports name their form (setHeight:<px>:<formId>); other
+        // embeds on the page broadcast to the same window, so only obey ours.
+        const reported = new RegExp(`setheight:(\\d+):${formId.toLowerCase()}`).exec(message);
+        if (autoHeight && reported) {
+          setReportedHeight(`${reported[1]}px`);
+        }
+
         if (
           message.includes("submission-completed") ||
           message.includes("thankyou") ||
@@ -136,17 +148,20 @@ const JotFormEmbed = ({
         resetTimerRef.current = null;
       }
     };
-  }, [embedSrc, formId, resetForm, showForm]);
+  }, [autoHeight, embedSrc, formId, resetForm, showForm]);
 
   const handleLoad = () => {
     // Small delay so the form has a moment to render its content
     window.setTimeout(showForm, 150);
   };
 
+  // A reported height is exact, so it wins over the responsive fallback class.
+  const useClassHeight = Boolean(heightClassName) && !reportedHeight;
+
   return (
     <div
-      className={`relative overflow-hidden ${heightClassName ?? ""} ${className}`}
-      style={heightClassName ? undefined : { height }}
+      className={`relative overflow-hidden ${useClassHeight ? heightClassName : ""} ${className}`}
+      style={useClassHeight ? undefined : { height: reportedHeight ?? height }}
     >
       {/* Loading skeleton */}
       <div
@@ -192,13 +207,15 @@ const JotFormEmbed = ({
         style={{
           minWidth: "100%",
           maxWidth: "100%",
-          height: heightClassName ? "100%" : height,
+          height: useClassHeight ? "100%" : (reportedHeight ?? height),
           border: "none",
         }}
         scrolling="no"
         onLoad={handleLoad}
         loading="eager"
-        className="w-full h-full"
+        // !h-full outranks the inline height JotForm's embed handler writes
+        // onto the iframe, so the wrapper stays the single source of truth.
+        className="w-full !h-full"
       />
     </div>
   );

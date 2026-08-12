@@ -82,6 +82,13 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Events -->
+  <url>
+    <loc>https://www.bambooreports.com/events/agentic-supply-chain-control-tower</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Legal Pages -->
   <url>
     <loc>https://www.bambooreports.com/privacy-policy</loc>
