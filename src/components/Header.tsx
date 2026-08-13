@@ -141,6 +141,14 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
+                <Link to="/about">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    About us
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <button
                     type="button"
@@ -287,6 +295,15 @@ const Header = () => {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Resources
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
+
+                  <Link
+                    to="/about"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    About us
                     <ChevronRight className="h-5 w-5" />
                   </Link>
 

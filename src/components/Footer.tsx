@@ -8,6 +8,7 @@ import { ACCOUNT_CREATION_ENABLED, GCC_TRACKER_ENABLED } from "@/lib/featureFlag
 
 const exploreLinks = [
   ...(GCC_TRACKER_ENABLED ? [{ label: "GCC Tracker", to: "/gcc" }] : []),
+  { label: "About us", to: "/about" },
   { label: "Success stories", to: "/success-stories" },
   { label: "Resources", to: "/resources" },
 ];
@@ -68,7 +69,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
 
           <div className="space-y-4">
             <h2 className="text-sm font-semibold text-foreground">Explore</h2>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <ul className="text-sm text-muted-foreground">
               {exploreLinks.map((link) => (
                 <li key={link.to}>
                   <Link to={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
@@ -81,10 +82,10 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
 
           <div className="space-y-4">
             <h2 className="text-sm font-semibold text-foreground">Get started</h2>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <ul className="text-sm text-muted-foreground">
               {!user && ACCOUNT_CREATION_ENABLED && (
                 <li>
-                  <Link to="/signup?src=footer" className="transition-colors duration-micro ease-smooth hover:text-primary">
+                  <Link to="/signup?src=footer" className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
                     Sign up for free
                   </Link>
                 </li>

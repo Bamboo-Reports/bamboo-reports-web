@@ -346,6 +346,28 @@ All colors MUST be HSL.
     }
   }
 
+  /* Roundtable photo strip (About page). Same movement as the trust
+     logos marquee, slowed down for photographs. */
+  .roundtable-strip {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .roundtable-strip-track {
+    display: flex;
+    width: max-content;
+    gap: 0.75rem;
+    animation: trustLogosScroll 110s linear infinite;
+  }
+
+  .roundtable-strip-track:hover { animation-play-state: paused; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .roundtable-strip { overflow-x: auto; }
+
+    .roundtable-strip-track { animation: none; }
+  }
+
   /* Trust logos marquee */
   .trust-logos {
     width: 100%;

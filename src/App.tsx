@@ -8,6 +8,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { InquiryFormProvider } from "@/contexts/InquiryFormContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import IndexV2 from "./pages/IndexV2";
+import About from "./pages/About";
 import Insights from "./pages/Insights";
 import Articles from "./pages/Articles";
 import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
@@ -56,6 +57,7 @@ const App = () => {
             <Routes>
             <Route path="/" element={<IndexV2 />} />
             <Route path="/v2" element={<Navigate to="/" replace />} />
+            <Route path="/about" element={<About />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/roundtables" element={<Articles />} />
             <Route path="/roundtables/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
