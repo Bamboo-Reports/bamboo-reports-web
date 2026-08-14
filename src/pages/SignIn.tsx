@@ -9,8 +9,11 @@ import { Label } from "@/components/ui/label";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { getSafeRedirectPath } from "@/lib/auth";
+import { useSEO } from "@/hooks/useSEO";
 
 const SignIn = () => {
+  useSEO({ title: "Sign in" });
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(true);

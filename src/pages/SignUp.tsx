@@ -9,8 +9,11 @@ import { Loader2, Eye, EyeOff, Check, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { getPasswordChecks, getSafeRedirectPath, signupSchema } from '@/lib/auth';
 import AuthPageShell from '@/components/AuthPageShell';
+import { useSEO } from '@/hooks/useSEO';
 
 const SignUp = () => {
+  useSEO({ title: "Create your account" });
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [companyName, setCompanyName] = useState('');

@@ -15,6 +15,8 @@ const eventDetails = [
 
 const AgenticSupplyChainControlTowerThankYou = () => {
   useSEO({
+    appendSiteName: false,
+    ogImage: "",
     title: "Registration received · Agentic Supply Chain Control Tower",
     description:
       "Your registration for the Agentic Supply Chain Control Tower roundtable has been received.",

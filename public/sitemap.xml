@@ -62,11 +62,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/insights</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.bambooreports.com/reports</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

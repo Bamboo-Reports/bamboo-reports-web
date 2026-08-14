@@ -91,6 +91,8 @@ const HostLockup = ({ className = "" }: { className?: string }) => (
 
 const AgenticSupplyChainControlTower = () => {
   useSEO({
+    appendSiteName: false,
+    ogImage: "",
     title: "Agentic Supply Chain Control Tower · Retail Roundtable by Thoughtworks",
     description:
       "A retail roundtable hosted by Thoughtworks. A breakfast working session on moving from supply-chain signals to coordinated action: Sense. Simulate. Solve. Taj, MG Road, Bengaluru, 09 September 2026.",

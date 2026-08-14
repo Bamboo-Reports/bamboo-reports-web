@@ -110,14 +110,14 @@ const IndiaGccReportQ22026ThankYou = () => {
           <span>
             Powered by{" "}
             <a
-              href="https://bambooreports.com"
+              href="https://www.bambooreports.com"
               className="text-primary hover:underline"
             >
               Bamboo Reports
             </a>{" "}
             GCC Intelligence &middot;{" "}
             <a
-              href="https://bambooreports.com/privacy"
+              href="https://www.bambooreports.com/privacy-policy"
               className="text-primary hover:underline"
             >
               Privacy policy

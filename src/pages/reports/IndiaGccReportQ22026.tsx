@@ -174,7 +174,7 @@ const IndiaGccReportQ22026 = () => {
             <p className="hero-rise mt-1 text-sm text-muted-foreground">
               Published by Research NXT &middot; Powered by{" "}
               <a
-                href="https://bambooreports.com"
+                href="https://www.bambooreports.com"
                 className="text-primary hover:underline"
               >
                 Bamboo Reports
@@ -315,7 +315,7 @@ const IndiaGccReportQ22026 = () => {
               Research NXT has worked on India&apos;s GCC ecosystem since 2018.
               The report is built on{" "}
               <a
-                href="https://bambooreports.com"
+                href="https://www.bambooreports.com"
                 className="text-primary hover:underline"
               >
                 Bamboo Reports
@@ -376,14 +376,14 @@ const IndiaGccReportQ22026 = () => {
           <span>
             Powered by{" "}
             <a
-              href="https://bambooreports.com"
+              href="https://www.bambooreports.com"
               className="text-primary hover:underline"
             >
               Bamboo Reports
             </a>{" "}
             GCC Intelligence &middot;{" "}
             <a
-              href="https://bambooreports.com/privacy"
+              href="https://www.bambooreports.com/privacy-policy"
               className="text-primary hover:underline"
             >
               Privacy policy

@@ -464,7 +464,7 @@ const About = () => {
         <div
           className="roundtable-strip -mx-5 mt-10 sm:-mx-4 md:mt-12"
           role="img"
-          aria-label="Photographs from past Bamboo Reports roundtables"
+          aria-label="Photographs from past roundtable sessions, hosted by Bamboo Reports and by clients, across Mumbai, NCR and Bengaluru"
         >
           <div className="roundtable-strip-track">
             {photos.map((src) => (

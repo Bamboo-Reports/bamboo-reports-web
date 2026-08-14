@@ -9,9 +9,6 @@ import { InquiryFormProvider } from "@/contexts/InquiryFormContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import IndexV2 from "./pages/IndexV2";
 import About from "./pages/About";
-import Insights from "./pages/Insights";
-import Articles from "./pages/Articles";
-import H1BStrategicReset from "./pages/articles/H1BStrategicReset";
 import Resources from "./pages/Resources";
 import Reads from "./pages/Reads";
 import AgenticEnterprise from "./pages/reads/AgenticEnterprise";
@@ -58,9 +55,6 @@ const App = () => {
             <Route path="/" element={<IndexV2 />} />
             <Route path="/v2" element={<Navigate to="/" replace />} />
             <Route path="/about" element={<About />} />
-            <Route path="/insights" element={<Insights />} />
-            <Route path="/roundtables" element={<Articles />} />
-            <Route path="/roundtables/h1b-shock-strategic-reset" element={<H1BStrategicReset />} />
             <Route
               path="/events/agentic-supply-chain-control-tower"
               element={<AgenticSupplyChainControlTower />}

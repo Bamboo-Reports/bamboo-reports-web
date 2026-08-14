@@ -60,6 +60,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           "sameAs": [
             "https://www.linkedin.com/company/bamboo-reports/"
           ],
+          "email": "enquiry@bambooreports.com",
           "address": {
             "@type": "PostalAddress",
             "addressCountry": "IN"
@@ -86,12 +87,6 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           "applicationCategory": "BusinessApplication",
           "description": data?.description || "Comprehensive GCC Intelligence platform with India's largest repository of Global Capability Centres data, GTM research, and market intelligence solutions.",
           "operatingSystem": "Web",
-          "offers": {
-            "@type": "Offer",
-            "price": data?.price || "0",
-            "priceCurrency": "INR",
-            "availability": "https://schema.org/InStock"
-          },
           "aggregateRating": data?.rating ? {
             "@type": "AggregateRating",
             "ratingValue": data.rating.value,

@@ -12,8 +12,11 @@ import { getDisplayName, isStrongPassword, profileDetailsSchema } from '@/lib/au
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ImageCropDialog from '@/components/ImageCropDialog';
+import { useSEO } from '@/hooks/useSEO';
 
 const Profile = () => {
+  useSEO({ title: "My account" });
+
   const { user, signOut, updateProfile, updateEmail, updatePassword, uploadAvatar, deleteAvatar } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
