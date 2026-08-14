@@ -280,6 +280,29 @@ All colors MUST be HSL.
     }
   }
 
+  /* Slow Ken Burns drift on the bamboo hero artwork. Transform-only so
+     it stays on the GPU; slow enough to feel like light, not motion. */
+  .hero-image-drift {
+    animation: heroImageDrift 28s ease-in-out infinite alternate;
+    transform-origin: 50% 60%;
+    will-change: transform;
+  }
+
+  @keyframes heroImageDrift {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.07) translateY(-1.5%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-image-drift {
+      animation: none;
+    }
+  }
+
   /* Roundtable photo strip (About page). Same movement as the trust
      logos marquee, slowed down for photographs. */
   .roundtable-strip {

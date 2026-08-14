@@ -28,7 +28,7 @@ const HeroV2 = () => (
       src={heroBamboo}
       alt=""
       aria-hidden
-      className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
+      className="hero-image-drift pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
     />
     {/* White veil: keeps the light look and dark text readable over the
         artwork, fading into the page background at the bottom. */}
