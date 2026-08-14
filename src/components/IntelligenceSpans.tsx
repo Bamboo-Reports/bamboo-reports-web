@@ -16,7 +16,7 @@ const categories = [
 ];
 
 const IntelligenceSpans = () => (
-  <section className="border-y bg-secondary/30 px-5 py-12 sm:px-4 md:py-20">
+  <section className="bg-background px-5 py-12 sm:px-4 md:py-20">
     <div className="mx-auto grid max-w-7xl items-center gap-8 sm:gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
       <div>
         <h2 className="max-w-lg text-3xl font-bold leading-tight md:text-4xl">

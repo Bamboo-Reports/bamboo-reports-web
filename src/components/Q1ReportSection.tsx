@@ -3,23 +3,27 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const Q1ReportSection = () => (
-  <section className="relative overflow-hidden bg-navy px-5 py-10 sm:px-4 md:py-16">
+  <section className="relative overflow-hidden border-y bg-background px-5 py-10 sm:px-4 md:py-16">
     <div className="absolute inset-x-0 top-0 flex h-1" aria-hidden>
+      <div className="w-2/3 bg-primary" />
+      <div className="w-1/3 bg-accent" />
+    </div>
+    <div className="absolute inset-x-0 bottom-0 flex h-1" aria-hidden>
       <div className="w-2/3 bg-primary" />
       <div className="w-1/3 bg-accent" />
     </div>
 
     <div className="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-14 gap-y-6 sm:gap-y-8">
       <div>
-        <p className="text-sm font-semibold tabular-nums text-white/70">
+        <p className="text-sm font-semibold tabular-nums text-muted-foreground">
           Q2 2026
         </p>
 
-        <h2 className="mt-4 max-w-2xl text-balance text-2xl font-bold leading-tight tracking-tight text-white md:text-3xl">
-          The GCC market moved. <span className="text-accent">See where.</span>
+        <h2 className="mt-4 max-w-2xl text-balance text-2xl font-bold leading-tight tracking-tight text-foreground md:text-3xl">
+          The GCC market moved. <span className="text-primary">See where.</span>
         </h2>
 
-        <p className="mt-3 max-w-xl leading-relaxed text-white/70">
+        <p className="mt-3 max-w-xl leading-relaxed text-muted-foreground">
           Get the new centres, expansions, hiring shifts and emerging locations
           shaping India&apos;s GCC market in one free quarterly report.
         </p>
@@ -28,7 +32,7 @@ const Q1ReportSection = () => (
       <Button
         asChild
         size="lg"
-        className="group h-12 w-full rounded-full bg-white px-8 text-base font-semibold text-navy hover:bg-white/90 sm:w-auto"
+        className="group h-12 w-full rounded-full px-8 text-base font-semibold sm:w-auto"
       >
         <Link to="/reports/india-gcc-report-q2-2026?src=home-q2report">
           Register for the report

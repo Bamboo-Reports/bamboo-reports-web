@@ -1,7 +1,7 @@
 import { featureItems } from "@/lib/featuresData";
 
 const Features = () => (
-  <section className="bg-background px-5 py-12 sm:px-4 md:py-20">
+  <section className="border-y bg-secondary/30 px-5 py-12 sm:px-4 md:py-20">
     <div className="mx-auto max-w-7xl">
       <div>
         <h2 className="text-3xl font-bold leading-tight md:text-4xl">
