@@ -13,15 +13,6 @@ import { Link } from "react-router-dom";
 /* Content                                                             */
 /* ------------------------------------------------------------------ */
 
-// The 5,900+ headline figure is rendered separately with a count-up;
-// these are the supporting rows of the ledger band.
-const SUPPORTING_STATS = [
-  { value: "250K+", label: "named decision-makers, tagged by function, seniority and role" },
-  { value: "3.9M+", label: "workforce data points across the universe" },
-  { value: "5 to 12", label: "service-mix dimensions recorded per centre" },
-  { value: "100+", label: "upcoming centres tracked before they go live" },
-];
-
 // The origin story is a real sequence, so it earns a timeline. Every
 // fact here restates the prose beside it; nothing new is claimed.
 const TIMELINE = [
@@ -206,7 +197,7 @@ const About = () => {
   useSEO({
     title: "About Bamboo Reports | The India GCC dataset built centre by centre",
     description:
-      "Bamboo Reports profiles 5,900+ individual India GCC centres against 2,500+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
+      "Bamboo Reports profiles 5,900+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
     keywords:
       "about Bamboo Reports, Research NXT, India GCC dataset, GCC centre level data, GCC research methodology",
     canonicalUrl: "https://www.bambooreports.com/about",
@@ -252,7 +243,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* ---------- The numbers: one figure leads, four follow ---------- */}
+      {/* ---------- The numbers ---------- */}
       <section className="border-y px-5 py-14 sm:px-4 md:py-20">
         <div className="mx-auto max-w-7xl">
           <p
@@ -266,25 +257,10 @@ const About = () => {
             individual centres, each profiled separately
           </p>
           <p className="mt-2 leading-relaxed text-muted-foreground">
-            Against 2,500+ parent accounts. That gap is the whole point: most companies run more
+            Against 2,400+ parent accounts. That gap is the whole point: most companies run more
             than one.
           </p>
 
-          <div className="mt-12 grid grid-cols-2 gap-y-10 md:mt-16 lg:grid-cols-4">
-            {SUPPORTING_STATS.map((stat) => (
-              <div
-                key={stat.value}
-                className="lg:border-l lg:pl-8 lg:first:border-l-0 lg:first:pl-0"
-              >
-                <p className="text-3xl font-bold tabular-nums tracking-tight md:text-4xl">
-                  {stat.value}
-                </p>
-                <p className="mt-2 max-w-[24ch] text-sm leading-relaxed text-muted-foreground">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

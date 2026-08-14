@@ -187,7 +187,7 @@ const H1BStrategicReset = () => {
                   H-1B shock or strategic reset? Bengaluru roundtable reveals India's GCC power shift
                 </h1>
                 <p className="text-lg text-muted-foreground max-w-3xl">
-                  Hosted by Research NXT - Bamboo Reports, leaders across marketing, strategy, sales, and GCC operations debated how global delivery and decision-making are being rebuilt around India.
+                  Hosted by Bamboo Reports - A Research NXT Product, leaders across marketing, strategy, sales, and GCC operations debated how global delivery and decision-making are being rebuilt around India.
                 </p>
                 <p className="text-sm font-semibold text-muted-foreground">13 November 2025 · Hilton Bengaluru</p>
               </div>

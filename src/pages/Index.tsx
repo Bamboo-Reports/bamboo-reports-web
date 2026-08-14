@@ -16,7 +16,7 @@ import StructuredData from "@/components/StructuredData";
 const Index = () => {
   useSEO({
     title: "GCC Intelligence India | GTM Market Intelligence Platform | Bamboo Reports",
-    description: "India's leading GCC Intelligence platform with 2400+ Global Capability Centres data. GTM market intelligence, India GCC insights, and Go-to-market research for strategic GCC expansion in India.",
+    description: "India's leading GCC Intelligence platform with 2,400+ Global Capability Centres data. GTM market intelligence, India GCC insights, and Go-to-market research for strategic GCC expansion in India.",
     keywords: "GCC Intelligence India, GTM Intelligence, GCC India, India GCC Intelligence, Global Capability Centres India, GTM Market Intelligence, Go-to-market Intelligence India, India GCC market intelligence, GCC GTM strategy, India GCC expansion, GCC Intelligence platform, GTM research India, Global Capability Centres Intelligence, India GCC data, GCC market intelligence India",
     canonicalUrl: "https://www.bambooreports.com",
   });

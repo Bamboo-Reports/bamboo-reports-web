@@ -9,7 +9,7 @@ const TermsConditions = () => {
   });
 
   return (
-    <LegalPageShell title="Terms & Conditions – Bamboo Reports">
+    <LegalPageShell title="Terms & Conditions – Bamboo Reports" effectiveDate="26 November 2025">
       <h2>1. Acceptance</h2>
       <p>By accessing Bamboo Reports, you agree to these Terms. If you disagree, please do not use the platform.</p>
       <h2>2. Licence & usage rights</h2>
@@ -41,7 +41,11 @@ const TermsConditions = () => {
       <h2>12. Communication</h2>
       <p>Official communication will be via the registered email or platform alerts.</p>
       <h2>13. Contact</h2>
-      <p>Research NXT, Pune, India</p>
+      <p>
+        Research NXT, Pune, India
+        <br />
+        Email: <a href="mailto:enquiry@bambooreports.com" className="text-primary underline underline-offset-4 hover:text-primary/80">enquiry@bambooreports.com</a>
+      </p>
     </LegalPageShell>
   );
 };

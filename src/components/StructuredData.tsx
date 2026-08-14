@@ -98,7 +98,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
             "reviewCount": data.rating.count
           } : undefined,
           "featureList": data?.features || [
-            "2400+ MNC GCC Database",
+            "2,400+ MNC GCC Database",
             "5900+ GCC Centres Mapping",
             "India GCC Market Intelligence",
             "GTM Research Tools",

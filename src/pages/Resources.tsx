@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 
 const reports: ResourceItem[] = [{
-  to: "/reports/india-gcc-report-q1-fy27",
+  to: "/reports/india-gcc-report-q2-2026",
   label: "Quarterly report",
   title: "The Q2 2026 India GCC report",
   summary:

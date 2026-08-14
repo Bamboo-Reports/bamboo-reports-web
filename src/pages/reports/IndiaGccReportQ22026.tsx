@@ -11,12 +11,9 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useSEO } from "@/hooks/useSEO";
-import { Q1_REPORT_NUMBERS_CONFIRMED } from "@/lib/featureFlags";
 
 const REPORT_FORM_ID = "261952514660458";
 
-// Figures must match the frozen count set before launch; they stay hidden
-// until VITE_Q1_REPORT_NUMBERS_CONFIRMED is "true" (see featureFlags.ts).
 const NUMBERS = [
   { value: "110", label: "centres", highlight: false },
   { value: "99", label: "companies", highlight: false },
@@ -39,14 +36,10 @@ const FINDINGS = [
 ];
 
 const METHOD_STATS = [
-  { value: "2,400+", label: "companies under coverage", gated: true },
-  { value: "5,900+", label: "centres tracked at coordinate level", gated: true },
-  { value: "Since 2022", label: "continuous analyst enrichment", gated: false },
+  { value: "2,400+", label: "companies under coverage" },
+  { value: "5,900+", label: "centres tracked at coordinate level" },
+  { value: "Since 2022", label: "continuous analyst enrichment" },
 ];
-
-const VISIBLE_METHOD_STATS = Q1_REPORT_NUMBERS_CONFIRMED
-  ? METHOD_STATS
-  : METHOD_STATS.filter((stat) => !stat.gated);
 
 const FAQS = [
   {
@@ -68,13 +61,13 @@ const FAQS = [
   {
     question: "When does the next edition come out?",
     answer:
-      "Every quarter. The Q2 2026 edition releases in late July 2026; the next edition covers July to September 2026.",
+      "Every quarter. The Q2 2026 edition releases in late August 2026; the next edition covers July to September 2026.",
   },
 ];
 
 const EXIT_INTENT_KEY = "q1fy27-report-exit-intent-shown";
 
-const IndiaGccReportQ1FY27 = () => {
+const IndiaGccReportQ22026 = () => {
   const [exitIntentOpen, setExitIntentOpen] = useState(false);
   const [formInView, setFormInView] = useState(false);
   const [pastHero, setPastHero] = useState(false);
@@ -139,9 +132,8 @@ const IndiaGccReportQ1FY27 = () => {
     });
   };
 
-  const seoDescription = Q1_REPORT_NUMBERS_CONFIRMED
-    ? "The Q2 2026 India GCC Quarterly Report covers 110 centres across 99 companies, including new entrants, expansions and hiring shifts. Free, publishing late July 2026."
-    : "The Q2 2026 India GCC Quarterly Report covers new centres, expansions and hiring shifts across India. Free, publishing late July 2026.";
+  const seoDescription =
+    "The Q2 2026 India GCC Quarterly Report covers 110 centres across 99 companies, including new entrants, expansions and hiring shifts. Free, publishing late August 2026.";
 
   useSEO({
     title: "India GCC Quarterly Report, Q2 2026 (April to June) | Bamboo Reports",
@@ -151,7 +143,7 @@ const IndiaGccReportQ1FY27 = () => {
     ogImage:
       "https://www.bambooreports.com/gcc/india-gcc-report-share-card-q2-2026.png",
     ogType: "article",
-    canonicalUrl: "https://www.bambooreports.com/reports/india-gcc-report-q1-fy27",
+    canonicalUrl: "https://www.bambooreports.com/reports/india-gcc-report-q2-2026",
   });
 
   return (
@@ -200,34 +192,32 @@ const IndiaGccReportQ1FY27 = () => {
               Be the first to get your free copy, delivered to your inbox the
               day it releases.
             </p>
-            {Q1_REPORT_NUMBERS_CONFIRMED && (
-              <div className="hero-rise mt-6 rounded-lg border border-t-4 border-t-navy bg-background shadow-sm [animation-delay:220ms]">
-                <dl className="grid grid-cols-3 gap-3 p-4 sm:gap-0 sm:p-6 md:p-7">
-                  {NUMBERS.map((stat, index) => (
-                    <div
-                      key={stat.label}
-                      className={
-                        index === 0 ? "" : "border-l pl-3 sm:pl-8"
-                      }
+            <div className="hero-rise mt-6 rounded-lg border bg-background shadow-sm [animation-delay:220ms]">
+              <dl className="grid grid-cols-3 gap-3 p-4 sm:gap-0 sm:p-6 md:p-7">
+                {NUMBERS.map((stat, index) => (
+                  <div
+                    key={stat.label}
+                    className={
+                      index === 0 ? "" : "border-l pl-3 sm:pl-8"
+                    }
+                  >
+                    <dd
+                      className={`text-3xl font-bold tabular-nums tracking-tight sm:text-4xl ${
+                        stat.highlight ? "text-accent" : "text-navy"
+                      }`}
                     >
-                      <dd
-                        className={`text-3xl font-bold tabular-nums tracking-tight sm:text-4xl ${
-                          stat.highlight ? "text-accent" : "text-navy"
-                        }`}
-                      >
-                        {stat.value}
-                      </dd>
-                      <dt className="mt-1.5 text-[13px] leading-snug text-muted-foreground sm:text-sm">
-                        {stat.label}
-                      </dt>
-                    </div>
-                  ))}
-                </dl>
-                <p className="border-t px-4 py-3 text-[13px] text-muted-foreground sm:px-6 md:px-7">
-                  Source: Bamboo Reports platform, July 2026.
-                </p>
-              </div>
-            )}
+                      {stat.value}
+                    </dd>
+                    <dt className="mt-1.5 text-[13px] leading-snug text-muted-foreground sm:text-sm">
+                      {stat.label}
+                    </dt>
+                  </div>
+                ))}
+              </dl>
+              <p className="border-t px-4 py-3 text-[13px] text-muted-foreground sm:px-6 md:px-7">
+                Source: Bamboo Reports platform, July 2026.
+              </p>
+            </div>
 
             <Button
               onClick={goToForm}
@@ -247,7 +237,7 @@ const IndiaGccReportQ1FY27 = () => {
             id="register"
             className="scroll-mt-24 self-start lg:sticky lg:top-6 lg:col-start-2 lg:row-start-1 lg:row-span-2"
           >
-            <div className="hero-rise rounded-lg border border-t-4 border-t-primary bg-background p-4 shadow-lg [animation-delay:160ms] sm:p-6">
+            <div className="hero-rise rounded-lg border bg-background p-4 shadow-lg [animation-delay:160ms] sm:p-6">
               <h2 className="text-2xl font-bold leading-tight tracking-tight">
                 Get it on release day
               </h2>
@@ -338,7 +328,7 @@ const IndiaGccReportQ1FY27 = () => {
             </p>
           </div>
           <dl className="flex flex-wrap self-center">
-            {VISIBLE_METHOD_STATS.map((stat) => (
+            {METHOD_STATS.map((stat) => (
               <div
                 key={stat.label}
                 className="min-w-[40%] flex-1 border-t-2 border-navy py-3 pr-3"
@@ -382,7 +372,7 @@ const IndiaGccReportQ1FY27 = () => {
 
       <footer className="border-t px-4 py-5">
         <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 text-xs text-muted-foreground">
-          <span>&copy; 2026 Research NXT &middot; Pune, India</span>
+          <span>&copy; 2026 Bamboo Reports - A Research NXT Product &middot; Pune, India</span>
           <span>
             Powered by{" "}
             <a
@@ -456,4 +446,4 @@ const IndiaGccReportQ1FY27 = () => {
   );
 };
 
-export default IndiaGccReportQ1FY27;
+export default IndiaGccReportQ22026;

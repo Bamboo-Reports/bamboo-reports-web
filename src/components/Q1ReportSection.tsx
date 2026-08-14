@@ -30,7 +30,7 @@ const Q1ReportSection = () => (
         size="lg"
         className="group h-12 w-full rounded-full bg-white px-8 text-base font-semibold text-navy hover:bg-white/90 sm:w-auto"
       >
-        <Link to="/reports/india-gcc-report-q1-fy27?src=home-q1report">
+        <Link to="/reports/india-gcc-report-q2-2026?src=home-q2report">
           Register for the report
           <ArrowRight
             className="ml-2.5 h-4 w-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"

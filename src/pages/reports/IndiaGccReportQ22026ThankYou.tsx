@@ -6,13 +6,13 @@ import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSched
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 
-const IndiaGccReportQ1FY27ThankYou = () => {
+const IndiaGccReportQ22026ThankYou = () => {
   useSEO({
     title: "You're all set | Bamboo Reports",
     description:
       "Your registration for the Q2 2026 India GCC report is confirmed. The report reaches your inbox the day it releases.",
     canonicalUrl:
-      "https://www.bambooreports.com/reports/india-gcc-report-q1-fy27/thank-you",
+      "https://www.bambooreports.com/reports/india-gcc-report-q2-2026/thank-you",
   });
 
   // Confirmation pages have no search value; keep them out of the index.
@@ -106,7 +106,7 @@ const IndiaGccReportQ1FY27ThankYou = () => {
 
       <footer className="border-t px-4 py-5">
         <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 text-xs text-muted-foreground">
-          <span>&copy; 2026 Research NXT &middot; Pune, India</span>
+          <span>&copy; 2026 Bamboo Reports - A Research NXT Product &middot; Pune, India</span>
           <span>
             Powered by{" "}
             <a
@@ -129,4 +129,4 @@ const IndiaGccReportQ1FY27ThankYou = () => {
   );
 };
 
-export default IndiaGccReportQ1FY27ThankYou;
+export default IndiaGccReportQ22026ThankYou;

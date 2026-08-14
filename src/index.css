@@ -384,7 +384,7 @@ All colors MUST be HSL.
     display: flex;
     align-items: center;
     width: max-content;
-    animation: trustLogosScroll 38s linear infinite;
+    animation: trustLogosScroll 70s linear infinite;
   }
 
   .trust-logos-track:hover { animation-play-state: paused; }
