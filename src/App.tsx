@@ -4,9 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider } from "@/contexts/AuthContext";
 import { InquiryFormProvider } from "@/contexts/InquiryFormContext";
-import ProtectedRoute from "@/components/ProtectedRoute";
 import IndexV2 from "./pages/IndexV2";
 import About from "./pages/About";
 import Resources from "./pages/Resources";
@@ -17,9 +15,6 @@ import AgenticSupplyChainControlTowerThankYou from "./pages/events/AgenticSupply
 import Reports from "./pages/Reports";
 import IndiaGccReportQ22026 from "./pages/reports/IndiaGccReportQ22026";
 import IndiaGccReportQ22026ThankYou from "./pages/reports/IndiaGccReportQ22026ThankYou";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
-import Profile from "./pages/Profile";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -33,7 +28,7 @@ import Tracker from "./pages/Tracker";
 import MapYourGCCOpportunity from "./pages/MapYourGCCOpportunity";
 import ScrollToTop from "./components/ScrollToTop";
 import { ensureJotformEmbedHandler } from "@/lib/jotform";
-import { ACCOUNT_CREATION_ENABLED, GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const queryClient = new QueryClient();
 
@@ -44,8 +39,7 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <InquiryFormProvider>
+      <InquiryFormProvider>
         <TooltipProvider>
           <Toaster />
           <Sonner />
@@ -95,27 +89,12 @@ const App = () => {
               path="/map-your-gcc-oppurtunity"
               element={<Navigate to="/map-your-gcc-opportunity" replace />}
             />
-            <Route path="/signup" element={ACCOUNT_CREATION_ENABLED ? <SignUp /> : <NotFound />} />
-            <Route path="/signin" element={ACCOUNT_CREATION_ENABLED ? <SignIn /> : <NotFound />} />
-            <Route
-              path="/profile"
-              element={
-                ACCOUNT_CREATION_ENABLED ? (
-                  <ProtectedRoute>
-                    <Profile />
-                  </ProtectedRoute>
-                ) : (
-                  <NotFound />
-                )
-              }
-            />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </TooltipProvider>
-        </InquiryFormProvider>
-      </AuthProvider>
+      </InquiryFormProvider>
     </QueryClientProvider>
   );
 };
