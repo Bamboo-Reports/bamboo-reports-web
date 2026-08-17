@@ -189,7 +189,7 @@ TOP_CITIES = 6
 # as "10 to 15" (2.3). Conservative ends chosen as defaults; change here and
 # regenerate once locked.
 EXPOSURE_CAP = 0.20
-HARD_ROW_CAP = 15
+HARD_ROW_CAP = 10
 # ---------------------------------------------------------------------------
 
 # Centre lifecycle (center_status column).

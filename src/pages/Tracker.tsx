@@ -543,6 +543,10 @@ const Tracker = () => {
                     setFilters((current) => ({ ...current, industries }))
                   }
                   disabled={isLoading}
+                  lockedCount={
+                    TRACKER_V2_STATS.industries - TRACKER_V2_TOP_INDUSTRIES.length
+                  }
+                  lockedNoun="industries"
                   optionHints={TRACKER_V2_INDUSTRY_CLASSIFICATIONS}
                 />
               </div>
@@ -558,6 +562,10 @@ const Tracker = () => {
                     setFilters((current) => ({ ...current, cities }))
                   }
                   disabled={isLoading}
+                  lockedCount={
+                    TRACKER_V2_STATS.cities - TRACKER_V2_TOP_CITIES.length
+                  }
+                  lockedNoun="cities"
                 />
               </div>
               <Button
