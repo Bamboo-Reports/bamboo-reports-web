@@ -44,7 +44,7 @@ const HeroV2 = () => (
           style={{ animationDelay: "0ms" }}
         >
           Your trusted partner for{" "}
-          <span className="block text-primary">GCC GTM enablement</span>
+          <span className="block text-accent-deep">GCC GTM enablement</span>
         </h1>
 
         <p
@@ -66,7 +66,7 @@ const HeroV2 = () => (
           <Button
             asChild
             size="lg"
-            className="w-full px-7 text-base font-semibold sm:w-auto"
+            className="w-full bg-navy px-7 text-base font-semibold text-white hover:bg-navy/90 sm:w-auto"
           >
             <GoogleCalendarSchedulingButton>
               Get a demo
