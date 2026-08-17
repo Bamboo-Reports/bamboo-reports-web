@@ -17,7 +17,6 @@ import {
 } from "@/lib/trackerAccountsV2";
 import {
   TRACKER_V2_STATS,
-  TRACKER_V2_UPDATED,
   TRACKER_V2_TOP_INDUSTRIES,
   TRACKER_V2_TOP_CITIES,
   TRACKER_V2_CITY_GROUPS,
@@ -474,21 +473,17 @@ const Tracker = () => {
       <section id="size-your-market" className="scroll-mt-24 bg-navy text-white">
         <div className="mx-auto max-w-7xl px-5 py-9 sm:px-4 md:py-12">
           <FadeIn>
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-              <h1 className="flex items-center gap-2.5 text-lg font-bold tracking-tight sm:text-xl">
-                <span className="relative flex h-2 w-2" aria-hidden>
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70 motion-reduce:hidden" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-                </span>
-                India GCC Tracker
-              </h1>
-              <p className="text-xs font-medium tabular-nums text-white/55 sm:text-sm">
-                Updated {TRACKER_V2_UPDATED}
-              </p>
-            </div>
+            <h1 className="flex items-center gap-2.5 text-lg font-bold tracking-tight sm:text-xl">
+              <span className="relative flex h-2 w-2" aria-hidden>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70 motion-reduce:hidden" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              India GCC Tracker
+            </h1>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/70">
-              India's GCC market, in numbers — open, no sign-in. Pick a
-              company, an industry, or a city and every count updates.
+              The definitive count of India's GCC market — live, free, no
+              sign-in. Filter by company, industry, or city and size your
+              opportunity in seconds.
             </p>
           </FadeIn>
 
@@ -508,13 +503,13 @@ const Tracker = () => {
         </div>
       </section>
 
-      <section className="px-4 pb-14 pt-8 md:pb-20 md:pt-10">
+      <section className="px-4 pb-14 md:pb-20">
         <div className="mx-auto max-w-7xl">
-          {/* Filters */}
-          <div className="border-y bg-secondary/30 px-4 py-6 md:px-6">
+          {/* Filters: the board's control row, docked flush beneath it */}
+          <div className="border-b bg-background py-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-end">
               <div className="min-w-0 flex-1">
-                <label className="mb-2 block text-sm font-medium text-foreground">
+                <label className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   Company
                 </label>
                 <AccountSearchFilter
@@ -543,7 +538,7 @@ const Tracker = () => {
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <label className="mb-2 block text-sm font-medium text-foreground">
+                <label className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   Industry
                 </label>
                 <MultiSelectFilter
@@ -562,7 +557,7 @@ const Tracker = () => {
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <label className="mb-2 block text-sm font-medium text-foreground">
+                <label className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   City
                 </label>
                 <MultiSelectFilter
@@ -635,8 +630,17 @@ const Tracker = () => {
 
           {/* Directory */}
           <div className="mt-8 overflow-hidden rounded-lg border bg-card">
-            <div className="border-b px-5 py-4">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b px-5 py-4">
               <h2 className="text-lg font-semibold tracking-tight">Browse GCCs</h2>
+              {!isLoading && filteredAccounts.length > 0 && (
+                <p className="text-sm tabular-nums text-muted-foreground">
+                  Showing{" "}
+                  <span className="font-semibold text-foreground">{nf(rows.length)}</span>{" "}
+                  of {nf(filteredAccounts.length)}{" "}
+                  {hasSelection ? "matching" : "tracked"}{" "}
+                  {filteredAccounts.length === 1 ? "company" : "companies"}
+                </p>
+              )}
             </div>
 
             <div
@@ -717,7 +721,7 @@ const Tracker = () => {
                     <col className="w-[30%]" />
                     <col className="w-[28%]" />
                   </colgroup>
-                  <thead className="bg-muted/40 text-xs uppercase tracking-wide text-muted-foreground">
+                  <thead className="bg-muted/40 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
                     <tr>
                       <th scope="col" className="px-5 py-3 font-semibold">
                         Account name

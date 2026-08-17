@@ -90,7 +90,7 @@ function buildTrackerPage(html, accounts, pub, nameToSlug, directoryPages) {
   const content = `<main class="gcc-prerender">
       <p>India GCC tracker</p>
       <h1>India's GCC market, in numbers</h1>
-      <p>We track ${nf(totals.accounts)} Global Capability Centers in India. Every count is open, no sign-in: filter by industry and city and get a live count of the companies, centres and headcount in your target market.</p>
+      <p>The definitive count of India's GCC market — ${nf(totals.accounts)} Global Capability Centers tracked, live, free, no sign-in. Filter by company, industry, or city and size your opportunity in seconds.</p>
       <ul>
         <li><strong>${nf(totals.accounts)}</strong> GCC companies tracked</li>
         <li><strong>${nf(totals.centers)}</strong> GCC centres</li>
