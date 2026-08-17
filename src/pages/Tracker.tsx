@@ -17,6 +17,7 @@ import {
 } from "@/lib/trackerAccountsV2";
 import {
   TRACKER_V2_STATS,
+  TRACKER_V2_UPDATED,
   TRACKER_V2_TOP_INDUSTRIES,
   TRACKER_V2_TOP_CITIES,
   TRACKER_V2_CITY_GROUPS,
@@ -143,14 +144,14 @@ const TickerStat = ({
 }) => {
   const shown = useAnimatedNumber(isLoading ? 0 : value);
   return (
-    <div className="border-l px-2 py-5 text-center first:border-l-0 md:px-6 md:py-7">
+    <div className="border-white/10 px-1 py-4 text-center sm:py-5 md:border-l md:px-6 md:py-0 md:first:border-l-0">
       <div
-        className={`text-3xl font-extrabold tracking-tight tabular-nums sm:text-4xl md:text-5xl ${
-          accent ? "text-accent-deep" : "text-foreground"
+        className={`text-[clamp(1.7rem,3.3vw,2.9rem)] font-extrabold leading-none tracking-[-0.02em] tabular-nums ${
+          accent ? "text-accent" : "text-white"
         }`}
       >
         {isLoading ? (
-          <span className="inline-block h-8 w-20 animate-pulse rounded-md bg-muted sm:h-10 sm:w-28" />
+          <span className="inline-block h-8 w-20 animate-pulse rounded-md bg-white/15 sm:h-10 sm:w-28" />
         ) : (
           <>
             {accent && value > 0 && "+"}
@@ -158,7 +159,7 @@ const TickerStat = ({
           </>
         )}
       </div>
-      <div className="mt-2 text-xs font-medium text-muted-foreground sm:text-sm">
+      <div className="mt-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/55 sm:text-xs">
         {label}
       </div>
     </div>
@@ -468,25 +469,31 @@ const Tracker = () => {
     <div className="tracker-page min-h-screen bg-background">
       <Header />
 
-      {/* TICKER */}
-      <section id="size-your-market" className="scroll-mt-24 px-4 pb-14 pt-10 md:pb-20 md:pt-14">
-        <div className="mx-auto max-w-7xl">
+      {/* THE BOARD: the numbers are the hero, set on ledger navy like an
+          exchange summary strip. */}
+      <section id="size-your-market" className="scroll-mt-24 bg-navy text-white">
+        <div className="mx-auto max-w-7xl px-5 py-9 sm:px-4 md:py-12">
           <FadeIn>
-            <div className="mb-10">
-              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                India's GCC market, in numbers
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+              <h1 className="flex items-center gap-2.5 text-lg font-bold tracking-tight sm:text-xl">
+                <span className="relative flex h-2 w-2" aria-hidden>
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70 motion-reduce:hidden" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                </span>
+                India GCC Tracker
               </h1>
-              <p className="mt-4 max-w-6xl text-muted-foreground md:text-lg">
-                Every count on this page is live from the Bamboo Reports GCC
-                dataset — open, no sign-in. Pick a company, an industry, or a
-                city and the numbers update instantly.
+              <p className="text-xs font-medium tabular-nums text-white/55 sm:text-sm">
+                Updated {TRACKER_V2_UPDATED}
               </p>
             </div>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/70">
+              India's GCC market, in numbers — open, no sign-in. Pick a
+              company, an industry, or a city and every count updates.
+            </p>
           </FadeIn>
 
-          {/* Counters */}
           <FadeIn>
-            <div className="grid grid-cols-2 border-y md:grid-cols-4">
+            <div className="mt-7 grid grid-cols-2 gap-y-2 border-t border-white/10 pt-6 md:mt-8 md:grid-cols-4 md:gap-y-0 md:pt-8">
               <TickerStat label="Companies" value={counts.companies} isLoading={isLoading} />
               <TickerStat label="Centres" value={counts.centers} isLoading={isLoading} />
               <TickerStat
@@ -498,9 +505,13 @@ const Tracker = () => {
               <TickerStat label="Headcount" value={counts.employees} isLoading={isLoading} />
             </div>
           </FadeIn>
+        </div>
+      </section>
 
+      <section className="px-4 pb-14 pt-8 md:pb-20 md:pt-10">
+        <div className="mx-auto max-w-7xl">
           {/* Filters */}
-          <div className="mt-8 border-y bg-secondary/30 px-4 py-6 md:px-6">
+          <div className="border-y bg-secondary/30 px-4 py-6 md:px-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-end">
               <div className="min-w-0 flex-1">
                 <label className="mb-2 block text-sm font-medium text-foreground">

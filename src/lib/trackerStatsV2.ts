@@ -13,6 +13,9 @@ export const TRACKER_V2_STATS = {
   "industries": 29
 } as const;
 
+// Dataset refresh date (source sheet mtime), shown on the board.
+export const TRACKER_V2_UPDATED = "17 August 2026" as const;
+
 // PENDING Section 6 locks: exposure cap (20% vs 25%) and hard row
 // cap (10 vs 15). Regenerate after changing the constants in the
 // generator; the client only ever reads the precomputed table.
