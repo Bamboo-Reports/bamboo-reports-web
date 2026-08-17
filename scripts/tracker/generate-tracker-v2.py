@@ -20,23 +20,156 @@ the tracker entirely.
 Usage: python3 scripts/tracker/generate-tracker-v2.py [input.xlsx]
 """
 
-import importlib.util
 import hashlib
 import json
+import re
 import sys
+import unicodedata
+import xml.etree.ElementTree as ET
+import zipfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-# Shared helpers (xlsx parsing, name cleaning/hashing, sorting) come from the
-# v1 generator so the two pipelines can never disagree on those rules.
-_spec = importlib.util.spec_from_file_location(
-    "tracker_v1", Path(__file__).with_name("generate-static-accounts.py")
+# GCC-ness is decided at the ACCOUNT level (account_type column). Accounts
+# marked non-gcc are excluded from the directory entirely.
+GCC_ACCOUNT_TYPE = "gcc"
+
+# Acquired/merged parentheticals are stripped from the public display name
+# ("AbsolutData (Acquired by Infogain)" -> "AbsolutData"); the full legal name
+# is kept internally for sorting and page-slug matching.
+NAME_CLUTTER = re.compile(
+    r"\s*\((?:ac+quired|merged|now part of|formerly|a subsidiary of)"
+    r"[^()]*(?:\([^()]*\)[^()]*)*\)\s*$",
+    re.IGNORECASE,
 )
-v1 = importlib.util.module_from_spec(_spec)
-sys.modules["tracker_v1"] = v1
-_spec.loader.exec_module(v1)
+
+# Legal-suffix tokens dropped when hashing private names for gated search.
+# Must stay in sync with simplifyCompanyName in src/lib/trackerAccountsV2.ts.
+LEGAL_SUFFIXES = {
+    "inc", "incorporated", "corp", "corporation", "co", "company", "ltd",
+    "limited", "llc", "llp", "lp", "plc", "gmbh", "ag", "sa", "nv", "bv", "pvt",
+}
+
+
+def clean_display_name(name):
+    stripped = NAME_CLUTTER.sub("", name).strip()
+    return stripped or name
+
+
+def simplify_company_name(name):
+    """Lowercased, punctuation-free name with trailing legal suffixes removed."""
+    text = name.lower().replace("&", " and ")
+    text = re.sub(r"[^a-z0-9]+", " ", text).strip()
+    words = text.split()
+    while len(words) > 1 and words[-1] in LEGAL_SUFFIXES:
+        words.pop()
+    return " ".join(words)
+
+
+def private_name_hash(name):
+    return hashlib.sha256(simplify_company_name(name).encode("utf-8")).hexdigest()[:16]
+
+
+MAIN_NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
+REL_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+PACKAGE_REL_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
+NS = {"m": MAIN_NS, "r": REL_NS}
+
+
+def column_number(cell_reference):
+    letters = re.match(r"[A-Z]+", cell_reference).group()
+    result = 0
+    for letter in letters:
+        result = result * 26 + ord(letter) - ord("A") + 1
+    return result - 1
+
+
+def shared_strings(archive):
+    if "xl/sharedStrings.xml" not in archive.namelist():
+        return []
+    root = ET.fromstring(archive.read("xl/sharedStrings.xml"))
+    return [
+        "".join(node.text or "" for node in item.findall(".//m:t", NS))
+        for item in root.findall("m:si", NS)
+    ]
+
+
+def sheet_paths(archive):
+    workbook = ET.fromstring(archive.read("xl/workbook.xml"))
+    relationships = ET.fromstring(archive.read("xl/_rels/workbook.xml.rels"))
+    targets = {
+        relationship.attrib["Id"]: relationship.attrib["Target"]
+        for relationship in relationships.findall(f"{{{PACKAGE_REL_NS}}}Relationship")
+    }
+    result = {}
+    for sheet in workbook.findall(".//m:sheet", NS):
+        target = targets[sheet.attrib[f"{{{REL_NS}}}id"]]
+        result[sheet.attrib["name"]] = target if target.startswith("xl/") else f"xl/{target.lstrip('/')}"
+    return result
+
+
+def read_sheet(archive, path, strings, required_columns, optional_columns=frozenset()):
+    root = ET.fromstring(archive.read(path))
+    rows = root.findall(".//m:sheetData/m:row", NS)
+    if not rows:
+        return []
+
+    def values(row, allowed_indexes=None):
+        result = {}
+        for cell in row.findall("m:c", NS):
+            index = column_number(cell.attrib["r"])
+            if allowed_indexes is not None and index not in allowed_indexes:
+                continue
+            value_node = cell.find("m:v", NS)
+            value = value_node.text if value_node is not None else ""
+            if cell.attrib.get("t") == "s" and value:
+                value = strings[int(value)]
+            result[index] = value
+        return result
+
+    header_values = values(rows[0])
+    headers = {value: index for index, value in header_values.items()}
+    missing = required_columns - headers.keys()
+    if missing:
+        raise ValueError(f"{path} is missing required columns: {', '.join(sorted(missing))}")
+
+    columns = set(required_columns) | (set(optional_columns) & headers.keys())
+    wanted_indexes = {headers[column] for column in columns}
+    records = []
+    for row in rows[1:]:
+        row_values = values(row, wanted_indexes)
+        records.append({column: row_values.get(headers[column], "").strip() for column in columns})
+    return records
+
+
+def account_sort_key(item):
+    name = item[0]
+    visible_name = "".join(
+        character for character in name if unicodedata.category(character) != "Cf"
+    ).lstrip()
+    first = visible_name[:1]
+    if first and not first.isalnum():
+        group = 0
+    elif first.isdigit():
+        group = 1
+    else:
+        group = 2
+    return group, visible_name.casefold()
+
+
+def published_slugs():
+    """name -> slug for companies whose detail page is actually published,
+    so the directory table can link them."""
+    slugs = {}
+    for path in (ROOT / "data" / "gcc" / "companies").glob("*.json"):
+        company = json.loads(path.read_text())
+        page = ROOT / "public" / "gcc" / "companies" / company["slug"] / "index.html"
+        if page.exists():
+            slugs[company["name"]] = company["slug"]
+            slugs[clean_display_name(company["name"])] = company["slug"]
+    return slugs
 
 DEFAULT_INPUT = ROOT / "data" / "tracker-data-v2.xlsx"
 OUTPUT_DIR = ROOT / "public" / "data" / "t2"
@@ -104,12 +237,12 @@ def parse_employees(raw):
 def main():
     source = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_INPUT
 
-    import zipfile
+
 
     with zipfile.ZipFile(source) as archive:
-        strings = v1.shared_strings(archive)
-        paths = v1.sheet_paths(archive)
-        accounts = v1.read_sheet(
+        strings = shared_strings(archive)
+        paths = sheet_paths(archive)
+        accounts = read_sheet(
             archive,
             paths["accounts"],
             strings,
@@ -125,7 +258,7 @@ def main():
                 "account_industry_classification",
             },
         )
-        centers = v1.read_sheet(
+        centers = read_sheet(
             archive,
             paths["centers"],
             strings,
@@ -137,25 +270,25 @@ def main():
         record
         for record in accounts
         if record["account_global_legal_name"]
-        and record["account_type"].strip().lower() == v1.GCC_ACCOUNT_TYPE
+        and record["account_type"].strip().lower() == GCC_ACCOUNT_TYPE
     ]
     dropped = sum(1 for r in accounts if r["account_global_legal_name"]) - len(gcc_accounts)
     if dropped:
         print(f"Excluded {dropped} non-gcc accounts (and their centers)")
 
     # Exact-name search still explains excluded companies ("Only Manufacturing
-    # presence in India") via the same truncated-hash scheme as v1.
+    # presence in India") via the same truncated-hash scheme as 
     non_gcc_notes = {}
     for record in accounts:
         name = record["account_global_legal_name"]
         note = (record.get("account_visibility_note") or record.get("account_note", "")).strip()
         if not name or not note:
             continue
-        if record["account_type"].strip().lower() == v1.GCC_ACCOUNT_TYPE:
+        if record["account_type"].strip().lower() == GCC_ACCOUNT_TYPE:
             print(f"Ignoring visibility note on gcc account {name!r}: {note!r}")
             continue
-        note = v1.re.sub(r"\s*Presence In India$", " presence in India", note)
-        non_gcc_notes[v1.private_name_hash(name)] = note
+        note = re.sub(r"\s*Presence In India$", " presence in India", note)
+        non_gcc_notes[private_name_hash(name)] = note
 
     # Industry labels are standardized via the shared taxonomy, but the v1
     # per-account overrides (taxonomy.json "accounts") are NOT applied: the
@@ -221,7 +354,7 @@ def main():
     if blank_city:
         print(f"{blank_city} counted centres have no city; they appear in totals but not in city filters")
 
-    slugs = v1.published_slugs()
+    slugs = published_slugs()
     tracker_accounts = []
     for account, industry in industries.items():
         is_public = visibility.get(account, "public") == "public"
@@ -243,9 +376,9 @@ def main():
         ]
         tracker_accounts.append(
             {
-                "_sort": v1.clean_display_name(account),
-                "name": v1.clean_display_name(account) if is_public else None,
-                "h": None if is_public else v1.private_name_hash(account),
+                "_sort": clean_display_name(account),
+                "name": clean_display_name(account) if is_public else None,
+                "h": None if is_public else private_name_hash(account),
                 "slug": slugs.get(account) if is_public else None,
                 "industry": industry or None,
                 "cities": cities,
@@ -256,7 +389,7 @@ def main():
             }
         )
 
-    tracker_accounts.sort(key=lambda record: v1.account_sort_key((record["_sort"],)))
+    tracker_accounts.sort(key=lambda record: account_sort_key((record["_sort"],)))
     for record in tracker_accounts:
         del record["_sort"]
         for optional in ("h", "slug"):

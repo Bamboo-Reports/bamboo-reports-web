@@ -10,9 +10,9 @@ import { AccountSearchFilter } from "@/components/AccountSearchFilter";
 import { MultiSelectFilter } from "@/components/MultiSelectFilter";
 import { useSEO } from "@/hooks/useSEO";
 import type { FacetOption } from "@/lib/tracker";
-import { hashCompanyName } from "@/lib/trackerAccounts";
 import {
   fetchTrackerV2Accounts,
+  hashCompanyName,
   type TrackerV2Account,
 } from "@/lib/trackerAccountsV2";
 import {

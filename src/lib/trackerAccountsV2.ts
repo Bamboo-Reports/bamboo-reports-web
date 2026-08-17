@@ -1,5 +1,37 @@
 import { TRACKER_V2_ACCOUNT_CHUNKS } from "./trackerAccountChunksV2";
 
+// Legal-suffix tokens dropped when hashing names for private-company search.
+// Must stay in sync with LEGAL_SUFFIXES in scripts/tracker/generate-tracker-v2.py.
+const LEGAL_SUFFIXES = new Set([
+  "inc", "incorporated", "corp", "corporation", "co", "company", "ltd",
+  "limited", "llc", "llp", "lp", "plc", "gmbh", "ag", "sa", "nv", "bv", "pvt",
+]);
+
+export function simplifyCompanyName(name: string): string {
+  const words = name
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  while (words.length > 1 && LEGAL_SUFFIXES.has(words[words.length - 1])) {
+    words.pop();
+  }
+  return words.join(" ");
+}
+
+/** Truncated SHA-256 of the simplified name; matches the generator's `h` field. */
+export async function hashCompanyName(name: string): Promise<string | null> {
+  if (!globalThis.crypto?.subtle) return null;
+  const bytes = new TextEncoder().encode(simplifyCompanyName(name));
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("")
+    .slice(0, 16);
+}
+
 /** One tracker directory row from the v2 dataset (Aug 2026 overhaul):
  * open numbers page, no sign-in, no prospect data. */
 export interface TrackerV2Account {

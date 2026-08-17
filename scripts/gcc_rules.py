@@ -2,7 +2,7 @@
 
 Single definition used by both the company-page importer
 (scripts/gcc/import-accounts.py) and the tracker directory generator
-(scripts/tracker/generate-static-accounts.py), so the /gcc directory and the
+(scripts/tracker/generate-tracker-v2.py), so the /gcc directory and the
 company pages always agree on what counts as a GCC center.
 """
 

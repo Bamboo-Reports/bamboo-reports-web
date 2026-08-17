@@ -21,12 +21,6 @@
   status = 301
   force = true
 
-# API: server-side tracker function (keeps DB access server-side, no data leakage)
-[[redirects]]
-  from = "/api/tracker"
-  to = "/.netlify/functions/tracker"
-  status = 200
-
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -2,25 +2,25 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { TRACKER_STATS } from "@/lib/trackerStats";
+import { TRACKER_V2_STATS } from "@/lib/trackerStatsV2";
 import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const STATS: Array<{ label: string; value: number }> = [
-  { label: "Companies", value: TRACKER_STATS.accountsTracked },
-  { label: "Centres", value: TRACKER_STATS.centers },
-  { label: "Leaders", value: TRACKER_STATS.decisionMakers },
+  { label: "Companies", value: TRACKER_V2_STATS.companies },
+  { label: "Centres", value: TRACKER_V2_STATS.centers },
+  { label: "Headcount", value: TRACKER_V2_STATS.employees },
 ];
 
 const COUNT_DURATION_MS = 1400;
 
-// 2433 -> "2.4K+", 5901 -> "5.9K+", 60760 -> "60K+". Always floors so the
-// claim never overstates the live directory figures.
+// 2433 -> "2.4K+", 5901 -> "5.9K+", 3949355 -> "3.9M+". Always floors so
+// the claim never overstates the live directory figures.
 const formatCompact = (n: number) => {
   if (n < 1000) return n.toLocaleString("en-US");
-  const thousands = n / 1000;
-  const shown =
-    thousands < 10 ? Math.floor(thousands * 10) / 10 : Math.floor(thousands);
-  return `${shown}K+`;
+  const scaled = n < 1_000_000 ? n / 1000 : n / 1_000_000;
+  const suffix = n < 1_000_000 ? "K+" : "M+";
+  const shown = scaled < 10 ? Math.floor(scaled * 10) / 10 : Math.floor(scaled);
+  return `${shown}${suffix}`;
 };
 
 // Counts from 0 to target once `active` flips true. Skips straight to the
