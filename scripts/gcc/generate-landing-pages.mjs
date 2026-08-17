@@ -37,7 +37,7 @@ function landingPage(set, sets, accounts, nameToSlug) {
     : `${set.label} GCC companies in India`;
   const tracked = trackedCounts(set.tracked, isCity ? set.label : null);
   const title = `${heading}: ${nf(tracked.accounts)} Tracked | Bamboo Reports`;
-  const description = `${heading}: ${nf(tracked.accounts)} companies, ${nf(tracked.centers)} centres and ${nf(tracked.prospects)} decision-makers tracked by Bamboo Reports. Browse ${nf(set.public.length)} free, or size your market with the live GCC calculator.`;
+  const description = `${heading}: ${nf(tracked.accounts)} companies, ${nf(tracked.centers)} centres and a headcount of ${nf(tracked.employees)} tracked by Bamboo Reports. Browse ${nf(set.public.length)} free, or size your market with the live GCC tracker.`;
 
   const siblings = (isCity ? sets.cities : sets.industries)
     .filter((s) => s.slug !== set.slug)
@@ -59,7 +59,7 @@ function landingPage(set, sets, accounts, nameToSlug) {
       </nav>
       <h1>${esc(heading)}</h1>
       <p class="lede">Every ${isCity ? `Global Capability Center company with a presence in ${esc(set.label)}` : `${esc(set.label)} company running Global Capability Centers in India`} that Bamboo Reports tracks. Filter further with the <a href="/gcc/?${filterParam}">live market size calculator</a>.</p>
-      ${trackedVsShownHtml(set.label, tracked, set.public.length, `gcc-${set.kind}-${set.slug}`)}
+      ${trackedVsShownHtml(set.label, tracked, set.public.length)}
       <h2>Browse the ${nf(set.public.length)} public ${set.public.length === 1 ? "company" : "companies"}</h2>
       <ul class="companies">
 ${companyListHtml(set.public, nameToSlug)}

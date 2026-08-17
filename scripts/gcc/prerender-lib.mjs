@@ -10,8 +10,14 @@ import { fileURLToPath } from "node:url";
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const SITE = "https://www.bambooreports.com";
 export const DIST = join(ROOT, "dist");
-const CHUNK_DIR = join(ROOT, "public", "data", "t");
+const CHUNK_DIR = join(ROOT, "public", "data", "t2");
 const COMPANY_DIR = join(ROOT, "data", "gcc", "companies");
+
+// The tracker path carries no sign-up (15 Aug 2026 decision); static CTAs
+// point at the demo scheduler and the Q2 report registration instead.
+export const DEMO_URL =
+  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3VtT1tkXcAkAXo3Gm2G3GLC2CyAx34gJIi6ZS889-Oe6GmZTkA9zKqvQbhBQYTRBV_BFQA2-8o?gv=true";
+export const REPORT_URL = "/reports/india-gcc-report-q2-2026";
 
 export const DIRECTORY_PAGE_SIZE = 100;
 export const CITY_LANDING_MIN_COMPANIES = 10;
@@ -69,27 +75,34 @@ export async function loadNameToSlug() {
   return map;
 }
 
-/** Aggregate tracked counts for a subset of accounts. `city` scopes centres. */
+/** Aggregate tracked counts for a subset of accounts. `city` scopes centres,
+ * upcoming and headcount to that (raw) city's share. */
 export function trackedCounts(accounts, city = null) {
   return accounts.reduce(
     (t, a) => {
       t.accounts += 1;
-      t.prospects += a.prospectCount;
-      t.centers += city
-        ? a.cities.filter((c) => c.name === city).reduce((s, c) => s + c.centerCount, 0)
-        : a.centerCount;
+      if (city) {
+        const entries = a.cities.filter((c) => c.name === city);
+        t.centers += entries.reduce((s, c) => s + c.c, 0);
+        t.upcoming += entries.reduce((s, c) => s + (c.u ?? 0), 0);
+        t.employees += entries.reduce((s, c) => s + (c.e ?? 0), 0);
+      } else {
+        t.centers += a.c;
+        t.upcoming += a.u ?? 0;
+        t.employees += a.e;
+      }
       return t;
     },
-    { accounts: 0, centers: 0, prospects: 0 }
+    { accounts: 0, centers: 0, upcoming: 0, employees: 0 }
   );
 }
 
 /** The tracked-vs-shown hook line used on every static GCC page. */
-export function trackedVsShownHtml(label, tracked, shownCount, src) {
+export function trackedVsShownHtml(label, tracked, shownCount) {
   const hidden = tracked.accounts - shownCount;
   return `<div class="hook">
-      <p><strong>${esc(label)}:</strong> ${nf(tracked.accounts)} ${plural(tracked.accounts, "company", "companies")}, ${nf(tracked.centers)} GCC ${plural(tracked.centers, "centre", "centres")} and ${nf(tracked.prospects)} decision-makers tracked in Bamboo Reports. Showing ${nf(shownCount)} ${plural(shownCount, "company", "companies")} free here.${hidden > 0 ? ` Sign up free to unlock the other ${nf(hidden)}, plus every centre and decision-maker.` : ""}</p>
-      <a class="btn" href="/signup?src=${esc(src)}">Sign up free</a>
+      <p><strong>${esc(label)}:</strong> ${nf(tracked.accounts)} ${plural(tracked.accounts, "company", "companies")}, ${nf(tracked.centers)} GCC ${plural(tracked.centers, "centre", "centres")}${tracked.upcoming > 0 ? ` (+${nf(tracked.upcoming)} upcoming)` : ""} and a headcount of ${nf(tracked.employees)} tracked in Bamboo Reports. Showing ${nf(shownCount)} ${plural(shownCount, "company", "companies")} free here.${hidden > 0 ? ` The other ${nf(hidden)}, with every centre and headcount, live in the full version.` : ""}</p>
+      <a class="btn" href="${DEMO_URL}">Get a demo</a>
     </div>`;
 }
 
@@ -278,14 +291,13 @@ export function staticPage({ title, description, canonical, schemas, body, src }
   </style>
 </head>
 <body>
-  <a class="promo-bar" href="/signup?src=${esc(src)}-q1report">The Q2 2026 India GCC Report drops this July. <u>Sign up free for early access &rarr;</u></a>
+  <a class="promo-bar" href="${REPORT_URL}?src=${esc(src)}-q2report">The Q2 India GCC report: every GCC move, tracked. <u>Register for free &rarr;</u></a>
   <header class="site-header">
     <div class="wrap">
       <a href="/"><img src="/logo.png" alt="Bamboo Reports"></a>
       <nav>
-        <a class="nav-link" href="/gcc/">GCC directory</a>
-        <a class="nav-link" href="/signin">Sign in</a>
-        <a class="btn" href="/signup?src=${esc(src)}-header">Sign up free</a>
+        <a class="nav-link" href="/gcc/">GCC tracker</a>
+        <a class="btn" href="${DEMO_URL}">Get a demo</a>
       </nav>
     </div>
   </header>
