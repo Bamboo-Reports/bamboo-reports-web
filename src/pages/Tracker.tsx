@@ -155,10 +155,7 @@ const TickerStat = ({
         {isLoading ? (
           <span className="inline-block h-8 w-20 animate-pulse rounded-md bg-white/15 sm:h-10 sm:w-28" />
         ) : (
-          <>
-            {accent && value > 0 && "+"}
-            {nf(shown)}
-          </>
+          nf(shown)
         )}
       </div>
       <div className="mt-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/55 sm:text-xs">
