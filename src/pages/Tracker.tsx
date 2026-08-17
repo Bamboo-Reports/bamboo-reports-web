@@ -135,11 +135,14 @@ const TickerStat = ({
   value,
   isLoading,
   accent = false,
+  total,
 }: {
   label: string;
   value: number;
   isLoading: boolean;
   accent?: boolean;
+  /** Site-wide total, shown as "of N" while a filter is active. */
+  total?: number;
 }) => {
   const shown = useAnimatedNumber(isLoading ? 0 : value);
   return (
@@ -161,6 +164,11 @@ const TickerStat = ({
       <div className="mt-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/55 sm:text-xs">
         {label}
       </div>
+      {total !== undefined && !isLoading && (
+        <div className="mt-1 text-[11px] tabular-nums text-white/40 sm:text-xs">
+          of {nf(total)}
+        </div>
+      )}
     </div>
   );
 };
@@ -489,15 +497,31 @@ const Tracker = () => {
 
           <FadeIn>
             <div className="mt-7 grid grid-cols-2 gap-y-2 border-t border-white/10 pt-6 md:mt-8 md:grid-cols-4 md:gap-y-0 md:pt-8">
-              <TickerStat label="Companies" value={counts.companies} isLoading={isLoading} />
-              <TickerStat label="Centres" value={counts.centers} isLoading={isLoading} />
+              <TickerStat
+                label="Companies"
+                value={counts.companies}
+                isLoading={isLoading}
+                total={hasSelection ? TRACKER_V2_STATS.companies : undefined}
+              />
+              <TickerStat
+                label="Centres"
+                value={counts.centers}
+                isLoading={isLoading}
+                total={hasSelection ? TRACKER_V2_STATS.centers : undefined}
+              />
               <TickerStat
                 label="Upcoming centres"
                 value={counts.upcoming}
                 isLoading={isLoading}
                 accent
+                total={hasSelection ? TRACKER_V2_STATS.upcomingCenters : undefined}
               />
-              <TickerStat label="Headcount" value={counts.employees} isLoading={isLoading} />
+              <TickerStat
+                label="Headcount"
+                value={counts.employees}
+                isLoading={isLoading}
+                total={hasSelection ? TRACKER_V2_STATS.employees : undefined}
+              />
             </div>
           </FadeIn>
         </div>
@@ -630,17 +654,8 @@ const Tracker = () => {
 
           {/* Directory */}
           <div className="mt-8 overflow-hidden rounded-lg border bg-card">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b px-5 py-4">
+            <div className="border-b px-5 py-4">
               <h2 className="text-lg font-semibold tracking-tight">Browse GCCs</h2>
-              {!isLoading && filteredAccounts.length > 0 && (
-                <p className="text-sm tabular-nums text-muted-foreground">
-                  Showing{" "}
-                  <span className="font-semibold text-foreground">{nf(rows.length)}</span>{" "}
-                  of {nf(filteredAccounts.length)}{" "}
-                  {hasSelection ? "matching" : "tracked"}{" "}
-                  {filteredAccounts.length === 1 ? "company" : "companies"}
-                </p>
-              )}
             </div>
 
             <div
