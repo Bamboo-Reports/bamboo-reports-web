@@ -8,9 +8,9 @@ const CORAL = "#f2617a";
 const CORAL_INK = "text-[hsl(348_68%_40%)]";
 
 const eventDetails = [
-  { icon: CalendarDays, label: "Date", value: "Wednesday, 09 September 2026" },
+  { icon: CalendarDays, label: "Date", value: "Thursday, 10 September 2026" },
   { icon: Clock, label: "Time", value: "8 AM to 10 AM" },
-  { icon: MapPin, label: "Venue", value: "Taj, MG Road, Bengaluru" },
+  { icon: MapPin, label: "Location", value: "M.G Road, Bengaluru" },
 ];
 
 const AgenticSupplyChainControlTowerThankYou = () => {
@@ -60,7 +60,7 @@ const AgenticSupplyChainControlTowerThankYou = () => {
             Thank you for registering<span className={CORAL_INK}>.</span>
           </h1>
           <p className="mt-5 max-w-[55ch] text-base leading-relaxed text-muted-foreground md:text-lg">
-            We&rsquo;re excited to have you join us at the roundtable on September 9th, 2026.
+            We&rsquo;re excited to have you join us at the roundtable on September 10th, 2026.
           </p>
           <p className="mt-4 max-w-[55ch] text-base leading-relaxed text-foreground md:text-lg">
             <strong>Please note:</strong> Your participation is subject to approval. We will
