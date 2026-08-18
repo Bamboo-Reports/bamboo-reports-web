@@ -28,7 +28,7 @@ const CORAL_DEEP = "hsl(348 68% 40%)";
 const eventDetails = [
   { icon: CalendarDays, label: "Date", value: "Thursday", note: "10 September 2026" },
   { icon: Clock, label: "Time", value: "8 AM to 10 AM", note: "Breakfast included" },
-  { icon: MapPin, label: "Venue", value: "Bengaluru", note: "Venue confirming shortly" },
+  { icon: MapPin, label: "Venue", value: "Bengaluru" },
 ];
 
 const agenda = [
@@ -317,7 +317,7 @@ const AgenticSupplyChainControlTower = () => {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-foreground">10 September 2026</p>
-            <p className="truncate text-xs text-muted-foreground">Bengaluru &middot; Venue confirming shortly</p>
+            <p className="truncate text-xs text-muted-foreground">Bengaluru</p>
           </div>
           <a
             href="#register"
