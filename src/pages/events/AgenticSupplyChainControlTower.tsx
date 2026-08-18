@@ -28,7 +28,7 @@ const CORAL_DEEP = "hsl(348 68% 40%)";
 const eventDetails = [
   { icon: CalendarDays, label: "Date", value: "Thursday", note: "10 September 2026" },
   { icon: Clock, label: "Time", value: "8 AM to 10 AM", note: "Breakfast included" },
-  { icon: MapPin, label: "Venue", value: "Bengaluru" },
+  { icon: MapPin, label: "Venue", value: "Bengaluru", note: "5 Star Hotel" },
 ];
 
 const agenda = [
