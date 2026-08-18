@@ -6,7 +6,6 @@ import {
   Clock,
   ListChecks,
   MapPin,
-  Users,
 } from "lucide-react";
 import {
   Dialog,
@@ -264,9 +263,9 @@ const AgenticSupplyChainControlTower = () => {
                   <dd className="font-semibold text-foreground">8 AM to 10 AM</dd>
                 </div>
                 <div className="flex items-center gap-2 whitespace-nowrap">
-                  <Users className="h-4 w-4 shrink-0" style={{ color: CORAL }} aria-hidden />
-                  <dt className="sr-only">Includes</dt>
-                  <dd className="font-semibold text-foreground">Breakfast included</dd>
+                  <MapPin className="h-4 w-4 shrink-0" style={{ color: CORAL }} aria-hidden />
+                  <dt className="sr-only">Location</dt>
+                  <dd className="font-semibold text-foreground">Bengaluru, M.G. Road</dd>
                 </div>
               </dl>
             </div>
