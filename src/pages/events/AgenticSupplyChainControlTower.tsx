@@ -252,9 +252,8 @@ const AgenticSupplyChainControlTower = () => {
         <section className="mx-auto max-w-6xl px-4 py-14 md:px-6">
           <div className="flex flex-col gap-8 rounded-xl border bg-secondary p-8 md:flex-row md:items-center md:justify-between md:p-10">
             <div>
-              <p className="text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-                Bengaluru
-                <span className={`mt-1 block ${CORAL_INK}`}>10 September 2026</span>
+              <p className={`text-3xl font-bold leading-tight tracking-tight md:text-4xl ${CORAL_INK}`}>
+                10 September 2026
               </p>
               <dl className="mt-5 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8">
                 <div className="flex items-center gap-2 whitespace-nowrap">
