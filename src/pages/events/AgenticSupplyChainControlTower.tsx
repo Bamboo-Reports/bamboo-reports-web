@@ -26,7 +26,7 @@ const CORAL_INK = "text-[hsl(348_68%_40%)]";
 const CORAL_DEEP = "hsl(348 68% 40%)";
 
 const eventDetails = [
-  { icon: CalendarDays, label: "Date", value: "Wednesday", note: "09 September 2026" },
+  { icon: CalendarDays, label: "Date", value: "Thursday", note: "10 September 2026" },
   { icon: Clock, label: "Time", value: "8 AM to 10 AM", note: "Breakfast included" },
   { icon: MapPin, label: "Venue", value: "Taj, MG Road", note: "Bengaluru" },
 ];
@@ -93,7 +93,7 @@ const AgenticSupplyChainControlTower = () => {
   useSEO({
     title: "Agentic Supply Chain Control Tower · Retail Roundtable by Thoughtworks",
     description:
-      "A retail roundtable hosted by Thoughtworks. A breakfast working session on moving from supply-chain signals to coordinated action: Sense. Simulate. Solve. Taj, MG Road, Bengaluru, 09 September 2026.",
+      "A retail roundtable hosted by Thoughtworks. A breakfast working session on moving from supply-chain signals to coordinated action: Sense. Simulate. Solve. Taj, MG Road, Bengaluru, 10 September 2026.",
     keywords:
       "agentic supply chain, supply chain control tower, retail roundtable India, Thoughtworks roundtable Bengaluru, GCC supply chain, Black Friday scenario planning",
   });
@@ -168,7 +168,7 @@ const AgenticSupplyChainControlTower = () => {
                       Indicative agenda
                     </DialogTitle>
                     <DialogDescription className="sr-only">
-                      Session agenda for the roundtable on 09 September 2026 at Taj, MG Road,
+                      Session agenda for the roundtable on 10 September 2026 at Taj, MG Road,
                       Bengaluru.
                     </DialogDescription>
                   </DialogHeader>
@@ -252,7 +252,7 @@ const AgenticSupplyChainControlTower = () => {
             <div>
               <p className="text-3xl font-bold leading-tight tracking-tight md:text-4xl">
                 Taj, MG Road, Bengaluru
-                <span className={`mt-1 block ${CORAL_INK}`}>09 September 2026</span>
+                <span className={`mt-1 block ${CORAL_INK}`}>10 September 2026</span>
               </p>
               <dl className="mt-5 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8">
                 <div className="flex items-center gap-2 whitespace-nowrap">
@@ -317,7 +317,7 @@ const AgenticSupplyChainControlTower = () => {
       <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background px-4 py-3 shadow-[0_-4px_16px_rgba(0,0,0,0.08)] lg:hidden">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-foreground">09 September 2026</p>
+            <p className="truncate text-sm font-semibold text-foreground">10 September 2026</p>
             <p className="truncate text-xs text-muted-foreground">Taj, MG Road, Bengaluru</p>
           </div>
           <a
