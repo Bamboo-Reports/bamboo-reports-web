@@ -63,8 +63,7 @@ const AgenticSupplyChainControlTowerThankYou = () => {
             We&rsquo;re excited to have you join us at the roundtable on September 10th, 2026.
           </p>
           <p className="mt-4 max-w-[55ch] text-base leading-relaxed text-foreground md:text-lg">
-            <strong>Please note:</strong> Your participation is subject to approval. We will
-            confirm your spot via email.
+            Please note that this session is by invitation only.
           </p>
           <p className="mt-4 max-w-[55ch] text-base leading-relaxed text-muted-foreground md:text-lg">
             If you have any questions in the meantime, feel free to reach out. Looking forward
