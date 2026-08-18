@@ -10,7 +10,7 @@ const CORAL_INK = "text-[hsl(348_68%_40%)]";
 const eventDetails = [
   { icon: CalendarDays, label: "Date", value: "Thursday, 10 September 2026" },
   { icon: Clock, label: "Time", value: "8 AM to 10 AM" },
-  { icon: MapPin, label: "Venue", value: "Bengaluru, venue TBA" },
+  { icon: MapPin, label: "Venue", value: "Five-star hotel in Bengaluru, confirming shortly" },
 ];
 
 const AgenticSupplyChainControlTowerThankYou = () => {
