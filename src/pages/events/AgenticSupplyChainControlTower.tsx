@@ -152,6 +152,10 @@ const AgenticSupplyChainControlTower = () => {
                 ))}
               </dl>
 
+              <p className="mt-3 text-sm text-muted-foreground">
+                Venue to be confirmed shortly
+              </p>
+
               <Dialog>
                 <DialogTrigger asChild>
                   <button
