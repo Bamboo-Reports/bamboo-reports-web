@@ -44,8 +44,9 @@ export const InquiryFormProvider = ({ children }: { children: ReactNode }) => {
           onCloseAutoFocus={(event) => {
             if (!openerRef.current) return;
             event.preventDefault();
-            openerRef.current.focus();
+            const opener = openerRef.current;
             openerRef.current = null;
+            window.requestAnimationFrame(() => opener.focus());
           }}
         >
           <DialogHeader className="space-y-2 bg-accent p-6 text-center text-accent-foreground sm:text-center">
