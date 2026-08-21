@@ -40,12 +40,13 @@ const IndexV2 = () => {
       "Verified India GCC data, account intelligence, and analyst-led research for GTM teams building their India GCC opportunity.",
     keywords:
       "GCC GTM enablement, India GCC data, GCC account intelligence, GCC market intelligence, Bamboo Reports",
-    canonicalUrl: "https://www.bambooreports.com",
+    canonicalUrl: "https://bambooreports.com",
   });
 
   return (
     <div className="min-h-screen bg-background">
       <StructuredData type="organization" />
+      <StructuredData type="website" />
       <StructuredData type="product" />
       <Header />
       <main>

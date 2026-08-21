@@ -31,7 +31,7 @@ import {
 
 function landingPage(set, sets, accounts, nameToSlug) {
   const isCity = set.kind === "cities";
-  const canonical = `${SITE}${set.path.replace(/\/$/, "")}`;
+  const canonical = `${SITE}${set.path}`;
   const heading = isCity
     ? `GCC companies in ${set.label}`
     : `${set.label} GCC companies in India`;
@@ -90,7 +90,7 @@ ${companyListHtml(set.public, nameToSlug)}
       itemListSchema(heading, set.public, nameToSlug),
       breadcrumbSchema([
         ["Home", `${SITE}/`],
-        ["GCCs in India", `${SITE}/gcc`],
+        ["GCCs in India", `${SITE}/gcc/`],
         [set.label, canonical],
       ]),
     ],

@@ -200,7 +200,7 @@ const About = () => {
       "Bamboo Reports profiles 5,900+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
     keywords:
       "about Bamboo Reports, Research NXT, India GCC dataset, GCC centre level data, GCC research methodology",
-    canonicalUrl: "https://www.bambooreports.com/about",
+    canonicalUrl: "https://bambooreports.com/about",
   });
 
   return (

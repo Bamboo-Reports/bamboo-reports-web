@@ -4,11 +4,11 @@ import { Check } from "lucide-react";
 const benefits = [
   {
     title: "Identify whitespace opportunities",
-    description: "Discover untapped potential in service offerings or geographical regions to expand your business reach."
+    description: "Spot untapped service offerings and geographies your business can expand into."
   },
   {
     title: "Assess market dynamics",
-    description: "Gain critical insights before making strategic expansions or investments to ensure optimal outcomes."
+    description: "See how the market is shifting before you commit to an expansion or investment."
   },
   {
     title: "Understand competitor movements",
@@ -16,7 +16,7 @@ const benefits = [
   },
   {
     title: "Mitigate risks",
-    description: "Plan with foresight and reduce potential threats using comprehensive, data-driven insights."
+    description: "Use the same data to spot risks early and plan around them."
   }
 ];
 

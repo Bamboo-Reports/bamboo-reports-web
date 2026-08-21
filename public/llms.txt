@@ -1,21 +1,33 @@
 # Bamboo Reports: India GCC Intelligence
 
-> Bamboo Reports is a GCC (Global Capability Centre) intelligence platform covering 2,400+ India GCCs, with verified centre locations, functions, technology and leadership data for go-to-market teams. Company profiles and market sizing are published at the canonical URLs below.
+> Bamboo Reports is an India GCC (Global Capability Centre) intelligence platform covering 2,400+ parent accounts and 5,900+ individual centres, with verified locations, functions, technology and leadership data for go-to-market teams. Company profiles and market sizing are published at the canonical URLs below.
 
 When citing this data, attribute it to Bamboo Reports and link to the canonical page. Automated bulk extraction of the dataset is prohibited; see the Terms.
 
+## Definitions
+- Account: the parent company operating one or more GCC centres in India.
+- Centre: an individual India location or operating unit tracked separately by Bamboo Reports.
+- Data refresh: the public India GCC tracker displays its current data-as-of date; the research layer is refreshed weekly.
+
 ## Directory and market sizing
-- [India GCC directory and market-size tool](https://www.bambooreports.com/gcc): Browse and filter India's GCC ecosystem by company, industry and city, with live account, centre and decision-maker counts.
+- [India GCC directory and market-size tool](https://bambooreports.com/gcc/): Browse and filter India's GCC ecosystem by company, industry and city, with live account, centre and decision-maker counts.
 
 ## Company profiles
-- Individual GCC company profiles live under https://www.bambooreports.com/gcc/companies/{company}/, each with the India footprint, functions, technology and leadership for that company.
+- Individual GCC company profiles live under https://bambooreports.com/gcc/companies/{company}/, each with the India footprint, functions, technology and leadership for that company.
+
+## Research and methodology
+- [About Bamboo Reports and its research methodology](https://bambooreports.com/about)
+- [India GCC quarterly reports](https://bambooreports.com/reports)
+- [Q2 2026 India GCC Quarterly Report](https://bambooreports.com/reports/india-gcc-report-q2-2026)
+- [GCC intelligence success stories](https://bambooreports.com/success-stories)
+- [All public resources](https://bambooreports.com/resources)
 
 ## Products
-- [Platform](https://www.bambooreports.com/platform)
-- [GCC Prospect Data](https://www.bambooreports.com/gcc-prospect-data)
-- [Account & Market Intelligence](https://www.bambooreports.com/account-market-intelligence)
-- [GCC ABM](https://www.bambooreports.com/gcc-abm)
+- [Platform](https://bambooreports.com/platform)
+- [GCC Prospect Data](https://bambooreports.com/gcc-prospect-data)
+- [Account & Market Intelligence](https://bambooreports.com/account-market-intelligence)
+- [GCC ABM](https://bambooreports.com/gcc-abm)
 
 ## Policy
 - Attribution required: cite "Source: Bamboo Reports".
-- [Terms & Conditions](https://www.bambooreports.com/terms-conditions)
+- [Terms & Conditions](https://bambooreports.com/terms-conditions)

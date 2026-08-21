@@ -42,7 +42,7 @@ import {
 
 const SHELL = join(DIST, "index.html");
 const OUT = join(DIST, "gcc", "index.html");
-const CANONICAL = `${SITE}/gcc`;
+const CANONICAL = `${SITE}/gcc/`;
 const INLINE_COMPANIES = 100;
 
 const TITLE = "India GCC Tracker: Companies, Centres & Headcount | Bamboo Reports";
@@ -64,7 +64,9 @@ function buildTrackerPage(html, accounts, pub, nameToSlug, directoryPages) {
     "@type": "Dataset",
     name: "Global Capability Centers (GCCs) in India",
     description: `Directory of ${nf(totals.accounts)} GCCs in India across ${nf(totals.centers)} centres (${nf(totals.upcoming)} upcoming), with a tracked headcount of ${nf(totals.employees)}.`,
-    creator: { "@type": "Organization", name: "Bamboo Reports" },
+    creator: { "@id": `${SITE}/#organization` },
+    url: CANONICAL,
+    spatialCoverage: { "@type": "Country", name: "India" },
     license: `${SITE}/terms-conditions`,
     variableMeasured: [
       { "@type": "PropertyValue", name: "GCC companies tracked", value: totals.accounts },
@@ -129,7 +131,7 @@ ${landingIndexHtml(landingSets(accounts))}
 }
 
 function buildDirectoryPage(pageNumber, pageCount, slice, pub, accounts, nameToSlug) {
-  const canonical = `${SITE}/gcc/directory/${pageNumber}`;
+  const canonical = `${SITE}/gcc/directory/${pageNumber}/`;
   const first = slice[0]?.name ?? "";
   const last = slice[slice.length - 1]?.name ?? "";
   const title = `GCC Companies in India: Directory Page ${pageNumber} of ${pageCount} | Bamboo Reports`;

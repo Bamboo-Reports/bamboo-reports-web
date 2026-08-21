@@ -18,10 +18,24 @@ import {
 } from "@/components/ui/dialog";
 import JotFormEmbed from "@/components/JotFormEmbed";
 import { useSEO } from "@/hooks/useSEO";
+import StructuredData from "@/components/StructuredData";
 
 /** Thoughtworks coral. The brand tint is too light for body-size text on white,
  *  so rules and icons use it directly while type uses a deeper shade of the hue. */
 const CORAL = "#f2617a";
+
+const EVENT_SCHEMA = {
+  name: "Agentic Supply Chain Control Tower",
+  description: "A retail roundtable hosted by Thoughtworks on moving from supply-chain signals to coordinated action.",
+  startDate: "2026-09-10T08:00:00+05:30",
+  endDate: "2026-09-10T10:00:00+05:30",
+  url: "https://bambooreports.com/events/agentic-supply-chain-control-tower",
+  locationName: "M.G. Road, Bengaluru",
+  addressLocality: "Bengaluru",
+  addressCountry: "IN",
+  organizerName: "Thoughtworks",
+  organizerUrl: "https://www.thoughtworks.com/",
+};
 const CORAL_INK = "text-[hsl(348_68%_40%)]";
 const CORAL_DEEP = "hsl(348 68% 40%)";
 
@@ -102,6 +116,7 @@ const AgenticSupplyChainControlTower = () => {
 
   return (
     <div className="min-h-screen bg-background pb-20 lg:pb-0">
+      <StructuredData type="event" data={EVENT_SCHEMA} />
       <main>
         {/* Hero: what it is, when it is, and the form, all in one screen */}
         <section className="mx-auto max-w-6xl px-4 py-10 md:px-6 lg:py-16">

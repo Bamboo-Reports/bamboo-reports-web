@@ -11,6 +11,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useSEO } from "@/hooks/useSEO";
+import StructuredData from "@/components/StructuredData";
 
 const REPORT_FORM_ID = "261952514660458";
 
@@ -64,6 +65,8 @@ const FAQS = [
       "Every quarter. The Q2 2026 edition releases in late August 2026; the next edition covers July to September 2026.",
   },
 ];
+
+const FAQ_SCHEMA = { questions: FAQS };
 
 const EXIT_INTENT_KEY = "q1fy27-report-exit-intent-shown";
 
@@ -141,13 +144,14 @@ const IndiaGccReportQ22026 = () => {
     ogTitle: "India GCC Quarterly Report, Q2 2026 (April to June)",
     ogDescription: seoDescription,
     ogImage:
-      "https://www.bambooreports.com/gcc/india-gcc-report-share-card-q2-2026.png",
+      "https://bambooreports.com/gcc/india-gcc-report-share-card-q2-2026.png",
     ogType: "article",
-    canonicalUrl: "https://www.bambooreports.com/reports/india-gcc-report-q2-2026",
+    canonicalUrl: "https://bambooreports.com/reports/india-gcc-report-q2-2026",
   });
 
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData type="faq" data={FAQ_SCHEMA} />
       <div className="flex h-1" aria-hidden>
         <div className="w-2/3 bg-primary" />
         <div className="w-1/3 bg-accent" />
@@ -174,7 +178,7 @@ const IndiaGccReportQ22026 = () => {
             <p className="hero-rise mt-1 text-sm text-muted-foreground">
               Published by Research NXT &middot; Powered by{" "}
               <a
-                href="https://www.bambooreports.com"
+                href="https://bambooreports.com"
                 className="text-primary hover:underline"
               >
                 Bamboo Reports
@@ -315,7 +319,7 @@ const IndiaGccReportQ22026 = () => {
               Research NXT has worked on India&apos;s GCC ecosystem since 2018.
               The report is built on{" "}
               <a
-                href="https://www.bambooreports.com"
+                href="https://bambooreports.com"
                 className="text-primary hover:underline"
               >
                 Bamboo Reports
@@ -376,14 +380,14 @@ const IndiaGccReportQ22026 = () => {
           <span>
             Powered by{" "}
             <a
-              href="https://www.bambooreports.com"
+              href="https://bambooreports.com"
               className="text-primary hover:underline"
             >
               Bamboo Reports
             </a>{" "}
             GCC Intelligence &middot;{" "}
             <a
-              href="https://www.bambooreports.com/privacy-policy"
+              href="https://bambooreports.com/privacy-policy"
               className="text-primary hover:underline"
             >
               Privacy policy

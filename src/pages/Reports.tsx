@@ -27,7 +27,7 @@ const Reports = () => {
     title: "Reports | India GCC Intelligence | Bamboo Reports",
     description:
       "Market reports and insights on India's GCC ecosystem: market reads, sector deep-dives, and focused research from Bamboo Reports.",
-    canonicalUrl: "https://www.bambooreports.com/reports",
+    canonicalUrl: "https://bambooreports.com/reports",
   });
 
   return (

@@ -56,11 +56,13 @@ export const InquiryFormProvider = ({ children }: { children: ReactNode }) => {
           </div>
 
           <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
-            <JotFormEmbed
-              formId="260714112843450"
-              title="[ BR ] - Inquiry"
-              height="539px"
-            />
+            {isOpen && (
+              <JotFormEmbed
+                formId="260714112843450"
+                title="[ BR ] - Inquiry"
+                height="539px"
+              />
+            )}
           </div>
         </div>
       </div>
