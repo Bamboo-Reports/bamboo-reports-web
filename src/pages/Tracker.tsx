@@ -130,42 +130,53 @@ const useAnimatedNumber = (target: number) => {
   return value;
 };
 
-const TickerStat = ({
+/** A quote on the board: column header above, figure below, hairline rule
+ * between columns. Column widths are sized to their data rather than split
+ * evenly, which is what stops 105 and 3,949,355 fighting each other. */
+const Quote = ({
   label,
   value,
   isLoading,
-  accent = false,
+  emphasis = false,
   total,
+  span,
 }: {
   label: string;
   value: number;
   isLoading: boolean;
-  accent?: boolean;
+  /** Sets the figure in the brand orange, as the original board did. */
+  emphasis?: boolean;
   /** Site-wide total, shown as "of N" while a filter is active. */
   total?: number;
+  span: string;
 }) => {
   const shown = useAnimatedNumber(isLoading ? 0 : value);
   return (
-    <div className="border-white/10 px-1 py-4 text-center sm:py-5 md:border-l md:px-6 md:py-0 md:first:border-l-0">
-      <div
-        className={`text-[clamp(1.7rem,3.3vw,2.9rem)] font-extrabold leading-none tracking-[-0.02em] tabular-nums ${
-          accent ? "text-accent" : "text-white"
-        }`}
-      >
-        {isLoading ? (
-          <span className="inline-block h-8 w-20 animate-pulse rounded-md bg-white/15 sm:h-10 sm:w-28" />
-        ) : (
-          nf(shown)
-        )}
-      </div>
-      <div className="mt-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/55 sm:text-xs">
+    <div
+      className={`${span} border-b border-navy/10 py-6 pr-5 md:border-b-0 md:border-l md:py-7 md:pl-6 md:pr-6 md:first:border-l-0 md:first:pl-0`}
+    >
+      <dt className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {label}
-      </div>
-      {total !== undefined && !isLoading && (
-        <div className="mt-1 text-[11px] tabular-nums text-white/40 sm:text-xs">
-          of {nf(total)}
-        </div>
-      )}
+      </dt>
+      <dd className="mt-3.5">
+        {isLoading ? (
+          <span className="block h-8 w-24 animate-pulse rounded bg-muted md:h-10" />
+        ) : (
+          <span
+            className={`block font-light tabular-nums leading-none tracking-[-0.02em] ${
+              emphasis ? "text-accent-deep" : "text-navy"
+            }`}
+            style={{ fontSize: "clamp(1.7rem, 3.6vw, 3rem)" }}
+          >
+            {nf(shown)}
+          </span>
+        )}
+        {total !== undefined && !isLoading && (
+          <span className="mt-2.5 block text-xs tabular-nums text-muted-foreground">
+            of {nf(total)}
+          </span>
+        )}
+      </dd>
     </div>
   );
 };
@@ -473,53 +484,61 @@ const Tracker = () => {
     <div className="tracker-page min-h-screen bg-background">
       <Header />
 
-      {/* THE BOARD: the numbers are the hero, set on ledger navy like an
-          exchange summary strip. */}
-      <section id="size-your-market" className="scroll-mt-24 bg-navy text-white">
-        <div className="mx-auto max-w-7xl px-5 py-9 sm:px-4 md:py-12">
+      {/* THE BOARD. A market summary on light ground: tabular figures on
+          ruled columns sized to their data, not four even tiles on a slab. */}
+      <section id="size-your-market" className="scroll-mt-24 border-b bg-background">
+        <div className="mx-auto max-w-7xl px-5 py-11 sm:px-6 md:py-14">
           <FadeIn>
-            <h1 className="flex items-center gap-2.5 text-lg font-bold tracking-tight sm:text-xl">
-              <span className="relative flex h-2 w-2" aria-hidden>
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70 motion-reduce:hidden" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-              </span>
+            <h1
+              className="max-w-[16ch] text-balance font-bold leading-[1.02] tracking-[-0.03em] text-navy"
+              style={{ fontSize: "clamp(2.1rem, 4.4vw, 3.6rem)" }}
+            >
               India GCC Tracker
             </h1>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/70">
-              The definitive count of India's GCC market — live, free, no
-              sign-in. Filter by company, industry, or city and size your
-              opportunity in seconds.
+            <p className="mt-5 max-w-[62ch] text-base leading-relaxed text-muted-foreground">
+              The definitive count of India&apos;s GCC market — free, no sign-in.
+              Filter by company, industry, or city and size your opportunity in
+              seconds.
             </p>
           </FadeIn>
 
           <FadeIn>
-            <div className="mt-7 grid grid-cols-2 gap-y-2 border-t border-white/10 pt-6 md:mt-8 md:grid-cols-4 md:gap-y-0 md:pt-8">
-              <TickerStat
+            {/* 2 + 3 + 3 + 4 = 12 on md, 6 + 6 / 6 + 6 below it. Both rows
+                fully saturated, no void cells. */}
+            <dl
+              className="mt-9 grid grid-flow-dense grid-cols-12 border-t border-navy/25 md:mt-11"
+              aria-live="polite"
+            >
+              <Quote
+                span="col-span-6 md:col-span-2"
                 label="Companies"
                 value={counts.companies}
                 isLoading={isLoading}
                 total={hasSelection ? TRACKER_V2_STATS.companies : undefined}
               />
-              <TickerStat
+              <Quote
+                span="col-span-6 md:col-span-3"
                 label="Centres"
                 value={counts.centers}
                 isLoading={isLoading}
                 total={hasSelection ? TRACKER_V2_STATS.centers : undefined}
               />
-              <TickerStat
+              <Quote
+                span="col-span-6 md:col-span-3"
                 label="Upcoming centres"
                 value={counts.upcoming}
                 isLoading={isLoading}
-                accent
+                emphasis
                 total={hasSelection ? TRACKER_V2_STATS.upcomingCenters : undefined}
               />
-              <TickerStat
+              <Quote
+                span="col-span-6 md:col-span-4"
                 label="Headcount"
                 value={counts.employees}
                 isLoading={isLoading}
                 total={hasSelection ? TRACKER_V2_STATS.employees : undefined}
               />
-            </div>
+            </dl>
           </FadeIn>
         </div>
       </section>
