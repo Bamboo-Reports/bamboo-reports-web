@@ -194,7 +194,7 @@ const Tracker = () => {
     description: `Live India GCC numbers, no sign-in: ${nf(TRACKER_V2_STATS.companies)} companies, ${nf(TRACKER_V2_STATS.centers)} centres, ${nf(TRACKER_V2_STATS.upcomingCenters)} upcoming centres and a headcount of ${nf(TRACKER_V2_STATS.employees)}. Filter by industry and city to size your market.`,
     keywords:
       "GCC tracker India, list of GCCs in India, GCC companies in India, India GCC market size, Global Capability Centres India, GCC headcount India, upcoming GCC centres, GCC cities",
-    canonicalUrl: "https://www.bambooreports.com/gcc",
+    canonicalUrl: "https://bambooreports.com/gcc/",
   });
 
   // ?industry=…&city=… deep links (homepage widget, landing pages) preselect

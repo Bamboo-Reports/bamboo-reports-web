@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CalendarDays, CheckCircle, Clock, MapPin } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
@@ -20,18 +19,8 @@ const AgenticSupplyChainControlTowerThankYou = () => {
     title: "Registration received · Agentic Supply Chain Control Tower",
     description:
       "Your registration for the Agentic Supply Chain Control Tower roundtable has been received.",
+    robots: "noindex, follow",
   });
-
-  // Confirmation pages have no search value; keep them out of the index.
-  useEffect(() => {
-    const meta = document.createElement("meta");
-    meta.name = "robots";
-    meta.content = "noindex";
-    document.head.appendChild(meta);
-    return () => {
-      document.head.removeChild(meta);
-    };
-  }, []);
 
   return (
     <div className="flex min-h-screen flex-col bg-background">

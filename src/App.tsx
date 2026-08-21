@@ -2,7 +2,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { InquiryFormProvider } from "@/contexts/InquiryFormContext";
 import IndexV2 from "./pages/IndexV2";
@@ -27,16 +26,11 @@ import SuccessStories from "./pages/SuccessStories";
 import Tracker from "./pages/Tracker";
 import MapYourGCCOpportunity from "./pages/MapYourGCCOpportunity";
 import ScrollToTop from "./components/ScrollToTop";
-import { ensureJotformEmbedHandler } from "@/lib/jotform";
 import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  useEffect(() => {
-    ensureJotformEmbedHandler();
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <InquiryFormProvider>

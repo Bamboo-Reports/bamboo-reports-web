@@ -1,0 +1,18 @@
+GCC Tracker — status vs the 15 Aug 2026 hackathon doc (Section 2)
+
+Done
+
+1. The tracker is rebuilt as an open, no-sign-in numbers page: stock-ticker style, numbers first, built for return visits.
+2. The four headline counters are live on a navy board — Companies, Centres, Upcoming centres, Headcount — with animated roll-ups and "of N" totals while filtering. Prospect counts are dropped everywhere.
+3. Sign-up and sign-in are removed from the entire site: pages, routes, header UI and the supabase dependency are all deleted.
+4. The exposure rules are enforced: 20% cap, 10-row hard cap, and a precomputed table covering all 77 filter combinations. Max unique companies reachable by browsing is about 273. The filter dropdowns show "+N more in the full version" rows that open the demo calendar.
+5. Filters are top-10 industries and six cities including Chennai (which closes the "third filter / top 6" open item). Mumbai MMR and NCR are clubbed in the filter only; table rows keep raw city names. Multi-select works and filters sync to the URL.
+6. All counting rules are verified against the 17 Aug sheet: headcount 3,949,355 (type exclusion applies to headcount only), Software & SaaS x Hyderabad = 132 / 144 / 2 / 80,898, and the sheet's industry tags win over the old taxonomy overrides.
+7. The backend is consolidated on the v2 pipeline; the v1 generator, data files and dead API are deleted. The homepage stats band and the crawler-facing static pages (prerender, landing pages, sitemap) all use v2 numbers with no-sign-in CTAs.
+8. The page got its design makeover (navy exchange board, docked filter controls, new marketing copy) and the Netlify build is fixed. Everything is committed and pushed.
+
+Pending
+
+1. Intent routing is still to be built: track filters run, time on site and beyond-headline queries, then route high-intent visitors to a connect prompt. The threshold numbers are still open (due 21 Aug), so it can be built now with placeholder values.
+2. The compare pages and their CTA are excluded from scope for now. The existing prerendered company pages still carry old sign-up CTAs and will need the same treatment when this opens.
+3. Nothing to build on the caps: the 20% exposure cap and 10-row hard cap just need Santosh's formal nod, and the upcoming net-new vs expansion split waits on an upcoming_type column in a future export.

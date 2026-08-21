@@ -11,7 +11,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const SITE = "https://www.bambooreports.com";
+const SITE = "https://bambooreports.com";
 const DATA_DIR = join(ROOT, "data", "gcc", "companies");
 const TEMPLATE_V2 = join(ROOT, "templates", "gcc", "company-v2.html");
 
@@ -232,7 +232,14 @@ function buildSchemas(c, canonical) {
     "@type": "Dataset",
     name: `${c.displayName} Global Capability Centers in India`,
     description: `${c.shortName} operates ${s.activeCenters} active centers across ${s.cities.length} Indian cities.`,
-    creator: { "@type": "Organization", name: "Bamboo Reports" },
+    creator: {
+      "@type": "Organization",
+      "@id": `${SITE}/#organization`,
+      name: "Bamboo Reports",
+      url: `${SITE}/`,
+    },
+    url: canonical,
+    spatialCoverage: { "@type": "Country", name: "India" },
     license: `${SITE}/terms-conditions`,
     dateModified: c.dateModified,
     variableMeasured: [
@@ -258,15 +265,15 @@ function buildSchemas(c, canonical) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
-      { "@type": "ListItem", position: 2, name: "GCCs in India", item: `${SITE}/gcc` },
-      { "@type": "ListItem", position: 3, name: c.displayName },
+      { "@type": "ListItem", position: 2, name: "GCCs in India", item: `${SITE}/gcc/` },
+      { "@type": "ListItem", position: 3, name: c.displayName, item: canonical },
     ],
   };
   return { organization, dataset, faq, breadcrumb };
 }
 
 function render(template, c, extraVars = {}) {
-  const canonical = `${SITE}/gcc/companies/${c.slug}`;
+  const canonical = `${SITE}/gcc/companies/${c.slug}/`;
   const schemas = buildSchemas(c, canonical);
   const vars = {
     TITLE: esc(c.metaTitle),

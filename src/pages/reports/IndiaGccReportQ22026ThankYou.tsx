@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/bamboo-logo.svg";
@@ -12,19 +11,9 @@ const IndiaGccReportQ22026ThankYou = () => {
     description:
       "Your registration for the Q2 2026 India GCC report is confirmed. The report reaches your inbox the day it releases.",
     canonicalUrl:
-      "https://www.bambooreports.com/reports/india-gcc-report-q2-2026/thank-you",
+      "https://bambooreports.com/reports/india-gcc-report-q2-2026/thank-you",
+    robots: "noindex, follow",
   });
-
-  // Confirmation pages have no search value; keep them out of the index.
-  useEffect(() => {
-    const meta = document.createElement("meta");
-    meta.name = "robots";
-    meta.content = "noindex";
-    document.head.appendChild(meta);
-    return () => {
-      document.head.removeChild(meta);
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -110,14 +99,14 @@ const IndiaGccReportQ22026ThankYou = () => {
           <span>
             Powered by{" "}
             <a
-              href="https://www.bambooreports.com"
+              href="https://bambooreports.com"
               className="text-primary hover:underline"
             >
               Bamboo Reports
             </a>{" "}
             GCC Intelligence &middot;{" "}
             <a
-              href="https://www.bambooreports.com/privacy-policy"
+              href="https://bambooreports.com/privacy-policy"
               className="text-primary hover:underline"
             >
               Privacy policy

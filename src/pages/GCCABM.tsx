@@ -6,7 +6,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 const STEPS = [
   { title: "Account selection", body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database, with full context on each centre's size, age, parent company, and leadership." },
-  { title: "Contact targeting", body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies. No duplication. No guesswork." },
+  { title: "Contact targeting", body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies, with no duplication and no guesswork." },
   { title: "Campaign execution", body: "We run multi-channel campaigns across LinkedIn, email, curated roundtables, and content syndication through the Bamboo Reports audience." },
   { title: "MQL handoff", body: "We deliver qualified leads: contacts who've engaged with your content, attended your events, or raised their hand. Not raw lists. Not cold traffic." },
 ];
@@ -134,7 +134,7 @@ const GCCABM = () => {
           </SectionIntro>
           <div className="mt-10 grid gap-x-10 md:grid-cols-2">
             {[
-              { text: "No data middlemen. No stale records. 260+ man-months of structured research, AI-refreshed weekly." },
+              { text: "No data middlemen and no stale records: 260+ man-months of structured research, AI-refreshed weekly." },
               { text: "Campaigns that reflect actual centre-level org structures: service-mix, function splits, tech stacks." },
               { text: "Audience segments no competitor can replicate. 21x more structured data per GCC than the nearest alternative." },
               { text: "Messaging context from the same team publishing the India GCC intelligence layer." },

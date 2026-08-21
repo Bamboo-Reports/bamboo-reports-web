@@ -10,6 +10,7 @@ const ThankYou = () => {
     title: "Thank You | Bamboo Reports",
     description: "Thank you for reaching out to Bamboo Reports. Our team will review your request and get in touch shortly.",
     keywords: "Bamboo Reports, GCC Intelligence, Thank You, Inquiry Received",
+    robots: "noindex, follow",
   });
 
   return (

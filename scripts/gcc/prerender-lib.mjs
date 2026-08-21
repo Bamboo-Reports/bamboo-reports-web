@@ -8,7 +8,7 @@ import { join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
-export const SITE = "https://www.bambooreports.com";
+export const SITE = "https://bambooreports.com";
 export const DIST = join(ROOT, "dist");
 const CHUNK_DIR = join(ROOT, "public", "data", "t2");
 const COMPANY_DIR = join(ROOT, "data", "gcc", "companies");
@@ -147,7 +147,7 @@ export const itemListSchema = (name, accounts, nameToSlug, cap = 500) => {
     itemListElement: listed.map((a, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `${SITE}/gcc/companies/${nameToSlug.get(a.name)}`,
+      url: `${SITE}/gcc/companies/${nameToSlug.get(a.name)}/`,
       name: a.name,
     })),
   };
@@ -215,8 +215,10 @@ export function landingIndexHtml(sets) {
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE}/#organization`,
   name: "Bamboo Reports",
-  url: SITE,
+  url: `${SITE}/`,
+  logo: `${SITE}/logo.png`,
 };
 
 /**
@@ -239,11 +241,11 @@ export function staticPage({ title, description, canonical, schemas, body, src }
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:image" content="${SITE}/logo.png">
-  <meta property="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300..900&display=swap" rel="stylesheet">
   ${ldJson(schemas)}
   <style>
     :root { --text:#17202a; --heading:#0b1320; --muted:#64748b; --faint:#94a3b8; --primary:#0084d1; --primary-dark:#006fae; --border:#e6eaf0; --surface:#f0f8fd; }

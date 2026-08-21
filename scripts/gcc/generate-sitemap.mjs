@@ -31,14 +31,14 @@ const accounts = await loadAccounts();
 const pub = publicAccounts(accounts);
 const sets = landingSets(accounts);
 
-const entries = [url(`${SITE}/gcc`, "weekly", "0.9")];
+const entries = [url(`${SITE}/gcc/`, "weekly", "0.9")];
 
 const pageCount = Math.ceil(pub.length / DIRECTORY_PAGE_SIZE);
 for (let n = 1; n <= pageCount; n++) {
-  entries.push(url(`${SITE}/gcc/directory/${n}`, "weekly", "0.6"));
+  entries.push(url(`${SITE}/gcc/directory/${n}/`, "weekly", "0.6"));
 }
 for (const set of [...sets.industries, ...sets.cities]) {
-  entries.push(url(`${SITE}${set.path.replace(/\/$/, "")}`, "weekly", "0.7"));
+  entries.push(url(`${SITE}${set.path}`, "weekly", "0.7"));
 }
 
 // Published company pages only (public/gcc/companies/<slug>/index.html).
@@ -46,7 +46,7 @@ const companiesDir = join(ROOT, "public", "gcc", "companies");
 if (existsSync(companiesDir)) {
   for (const slug of (await readdir(companiesDir)).sort()) {
     if (existsSync(join(companiesDir, slug, "index.html"))) {
-      entries.push(url(`${SITE}/gcc/companies/${slug}`, "monthly", "0.7"));
+      entries.push(url(`${SITE}/gcc/companies/${slug}/`, "monthly", "0.7"));
     }
   }
 }

@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage - Highest Priority -->
   <url>
-    <loc>https://www.bambooreports.com/</loc>
+    <loc>https://bambooreports.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/about</loc>
+    <loc>https://bambooreports.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -17,12 +17,12 @@
        scripts/gcc/generate-sitemap.mjs into dist/sitemap.xml. -->
   <!-- gcc:start -->
   <url>
-    <loc>https://www.bambooreports.com/gcc</loc>
+    <loc>https://bambooreports.com/gcc/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/gcc/companies/3m-co</loc>
+    <loc>https://bambooreports.com/gcc/companies/3m-co/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -30,73 +30,73 @@
 
   <!-- Product & Offering Pages -->
   <url>
-    <loc>https://www.bambooreports.com/platform</loc>
+    <loc>https://bambooreports.com/platform</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/gcc-prospect-data</loc>
+    <loc>https://bambooreports.com/gcc-prospect-data</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/account-market-intelligence</loc>
+    <loc>https://bambooreports.com/account-market-intelligence</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/gcc-abm</loc>
+    <loc>https://bambooreports.com/gcc-abm</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/success-stories</loc>
+    <loc>https://bambooreports.com/success-stories</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Content & Resources -->
   <url>
-    <loc>https://www.bambooreports.com/resources</loc>
+    <loc>https://bambooreports.com/resources</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/reports</loc>
+    <loc>https://bambooreports.com/reports</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/reports/india-gcc-report-q2-2026</loc>
+    <loc>https://bambooreports.com/reports/india-gcc-report-q2-2026</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/reads</loc>
+    <loc>https://bambooreports.com/reads</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/reads/agentic-enterprise</loc>
+    <loc>https://bambooreports.com/reads/agentic-enterprise</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Events -->
   <url>
-    <loc>https://www.bambooreports.com/events/agentic-supply-chain-control-tower</loc>
+    <loc>https://bambooreports.com/events/agentic-supply-chain-control-tower</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://www.bambooreports.com/privacy-policy</loc>
+    <loc>https://bambooreports.com/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.bambooreports.com/terms-conditions</loc>
+    <loc>https://bambooreports.com/terms-conditions</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

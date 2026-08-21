@@ -22,7 +22,7 @@ const USERS = [
 ];
 
 const RESEARCH = [
-  { text: "260+ man-months of structured research since 2022, built centre by centre, not scraped." },
+  { text: "260+ man-months of structured research since 2022, built centre by centre." },
   { text: "250+ structured data points per GCC across 6 interlinked data tables." },
   { text: "AI-augmented weekly refresh cycles with automated change detection as leaders move." },
   { text: "Every field mapped to an AI agent for enrichment, validation, and quality checks." },

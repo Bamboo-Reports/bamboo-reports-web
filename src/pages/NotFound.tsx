@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { useSEO } from "@/hooks/useSEO";
 
 const ROUTES = [
   ["Platform", "Live GCC account intelligence", "/platform"],
@@ -12,7 +12,12 @@ const ROUTES = [
 ] as const;
 
 const NotFound = () => {
-  usePageTitle("Page Not Found");
+  useSEO({
+    title: "Page Not Found | Bamboo Reports",
+    description: "The requested Bamboo Reports page could not be found.",
+    canonicalUrl: null,
+    robots: "noindex, follow",
+  });
 
   return (
     <div className="flex min-h-screen flex-col bg-background">

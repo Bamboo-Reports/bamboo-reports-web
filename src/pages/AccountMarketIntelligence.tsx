@@ -42,7 +42,7 @@ const AccountMarketIntelligence = () => {
 
       <MarketingHero
         title={<><span className="block">Know the GCC market</span><span className="block text-primary">before your competitor does.</span></>}
-        description={<p>Up-to-date coverage you can filter by city, sector, function, or company, with three years of historical movement and tech adoption trends at the GCC level. Not a survey report. Not a parent-level picture. Structured, centre-level intelligence.</p>}
+        description={<p>Up-to-date coverage you can filter by city, sector, function, or company, with three years of historical movement and tech adoption trends at the GCC level. Not a survey report or a parent-level picture: structured, centre-level intelligence.</p>}
       />
 
       <FadeIn>
@@ -144,7 +144,7 @@ const AccountMarketIntelligence = () => {
             {[
               "Built bottom-up from 2,400+ accounts and 5,900+ centres. 260+ man-months of structured research.",
               "Sliceable by city, sector, function, size, tech stack, and centre status.",
-              "AI-augmented weekly refresh, not an annual survey report.",
+              "AI-augmented weekly refresh, not an annual publishing cycle.",
               "Exclusive coverage: service-mix, function-mix, and software vendor market share at centre level.",
             ].map((text) => (
               <li key={text} className="border-b py-5"><span className="text-lg leading-relaxed text-muted-foreground">{text}</span></li>

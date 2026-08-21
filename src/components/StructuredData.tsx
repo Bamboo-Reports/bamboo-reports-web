@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 // Type definitions for structured data schemas
 interface FAQQuestion {
@@ -32,26 +32,45 @@ interface ProductData {
   features?: string[];
 }
 
+interface EventData {
+  name: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  url: string;
+  locationName: string;
+  addressLocality: string;
+  addressCountry: string;
+  organizerName: string;
+  organizerUrl: string;
+}
+
 // Discriminated union type for data prop based on type
 type StructuredDataType =
   | { type: "organization"; data?: never }
+  | { type: "website"; data?: never }
   | { type: "product"; data?: ProductData }
+  | { type: "event"; data: EventData }
   | { type: "faq"; data?: FAQData }
   | { type: "breadcrumb"; data?: BreadcrumbData };
 
 type StructuredDataProps = StructuredDataType;
 
 export const StructuredData = ({ type, data }: StructuredDataProps) => {
-  const getSchemaMarkup = () => {
+  const getSchemaMarkup = useCallback(() => {
     switch (type) {
       case "organization":
         return {
           "@context": "https://schema.org",
           "@type": "Organization",
+          "@id": "https://bambooreports.com/#organization",
           "name": "Bamboo Reports",
           "description": "Leading GCC Intelligence platform providing actionable insights on Global Capability Centres across India. Comprehensive market intelligence, GTM research, and GCC benchmarking solutions. A Research NXT product.",
-          "url": "https://www.bambooreports.com",
-          "logo": "https://www.bambooreports.com/logo.png",
+          "url": "https://bambooreports.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://bambooreports.com/logo.png"
+          },
           "parentOrganization": {
             "@type": "Organization",
             "name": "Research NXT",
@@ -61,6 +80,12 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
             "https://www.linkedin.com/company/bamboo-reports/"
           ],
           "email": "enquiry@bambooreports.com",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "email": "enquiry@bambooreports.com",
+            "availableLanguage": "English"
+          },
           "address": {
             "@type": "PostalAddress",
             "addressCountry": "IN"
@@ -79,11 +104,30 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           ]
         };
 
+      case "website":
+        return {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://bambooreports.com/#website",
+          "url": "https://bambooreports.com/",
+          "name": "Bamboo Reports",
+          "description": "India GCC intelligence, verified centre-level data, market research, and go-to-market enablement.",
+          "inLanguage": "en-IN",
+          "publisher": {
+            "@id": "https://bambooreports.com/#organization"
+          }
+        };
+
       case "product":
         return {
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
+          "@id": "https://bambooreports.com/platform#software",
           "name": data?.name || "Bamboo Reports GCC Intelligence Platform",
+          "url": "https://bambooreports.com/platform",
+          "provider": {
+            "@id": "https://bambooreports.com/#organization"
+          },
           "applicationCategory": "BusinessApplication",
           "description": data?.description || "Comprehensive GCC Intelligence platform with India's largest repository of Global Capability Centres data, GTM research, and market intelligence solutions.",
           "operatingSystem": "Web",
@@ -100,6 +144,33 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
             "GCC Contact Database",
             "Real-time GCC Insights"
           ]
+        };
+
+      case "event":
+        return {
+          "@context": "https://schema.org",
+          "@type": "Event",
+          "name": data.name,
+          "description": data.description,
+          "startDate": data.startDate,
+          "endDate": data.endDate,
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "url": data.url,
+          "location": {
+            "@type": "Place",
+            "name": data.locationName,
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": data.addressLocality,
+              "addressCountry": data.addressCountry
+            }
+          },
+          "organizer": {
+            "@type": "Organization",
+            "name": data.organizerName,
+            "url": data.organizerUrl
+          }
         };
 
       case "faq":
@@ -131,7 +202,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
       default:
         return null;
     }
-  };
+  }, [type, data]);
 
   useEffect(() => {
     const schema = getSchemaMarkup();
@@ -155,7 +226,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
         existingScript.remove();
       }
     };
-  }, [type, data]);
+  }, [type, getSchemaMarkup]);
 
   return null;
 };
