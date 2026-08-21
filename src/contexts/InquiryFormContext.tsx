@@ -1,6 +1,12 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
-import { X } from "lucide-react";
 import JotFormEmbed from "@/components/JotFormEmbed";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 interface InquiryFormContextType {
   openInquiryForm: () => void;
@@ -25,47 +31,26 @@ export const InquiryFormProvider = ({ children }: { children: ReactNode }) => {
     <InquiryFormContext.Provider value={{ openInquiryForm }}>
       {children}
 
-      <div
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-200 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) setIsOpen(false);
-        }}
-        aria-hidden={!isOpen}
-        // React 18 lacks a typed `inert` prop; the empty string keeps the closed
-        // modal (close button, iframe) out of the tab order.
-        {...(!isOpen ? ({ inert: "" } as Record<string, string>) : {})}
-      >
-        <div
-          className={`bg-white rounded-2xl shadow-2xl w-[95vw] lg:w-[420px] max-h-[95vh] lg:max-h-[90vh] relative overflow-hidden ${
-            isOpen ? "animate-modal-content" : ""
-          }`}
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent
+          className="max-h-[95vh] w-[95vw] max-w-[420px] gap-0 overflow-hidden border-0 bg-white p-0 shadow-2xl lg:max-h-[90vh]"
         >
-          <button
-            onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-5 bg-accent hover:bg-accent/90 text-accent-foreground w-9 h-9 rounded-full flex items-center justify-center z-10 transition-colors duration-micro ease-smooth"
-            aria-label="Close inquiry form"
-          >
-            <X size={20} />
-          </button>
-
-          <div className="bg-accent text-accent-foreground p-6 text-center">
-            <h2 className="text-2xl font-bold mb-2">Bamboo Reports</h2>
-            <p className="text-sm opacity-90">Fill out the form below to get started</p>
-          </div>
+          <DialogHeader className="space-y-2 bg-accent p-6 text-center text-accent-foreground sm:text-center">
+            <DialogTitle className="text-2xl font-bold">Bamboo Reports</DialogTitle>
+            <DialogDescription className="text-sm text-accent-foreground/90">
+              Fill out the form below to get started
+            </DialogDescription>
+          </DialogHeader>
 
           <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
-            {isOpen && (
-              <JotFormEmbed
-                formId="260714112843450"
-                title="[ BR ] - Inquiry"
-                height="539px"
-              />
-            )}
+            <JotFormEmbed
+              formId="260714112843450"
+              title="Bamboo Reports pricing enquiry form"
+              height="539px"
+            />
           </div>
-        </div>
-      </div>
+        </DialogContent>
+      </Dialog>
     </InquiryFormContext.Provider>
   );
 };

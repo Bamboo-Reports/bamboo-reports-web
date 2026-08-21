@@ -20,9 +20,11 @@ const PlatformShell = ({
 }) => (
   <div className="platform-page min-h-screen bg-background">
     <Header />
-    {children}
-    <PlatformHeroShot overlap={overlapShot} />
-    <PlatformBody />
+    <main>
+      {children}
+      <PlatformHeroShot overlap={overlapShot} />
+      <PlatformBody />
+    </main>
     <Footer showCta={false} />
   </div>
 );

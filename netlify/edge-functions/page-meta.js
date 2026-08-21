@@ -134,6 +134,34 @@ const removeCanonical = (html) => html.replace(
   ""
 );
 
+const fallbackHeading = (title) => title.split(/\s(?:\||·)\s/)[0];
+
+const addNoScriptFallback = (html, meta) => {
+  const navigation = [
+    ["Home", "/"],
+    ["Platform", "/platform"],
+    ["Reports", "/reports"],
+    ["Resources", "/resources"],
+    ["About Bamboo Reports", "/about"],
+  ]
+    .map(([label, href]) => `<a href="${SITE}${href}">${label}</a>`)
+    .join(" · ");
+  const fallback = `<noscript>
+      <main style="max-width:48rem;margin:4rem auto;padding:0 1.5rem;font-family:system-ui,sans-serif;line-height:1.6;color:#082b40">
+        <article>
+          <h1>${escapeHtml(fallbackHeading(meta.title))}</h1>
+          <p>${escapeHtml(meta.description)}</p>
+        </article>
+        <nav aria-label="Primary navigation">${navigation}</nav>
+      </main>
+    </noscript>`;
+
+  return html.replace(
+    '<div id="root"></div>',
+    `<div id="root">${fallback}</div>`,
+  );
+};
+
 const applyMeta = (html, meta, canonical) => {
   const robots = meta.robots || INDEX_ROBOTS;
   let out = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(meta.title)}</title>`);
@@ -190,7 +218,10 @@ export default async (request, context) => {
   const isKnownRoute = Boolean(meta) || pathname === STATIC_GCC_ROOT;
   const selectedMeta = meta || NOT_FOUND_META;
   const canonical = meta ? `${SITE}${pathname === "/" ? "/" : pathname}` : null;
-  const rewritten = applyMeta(html, selectedMeta, canonical);
+  const rewritten = addNoScriptFallback(
+    applyMeta(html, selectedMeta, canonical),
+    selectedMeta,
+  );
   const headers = new Headers(response.headers);
   headers.delete("content-length");
   if (selectedMeta.robots?.startsWith("noindex")) {
