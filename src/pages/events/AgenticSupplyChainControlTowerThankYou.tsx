@@ -15,6 +15,8 @@ const eventDetails = [
 
 const AgenticSupplyChainControlTowerThankYou = () => {
   useSEO({
+    appendSiteName: false,
+    ogImage: "",
     title: "Registration received · Agentic Supply Chain Control Tower",
     description:
       "Your registration for the Agentic Supply Chain Control Tower roundtable has been received.",
@@ -96,10 +98,10 @@ const AgenticSupplyChainControlTowerThankYou = () => {
               href="https://researchnxt.com/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="ResearchNXT"
+              aria-label="Research NXT"
               className="-my-2 inline-flex items-center py-2 transition-opacity duration-micro ease-smooth hover:opacity-70"
             >
-              <img src="/logos/researchnxt.svg" alt="ResearchNXT" className="h-4 w-auto" />
+              <img src="/logos/researchnxt.svg" alt="Research NXT" className="h-4 w-auto" />
             </a>
           </div>
         </div>

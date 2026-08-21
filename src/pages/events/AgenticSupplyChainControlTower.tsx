@@ -91,6 +91,8 @@ const HostLockup = ({ className = "" }: { className?: string }) => (
 
 const AgenticSupplyChainControlTower = () => {
   useSEO({
+    appendSiteName: false,
+    ogImage: "",
     title: "Agentic Supply Chain Control Tower · Retail Roundtable by Thoughtworks",
     description:
       "A retail roundtable hosted by Thoughtworks. A breakfast working session on moving from supply-chain signals to coordinated action: Sense. Simulate. Solve. Bengaluru, 10 September 2026.",
@@ -301,10 +303,10 @@ const AgenticSupplyChainControlTower = () => {
               href="https://researchnxt.com/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="ResearchNXT"
+              aria-label="Research NXT"
               className="-my-2 inline-flex items-center py-2 transition-opacity duration-micro ease-smooth hover:opacity-70"
             >
-              <img src="/logos/researchnxt.svg" alt="ResearchNXT" className="h-4 w-auto" />
+              <img src="/logos/researchnxt.svg" alt="Research NXT" className="h-4 w-auto" />
             </a>
           </div>
           <Link

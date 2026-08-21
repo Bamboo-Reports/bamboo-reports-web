@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
   });
 
   return (
-    <LegalPageShell title="Privacy Policy – Bamboo Reports">
+    <LegalPageShell title="Privacy Policy – Bamboo Reports" effectiveDate="26 November 2025">
       <p>Bamboo Reports (“we,” “our,” or “us”) is a product by <strong>Research NXT</strong> that provides data intelligence, insights, and analytics on Global Capability Centres (GCCs) and related enterprise information. This Privacy Policy explains how we collect, process, use, and safeguard your information.</p>
 
       <h2>1. Information we collect</h2>
@@ -54,7 +54,11 @@ const PrivacyPolicy = () => {
       <p>We may update this Policy occasionally. The latest version will be available on our platform.</p>
       <h2>10. Contact</h2>
       <p>For privacy concerns or requests:</p>
-      <p>Research NXT, Pune, India</p>
+      <p>
+        Research NXT, Pune, India
+        <br />
+        Email: <a href="mailto:enquiry@bambooreports.com" className="text-primary underline underline-offset-4 hover:text-primary/80">enquiry@bambooreports.com</a>
+      </p>
     </LegalPageShell>
   );
 };

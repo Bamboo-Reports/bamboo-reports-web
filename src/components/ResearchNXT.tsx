@@ -1,7 +1,7 @@
 import TrustLogos from "@/components/TrustLogos";
 
 const ResearchNXT = () => (
-  <section className="bg-background px-5 py-12 sm:px-4 md:py-20">
+  <section className="border-y bg-secondary/30 px-5 py-12 sm:px-4 md:py-20">
     <div className="mx-auto max-w-7xl">
       <h2 className="text-3xl font-bold leading-tight md:text-4xl">
         Bamboo Reports is built by Research NXT

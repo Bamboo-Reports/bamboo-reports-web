@@ -1,70 +1,61 @@
-import {
-  type MouseEvent,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
-import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { AccountSearchFilter } from "@/components/AccountSearchFilter";
 import { MultiSelectFilter } from "@/components/MultiSelectFilter";
 import { useSEO } from "@/hooks/useSEO";
-import { EMPTY_FILTERS, type FacetOption, type TrackerFilters } from "@/lib/tracker";
-import { ACCOUNT_CREATION_ENABLED } from "@/lib/featureFlags";
+import type { FacetOption } from "@/lib/tracker";
 import {
-  fetchStaticTrackerAccounts,
+  fetchTrackerV2Accounts,
   hashCompanyName,
-  simplifyCompanyName,
-  type StaticTrackerAccount,
-} from "@/lib/trackerAccounts";
+  type TrackerV2Account,
+} from "@/lib/trackerAccountsV2";
 import {
-  TRACKER_STATS,
-  TRACKER_NON_GCC_NOTES,
-  TRACKER_TOP_INDUSTRIES,
-  TRACKER_TOP_CITIES,
-  TRACKER_INDUSTRY_CLASSIFICATIONS,
-} from "@/lib/trackerStats";
+  TRACKER_V2_STATS,
+  TRACKER_V2_TOP_INDUSTRIES,
+  TRACKER_V2_TOP_CITIES,
+  TRACKER_V2_CITY_GROUPS,
+  TRACKER_V2_EXPOSURE_CAP,
+  TRACKER_V2_HARD_ROW_CAP,
+  TRACKER_V2_NON_GCC_NOTES,
+  TRACKER_V2_INDUSTRY_CLASSIFICATIONS,
+} from "@/lib/trackerStatsV2";
 import { Lock, RotateCcw, X } from "lucide-react";
 
 const DEBOUNCE_MS = 250;
-// The free directory shows only the first 20 matching companies, A to Z, with
-// no pagination; the closing row points at the full version for the rest.
-const DIRECTORY_ROW_LIMIT = 20;
-// Filters surface only the global top-10 industries/cities; the long tail is
-// public on the crawlable /gcc/industries/* and /gcc/cities/* landing pages
-// and unlocks in-app with a free account.
 
 const nf = (n: number) => n.toLocaleString("en-US");
 
-const combinedFilterSignupUrl = (filters: TrackerFilters) => {
-  const redirectParams = new URLSearchParams();
-  filters.account_primary_category.forEach((industry) =>
-    redirectParams.append("industry", industry)
-  );
-  filters.center_city.forEach((city) => redirectParams.append("city", city));
-  const redirectPath = `/gcc?${redirectParams.toString()}`;
-  return `/signup?src=gcc-combined-filters&redirect=${encodeURIComponent(redirectPath)}`;
+interface TrackerFilters {
+  company: string | null;
+  industries: string[];
+  cities: string[];
+}
+
+const EMPTY_FILTERS: TrackerFilters = {
+  company: null,
+  industries: [],
+  cities: [],
 };
 
-interface PendingCompanyProfile {
-  name: string;
-  href: string;
-}
+/** Rows keep raw city names; the filter clubs them (Mumbai MMR, NCR). */
+const groupCity = (name: string) => TRACKER_V2_CITY_GROUPS[name] ?? name;
+
+/** Permitted directory rows for a matching set. Single industry/city
+ * selections reproduce the generator's exposure table exactly; multi-select
+ * combinations apply the same rule to the combined match count. */
+const permittedRowsFor = (matchCount: number) =>
+  matchCount === 0
+    ? 0
+    : Math.min(
+        TRACKER_V2_HARD_ROW_CAP,
+        Math.max(1, Math.floor(matchCount * TRACKER_V2_EXPOSURE_CAP))
+      );
 
 function useDebouncedValue<T>(value: T, delay: number): T {
   const [debounced, setDebounced] = useState(value);
@@ -100,26 +91,84 @@ const FilterChip = ({
   </span>
 );
 
-const CountCard = ({
+const COUNT_DURATION_MS = 1200;
+
+// Ease-in-out so large jumps glide instead of lurching: the first frames of
+// a pure ease-out skip thousands at a time, which reads as stutter.
+const easeInOutCubic = (t: number) =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+// Rolls from the previously shown value to the new target on every change
+// (0 -> total on first load, old -> new on each filter change). Snaps
+// straight to the target for visitors who prefer reduced motion.
+const useAnimatedNumber = (target: number) => {
+  const [value, setValue] = useState(target);
+  const shownRef = useRef(target);
+
+  useEffect(() => {
+    const from = shownRef.current;
+    if (from === target) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      shownRef.current = target;
+      setValue(target);
+      return;
+    }
+    let frame: number;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / COUNT_DURATION_MS, 1);
+      const eased = easeInOutCubic(t);
+      const current = Math.round(from + (target - from) * eased);
+      shownRef.current = current;
+      setValue(current);
+      if (t < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [target]);
+
+  return value;
+};
+
+const TickerStat = ({
   label,
   value,
   isLoading,
+  accent = false,
+  total,
 }: {
   label: string;
   value: number;
   isLoading: boolean;
-}) => (
-  <div className="border-l px-2 py-5 text-center first:border-l-0 md:px-6 md:py-6">
-    <div className="text-xs font-medium text-muted-foreground sm:text-sm">{label}</div>
-    <div className="mt-2 text-2xl font-bold tracking-tight tabular-nums sm:text-3xl md:mt-3 md:text-4xl">
-      {isLoading ? (
-        <span className="inline-block h-7 w-16 animate-pulse rounded-md bg-muted sm:h-9 sm:w-24" />
-      ) : (
-        value.toLocaleString()
+  accent?: boolean;
+  /** Site-wide total, shown as "of N" while a filter is active. */
+  total?: number;
+}) => {
+  const shown = useAnimatedNumber(isLoading ? 0 : value);
+  return (
+    <div className="border-white/10 px-1 py-4 text-center sm:py-5 md:border-l md:px-6 md:py-0 md:first:border-l-0">
+      <div
+        className={`text-[clamp(1.7rem,3.3vw,2.9rem)] font-extrabold leading-none tracking-[-0.02em] tabular-nums ${
+          accent ? "text-accent" : "text-white"
+        }`}
+      >
+        {isLoading ? (
+          <span className="inline-block h-8 w-20 animate-pulse rounded-md bg-white/15 sm:h-10 sm:w-28" />
+        ) : (
+          nf(shown)
+        )}
+      </div>
+      <div className="mt-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/55 sm:text-xs">
+        {label}
+      </div>
+      {total !== undefined && !isLoading && (
+        <div className="mt-1 text-[11px] tabular-nums text-white/40 sm:text-xs">
+          of {nf(total)}
+        </div>
       )}
     </div>
-  </div>
-);
+  );
+};
 
 const USE_CASES = [
   {
@@ -130,7 +179,7 @@ const USE_CASES = [
   {
     title: "Marketing teams",
     description:
-      "Put a hard number on your addressable market before you plan an ABM programme, and know exactly how many decision-makers sit inside your ICP.",
+      "Put a hard number on your addressable market before you plan an ABM programme, and know exactly how many people sit inside your ICP.",
   },
   {
     title: "Strategy & leadership",
@@ -140,293 +189,222 @@ const USE_CASES = [
 ];
 
 const Tracker = () => {
-  const { user, loading: authLoading } = useAuth();
   useSEO({
-    title: "GCC Companies in India: Directory & Market Size Calculator | Bamboo Reports",
-    description: `Browse a directory of ${nf(TRACKER_STATS.accountsBrowsable)}+ Global Capability Centres in India, from the ${nf(TRACKER_STATS.accountsTracked)} GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.`,
+    title: "India GCC Tracker: Companies, Centres & Headcount | Bamboo Reports",
+    description: `Live India GCC numbers, no sign-in: ${nf(TRACKER_V2_STATS.companies)} companies, ${nf(TRACKER_V2_STATS.centers)} centres, ${nf(TRACKER_V2_STATS.upcomingCenters)} upcoming centres and a headcount of ${nf(TRACKER_V2_STATS.employees)}. Filter by industry and city to size your market.`,
     keywords:
-      "list of GCCs in India, GCC companies in India, India GCC companies directory, India GCC list, Global Capability Centres India, GCC company directory, India GCC market size, GCC TAM calculator, GCC cities, GCC decision makers",
+      "GCC tracker India, list of GCCs in India, GCC companies in India, India GCC market size, Global Capability Centres India, GCC headcount India, upcoming GCC centres, GCC cities",
     canonicalUrl: "https://www.bambooreports.com/gcc",
   });
 
-  // ?industry=…&city=… deep-links (homepage widget, landing pages) preselect filters.
+  // ?industry=…&city=… deep links (homepage widget, landing pages) preselect
+  // filters. Old links carry raw city names; the group map resolves them.
   const [filters, setFilters] = useState<TrackerFilters>(() => {
     if (typeof window === "undefined") return EMPTY_FILTERS;
     const params = new URLSearchParams(window.location.search);
-    const industries = params.getAll("industry");
-    const cities = params.getAll("city");
-    if (industries.length === 0 && cities.length === 0) return EMPTY_FILTERS;
-    return {
-      ...EMPTY_FILTERS,
-      account_primary_category: industries,
-      center_city: cities,
-    };
+    const industries = params
+      .getAll("industry")
+      .filter((industry) =>
+        (TRACKER_V2_TOP_INDUSTRIES as readonly string[]).includes(industry)
+      );
+    const cities = [
+      ...new Set(
+        params
+          .getAll("city")
+          .map((city) => TRACKER_V2_CITY_GROUPS[city] ?? city)
+          .filter((city) =>
+            (TRACKER_V2_TOP_CITIES as readonly string[]).includes(city)
+          )
+      ),
+    ];
+    return { company: null, industries, cities };
   });
   const [accountSearch, setAccountSearch] = useState("");
-  const [pendingSignupFilters, setPendingSignupFilters] =
-    useState<TrackerFilters | null>(null);
-  const [pendingCompanyProfile, setPendingCompanyProfile] =
-    useState<PendingCompanyProfile | null>(null);
   const debouncedAccountSearch = useDebouncedValue(accountSearch, DEBOUNCE_MS);
 
+  // Keep the URL in sync with the filters so reset survives a refresh and
+  // any filtered view is shareable. Unrelated params are preserved.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    params.delete("industry");
+    params.delete("city");
+    filters.industries.forEach((industry) => params.append("industry", industry));
+    filters.cities.forEach((city) => params.append("city", city));
+    const query = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      window.location.pathname + (query ? `?${query}` : "")
+    );
+  }, [filters.industries, filters.cities]);
+
   const {
-    data: staticAccounts = [],
-    isLoading: isLoadingStaticAccounts,
-    isError: isStaticAccountsError,
+    data: accounts = [],
+    isLoading,
+    isError,
   } = useQuery({
-    queryKey: ["tracker-static-accounts"],
-    queryFn: ({ signal }) => fetchStaticTrackerAccounts(signal),
+    queryKey: ["tracker-v2-accounts"],
+    queryFn: ({ signal }) => fetchTrackerV2Accounts(signal),
     staleTime: Infinity,
   });
 
   useEffect(() => {
-    if (isStaticAccountsError) {
-      toast.error("Couldn't load the account directory. Please try again.");
+    if (isError) {
+      toast.error("Couldn't load the tracker dataset. Please try again.");
     }
-  }, [isStaticAccountsError]);
+  }, [isError]);
 
-  // Anonymous company search is limited to the same names that can surface in
-  // the free 20-row previews across the public industry/city filters.
-  const searchableCompanyNames = useMemo(() => {
-    const publicAccounts = staticAccounts
-      .filter(
-        (account): account is StaticTrackerAccount & { name: string } =>
-          account.visibility !== "private" && account.name !== null
-      )
-      .sort((a, b) => a.name.localeCompare(b.name));
-    const names = new Set<string>();
-    const addPreview = (
-      matches: (account: StaticTrackerAccount & { name: string }) => boolean
-    ) => {
-      publicAccounts
-        .filter(matches)
-        .slice(0, DIRECTORY_ROW_LIMIT)
-        .forEach((account) => names.add(account.name));
-    };
-
-    TRACKER_TOP_INDUSTRIES.forEach((industry) =>
-      addPreview((account) => account.industry === industry)
-    );
-    TRACKER_TOP_CITIES.forEach((city) =>
-      addPreview((account) =>
-        account.cities.some((accountCity) => accountCity.name === city)
-      )
-    );
-    TRACKER_TOP_INDUSTRIES.forEach((industry) => {
-      TRACKER_TOP_CITIES.forEach((city) =>
-        addPreview(
-          (account) =>
-            account.industry === industry &&
-            account.cities.some((accountCity) => accountCity.name === city)
-        )
-      );
-    });
-
-    return names;
-  }, [staticAccounts]);
-
-  // Gated-company detection: private records ship only a hash of their
-  // simplified name, so an exact-name search can say "tracked, sign up to
-  // unlock" without the private list ever being in the payload. Public names
-  // outside the free preview set receive the same full-version treatment.
-  // Excluded non-gcc accounts get their explanatory note via their hash.
-  const [gatedMatch, setGatedMatch] = useState(false);
-  const [gatedMatchName, setGatedMatchName] = useState<string | null>(null);
+  // Exact-name search on a private account answers "tracked" without the
+  // private list ever being in the payload; excluded non-gcc accounts get
+  // their explanatory note the same way.
+  const [privateMatch, setPrivateMatch] = useState(false);
   const [nonGccNote, setNonGccNote] = useState<string | null>(null);
   useEffect(() => {
     const q = debouncedAccountSearch.trim();
     if (q.length < 2) {
-      setGatedMatch(false);
-      setGatedMatchName(null);
+      setPrivateMatch(false);
       setNonGccNote(null);
       return;
     }
     let cancelled = false;
     hashCompanyName(q).then((hash) => {
-      if (!cancelled) {
-        const simplifiedQuery = simplifyCompanyName(q);
-        const matchesPrivate =
-          hash !== null && staticAccounts.some((account) => account.h === hash);
-        const lockedPublicAccount = staticAccounts.find(
-          (account) =>
-            account.visibility !== "private" &&
-            account.name !== null &&
-            !searchableCompanyNames.has(account.name) &&
-            simplifyCompanyName(account.name) === simplifiedQuery
-        );
-        setGatedMatch(matchesPrivate || lockedPublicAccount !== undefined);
-        setGatedMatchName(lockedPublicAccount?.name ?? null);
-        setNonGccNote(hash !== null ? TRACKER_NON_GCC_NOTES[hash] ?? null : null);
-      }
+      if (cancelled) return;
+      setPrivateMatch(
+        hash !== null && accounts.some((account) => account.h === hash)
+      );
+      setNonGccNote(hash !== null ? TRACKER_V2_NON_GCC_NOTES[hash] ?? null : null);
     });
     return () => {
       cancelled = true;
     };
-  }, [debouncedAccountSearch, staticAccounts, searchableCompanyNames]);
+  }, [debouncedAccountSearch, accounts]);
 
-  const hasAppliedFilters =
-    filters.account_primary_category.length > 0 ||
-    filters.center_city.length > 0 ||
-    filters.account_global_legal_name.length > 0;
-
-  const hasFilterInput = hasAppliedFilters || accountSearch.length > 0;
-
-  useEffect(() => {
-    if (
-      authLoading ||
-      user ||
-      !ACCOUNT_CREATION_ENABLED ||
-      filters.account_primary_category.length === 0 ||
-      filters.center_city.length === 0
-    ) {
-      return;
-    }
-
-    setPendingSignupFilters(filters);
-    setFilters((current) => ({ ...current, center_city: [] }));
-  }, [authLoading, user, filters]);
-
-  const updateIndustryFilter = (next: string[]) => {
-    const nextFilters = { ...filters, account_primary_category: next };
-    if (
-      !authLoading &&
-      !user &&
-      ACCOUNT_CREATION_ENABLED &&
-      next.length > 0 &&
-      filters.center_city.length > 0
-    ) {
-      setPendingSignupFilters(nextFilters);
-      return;
-    }
-    setFilters(nextFilters);
-  };
-
-  const updateCityFilter = (next: string[]) => {
-    const nextFilters = { ...filters, center_city: next };
-    if (
-      !authLoading &&
-      !user &&
-      ACCOUNT_CREATION_ENABLED &&
-      next.length > 0 &&
-      filters.account_primary_category.length > 0
-    ) {
-      setPendingSignupFilters(nextFilters);
-      return;
-    }
-    setFilters(nextFilters);
-  };
-
-  const openCompanyProfile = (
-    event: MouseEvent<HTMLAnchorElement>,
-    company: PendingCompanyProfile
-  ) => {
-    if (user || !ACCOUNT_CREATION_ENABLED) return;
-    event.preventDefault();
-    setPendingCompanyProfile(company);
-  };
+  const hasSelection =
+    filters.company !== null ||
+    filters.industries.length > 0 ||
+    filters.cities.length > 0;
+  const hasInput = hasSelection || accountSearch.length > 0;
 
   const reset = () => {
     setFilters(EMPTY_FILTERS);
     setAccountSearch("");
   };
 
-  const removeFilterValue = (key: keyof TrackerFilters, value: string) => {
-    setFilters((current) => ({
-      ...current,
-      [key]: current[key].filter((item) => item !== value),
-    }));
-  };
-
-  const matchesFilters = useCallback(
-    (
-      account: (typeof staticAccounts)[number],
-      ignoredFilter?: "industry" | "city" | "account"
-    ) => {
+  const matchesFilters = useMemo(() => {
+    return (
+      account: TrackerV2Account,
+      ignored?: "industry" | "city"
+    ): boolean => {
+      if (filters.company !== null) return account.name === filters.company;
       const matchesIndustry =
-        ignoredFilter === "industry" ||
-        filters.account_primary_category.length === 0 ||
-        (account.industry !== null &&
-          filters.account_primary_category.includes(account.industry));
+        ignored === "industry" ||
+        filters.industries.length === 0 ||
+        (account.industry !== null && filters.industries.includes(account.industry));
       const matchesCity =
-        ignoredFilter === "city" ||
-        filters.center_city.length === 0 ||
-        account.cities.some((city) => filters.center_city.includes(city.name));
-      const matchesAccount =
-        ignoredFilter === "account" ||
-        filters.account_global_legal_name.length === 0 ||
-        (account.name !== null &&
-          filters.account_global_legal_name.includes(account.name));
-      return matchesIndustry && matchesCity && matchesAccount;
-    },
-    [filters]
-  );
+        ignored === "city" ||
+        filters.cities.length === 0 ||
+        account.cities.some((city) => filters.cities.includes(groupCity(city.name)));
+      return matchesIndustry && matchesCity;
+    };
+  }, [filters]);
 
   const filteredAccounts = useMemo(
-    () => staticAccounts.filter((account) => matchesFilters(account)),
-    [staticAccounts, matchesFilters]
+    () => accounts.filter((account) => matchesFilters(account)),
+    [accounts, matchesFilters]
   );
 
   const visibleAccounts = useMemo(
     () =>
-      filteredAccounts
-        .filter(
-          (account): account is StaticTrackerAccount & { name: string } =>
-            account.visibility !== "private" && account.name !== null
-        )
-        .sort((a, b) => a.name.localeCompare(b.name)),
+      filteredAccounts.filter(
+        (account): account is TrackerV2Account & { name: string } =>
+          account.visibility !== "private" && account.name !== null
+      ),
     [filteredAccounts]
   );
 
-  // With a company explicitly selected, the centers count uses the strict
-  // definition its public page uses (active, GCC-type centers only) and
-  // overrides the city dimension; aggregate views stay account-level.
-  const companySelected = filters.account_global_legal_name.length > 0;
+  /** Row metrics respect the city filter: with cities selected, centres,
+   * upcoming and headcount are those cities' share. Cities are disjoint per
+   * centre, so summing selected-city entries stays exact. */
+  const rowMetrics = useMemo(() => {
+    return (account: TrackerV2Account) => {
+      if (filters.cities.length === 0) {
+        return {
+          centers: account.c,
+          upcoming: account.u ?? 0,
+          employees: account.e,
+        };
+      }
+      return account.cities.reduce(
+        (sums, city) =>
+          filters.cities.includes(groupCity(city.name))
+            ? {
+                centers: sums.centers + city.c,
+                upcoming: sums.upcoming + (city.u ?? 0),
+                employees: sums.employees + (city.e ?? 0),
+              }
+            : sums,
+        { centers: 0, upcoming: 0, employees: 0 }
+      );
+    };
+  }, [filters.cities]);
+
+  // Headline counters. Aggregated from the same per-city data the exposure
+  // table was generated from, so single selections reproduce it exactly.
   const counts = useMemo(
     () =>
       filteredAccounts.reduce(
         (sums, account) => {
-          sums.accounts += 1;
-          sums.prospects += account.prospectCount;
-          sums.centers += companySelected
-            ? account.gccCenterCount ?? account.centerCount
-            : filters.center_city.length > 0
-              ? account.cities
-                  .filter((city) => filters.center_city.includes(city.name))
-                  .reduce((sum, city) => sum + city.centerCount, 0)
-              : account.centerCount;
-          return sums;
+          const metrics = rowMetrics(account);
+          return {
+            companies: sums.companies + 1,
+            centers: sums.centers + metrics.centers,
+            upcoming: sums.upcoming + metrics.upcoming,
+            employees: sums.employees + metrics.employees,
+          };
         },
-        { accounts: 0, centers: 0, prospects: 0 }
+        { companies: 0, centers: 0, upcoming: 0, employees: 0 }
       ),
-    [filteredAccounts, filters.center_city, companySelected]
+    [filteredAccounts, rowMetrics]
   );
 
+  // Facet option counts ignore their own dimension (picking an industry must
+  // not zero out the other industries' counts).
   const facets = useMemo(() => {
-    const toFacetOptions = (values: string[]): FacetOption[] =>
-      Array.from(
-        values.reduce((countsByValue, value) => {
-          countsByValue.set(value, (countsByValue.get(value) ?? 0) + 1);
-          return countsByValue;
-        }, new Map<string, number>())
-      )
-        .map(([value, count]) => ({ value, count }))
-        .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value));
+    const industryCounts = new Map<string, number>();
+    const cityCounts = new Map<string, number>();
+    for (const account of accounts) {
+      if (matchesFilters(account, "industry") && account.industry) {
+        industryCounts.set(
+          account.industry,
+          (industryCounts.get(account.industry) ?? 0) + 1
+        );
+      }
+      if (matchesFilters(account, "city")) {
+        const groups = new Set(account.cities.map((city) => groupCity(city.name)));
+        for (const grouped of groups) {
+          cityCounts.set(grouped, (cityCounts.get(grouped) ?? 0) + 1);
+        }
+      }
+    }
+    return {
+      industries: TRACKER_V2_TOP_INDUSTRIES.map((industry) => ({
+        value: industry,
+        count: industryCounts.get(industry) ?? 0,
+      })),
+      cities: TRACKER_V2_TOP_CITIES.map((city) => ({
+        value: city,
+        count: cityCounts.get(city) ?? 0,
+      })),
+    };
+  }, [accounts, matchesFilters]);
 
-    const industries = staticAccounts
-      .filter((account) => matchesFilters(account, "industry"))
-      .flatMap((account) => (account.industry ? [account.industry] : []));
-    const cities = staticAccounts
-      .filter((account) => matchesFilters(account, "city"))
-      .flatMap((account) => account.cities.map((city) => city.name));
-    const normalizedSearch = debouncedAccountSearch.trim().toLowerCase();
-    const accountSuggestions = staticAccounts
-      .filter((account) => matchesFilters(account, "account"))
+  const normalizedSearch = debouncedAccountSearch.trim().toLowerCase();
+  const suggestions: FacetOption[] = useMemo(() => {
+    if (normalizedSearch.length < 2) return [];
+    return accounts
       .filter(
-        (account): account is StaticTrackerAccount & { name: string } =>
-          account.visibility !== "private" &&
+        (account): account is TrackerV2Account & { name: string } =>
           account.name !== null &&
-          searchableCompanyNames.has(account.name) &&
-          normalizedSearch.length >= 2 &&
           account.name.toLowerCase().includes(normalizedSearch)
       )
       .sort((a, b) => {
@@ -436,195 +414,191 @@ const Tracker = () => {
       })
       .slice(0, 8)
       .map((account) => ({ value: account.name, count: 1 }));
+  }, [accounts, normalizedSearch]);
 
-    const industryFacets = toFacetOptions(industries);
-    const cityFacets = toFacetOptions(cities);
-    // The unlocked options are the stable global top-10 lists (the same ones
-    // the homepage widget and landing pages use), not the top 10 of the
-    // current selection: picking an industry must never hide a headline city
-    // like Kolkata just because that industry is small there.
-    const unlocked = (facetOptions: FacetOption[], top: readonly string[]) =>
-      facetOptions
-        .filter((option) => top.includes(option.value))
-        .sort((a, b) => top.indexOf(a.value) - top.indexOf(b.value));
-    const industryOptions = unlocked(industryFacets, TRACKER_TOP_INDUSTRIES);
-    const cityOptions = unlocked(cityFacets, TRACKER_TOP_CITIES);
-    return {
-      account_primary_category: industryOptions,
-      industriesLocked: Math.max(0, industryFacets.length - industryOptions.length),
-      center_city: cityOptions,
-      citiesLocked: Math.max(0, cityFacets.length - cityOptions.length),
-      account_global_legal_name: accountSuggestions,
-    };
-  }, [
-    staticAccounts,
-    matchesFilters,
-    debouncedAccountSearch,
-    searchableCompanyNames,
-  ]);
+  // Row exposure: a company selection shows its matching rows; everything
+  // else is governed by the cap rule (and the precomputed table it mirrors).
+  const permittedRows =
+    filters.company !== null
+      ? visibleAccounts.length
+      : permittedRowsFor(filteredAccounts.length);
 
-  const accounts = useMemo(() => {
-    if (hasAppliedFilters || accountSearch.trim().length > 0) {
-      return visibleAccounts.slice(0, DIRECTORY_ROW_LIMIT);
+  const rows = useMemo(() => {
+    if (hasSelection || accountSearch.trim().length > 0) {
+      return visibleAccounts.slice(0, permittedRows);
     }
-
-    // Keep the default preview representative of both public filters: one
-    // unique company for each of the 10 industries and each of the 10 cities.
-    // Within every group, the first unused company is selected alphabetically.
-    const accountGroups = [
-      ...TRACKER_TOP_INDUSTRIES.map((industry) =>
+    // Default preview: one company per top industry and per top city, so the
+    // opening view represents the whole market (15 groups = the row cap).
+    const groups = [
+      ...TRACKER_V2_TOP_INDUSTRIES.map((industry) =>
         visibleAccounts.filter((account) => account.industry === industry)
       ),
-      ...TRACKER_TOP_CITIES.map((city) =>
+      ...TRACKER_V2_TOP_CITIES.map((city) =>
         visibleAccounts.filter((account) =>
-          account.cities.some((accountCity) => accountCity.name === city)
+          account.cities.some((accountCity) => groupCity(accountCity.name) === city)
         )
       ),
     ];
-    const balancedAccounts: typeof visibleAccounts = [];
-    const selectedNames = new Set<string>();
-
-    for (const group of accountGroups) {
-      const account = group.find((candidate) => !selectedNames.has(candidate.name));
+    const balanced: typeof visibleAccounts = [];
+    const chosen = new Set<string>();
+    for (const group of groups) {
+      const account = group.find((candidate) => !chosen.has(candidate.name));
       if (!account) continue;
-      balancedAccounts.push(account);
-      selectedNames.add(account.name);
+      balanced.push(account);
+      chosen.add(account.name);
+      if (balanced.length === permittedRows) break;
     }
-
-    // Preserve the 20-row preview if a future data change leaves one of the
-    // configured groups empty.
     for (const account of visibleAccounts) {
-      if (balancedAccounts.length === DIRECTORY_ROW_LIMIT) break;
-      if (selectedNames.has(account.name)) continue;
-      balancedAccounts.push(account);
-      selectedNames.add(account.name);
+      if (balanced.length >= permittedRows) break;
+      if (chosen.has(account.name)) continue;
+      balanced.push(account);
+      chosen.add(account.name);
     }
+    return balanced;
+  }, [visibleAccounts, hasSelection, accountSearch, permittedRows]);
 
-    return balancedAccounts;
-  }, [visibleAccounts, hasAppliedFilters, accountSearch]);
-  // Everything matching the filters but not in the free A-Z preview, whether
-  // beyond the row limit or private, lives in the full version.
-  const remainingCount = filteredAccounts.length - accounts.length;
-  const isLoadingFirstTime = isLoadingStaticAccounts;
-  const isSearchingAccounts =
-    accountSearch.trim().length >= 2 &&
-    accountSearch !== debouncedAccountSearch;
+  const remainingCount = filteredAccounts.length - rows.length;
+  const isSearching =
+    accountSearch.trim().length >= 2 && accountSearch !== debouncedAccountSearch;
+
+  const remainingRow = (
+    <GoogleCalendarSchedulingButton className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">
+      <Lock className="h-4 w-4" />
+      +{nf(remainingCount)} more {remainingCount === 1 ? "company" : "companies"} tracked
+      — see the full dataset
+    </GoogleCalendarSchedulingButton>
+  );
 
   return (
-    <div
-      className={`tracker-page min-h-screen bg-background ${user ? "" : "pb-20 md:pb-0"}`}
-    >
+    <div className="tracker-page min-h-screen bg-background">
       <Header />
 
-      {/* TRACKER */}
-      <section id="size-your-market" className="scroll-mt-24 px-4 pb-14 pt-10 md:pb-20 md:pt-14">
-        <div className="max-w-7xl mx-auto">
+      {/* THE BOARD: the numbers are the hero, set on ledger navy like an
+          exchange summary strip. */}
+      <section id="size-your-market" className="scroll-mt-24 bg-navy text-white">
+        <div className="mx-auto max-w-7xl px-5 py-9 sm:px-4 md:py-12">
           <FadeIn>
-            <div className="mb-10">
-              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Size your market in three clicks
-              </h1>
-              <p className="mt-4 max-w-6xl text-muted-foreground md:text-lg">
-                Pick a company, an industry, or a city and every count updates
-                instantly. Start broad, then narrow until the numbers match the
-                market you actually sell to.
-              </p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                {!user && ACCOUNT_CREATION_ENABLED && (
-                  <Button
-                    asChild
-                    className="w-full rounded-full font-semibold shadow-sm hover:shadow-md transition-shadow sm:w-auto"
-                  >
-                    <a href="/signup?src=gcc-hero">Sign up for free</a>
-                  </Button>
-                )}
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full rounded-full font-semibold sm:w-auto"
-                >
-                  <GoogleCalendarSchedulingButton>
-                    Get a demo
-                  </GoogleCalendarSchedulingButton>
-                </Button>
-              </div>
-            </div>
+            <h1 className="flex items-center gap-2.5 text-lg font-bold tracking-tight sm:text-xl">
+              <span className="relative flex h-2 w-2" aria-hidden>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70 motion-reduce:hidden" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              India GCC Tracker
+            </h1>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/70">
+              The definitive count of India's GCC market — live, free, no
+              sign-in. Filter by company, industry, or city and size your
+              opportunity in seconds.
+            </p>
           </FadeIn>
 
-          {/* Filters */}
-          <div className="border-y bg-secondary/30 px-4 py-6 md:px-6">
-            <div className="flex flex-col md:flex-row md:items-end gap-4">
-              <div className="flex-1 min-w-0">
-                <label className="mb-2 block text-sm font-medium text-foreground">
+          <FadeIn>
+            <div className="mt-7 grid grid-cols-2 gap-y-2 border-t border-white/10 pt-6 md:mt-8 md:grid-cols-4 md:gap-y-0 md:pt-8">
+              <TickerStat
+                label="Companies"
+                value={counts.companies}
+                isLoading={isLoading}
+                total={hasSelection ? TRACKER_V2_STATS.companies : undefined}
+              />
+              <TickerStat
+                label="Centres"
+                value={counts.centers}
+                isLoading={isLoading}
+                total={hasSelection ? TRACKER_V2_STATS.centers : undefined}
+              />
+              <TickerStat
+                label="Upcoming centres"
+                value={counts.upcoming}
+                isLoading={isLoading}
+                accent
+                total={hasSelection ? TRACKER_V2_STATS.upcomingCenters : undefined}
+              />
+              <TickerStat
+                label="Headcount"
+                value={counts.employees}
+                isLoading={isLoading}
+                total={hasSelection ? TRACKER_V2_STATS.employees : undefined}
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <section className="px-4 pb-14 md:pb-20">
+        <div className="mx-auto max-w-7xl">
+          {/* Filters: the board's control row, docked flush beneath it */}
+          <div className="border-b bg-background py-6">
+            <div className="flex flex-col gap-4 md:flex-row md:items-end">
+              <div className="min-w-0 flex-1">
+                <label className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   Company
                 </label>
                 <AccountSearchFilter
                   query={accountSearch}
-                  selectedAccount={filters.account_global_legal_name[0]}
-                  suggestions={facets.account_global_legal_name}
-                  isSearching={isSearchingAccounts}
-                  isGatedMatch={gatedMatch}
-                  gatedMatchName={gatedMatchName}
+                  selectedAccount={filters.company ?? undefined}
+                  suggestions={suggestions}
+                  isSearching={isSearching}
+                  isGatedMatch={privateMatch}
+                  gatedMatchName={null}
                   nonGccNote={nonGccNote}
-                  disabled={isLoadingFirstTime}
+                  disabled={isLoading}
                   onQueryChange={(next) => {
                     setAccountSearch(next);
-                    if (filters.account_global_legal_name.length > 0) {
-                      setFilters((current) => ({
-                        ...current,
-                        account_global_legal_name: [],
-                      }));
+                    if (filters.company !== null) {
+                      setFilters((current) => ({ ...current, company: null }));
                     }
                   }}
                   onSelect={(account) => {
                     setAccountSearch("");
-                    setFilters((current) => ({
-                      ...current,
-                      account_global_legal_name: [account],
-                    }));
+                    setFilters((current) => ({ ...current, company: account }));
                   }}
                   onClear={() => {
                     setAccountSearch("");
-                    setFilters((current) => ({
-                      ...current,
-                      account_global_legal_name: [],
-                    }));
+                    setFilters((current) => ({ ...current, company: null }));
                   }}
                 />
               </div>
-              <div className="flex-1 min-w-0">
-                <label className="mb-2 block text-sm font-medium text-foreground">
+              <div className="min-w-0 flex-1">
+                <label className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   Industry
                 </label>
                 <MultiSelectFilter
                   label="Industry"
-                  options={facets.account_primary_category}
-                  value={filters.account_primary_category}
-                  onValueChange={updateIndustryFilter}
-                  disabled={isLoadingFirstTime}
-                  lockedCount={facets.industriesLocked}
+                  options={facets.industries}
+                  value={filters.industries}
+                  onValueChange={(industries) =>
+                    setFilters((current) => ({ ...current, industries }))
+                  }
+                  disabled={isLoading}
+                  lockedCount={
+                    TRACKER_V2_STATS.industries - TRACKER_V2_TOP_INDUSTRIES.length
+                  }
                   lockedNoun="industries"
-                  optionHints={TRACKER_INDUSTRY_CLASSIFICATIONS}
+                  optionHints={TRACKER_V2_INDUSTRY_CLASSIFICATIONS}
                 />
               </div>
-              <div className="flex-1 min-w-0">
-                <label className="mb-2 block text-sm font-medium text-foreground">
+              <div className="min-w-0 flex-1">
+                <label className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   City
                 </label>
                 <MultiSelectFilter
                   label="City"
-                  options={facets.center_city}
-                  value={filters.center_city}
-                  onValueChange={updateCityFilter}
-                  disabled={isLoadingFirstTime}
-                  lockedCount={facets.citiesLocked}
+                  options={facets.cities}
+                  value={filters.cities}
+                  onValueChange={(cities) =>
+                    setFilters((current) => ({ ...current, cities }))
+                  }
+                  disabled={isLoading}
+                  lockedCount={
+                    TRACKER_V2_STATS.cities - TRACKER_V2_TOP_CITIES.length
+                  }
                   lockedNoun="cities"
                 />
               </div>
               <Button
                 variant="outline"
                 onClick={reset}
-                disabled={!hasFilterInput}
+                disabled={!hasInput}
                 className="w-full shrink-0 md:mb-0 md:w-auto"
               >
                 <RotateCcw className="mr-2 h-4 w-4" />
@@ -632,60 +606,48 @@ const Tracker = () => {
               </Button>
             </div>
 
-            {hasAppliedFilters && (
+            {hasSelection && (
               <div className="mt-4 flex flex-wrap items-center gap-2 border-t pt-4">
-                {filters.account_global_legal_name.map((name) => (
+                {filters.company !== null && (
                   <FilterChip
-                    key={name}
                     category="Company"
-                    value={name}
+                    value={filters.company}
                     onRemove={() =>
-                      removeFilterValue("account_global_legal_name", name)
+                      setFilters((current) => ({ ...current, company: null }))
                     }
                   />
-                ))}
-                {filters.account_primary_category.map((industry) => (
+                )}
+                {filters.industries.map((industry) => (
                   <FilterChip
                     key={industry}
                     category="Industry"
                     value={industry}
                     onRemove={() =>
-                      removeFilterValue("account_primary_category", industry)
+                      setFilters((current) => ({
+                        ...current,
+                        industries: current.industries.filter(
+                          (item) => item !== industry
+                        ),
+                      }))
                     }
                   />
                 ))}
-                {filters.center_city.map((city) => (
+                {filters.cities.map((city) => (
                   <FilterChip
                     key={city}
                     category="City"
                     value={city}
-                    onRemove={() => removeFilterValue("center_city", city)}
+                    onRemove={() =>
+                      setFilters((current) => ({
+                        ...current,
+                        cities: current.cities.filter((item) => item !== city),
+                      }))
+                    }
                   />
                 ))}
               </div>
             )}
           </div>
-
-          {/* Counts */}
-          <FadeIn>
-          <div className="mt-8 grid grid-cols-3">
-            <CountCard
-              label="Companies"
-              value={counts.accounts}
-              isLoading={isLoadingFirstTime}
-            />
-            <CountCard
-              label="Centres"
-              value={counts.centers}
-              isLoading={isLoadingFirstTime}
-            />
-            <CountCard
-              label="Leaders"
-              value={counts.prospects}
-              isLoading={isLoadingFirstTime}
-            />
-          </div>
-          </FadeIn>
 
           {/* Directory */}
           <div className="mt-8 overflow-hidden rounded-lg border bg-card">
@@ -699,29 +661,26 @@ const Tracker = () => {
               onCut={(event) => event.preventDefault()}
               onContextMenu={(event) => event.preventDefault()}
             >
-              {/* Mobile: stacked list (no sideways scrolling) */}
+              {/* Mobile: stacked list */}
               <ul className="divide-y md:hidden">
-                {isLoadingStaticAccounts ? (
+                {isLoading ? (
                   Array.from({ length: 5 }).map((_, index) => (
                     <li key={index} className="px-5 py-4">
                       <span className="block h-4 w-44 animate-pulse rounded bg-muted" />
                       <span className="mt-2 block h-3.5 w-56 animate-pulse rounded bg-muted" />
                     </li>
                   ))
-                ) : accounts.length > 0 ? (
+                ) : rows.length > 0 ? (
                   <>
-                    {accounts.map((account) => (
+                    {rows.map((account) => (
                       <li key={account.name} className="px-5 py-4">
-                        <p className="truncate font-medium text-foreground" title={account.name ?? undefined}>
+                        <p
+                          className="truncate font-medium text-foreground"
+                          title={account.name}
+                        >
                           {account.slug ? (
                             <a
                               href={`/gcc/companies/${account.slug}/`}
-                              onClick={(event) =>
-                                openCompanyProfile(event, {
-                                  name: account.name,
-                                  href: `/gcc/companies/${account.slug}/`,
-                                })
-                              }
                               className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                             >
                               {account.name}
@@ -733,9 +692,9 @@ const Tracker = () => {
                         <p className="mt-1 flex min-w-0 items-center gap-1.5 text-sm text-muted-foreground">
                           <span className="truncate">
                             {account.industry || "Not specified"}
-                            {account.cities?.length > 0 && ` · ${account.cities[0].name}`}
+                            {account.cities.length > 0 && ` · ${account.cities[0].name}`}
                           </span>
-                          {account.cities?.length > 1 && (
+                          {account.cities.length > 1 && (
                             <span className="shrink-0 text-xs font-semibold text-primary">
                               +{account.cities.length - 1} more
                             </span>
@@ -743,30 +702,14 @@ const Tracker = () => {
                         </p>
                       </li>
                     ))}
-                    {remainingCount > 0 && (
-                      <li className="px-5 py-4">
-                        <GoogleCalendarSchedulingButton className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">
-                          <Lock className="h-4 w-4" />
-                          +{nf(remainingCount)}{" "}
-                          {remainingCount === 1 ? "company" : "companies"} available in
-                          the full version
-                        </GoogleCalendarSchedulingButton>
-                      </li>
-                    )}
+                    {remainingCount > 0 && <li className="px-5 py-4">{remainingRow}</li>}
                   </>
                 ) : remainingCount > 0 ? (
-                  <li className="px-5 py-10 text-center">
-                    <GoogleCalendarSchedulingButton className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">
-                      <Lock className="h-4 w-4" />
-                      +{nf(remainingCount)}{" "}
-                      {remainingCount === 1 ? "company" : "companies"} available in the
-                      full version
-                    </GoogleCalendarSchedulingButton>
-                  </li>
+                  <li className="px-5 py-10 text-center">{remainingRow}</li>
                 ) : (
                   <li className="px-5 py-10 text-center">
                     <p className="text-muted-foreground">
-                      No accounts match the current filters.
+                      No companies match the current filters.
                     </p>
                     <Button
                       type="button"
@@ -784,133 +727,125 @@ const Tracker = () => {
 
               {/* Desktop: full table */}
               <div className="hidden overflow-x-auto md:block">
-              <table className="w-full min-w-[720px] table-fixed text-left text-sm">
-                <colgroup>
-                  <col className="w-[42%]" />
-                  <col className="w-[30%]" />
-                  <col className="w-[28%]" />
-                </colgroup>
-                <thead className="bg-muted/40 text-xs uppercase tracking-wide text-muted-foreground">
-                  <tr>
-                    <th scope="col" className="px-5 py-3 font-semibold">Account name</th>
-                    <th scope="col" className="px-5 py-3 font-semibold">Industry</th>
-                    <th scope="col" className="px-5 py-3 font-semibold">City</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y">
-                  {isLoadingStaticAccounts ? (
-                    Array.from({ length: 5 }).map((_, index) => (
-                      <tr key={index}>
-                        <td className="px-5 py-4">
-                          <span className="block h-4 w-48 animate-pulse rounded bg-muted" />
-                        </td>
-                        <td className="px-5 py-4">
-                          <span className="block h-4 w-36 animate-pulse rounded bg-muted" />
-                        </td>
-                        <td className="px-5 py-4">
-                          <span className="block h-4 w-24 animate-pulse rounded bg-muted" />
-                        </td>
-                      </tr>
-                    ))
-                  ) : accounts.length > 0 ? (
-                    <>
-                      {accounts.map((account) => (
-                        <tr
-                          key={account.name}
-                          className="transition-colors duration-micro hover:bg-muted/40"
-                        >
-                          <td className="overflow-hidden px-5 py-4 font-medium text-foreground">
-                            <div className="truncate" title={account.name}>
-                              {account.slug ? (
-                                <a
-                                  href={`/gcc/companies/${account.slug}/`}
-                                  onClick={(event) =>
-                                    openCompanyProfile(event, {
-                                      name: account.name,
-                                      href: `/gcc/companies/${account.slug}/`,
-                                    })
-                                  }
-                                  className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                >
-                                  {account.name}
-                                </a>
-                              ) : (
-                                account.name
-                              )}
-                            </div>
-                          </td>
-                          <td className="overflow-hidden px-5 py-4 text-muted-foreground">
-                            <div
-                              className="truncate"
-                              title={account.industry || "Not specified"}
-                            >
-                              {account.industry || "Not specified"}
-                            </div>
-                          </td>
-                          <td className="overflow-hidden px-5 py-4 text-muted-foreground">
-                            {account.cities?.length > 0 ? (
-                              <div
-                                className="flex min-w-0 items-center gap-1.5"
-                                title={account.cities.map((city) => city.name).join(", ")}
-                              >
-                                <span className="truncate">{account.cities[0].name}</span>
-                                {account.cities.length > 1 && (
-                                  <span className="shrink-0 text-xs font-semibold text-primary">
-                                    +{account.cities.length - 1} more
-                                  </span>
+                <table className="w-full min-w-[720px] table-fixed text-left text-sm">
+                  <colgroup>
+                    <col className="w-[42%]" />
+                    <col className="w-[30%]" />
+                    <col className="w-[28%]" />
+                  </colgroup>
+                  <thead className="bg-muted/40 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                    <tr>
+                      <th scope="col" className="px-5 py-3 font-semibold">
+                        Account name
+                      </th>
+                      <th scope="col" className="px-5 py-3 font-semibold">
+                        Industry
+                      </th>
+                      <th scope="col" className="px-5 py-3 font-semibold">
+                        City
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y">
+                    {isLoading ? (
+                      Array.from({ length: 5 }).map((_, index) => (
+                        <tr key={index}>
+                          {["w-48", "w-36", "w-24"].map((width, cell) => (
+                            <td key={cell} className="px-5 py-4">
+                              <span
+                                className={`block h-4 ${width} animate-pulse rounded bg-muted`}
+                              />
+                            </td>
+                          ))}
+                        </tr>
+                      ))
+                    ) : rows.length > 0 ? (
+                      <>
+                        {rows.map((account) => (
+                          <tr
+                            key={account.name}
+                            className="transition-colors duration-micro hover:bg-muted/40"
+                          >
+                            <td className="overflow-hidden px-5 py-4 font-medium text-foreground">
+                              <div className="truncate" title={account.name}>
+                                {account.slug ? (
+                                  <a
+                                    href={`/gcc/companies/${account.slug}/`}
+                                    className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                  >
+                                    {account.name}
+                                  </a>
+                                ) : (
+                                  account.name
                                 )}
                               </div>
-                            ) : (
-                              "Not specified"
-                            )}
-                          </td>
-                        </tr>
-                      ))}
-                      {remainingCount > 0 && (
-                        <tr>
-                          <td colSpan={3} className="px-5 py-4">
-                            <GoogleCalendarSchedulingButton className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-                              <Lock className="h-4 w-4" />
-                              +{nf(remainingCount)}{" "}
-                              {remainingCount === 1 ? "company" : "companies"} available
-                              in the full version
-                            </GoogleCalendarSchedulingButton>
-                          </td>
-                        </tr>
-                      )}
-                    </>
-                  ) : remainingCount > 0 ? (
-                    <tr>
-                      <td colSpan={3} className="px-5 py-10 text-center">
-                        <GoogleCalendarSchedulingButton className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-                          <Lock className="h-4 w-4" />
-                          +{nf(remainingCount)}{" "}
-                          {remainingCount === 1 ? "company" : "companies"} available in
-                          the full version
-                        </GoogleCalendarSchedulingButton>
-                      </td>
-                    </tr>
-                  ) : (
-                    <tr>
-                      <td colSpan={3} className="px-5 py-10 text-center">
-                        <p className="text-muted-foreground">
-                          No accounts match the current filters.
-                        </p>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="sm"
-                          onClick={reset}
-                          className="mt-3"
-                        >
-                          <RotateCcw className="mr-2 h-4 w-4" />
-                          Reset filters
-                        </Button>
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
+                            </td>
+                            <td className="overflow-hidden px-5 py-4 text-muted-foreground">
+                              <div
+                                className="truncate"
+                                title={account.industry || "Not specified"}
+                              >
+                                {account.industry || "Not specified"}
+                              </div>
+                            </td>
+                            <td className="overflow-hidden px-5 py-4 text-muted-foreground">
+                              {account.cities.length > 0 ? (
+                                <div
+                                  className="flex min-w-0 items-center gap-1.5"
+                                  title={account.cities
+                                    .map((city) => city.name)
+                                    .join(", ")}
+                                >
+                                  <span className="truncate">
+                                    {account.cities[0].name}
+                                  </span>
+                                  {account.cities.length > 1 && (
+                                    <span className="shrink-0 text-xs font-semibold text-primary">
+                                      +{account.cities.length - 1} more
+                                    </span>
+                                  )}
+                                </div>
+                              ) : (
+                                "Not specified"
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                        {remainingCount > 0 && (
+                          <tr>
+                            <td colSpan={3} className="px-5 py-4">
+                              {remainingRow}
+                            </td>
+                          </tr>
+                        )}
+                      </>
+                    ) : remainingCount > 0 ? (
+                      <tr>
+                        <td colSpan={3} className="px-5 py-10 text-center">
+                          {remainingRow}
+                        </td>
+                      </tr>
+                    ) : (
+                      <tr>
+                        <td colSpan={3} className="px-5 py-10 text-center">
+                          <p className="text-muted-foreground">
+                            No companies match the current filters.
+                          </p>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={reset}
+                            className="mt-3"
+                          >
+                            <RotateCcw className="mr-2 h-4 w-4" />
+                            Reset filters
+                          </Button>
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -919,7 +854,7 @@ const Tracker = () => {
 
       {/* USE CASES */}
       <section className="border-y bg-secondary/30 px-4 py-14 md:py-20">
-        <div className="max-w-7xl mx-auto">
+        <div className="mx-auto max-w-7xl">
           <FadeIn>
             <div className="mb-10">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -949,96 +884,6 @@ const Tracker = () => {
       </section>
 
       <Footer />
-
-      <Dialog
-        open={pendingSignupFilters !== null}
-        onOpenChange={(open) => {
-          if (!open) setPendingSignupFilters(null);
-        }}
-      >
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Combine filters with a free account</DialogTitle>
-            <DialogDescription>
-              Sign up to narrow the directory by both industry and city. Your
-              current selections will be ready when you return.
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter className="gap-2 sm:gap-0">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => setPendingSignupFilters(null)}
-            >
-              Continue browsing
-            </Button>
-            {pendingSignupFilters && (
-              <Button asChild>
-                <a href={combinedFilterSignupUrl(pendingSignupFilters)}>
-                  Sign up to combine filters
-                </a>
-              </Button>
-            )}
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      <Dialog
-        open={pendingCompanyProfile !== null}
-        onOpenChange={(open) => {
-          if (!open) setPendingCompanyProfile(null);
-        }}
-      >
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Sign up to view company profiles</DialogTitle>
-            <DialogDescription>
-              Create a free account to explore additional details about{" "}
-              {pendingCompanyProfile?.name}&apos;s GCC footprint in India.
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter className="gap-2 sm:gap-0">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => setPendingCompanyProfile(null)}
-            >
-              Continue browsing
-            </Button>
-            {pendingCompanyProfile && (
-              <>
-                <Button asChild variant="outline">
-                  <a
-                    href={`/signin?redirect=${encodeURIComponent(
-                      pendingCompanyProfile.href
-                    )}`}
-                  >
-                    Sign in
-                  </a>
-                </Button>
-                <Button asChild>
-                  <a
-                    href={`/signup?src=gcc-company-profile&redirect=${encodeURIComponent(
-                      pendingCompanyProfile.href
-                    )}`}
-                  >
-                    Sign up to view {pendingCompanyProfile.name}
-                  </a>
-                </Button>
-              </>
-            )}
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      {/* Mobile-only sticky sign-up bar */}
-      {!user && ACCOUNT_CREATION_ENABLED && (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80 md:hidden">
-          <Button asChild className="w-full rounded-full font-semibold">
-            <a href="/signup?src=gcc-sticky">Sign up for free</a>
-          </Button>
-        </div>
-      )}
     </div>
   );
 };

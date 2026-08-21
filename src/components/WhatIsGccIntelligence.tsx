@@ -1,7 +1,7 @@
 import gccIllustration from "@/assets/gcc-illustration.png";
 
 const WhatIsGccIntelligence = () => (
-  <section className="border-t bg-secondary/30 px-5 py-12 sm:px-4 md:py-20">
+  <section className="bg-background px-5 py-12 sm:px-4 md:py-20">
     <div className="mx-auto max-w-6xl">
       <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
         <img

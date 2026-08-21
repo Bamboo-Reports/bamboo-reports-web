@@ -2,27 +2,16 @@ import logo from "@/assets/bamboo-logo.svg";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronRight, User, LogOut } from "lucide-react";
+import { Menu, ChevronRight } from "lucide-react";
 import { useState } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import { getDisplayName } from "@/lib/auth";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ACCOUNT_CREATION_ENABLED, GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -35,23 +24,7 @@ import {
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user, signOut } = useAuth();
   const { openInquiryForm } = useInquiryForm();
-  const getInitials = (name: string) => {
-    return name
-      .split(' ')
-      .map((n) => n[0])
-      .join('')
-      .toUpperCase()
-      .slice(0, 2);
-  };
-
-  const handleSignOut = async () => {
-    await signOut();
-  };
-
-  const userFullName = getDisplayName(user?.user_metadata);
-  const avatarUrl = user?.user_metadata?.avatar_url;
 
   return (
     <>
@@ -79,27 +52,9 @@ const Header = () => {
               )}
 
               <NavigationMenuItem>
-                <Link to="/platform">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Platform
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
                 <NavigationMenuTrigger>What we offer</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[320px] gap-1 p-2">
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          to="/gcc-prospect-data"
-                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
-                        >
-                          GCC Prospect Data
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
@@ -117,6 +72,26 @@ const Header = () => {
                           className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           GCC ABM
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/gcc-prospect-data"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
+                        >
+                          GCC Prospect Data
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/platform"
+                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
+                        >
+                          Platform
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -141,6 +116,14 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
+                <Link to="/about">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    About us
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <button
                     type="button"
@@ -154,53 +137,6 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <div className="flex items-center gap-3">
-            {ACCOUNT_CREATION_ENABLED && (
-              user ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="outline" className="h-10 rounded-full font-semibold">
-                      <Avatar className="h-8 w-8">
-                        {avatarUrl && <AvatarImage src={avatarUrl} alt={userFullName} />}
-                        <AvatarFallback className="bg-primary text-primary-foreground">
-                          {getInitials(userFullName)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="max-w-40 truncate">{userFullName}</span>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-56" align="end" forceMount>
-                    <DropdownMenuLabel className="font-normal">
-                      <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-medium leading-none">
-                          {userFullName}
-                        </p>
-                        <p className="text-xs leading-none text-muted-foreground">
-                          {user.email}
-                        </p>
-                      </div>
-                    </DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem asChild>
-                      <Link to="/profile" className="cursor-pointer">
-                        <User className="mr-2 h-4 w-4" />
-                        Profile
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
-                      <LogOut className="mr-2 h-4 w-4" />
-                      Sign out
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <Button asChild variant="outline" className="rounded-full font-semibold">
-                  <Link to="/signin">My account</Link>
-                </Button>
-              )
-            )}
-          </div>
         </div>
 
         {/* Mobile Hamburger Menu */}
@@ -233,28 +169,12 @@ const Header = () => {
                     </Link>
                   )}
 
-                  <Link
-                    to="/platform"
-                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Platform
-                    <ChevronRight className="h-5 w-5" />
-                  </Link>
-
                   <details className="group border-b pb-2">
                     <summary className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth cursor-pointer list-none">
                       What we offer
                       <ChevronRight className="h-5 w-5 transition-transform group-open:rotate-90" />
                     </summary>
                     <div className="pl-4 space-y-1">
-                      <Link
-                        to="/gcc-prospect-data"
-                        className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        GCC Prospect Data
-                      </Link>
                       <Link
                         to="/account-market-intelligence"
                         className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
@@ -268,6 +188,20 @@ const Header = () => {
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         GCC ABM
+                      </Link>
+                      <Link
+                        to="/gcc-prospect-data"
+                        className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        GCC Prospect Data
+                      </Link>
+                      <Link
+                        to="/platform"
+                        className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Platform
                       </Link>
                     </div>
                   </details>
@@ -290,6 +224,15 @@ const Header = () => {
                     <ChevronRight className="h-5 w-5" />
                   </Link>
 
+                  <Link
+                    to="/about"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    About us
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
+
                   <button
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth w-full"
                     onClick={() => {
@@ -307,15 +250,6 @@ const Header = () => {
 
                 {/* CTAs */}
                 <div className="px-6 space-y-3 pb-6">
-                  {!user && ACCOUNT_CREATION_ENABLED && (
-                    <Button
-                      asChild
-                      className="w-full rounded-full font-semibold"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <Link to="/signup?src=header">Sign up for free</Link>
-                    </Button>
-                  )}
                   <Button
                     asChild
                     variant="outline"
@@ -326,45 +260,6 @@ const Header = () => {
                       Get a demo
                     </GoogleCalendarSchedulingButton>
                   </Button>
-                  {ACCOUNT_CREATION_ENABLED && (user ? (
-                    <>
-                      <div className="border-t pt-3">
-                        <Button
-                          asChild
-                          variant="ghost"
-                          className="w-full font-semibold justify-start"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          <Link to="/profile">
-                            <User className="mr-2 h-4 w-4" />
-                            Profile
-                          </Link>
-                        </Button>
-                      </div>
-                      <Button
-                        variant="outline"
-                        className="w-full font-semibold"
-                        onClick={() => {
-                          handleSignOut();
-                          setMobileMenuOpen(false);
-                        }}
-                      >
-                        <LogOut className="mr-2 h-4 w-4" />
-                        Sign out
-                      </Button>
-                    </>
-                  ) : (
-                    <div className="border-t pt-3">
-                      <Button
-                        asChild
-                        variant="ghost"
-                        className="w-full rounded-full font-semibold"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        <Link to="/signin">Sign in</Link>
-                      </Button>
-                    </div>
-                  ))}
                 </div>
               </nav>
             </div>

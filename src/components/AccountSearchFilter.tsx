@@ -7,7 +7,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { ACCOUNT_CREATION_ENABLED } from "@/lib/featureFlags";
 import type { FacetOption } from "@/lib/tracker";
 
 const MIN_QUERY_LENGTH = 2;
@@ -142,18 +141,9 @@ export function AccountSearchFilter({
         ) : (
           <div className="px-3 py-4 text-sm">
             <p className="text-muted-foreground">Not in our directory yet.</p>
-            {ACCOUNT_CREATION_ENABLED ? (
-              <a
-                href="/signup?src=gcc-search-missing"
-                className="mt-1 inline-block font-medium text-primary hover:underline"
-              >
-                Sign up for free to request it
-              </a>
-            ) : (
-              <GoogleCalendarSchedulingButton className="mt-1 inline-block font-medium text-primary hover:underline">
-                Request coverage
-              </GoogleCalendarSchedulingButton>
-            )}
+            <GoogleCalendarSchedulingButton className="mt-1 inline-block font-medium text-primary hover:underline">
+              Request coverage
+            </GoogleCalendarSchedulingButton>
           </div>
         )}
       </PopoverContent>

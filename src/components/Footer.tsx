@@ -1,19 +1,26 @@
 import logo from "@/assets/bamboo-logo.svg";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
-import { ACCOUNT_CREATION_ENABLED, GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const exploreLinks = [
   ...(GCC_TRACKER_ENABLED ? [{ label: "GCC Tracker", to: "/gcc" }] : []),
+  { label: "About us", to: "/about" },
   { label: "Success stories", to: "/success-stories" },
   { label: "Resources", to: "/resources" },
 ];
 
+// Mirrors the header's "What we offer" dropdown, A to Z.
+const offerLinks = [
+  { label: "Account and Market Intelligence", to: "/account-market-intelligence" },
+  { label: "GCC ABM", to: "/gcc-abm" },
+  { label: "GCC Prospect Data", to: "/gcc-prospect-data" },
+  { label: "Platform", to: "/platform" },
+];
+
 const Footer = ({ showCta = true }: { showCta?: boolean }) => {
-  const { user } = useAuth();
   const { openInquiryForm } = useInquiryForm();
   const currentYear = new Date().getFullYear();
   return (
@@ -67,9 +74,9 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-sm font-semibold text-foreground">Explore</h2>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              {exploreLinks.map((link) => (
+            <h2 className="text-sm font-semibold text-foreground">What we offer</h2>
+            <ul className="text-sm text-muted-foreground">
+              {offerLinks.map((link) => (
                 <li key={link.to}>
                   <Link to={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
                     {link.label}
@@ -80,28 +87,15 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-sm font-semibold text-foreground">Get started</h2>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              {!user && ACCOUNT_CREATION_ENABLED && (
-                <li>
-                  <Link to="/signup?src=footer" className="transition-colors duration-micro ease-smooth hover:text-primary">
-                    Sign up for free
+            <h2 className="text-sm font-semibold text-foreground">Explore</h2>
+            <ul className="text-sm text-muted-foreground">
+              {exploreLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
+                    {link.label}
                   </Link>
                 </li>
-              )}
-              <li>
-                <GoogleCalendarSchedulingButton
-                  className="inline-flex min-h-11 items-center gap-1 transition-colors duration-micro ease-smooth hover:text-primary"
-                >
-                  Get a demo
-                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-                </GoogleCalendarSchedulingButton>
-              </li>
-              <li>
-                <button onClick={openInquiryForm} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
-                  Pricing
-                </button>
-              </li>
+              ))}
             </ul>
           </div>
 
@@ -110,7 +104,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
         {/* Bottom Bar */}
         <div className="flex flex-col gap-4 border-t pt-6 md:flex-row md:items-center md:justify-between">
           <div className="text-sm text-muted-foreground">
-            &copy; {currentYear} Bamboo Reports &middot; A Research NXT Product. All rights reserved.
+            &copy; {currentYear} Bamboo Reports - A Research NXT Product. All rights reserved.
           </div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <Link to="/privacy-policy" className="transition-colors duration-micro ease-smooth hover:text-primary">

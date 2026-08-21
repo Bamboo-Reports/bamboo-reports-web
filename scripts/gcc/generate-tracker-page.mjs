@@ -45,7 +45,7 @@ const OUT = join(DIST, "gcc", "index.html");
 const CANONICAL = `${SITE}/gcc`;
 const INLINE_COMPANIES = 100;
 
-const TITLE = "GCC Companies in India: Directory & Market Size Calculator | Bamboo Reports";
+const TITLE = "India GCC Tracker: Companies, Centres & Headcount | Bamboo Reports";
 
 function replaceMeta(html, attr, name, content) {
   const pattern = new RegExp(`<meta ${attr}="${name}"[^>]*>`);
@@ -57,19 +57,20 @@ function replaceMeta(html, attr, name, content) {
 
 function buildTrackerPage(html, accounts, pub, nameToSlug, directoryPages) {
   const totals = trackedCounts(accounts);
-  const description = `Browse a directory of ${nf(pub.length)}+ Global Capability Centers in India, from the ${nf(totals.accounts)} GCCs we track. Filter by industry and city to size your addressable market: matching accounts, centres and decision-makers.`;
+  const description = `Live India GCC numbers, no sign-in: ${nf(totals.accounts)} companies, ${nf(totals.centers)} centres, ${nf(totals.upcoming)} upcoming centres and a headcount of ${nf(totals.employees)}. Filter by industry and city to size your market.`;
 
   const dataset = {
     "@context": "https://schema.org",
     "@type": "Dataset",
     name: "Global Capability Centers (GCCs) in India",
-    description: `Directory of ${nf(totals.accounts)} GCCs in India across ${nf(totals.centers)} centres, with ${nf(totals.prospects)} mapped decision-makers.`,
+    description: `Directory of ${nf(totals.accounts)} GCCs in India across ${nf(totals.centers)} centres (${nf(totals.upcoming)} upcoming), with a tracked headcount of ${nf(totals.employees)}.`,
     creator: { "@type": "Organization", name: "Bamboo Reports" },
     license: `${SITE}/terms-conditions`,
     variableMeasured: [
       { "@type": "PropertyValue", name: "GCC companies tracked", value: totals.accounts },
       { "@type": "PropertyValue", name: "GCC centres in India", value: totals.centers },
-      { "@type": "PropertyValue", name: "Decision-makers mapped", value: totals.prospects },
+      { "@type": "PropertyValue", name: "Upcoming GCC centres", value: totals.upcoming },
+      { "@type": "PropertyValue", name: "GCC headcount tracked", value: totals.employees },
     ],
   };
   const schemas = [
@@ -87,13 +88,14 @@ function buildTrackerPage(html, accounts, pub, nameToSlug, directoryPages) {
     .join("\n        ");
 
   const content = `<main class="gcc-prerender">
-      <p>India GCC companies directory</p>
-      <h1>GCC companies in India, sized for your market</h1>
-      <p>We track ${nf(totals.accounts)} Global Capability Centers in India. Browse ${nf(pub.length)}+ of them free, filter by industry and city, and get a live count of the centres and decision-makers in your target market.</p>
+      <p>India GCC tracker</p>
+      <h1>India's GCC market, in numbers</h1>
+      <p>The definitive count of India's GCC market — ${nf(totals.accounts)} Global Capability Centers tracked, live, free, no sign-in. Filter by company, industry, or city and size your opportunity in seconds.</p>
       <ul>
         <li><strong>${nf(totals.accounts)}</strong> GCC companies tracked</li>
         <li><strong>${nf(totals.centers)}</strong> GCC centres</li>
-        <li><strong>${nf(totals.prospects)}</strong> decision-makers</li>
+        <li><strong>${nf(totals.upcoming)}</strong> upcoming centres</li>
+        <li><strong>${nf(totals.employees)}</strong> headcount</li>
       </ul>
       <h2>India GCC companies directory</h2>
 ${companyListHtml(pub.slice(0, INLINE_COMPANIES), nameToSlug)}
@@ -152,7 +154,7 @@ function buildDirectoryPage(pageNumber, pageCount, slice, pub, accounts, nameToS
       </nav>
       <h1>India GCC companies directory, page ${pageNumber} of ${pageCount}</h1>
       <p class="lede">Companies ${nf((pageNumber - 1) * DIRECTORY_PAGE_SIZE + 1)} to ${nf((pageNumber - 1) * DIRECTORY_PAGE_SIZE + slice.length)} of the ${nf(pub.length)} Global Capability Centers browsable free. Use the <a href="/gcc/">live market size calculator</a> to filter by industry and city.</p>
-      ${trackedVsShownHtml("All India GCCs", trackedCounts(accounts), pub.length, "gcc-directory-hook")}
+      ${trackedVsShownHtml("All India GCCs", trackedCounts(accounts), pub.length)}
       <ul class="companies">
 ${companyListHtml(slice, nameToSlug)}
       </ul>
@@ -204,5 +206,5 @@ await mkdir(dirname(OUT), { recursive: true });
 await writeFile(OUT, out);
 console.log(
   `Wrote ${OUT} + ${pageCount} directory pages\n  ${nf(totals.accounts)} tracked / ${nf(pub.length)} public listed / ` +
-    `${nf(totals.centers)} centres / ${nf(totals.prospects)} decision-makers`
+    `${nf(totals.centers)} centres / ${nf(totals.upcoming)} upcoming / headcount ${nf(totals.employees)}`
 );

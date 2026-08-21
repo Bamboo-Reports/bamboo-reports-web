@@ -16,7 +16,7 @@ const PLATFORM_CAPABILITIES = [
   { title: "Interactive dashboards", desc: "Real-time analytics across accounts, centres, and functions with instant filtering." },
   { title: "Geospatial intelligence", desc: "WebGL-rendered maps with thousands of GCC data points, clustered by any attribute." },
   { title: "AI-powered insights", desc: "Generate tailored intelligence for any meeting via AI prompts. From weeks to minutes." },
-  { title: "My BambooReports©", desc: "Personalised workspace: your target accounts, your ICP, your watermarked views." },
+  { title: "My Bamboo Reports©", desc: "Personalised workspace: your target accounts, your ICP, your watermarked views." },
 ];
 
 const USERS = [

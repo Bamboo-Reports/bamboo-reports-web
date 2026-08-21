@@ -7,9 +7,9 @@ export const HERO_SHOT = {
   srcSet:
     "/platform/page/hero-640.webp 640w, /platform/page/hero-1280.webp 1280w, /platform/page/hero-1920.webp 1920w",
   sizes: "(min-width: 1280px) 1152px, calc(100vw - 24px)",
-  alt: "Bamboo Reports showing accounts, centres and prospects across data, filters and geographic views",
-  width: 7680,
-  height: 4800,
+  alt: "Bamboo Reports account analytics: accounts, centres and prospects filtered over a state-level map of India",
+  width: 1920,
+  height: 1200,
 };
 
 export const HERO_HEADLINE = {
