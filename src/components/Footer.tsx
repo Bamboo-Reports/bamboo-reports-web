@@ -12,14 +12,6 @@ const exploreLinks = [
   { label: "Resources", to: "/resources" },
 ];
 
-// Mirrors the header's "What we offer" dropdown, A to Z.
-const offerLinks = [
-  { label: "Account and Market Intelligence", to: "/account-market-intelligence" },
-  { label: "GCC ABM", to: "/gcc-abm" },
-  { label: "GCC Prospect Data", to: "/gcc-prospect-data" },
-  { label: "Platform", to: "/platform" },
-];
-
 const Footer = ({ showCta = true }: { showCta?: boolean }) => {
   const { openInquiryForm } = useInquiryForm();
   const currentYear = new Date().getFullYear();
@@ -61,34 +53,21 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
         </div>}
 
         {/* Main Footer */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 md:gap-10">
-          <div className="col-span-2 space-y-4 md:col-span-2">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between md:gap-12">
+          <div className="space-y-4 md:max-w-md">
             <img
               src={logo}
               alt="Bamboo Reports: GCC Intelligence Provider"
               className="h-12 w-auto"
             />
-            <p className="max-w-xl text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               The leading GCC intelligence platform for Global Capability Centres research, market intelligence, and executive-ready insights.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-sm font-semibold text-foreground">What we offer</h2>
-            <ul className="text-sm text-muted-foreground">
-              {offerLinks.map((link) => (
-                <li key={link.to}>
-                  <Link to={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="space-y-4">
             <h2 className="text-sm font-semibold text-foreground">Explore</h2>
-            <ul className="text-sm text-muted-foreground">
+            <ul className="flex flex-wrap gap-x-6 text-sm text-muted-foreground md:flex-col md:gap-x-0">
               {exploreLinks.map((link) => (
                 <li key={link.to}>
                   <Link to={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
@@ -98,7 +77,6 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
               ))}
             </ul>
           </div>
-
         </div>
 
         {/* Bottom Bar */}
