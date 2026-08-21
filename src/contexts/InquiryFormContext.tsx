@@ -46,7 +46,11 @@ export const InquiryFormProvider = ({ children }: { children: ReactNode }) => {
             event.preventDefault();
             const opener = openerRef.current;
             openerRef.current = null;
-            window.requestAnimationFrame(() => opener.focus());
+            window.setTimeout(() => {
+              if (opener.isConnected && !document.querySelector('[role="dialog"]')) {
+                opener.focus({ preventScroll: true });
+              }
+            }, 250);
           }}
         >
           <DialogHeader className="space-y-2 bg-accent p-6 text-center text-accent-foreground sm:text-center">
