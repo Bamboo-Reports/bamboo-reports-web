@@ -33,6 +33,7 @@ export const InquiryFormProvider = ({ children }: { children: ReactNode }) => {
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent
+          aria-modal="true"
           className="max-h-[95vh] w-[95vw] max-w-[420px] gap-0 overflow-hidden border-0 bg-white p-0 shadow-2xl lg:max-h-[90vh]"
         >
           <DialogHeader className="space-y-2 bg-accent p-6 text-center text-accent-foreground sm:text-center">
