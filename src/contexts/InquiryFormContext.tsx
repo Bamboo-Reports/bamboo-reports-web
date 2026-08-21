@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useRef, useState, type ReactNode } from "react";
 import JotFormEmbed from "@/components/JotFormEmbed";
 import {
   Dialog,
@@ -24,8 +24,14 @@ export const useInquiryForm = () => {
 
 export const InquiryFormProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const openerRef = useRef<HTMLElement | null>(null);
 
-  const openInquiryForm = () => setIsOpen(true);
+  const openInquiryForm = () => {
+    openerRef.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    setIsOpen(true);
+  };
 
   return (
     <InquiryFormContext.Provider value={{ openInquiryForm }}>
@@ -35,6 +41,12 @@ export const InquiryFormProvider = ({ children }: { children: ReactNode }) => {
         <DialogContent
           aria-modal="true"
           className="max-h-[95vh] w-[95vw] max-w-[420px] gap-0 overflow-hidden border-0 bg-white p-0 shadow-2xl lg:max-h-[90vh]"
+          onCloseAutoFocus={(event) => {
+            if (!openerRef.current) return;
+            event.preventDefault();
+            openerRef.current.focus();
+            openerRef.current = null;
+          }}
         >
           <DialogHeader className="space-y-2 bg-accent p-6 text-center text-accent-foreground sm:text-center">
             <DialogTitle className="text-2xl font-bold">Bamboo Reports</DialogTitle>
