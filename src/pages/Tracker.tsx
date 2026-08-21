@@ -25,7 +25,7 @@ import {
   TRACKER_V2_NON_GCC_NOTES,
   TRACKER_V2_INDUSTRY_CLASSIFICATIONS,
 } from "@/lib/trackerStatsV2";
-import { Lock, RotateCcw, X } from "lucide-react";
+import { ArrowUpRight, Lock, RotateCcw, X } from "lucide-react";
 
 const DEBOUNCE_MS = 250;
 
@@ -693,19 +693,28 @@ const Tracker = () => {
                   <>
                     {rows.map((account) => (
                       <li key={account.name} className="px-5 py-4">
-                        <p
-                          className="truncate font-medium text-foreground"
-                          title={account.name}
-                        >
+                        <p className="font-medium text-foreground">
                           {account.slug ? (
                             <a
                               href={`/gcc/companies/${account.slug}/`}
-                              className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                              title={account.name}
+                              className="group/link flex min-w-0 items-center gap-1.5 rounded-sm text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                             >
-                              {account.name}
+                              <span className="truncate underline decoration-primary/40 underline-offset-4 transition-colors group-hover/link:decoration-primary">
+                                {account.name}
+                              </span>
+                              <ArrowUpRight
+                                className="h-3.5 w-3.5 shrink-0"
+                                aria-hidden
+                              />
+                              <span className="sr-only">
+                                — open the full company profile
+                              </span>
                             </a>
                           ) : (
-                            account.name
+                            <span className="block truncate" title={account.name}>
+                              {account.name}
+                            </span>
                           )}
                         </p>
                         <p className="mt-1 flex min-w-0 items-center gap-1.5 text-sm text-muted-foreground">
@@ -786,18 +795,28 @@ const Tracker = () => {
                             className="transition-colors duration-micro hover:bg-muted/40"
                           >
                             <td className="overflow-hidden px-5 py-4 font-medium text-foreground">
-                              <div className="truncate" title={account.name}>
-                                {account.slug ? (
-                                  <a
-                                    href={`/gcc/companies/${account.slug}/`}
-                                    className="rounded-sm hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                  >
+                              {account.slug ? (
+                                <a
+                                  href={`/gcc/companies/${account.slug}/`}
+                                  title={account.name}
+                                  className="group/link flex min-w-0 items-center gap-1.5 rounded-sm text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                >
+                                  <span className="truncate underline decoration-primary/40 underline-offset-4 transition-colors group-hover/link:decoration-primary">
                                     {account.name}
-                                  </a>
-                                ) : (
-                                  account.name
-                                )}
-                              </div>
+                                  </span>
+                                  <ArrowUpRight
+                                    className="h-3.5 w-3.5 shrink-0"
+                                    aria-hidden
+                                  />
+                                  <span className="sr-only">
+                                    — open the full company profile
+                                  </span>
+                                </a>
+                              ) : (
+                                <div className="truncate" title={account.name}>
+                                  {account.name}
+                                </div>
+                              )}
                             </td>
                             <td className="overflow-hidden px-5 py-4 text-muted-foreground">
                               <div
