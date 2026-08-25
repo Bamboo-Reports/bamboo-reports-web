@@ -24,6 +24,10 @@ interface AccountSearchFilterProps {
   /** Set when the query exactly matches an account excluded from the GCC
    * directory; explains why (e.g. "Only Manufacturing presence in India"). */
   nonGccNote?: string | null;
+  /** True when the query is too short to have returned any names. Without it
+   * a 2-3 character query falls through to "Not in our directory yet", which
+   * would be wrong: nothing has been looked up yet. */
+  needsMoreInput?: boolean;
   disabled?: boolean;
   onQueryChange: (query: string) => void;
   onSelect: (account: string) => void;
@@ -38,6 +42,7 @@ export function AccountSearchFilter({
   isGatedMatch = false,
   gatedMatchName = null,
   nonGccNote = null,
+  needsMoreInput = false,
   disabled,
   onQueryChange,
   onSelect,
@@ -125,6 +130,10 @@ export function AccountSearchFilter({
               Available in the full version
             </GoogleCalendarSchedulingButton>
           </div>
+        ) : needsMoreInput ? (
+          <p className="px-3 py-4 text-sm text-muted-foreground">
+            Keep typing to search companies…
+          </p>
         ) : suggestions.length > 0 ? (
           suggestions.map((option) => (
             <button

@@ -16,6 +16,12 @@ import {
   type TrackerV2Account,
 } from "@/lib/trackerAccountsV2";
 import {
+  TRACKER_SERVER_QUERY_ENABLED,
+  TRACKER_MIN_SUGGEST_LENGTH,
+  fetchTrackerV2Query,
+  type TrackerQueryRow,
+} from "@/lib/trackerQueryV2";
+import {
   TRACKER_V2_STATS,
   TRACKER_V2_TOP_INDUSTRIES,
   TRACKER_V2_TOP_CITIES,
@@ -39,6 +45,13 @@ interface TrackerFilters {
 
 const EMPTY_FILTERS: TrackerFilters = {
   company: null,
+  industries: [],
+  cities: [],
+};
+
+/** Server-mode fallbacks for the first render, before the query resolves. */
+const EMPTY_COUNTS = { companies: 0, centers: 0, upcoming: 0, employees: 0 };
+const EMPTY_FACETS: { industries: FacetOption[]; cities: FacetOption[] } = {
   industries: [],
   cities: [],
 };
@@ -240,39 +253,39 @@ const Tracker = () => {
 
   const {
     data: accounts = [],
-    isLoading,
-    isError,
+    isLoading: isLoadingStatic,
+    isError: isErrorStatic,
   } = useQuery({
     queryKey: ["tracker-v2-accounts"],
     queryFn: ({ signal }) => fetchTrackerV2Accounts(signal),
     staleTime: Infinity,
+    enabled: !TRACKER_SERVER_QUERY_ENABLED,
   });
-
-  useEffect(() => {
-    if (isError) {
-      toast.error("Couldn't load the tracker dataset. Please try again.");
-    }
-  }, [isError]);
 
   // Exact-name search on a private account answers "tracked" without the
   // private list ever being in the payload; excluded non-gcc accounts get
   // their explanatory note the same way.
-  const [privateMatch, setPrivateMatch] = useState(false);
-  const [nonGccNote, setNonGccNote] = useState<string | null>(null);
+  const [searchHash, setSearchHash] = useState<string | null>(null);
+  const [localPrivateMatch, setLocalPrivateMatch] = useState(false);
+  const [localNonGccNote, setLocalNonGccNote] = useState<string | null>(null);
   useEffect(() => {
     const q = debouncedAccountSearch.trim();
     if (q.length < 2) {
-      setPrivateMatch(false);
-      setNonGccNote(null);
+      setSearchHash(null);
+      setLocalPrivateMatch(false);
+      setLocalNonGccNote(null);
       return;
     }
     let cancelled = false;
     hashCompanyName(q).then((hash) => {
       if (cancelled) return;
-      setPrivateMatch(
+      setSearchHash(hash);
+      setLocalPrivateMatch(
         hash !== null && accounts.some((account) => account.h === hash)
       );
-      setNonGccNote(hash !== null ? TRACKER_V2_NON_GCC_NOTES[hash] ?? null : null);
+      setLocalNonGccNote(
+        hash !== null ? TRACKER_V2_NON_GCC_NOTES[hash] ?? null : null
+      );
     });
     return () => {
       cancelled = true;
@@ -350,7 +363,7 @@ const Tracker = () => {
 
   // Headline counters. Aggregated from the same per-city data the exposure
   // table was generated from, so single selections reproduce it exactly.
-  const counts = useMemo(
+  const localCounts = useMemo(
     () =>
       filteredAccounts.reduce(
         (sums, account) => {
@@ -369,7 +382,7 @@ const Tracker = () => {
 
   // Facet option counts ignore their own dimension (picking an industry must
   // not zero out the other industries' counts).
-  const facets = useMemo(() => {
+  const localFacets = useMemo(() => {
     const industryCounts = new Map<string, number>();
     const cityCounts = new Map<string, number>();
     for (const account of accounts) {
@@ -399,8 +412,8 @@ const Tracker = () => {
   }, [accounts, matchesFilters]);
 
   const normalizedSearch = debouncedAccountSearch.trim().toLowerCase();
-  const suggestions: FacetOption[] = useMemo(() => {
-    if (normalizedSearch.length < 2) return [];
+  const localSuggestions: FacetOption[] = useMemo(() => {
+    if (normalizedSearch.length < TRACKER_MIN_SUGGEST_LENGTH) return [];
     return accounts
       .filter(
         (account): account is TrackerV2Account & { name: string } =>
@@ -412,7 +425,7 @@ const Tracker = () => {
         const bStarts = b.name.toLowerCase().startsWith(normalizedSearch);
         return Number(bStarts) - Number(aStarts) || a.name.localeCompare(b.name);
       })
-      .slice(0, 8)
+      .slice(0, 5)
       .map((account) => ({ value: account.name, count: 1 }));
   }, [accounts, normalizedSearch]);
 
@@ -423,7 +436,7 @@ const Tracker = () => {
       ? visibleAccounts.length
       : permittedRowsFor(filteredAccounts.length);
 
-  const rows = useMemo(() => {
+  const localRows = useMemo(() => {
     if (hasSelection || accountSearch.trim().length > 0) {
       return visibleAccounts.slice(0, permittedRows);
     }
@@ -457,7 +470,75 @@ const Tracker = () => {
     return balanced;
   }, [visibleAccounts, hasSelection, accountSearch, permittedRows]);
 
-  const remainingCount = filteredAccounts.length - rows.length;
+  const localRemainingCount = filteredAccounts.length - localRows.length;
+
+  // Server-query mode: the browser asks for one filter combination and gets
+  // back only the rows the exposure cap permits, so the dataset never ships.
+  // The static path above stays intact behind the flag for comparison.
+  const {
+    data: serverResult,
+    isLoading: isLoadingServer,
+    isError: isErrorServer,
+  } = useQuery({
+    queryKey: [
+      "tracker-v2-query",
+      filters.company,
+      filters.industries,
+      filters.cities,
+      debouncedAccountSearch,
+      searchHash,
+    ],
+    queryFn: ({ signal }) =>
+      fetchTrackerV2Query(
+        {
+          company: filters.company,
+          industries: filters.industries,
+          cities: filters.cities,
+          search: debouncedAccountSearch,
+          searchHash,
+        },
+        signal
+      ),
+    enabled: TRACKER_SERVER_QUERY_ENABLED,
+    // Keep the previous answer on screen while the next one lands, so
+    // filtering doesn't flash the skeleton on every keystroke.
+    placeholderData: (previous) => previous,
+    staleTime: 5 * 60 * 1000,
+  });
+
+  const isLoading = TRACKER_SERVER_QUERY_ENABLED
+    ? isLoadingServer
+    : isLoadingStatic;
+  const isError = TRACKER_SERVER_QUERY_ENABLED ? isErrorServer : isErrorStatic;
+  const counts = TRACKER_SERVER_QUERY_ENABLED
+    ? serverResult?.counts ?? EMPTY_COUNTS
+    : localCounts;
+  const rows: TrackerQueryRow[] = TRACKER_SERVER_QUERY_ENABLED
+    ? serverResult?.rows ?? []
+    : localRows;
+  const remainingCount = TRACKER_SERVER_QUERY_ENABLED
+    ? serverResult?.remainingCount ?? 0
+    : localRemainingCount;
+  const facets = TRACKER_SERVER_QUERY_ENABLED
+    ? serverResult?.facets ?? EMPTY_FACETS
+    : localFacets;
+  const suggestions = TRACKER_SERVER_QUERY_ENABLED
+    ? serverResult?.suggestions ?? []
+    : localSuggestions;
+  const privateMatch = TRACKER_SERVER_QUERY_ENABLED
+    ? serverResult?.privateMatch ?? false
+    : localPrivateMatch;
+  const nonGccNote = TRACKER_SERVER_QUERY_ENABLED
+    ? serverResult?.nonGccNote ?? null
+    : localNonGccNote;
+
+  // Declared after the resolution block: `isError` resolves local-or-server
+  // above, so this effect must not run before those consts initialise.
+  useEffect(() => {
+    if (isError) {
+      toast.error("Couldn't load the tracker dataset. Please try again.");
+    }
+  }, [isError]);
   const isSearching =
     accountSearch.trim().length >= 2 && accountSearch !== debouncedAccountSearch;
 
@@ -538,6 +619,10 @@ const Tracker = () => {
                   selectedAccount={filters.company ?? undefined}
                   suggestions={suggestions}
                   isSearching={isSearching}
+                  needsMoreInput={
+                    debouncedAccountSearch.trim().length > 0 &&
+                    debouncedAccountSearch.trim().length < TRACKER_MIN_SUGGEST_LENGTH
+                  }
                   isGatedMatch={privateMatch}
                   gatedMatchName={null}
                   nonGccNote={nonGccNote}
