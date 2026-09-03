@@ -1,5 +1,5 @@
 import PlatformShell from "@/components/platform/PlatformShell";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 import { HERO_DESCRIPTION, HERO_HEADLINE, PLATFORM_SEO } from "@/components/platform/content";
@@ -43,10 +43,10 @@ const Platform = () => {
               style={{ animationDelay: "120ms" }}
             >
               <Button asChild size="lg" className="platform-primary-cta w-full px-8 text-base font-semibold sm:w-auto">
-                <GoogleCalendarSchedulingButton>
+                <CalSchedulingButton>
                   See Bamboo Reports in action
                   <ArrowRight className="h-4 w-4" aria-hidden />
-                </GoogleCalendarSchedulingButton>
+                </CalSchedulingButton>
               </Button>
               <a
                 href="#sequence"

@@ -1,15 +1,17 @@
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/bamboo-logo.svg";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
+import finalReportPdf from "../../../final-report.pdf";
+import q2ReportCover from "../../../q2-report-cover.png";
 
 const IndiaGccReportQ22026ThankYou = () => {
   useSEO({
     title: "You're all set | Bamboo Reports",
     description:
-      "Your registration for the Q2 2026 India GCC report is confirmed. The report reaches your inbox the day it releases.",
+      "The published Q2 2026 India GCC Quarterly Report is ready to download.",
     canonicalUrl:
       "https://bambooreports.com/reports/india-gcc-report-q2-2026/thank-you",
     robots: "noindex, follow",
@@ -41,36 +43,35 @@ const IndiaGccReportQ22026ThankYou = () => {
           <section className="md:col-start-1 md:row-start-1">
             <p className="hero-rise flex items-center gap-2.5 text-sm font-semibold text-muted-foreground">
               <CheckCircle className="h-5 w-5 text-primary" aria-hidden />
-              Registration confirmed
+              Report published
             </p>
             <h1 className="hero-rise mt-4 text-balance text-4xl font-bold leading-tight [animation-delay:80ms] md:text-5xl">
-              You&apos;re all set{" "}
-              <span className="text-primary">and on the list.</span>
+              Your report is{" "}
+              <span className="text-primary">ready to download.</span>
             </h1>
             <p className="hero-rise mt-5 max-w-2xl leading-relaxed text-muted-foreground [animation-delay:160ms]">
-              Thank you for pre-registering. You&apos;ll receive your copy the
-              day it releases.
+              Download the Q2 2026 India GCC Quarterly Report below.
             </p>
           </section>
 
           <img
-            src="/gcc/india-gcc-report-cover-q2-2026.webp"
+            src={q2ReportCover}
             alt="Report cover: India GCC Quarterly Report, Q2 2026, April to June"
-            width={880}
-            height={1245}
+            width={1655}
+            height={2340}
             className="hero-rise w-44 justify-self-center rounded-md shadow-xl shadow-navy/25 [animation-delay:160ms] sm:w-52 md:col-start-2 md:row-start-1 md:row-span-2 md:w-64 md:self-center"
           />
 
           <section className="md:col-start-1 md:row-start-2">
             <div className="hero-rise flex flex-col gap-3 [animation-delay:200ms] sm:flex-row md:mt-8">
               <Button asChild className="group font-semibold">
-                <Link to="/">
-                  Explore the platform
+                <a href={finalReportPdf} download="india-gcc-quarterly-report-q2-2026.pdf">
+                  Download the report
                   <ArrowRight
                     className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
                     aria-hidden
                   />
-                </Link>
+                </a>
               </Button>
               <Button asChild variant="outline" className="font-semibold">
                 <a
@@ -84,9 +85,9 @@ const IndiaGccReportQ22026ThankYou = () => {
             </div>
             <p className="hero-rise mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground [animation-delay:240ms]">
               Want the data behind the report, live and in full?{" "}
-              <GoogleCalendarSchedulingButton className="font-semibold text-primary hover:underline">
+              <CalSchedulingButton className="font-semibold text-primary hover:underline">
                 Book a walkthrough with our team
-              </GoogleCalendarSchedulingButton>
+              </CalSchedulingButton>
               .
             </p>
           </section>

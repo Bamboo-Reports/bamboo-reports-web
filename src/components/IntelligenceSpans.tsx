@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import indiaMap from "../../india-map-sep.svg";
 
 const categories = [
   {
@@ -41,7 +42,7 @@ const IntelligenceSpans = () => (
 
       <div className="flex justify-center">
         <img
-          src="/india-map.svg"
+          src={indiaMap}
           alt="GCC Intelligence Coverage"
           width="2280"
           height="2282"

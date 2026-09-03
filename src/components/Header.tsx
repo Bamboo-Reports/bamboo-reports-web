@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import {
   Sheet,
   SheetContent,
@@ -256,9 +256,9 @@ const Header = () => {
                     className="w-full rounded-full font-semibold"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <GoogleCalendarSchedulingButton>
+                    <CalSchedulingButton>
                       Get a demo
-                    </GoogleCalendarSchedulingButton>
+                    </CalSchedulingButton>
                   </Button>
                 </div>
               </nav>

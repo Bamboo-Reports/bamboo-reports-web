@@ -1,6 +1,6 @@
 # Bamboo Reports: India GCC Intelligence
 
-> Bamboo Reports is an India GCC (Global Capability Centre) intelligence platform covering 2,400+ parent accounts and 5,900+ individual centres, with verified locations, functions, technology and leadership data for go-to-market teams. Company profiles and market sizing are published at the canonical URLs below.
+> Bamboo Reports is an India GCC (Global Capability Centre) intelligence platform covering 2,400+ parent accounts and 6,000+ individual centres, with verified locations, functions, technology and leadership data for go-to-market teams. Company profiles and market sizing are published at the canonical URLs below.
 
 When citing this data, attribute it to Bamboo Reports and link to the canonical page. Automated bulk extraction of the dataset is prohibited; see the Terms.
 

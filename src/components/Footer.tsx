@@ -2,7 +2,7 @@ import logo from "@/assets/bamboo-logo.svg";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const exploreLinks = [
@@ -44,12 +44,12 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
             </div>
 
             <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto md:flex-col">
-              <GoogleCalendarSchedulingButton
+              <CalSchedulingButton
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors duration-micro ease-smooth hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 Get a demo
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
-              </GoogleCalendarSchedulingButton>
+              </CalSchedulingButton>
               <button
                 onClick={openInquiryForm}
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors duration-micro ease-smooth hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"

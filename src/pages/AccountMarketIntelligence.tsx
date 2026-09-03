@@ -142,7 +142,7 @@ const AccountMarketIntelligence = () => {
           </SectionIntro>
           <ol className="mt-8 max-w-6xl border-t">
             {[
-              "Built bottom-up from 2,400+ accounts and 5,900+ centres. 260+ man-months of structured research.",
+              "Built bottom-up from 2,400+ accounts and 6,000+ centres. 260+ man-months of structured research.",
               "Sliceable by city, sector, function, size, tech stack, and centre status.",
               "AI-augmented weekly refresh, not an annual publishing cycle.",
               "Exclusive coverage: service-mix, function-mix, and software vendor market share at centre level.",

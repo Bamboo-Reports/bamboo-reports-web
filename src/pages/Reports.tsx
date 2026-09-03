@@ -44,7 +44,7 @@ const Reports = () => {
               <div className="mt-6">
                 <FeaturedResourceRow
                   item={latestReport}
-                  cta="Register for the report"
+                  cta="Download the report"
                 />
               </div>
 

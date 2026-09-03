@@ -56,7 +56,10 @@ const App = () => {
             <Route path="/reads/agentic-enterprise" element={<AgenticEnterprise />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/reports/india-gcc-report-q2-2026" element={<IndiaGccReportQ22026 />} />
-            <Route path="/reports/india-gcc-report-q2-2026/thank-you" element={<IndiaGccReportQ22026ThankYou />} />
+            <Route
+              path="/reports/india-gcc-report-q2-2026/thank-you"
+              element={<IndiaGccReportQ22026ThankYou />}
+            />
             <Route
               path="/reports/india-gcc-report-q1-fy27"
               element={<Navigate to="/reports/india-gcc-report-q2-2026" replace />}

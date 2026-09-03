@@ -10,7 +10,7 @@ const PAGE_META = {
   },
   "/about": {
     title: "About Bamboo Reports | The India GCC dataset built centre by centre",
-    description: "Bamboo Reports profiles 5,900+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
+    description: "Bamboo Reports profiles 6,000+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
   },
   "/account-market-intelligence": {
     title: "Account & Market Intelligence | India GCC Research | Bamboo Reports",
@@ -42,13 +42,13 @@ const PAGE_META = {
   },
   "/reports/india-gcc-report-q2-2026": {
     title: "India GCC Quarterly Report, Q2 2026 (April to June) | Bamboo Reports",
-    description: "The Q2 2026 India GCC Quarterly Report covers 110 centres across 99 companies, including new entrants, expansions and hiring shifts. Free, publishing late August 2026.",
+    description: "The Q2 2026 India GCC Quarterly Report tracks 110 centre events across 99 companies and 27 cities, including 40 first-time entrants, 75K+ announced roles and the rise of AI-first centres.",
     image: `${SITE}/gcc/india-gcc-report-share-card-q2-2026.png`,
     type: "article",
   },
   "/reports/india-gcc-report-q2-2026/thank-you": {
     title: "You're all set | Bamboo Reports",
-    description: "Your registration for the Q2 2026 India GCC report is confirmed. The report reaches your inbox the day it releases.",
+    description: "The published Q2 2026 India GCC Quarterly Report is ready to download.",
     robots: "noindex, follow",
   },
   "/reads": {

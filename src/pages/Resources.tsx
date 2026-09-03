@@ -6,6 +6,8 @@ import { DemoCta, MarketingHero } from "@/components/B2BMarketingPage";
 import { ResourceCard, type ResourceItem } from "@/components/ResourceCards";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
+import agenticEnterpriseCover from "../../report-cover-tw.png";
+import q2ReportCover from "../../q2-report-cover.png";
 
 const reports: ResourceItem[] = [{
   to: "/reports/india-gcc-report-q2-2026",
@@ -13,7 +15,7 @@ const reports: ResourceItem[] = [{
   title: "The Q2 2026 India GCC report",
   summary:
     "Who set up or expanded near you, where the hiring went, and which corridors are opening next.",
-  gradientIndex: 0,
+  coverImage: q2ReportCover,
 }];
 
 const reads: ResourceItem[] = [{
@@ -22,7 +24,7 @@ const reads: ResourceItem[] = [{
   title: "The Agentic Enterprise",
   summary:
     "Build an enterprise that adapts, not just automates. A composable architecture of agents, data and governance that evolves as fast as AI does.",
-  gradientIndex: 1,
+  coverImage: agenticEnterpriseCover,
 }];
 
 const Resources = () => {
@@ -50,7 +52,9 @@ const Resources = () => {
               </div>
               <div className="mt-6 grid gap-8 sm:mt-8 md:grid-cols-2 md:mt-10 lg:grid-cols-3">
                 {reports.map((report) => (
-                  <ResourceCard key={report.to} item={report} />
+                  <div key={report.to} className="w-full max-w-[300px]">
+                    <ResourceCard item={report} />
+                  </div>
                 ))}
               </div>
               <Button variant="outline" className="mt-6 w-full sm:hidden" asChild>
@@ -73,7 +77,9 @@ const Resources = () => {
               </div>
               <div className="mt-6 grid gap-8 sm:mt-8 md:mt-10 md:grid-cols-2 lg:grid-cols-3">
                 {reads.map((read) => (
-                  <ResourceCard key={read.to} item={read} />
+                  <div key={read.to} className="w-full max-w-[300px]">
+                    <ResourceCard item={read} />
+                  </div>
                 ))}
               </div>
               <Button variant="outline" className="mt-6 w-full sm:hidden" asChild>

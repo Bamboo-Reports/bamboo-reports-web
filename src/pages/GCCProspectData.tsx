@@ -6,7 +6,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 const COVERAGE = [
   { title: "Decision makers", desc: "Named C-suite, VPs, directors, and function heads across the ecosystem." },
-  { title: "Centre-level mapping", desc: "Contacts tied to 5,900+ individual centres, not just parent companies." },
+  { title: "Centre-level mapping", desc: "Contacts tied to 6,000+ individual centres, not just parent companies." },
   { title: "Function coverage", desc: "Engineering, Product, Data, Finance, HR, Legal, Operations, IT, and more." },
   { title: "Geospatial precision", desc: "Every centre geo-coded across India's GCC cities and clusters." },
   { title: "Service-mix context", desc: "5–12 structured service classifications per centre: what each GCC actually does." },
@@ -51,7 +51,7 @@ const GCCProspectData = () => {
         description={
           <p>
             Bamboo Reports gives you the most complete, structured contact intelligence on India's
-            Global Capability Centre ecosystem: verified decision makers across 5,900+
+            Global Capability Centre ecosystem: verified decision makers across 6,000+
             centres, continuously refreshed and ready to power your outreach.
           </p>
         }

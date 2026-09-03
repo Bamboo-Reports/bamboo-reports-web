@@ -2,7 +2,7 @@ import * as React from "react";
 import { Check, ChevronsUpDown, Lock, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -145,10 +145,10 @@ export function MultiSelectFilter({
         </div>
         {lockedCount > 0 && (
           <div className="border-t p-1">
-            <GoogleCalendarSchedulingButton className="flex w-full items-center gap-2 rounded-sm px-2 py-2 text-left text-sm font-medium text-primary transition-colors hover:bg-muted">
+            <CalSchedulingButton className="flex w-full items-center gap-2 rounded-sm px-2 py-2 text-left text-sm font-medium text-primary transition-colors hover:bg-muted">
               <Lock className="h-3.5 w-3.5 shrink-0" />
               {lockedCount.toLocaleString()} more {lockedNoun} available in the full version
-            </GoogleCalendarSchedulingButton>
+            </CalSchedulingButton>
           </div>
         )}
         {value.length > 0 && (
