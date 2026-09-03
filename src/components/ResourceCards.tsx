@@ -112,10 +112,7 @@ export const FeaturedResourceRow = ({
   </Link>
 );
 
-/**
- * Compact grid card: label and title on the gradient cover, summary revealed
- * on hover with the ease and motion-blur treatment.
- */
+/** Compact report card: cover, report type, title, then a clear text CTA. */
 export const ResourceCard = ({ item }: { item: ResourceItem }) => (
   <Link
     to={item.to}
@@ -128,15 +125,13 @@ export const ResourceCard = ({ item }: { item: ResourceItem }) => (
       coverImage={item.coverImage}
       titleClassName="text-lg"
     >
-      {/* Touch has no hover: the summary is always visible below md and
-          becomes the hover reveal on pointer devices. */}
-      <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] md:group-focus-visible:grid-rows-[1fr] motion-reduce:transition-none">
-        <div className="overflow-hidden">
-          <p className="pt-2 text-sm leading-relaxed text-navy/70 transition-[opacity,filter] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] md:opacity-0 md:blur-[5px] md:group-hover:opacity-100 md:group-hover:blur-none md:group-focus-visible:opacity-100 md:group-focus-visible:blur-none motion-reduce:blur-none motion-reduce:transition-none">
-            {item.summary}
-          </p>
-        </div>
-      </div>
+      <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+        Read more
+        <ArrowRight
+          className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+          aria-hidden
+        />
+      </span>
     </CoverArt>
   </Link>
 );
