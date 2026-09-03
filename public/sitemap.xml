@@ -71,17 +71,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://bambooreports.com/reads</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://bambooreports.com/reads/agentic-enterprise</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
   <!-- Events -->
   <url>
     <loc>https://bambooreports.com/events/agentic-supply-chain-control-tower</loc>

@@ -7,8 +7,6 @@ import { InquiryFormProvider } from "@/contexts/InquiryFormContext";
 import IndexV2 from "./pages/IndexV2";
 import About from "./pages/About";
 import Resources from "./pages/Resources";
-import Reads from "./pages/Reads";
-import AgenticEnterprise from "./pages/reads/AgenticEnterprise";
 import AgenticSupplyChainControlTower from "./pages/events/AgenticSupplyChainControlTower";
 import AgenticSupplyChainControlTowerThankYou from "./pages/events/AgenticSupplyChainControlTowerThankYou";
 import Reports from "./pages/Reports";
@@ -52,8 +50,7 @@ const App = () => {
               element={<AgenticSupplyChainControlTowerThankYou />}
             />
             <Route path="/resources" element={<Resources />} />
-            <Route path="/reads" element={<Reads />} />
-            <Route path="/reads/agentic-enterprise" element={<AgenticEnterprise />} />
+            <Route path="/reads" element={<Navigate to="/resources" replace />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/reports/india-gcc-report-q2-2026" element={<IndiaGccReportQ22026 />} />
             <Route

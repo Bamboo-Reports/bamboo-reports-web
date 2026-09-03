@@ -33,8 +33,8 @@ const PAGE_META = {
     description: "Proof that the Bamboo Reports model works across solution providers and GCCs alike. Explore GCC strategy, intelligence, benchmarking, talent, and expansion outcomes.",
   },
   "/resources": {
-    title: "Resources | GCC Reports & Reads | Bamboo Reports",
-    description: "Market reports, insights, and curated long-form reads from the team tracking India's GCC ecosystem centre by centre.",
+    title: "Resources | India GCC Reports | Bamboo Reports",
+    description: "Market reports from the team tracking India's GCC ecosystem centre by centre.",
   },
   "/reports": {
     title: "Reports | India GCC Intelligence | Bamboo Reports",
@@ -50,15 +50,6 @@ const PAGE_META = {
     title: "You're all set | Bamboo Reports",
     description: "The published Q2 2026 India GCC Quarterly Report is ready to download.",
     robots: "noindex, follow",
-  },
-  "/reads": {
-    title: "Interesting Reads | Bamboo Reports",
-    description: "Whitepapers and long-form reads on the ideas shaping the enterprise, curated for senior leaders by Bamboo Reports.",
-  },
-  "/reads/agentic-enterprise": {
-    title: "The Agentic Enterprise · Thoughtworks × AWS Whitepaper",
-    description: "Build an enterprise that adapts, not just automates. Download the Thoughtworks and AWS whitepaper on continuous evolution and reliable impact.",
-    type: "article",
   },
   "/events/agentic-supply-chain-control-tower": {
     title: "Agentic Supply Chain Control Tower · Retail Roundtable by Thoughtworks",
