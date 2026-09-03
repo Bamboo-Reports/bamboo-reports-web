@@ -90,7 +90,7 @@ const HeroV2 = () => (
               className="group flex min-h-20 items-center justify-between gap-5 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary md:min-h-28 md:px-6 md:py-5 md:first:pl-0 md:last:pr-0"
             >
               <span>
-                <span className="block text-base font-bold text-white transition-colors duration-200 group-hover:text-[hsl(33_100%_65%)]">
+                <span className="block text-base font-bold text-white transition-colors duration-200 group-hover:text-accent group-focus-visible:text-accent">
                   {item.title}
                 </span>
                 <span className="mt-1 block text-sm leading-snug text-white/75">
@@ -98,7 +98,7 @@ const HeroV2 = () => (
                 </span>
               </span>
               <ArrowRight
-                className="h-5 w-5 flex-none text-white/75 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-[hsl(33_100%_65%)] motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+                className="h-5 w-5 flex-none text-white/75 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent group-focus-visible:text-accent motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
                 aria-hidden
               />
             </Link>
