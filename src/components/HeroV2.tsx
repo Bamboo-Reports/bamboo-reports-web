@@ -23,33 +23,37 @@ const CAPABILITIES = [
 ];
 
 const HeroV2 = () => (
-  <section className="relative isolate overflow-hidden bg-background text-foreground">
+  <section className="relative isolate overflow-hidden bg-neutral-900 text-white">
     <img
       src={heroV3}
       alt=""
       aria-hidden
-      className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[center_58%]"
+      className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[74%_50%] sm:object-[center_58%]"
     />
     <div
-      className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-black/55 via-black/25 via-[40%] to-transparent to-[70%]"
+      className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-black/70 via-black/20 via-[45%] to-black/75 sm:hidden"
       aria-hidden
     />
     <div
-      className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[38%] bg-gradient-to-t from-black/50 via-black/15 to-transparent"
+      className="pointer-events-none absolute inset-0 z-0 hidden bg-gradient-to-r from-black/60 via-black/30 via-[42%] to-transparent to-[78%] sm:block"
+      aria-hidden
+    />
+    <div
+      className="pointer-events-none absolute inset-x-0 bottom-0 z-0 hidden h-[46%] bg-gradient-to-t from-black/65 via-black/25 to-transparent sm:block"
       aria-hidden
     />
     <div className="relative z-10 mx-auto max-w-7xl px-5 pt-14 sm:px-4 sm:pt-24 lg:pt-32">
       <div className="max-w-[42rem] text-left">
         <h1
-          className="hero-rise text-balance text-3xl font-extrabold leading-[1.04] tracking-[-0.025em] text-white sm:text-[clamp(2.125rem,4.5vw,3.75rem)] sm:leading-[1.02] sm:tracking-[-0.03em]"
+          className="hero-rise text-balance text-[2rem] font-extrabold leading-[1.06] tracking-[-0.025em] text-white sm:text-[clamp(2.125rem,4.5vw,3.75rem)] sm:leading-[1.02] sm:tracking-[-0.03em]"
           style={{ animationDelay: "0ms" }}
         >
           Your trusted GTM partner for{" "}
-          <span className="block text-[hsl(33_100%_65%)]">Global Capability Centres</span>
+          <span className="block text-[hsl(33_100%_62%)]">Global Capability Centres</span>
         </h1>
 
         <p
-          className="hero-rise mt-4 max-w-[35ch] text-pretty text-sm leading-6 text-white/85 sm:mt-5 sm:max-w-3xl sm:text-lg sm:leading-relaxed"
+          className="hero-rise mt-5 max-w-[36ch] text-pretty text-[15px] leading-[1.6] text-white/90 sm:mt-5 sm:max-w-3xl sm:text-lg sm:leading-relaxed"
           style={{ animationDelay: "120ms" }}
         >
           <span className="sm:block sm:whitespace-nowrap">
@@ -61,7 +65,7 @@ const HeroV2 = () => (
         </p>
 
         <div
-          className="hero-rise mt-6 flex items-center justify-start sm:mt-7"
+          className="hero-rise mt-6 hidden items-center justify-start sm:mt-7 sm:flex"
           style={{ animationDelay: "220ms" }}
         >
           <Button
@@ -78,7 +82,7 @@ const HeroV2 = () => (
       </div>
 
       <nav
-        className="hero-rise mt-12 border-y border-white/30 sm:mt-20 sm:border-b-0 lg:mt-28"
+        className="hero-rise mt-8 border-y border-white/30 sm:mt-10 sm:border-b-0 lg:mt-12"
         aria-label="Bamboo Reports capabilities"
         style={{ animationDelay: "340ms" }}
       >
@@ -105,6 +109,23 @@ const HeroV2 = () => (
           ))}
         </div>
       </nav>
+
+      {/* Phones: the CTA closes the section after the capability links. */}
+      <div
+        className="hero-rise pb-10 pt-6 sm:hidden"
+        style={{ animationDelay: "440ms" }}
+      >
+        <Button
+          asChild
+          size="lg"
+          className="w-full bg-accent px-7 text-base font-semibold text-white hover:bg-accent-deep"
+        >
+          <CalSchedulingButton>
+            Get a demo
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </CalSchedulingButton>
+        </Button>
+      </div>
     </div>
   </section>
 );
