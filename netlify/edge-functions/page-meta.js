@@ -46,11 +46,6 @@ const PAGE_META = {
     image: `${SITE}/gcc/india-gcc-report-share-card-q2-2026.png`,
     type: "article",
   },
-  "/reports/india-gcc-report-q2-2026/thank-you": {
-    title: "You're all set | Bamboo Reports",
-    description: "The published Q2 2026 India GCC Quarterly Report is ready to download.",
-    robots: "noindex, follow",
-  },
   "/events/agentic-supply-chain-control-tower": {
     title: "Agentic Supply Chain Control Tower · Retail Roundtable by Thoughtworks",
     description: "A retail roundtable hosted by Thoughtworks on moving from supply-chain signals to coordinated action. Bengaluru, 10 September 2026.",

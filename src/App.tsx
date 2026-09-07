@@ -11,7 +11,6 @@ import AgenticSupplyChainControlTower from "./pages/events/AgenticSupplyChainCon
 import AgenticSupplyChainControlTowerThankYou from "./pages/events/AgenticSupplyChainControlTowerThankYou";
 import Reports from "./pages/Reports";
 import IndiaGccReportQ22026 from "./pages/reports/IndiaGccReportQ22026";
-import IndiaGccReportQ22026ThankYou from "./pages/reports/IndiaGccReportQ22026ThankYou";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -54,16 +53,12 @@ const App = () => {
             <Route path="/reports" element={<Reports />} />
             <Route path="/reports/india-gcc-report-q2-2026" element={<IndiaGccReportQ22026 />} />
             <Route
-              path="/reports/india-gcc-report-q2-2026/thank-you"
-              element={<IndiaGccReportQ22026ThankYou />}
-            />
-            <Route
               path="/reports/india-gcc-report-q1-fy27"
               element={<Navigate to="/reports/india-gcc-report-q2-2026" replace />}
             />
             <Route
               path="/reports/india-gcc-report-q1-fy27/thank-you"
-              element={<Navigate to="/reports/india-gcc-report-q2-2026/thank-you" replace />}
+              element={<Navigate to="/reports/india-gcc-report-q2-2026" replace />}
             />
             <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />

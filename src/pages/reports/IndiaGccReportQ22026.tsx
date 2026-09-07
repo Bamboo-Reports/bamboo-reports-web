@@ -34,7 +34,7 @@ const FINDINGS = [
 const METHOD_STATS = [
   { value: "2,400+", label: "companies under coverage" },
   { value: "6,000+", label: "centres tracked at coordinate level" },
-  { value: "57K+", label: "decision-makers mapped" },
+  { value: "58K+", label: "decision-makers mapped" },
 ];
 
 const FAQS = [
