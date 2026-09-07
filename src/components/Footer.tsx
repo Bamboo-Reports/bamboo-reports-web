@@ -7,6 +7,7 @@ import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
 const exploreLinks = [
   ...(GCC_TRACKER_ENABLED ? [{ label: "GCC Tracker", to: "/gcc" }] : []),
+  { label: "Platform", to: "/platform" },
   { label: "About us", to: "/about" },
   { label: "Success stories", to: "/success-stories" },
   { label: "Resources", to: "/resources" },
@@ -17,7 +18,6 @@ const offerLinks = [
   { label: "Account and Market Intelligence", to: "/account-market-intelligence" },
   { label: "GCC ABM", to: "/gcc-abm" },
   { label: "GCC Prospect Data", to: "/gcc-prospect-data" },
-  { label: "Platform", to: "/platform" },
 ];
 
 const Footer = ({ showCta = true }: { showCta?: boolean }) => {

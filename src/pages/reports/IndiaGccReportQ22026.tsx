@@ -18,16 +18,16 @@ const NUMBERS = [
 
 const FINDINGS = [
   {
-    lead: "The market accelerated:",
-    rest: "110 centre events made this quarter 43% larger than the last, with 84 centres operating and 26 announced.",
+    lead: "Entry and expansion:",
+    rest: "40% of the 99 companies entered India for the first time, while the remaining 60% added centres or expanded existing ones.",
   },
   {
-    lead: "Activity concentrated:",
-    rest: "Bengaluru and Hyderabad accounted for half of all centres, while 95% of announced roles were mid or senior level.",
+    lead: "Hiring and talent:",
+    rest: "75K+ roles were announced, 32% in Bengaluru and 25% in Hyderabad, with 95% at mid or senior level and AI/ML the second-largest hiring function.",
   },
   {
-    lead: "AI moved into the charter:",
-    rest: "23% of new centres opened with an AI or machine-learning mandate, and AI/ML became the second-largest hiring function.",
+    lead: "AI-first mandates:",
+    rest: "23% of new centres opened with an AI or machine-learning focus as part of their core mandate, making AI a reason to open a centre rather than a function added later.",
   },
 ];
 
@@ -52,7 +52,7 @@ const FAQS = [
   {
     question: "How is the data collected?",
     answer:
-      "From the Bamboo Reports platform, which tracks individual GCC centres across India at coordinate level, enriched by an analyst team since 2022. The report's methodology section sets out sources and definitions.",
+      "From the Bamboo Reports platform, which tracks individual GCC centres across India at coordinate level, enriched by an analyst team since 2022. The report sets out its data conventions up front and describes the platform behind the numbers in its closing section.",
   },
 ];
 
@@ -179,7 +179,7 @@ const IndiaGccReportQ22026 = () => {
               In this edition
             </p>
             <h2 className="mt-3 text-2xl font-bold leading-snug tracking-tight text-navy md:text-3xl">
-              Three signals that shaped the quarter
+              Three findings that defined the quarter
             </h2>
             <div className="mt-6 grid items-center gap-8 sm:grid-cols-[auto_1fr] sm:gap-10">
               <img
@@ -209,11 +209,11 @@ const IndiaGccReportQ22026 = () => {
               <strong className="font-semibold text-foreground">
                 Also inside:
               </strong>{" "}
-              every centre mapped with Bengaluru and Hyderabad at
-              micro-cluster level, the announced-centre pipeline with expected
+              the quarter's centres mapped by city, with Bengaluru and
+              Hyderabad broken out by micro-cluster, the announced-centre pipeline with expected
               go-live windows, the 75K+ role talent signal, a BFSI sector focus,
               and two Q3 2026 predictions that will be scored openly in the
-              next edition. Full methodology included.
+              next edition. Data conventions and sources included.
             </p>
           </section>
         </div>
@@ -237,8 +237,8 @@ const IndiaGccReportQ22026 = () => {
               >
                 Bamboo Reports
               </a>
-              , our intelligence platform that tracks every GCC centre in
-              India at coordinate level, enriched continuously by our analyst
+              , our intelligence platform that tracks individual GCC centres
+              across India at coordinate level, enriched continuously by our analyst
               team since 2022. Every figure is a count from tracked centres,
               not a modelled estimate, and where a figure depends on company
               disclosure, the report says so.
