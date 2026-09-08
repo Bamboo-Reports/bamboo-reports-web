@@ -3,9 +3,9 @@
 // lives here and in PlatformBody rather than being duplicated per page.
 
 export const HERO_SHOT = {
-  src: "/platform/page/hero-1280.webp",
+  src: "/platform/page/hero-2026-09-1280.webp",
   srcSet:
-    "/platform/page/hero-640.webp 640w, /platform/page/hero-1280.webp 1280w, /platform/page/hero-1920.webp 1920w",
+    "/platform/page/hero-2026-09-640.webp 640w, /platform/page/hero-2026-09-1280.webp 1280w, /platform/page/hero-2026-09-1920.webp 1920w",
   sizes: "(min-width: 1280px) 1152px, calc(100vw - 24px)",
   alt: "Bamboo Reports account analytics: accounts, centres and prospects filtered over a state-level map of India",
   width: 1920,
