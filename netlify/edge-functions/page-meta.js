@@ -10,7 +10,7 @@ const PAGE_META = {
   },
   "/about": {
     title: "About Bamboo Reports | The India GCC dataset built centre by centre",
-    description: "Bamboo Reports profiles 5,900+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
+    description: "Bamboo Reports profiles 6,000+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
   },
   "/account-market-intelligence": {
     title: "Account & Market Intelligence | India GCC Research | Bamboo Reports",
@@ -33,8 +33,8 @@ const PAGE_META = {
     description: "Proof that the Bamboo Reports model works across solution providers and GCCs alike. Explore GCC strategy, intelligence, benchmarking, talent, and expansion outcomes.",
   },
   "/resources": {
-    title: "Resources | GCC Reports & Reads | Bamboo Reports",
-    description: "Market reports, insights, and curated long-form reads from the team tracking India's GCC ecosystem centre by centre.",
+    title: "Resources | India GCC Reports | Bamboo Reports",
+    description: "Market reports from the team tracking India's GCC ecosystem centre by centre.",
   },
   "/reports": {
     title: "Reports | India GCC Intelligence | Bamboo Reports",
@@ -42,22 +42,8 @@ const PAGE_META = {
   },
   "/reports/india-gcc-report-q2-2026": {
     title: "India GCC Quarterly Report, Q2 2026 (April to June) | Bamboo Reports",
-    description: "The Q2 2026 India GCC Quarterly Report covers 110 centres across 99 companies, including new entrants, expansions and hiring shifts. Free, publishing late August 2026.",
+    description: "The Q2 2026 India GCC Quarterly Report tracks 110 centre events across 99 companies and 27 cities, including 40 first-time entrants, 75K+ announced roles and the rise of AI-first centres.",
     image: `${SITE}/gcc/india-gcc-report-share-card-q2-2026.png`,
-    type: "article",
-  },
-  "/reports/india-gcc-report-q2-2026/thank-you": {
-    title: "You're all set | Bamboo Reports",
-    description: "Your registration for the Q2 2026 India GCC report is confirmed. The report reaches your inbox the day it releases.",
-    robots: "noindex, follow",
-  },
-  "/reads": {
-    title: "Interesting Reads | Bamboo Reports",
-    description: "Whitepapers and long-form reads on the ideas shaping the enterprise, curated for senior leaders by Bamboo Reports.",
-  },
-  "/reads/agentic-enterprise": {
-    title: "The Agentic Enterprise · Thoughtworks × AWS Whitepaper",
-    description: "Build an enterprise that adapts, not just automates. Download the Thoughtworks and AWS whitepaper on continuous evolution and reliable impact.",
     type: "article",
   },
   "/events/agentic-supply-chain-control-tower": {

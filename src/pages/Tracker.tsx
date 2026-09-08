@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { Button } from "@/components/ui/button";
 import { AccountSearchFilter } from "@/components/AccountSearchFilter";
 import { MultiSelectFilter } from "@/components/MultiSelectFilter";
@@ -462,11 +462,11 @@ const Tracker = () => {
     accountSearch.trim().length >= 2 && accountSearch !== debouncedAccountSearch;
 
   const remainingRow = (
-    <GoogleCalendarSchedulingButton className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">
+    <CalSchedulingButton className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">
       <Lock className="h-4 w-4" />
       +{nf(remainingCount)} more {remainingCount === 1 ? "company" : "companies"} tracked
       — see the full dataset
-    </GoogleCalendarSchedulingButton>
+    </CalSchedulingButton>
   );
 
   return (

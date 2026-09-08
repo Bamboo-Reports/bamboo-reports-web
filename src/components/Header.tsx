@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import {
   Sheet,
   SheetContent,
@@ -52,6 +52,14 @@ const Header = () => {
               )}
 
               <NavigationMenuItem>
+                <Link to="/platform">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Platform
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
                 <NavigationMenuTrigger>What we offer</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[320px] gap-1 p-2">
@@ -82,16 +90,6 @@ const Header = () => {
                           className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           GCC Prospect Data
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          to="/platform"
-                          className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
-                        >
-                          Platform
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -169,6 +167,15 @@ const Header = () => {
                     </Link>
                   )}
 
+                  <Link
+                    to="/platform"
+                    className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Platform
+                    <ChevronRight className="h-5 w-5" />
+                  </Link>
+
                   <details className="group border-b pb-2">
                     <summary className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth cursor-pointer list-none">
                       What we offer
@@ -195,13 +202,6 @@ const Header = () => {
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         GCC Prospect Data
-                      </Link>
-                      <Link
-                        to="/platform"
-                        className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        Platform
                       </Link>
                     </div>
                   </details>
@@ -256,9 +256,9 @@ const Header = () => {
                     className="w-full rounded-full font-semibold"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <GoogleCalendarSchedulingButton>
+                    <CalSchedulingButton>
                       Get a demo
-                    </GoogleCalendarSchedulingButton>
+                    </CalSchedulingButton>
                   </Button>
                 </div>
               </nav>

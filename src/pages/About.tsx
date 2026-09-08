@@ -26,7 +26,7 @@ const TIMELINE = [
   },
   {
     year: "Today",
-    copy: "5,900+ centres profiled across India, each held separately.",
+    copy: "6,000+ centres profiled across India, each held separately.",
   },
 ];
 
@@ -192,12 +192,12 @@ const useCountUp = (target: number, durationMs = 1600) => {
 
 const About = () => {
   const photos = useMemo(() => shuffle(ROUNDTABLE_PHOTOS), []);
-  const centres = useCountUp(5900);
+  const centres = useCountUp(6000);
 
   useSEO({
     title: "About Bamboo Reports | The India GCC dataset built centre by centre",
     description:
-      "Bamboo Reports profiles 5,900+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
+      "Bamboo Reports profiles 6,000+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
     keywords:
       "about Bamboo Reports, Research NXT, India GCC dataset, GCC centre level data, GCC research methodology",
     canonicalUrl: "https://bambooreports.com/about",
@@ -225,7 +225,7 @@ const About = () => {
               >
                 Published research counts GCCs at parent company level. In 2022 we started
                 answering a different question: what each individual centre does, who runs it,
-                and what it runs on. That answer now covers 5,900+ centres across India.
+                and what it runs on. That answer now covers 6,000+ centres across India.
               </p>
               <a
                 href="#origin"
@@ -513,7 +513,7 @@ const About = () => {
   );
 };
 
-// 5900 -> "5,900": the ledger always shows the thousands separator.
+// 6000 -> "6,000": the ledger always shows the thousands separator.
 const formatCentres = (n: number) => n.toLocaleString("en-US");
 
 export default About;

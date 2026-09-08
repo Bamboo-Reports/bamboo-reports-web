@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import FadeIn from "@/components/FadeIn";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
-import { autoOpenGoogleCalendarScheduler } from "@/components/GoogleCalendarSchedulingButton";
+import { openCalScheduler } from "@/lib/calScheduler";
 import GccStatsBand from "@/components/GccStatsBand";
 import Header from "@/components/Header";
 import HeroV2 from "@/components/HeroV2";
@@ -25,7 +25,7 @@ const IndexV2 = () => {
       return;
     }
     demoPopupOpened.current = true;
-    void autoOpenGoogleCalendarScheduler();
+    openCalScheduler();
 
     // Drop only the demo flag so UTM params stay intact for analytics and
     // a refresh/back doesn't reopen the popup.

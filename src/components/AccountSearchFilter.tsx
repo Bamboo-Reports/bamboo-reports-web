@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
 import { Lock, Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import {
   Popover,
   PopoverContent,
@@ -121,9 +121,9 @@ export function AccountSearchFilter({
               {gatedMatchName ?? query.trim()}
               <Lock className="h-3.5 w-3.5 text-muted-foreground" aria-hidden />
             </p>
-            <GoogleCalendarSchedulingButton className="mt-1 inline-block font-medium text-primary hover:underline">
+            <CalSchedulingButton className="mt-1 inline-block font-medium text-primary hover:underline">
               Available in the full version
-            </GoogleCalendarSchedulingButton>
+            </CalSchedulingButton>
           </div>
         ) : suggestions.length > 0 ? (
           suggestions.map((option) => (
@@ -141,9 +141,9 @@ export function AccountSearchFilter({
         ) : (
           <div className="px-3 py-4 text-sm">
             <p className="text-muted-foreground">Not in our directory yet.</p>
-            <GoogleCalendarSchedulingButton className="mt-1 inline-block font-medium text-primary hover:underline">
+            <CalSchedulingButton className="mt-1 inline-block font-medium text-primary hover:underline">
               Request coverage
-            </GoogleCalendarSchedulingButton>
+            </CalSchedulingButton>
           </div>
         )}
       </PopoverContent>

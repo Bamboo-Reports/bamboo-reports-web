@@ -7,27 +7,49 @@ type ResourceItem = {
   label: string;
   title: string;
   summary: string;
-  gradientIndex: number;
+  gradientIndex?: number;
+  coverImage?: string;
 };
 
 /**
- * Gradient cover art shared by every resource tile: pastel base, drifting
- * light orbs, grain, a shine sweep on hover, and a corner arrow cue.
- * `children` renders inside the text block, under the label and title.
+ * Cover art shared by every resource tile. Supplied artwork is shown at its
+ * native aspect ratio; otherwise the card falls back to the gradient design.
  */
 const CoverArt = ({
   label,
   title,
-  gradientIndex,
+  gradientIndex = 0,
+  coverImage,
   titleClassName,
   children,
 }: {
   label: string;
   title: string;
-  gradientIndex: number;
+  gradientIndex?: number;
+  coverImage?: string;
   titleClassName: string;
   children?: React.ReactNode;
 }) => {
+  if (coverImage) {
+    return (
+      <div className="overflow-hidden">
+        <img
+          src={coverImage}
+          alt={`${title} cover`}
+          className="block h-auto w-full transition-transform duration-500 ease-out group-hover:scale-[1.015] group-focus-visible:scale-[1.015] motion-reduce:transition-none"
+          loading="lazy"
+        />
+        <div className="border-t bg-background p-5 sm:p-6">
+          <p className="text-xs font-semibold text-foreground">{label}</p>
+          <h3 className={`mt-2 font-bold leading-tight text-navy ${titleClassName}`}>
+            {title}
+          </h3>
+          {children}
+        </div>
+      </div>
+    );
+  }
+
   const gradient = coverGradient(gradientIndex);
   return (
     <div className={`relative flex aspect-video flex-col justify-end overflow-hidden p-5 sm:p-6 ${gradient.base}`}>
@@ -74,6 +96,7 @@ export const FeaturedResourceRow = ({
       label={item.label}
       title={item.title}
       gradientIndex={item.gradientIndex}
+      coverImage={item.coverImage}
       titleClassName="text-2xl md:text-3xl"
     />
     <div className="flex flex-col justify-center gap-4 p-5 sm:gap-5 sm:p-6 md:p-10">
@@ -89,10 +112,7 @@ export const FeaturedResourceRow = ({
   </Link>
 );
 
-/**
- * Compact grid card: label and title on the gradient cover, summary revealed
- * on hover with the ease and motion-blur treatment.
- */
+/** Compact report card: cover, report type, title, then a clear text CTA. */
 export const ResourceCard = ({ item }: { item: ResourceItem }) => (
   <Link
     to={item.to}
@@ -102,17 +122,16 @@ export const ResourceCard = ({ item }: { item: ResourceItem }) => (
       label={item.label}
       title={item.title}
       gradientIndex={item.gradientIndex}
+      coverImage={item.coverImage}
       titleClassName="text-lg"
     >
-      {/* Touch has no hover: the summary is always visible below md and
-          becomes the hover reveal on pointer devices. */}
-      <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] md:group-focus-visible:grid-rows-[1fr] motion-reduce:transition-none">
-        <div className="overflow-hidden">
-          <p className="pt-2 text-sm leading-relaxed text-navy/70 transition-[opacity,filter] duration-500 ease-[cubic-bezier(0.45,0.05,0.55,0.95)] md:opacity-0 md:blur-[5px] md:group-hover:opacity-100 md:group-hover:blur-none md:group-focus-visible:opacity-100 md:group-focus-visible:blur-none motion-reduce:blur-none motion-reduce:transition-none">
-            {item.summary}
-          </p>
-        </div>
-      </div>
+      <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+        Read more
+        <ArrowRight
+          className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+          aria-hidden
+        />
+      </span>
     </CoverArt>
   </Link>
 );

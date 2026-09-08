@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
-import { GoogleCalendarSchedulingButton } from "@/components/GoogleCalendarSchedulingButton";
+import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { Button } from "@/components/ui/button";
 
 export const MarketingHero = ({
@@ -31,10 +31,10 @@ export const MarketingHero = ({
       {showAction && (
         <div className="mt-8">
           <Button asChild size="lg" className="w-full px-7 text-base font-semibold sm:w-auto">
-            <GoogleCalendarSchedulingButton>
+            <CalSchedulingButton>
               Get a demo
               <ArrowRight className="h-4 w-4" aria-hidden />
-            </GoogleCalendarSchedulingButton>
+            </CalSchedulingButton>
           </Button>
         </div>
       )}
@@ -92,10 +92,10 @@ export const DemoCta = ({
           size="lg"
           className="w-full bg-white px-7 text-base font-semibold text-navy hover:bg-white/90 sm:w-auto"
         >
-          <GoogleCalendarSchedulingButton>
+          <CalSchedulingButton>
             Get a demo
             <ArrowRight className="h-4 w-4" aria-hidden />
-          </GoogleCalendarSchedulingButton>
+          </CalSchedulingButton>
         </Button>
       </div>
     </div>

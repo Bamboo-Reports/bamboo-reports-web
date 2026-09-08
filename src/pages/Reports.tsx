@@ -8,6 +8,7 @@ import {
   type ResourceItem,
 } from "@/components/ResourceCards";
 import { useSEO } from "@/hooks/useSEO";
+import q2ReportCover from "../../q2-report-cover.png";
 
 const reports: ResourceItem[] = [
   {
@@ -16,7 +17,7 @@ const reports: ResourceItem[] = [
     title: "The Q2 2026 India GCC report",
     summary:
       "Who set up or expanded near you, where the hiring went, and which corridors are opening next.",
-    gradientIndex: 0,
+    coverImage: q2ReportCover,
   },
 ];
 
@@ -44,7 +45,7 @@ const Reports = () => {
               <div className="mt-6">
                 <FeaturedResourceRow
                   item={latestReport}
-                  cta="Register for the report"
+                  cta="Download the report"
                 />
               </div>
 

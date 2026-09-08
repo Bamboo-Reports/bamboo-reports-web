@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { TRACKER_V2_STATS } from "@/lib/trackerStatsV2";
 import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 
-const STATS: Array<{ label: string; value: number }> = [
+const STATS: Array<{ label: string; value: number; displayValue?: string }> = [
   { label: "Companies", value: TRACKER_V2_STATS.companies },
-  { label: "Centres", value: TRACKER_V2_STATS.centers },
+  { label: "Centres", value: TRACKER_V2_STATS.centers, displayValue: "6.0K+" },
   { label: "Headcount", value: TRACKER_V2_STATS.employees },
 ];
 
@@ -52,14 +52,16 @@ const useCountUp = (target: number, active: boolean) => {
 const StatCell = ({
   label,
   value,
+  displayValue,
   active,
 }: {
   label: string;
   value: number;
+  displayValue?: string;
   active: boolean;
 }) => {
   const shown = useCountUp(value, active);
-  const formatted = formatCompact(shown);
+  const formatted = shown === value && displayValue ? displayValue : formatCompact(shown);
   const hasPlus = formatted.endsWith("+");
   const digits = hasPlus ? formatted.slice(0, -1) : formatted;
   return (
@@ -126,6 +128,7 @@ const GccStatsBand = () => {
               key={stat.label}
               label={stat.label}
               value={stat.value}
+              displayValue={stat.displayValue}
               active={active}
             />
           ))}
