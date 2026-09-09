@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -6,7 +7,6 @@ import {
   Clock,
   ListChecks,
   MapPin,
-  Users,
 } from "lucide-react";
 import {
   Dialog,
@@ -28,9 +28,9 @@ const EVENT_SCHEMA = {
   name: "Agentic Supply Chain Control Tower",
   description: "A retail roundtable hosted by Thoughtworks on moving from supply-chain signals to coordinated action.",
   startDate: "2026-09-10T08:00:00+05:30",
-  endDate: "2026-09-10T10:00:00+05:30",
+  endDate: "2026-09-10T12:00:00+05:30",
   url: "https://bambooreports.com/events/agentic-supply-chain-control-tower",
-  locationName: "M.G. Road, Bengaluru",
+  locationName: "Hilton, Embassy Golf Links, Bengaluru",
   addressLocality: "Bengaluru",
   addressCountry: "IN",
   organizerName: "Thoughtworks",
@@ -38,11 +38,29 @@ const EVENT_SCHEMA = {
 };
 const CORAL_INK = "text-[hsl(348_68%_40%)]";
 const CORAL_DEEP = "hsl(348 68% 40%)";
+const EVENT_START = new Date("2026-09-10T08:00:00+05:30").getTime();
+
+const getTimeRemaining = () => {
+  const totalSeconds = Math.max(0, Math.floor((EVENT_START - Date.now()) / 1000));
+
+  return {
+    totalSeconds,
+    days: Math.floor(totalSeconds / 86_400),
+    hours: Math.floor((totalSeconds % 86_400) / 3_600),
+    minutes: Math.floor((totalSeconds % 3_600) / 60),
+    seconds: totalSeconds % 60,
+  };
+};
 
 const eventDetails = [
   { icon: CalendarDays, label: "Date", value: "Thursday", note: "10 September 2026" },
-  { icon: Clock, label: "Time", value: "8 AM to 10 AM", note: "Breakfast included" },
-  { icon: MapPin, label: "Location", value: "M.G Road", note: "5 Star Hotel" },
+  { icon: Clock, label: "Time", value: "8 AM to 12 PM IST", note: "Breakfast included" },
+  {
+    icon: MapPin,
+    label: "Venue",
+    value: "Hilton",
+    note: "Bengaluru",
+  },
 ];
 
 const agenda = [
@@ -103,13 +121,62 @@ const HostLockup = ({ className = "" }: { className?: string }) => (
   </div>
 );
 
+const CountdownBar = () => {
+  const [remaining, setRemaining] = useState(getTimeRemaining);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setRemaining(getTimeRemaining());
+    }, 1_000);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  if (remaining.totalSeconds === 0) return null;
+
+  const units = [
+    { label: "Days", value: remaining.days },
+    { label: "Hours", value: remaining.hours },
+    { label: "Minutes", value: remaining.minutes },
+    { label: "Seconds", value: remaining.seconds },
+  ];
+
+  return (
+    <aside
+      className="sticky top-0 z-40 text-white"
+      style={{ backgroundColor: CORAL_DEEP }}
+      aria-label="Event countdown"
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-center gap-4 px-4 py-2.5 sm:gap-6 md:px-6">
+        <p className="hidden text-sm font-semibold sm:block">Roundtable begins in</p>
+        <dl
+          className="flex items-center gap-3 sm:gap-5"
+          role="timer"
+          aria-label={`${remaining.days} days, ${remaining.hours} hours, ${remaining.minutes} minutes and ${remaining.seconds} seconds until the event`}
+        >
+          {units.map(({ label, value }) => (
+            <div key={label} className="flex items-baseline gap-1">
+              <dt className="order-2 text-[10px] font-semibold uppercase tracking-wide text-white/75">
+                {label}
+              </dt>
+              <dd className="order-1 min-w-5 text-right text-lg font-bold tabular-nums">
+                {String(value).padStart(2, "0")}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </aside>
+  );
+};
+
 const AgenticSupplyChainControlTower = () => {
   useSEO({
     appendSiteName: false,
     ogImage: "",
     title: "Agentic Supply Chain Control Tower · Retail Roundtable by Thoughtworks",
     description:
-      "A retail roundtable hosted by Thoughtworks. A breakfast working session on moving from supply-chain signals to coordinated action: Sense. Simulate. Solve. Bengaluru, 10 September 2026.",
+      "A retail roundtable hosted by Thoughtworks at Hilton Bengaluru, Embassy Golf Links. Sense. Simulate. Solve. 10 September 2026.",
     keywords:
       "agentic supply chain, supply chain control tower, retail roundtable India, Thoughtworks roundtable Bengaluru, GCC supply chain, Black Friday scenario planning",
   });
@@ -117,6 +184,7 @@ const AgenticSupplyChainControlTower = () => {
   return (
     <div className="min-h-screen bg-background pb-20 lg:pb-0">
       <StructuredData type="event" data={EVENT_SCHEMA} />
+      <CountdownBar />
       <main>
         {/* Hero: what it is, when it is, and the form, all in one screen */}
         <section className="mx-auto max-w-6xl px-4 py-10 md:px-6 lg:py-16">
@@ -168,10 +236,6 @@ const AgenticSupplyChainControlTower = () => {
                   </div>
                 ))}
               </dl>
-
-              <p className="mt-3 text-sm text-muted-foreground">
-                Venue to be confirmed shortly
-              </p>
 
               <Dialog>
                 <DialogTrigger asChild>
@@ -270,20 +334,21 @@ const AgenticSupplyChainControlTower = () => {
         <section className="mx-auto max-w-6xl px-4 py-14 md:px-6">
           <div className="flex flex-col gap-8 rounded-xl border bg-secondary p-8 md:flex-row md:items-center md:justify-between md:p-10">
             <div>
-              <p className="text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-                Bengaluru
-                <span className={`mt-1 block ${CORAL_INK}`}>10 September 2026</span>
+              <p className={`text-3xl font-bold leading-tight tracking-tight md:text-4xl ${CORAL_INK}`}>
+                10 September 2026
               </p>
               <dl className="mt-5 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8">
                 <div className="flex items-center gap-2 whitespace-nowrap">
                   <Clock className="h-4 w-4 shrink-0" style={{ color: CORAL }} aria-hidden />
                   <dt className="sr-only">Time</dt>
-                  <dd className="font-semibold text-foreground">8 AM to 10 AM</dd>
+                  <dd className="font-semibold text-foreground">8 AM to 12 PM IST</dd>
                 </div>
                 <div className="flex items-center gap-2 whitespace-nowrap">
-                  <Users className="h-4 w-4 shrink-0" style={{ color: CORAL }} aria-hidden />
-                  <dt className="sr-only">Includes</dt>
-                  <dd className="font-semibold text-foreground">Breakfast included</dd>
+                  <MapPin className="h-4 w-4 shrink-0" style={{ color: CORAL }} aria-hidden />
+                  <dt className="sr-only">Venue</dt>
+                  <dd className="font-semibold text-foreground">
+                    Hilton, Embassy Golf Links, Bengaluru
+                  </dd>
                 </div>
               </dl>
             </div>
@@ -338,7 +403,9 @@ const AgenticSupplyChainControlTower = () => {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-foreground">10 September 2026</p>
-            <p className="truncate text-xs text-muted-foreground">Bengaluru</p>
+            <p className="truncate text-xs text-muted-foreground">
+              Hilton, Embassy Golf Links, Bengaluru
+            </p>
           </div>
           <a
             href="#register"
