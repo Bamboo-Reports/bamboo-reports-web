@@ -21,6 +21,10 @@
   status = 301
   force = true
 
+# NOTE: /api/tracker/query is routed by the function's own `config.path`
+# (netlify/functions/tracker-query.js), which also declares its rate limit.
+# No redirect needed here.
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -36,6 +40,10 @@
   directory = "netlify/functions"
   # Use ESM modules
   node_bundler = "esbuild"
+
+# NOTE: the tracker dataset in netlify/functions/_data/ is inlined into the
+# tracker-query bundle by esbuild via a plain JSON import. It must never be
+# copied into public/ or it defeats the whole point.
 
 # Local dev server settings (netlify dev)
 [dev]

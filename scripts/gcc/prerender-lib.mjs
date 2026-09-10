@@ -11,6 +11,12 @@ export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..")
 export const SITE = "https://bambooreports.com";
 export const DIST = join(ROOT, "dist");
 const CHUNK_DIR = join(ROOT, "public", "data", "t2");
+// Canonical source since the dataset stopped being published: the generator
+// always writes this, whereas public/data/t2 only exists when it was run with
+// --emit-public-chunks.
+const SERVER_DATASET = join(
+  ROOT, "netlify", "functions", "_data", "tracker-v2-accounts.json",
+);
 const COMPANY_DIR = join(ROOT, "data", "gcc", "companies");
 
 // The tracker path carries no sign-up (15 Aug 2026 decision); static CTAs
@@ -41,6 +47,15 @@ export const slugify = (s) =>
 const plural = (n, one, many) => (n === 1 ? one : many);
 
 export async function loadAccounts() {
+  if (existsSync(SERVER_DATASET)) {
+    return JSON.parse(await readFile(SERVER_DATASET, "utf8")).accounts;
+  }
+  if (!existsSync(CHUNK_DIR)) {
+    throw new Error(
+      `No tracker dataset found. Expected ${SERVER_DATASET} — run ` +
+        "scripts/tracker/generate-tracker-v2.py.",
+    );
+  }
   const files = (await readdir(CHUNK_DIR)).filter((f) => f.endsWith(".json"));
   const all = [];
   for (const f of files) {
