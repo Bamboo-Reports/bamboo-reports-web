@@ -169,6 +169,7 @@ const IndiaGccReportQ22026 = () => {
                   formId={DOWNLOAD_FORM_ID}
                   title="BR - Q2 2026 (Download)"
                   height="539px"
+                  autoReloadAfterSubmit
                 />
               </div>
             </div>

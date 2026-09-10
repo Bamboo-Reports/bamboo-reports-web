@@ -14,6 +14,7 @@ interface JotFormEmbedProps {
    *  falling back to height/heightClassName until the first report arrives. */
   autoHeight?: boolean;
   className?: string;
+  autoReloadAfterSubmit?: boolean;
 }
 
 /**
@@ -28,15 +29,18 @@ const JotFormEmbed = ({
   heightClassName,
   autoHeight = false,
   className = "",
+  autoReloadAfterSubmit = false,
 }: JotFormEmbedProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [reportedHeight, setReportedHeight] = useState<string | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const fallbackTimerRef = useRef<number | null>(null);
+  const hasLoadedRef = useRef(false);
   const resetTimerRef = useRef<number | null>(null);
   const reactId = useId();
   const iframeId = `JotFormIFrame-${formId}-${reactId.replace(/:/g, "")}`;
-  const embedSrc = `https://form.jotform.com/${formId}?isIframeEmbed=1`;
+  // jsForm keeps Jotform’s handler from cloning the React-owned iframe.
+  const embedSrc = `https://form.jotform.com/${formId}?isIframeEmbed=1&jsForm=true`;
 
   const clearFallbackTimer = useCallback(() => {
     if (fallbackTimerRef.current === null) return;
@@ -55,10 +59,20 @@ const JotFormEmbed = ({
     if (!iframe) return;
 
     clearFallbackTimer();
+    if (resetTimerRef.current !== null) window.clearTimeout(resetTimerRef.current);
+    resetTimerRef.current = null;
     setIsLoaded(false);
+    hasLoadedRef.current = false;
+    setReportedHeight(null);
     iframe.src = `${embedSrc}&_ts=${Date.now()}`;
     fallbackTimerRef.current = window.setTimeout(showForm, 4000);
   }, [clearFallbackTimer, embedSrc, showForm]);
+
+  const scheduleReload = useCallback(() => {
+    // Repeated messages must not postpone recovery indefinitely.
+    if (resetTimerRef.current !== null) return;
+    resetTimerRef.current = window.setTimeout(resetForm, 150);
+  }, [resetForm]);
 
   useEffect(() => {
     fallbackTimerRef.current = window.setTimeout(showForm, 4000);
@@ -81,7 +95,17 @@ const JotFormEmbed = ({
       const origin = String(event.origin || "").toLowerCase();
       const data = event.data;
 
-      if (!origin.includes("jotform")) return;
+      // Only accept messages from this form, including when multiple embeds exist.
+      if (event.source !== iframeRef.current?.contentWindow) return;
+      if (!/^https:\/\/(?:[a-z0-9-]+\.)*jotform\.com$/.test(origin)) return;
+
+      const handleSubmission = (signal: string) => {
+        // Submission-start/end only describe client validation, not a finished
+        // download. Reload only on completion or the navigation fallback below.
+        if (/^(submission-completed|thankyou)(:|$)/.test(signal)) {
+          scheduleReload();
+        }
+      };
 
       if (typeof data === "string") {
         const message = data.toLowerCase();
@@ -92,17 +116,16 @@ const JotFormEmbed = ({
         // Height reports name their form (setHeight:<px>:<formId>); other
         // embeds on the page broadcast to the same window, so only obey ours.
         const reported = new RegExp(`setheight:(\\d+):${formId.toLowerCase()}`).exec(message);
+        // A form or validation page that still reports its layout is not blank.
+        if (reported && Number(reported[1]) > 0 && resetTimerRef.current !== null) {
+          window.clearTimeout(resetTimerRef.current);
+          resetTimerRef.current = null;
+        }
         if (autoHeight && reported) {
           setReportedHeight(`${reported[1]}px`);
         }
 
-        if (
-          message.includes("submission-completed") ||
-          message.includes("thankyou") ||
-          message.includes("form-submit")
-        ) {
-          resetTimerRef.current = window.setTimeout(resetForm, 1200);
-        }
+        handleSubmission(message);
         return;
       }
 
@@ -121,13 +144,7 @@ const JotFormEmbed = ({
           showForm();
         }
 
-        if (
-          signal.includes("submission-completed") ||
-          signal.includes("thankyou") ||
-          signal.includes("form-submit")
-        ) {
-          resetTimerRef.current = window.setTimeout(resetForm, 1200);
-        }
+        handleSubmission(signal);
       }
     };
 
@@ -148,11 +165,17 @@ const JotFormEmbed = ({
         resetTimerRef.current = null;
       }
     };
-  }, [autoHeight, embedSrc, formId, resetForm, showForm]);
+  }, [autoHeight, formId, resetForm, scheduleReload, showForm]);
 
   const handleLoad = () => {
-    // Small delay so the form has a moment to render its content
-    window.setTimeout(showForm, 150);
+    // A download redirect can load an empty document without posting a
+    // completion event. Wait for layout messages before deciding to reload;
+    // this lets form/validation pages remain visible and the download start.
+    if (autoReloadAfterSubmit && hasLoadedRef.current) {
+      scheduleReload();
+    }
+    hasLoadedRef.current = true;
+    showForm();
   };
 
   // A reported height is exact, so it wins over the responsive fallback class.
