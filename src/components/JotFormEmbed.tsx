@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useId, useRef } from "react";
-import { ensureJotformEmbedHandler } from "@/lib/jotform";
+import { useLocation } from "react-router-dom";
+import { ensureJotformEmbedHandler, getJotformEmbedSrc } from "@/lib/jotform";
 
 type JotformWindow = Window & {
   jotformEmbedHandler?: (selector: string, source: string) => void;
@@ -31,6 +32,7 @@ const JotFormEmbed = ({
   className = "",
   autoReloadAfterSubmit = false,
 }: JotFormEmbedProps) => {
+  const { search } = useLocation();
   const [isLoaded, setIsLoaded] = useState(false);
   const [reportedHeight, setReportedHeight] = useState<string | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -39,8 +41,7 @@ const JotFormEmbed = ({
   const resetTimerRef = useRef<number | null>(null);
   const reactId = useId();
   const iframeId = `JotFormIFrame-${formId}-${reactId.replace(/:/g, "")}`;
-  // jsForm keeps Jotform’s handler from cloning the React-owned iframe.
-  const embedSrc = `https://form.jotform.com/${formId}?isIframeEmbed=1&jsForm=true`;
+  const embedSrc = getJotformEmbedSrc(formId, search);
 
   const clearFallbackTimer = useCallback(() => {
     if (fallbackTimerRef.current === null) return;

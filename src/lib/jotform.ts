@@ -3,6 +3,20 @@ const JOTFORM_SCRIPT_SRC =
 
 let jotformScriptPromise: Promise<void> | null = null;
 
+export const getJotformEmbedSrc = (formId: string, search: string) => {
+  // jsForm keeps Jotform’s handler from cloning the React-owned iframe.
+  const params = new URLSearchParams({ isIframeEmbed: "1", jsForm: "true" });
+
+  // Embedded forms have their own URL and do not inherit the page's UTMs.
+  new URLSearchParams(search).forEach((value, key) => {
+    if (key.startsWith("utm_")) {
+      params.set(key, value);
+    }
+  });
+
+  return `https://form.jotform.com/${formId}?${params.toString()}`;
+};
+
 const ensureLink = (rel: string, href: string, crossOrigin = false) => {
   const selector = `link[rel='${rel}'][href='${href}']`;
   if (document.head.querySelector(selector)) {
