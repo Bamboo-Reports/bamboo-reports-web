@@ -286,3 +286,15 @@ Later, optional: port `tracker-query` to a route handler and move rate limiting 
 - **`"use client"` added to** `AccountSearchFilter`, `CalSchedulingButton`, `FadeIn`, `Footer`, `GccStatsBand`, `Header`, `ImageCropDialog`, `MultiSelectFilter`, `use-toast`, the Radix-based `ui/*` components, `About` and `MapYourGCCOpportunity`. Every other view and component renders on the server.
 - **Metadata:** `keywords` is dropped everywhere (the old hook removed the tag too). `not-found` has no canonical and its OG URL falls back to the site root.
 - **Checks:** `npm run typecheck` passes; `eslint .` has 0 errors and 58 warnings (+1: `setPhotos` inside an effect). A static scan of server components found no hooks, event handlers or function props. The server/client boundaries are still unproven until a build runs on the deploy preview.
+
+---
+
+## 15. Phase 3 log: differences from the plan above
+
+- **`/gcc` route:** `src/app/gcc/page.tsx` calls `notFound()` unless `NEXT_PUBLIC_GCC_TRACKER_ENABLED` is `"true"`. Its metadata matches production's `/gcc/`: title, count-based description, canonical `/gcc/`, OG/Twitter.
+- **JSON-LD:** Organization, Dataset and BreadcrumbList, identical to what `generate-tracker-page.mjs` injected, built from `TRACKER_V2_STATS` (same counts as the dataset). **The ItemList of published company pages is deferred to phase 4,** because it needs the server-only dataset loader (§7). `StructuredData.tsx` gains a generic `JsonLd` component.
+- **Hydration:** the plan preferred `useSearchParams` with `<Suspense>`, but that would render the whole tracker in the browser only (the boundary wraps everything). Instead `Tracker.tsx` renders with empty filters on the server and applies `?industry=`/`?city=` in a mount effect. Both data queries are disabled until then, so a deep link never fetches the unfiltered view first, and the URL-sync effect waits so it can't strip the params. `isLoading` counts the pre-mount wait, so the prerendered HTML shows skeletons, not zeros (a disabled query isn't "loading" in TanStack Query v5).
+- **`useSEO.ts` deleted:** no callers left.
+- **Crawlable `/gcc` directory section (open decision in §4):** moved to phase 4, because its links point at the directory and landing pages that phase 4 creates.
+- **Netlify env vars:** neither `NEXT_PUBLIC_*` flag exists yet. Without `NEXT_PUBLIC_TRACKER_SERVER_QUERY=true` the tracker falls back to the empty static chunks and shows no data; without `NEXT_PUBLIC_GCC_TRACKER_ENABLED=true` `/gcc` returns 404. Mirror the `VITE_*` values per context (currently tracker `false` in production, `true` in deploy previews; server query `true` in both). Adding them doesn't affect the live Vite build.
+- **Checks:** typecheck passes; `eslint .` has 0 errors and 59 warnings (+1: applying URL filters in an effect).

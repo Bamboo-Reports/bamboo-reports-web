@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -8,7 +10,6 @@ import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { Button } from "@/components/ui/button";
 import { AccountSearchFilter } from "@/components/AccountSearchFilter";
 import { MultiSelectFilter } from "@/components/MultiSelectFilter";
-import { useSEO } from "@/hooks/useSEO";
 import type { FacetOption } from "@/lib/tracker";
 import {
   fetchTrackerV2Accounts,
@@ -201,43 +202,47 @@ const USE_CASES = [
   },
 ];
 
-const Tracker = () => {
-  useSEO({
-    title: "India GCC Tracker: Companies, Centres & Headcount | Bamboo Reports",
-    description: `Live India GCC numbers, no sign-in: ${nf(TRACKER_V2_STATS.companies)} companies, ${nf(TRACKER_V2_STATS.centers)} centres, ${nf(TRACKER_V2_STATS.upcomingCenters)} upcoming centres and a headcount of ${nf(TRACKER_V2_STATS.employees)}. Filter by industry and city to size your market.`,
-    keywords:
-      "GCC tracker India, list of GCCs in India, GCC companies in India, India GCC market size, Global Capability Centres India, GCC headcount India, upcoming GCC centres, GCC cities",
-    canonicalUrl: "https://bambooreports.com/gcc/",
-  });
+/** ?industry=…&city=… deep links (homepage widget, landing pages) preselect
+ * filters. Old links carry raw city names; the group map resolves them. */
+const filtersFromSearch = (search: string): TrackerFilters => {
+  const params = new URLSearchParams(search);
+  const industries = params
+    .getAll("industry")
+    .filter((industry) =>
+      (TRACKER_V2_TOP_INDUSTRIES as readonly string[]).includes(industry)
+    );
+  const cities = [
+    ...new Set(
+      params
+        .getAll("city")
+        .map((city) => TRACKER_V2_CITY_GROUPS[city] ?? city)
+        .filter((city) =>
+          (TRACKER_V2_TOP_CITIES as readonly string[]).includes(city)
+        )
+    ),
+  ];
+  return { company: null, industries, cities };
+};
 
-  // ?industry=…&city=… deep links (homepage widget, landing pages) preselect
-  // filters. Old links carry raw city names; the group map resolves them.
-  const [filters, setFilters] = useState<TrackerFilters>(() => {
-    if (typeof window === "undefined") return EMPTY_FILTERS;
-    const params = new URLSearchParams(window.location.search);
-    const industries = params
-      .getAll("industry")
-      .filter((industry) =>
-        (TRACKER_V2_TOP_INDUSTRIES as readonly string[]).includes(industry)
-      );
-    const cities = [
-      ...new Set(
-        params
-          .getAll("city")
-          .map((city) => TRACKER_V2_CITY_GROUPS[city] ?? city)
-          .filter((city) =>
-            (TRACKER_V2_TOP_CITIES as readonly string[]).includes(city)
-          )
-      ),
-    ];
-    return { company: null, industries, cities };
-  });
+const Tracker = () => {
+  // The page is prerendered without a query string, so the first render
+  // always uses empty filters (matching the server HTML). The URL's filters
+  // are applied after mount, and nothing is fetched until then, so a deep
+  // link never requests the unfiltered view first.
+  const [filters, setFilters] = useState<TrackerFilters>(EMPTY_FILTERS);
+  const [urlFiltersApplied, setUrlFiltersApplied] = useState(false);
+  useEffect(() => {
+    setFilters(filtersFromSearch(window.location.search));
+    setUrlFiltersApplied(true);
+  }, []);
   const [accountSearch, setAccountSearch] = useState("");
   const debouncedAccountSearch = useDebouncedValue(accountSearch, DEBOUNCE_MS);
 
   // Keep the URL in sync with the filters so reset survives a refresh and
-  // any filtered view is shareable. Unrelated params are preserved.
+  // any filtered view is shareable. Unrelated params are preserved. Waits
+  // for the URL filters to be read, or the first run would strip them.
   useEffect(() => {
+    if (!urlFiltersApplied) return;
     const params = new URLSearchParams(window.location.search);
     params.delete("industry");
     params.delete("city");
@@ -249,7 +254,7 @@ const Tracker = () => {
       "",
       window.location.pathname + (query ? `?${query}` : "")
     );
-  }, [filters.industries, filters.cities]);
+  }, [filters.industries, filters.cities, urlFiltersApplied]);
 
   const {
     data: accounts = [],
@@ -259,7 +264,7 @@ const Tracker = () => {
     queryKey: ["tracker-v2-accounts"],
     queryFn: ({ signal }) => fetchTrackerV2Accounts(signal),
     staleTime: Infinity,
-    enabled: !TRACKER_SERVER_QUERY_ENABLED,
+    enabled: urlFiltersApplied && !TRACKER_SERVER_QUERY_ENABLED,
   });
 
   // Exact-name search on a private account answers "tracked" without the
@@ -499,16 +504,18 @@ const Tracker = () => {
         },
         signal
       ),
-    enabled: TRACKER_SERVER_QUERY_ENABLED,
+    enabled: urlFiltersApplied && TRACKER_SERVER_QUERY_ENABLED,
     // Keep the previous answer on screen while the next one lands, so
     // filtering doesn't flash the skeleton on every keystroke.
     placeholderData: (previous) => previous,
     staleTime: 5 * 60 * 1000,
   });
 
-  const isLoading = TRACKER_SERVER_QUERY_ENABLED
-    ? isLoadingServer
-    : isLoadingStatic;
+  // A disabled query isn't "loading", so count the wait for URL filters too;
+  // otherwise the prerendered HTML would show zeros instead of skeletons.
+  const isLoading =
+    !urlFiltersApplied ||
+    (TRACKER_SERVER_QUERY_ENABLED ? isLoadingServer : isLoadingStatic);
   const isError = TRACKER_SERVER_QUERY_ENABLED ? isErrorServer : isErrorStatic;
   const counts = TRACKER_SERVER_QUERY_ENABLED
     ? serverResult?.counts ?? EMPTY_COUNTS

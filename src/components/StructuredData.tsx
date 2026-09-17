@@ -201,18 +201,18 @@ const getSchemaMarkup = ({ type, data }: StructuredDataProps) => {
   }
 };
 
-/** JSON-LD rendered into the page HTML, so crawlers see it without JS. */
+/** Any JSON-LD object rendered into the page HTML, so crawlers see it without JS. */
+export const JsonLd = ({ data }: { data: object }) => (
+  <script
+    type="application/ld+json"
+    // Escape "<" so a string in the data can't close the script tag.
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
+  />
+);
+
 export const StructuredData = (props: StructuredDataProps) => {
   const schema = getSchemaMarkup(props);
-  if (!schema) return null;
-
-  return (
-    <script
-      type="application/ld+json"
-      // Escape "<" so a string in the data can't close the script tag.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
-    />
-  );
+  return schema ? <JsonLd data={schema} /> : null;
 };
 
 export default StructuredData;
