@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
+import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 import { ROOT, SITE } from "@/lib/server/gccPrerender";
 import { loadGccSite } from "@/lib/server/gccPages";
 
@@ -12,12 +13,13 @@ const url = (
   priority: number,
 ): Entry => ({ url: `${SITE}${path}`, changeFrequency, priority });
 
-/** Every generated GCC URL: /gcc/, the directory pages, the industry and city
+/** Every generated GCC URL: /gcc/ (only while the tracker is enabled; it 404s
+ *  otherwise), the directory pages, the industry and city
  *  landing pages and the published company pages (replaces the removed
  *  scripts/gcc/generate-sitemap.mjs). */
 async function gccEntries(): Promise<MetadataRoute.Sitemap> {
   const { directoryPages, sets } = await loadGccSite();
-  const entries = [url("/gcc/", "weekly", 0.9)];
+  const entries = GCC_TRACKER_ENABLED ? [url("/gcc/", "weekly", 0.9)] : [];
   for (const page of directoryPages) entries.push(url(page.path, "weekly", 0.6));
   for (const set of [...sets.industries, ...sets.cities]) entries.push(url(set.path, "weekly", 0.7));
 

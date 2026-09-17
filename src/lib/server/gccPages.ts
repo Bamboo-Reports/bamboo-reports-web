@@ -4,8 +4,10 @@ import "server-only";
 // scripts/gcc/generate-tracker-page.mjs and generate-landing-pages.mjs (removed)
 // and produce byte-identical HTML.
 
+import { GCC_TRACKER_ENABLED } from "../featureFlags";
 import {
   DIRECTORY_PAGE_SIZE,
+  GCC_HUB_PATH,
   SITE,
   breadcrumbSchema,
   companyListHtml,
@@ -22,7 +24,7 @@ import {
   trackedVsShownHtml,
 } from "./gccPrerender";
 
-const CANONICAL = `${SITE}/gcc/`;
+const HUB_URL = `${SITE}${GCC_HUB_PATH}`;
 
 export function buildDirectoryPage(pageNumber, pageCount, slice, pub, accounts, nameToSlug) {
   const canonical = `${SITE}/gcc/directory/${pageNumber}/`;
@@ -46,10 +48,10 @@ export function buildDirectoryPage(pageNumber, pageCount, slice, pub, accounts, 
     .join("\n        ");
 
   const body = `      <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <a href="/">Home</a> / <a href="/gcc/">GCCs in India</a> / Directory page ${pageNumber}
+        <a href="/">Home</a> / <a href="${GCC_HUB_PATH}">GCCs in India</a> / Directory page ${pageNumber}
       </nav>
       <h1>India GCC companies directory, page ${pageNumber} of ${pageCount}</h1>
-      <p class="lede">Companies ${nf((pageNumber - 1) * DIRECTORY_PAGE_SIZE + 1)} to ${nf((pageNumber - 1) * DIRECTORY_PAGE_SIZE + slice.length)} of the ${nf(pub.length)} Global Capability Centers browsable free. Use the <a href="/gcc/">live market size calculator</a> to filter by industry and city.</p>
+      <p class="lede">Companies ${nf((pageNumber - 1) * DIRECTORY_PAGE_SIZE + 1)} to ${nf((pageNumber - 1) * DIRECTORY_PAGE_SIZE + slice.length)} of the ${nf(pub.length)} Global Capability Centers browsable free.${GCC_TRACKER_ENABLED ? ' Use the <a href="/gcc/">live market size calculator</a> to filter by industry and city.' : ""}</p>
       ${trackedVsShownHtml("All India GCCs", trackedCounts(accounts), pub.length)}
       <ul class="companies">
 ${companyListHtml(slice, nameToSlug)}
@@ -69,7 +71,7 @@ ${companyListHtml(slice, nameToSlug)}
       itemListSchema(`GCC companies in India, page ${pageNumber}`, slice, nameToSlug),
       breadcrumbSchema([
         ["Home", `${SITE}/`],
-        ["GCCs in India", CANONICAL],
+        ["GCCs in India", HUB_URL],
         [`Directory page ${pageNumber}`, canonical],
       ]),
     ],
@@ -103,10 +105,10 @@ export function landingPage(set, sets, accounts, nameToSlug) {
     : `industry=${encodeURIComponent(set.label)}`;
 
   const body = `      <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <a href="/">Home</a> / <a href="/gcc/">GCCs in India</a> / ${esc(set.label)}
+        <a href="/">Home</a> / <a href="${GCC_HUB_PATH}">GCCs in India</a> / ${esc(set.label)}
       </nav>
       <h1>${esc(heading)}</h1>
-      <p class="lede">Every ${isCity ? `Global Capability Center company with a presence in ${esc(set.label)}` : `${esc(set.label)} company running Global Capability Centers in India`} that Bamboo Reports tracks. Filter further with the <a href="/gcc/?${filterParam}">live market size calculator</a>.</p>
+      <p class="lede">Every ${isCity ? `Global Capability Center company with a presence in ${esc(set.label)}` : `${esc(set.label)} company running Global Capability Centers in India`} that Bamboo Reports tracks.${GCC_TRACKER_ENABLED ? ` Filter further with the <a href="/gcc/?${filterParam}">live market size calculator</a>.` : ""}</p>
       ${trackedVsShownHtml(set.label, tracked, set.public.length)}
       <h2>Browse the ${nf(set.public.length)} public ${set.public.length === 1 ? "company" : "companies"}</h2>
       <ul class="companies">
@@ -138,7 +140,7 @@ ${companyListHtml(set.public, nameToSlug)}
       itemListSchema(heading, set.public, nameToSlug),
       breadcrumbSchema([
         ["Home", `${SITE}/`],
-        ["GCCs in India", `${SITE}/gcc/`],
+        ["GCCs in India", HUB_URL],
         [set.label, canonical],
       ]),
     ],

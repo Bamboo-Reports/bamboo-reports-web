@@ -8,6 +8,12 @@ import "server-only";
 import { readFile, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
+import { GCC_TRACKER_ENABLED } from "../featureFlags";
+
+/** Where static GCC pages point for "GCCs in India". /gcc/ only exists while
+ *  the tracker is enabled (it 404s otherwise), so fall back to the first
+ *  directory page rather than link to a missing page. */
+export const GCC_HUB_PATH = GCC_TRACKER_ENABLED ? "/gcc/" : "/gcc/directory/1/";
 
 /** Shape of one account in tracker-v2-accounts.json (see TrackerV2Account). */
 export interface TrackerAccount {
@@ -324,8 +330,8 @@ export function staticPage({ title, description, canonical, schemas, body, src }
     <div class="wrap">
       <a href="/"><img src="/logo.png" alt="Bamboo Reports"></a>
       <nav>
-        <a class="nav-link" href="/gcc/">GCC tracker</a>
-        <a class="btn" href="${DEMO_URL}">Get a demo</a>
+        ${GCC_TRACKER_ENABLED ? `<a class="nav-link" href="/gcc/">GCC tracker</a>
+        ` : ""}<a class="btn" href="${DEMO_URL}">Get a demo</a>
       </nav>
     </div>
   </header>
@@ -337,7 +343,7 @@ ${body}
   <footer class="site-footer">
     <div class="wrap">
       <span>&copy; 2026 Bamboo Reports &middot; A Research NXT Product. All rights reserved.</span>
-      <span><a href="/gcc/">GCC companies in India</a> &middot; <a href="/privacy-policy">Privacy Policy</a> &middot; <a href="/terms-conditions">Terms &amp; Conditions</a></span>
+      <span><a href="${GCC_HUB_PATH}">GCC companies in India</a> &middot; <a href="/privacy-policy">Privacy Policy</a> &middot; <a href="/terms-conditions">Terms &amp; Conditions</a></span>
     </div>
   </footer>
 </body>
