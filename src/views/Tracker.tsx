@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import Header from "@/components/Header";
@@ -224,7 +224,13 @@ const filtersFromSearch = (search: string): TrackerFilters => {
   return { company: null, industries, cities };
 };
 
-const Tracker = () => {
+interface TrackerProps {
+  /** Server-rendered links to the static directory and landing pages,
+   *  shown above the footer. */
+  directory?: ReactNode;
+}
+
+const Tracker = ({ directory }: TrackerProps) => {
   // The page is prerendered without a query string, so the first render
   // always uses empty filters (matching the server HTML). The URL's filters
   // are applied after mount, and nothing is fetched until then, so a deep
@@ -974,6 +980,8 @@ const Tracker = () => {
           </div>
         </div>
       </section>
+
+      {directory}
 
       <Footer />
     </div>

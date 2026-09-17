@@ -1,19 +1,33 @@
-// Shared helpers for the post-build static GCC pages: the /gcc prerender,
-// the paginated /gcc/directory/<n>/ pages and the /gcc/industries|cities/*
-// landing pages. Browser-free; runs after `vite build`.
+import "server-only";
+
+// Shared helpers for the static GCC pages: the /gcc directory section, the
+// paginated /gcc/directory/<n>/ pages, the /gcc/industries|cities/* landing
+// pages and the sitemap. Replaces scripts/gcc/prerender-lib.mjs (removed);
+// the HTML output is unchanged. Reads the repo at build time.
 
 import { readFile, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { join, resolve, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 
-export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
+/** Shape of one account in tracker-v2-accounts.json (see TrackerV2Account). */
+export interface TrackerAccount {
+  name: string | null;
+  h?: string;
+  slug?: string;
+  industry: string | null;
+  cities: Array<{ name: string; c: number; u?: number; e?: number }>;
+  c: number;
+  u?: number;
+  e: number;
+  visibility: "public" | "private";
+}
+
+// `next build` runs from the repo root. import.meta.url can't be used: once
+// bundled, it points inside .next/ rather than at this file.
+export const ROOT = process.cwd();
 export const SITE = "https://bambooreports.com";
-export const DIST = join(ROOT, "dist");
-const CHUNK_DIR = join(ROOT, "public", "data", "t2");
-// Canonical source since the dataset stopped being published: the generator
-// always writes this, whereas public/data/t2 only exists when it was run with
-// --emit-public-chunks.
+// The tracker dataset. Never published: read here at build time only, and
+// inlined into the tracker-query Netlify function by esbuild.
 const SERVER_DATASET = join(
   ROOT, "netlify", "functions", "_data", "tracker-v2-accounts.json",
 );
@@ -46,22 +60,13 @@ export const slugify = (s) =>
 
 const plural = (n, one, many) => (n === 1 ? one : many);
 
-export async function loadAccounts() {
-  if (existsSync(SERVER_DATASET)) {
-    return JSON.parse(await readFile(SERVER_DATASET, "utf8")).accounts;
-  }
-  if (!existsSync(CHUNK_DIR)) {
-    throw new Error(
-      `No tracker dataset found. Expected ${SERVER_DATASET} — run ` +
-        "scripts/tracker/generate-tracker-v2.py.",
-    );
-  }
-  const files = (await readdir(CHUNK_DIR)).filter((f) => f.endsWith(".json"));
-  const all = [];
-  for (const f of files) {
-    all.push(...JSON.parse(await readFile(join(CHUNK_DIR, f), "utf8")));
-  }
-  return all;
+// Every static GCC page reads the same files; load them once per build worker.
+let accountsPromise: Promise<TrackerAccount[]> | null = null;
+export function loadAccounts(): Promise<TrackerAccount[]> {
+  accountsPromise ??= readFile(SERVER_DATASET, "utf8").then(
+    (raw) => JSON.parse(raw).accounts,
+  );
+  return accountsPromise;
 }
 
 export function publicAccounts(accounts) {
@@ -70,10 +75,16 @@ export function publicAccounts(accounts) {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-export async function loadNameToSlug() {
+let nameToSlugPromise: Promise<Map<string, string>> | null = null;
+export function loadNameToSlug(): Promise<Map<string, string>> {
+  nameToSlugPromise ??= readNameToSlug();
+  return nameToSlugPromise;
+}
+
+async function readNameToSlug() {
   // Only link companies whose detail page is actually published under
   // public/gcc/companies/ — data JSONs may exist for pages not yet launched.
-  const map = new Map();
+  const map = new Map<string, string>();
   const files = (await readdir(COMPANY_DIR)).filter((f) => f.endsWith(".json"));
   for (const f of files) {
     const c = JSON.parse(await readFile(join(COMPANY_DIR, f), "utf8"));

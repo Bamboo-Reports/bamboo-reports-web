@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
+import GccDirectoryLinks from "@/components/GccDirectoryLinks";
 import { JsonLd } from "@/components/StructuredData";
 import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
 import { seo, SITE_URL } from "@/lib/seo";
+import { loadGccSite } from "@/lib/server/gccPages";
+import { itemListSchema } from "@/lib/server/gccPrerender";
 import { TRACKER_V2_STATS } from "@/lib/trackerStatsV2";
 import Tracker from "@/views/Tracker";
 
@@ -16,9 +19,9 @@ export const metadata = seo({
   canonicalUrl: CANONICAL,
 });
 
-// Same schemas the old post-build prerender injected into /gcc/. The
-// ItemList of published company pages returns with the phase 4 data loader.
-const SCHEMAS = [
+// Same schemas, in the same order, as the old post-build prerender injected
+// into /gcc/; the ItemList is added at render time from the dataset.
+const ORGANIZATION_AND_DATASET = [
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -43,26 +46,46 @@ const SCHEMAS = [
       { "@type": "PropertyValue", name: "GCC headcount tracked", value: stats.employees },
     ],
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-      { "@type": "ListItem", position: 2, name: "GCCs in India", item: CANONICAL },
-    ],
-  },
 ];
 
-export default function GccTrackerPage() {
+const BREADCRUMB = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "GCCs in India", item: CANONICAL },
+  ],
+};
+
+// Only the path and label leave the server; the sets also hold account data.
+const toLink = ({ path, label }: { path: string; label: string }) => ({ path, label });
+
+export default async function GccTrackerPage() {
   // The tracker is hidden unless enabled for the deployment (build-time flag).
   if (!GCC_TRACKER_ENABLED) notFound();
 
+  const { pub, nameToSlug, sets, directoryPages } = await loadGccSite();
+  const schemas = [
+    ...ORGANIZATION_AND_DATASET,
+    itemListSchema("GCC companies in India", pub, nameToSlug),
+    BREADCRUMB,
+  ];
+
   return (
     <>
-      {SCHEMAS.map((schema) => (
+      {schemas.map((schema) => (
         <JsonLd key={schema["@type"]} data={schema} />
       ))}
-      <Tracker />
+      <Tracker
+        directory={
+          <GccDirectoryLinks
+            directoryPages={directoryPages.map(toLink)}
+            industries={sets.industries.map(toLink)}
+            cities={sets.cities.map(toLink)}
+            publicCount={pub.length}
+          />
+        }
+      />
     </>
   );
 }

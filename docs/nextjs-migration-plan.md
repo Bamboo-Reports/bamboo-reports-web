@@ -1,6 +1,6 @@
 # Next.js migration plan
 
-Status: phase 1 on `feat/nextjs-phase-1-scaffold` (draft PR #143); phase 2 on `feat/nextjs-phase-2-pages` (see §13–14). Written 2026-09-17 against `main` @ `a980642`.
+Status: phases 1–4 on `feat/nextjs-migration` (draft PR #146, which replaced #143–#145). Logs in §13–16. Written 2026-09-17 against `main` @ `a980642`.
 
 Goal: move the Vite + React Router SPA to the Next.js App Router, keeping the
 Netlify hosting, every public URL, and today's SEO output (titles, canonicals,
@@ -298,3 +298,16 @@ Later, optional: port `tracker-query` to a route handler and move rate limiting 
 - **Crawlable `/gcc` directory section (open decision in §4):** moved to phase 4, because its links point at the directory and landing pages that phase 4 creates.
 - **Netlify env vars:** neither `NEXT_PUBLIC_*` flag exists yet. Without `NEXT_PUBLIC_TRACKER_SERVER_QUERY=true` the tracker falls back to the empty static chunks and shows no data; without `NEXT_PUBLIC_GCC_TRACKER_ENABLED=true` `/gcc` returns 404. Mirror the `VITE_*` values per context (currently tracker `false` in production, `true` in deploy previews; server query `true` in both). Adding them doesn't affect the live Vite build.
 - **Checks:** typecheck passes; `eslint .` has 0 errors and 59 warnings (+1: applying URL filters in an effect).
+
+---
+
+## 16. Phase 4 log: differences from the plan above
+
+- **One server module, not two:** `src/lib/server/gccPrerender.ts` is `prerender-lib.mjs` ported whole: dataset and company-slug loaders plus the HTML helpers. `src/lib/server/gccPages.ts` holds the directory and landing page builders from the two generator scripts, and `loadGccSite()`, which loads everything the routes, `/gcc` and the sitemap share. Both start with `import "server-only"`. `ROOT` is `process.cwd()`. Loads are cached per build worker.
+- **Dropped:** the `public/data/t2` chunk fallback in `loadAccounts`. The dataset lives only in `netlify/functions/_data/tracker-v2-accounts.json` (committed).
+- **Routes:** `src/app/gcc/directory/[n]/route.ts` and `src/app/gcc/[kind]/[slug]/route.ts` are `force-static` with `dynamicParams = false`, prerendered from `generateStaticParams`. They're route handlers returning the original HTML strings, not React pages. `/gcc/companies/<slug>/` still hits the `beforeFiles` rewrite to the committed HTML first.
+- **Parity, checked before committing:** all 82 generated pages (19 directory, 29 industry, 34 city) are **byte-identical** to production's current deploy. `app/sitemap.ts` produces the same 97 URLs as production's `sitemap.xml`, with the same order, change frequency and priority. Checked by rendering the new modules with Node and diffing against the live deploy.
+- **`/gcc` page:** adds the ItemList JSON-LD (`GCC companies in India`, published company pages only), restoring production's four schemas in the same order.
+- **Directory section (§4 decision):** `src/components/GccDirectoryLinks.tsx` renders on the server into a new `directory` slot on `Tracker`, above the footer. It shows the 19 directory page links plus all industry and city landing links, visible to everyone. The old hidden list of the first 100 companies is not reproduced; the directory pages carry it. Only `{ path, label }` is passed, so no account data reaches the RSC payload.
+- **Deleted:** `scripts/gcc/generate-tracker-page.mjs`, `generate-landing-pages.mjs`, `generate-sitemap.mjs`, `prerender-lib.mjs` and `public/sitemap.xml` (which would conflict with `app/sitemap.ts`). `generate-company-pages.mjs` never imported `prerender-lib`, so it's unchanged.
+- **Checks:** typecheck passes; `eslint .` has 0 errors and 58 warnings. Needs the deploy preview to confirm the route handlers prerender on Netlify and that `/gcc/directory/1/` (trailing slash) resolves.
