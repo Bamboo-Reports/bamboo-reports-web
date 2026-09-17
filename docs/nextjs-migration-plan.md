@@ -1,6 +1,6 @@
 # Next.js migration plan
 
-Status: phases 1–4 on `feat/nextjs-migration` (draft PR #146, which replaced #143–#145). Logs in §13–16. Written 2026-09-17 against `main` @ `a980642`.
+Status: phases 1–5 on `feat/nextjs-migration` (draft PR #146, which replaced #143–#145). Logs in §13–17. Remaining before merge: Netlify env vars and the browser checks in §17. Written 2026-09-17 against `main` @ `a980642`.
 
 Goal: move the Vite + React Router SPA to the Next.js App Router, keeping the
 Netlify hosting, every public URL, and today's SEO output (titles, canonicals,
@@ -311,3 +311,34 @@ Later, optional: port `tracker-query` to a route handler and move rate limiting 
 - **Directory section (§4 decision):** `src/components/GccDirectoryLinks.tsx` renders on the server into a new `directory` slot on `Tracker`, above the footer. It shows the 19 directory page links plus all industry and city landing links, visible to everyone. The old hidden list of the first 100 companies is not reproduced; the directory pages carry it. Only `{ path, label }` is passed, so no account data reaches the RSC payload.
 - **Deleted:** `scripts/gcc/generate-tracker-page.mjs`, `generate-landing-pages.mjs`, `generate-sitemap.mjs`, `prerender-lib.mjs` and `public/sitemap.xml` (which would conflict with `app/sitemap.ts`). `generate-company-pages.mjs` never imported `prerender-lib`, so it's unchanged.
 - **Checks:** typecheck passes; `eslint .` has 0 errors and 58 warnings. Needs the deploy preview to confirm the route handlers prerender on Netlify and that `/gcc/directory/1/` (trailing slash) resolves.
+
+---
+
+## 17. Phase 5 log: cutover checks and docs
+
+Automated comparison of the #146 deploy preview (`bf5c40b`) against production's current deploy (`6aaa118`, Vite):
+
+- **Sitemap:** `/sitemap.xml` is `application/xml`, with the same 97 entries (URL, change frequency, priority) in the same order.
+- **Status codes:** 96 of 97 sitemap URLs return 200. The exception is `/gcc/`, a 404 because `NEXT_PUBLIC_GCC_TRACKER_ENABLED` isn't set on Netlify yet.
+- **Static GCC pages:** all 83 (19 directory, 29 industry, 34 city, 1 company) are byte-identical to production once the toolbar Netlify injects into deploy-preview URLs is stripped. That `<div data-netlify-deploy-id>` block was the only difference.
+- **404s:** `/gcc/directory/999/`, `/gcc/industries/nope/` and `/gcc/foo/bar/` return 404. Slash and no-slash forms both return 200.
+- **Redirects:** all 9 return 301 to the right target.
+- **Static files:** `robots.txt`, `favicon.svg`, `logo.png` and `llms.txt` are identical to production.
+- **Dataset:** not reachable over HTTP (`/netlify/functions/_data/tracker-v2-accounts.json` returns 404).
+- **App pages:** SEO tags and JSON-LD are in the server HTML with the values the old `useSEO` calls set (checked after phase 3). Production only added these after JavaScript ran, so there's no raw-HTML baseline to diff.
+
+**Docs:** `README.md` now covers Next (stack, scripts, env vars, structure, routes, Netlify setup). `GCC_TRACKER_SUMMARY.md` has the frontend stack line updated. `.env.example` drops the unused `VITE_ACCOUNT_CREATION_ENABLED` and `VITE_SUPABASE_*` (nothing in the code reads them).
+
+**Left before merge (needs a person):**
+1. Add `NEXT_PUBLIC_GCC_TRACKER_ENABLED` (production `false`, other contexts `true`) and `NEXT_PUBLIC_TRACKER_SERVER_QUERY` (`true` everywhere) on Netlify, then check `/gcc/` on a fresh preview: skeletons then data, filters from `?industry=`/`?city=`, the directory section, and 4 JSON-LD blocks.
+2. Browser checks on the preview: JotForm UTM/prefill forwarding and the reload after download, the `?demo=true` Cal popup, and no hydration warnings on `/`, `/about`, the event page and `/gcc`.
+3. **Decide the production tracker flag before merge.** Production's `VITE_GCC_TRACKER_ENABLED` is `false`, yet `bambooreports.com/gcc/` returns **200** today: the old post-build script wrote a static `/gcc/index.html` (title, counts, first 100 companies) regardless of the flag, and only the browser app then rendered a 404. Crawlers index that page, and it's in the sitemap. In Next, the flag gates the server response, so with `NEXT_PUBLIC_GCC_TRACKER_ENABLED=false` in production `/gcc/` becomes a **real 404** while staying in the sitemap. Either set it to `true` in production (visitors then see the working tracker, not the 404 they get today), or keep it `false` and also drop `/gcc/` from `app/sitemap.ts` and the `/gcc/` links in the static pages.
+4. After merge, spot-check production at `bambooreports.com`.
+
+**Deferred, not blocking:**
+- fix the 58 lint warnings and restore the 4 downgraded rules to errors
+- `next/image`
+- move `tracker-query` into Next
+- confirm the Cloudflare rate limit on `/api/tracker/query`
+- update the Netlify UI build settings to match `netlify.toml`
+- stale docs unrelated to the migration (`docs/AUTH_SETUP.md`, `NEON_DATABASE_URL` in `.env.example`, the Neon architecture in `GCC_TRACKER_SUMMARY.md`)

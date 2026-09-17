@@ -3,7 +3,7 @@
 A public page where users filter India's GCC ecosystem and instantly see counts of **Accounts**, **Centers**, and **Prospects** — a TAM sizing tool. No row-level data is exposed; only aggregate counts and filter option lists.
 
 ### Stack
-- **Frontend**: React + Vite, `@tanstack/react-query`, shadcn/ui (Popover + Checkbox + Card + Input + Button), Tailwind
+- **Frontend**: Next.js (App Router) + React, `@tanstack/react-query`, shadcn/ui (Popover + Checkbox + Card + Input + Button), Tailwind
 - **Backend**: Serverless function, `@neondatabase/serverless` (HTTP Postgres driver)
 - **DB**: Neon PostgreSQL — `accounts`, `centers`, `prospects` tables joined via `account_global_legal_name`
 

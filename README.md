@@ -4,20 +4,17 @@ Marketing and content site for **Bamboo Reports** — a GCC (Global Capability C
 
 ## Tech stack
 
-- **React 18** + **TypeScript**
-- **Vite** (build tool)
-- **Tailwind CSS** + **shadcn/ui** (styling and component primitives)
-- **React Router** v6 (client-side routing)
-- **Supabase** (auth + storage for user avatars)
-- **TanStack Query** (server state, where used)
-- **Netlify** (hosting + serverless functions)
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS 3** + **shadcn/ui** (styling and component primitives)
+- **TanStack Query** (tracker data fetching)
+- **Netlify** (hosting via the Next.js adapter, plus serverless functions)
 
 ## Getting started
 
 ### Prerequisites
 
-- Node.js 18+
-- npm 9+
+- Node.js 22 (Netlify builds with 22; Next 16 needs 20.9+)
+- npm 10+
 
 ### Setup
 
@@ -31,122 +28,100 @@ npm install
 
 # Copy the env template and fill in your values
 cp .env.example .env
-# Then edit .env with your Supabase + Tempmail Checker credentials
 ```
 
 ### Run locally
 
 ```bash
-# Vite dev server (Vite-only, fastest for UI work)
+# Next dev server (UI work; /api/tracker/query is not available)
 npm run dev
 
-# Vite + Netlify Functions (use this if you need /.netlify/functions/* to work)
+# Next + Netlify Functions (use this for /gcc, which calls /api/tracker/query)
 npm run dev:netlify
 ```
 
-The dev server runs on `http://localhost:8080` (or whatever Vite picks).
+The dev server runs on `http://localhost:8080`.
 
 ## Available scripts
 
 | Script | What it does |
 |---|---|
-| `npm run dev` | Vite dev server |
-| `npm run dev:netlify` | Vite + local Netlify Functions emulator |
-| `npm run build` | Production build to `dist/` |
-| `npm run build:dev` | Development-mode build (sourcemaps, no minify) |
-| `npm run preview` | Preview a production build locally |
+| `npm run dev` | Next dev server on port 8080 |
+| `npm run dev:netlify` | Next + local Netlify Functions emulator |
+| `npm run build` | Production build (`next build`) into `.next/` |
+| `npm run start` | Serve a production build locally |
 | `npm run lint` | Run ESLint |
+| `npm run typecheck` | Generate Next route types, then `tsc --noEmit` |
 
 ## Environment variables
 
-All required env vars are documented in `.env.example`. The current set:
+Documented in `.env.example`. Browser-visible flags must start with `NEXT_PUBLIC_` and are inlined at build time, so change them in Netlify and redeploy.
 
-| Variable | Required | Purpose |
+| Variable | Where | Purpose |
 |---|---|---|
-| `VITE_SUPABASE_URL` | yes | Supabase project URL |
-| `VITE_SUPABASE_ANON_KEY` | yes | Supabase publishable (anon) key |
-| `TEMPMAIL_CHECKER_API_KEY` | yes (server) | Disposable-email check on signup (used by Netlify Function) |
-| `TEMPMAIL_CHECKER_BASE_URL` | optional | Override the tempmail checker base URL |
-| `VITE_TEMPMAIL_CHECKER_API_KEY` | optional | Client-side fallback for the tempmail check |
-| `VITE_TEMPMAIL_CHECKER_API_URL` | optional | Client-side fallback URL |
+| `NEXT_PUBLIC_GCC_TRACKER_ENABLED` | build | `"true"` shows the `/gcc` tracker and its nav links; otherwise `/gcc` returns 404 |
+| `NEXT_PUBLIC_TRACKER_SERVER_QUERY` | build | `"true"` makes the tracker query `/api/tracker/query` instead of static data chunks (the chunks are no longer published, so keep this on) |
+| `TEMPMAIL_CHECKER_API_KEY` | Netlify Function | Disposable-email check (`check-tempmail`) |
+| `TEMPMAIL_CHECKER_BASE_URL` | Netlify Function | Optional override for the tempmail checker base URL |
 
 ## Project structure
 
 ```
 src/
-├── App.tsx              # Routes
-├── main.tsx             # Entry point
-├── index.css            # Global styles + design tokens
+├── app/                 # Next.js App Router
+│   ├── layout.tsx       # Root layout: fonts, GA, default metadata, providers
+│   ├── providers.tsx    # Client providers (React Query, tooltips, toasts, inquiry form)
+│   ├── */page.tsx       # One route per page; exports metadata, renders a view
+│   ├── gcc/             # /gcc tracker, plus static directory and landing routes
+│   ├── not-found.tsx    # 404
+│   └── sitemap.ts       # /sitemap.xml
+├── views/               # Page components rendered by the routes
 ├── components/          # Reusable components
 │   └── ui/              # shadcn/ui primitives
-├── contexts/            # React contexts (Auth, InquiryForm)
+├── contexts/            # React contexts (InquiryForm)
 ├── hooks/               # Custom React hooks
-├── lib/                 # Utilities, data, Supabase client
-└── pages/               # Route components
-    └── articles/        # Article detail pages
+└── lib/
+    ├── seo.ts           # seo(): page metadata (title, canonical, OG/Twitter)
+    └── server/          # Build-time, server-only GCC data and HTML builders
 
-public/                  # Static assets served as-is (favicon, robots, sitemap, platform/ screenshots)
+public/                  # Static assets served as-is (favicon, robots.txt, prebuilt /gcc/companies pages)
 
 netlify/
-└── functions/           # Serverless functions (currently: tempmail check)
+└── functions/           # tracker-query (/api/tracker/query), check-tempmail
+    └── _data/           # Tracker dataset: server-only, never copy into public/
 
-docs/                    # Project documentation
-├── AUTH_SETUP.md        # Supabase auth configuration guide
-├── SITE_AUDIT_AND_OPTIMIZATIONS.md
-├── privacy-terms.md     # Source copy for the Privacy Policy page
-└── terms-conditions.md  # Source copy for the Terms & Conditions page
+scripts/                 # Offline data generators (tracker dataset, company pages)
+data/gcc/                # Company page source data and taxonomy
+docs/                    # Project documentation (see nextjs-migration-plan.md)
 ```
 
-> This project uses **npm** — `package-lock.json` is the only committed lockfile.
+> This project uses **npm**: `package-lock.json` is the only committed lockfile.
 
 ## Routes
 
-### Public
+- `/`: Home
+- `/about`, `/platform`, `/success-stories`
+- `/gcc-prospect-data`, `/account-market-intelligence`, `/gcc-abm`
+- `/resources`, `/reports`, `/reports/india-gcc-report-q2-2026`
+- `/events/agentic-supply-chain-control-tower` (+ `/thank-you`)
+- `/map-your-gcc-opportunity`
+- `/thank-you`, `/privacy-policy`, `/terms-conditions`
+- `/gcc/`: GCC tracker (behind `NEXT_PUBLIC_GCC_TRACKER_ENABLED`)
+- `/gcc/directory/<n>/`, `/gcc/industries/<slug>/`, `/gcc/cities/<slug>/`: static HTML prerendered at build time from the tracker dataset
+- `/gcc/companies/<slug>/`: prebuilt HTML in `public/`, generated by `scripts/gcc/generate-company-pages.mjs`
 
-- `/` — Home
-- `/gcc-prospect-data` — GCC Prospect Data
-- `/account-market-intelligence` — Account and Market Intelligence
-- `/gcc-abm` — GCC ABM
-- `/platform` — Platform
-- `/success-stories` — Success Stories
-- `/insights` — Insights
-- `/resources` — Resources
-- `/roundtables` — Roundtables index
-- `/roundtables/h1b-shock-strategic-reset` — H1B article
-- `/thank-you`, `/privacy-policy`, `/terms-conditions` — legal/transactional
-
-### Auth
-
-- `/signin`, `/signup`
-
-### Protected
-
-- `/profile` — requires authentication
-
-### Unmatched paths
-
-Any path not listed above falls through to the `NotFound` (404) page.
-
-## Supabase
-
-The site currently uses Supabase for:
-- **Authentication** (sign-in / sign-up / password reset / profile updates)
-- **`profile-images` storage bucket** (user avatars)
-
-That's it. No application tables are queried by the running app.
+Old URLs are 301-redirected in `next.config.ts`. Anything else renders the 404 page.
 
 ## Deployment
 
-The site deploys to **Netlify**. The `netlify.toml` at the repo root configures:
-- Build command: `npm run build`
-- Publish directory: `dist`
-- SPA fallback redirect (`/* → /index.html`)
-- Serverless functions directory (`netlify/functions`)
+The site deploys to **Netlify**. `netlify.toml` sets:
+- Build command `npm run build`, publish directory `.next`
+- The `@netlify/plugin-nextjs` adapter, declared explicitly (the site was created for Vite, so Netlify doesn't add it automatically; without it every route 404s)
+- Node 22 and the functions directory (`netlify/functions`)
 
-Environment variables for production are configured in **Netlify → Site settings → Environment variables**, not in this repo.
+`netlify.toml` overrides the build command and publish directory still set in the Netlify UI. Environment variables live in **Netlify → Site settings → Environment variables**, not in this repo.
 
 ## Notes
 
-- This project was scaffolded from a Vite + React + shadcn/ui template and has since been simplified significantly.
-- Auth, profile, sign-in, and sign-up pages share a consistent visual treatment matching the marketing site (Header + Footer, primary blue accent, white background).
+- Migrated from Vite + React Router to the Next.js App Router in September 2026; see `docs/nextjs-migration-plan.md`.
 - Pricing is currently lead-capture only — the page renders plan cards behind a JotForm inquiry overlay and routes all CTAs through that form.
