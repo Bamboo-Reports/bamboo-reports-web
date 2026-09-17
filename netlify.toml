@@ -10,6 +10,12 @@
 
 # URL redirects live in next.config.ts. Only host-level rules belong here.
 
+# Declared explicitly: this site was created for the Vite build, so Netlify
+# doesn't add its Next.js adapter automatically. Without it the raw .next
+# folder is uploaded as static files and every route 404s.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 # Force the raw Netlify alias onto the real domain. All bot management and
 # rate limiting live on Cloudflare in front of bambooreports.com; without this,
 # scrapers hitting the *.netlify.app origin would bypass every protection.
