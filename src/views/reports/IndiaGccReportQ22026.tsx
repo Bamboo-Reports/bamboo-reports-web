@@ -84,7 +84,7 @@ const IndiaGccReportQ22026 = () => {
       <header className="border-b border-primary/15 bg-background px-4">
         <div className="mx-auto flex max-w-7xl items-center py-4">
           <img
-            src={logo}
+            src={logo.src}
             alt="Bamboo Reports"
             width={777}
             height={336}
@@ -184,7 +184,7 @@ const IndiaGccReportQ22026 = () => {
             </h2>
             <div className="mt-6 grid items-center gap-8 sm:grid-cols-[auto_1fr] sm:gap-10">
               <img
-                src={q2ReportCover}
+                src={q2ReportCover.src}
                 alt="Report cover: India GCC Quarterly Report, Q2 2026, April to June, with the quarter's GCC hubs marked on a map of India"
                 width={1655}
                 height={2340}

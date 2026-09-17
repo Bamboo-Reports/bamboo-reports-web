@@ -1,5 +1,7 @@
+"use client";
+
 import { useState, useCallback, useEffect, useId, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useSearchParams } from "next/navigation";
 import { ensureJotformEmbedHandler, getJotformEmbedSrc } from "@/lib/jotform";
 
 type JotformWindow = Window & {
@@ -32,7 +34,7 @@ const JotFormEmbed = ({
   className = "",
   autoReloadAfterSubmit = false,
 }: JotFormEmbedProps) => {
-  const { search } = useLocation();
+  const search = useSearchParams().toString();
   const [isLoaded, setIsLoaded] = useState(false);
   const [reportedHeight, setReportedHeight] = useState<string | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);

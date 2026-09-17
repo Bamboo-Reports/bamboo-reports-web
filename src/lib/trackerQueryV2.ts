@@ -2,9 +2,9 @@ import type { FacetOption } from "@/lib/tracker";
 
 /** When on, the tracker asks the server for one filter combination at a time
  * and never receives the full dataset. Off keeps the static /data/t2 chunks.
- * Toggle with VITE_TRACKER_SERVER_QUERY=true. */
+ * Toggle with NEXT_PUBLIC_TRACKER_SERVER_QUERY=true. */
 export const TRACKER_SERVER_QUERY_ENABLED =
-  import.meta.env.VITE_TRACKER_SERVER_QUERY === "true";
+  process.env.NEXT_PUBLIC_TRACKER_SERVER_QUERY === "true";
 
 const ENDPOINT = "/api/tracker/query";
 

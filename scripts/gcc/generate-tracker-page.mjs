@@ -2,7 +2,7 @@
 // Post-build step: inject crawlable /gcc content into the built SPA shell and
 // write the paginated static directory pages.
 //
-// The /gcc route is a React SPA (src/pages/Tracker.tsx). Its H1, counts and
+// The /gcc route is a React SPA (src/views/Tracker.tsx). Its H1, counts and
 // company list only exist after JS runs, so non-JS crawlers see an empty
 // shell. This script reads the built dist/index.html and:
 //   1. Writes dist/gcc/index.html: title/description/og rewritten for /gcc,

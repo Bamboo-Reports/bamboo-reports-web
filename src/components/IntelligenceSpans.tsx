@@ -42,7 +42,7 @@ const IntelligenceSpans = () => (
 
       <div className="flex justify-center">
         <img
-          src={indiaMap}
+          src={indiaMap.src}
           alt="GCC Intelligence Coverage"
           width="2280"
           height="2282"

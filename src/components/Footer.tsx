@@ -64,7 +64,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 md:gap-10">
           <div className="col-span-2 space-y-4 md:col-span-2">
             <img
-              src={logo}
+              src={logo.src}
               alt="Bamboo Reports: GCC Intelligence Provider"
               className="h-12 w-auto"
             />

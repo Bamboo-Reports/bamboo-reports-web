@@ -1,14 +1,11 @@
 [build]
-  # Build command for your React/Vite app
+  # Next.js app; Netlify detects Next and deploys it with its OpenNext adapter,
+  # so there is no publish directory to set.
   command = "npm run build"
-  # Directory to publish (output of vite build)
-  publish = "dist"
   # Functions directory
   functions = "netlify/functions"
 
-# Redirect rules for SPA (Single Page Application)
-# NOTE: More specific redirects (like /api/* below) must come BEFORE the catch-all "/*" rule,
-# because Netlify evaluates redirects in file order.
+# URL redirects live in next.config.ts. Only host-level rules belong here.
 
 # Force the raw Netlify alias onto the real domain. All bot management and
 # rate limiting live on Cloudflare in front of bambooreports.com; without this,
@@ -25,14 +22,9 @@
 # (netlify/functions/tracker-query.js), which also declares its rate limit.
 # No redirect needed here.
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
 # Build settings
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "22"
 
 # Function settings
 [functions]

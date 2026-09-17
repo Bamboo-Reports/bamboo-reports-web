@@ -34,7 +34,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="inline-flex min-h-11 items-center">
-          <img src={logo} alt="Bamboo Reports" className="h-10 md:h-12" />
+          <img src={logo.src} alt="Bamboo Reports" className="h-10 md:h-12" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -149,7 +149,7 @@ const Header = () => {
               {/* Logo at top */}
               <div className="p-6 pb-4">
                 <Link to="/" onClick={() => setMobileMenuOpen(false)} className="inline-block">
-                  <img src={logo} alt="Bamboo Reports" className="h-10" />
+                  <img src={logo.src} alt="Bamboo Reports" className="h-10" />
                 </Link>
               </div>
 

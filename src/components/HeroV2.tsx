@@ -25,7 +25,7 @@ const CAPABILITIES = [
 const HeroV2 = () => (
   <section className="relative isolate overflow-hidden bg-neutral-900 text-white">
     <img
-      src={heroV3}
+      src={heroV3.src}
       alt=""
       aria-hidden
       className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[74%_50%] sm:object-[center_58%]"

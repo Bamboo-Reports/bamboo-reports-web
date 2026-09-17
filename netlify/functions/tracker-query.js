@@ -1,6 +1,6 @@
 // Server-side tracker query. Answers one filter combination at a time and
 // returns only the rows the exposure cap permits, so the full dataset never
-// crosses the wire. Mirrors the client logic in src/pages/Tracker.tsx exactly;
+// crosses the wire. Mirrors the client logic in src/views/Tracker.tsx exactly;
 // the two must stay in sync while VITE_TRACKER_SERVER_QUERY can be toggled.
 //
 // The dataset lives under netlify/functions/_data/ and is bundled into this

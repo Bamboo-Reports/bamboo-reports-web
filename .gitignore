@@ -9,8 +9,9 @@ lerna-debug.log*
 
 # Build output
 node_modules
-dist
-dist-ssr
+.next
+next-env.d.ts
+*.tsbuildinfo
 *.local
 
 # Other package managers (this project uses npm — package-lock.json only)

@@ -1,4 +1,6 @@
-import { createContext, useContext, useRef, useState, type ReactNode } from "react";
+"use client";
+
+import { createContext, Suspense, useContext, useRef, useState, type ReactNode } from "react";
 import JotFormEmbed from "@/components/JotFormEmbed";
 import {
   Dialog,
@@ -61,11 +63,14 @@ export const InquiryFormProvider = ({ children }: { children: ReactNode }) => {
           </DialogHeader>
 
           <div className="h-[600px] lg:h-[539px] overflow-hidden relative">
-            <JotFormEmbed
-              formId="260714112843450"
-              title="Bamboo Reports pricing enquiry form"
-              height="539px"
-            />
+            {/* JotFormEmbed reads useSearchParams, which needs a Suspense boundary. */}
+            <Suspense fallback={null}>
+              <JotFormEmbed
+                formId="260714112843450"
+                title="Bamboo Reports pricing enquiry form"
+                height="539px"
+              />
+            </Suspense>
           </div>
         </DialogContent>
       </Dialog>
