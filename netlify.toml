@@ -1,7 +1,10 @@
 [build]
-  # Next.js app; Netlify detects Next and deploys it with its OpenNext adapter,
-  # so there is no publish directory to set.
+  # Next.js app, deployed by Netlify's Next.js adapter.
   command = "npm run build"
+  # Must be set here: the site's UI setting is still "dist" from the Vite
+  # build, and with no value in this file that one wins and the adapter never
+  # runs (deploys shipped a stale Vite build).
+  publish = ".next"
   # Functions directory
   functions = "netlify/functions"
 
