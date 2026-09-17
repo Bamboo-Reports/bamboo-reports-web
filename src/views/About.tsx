@@ -1,13 +1,14 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+"use client";
+
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import { DemoCta } from "@/components/B2BMarketingPage";
 import { HERO_DESCRIPTION, HERO_SHOT, STAGES } from "@/components/platform/content";
-import { useSEO } from "@/hooks/useSEO";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 /* ------------------------------------------------------------------ */
 /* Content                                                             */
@@ -191,17 +192,13 @@ const useCountUp = (target: number, durationMs = 1600) => {
 /* ------------------------------------------------------------------ */
 
 const About = () => {
-  const photos = useMemo(() => shuffle(ROUNDTABLE_PHOTOS), []);
+  // Shuffled after mount: shuffling during render would give the server and
+  // the browser different orders and break hydration.
+  const [photos, setPhotos] = useState(ROUNDTABLE_PHOTOS);
+  useEffect(() => {
+    setPhotos(shuffle(ROUNDTABLE_PHOTOS));
+  }, []);
   const centres = useCountUp(6000);
-
-  useSEO({
-    title: "About Bamboo Reports | The India GCC dataset built centre by centre",
-    description:
-      "Bamboo Reports profiles 6,000+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
-    keywords:
-      "about Bamboo Reports, Research NXT, India GCC dataset, GCC centre level data, GCC research methodology",
-    canonicalUrl: "https://bambooreports.com/about",
-  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -373,7 +370,7 @@ const About = () => {
                   The full product tour, one screen at a time.
                 </p>
                 <Link
-                  to="/platform"
+                  href="/platform"
                   className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary transition-colors duration-micro ease-smooth hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   Walk through the platform

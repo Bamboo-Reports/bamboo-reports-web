@@ -1,8 +1,7 @@
 import PlatformShell from "@/components/platform/PlatformShell";
 import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { Button } from "@/components/ui/button";
-import { useSEO } from "@/hooks/useSEO";
-import { HERO_DESCRIPTION, HERO_HEADLINE, PLATFORM_SEO } from "@/components/platform/content";
+import { HERO_DESCRIPTION, HERO_HEADLINE } from "@/components/platform/content";
 import { ArrowDown, ArrowRight } from "lucide-react";
 
 /**
@@ -12,8 +11,6 @@ import { ArrowDown, ArrowRight } from "lucide-react";
  * the promise and the product shot is the proof.
  */
 const Platform = () => {
-  useSEO(PLATFORM_SEO);
-
   return (
     <PlatformShell>
       <section className="platform-hero relative isolate overflow-hidden px-4 pb-16 pt-16 md:pb-20 md:pt-24">

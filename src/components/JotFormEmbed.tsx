@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect, useId, useRef } from "react";
+import { Suspense, useState, useCallback, useEffect, useId, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { ensureJotformEmbedHandler, getJotformEmbedSrc } from "@/lib/jotform";
 
@@ -25,7 +25,7 @@ interface JotFormEmbedProps {
  * Shows a form-like placeholder while the iframe loads,
  * then fades it out once the form is ready.
  */
-const JotFormEmbed = ({
+const JotFormEmbedFrame = ({
   formId,
   title,
   height = "539px",
@@ -244,6 +244,29 @@ const JotFormEmbed = ({
         className="w-full !h-full"
       />
     </div>
+  );
+};
+
+/**
+ * useSearchParams needs a Suspense boundary; without one here, the nearest
+ * boundary up the tree (possibly the whole page) would render client-side.
+ * The fallback reserves the same box so the page doesn't shift.
+ */
+const JotFormEmbed = (props: JotFormEmbedProps) => {
+  const { height = "539px", heightClassName, className = "" } = props;
+
+  return (
+    <Suspense
+      fallback={
+        <div
+          className={`relative w-full ${heightClassName ?? ""} ${className}`.trim()}
+          style={heightClassName ? undefined : { height }}
+          aria-hidden
+        />
+      }
+    >
+      <JotFormEmbedFrame {...props} />
+    </Suspense>
   );
 };
 

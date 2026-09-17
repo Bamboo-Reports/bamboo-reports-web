@@ -1,3 +1,5 @@
+"use client";
+
 import { useId, useState } from "react";
 import { Lock, Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";

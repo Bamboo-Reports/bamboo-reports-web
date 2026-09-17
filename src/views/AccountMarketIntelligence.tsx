@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import { DemoCta, MarketingHero, SectionIntro } from "@/components/B2BMarketingPage";
-import { useSEO } from "@/hooks/useSEO";
 
 const PRODUCTS = [
   { title: "City GCC intelligence reports", body: "Deep-dives into India's top GCC cities. Each edition covers active and upcoming centre counts, workforce composition, sector and function mix, micro-geography clustering, and growth signals. Delivered as interactive reports built for executive audiences." },
@@ -28,13 +27,6 @@ const USERS = [
 ];
 
 const AccountMarketIntelligence = () => {
-  useSEO({
-    title: "Account & Market Intelligence | India GCC Research | Bamboo Reports",
-    description:
-      "Structured, data-backed views of India's GCC ecosystem by city, sector, function, or company. From quick snapshots to deep-dive research.",
-    keywords:
-      "GCC market intelligence, India GCC research, account intelligence, city GCC report, sector snapshot",
-  });
 
   return (
     <div className="min-h-screen bg-background">

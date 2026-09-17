@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   ArrowRight,
   CalendarDays,
@@ -17,8 +16,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import JotFormEmbed from "@/components/JotFormEmbed";
-import { useSEO } from "@/hooks/useSEO";
 import StructuredData from "@/components/StructuredData";
+import CountdownBar from "./AgenticSupplyChainControlTowerCountdown";
 
 /** Thoughtworks coral. The brand tint is too light for body-size text on white,
  *  so rules and icons use it directly while type uses a deeper shade of the hue. */
@@ -38,19 +37,6 @@ const EVENT_SCHEMA = {
 };
 const CORAL_INK = "text-[hsl(348_68%_40%)]";
 const CORAL_DEEP = "hsl(348 68% 40%)";
-const EVENT_START = new Date("2026-09-10T08:00:00+05:30").getTime();
-
-const getTimeRemaining = () => {
-  const totalSeconds = Math.max(0, Math.floor((EVENT_START - Date.now()) / 1000));
-
-  return {
-    totalSeconds,
-    days: Math.floor(totalSeconds / 86_400),
-    hours: Math.floor((totalSeconds % 86_400) / 3_600),
-    minutes: Math.floor((totalSeconds % 3_600) / 60),
-    seconds: totalSeconds % 60,
-  };
-};
 
 const eventDetails = [
   { icon: CalendarDays, label: "Date", value: "Thursday", note: "10 September 2026" },
@@ -121,65 +107,7 @@ const HostLockup = ({ className = "" }: { className?: string }) => (
   </div>
 );
 
-const CountdownBar = () => {
-  const [remaining, setRemaining] = useState(getTimeRemaining);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setRemaining(getTimeRemaining());
-    }, 1_000);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
-  if (remaining.totalSeconds === 0) return null;
-
-  const units = [
-    { label: "Days", value: remaining.days },
-    { label: "Hours", value: remaining.hours },
-    { label: "Minutes", value: remaining.minutes },
-    { label: "Seconds", value: remaining.seconds },
-  ];
-
-  return (
-    <aside
-      className="sticky top-0 z-40 text-white"
-      style={{ backgroundColor: CORAL_DEEP }}
-      aria-label="Event countdown"
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-center gap-4 px-4 py-2.5 sm:gap-6 md:px-6">
-        <p className="hidden text-sm font-semibold sm:block">Roundtable begins in</p>
-        <dl
-          className="flex items-center gap-3 sm:gap-5"
-          role="timer"
-          aria-label={`${remaining.days} days, ${remaining.hours} hours, ${remaining.minutes} minutes and ${remaining.seconds} seconds until the event`}
-        >
-          {units.map(({ label, value }) => (
-            <div key={label} className="flex items-baseline gap-1">
-              <dt className="order-2 text-[10px] font-semibold uppercase tracking-wide text-white/75">
-                {label}
-              </dt>
-              <dd className="order-1 min-w-5 text-right text-lg font-bold tabular-nums">
-                {String(value).padStart(2, "0")}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </aside>
-  );
-};
-
 const AgenticSupplyChainControlTower = () => {
-  useSEO({
-    appendSiteName: false,
-    ogImage: "",
-    title: "Agentic Supply Chain Control Tower · Retail Roundtable by Thoughtworks",
-    description:
-      "A retail roundtable hosted by Thoughtworks at Hilton Bengaluru, Embassy Golf Links. Sense. Simulate. Solve. 10 September 2026.",
-    keywords:
-      "agentic supply chain, supply chain control tower, retail roundtable India, Thoughtworks roundtable Bengaluru, GCC supply chain, Black Friday scenario planning",
-  });
 
   return (
     <div className="min-h-screen bg-background pb-20 lg:pb-0">
@@ -390,7 +318,7 @@ const AgenticSupplyChainControlTower = () => {
             </a>
           </div>
           <Link
-            to="/privacy-policy"
+            href="/privacy-policy"
             className="-my-2 inline-flex items-center py-2 text-sm text-muted-foreground underline-offset-4 transition-opacity duration-micro ease-smooth hover:underline hover:opacity-80"
           >
             Privacy policy

@@ -1,17 +1,10 @@
 import { ArrowRight, CheckCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CalSchedulingButton } from "@/components/CalSchedulingButton";
-import { useSEO } from "@/hooks/useSEO";
 
 const ThankYou = () => {
-  useSEO({
-    title: "Thank You | Bamboo Reports",
-    description: "Thank you for reaching out to Bamboo Reports. Our team will review your request and get in touch shortly.",
-    keywords: "Bamboo Reports, GCC Intelligence, Thank You, Inquiry Received",
-    robots: "noindex, follow",
-  });
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -28,7 +21,7 @@ const ThankYou = () => {
               <span><span className="block text-lg font-semibold">Schedule a Discussion</span><span className="mt-1 block text-sm text-muted-foreground">Book a time directly with our team</span></span>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">Get a demo<ArrowRight className="h-4 w-4" aria-hidden /></span>
             </CalSchedulingButton>
-            <Link to="/resources" className="group grid min-h-20 w-full grid-cols-[1fr_auto] items-center gap-4 border-b py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+            <Link href="/resources" className="group grid min-h-20 w-full grid-cols-[1fr_auto] items-center gap-4 border-b py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
               <span><span className="block text-lg font-semibold">Explore Resources</span><span className="mt-1 block text-sm text-muted-foreground">Guides and insights from our team</span></span>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">View resources<ArrowRight className="h-4 w-4" aria-hidden /></span>
             </Link>

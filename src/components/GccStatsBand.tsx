@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TRACKER_V2_STATS } from "@/lib/trackerStatsV2";
@@ -142,7 +144,7 @@ const GccStatsBand = () => {
               variant="outline"
               className="group w-full max-w-sm px-4 text-base font-semibold sm:w-auto sm:px-7"
             >
-              <Link to="/gcc">
+              <Link href="/gcc">
                 Explore the India GCC directory
                 <ArrowRight
                   className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"

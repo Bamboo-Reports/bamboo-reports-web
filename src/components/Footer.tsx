@@ -1,6 +1,8 @@
+"use client";
+
 import logo from "@/assets/bamboo-logo.svg";
 import { ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { GCC_TRACKER_ENABLED } from "@/lib/featureFlags";
@@ -78,7 +80,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
             <ul className="text-sm text-muted-foreground">
               {offerLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
+                  <Link href={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
                     {link.label}
                   </Link>
                 </li>
@@ -91,7 +93,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
             <ul className="text-sm text-muted-foreground">
               {exploreLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
+                  <Link href={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
                     {link.label}
                   </Link>
                 </li>
@@ -107,10 +109,10 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
             &copy; {currentYear} Bamboo Reports - A Research NXT Product. All rights reserved.
           </div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <Link to="/privacy-policy" className="transition-colors duration-micro ease-smooth hover:text-primary">
+            <Link href="/privacy-policy" className="transition-colors duration-micro ease-smooth hover:text-primary">
               Privacy Policy
             </Link>
-            <Link to="/terms-conditions" className="transition-colors duration-micro ease-smooth hover:text-primary">
+            <Link href="/terms-conditions" className="transition-colors duration-micro ease-smooth hover:text-primary">
               Terms & Conditions
             </Link>
           </div>

@@ -7,7 +7,6 @@ import {
   ResourceCard,
   type ResourceItem,
 } from "@/components/ResourceCards";
-import { useSEO } from "@/hooks/useSEO";
 import q2ReportCover from "../../q2-report-cover.png";
 
 const reports: ResourceItem[] = [
@@ -24,12 +23,6 @@ const reports: ResourceItem[] = [
 const [latestReport, ...earlierReports] = reports;
 
 const Reports = () => {
-  useSEO({
-    title: "Reports | India GCC Intelligence | Bamboo Reports",
-    description:
-      "Market reports and insights on India's GCC ecosystem: market reads, sector deep-dives, and focused research from Bamboo Reports.",
-    canonicalUrl: "https://bambooreports.com/reports",
-  });
 
   return (
     <div className="min-h-screen bg-background text-foreground">

@@ -1,6 +1,6 @@
 # Next.js migration plan
 
-Status: phase 1 done on `feat/nextjs-phase-1-scaffold` (see §13). Written 2026-09-17 against `main` @ `a980642`.
+Status: phase 1 on `feat/nextjs-phase-1-scaffold` (draft PR #143); phase 2 on `feat/nextjs-phase-2-pages` (see §13–14). Written 2026-09-17 against `main` @ `a980642`.
 
 Goal: move the Vite + React Router SPA to the Next.js App Router, keeping the
 Netlify hosting, every public URL, and today's SEO output (titles, canonicals,
@@ -271,3 +271,18 @@ Later, optional: port `tracker-query` to a route handler and move rate limiting 
 - **Lint:** `eslint-config-next` turns on `react-hooks/set-state-in-effect`, `react-hooks/refs`, `react-hooks/preserve-manual-memoization` and `react/no-unescaped-entities`. That surfaced 27 errors in existing code, so those rules are set to `warn` in `eslint.config.js`. Also removed the now-unused `@eslint/js`, `globals` and `eslint-plugin-react-hooks` (bundled by `eslint-config-next`).
 - **The branch can't be merged to `main` on its own.** `npm run build` no longer runs `scripts/gcc/generate-*`, so `/gcc`, the directory and landing pages, and the generated sitemap entries are missing until phase 4.
 - **Manual step in the Netlify UI:** rename `VITE_GCC_TRACKER_ENABLED` to `NEXT_PUBLIC_GCC_TRACKER_ENABLED`, and `VITE_TRACKER_SERVER_QUERY` to `NEXT_PUBLIC_TRACKER_SERVER_QUERY`, in every deploy context.
+
+---
+
+## 14. Phase 2 log: differences from the plan above
+
+- **All 17 routes and the 404 are wired up.** Each `src/app/**/page.tsx` exports `metadata` from `seo()` in `src/lib/seo.ts` and renders its view. `react-router-dom` and `usePageTitle` are removed.
+- **`useSEO.ts` stays until phase 3,** because `Tracker.tsx` still calls it.
+- **`StructuredData` is now a server-rendered `<script type="application/ld+json">`, but the calls stay in the views** instead of moving to `page.tsx`. Every view that uses it renders on the server, so the JSON-LD is in the HTML either way.
+- **`JotFormEmbed` has its own `<Suspense>` boundary** (the fallback is a box of the same height), so no caller needs one. Wrapping whole pages, as §4 and §5 suggested, would have made the report and event pages render only in the browser. The boundary added to `InquiryFormContext` in phase 1 is removed.
+- **Homepage:** the `?demo=true` logic moved into `src/components/DemoQueryHandler.tsx`, in its own `<Suspense>`. `IndexV2` has no hooks left and renders fully on the server.
+- **Event page:** instead of the whole view becoming a client component, only `CountdownBar` moved out, to `AgenticSupplyChainControlTowerCountdown.tsx` (client). It renders nothing until mounted, so server and browser output match.
+- **About page hydration fix, not in the plan:** the roundtable photos were shuffled during render, so the server and browser would disagree. They now render in source order and shuffle after mount.
+- **`"use client"` added to** `AccountSearchFilter`, `CalSchedulingButton`, `FadeIn`, `Footer`, `GccStatsBand`, `Header`, `ImageCropDialog`, `MultiSelectFilter`, `use-toast`, the Radix-based `ui/*` components, `About` and `MapYourGCCOpportunity`. Every other view and component renders on the server.
+- **Metadata:** `keywords` is dropped everywhere (the old hook removed the tag too). `not-found` has no canonical and its OG URL falls back to the site root.
+- **Checks:** `npm run typecheck` passes; `eslint .` has 0 errors and 58 warnings (+1: `setPhotos` inside an effect). A static scan of server components found no hooks, event handlers or function props. The server/client boundaries are still unproven until a build runs on the deploy preview.

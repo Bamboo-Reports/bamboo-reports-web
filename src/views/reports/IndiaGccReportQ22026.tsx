@@ -2,7 +2,6 @@ import { Download } from "lucide-react";
 import logo from "@/assets/bamboo-logo.svg";
 import JotFormEmbed from "@/components/JotFormEmbed";
 import { Button } from "@/components/ui/button";
-import { useSEO } from "@/hooks/useSEO";
 import StructuredData from "@/components/StructuredData";
 import q2ReportCover from "../../../q2-report-cover.png";
 
@@ -59,20 +58,6 @@ const FAQS = [
 const FAQ_SCHEMA = { questions: FAQS };
 
 const IndiaGccReportQ22026 = () => {
-  const seoDescription =
-    "The Q2 2026 India GCC Quarterly Report tracks 110 centre events across 99 companies and 27 cities, including 40 first-time entrants, 75K+ announced roles and the rise of AI-first centres.";
-
-  useSEO({
-    title: "India GCC Quarterly Report, Q2 2026 (April to June) | Bamboo Reports",
-    description: seoDescription,
-    ogTitle: "India GCC Quarterly Report, Q2 2026 (April to June)",
-    ogDescription: seoDescription,
-    ogImage:
-      "https://bambooreports.com/gcc/india-gcc-report-share-card-q2-2026.png",
-    ogType: "article",
-    canonicalUrl: "https://bambooreports.com/reports/india-gcc-report-q2-2026",
-  });
-
   return (
     <div className="min-h-screen bg-background pb-[calc(4.75rem+env(safe-area-inset-bottom))] lg:pb-0">
       <StructuredData type="faq" data={FAQ_SCHEMA} />

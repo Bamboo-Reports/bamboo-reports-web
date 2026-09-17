@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import { DemoCta, MarketingHero } from "@/components/B2BMarketingPage";
-import { useSEO } from "@/hooks/useSEO";
 
 const CASE_ONE_RESULTS = [
   { value: "1,050", label: "Prospect universe: global customers with India GCCs + look-alike accounts" },
@@ -19,13 +18,6 @@ const ENGAGEMENT_ARC = [
 ];
 
 const SuccessStories = () => {
-  useSEO({
-    title: "Success Stories | Bamboo Reports",
-    description:
-      "Proof that the Bamboo Reports model works across solution providers and GCCs alike. BFSI GCC strategy for a global IT services firm, and GCC setup for a Fortune 500 medical device company.",
-    keywords:
-      "Bamboo Reports case studies, GCC success stories, BFSI GCC intelligence, Medical device GCC, India GCC benchmarking",
-  });
 
   return (
     <div className="min-h-screen bg-background">

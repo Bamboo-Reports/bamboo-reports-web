@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import { DemoCta, MarketingHero } from "@/components/B2BMarketingPage";
 import { ResourceCard, type ResourceItem } from "@/components/ResourceCards";
-import { useSEO } from "@/hooks/useSEO";
 import q2ReportCover from "../../q2-report-cover.png";
 
 const reports: ResourceItem[] = [
@@ -18,11 +17,6 @@ const reports: ResourceItem[] = [
 ];
 
 const Resources = () => {
-  useSEO({
-    title: "Resources | India GCC Reports | Bamboo Reports",
-    description:
-      "Market reports from the team tracking India's GCC ecosystem centre by centre.",
-  });
 
   return (
     <div className="min-h-screen bg-background text-foreground">

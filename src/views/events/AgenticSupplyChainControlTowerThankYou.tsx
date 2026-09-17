@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { CalendarDays, CheckCircle, Clock, MapPin } from "lucide-react";
-import { useSEO } from "@/hooks/useSEO";
 
 /** Shares the event page's Thoughtworks coral accent. */
 const CORAL = "#f2617a";
@@ -13,14 +12,6 @@ const eventDetails = [
 ];
 
 const AgenticSupplyChainControlTowerThankYou = () => {
-  useSEO({
-    appendSiteName: false,
-    ogImage: "",
-    title: "Registration received · Agentic Supply Chain Control Tower",
-    description:
-      "Your registration for the Agentic Supply Chain Control Tower roundtable has been received.",
-    robots: "noindex, follow",
-  });
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -75,7 +66,7 @@ const AgenticSupplyChainControlTowerThankYou = () => {
           </dl>
 
           <Link
-            to="/events/agentic-supply-chain-control-tower"
+            href="/events/agentic-supply-chain-control-tower"
             className="mt-8 inline-flex h-11 items-center rounded-full border px-6 text-sm font-semibold text-foreground transition-colors duration-micro ease-smooth hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
           >
             Back to the event page

@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import { DemoCta, MarketingHero, SectionIntro } from "@/components/B2BMarketingPage";
-import { useSEO } from "@/hooks/useSEO";
 
 const COVERAGE = [
   { title: "Decision makers", desc: "Named C-suite, VPs, directors, and function heads across the ecosystem." },
@@ -29,13 +28,6 @@ const RESEARCH = [
 ];
 
 const GCCProspectData = () => {
-  useSEO({
-    title: "GCC Prospect Data | Verified India GCC Decision-Makers | Bamboo Reports",
-    description:
-      "The most complete, structured contact intelligence on India's GCC ecosystem. Verified decision-makers across thousands of centres, ready to power your outreach.",
-    keywords:
-      "GCC prospect data, India GCC contacts, GCC decision makers, GCC contact database, India GCC leaders",
-  });
 
   return (
     <div className="min-h-screen bg-background">

@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import { DemoCta, MarketingHero, SectionIntro } from "@/components/B2BMarketingPage";
-import { useSEO } from "@/hooks/useSEO";
 
 const STEPS = [
   { title: "Account selection", body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database, with full context on each centre's size, age, parent company, and leadership." },
@@ -26,13 +25,6 @@ const RESULTS = [
 ];
 
 const GCCABM = () => {
-  useSEO({
-    title: "GCC ABM | Account-Based Marketing for India GCCs | Bamboo Reports",
-    description:
-      "End-to-end ABM campaigns targeting decision-makers inside India's Global Capability Centres. Bamboo Reports brings the data, the audience, and the execution.",
-    keywords:
-      "GCC ABM, India ABM, account based marketing GCC, GCC campaigns, GCC demand generation",
-  });
 
   return (
     <div className="min-h-screen bg-background">

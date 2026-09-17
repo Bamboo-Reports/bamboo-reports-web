@@ -1,12 +1,6 @@
 import LegalPageShell from "@/components/LegalPageShell";
-import { useSEO } from "@/hooks/useSEO";
 
 const PrivacyPolicy = () => {
-  useSEO({
-    title: "Privacy Policy | Bamboo Reports",
-    description: "Privacy Policy for Bamboo Reports. Learn how we collect, use, and safeguard your information.",
-    keywords: "Privacy Policy, Data Protection, Bamboo Reports Privacy, GDPR, Data Security",
-  });
 
   return (
     <LegalPageShell title="Privacy Policy – Bamboo Reports" effectiveDate="26 November 2025">

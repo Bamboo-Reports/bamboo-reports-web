@@ -1,18 +1,12 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import Header from "@/components/Header";
-import { useSEO } from "@/hooks/useSEO";
 import { warmupJotform } from "@/lib/jotform";
 
 const FORM_ID = "261832395441459";
 
 const MapYourGCCOpportunity = () => {
-  useSEO({
-    title: "Map your India GCC opportunity | Bamboo Reports",
-    description:
-      "Map your India GCC opportunity with Bamboo Reports.",
-    keywords:
-      "India GCC opportunity, GCC market opportunity, Bamboo Reports",
-  });
 
   const containerRef = useRef<HTMLDivElement>(null);
 

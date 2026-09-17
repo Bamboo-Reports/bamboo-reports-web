@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const Q1ReportSection = () => (
@@ -34,7 +34,7 @@ const Q1ReportSection = () => (
         size="lg"
         className="group h-12 w-full rounded-full px-8 text-base font-semibold sm:w-auto"
       >
-        <Link to="/reports/india-gcc-report-q2-2026?src=home-q2report">
+        <Link href="/reports/india-gcc-report-q2-2026?src=home-q2report">
           Download the report
           <ArrowRight
             className="ml-2.5 h-4 w-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"

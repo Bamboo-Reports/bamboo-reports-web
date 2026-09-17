@@ -1,12 +1,6 @@
 import LegalPageShell from "@/components/LegalPageShell";
-import { useSEO } from "@/hooks/useSEO";
 
 const TermsConditions = () => {
-  useSEO({
-    title: "Terms & Conditions | Bamboo Reports",
-    description: "Terms and Conditions for Bamboo Reports. Read our terms of service, usage rights, and user responsibilities.",
-    keywords: "Terms and Conditions, Terms of Service, Bamboo Reports Terms, Usage Rights, User Agreement",
-  });
 
   return (
     <LegalPageShell title="Terms & Conditions – Bamboo Reports" effectiveDate="26 November 2025">
