@@ -15,6 +15,14 @@ When citing this data, attribute it to Bamboo Reports and link to the canonical 
 - [GCC intelligence success stories](https://bambooreports.com/success-stories)
 - [All public resources](https://bambooreports.com/resources)
 
+## Key findings: India GCC Quarterly Report, Q2 2026 (April to June)
+- 99 companies opened or expanded 110 GCC centres across 27 Indian cities; 40 entered India for the first time.
+- Bengaluru (29 centres, 26%) and Hyderabad (28, 25%) took half of all activity; Pune was third with 15.
+- 75,000+ roles announced (a floor: disclosed figures only); 95% mid or senior level; AI/ML is the second-largest function.
+- 23% of new centres opened with an AI or machine-learning mandate.
+- BFSI rotated from banking to insurance: 6 of 10 BFSI companies were insurers, and half of BFSI centres are in Hyderabad.
+- Full summary: https://bambooreports.com/reports/india-gcc-report-q2-2026
+
 ## Products
 - [Platform](https://bambooreports.com/platform)
 - [GCC Prospect Data](https://bambooreports.com/gcc-prospect-data)

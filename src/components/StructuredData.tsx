@@ -31,6 +31,15 @@ interface AboutPageData {
   path: SitePath;
 }
 
+interface ReportData {
+  path: SitePath;
+  headline: string;
+  image: string;
+  author: { name: string; jobTitle: string };
+  /** ISO date. Omitted until the publish date is confirmed. */
+  datePublished?: string;
+}
+
 // Inlined rather than referenced by @id alone: the full Organization node
 // only exists on the home page, and crawlers resolve @id per page.
 const PROVIDER = {
@@ -61,7 +70,8 @@ type StructuredDataType =
   | { type: "faq"; data?: FAQData }
   | { type: "breadcrumb"; data: BreadcrumbData }
   | { type: "service"; data: ServiceData }
-  | { type: "aboutPage"; data: AboutPageData };
+  | { type: "aboutPage"; data: AboutPageData }
+  | { type: "report"; data: ReportData };
 
 type StructuredDataProps = StructuredDataType;
 
@@ -204,6 +214,26 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           "description": pageMeta(data.path).description,
           "url": `${SITE_URL}${data.path}`,
           "mainEntity": PROVIDER
+        };
+
+      case "report":
+        return {
+          "@context": "https://schema.org",
+          "@type": "Report",
+          "headline": data.headline,
+          "description": pageMeta(data.path).description,
+          "url": `${SITE_URL}${data.path}`,
+          "image": data.image,
+          "inLanguage": "en",
+          "datePublished": data.datePublished,
+          "author": {
+            "@type": "Person",
+            "name": data.author.name,
+            "jobTitle": data.author.jobTitle,
+            "worksFor": PROVIDER
+          },
+          "publisher": PROVIDER,
+          "about": "Global Capability Centres in India"
         };
 
       default:
