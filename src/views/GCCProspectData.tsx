@@ -12,6 +12,7 @@ import {
   RiUserStarLine,
 } from "@remixicon/react";
 import StructuredData from "@/components/StructuredData";
+import QuestionList, { type QuestionItem } from "@/components/marketing/QuestionList";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { DemoCta, MarketingHero } from "@/components/layout/B2BMarketingPage";
@@ -49,6 +50,29 @@ const RESEARCH = [
   { name: "250+ structured data points per GCC across 6 interlinked data tables." },
   { name: "Refreshed weekly with AI assistance. Leadership changes are detected automatically." },
   { name: "Each field has an AI agent that fills it in and checks it." },
+];
+
+const QUESTIONS: QuestionItem[] = [
+  {
+    question: "What is GCC Prospect Data?",
+    answer:
+      "GCC Prospect Data is a database of verified decision-makers at Global Capability Centres (GCCs) in India. It covers 6,100+ individual centres.",
+  },
+  {
+    question: "What does the data include?",
+    answer:
+      "Named C-suite leaders, VPs, directors and function heads, across engineering, product, data, finance, HR, legal, operations, IT and more. Every centre is geocoded and carries 5–12 service classifications, plus sector and tech-stack tags.",
+  },
+  {
+    question: "How is the data collected and kept up to date?",
+    answer:
+      "Bamboo Reports researches the data itself instead of scraping it: 260+ man-months of structured research since 2022, with 250+ data points per GCC. It is refreshed weekly with AI assistance, and leadership changes are detected automatically.",
+  },
+  {
+    question: "Who uses GCC Prospect Data?",
+    answer:
+      "Teams that sell into GCCs: SaaS and tech vendors, staffing and RPO firms, real estate and facilities providers, consulting and advisory firms, and event and community platforms.",
+  },
 ];
 
 const GCCProspectData = () => {
@@ -121,6 +145,8 @@ const GCCProspectData = () => {
           </Block>
         </Container>
       </Section>
+
+      <QuestionList title="Questions about GCC Prospect Data" items={QUESTIONS} />
 
       <DemoCta title="Get custom GCC coverage built around your market." />
 
