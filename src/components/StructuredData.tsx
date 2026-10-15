@@ -36,7 +36,7 @@ interface ReportData {
   headline: string;
   image: string;
   author: { name: string; jobTitle: string };
-  /** ISO 8601 date; month precision (e.g. "2026-07") is valid. */
+  /** ISO 8601 date; month precision (e.g. "2026-08") is valid. */
   datePublished: string;
 }
 
