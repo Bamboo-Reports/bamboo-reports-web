@@ -102,11 +102,3 @@ export const PERSONAS = [
   { name: "Staffing, RPO & talent firms", desc: "Find growing centres and reach the HR and function leaders behind their hiring demand." },
   { name: "CRE, facilities & infrastructure", desc: "Track new centres, expansions and relocations. Reach the companies creating demand in each market." },
 ];
-
-export const PLATFORM_SEO = {
-  title: "India GCC Intelligence Platform | Bamboo Reports",
-  description:
-    "Search India GCC accounts, compare Global Capability centre locations and find the decision-makers behind them with Bamboo Reports.",
-  keywords:
-    "GCC platform, India GCC intelligence, GCC analytics, GCC database, account analytics, centre analytics",
-};

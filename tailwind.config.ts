@@ -2,12 +2,12 @@ import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
-  content: ["./index.html", "./src/**/*.{ts,tsx}"],
+  content: ["./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     extend: {
       fontFamily: {
-        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-dm-sans)', 'DM Sans', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

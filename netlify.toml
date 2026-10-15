@@ -1,12 +1,10 @@
 [build]
-  # Build command for your React/Vite app
+  # Next.js static export (output: "export" in next.config.ts)
   command = "npm run build"
-  # Directory to publish (output of vite build)
-  publish = "dist"
+  publish = "out"
 
-# Redirect rules for SPA (Single Page Application)
-# NOTE: More specific redirects must come BEFORE the catch-all "/*" rule,
-# because Netlify evaluates redirects in file order.
+# Legacy URL redirects live in public/_redirects. Unknown URLs fall through
+# to the exported 404.html with a real 404 status.
 
 # Force the raw Netlify alias onto the real domain. All bot management and
 # rate limiting live on Cloudflare in front of bambooreports.com; without this,
@@ -19,14 +17,15 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Pages that carry a noindex robots meta tag also send the header.
+[[headers]]
+  for = "/thank-you"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
 
 # Build settings
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "22"
 
 # Local dev server settings (netlify dev)
 [dev]

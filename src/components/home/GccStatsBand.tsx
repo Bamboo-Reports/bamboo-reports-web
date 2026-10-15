@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 
 // Dataset figures as of the Aug 2026 export. Update by hand on refresh.

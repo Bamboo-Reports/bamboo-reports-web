@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/home-hero.png";
@@ -25,7 +25,7 @@ const CAPABILITIES = [
 const Hero = () => (
   <section className="relative isolate overflow-hidden bg-neutral-900 text-white">
     <img
-      src={heroImage}
+      src={heroImage.src}
       alt=""
       aria-hidden
       className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[74%_50%] sm:object-[center_58%]"
@@ -90,7 +90,7 @@ const Hero = () => (
           {CAPABILITIES.map((item) => (
             <Link
               key={item.title}
-              to={item.href}
+              href={item.href}
               className="group flex min-h-20 items-center justify-between gap-5 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary md:min-h-28 md:px-6 md:py-5 md:first:pl-0 md:last:pr-0"
             >
               <span>

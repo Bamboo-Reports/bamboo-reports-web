@@ -25,7 +25,7 @@ const RealTimeData = () => (
     <div className="mx-auto grid max-w-7xl items-center gap-8 sm:gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
       <div className="order-last flex justify-center lg:order-first">
         <img
-          src={realtimeIllustration}
+          src={realtimeIllustration.src}
           alt="Real-time Data Illustration"
           width="1080"
           height="754"

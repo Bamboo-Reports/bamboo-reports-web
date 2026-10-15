@@ -1,6 +1,8 @@
+"use client";
+
 import logo from "@/assets/bamboo-logo.svg";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, ChevronRight } from "lucide-react";
 import { useState } from "react";
@@ -32,8 +34,8 @@ const Header = () => {
     <header className="border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80 md:py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="inline-flex min-h-11 items-center">
-          <img src={logo} alt="Bamboo Reports" className="h-10 md:h-12" />
+        <Link href="/" className="inline-flex min-h-11 items-center">
+          <img src={logo.src} alt="Bamboo Reports" className="h-10 md:h-12" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -41,7 +43,7 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link to="/platform">
+                <Link href="/platform">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Platform
                   </NavigationMenuLink>
@@ -55,7 +57,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          to="/account-market-intelligence"
+                          href="/account-market-intelligence"
                           className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           Account and Market Intelligence
@@ -65,7 +67,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          to="/gcc-abm"
+                          href="/gcc-abm"
                           className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           GCC ABM
@@ -75,7 +77,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          to="/gcc-prospect-data"
+                          href="/gcc-prospect-data"
                           className="block select-none rounded-md px-3 py-2 text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground"
                         >
                           GCC Prospect Data
@@ -87,7 +89,7 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link to="/success-stories">
+                <Link href="/success-stories">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Success stories
                   </NavigationMenuLink>
@@ -95,7 +97,7 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link to="/resources">
+                <Link href="/resources">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Resources
                   </NavigationMenuLink>
@@ -103,7 +105,7 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link to="/about">
+                <Link href="/about">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     About us
                   </NavigationMenuLink>
@@ -137,8 +139,8 @@ const Header = () => {
             <div className="flex flex-col h-full">
               {/* Logo at top */}
               <div className="p-6 pb-4">
-                <Link to="/" onClick={() => setMobileMenuOpen(false)} className="inline-block">
-                  <img src={logo} alt="Bamboo Reports" className="h-10" />
+                <Link href="/" onClick={() => setMobileMenuOpen(false)} className="inline-block">
+                  <img src={logo.src} alt="Bamboo Reports" className="h-10" />
                 </Link>
               </div>
 
@@ -146,7 +148,7 @@ const Header = () => {
               <nav className="flex-1 overflow-y-auto">
                 <div className="px-6 space-y-1">
                   <Link
-                    to="/platform"
+                    href="/platform"
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -161,21 +163,21 @@ const Header = () => {
                     </summary>
                     <div className="pl-4 space-y-1">
                       <Link
-                        to="/account-market-intelligence"
+                        href="/account-market-intelligence"
                         className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         Account and Market Intelligence
                       </Link>
                       <Link
-                        to="/gcc-abm"
+                        href="/gcc-abm"
                         className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         GCC ABM
                       </Link>
                       <Link
-                        to="/gcc-prospect-data"
+                        href="/gcc-prospect-data"
                         className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-micro ease-smooth"
                         onClick={() => setMobileMenuOpen(false)}
                       >
@@ -185,7 +187,7 @@ const Header = () => {
                   </details>
 
                   <Link
-                    to="/success-stories"
+                    href="/success-stories"
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -194,7 +196,7 @@ const Header = () => {
                   </Link>
 
                   <Link
-                    to="/resources"
+                    href="/resources"
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -203,7 +205,7 @@ const Header = () => {
                   </Link>
 
                   <Link
-                    to="/about"
+                    href="/about"
                     className="flex items-center justify-between py-3 text-base font-medium hover:text-primary transition-colors duration-micro ease-smooth border-b pb-4"
                     onClick={() => setMobileMenuOpen(false)}
                   >

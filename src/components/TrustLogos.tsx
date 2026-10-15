@@ -1,39 +1,39 @@
-import amperaLogo from "@/assets/logos/Ampera.png";
-import cytviaLogo from "@/assets/logos/Cytvia.png";
-import hcltechLogo from "@/assets/logos/HCL_Tech.png";
-import harmanLogo from "@/assets/logos/Harman.png";
-import mindTreeLogo from "@/assets/logos/MindTree.png";
-import mothersonLogo from "@/assets/logos/Motherson.png";
-import moveinsyncLogo from "@/assets/logos/Move_In_Sync.png";
-import nasscomLogo from "@/assets/logos/Nasscom.png";
-import pandoLogo from "@/assets/logos/Pando.png";
+import amperaLogo from "@/assets/logos/ampera.png";
+import cytivaLogo from "@/assets/logos/cytiva.png";
+import hcltechLogo from "@/assets/logos/hcltech.png";
+import harmanLogo from "@/assets/logos/harman.png";
+import mindTreeLogo from "@/assets/logos/mindtree.png";
+import mothersonLogo from "@/assets/logos/motherson.png";
+import moveinsyncLogo from "@/assets/logos/moveinsync.png";
+import nasscomLogo from "@/assets/logos/nasscom.png";
+import pandoLogo from "@/assets/logos/pando.png";
 import qyrusLogo from "@/assets/logos/qyrus.png";
 import ramcoLogo from "@/assets/logos/ramco.png";
 import salesforceLogo from "@/assets/logos/salesforce.png";
 import slkLogo from "@/assets/logos/slk.png";
 import thoughtworksLogo from "@/assets/logos/thoughtworks.png";
-import yethiLogo from "@/assets/logos/Ythi.png";
-import zohoLogo from "@/assets/logos/Zoho.png";
-import zycusLogo from "@/assets/logos/Zycus.png";
+import yethiLogo from "@/assets/logos/yethi.png";
+import zohoLogo from "@/assets/logos/zoho.png";
+import zycusLogo from "@/assets/logos/zycus.png";
 
 const logos = [
-  { src: amperaLogo, alt: "Ampera" },
-  { src: cytviaLogo, alt: "Cytvia" },
-  { src: hcltechLogo, alt: "HCLTech" },
-  { src: harmanLogo, alt: "Harman" },
-  { src: mindTreeLogo, alt: "MindTree" },
-  { src: mothersonLogo, alt: "Motherson" },
-  { src: moveinsyncLogo, alt: "MoveInSync" },
-  { src: nasscomLogo, alt: "Nasscom" },
-  { src: pandoLogo, alt: "Pando" },
-  { src: qyrusLogo, alt: "Qyrus" },
-  { src: ramcoLogo, alt: "Ramco" },
-  { src: salesforceLogo, alt: "Salesforce" },
-  { src: slkLogo, alt: "SLK" },
-  { src: thoughtworksLogo, alt: "Thoughtworks" },
-  { src: yethiLogo, alt: "Yethi" },
-  { src: zohoLogo, alt: "Zoho" },
-  { src: zycusLogo, alt: "Zycus" },
+  { src: amperaLogo.src, alt: "Ampera" },
+  { src: cytivaLogo.src, alt: "Cytiva" },
+  { src: hcltechLogo.src, alt: "HCLTech" },
+  { src: harmanLogo.src, alt: "Harman" },
+  { src: mindTreeLogo.src, alt: "MindTree" },
+  { src: mothersonLogo.src, alt: "Motherson" },
+  { src: moveinsyncLogo.src, alt: "MoveInSync" },
+  { src: nasscomLogo.src, alt: "Nasscom" },
+  { src: pandoLogo.src, alt: "Pando" },
+  { src: qyrusLogo.src, alt: "Qyrus" },
+  { src: ramcoLogo.src, alt: "Ramco" },
+  { src: salesforceLogo.src, alt: "Salesforce" },
+  { src: slkLogo.src, alt: "SLK" },
+  { src: thoughtworksLogo.src, alt: "Thoughtworks" },
+  { src: yethiLogo.src, alt: "Yethi" },
+  { src: zohoLogo.src, alt: "Zoho" },
+  { src: zycusLogo.src, alt: "Zycus" },
 ];
 
 type Props = { eyebrow?: string };

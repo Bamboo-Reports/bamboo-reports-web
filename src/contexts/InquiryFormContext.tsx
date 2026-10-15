@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useContext, useRef, useState, type ReactNode } from "react";
 import JotFormEmbed from "@/components/JotFormEmbed";
 import {

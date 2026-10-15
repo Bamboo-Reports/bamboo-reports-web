@@ -5,7 +5,7 @@ const WhatIsGccIntelligence = () => (
     <div className="mx-auto max-w-6xl">
       <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
         <img
-          src={gccIllustration}
+          src={gccIllustration.src}
           alt="An analyst working with GCC market data, reports, and operational insights"
           width="1024"
           height="714"

@@ -1,3 +1,5 @@
+"use client";
+
 import { type ButtonHTMLAttributes, type MouseEvent } from "react";
 import { openCalScheduler } from "@/lib/calScheduler";
 

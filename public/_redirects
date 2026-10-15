@@ -13,4 +13,3 @@
 /reads                                           /resources                                           301
 /reports                                         /resources                                           301
 /events/*                                        /                                                    301
-/*    /index.html   200

@@ -1,5 +1,7 @@
-import { useState, useCallback, useEffect, useId, useRef } from "react";
-import { useLocation } from "react-router-dom";
+"use client";
+
+import { Suspense, useState, useCallback, useEffect, useId, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   ensureJotformEmbedHandler,
   getJotformEmbedSrc,
@@ -17,12 +19,46 @@ interface JotFormEmbedProps {
   autoReloadAfterSubmit?: boolean;
 }
 
+/** Form-like placeholder shown while the iframe loads. */
+const FormSkeleton = ({ isLoaded }: { isLoaded: boolean }) => (
+  <div
+    className={`absolute inset-0 z-10 bg-background flex flex-col items-center justify-center gap-4 transition-opacity duration-300 ${
+      isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
+    }`}
+  >
+    <div className="w-full max-w-[320px] px-4 space-y-4 animate-pulse">
+      {/* Fake header dots */}
+      <div className="flex gap-2 justify-center mb-2">
+        <div className="w-2.5 h-2.5 rounded-full bg-muted" />
+        <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30" />
+        <div className="w-2.5 h-2.5 rounded-full bg-muted" />
+      </div>
+      {/* Fake label + input */}
+      <div>
+        <div className="h-3 w-20 bg-muted rounded mb-2" />
+        <div className="h-10 w-full bg-muted/60 rounded-md border border-border" />
+      </div>
+      <div>
+        <div className="h-3 w-28 bg-muted rounded mb-2" />
+        <div className="h-10 w-full bg-muted/60 rounded-md border border-border" />
+      </div>
+      <div>
+        <div className="h-3 w-16 bg-muted rounded mb-2" />
+        <div className="h-10 w-full bg-muted/60 rounded-md border border-border" />
+      </div>
+      {/* Fake button */}
+      <div className="h-11 w-full bg-muted rounded-full mt-2" />
+    </div>
+    <p className="text-xs text-muted-foreground mt-2">Loading form…</p>
+  </div>
+);
+
 /**
  * Reusable JotForm embed component with a loading skeleton.
  * Shows a form-like placeholder while the iframe loads,
  * then fades it out once the form is ready.
  */
-const JotFormEmbed = ({
+const JotFormFrame = ({
   formId,
   title,
   height = "539px",
@@ -30,7 +66,7 @@ const JotFormEmbed = ({
   autoHeight = false,
   autoReloadAfterSubmit = false,
 }: JotFormEmbedProps) => {
-  const { search } = useLocation();
+  const search = useSearchParams().toString();
   const [isLoaded, setIsLoaded] = useState(false);
   const [reportedHeight, setReportedHeight] = useState<string | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -185,37 +221,7 @@ const JotFormEmbed = ({
       className={`relative overflow-hidden ${useClassHeight ? heightClassName : ""}`}
       style={useClassHeight ? undefined : { height: reportedHeight ?? height }}
     >
-      {/* Loading skeleton */}
-      <div
-        className={`absolute inset-0 z-10 bg-background flex flex-col items-center justify-center gap-4 transition-opacity duration-300 ${
-          isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
-        }`}
-      >
-        <div className="w-full max-w-[320px] px-4 space-y-4 animate-pulse">
-          {/* Fake header dots */}
-          <div className="flex gap-2 justify-center mb-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-muted" />
-            <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30" />
-            <div className="w-2.5 h-2.5 rounded-full bg-muted" />
-          </div>
-          {/* Fake label + input */}
-          <div>
-            <div className="h-3 w-20 bg-muted rounded mb-2" />
-            <div className="h-10 w-full bg-muted/60 rounded-md border border-border" />
-          </div>
-          <div>
-            <div className="h-3 w-28 bg-muted rounded mb-2" />
-            <div className="h-10 w-full bg-muted/60 rounded-md border border-border" />
-          </div>
-          <div>
-            <div className="h-3 w-16 bg-muted rounded mb-2" />
-            <div className="h-10 w-full bg-muted/60 rounded-md border border-border" />
-          </div>
-          {/* Fake button */}
-          <div className="h-11 w-full bg-muted rounded-full mt-2" />
-        </div>
-        <p className="text-xs text-muted-foreground mt-2">Loading form…</p>
-      </div>
+      <FormSkeleton isLoaded={isLoaded} />
 
       {/* Actual JotForm iframe */}
       <iframe
@@ -242,5 +248,23 @@ const JotFormEmbed = ({
     </div>
   );
 };
+
+// The page URL's query string is only known in the browser, so a statically
+// prerendered page renders the skeleton and the iframe mounts on the client
+// with the visitor's UTM/prefill params already in its src.
+const JotFormEmbed = (props: JotFormEmbedProps) => (
+  <Suspense
+    fallback={
+      <div
+        className={`relative overflow-hidden ${props.heightClassName ?? ""}`}
+        style={props.heightClassName ? undefined : { height: props.height ?? "539px" }}
+      >
+        <FormSkeleton isLoaded={false} />
+      </div>
+    }
+  >
+    <JotFormFrame {...props} />
+  </Suspense>
+);
 
 export default JotFormEmbed;

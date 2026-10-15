@@ -1,5 +1,3 @@
-import { useCallback, useEffect } from "react";
-
 // Type definitions for structured data schemas
 interface FAQQuestion {
   question: string;
@@ -33,7 +31,7 @@ type StructuredDataType =
 type StructuredDataProps = StructuredDataType;
 
 export const StructuredData = ({ type, data }: StructuredDataProps) => {
-  const getSchemaMarkup = useCallback(() => {
+  const getSchemaMarkup = () => {
     switch (type) {
       case "organization":
         return {
@@ -139,33 +137,18 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
       default:
         return null;
     }
-  }, [type, data]);
+  };
 
-  useEffect(() => {
-    const schema = getSchemaMarkup();
-    if (!schema) return;
+  const schema = getSchemaMarkup();
+  if (!schema) return null;
 
-    const scriptId = `structured-data-${type}`;
-    let script = document.getElementById(scriptId) as HTMLScriptElement;
-
-    if (!script) {
-      script = document.createElement("script");
-      script.id = scriptId;
-      script.type = "application/ld+json";
-      document.head.appendChild(script);
-    }
-
-    script.textContent = JSON.stringify(schema);
-
-    return () => {
-      const existingScript = document.getElementById(scriptId);
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, [type, getSchemaMarkup]);
-
-  return null;
+  // Rendered into the page HTML so crawlers see it without running JS.
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
+    />
+  );
 };
 
 export default StructuredData;

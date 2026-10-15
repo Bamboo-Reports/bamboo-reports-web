@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { coverGradient } from "@/lib/coverGradients";
 
@@ -80,7 +80,7 @@ const CoverArt = ({
 /** Compact report card: cover, report type, title, then a clear text CTA. */
 export const ResourceCard = ({ item }: { item: ResourceItem }) => (
   <Link
-    to={item.to}
+    href={item.to}
     className="group block overflow-hidden rounded-md border bg-background transition-shadow duration-500 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
   >
     <CoverArt
