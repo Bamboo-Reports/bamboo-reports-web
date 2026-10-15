@@ -1,6 +1,6 @@
 // Supplies route-specific metadata in the initial SPA response and turns the
-// React catch-all into a real HTTP 404 for unknown URLs. Static GCC pages keep
-// their build-time metadata and status codes.
+// React catch-all into a real HTTP 404 for unknown URLs. Standalone static
+// HTML pages keep their build-time metadata and status codes.
 const SITE = "https://bambooreports.com";
 
 const PAGE_META = {
@@ -36,26 +36,11 @@ const PAGE_META = {
     title: "Resources | India GCC Reports | Bamboo Reports",
     description: "Market reports from the team tracking India's GCC ecosystem centre by centre.",
   },
-  "/reports": {
-    title: "Reports | India GCC Intelligence | Bamboo Reports",
-    description: "Market reports and insights on India's GCC ecosystem: market reads, sector deep-dives, and focused research from Bamboo Reports.",
-  },
   "/reports/india-gcc-report-q2-2026": {
     title: "India GCC Quarterly Report, Q2 2026 (April to June) | Bamboo Reports",
     description: "The Q2 2026 India GCC Quarterly Report tracks 110 centre events across 99 companies and 27 cities, including 40 first-time entrants, 75K+ announced roles and the rise of AI-first centres.",
     image: `${SITE}/gcc/india-gcc-report-share-card-q2-2026.png`,
     type: "article",
-  },
-  "/events/agentic-supply-chain-control-tower": {
-    title: "Agentic Supply Chain Control Tower · Retail Roundtable by Thoughtworks",
-    description: "A retail roundtable hosted by Thoughtworks on moving from supply-chain signals to coordinated action. Bengaluru, 10 September 2026.",
-    image: null,
-  },
-  "/events/agentic-supply-chain-control-tower/thank-you": {
-    title: "Registration received · Agentic Supply Chain Control Tower",
-    description: "Your registration for the Agentic Supply Chain Control Tower roundtable has been received.",
-    image: null,
-    robots: "noindex, follow",
   },
   "/map-your-gcc-opportunity": {
     title: "Map your India GCC opportunity | Bamboo Reports",
@@ -76,7 +61,6 @@ const PAGE_META = {
   },
 };
 
-const STATIC_GCC_ROOT = "/gcc";
 const DEFAULT_IMAGE = `${SITE}/logo.png`;
 const INDEX_ROBOTS = "index, follow, max-image-preview:large";
 const NOT_FOUND_META = {
@@ -126,7 +110,6 @@ const addNoScriptFallback = (html, meta) => {
   const navigation = [
     ["Home", "/"],
     ["Platform", "/platform"],
-    ["Reports", "/reports"],
     ["Resources", "/resources"],
     ["About Bamboo Reports", "/about"],
   ]
@@ -193,7 +176,7 @@ export default async (request, context) => {
   if (!contentType.includes("text/html")) return response;
 
   const html = await response.text();
-  // Generated GCC and any other standalone HTML pages do not contain the
+  // Standalone static HTML pages do not contain the
   // Vite shell's empty root. Their metadata and response status are already
   // complete, so leave them byte-for-byte unchanged.
   if (!html.includes('<div id="root"></div>')) {
@@ -201,7 +184,7 @@ export default async (request, context) => {
   }
 
   const meta = PAGE_META[pathname];
-  const isKnownRoute = Boolean(meta) || pathname === STATIC_GCC_ROOT;
+  const isKnownRoute = Boolean(meta);
   const selectedMeta = meta || NOT_FOUND_META;
   const canonical = meta ? `${SITE}${pathname === "/" ? "/" : pathname}` : null;
   const rewritten = addNoScriptFallback(

@@ -1,23 +1,7 @@
-import { createElement, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-type FadeInProps = {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-  as?: keyof JSX.IntrinsicElements;
-  threshold?: number;
-  rootMargin?: string;
-};
-
-const FadeIn = ({
-  children,
-  delay = 0,
-  className = "",
-  as: Tag = "div",
-  threshold = 0.15,
-  rootMargin = "0px 0px -8% 0px",
-}: FadeInProps) => {
-  const ref = useRef<HTMLElement | null>(null);
+const FadeIn = ({ children }: { children: React.ReactNode }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -36,20 +20,16 @@ const FadeIn = ({
           }
         });
       },
-      { threshold, rootMargin }
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
     );
     observer.observe(node);
     return () => observer.disconnect();
-  }, [threshold, rootMargin]);
+  }, []);
 
-  return createElement(
-    Tag,
-    {
-      ref: ref as never,
-      className: `fade-in ${visible ? "is-visible" : ""} ${className}`.trim(),
-      style: { transitionDelay: `${delay}ms` },
-    },
-    children,
+  return (
+    <div ref={ref} className={visible ? "fade-in is-visible" : "fade-in"}>
+      {children}
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Header from "@/components/Header";
+import Header from "@/components/layout/Header";
 import { useSEO } from "@/hooks/useSEO";
 import { warmupJotform } from "@/lib/jotform";
 

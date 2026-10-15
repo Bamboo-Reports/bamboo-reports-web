@@ -45,64 +45,7 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-
-    /* Unified Animation System */
-    --timing-micro: 200ms;
-    --timing-modal: 250ms;
     --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -152,86 +95,6 @@ All colors MUST be HSL.
     background-repeat: repeat;
   }
 
-  /* Unified Micro-Interaction System */
-
-  /* The tracker is intentionally static: no hover lifts, scaling, or pulsing. */
-  .tracker-page a:hover,
-  .tracker-page a:active,
-  .tracker-page button:hover,
-  .tracker-page button:active,
-  .tracker-page [class*="hover:-translate-y"]:hover {
-    transform: none !important;
-  }
-
-  .tracker-page .animate-pulse {
-    animation: none;
-  }
-
-  /* Button interactions - visual feedback without positional movement */
-  .animate-button {
-    transition: box-shadow var(--timing-micro) var(--easing-smooth);
-  }
-
-  .animate-button:hover {
-    box-shadow: 0 4px 12px hsl(var(--foreground) / 0.12);
-  }
-
-  /* Card/Container interactions - shadow feedback without lifting */
-  .animate-card {
-    transition: box-shadow var(--timing-micro) var(--easing-smooth);
-  }
-
-  .animate-card:hover {
-    box-shadow: 0 4px 12px hsl(var(--foreground) / 0.08);
-  }
-
-  /* Link interactions - opacity change */
-  .animate-link {
-    transition: opacity var(--timing-micro) var(--easing-smooth);
-  }
-
-  .animate-link:hover {
-    opacity: 0.8;
-  }
-
-  /* Icon interactions - subtle scale */
-  .animate-icon {
-    transition: transform var(--timing-micro) var(--easing-smooth);
-  }
-
-  .animate-icon:hover {
-    transform: scale(1.05);
-  }
-
-  /* Modal/Overlay fade animations */
-  .animate-modal-overlay {
-    animation: fadeIn var(--timing-modal) var(--easing-smooth);
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .animate-modal-content {
-    animation: scaleIn var(--timing-modal) var(--easing-smooth);
-  }
-
-  @keyframes scaleIn {
-    from {
-      opacity: 0;
-      transform: scale(0.98);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
   .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -279,29 +142,6 @@ All colors MUST be HSL.
 
   @media (prefers-reduced-motion: reduce) {
     .hero-rise {
-      animation: none;
-    }
-  }
-
-  /* Slow Ken Burns drift on the bamboo hero artwork. Transform-only so
-     it stays on the GPU; slow enough to feel like light, not motion. */
-  .hero-image-drift {
-    animation: heroImageDrift 28s ease-in-out infinite alternate;
-    transform-origin: 50% 60%;
-    will-change: transform;
-  }
-
-  @keyframes heroImageDrift {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.07) translateY(-1.5%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-image-drift {
       animation: none;
     }
   }
@@ -398,10 +238,6 @@ All colors MUST be HSL.
    ============================================================ */
 @layer components {
   .platform-page {
-    /* Lightened --primary, held in reserve for any blue that has to read
-       on a dark ground (the footer CTA band). The hero itself is light
-       now and uses --primary directly. */
-    --pf-blue: 204 100% 66%;
     --pf-paper: 210 33% 98%;
 
     /* The product's second accent, sampled from the filter panels: the

@@ -50,17 +50,5 @@ coverage
 # Netlify
 .netlify
 
-# Raw warehouse exports (contain contact PII) - never commit
-data-staging/
-data/*.xlsx
-
-# Vendored reference copy of the old repo - not project source
-ref/
-__pycache__/
-sheets/
-.agents/
-.codex/
-.impeccable/
-
 # Claude Code local settings (personal permission grants)
 .claude/

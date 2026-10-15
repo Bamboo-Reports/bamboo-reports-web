@@ -1,0 +1,57 @@
+import { Check } from "lucide-react";
+import indiaMap from "@/assets/india-map.svg";
+
+const categories = [
+  {
+    title: "Industries",
+    description: "Comprehensive data on companies in India, segmented across 30+ categories, 110+ industries, and 813+ sub-industries."
+  },
+  {
+    title: "Functions",
+    description: "Analysis of all capability centre types, including R&D, Engineering, IT, Manufacturing, GBS, GCC/GIC, SSC, and Sales & Marketing."
+  },
+  {
+    title: "Geographies",
+    description: "A unified platform covering Global Capability Centres (GCCs) from multinational corporations headquartered in 50+ countries."
+  }
+];
+
+const IntelligenceSpans = () => (
+  <section className="bg-background px-5 py-12 sm:px-4 md:py-20">
+    <div className="mx-auto grid max-w-7xl items-center gap-8 sm:gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
+      <div>
+        <h2 className="max-w-lg text-3xl font-bold leading-tight md:text-4xl">
+          Our intelligence spans
+        </h2>
+
+        <div className="mt-6 border-t sm:mt-8">
+          {categories.map((category) => (
+            <div
+              key={category.title}
+              className="grid grid-cols-[1.5rem_1fr] gap-3 border-b py-4 sm:gap-4 sm:py-5"
+            >
+              <Check className="mt-1 h-5 w-5 text-primary" aria-hidden />
+              <div>
+                <h3 className="text-lg font-bold">{category.title}</h3>
+                <p className="mt-2 text-muted-foreground">{category.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex justify-center">
+        <img
+          src={indiaMap}
+          alt="GCC Intelligence Coverage"
+          width="2280"
+          height="2282"
+          loading="lazy"
+          className="h-auto w-[88%] max-w-sm sm:w-full lg:max-w-2xl"
+        />
+      </div>
+    </div>
+  </section>
+);
+
+export default IntelligenceSpans;

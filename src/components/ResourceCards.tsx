@@ -77,41 +77,6 @@ const CoverArt = ({
   );
 };
 
-/**
- * Full-width editorial row for a single featured resource: gradient cover on
- * the left, summary and call to action on the right.
- */
-export const FeaturedResourceRow = ({
-  item,
-  cta,
-}: {
-  item: ResourceItem;
-  cta: string;
-}) => (
-  <Link
-    to={item.to}
-    className="group grid overflow-hidden rounded-md border bg-background transition-shadow duration-500 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:grid-cols-2"
-  >
-    <CoverArt
-      label={item.label}
-      title={item.title}
-      gradientIndex={item.gradientIndex}
-      coverImage={item.coverImage}
-      titleClassName="text-2xl md:text-3xl"
-    />
-    <div className="flex flex-col justify-center gap-4 p-5 sm:gap-5 sm:p-6 md:p-10">
-      <p className="leading-relaxed text-muted-foreground md:text-lg">{item.summary}</p>
-      <span className="inline-flex items-center gap-2 font-semibold text-primary">
-        {cta}
-        <ArrowRight
-          className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-          aria-hidden
-        />
-      </span>
-    </div>
-  </Link>
-);
-
 /** Compact report card: cover, report type, title, then a clear text CTA. */
 export const ResourceCard = ({ item }: { item: ResourceItem }) => (
   <Link

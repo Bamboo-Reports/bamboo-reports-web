@@ -1,4 +1,4 @@
-import LegalPageShell from "@/components/LegalPageShell";
+import LegalPageShell from "@/components/layout/LegalPageShell";
 import { useSEO } from "@/hooks/useSEO";
 
 const TermsConditions = () => {

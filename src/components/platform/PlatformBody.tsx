@@ -2,7 +2,7 @@ import TrustLogos from "@/components/TrustLogos";
 // SectionIntro is the site-wide section header: amber label, bold (not
 // extrabold) heading, muted body. Imported rather than restyled locally
 // so this page cannot drift from the rest of the site again.
-import { DemoCta, SectionIntro } from "@/components/B2BMarketingPage";
+import { DemoCta, SectionIntro } from "@/components/layout/B2BMarketingPage";
 import { HERO_SHOT, PERSONAS, STAGES } from "./content";
 
 // Every stage shot is framed. The hero shot is the one exception and is

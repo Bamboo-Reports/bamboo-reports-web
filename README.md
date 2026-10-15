@@ -8,9 +8,7 @@ Marketing and content site for **Bamboo Reports** — a GCC (Global Capability C
 - **Vite** (build tool)
 - **Tailwind CSS** + **shadcn/ui** (styling and component primitives)
 - **React Router** v6 (client-side routing)
-- **Supabase** (auth + storage for user avatars)
-- **TanStack Query** (server state, where used)
-- **Netlify** (hosting + serverless functions)
+- **Netlify** (hosting + an edge function for per-route metadata)
 
 ## Getting started
 
@@ -28,11 +26,9 @@ cd bamboo-reports-web
 
 # Install dependencies
 npm install
-
-# Copy the env template and fill in your values
-cp .env.example .env
-# Then edit .env with your Supabase + Tempmail Checker credentials
 ```
+
+No environment variables are needed.
 
 ### Run locally
 
@@ -40,7 +36,7 @@ cp .env.example .env
 # Vite dev server (Vite-only, fastest for UI work)
 npm run dev
 
-# Vite + Netlify Functions (use this if you need /.netlify/functions/* to work)
+# Vite behind Netlify Dev (runs the page-meta edge function and _redirects)
 npm run dev:netlify
 ```
 
@@ -51,24 +47,10 @@ The dev server runs on `http://localhost:8080` (or whatever Vite picks).
 | Script | What it does |
 |---|---|
 | `npm run dev` | Vite dev server |
-| `npm run dev:netlify` | Vite + local Netlify Functions emulator |
+| `npm run dev:netlify` | Vite behind Netlify Dev (edge function + redirects) |
 | `npm run build` | Production build to `dist/` |
-| `npm run build:dev` | Development-mode build (sourcemaps, no minify) |
 | `npm run preview` | Preview a production build locally |
 | `npm run lint` | Run ESLint |
-
-## Environment variables
-
-All required env vars are documented in `.env.example`. The current set:
-
-| Variable | Required | Purpose |
-|---|---|---|
-| `VITE_SUPABASE_URL` | yes | Supabase project URL |
-| `VITE_SUPABASE_ANON_KEY` | yes | Supabase publishable (anon) key |
-| `TEMPMAIL_CHECKER_API_KEY` | yes (server) | Disposable-email check on signup (used by Netlify Function) |
-| `TEMPMAIL_CHECKER_BASE_URL` | optional | Override the tempmail checker base URL |
-| `VITE_TEMPMAIL_CHECKER_API_KEY` | optional | Client-side fallback for the tempmail check |
-| `VITE_TEMPMAIL_CHECKER_API_URL` | optional | Client-side fallback URL |
 
 ## Project structure
 
@@ -77,24 +59,23 @@ src/
 ├── App.tsx              # Routes
 ├── main.tsx             # Entry point
 ├── index.css            # Global styles + design tokens
-├── components/          # Reusable components
+├── assets/              # Images bundled by Vite (logos, hero, report covers)
+├── components/          # Shared components (CTA buttons, Jotform embed, SEO schema)
+│   ├── layout/          # Header, Footer, page shells
+│   ├── home/            # Home page sections
+│   ├── platform/        # Platform page sections + shared copy
 │   └── ui/              # shadcn/ui primitives
-├── contexts/            # React contexts (Auth, InquiryForm)
+├── contexts/            # React contexts (InquiryForm)
 ├── hooks/               # Custom React hooks
-├── lib/                 # Utilities, data, Supabase client
+├── lib/                 # Utilities and data
 └── pages/               # Route components
-    └── articles/        # Article detail pages
+    ├── events/          # Event landing pages
+    └── reports/         # Report detail pages
 
-public/                  # Static assets served as-is (favicon, robots, sitemap, platform/ screenshots)
+public/                  # Static assets served as-is (favicon, robots, sitemap, images)
 
 netlify/
-└── functions/           # Serverless functions (currently: tempmail check)
-
-docs/                    # Project documentation
-├── AUTH_SETUP.md        # Supabase auth configuration guide
-├── SITE_AUDIT_AND_OPTIMIZATIONS.md
-├── privacy-terms.md     # Source copy for the Privacy Policy page
-└── terms-conditions.md  # Source copy for the Terms & Conditions page
+└── edge-functions/      # page-meta: per-route metadata + real 404s
 ```
 
 > This project uses **npm** — `package-lock.json` is the only committed lockfile.
@@ -104,36 +85,23 @@ docs/                    # Project documentation
 ### Public
 
 - `/` — Home
+- `/about` — About us
+- `/platform` — Platform
 - `/gcc-prospect-data` — GCC Prospect Data
 - `/account-market-intelligence` — Account and Market Intelligence
 - `/gcc-abm` — GCC ABM
-- `/platform` — Platform
 - `/success-stories` — Success Stories
-- `/insights` — Insights
-- `/resources` — Resources
-- `/roundtables` — Roundtables index
-- `/roundtables/h1b-shock-strategic-reset` — H1B article
+- `/map-your-gcc-opportunity` — Map your GCC opportunity
+- `/resources`, `/reports` — Resources and reports index
+- `/reports/india-gcc-report-q2-2026` — Q2 2026 India GCC report
+- `/events/agentic-supply-chain-control-tower` (+ `/thank-you`) — Event page
 - `/thank-you`, `/privacy-policy`, `/terms-conditions` — legal/transactional
 
-### Auth
-
-- `/signin`, `/signup`
-
-### Protected
-
-- `/profile` — requires authentication
+Legacy paths (`/v2`, `/reads`, old Q1 report URLs, misspelled opportunity URL) redirect to their current pages.
 
 ### Unmatched paths
 
 Any path not listed above falls through to the `NotFound` (404) page.
-
-## Supabase
-
-The site currently uses Supabase for:
-- **Authentication** (sign-in / sign-up / password reset / profile updates)
-- **`profile-images` storage bucket** (user avatars)
-
-That's it. No application tables are queried by the running app.
 
 ## Deployment
 
@@ -141,12 +109,10 @@ The site deploys to **Netlify**. The `netlify.toml` at the repo root configures:
 - Build command: `npm run build`
 - Publish directory: `dist`
 - SPA fallback redirect (`/* → /index.html`)
-- Serverless functions directory (`netlify/functions`)
+- Edge function (`netlify/edge-functions/page-meta.js`) on every path
 
-Environment variables for production are configured in **Netlify → Site settings → Environment variables**, not in this repo.
+The site needs no environment variables.
 
 ## Notes
 
 - This project was scaffolded from a Vite + React + shadcn/ui template and has since been simplified significantly.
-- Auth, profile, sign-in, and sign-up pages share a consistent visual treatment matching the marketing site (Header + Footer, primary blue accent, white background).
-- Pricing is currently lead-capture only — the page renders plan cards behind a JotForm inquiry overlay and routes all CTAs through that form.
