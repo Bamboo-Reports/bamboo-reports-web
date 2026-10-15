@@ -3,7 +3,7 @@ import logo from "@/assets/bamboo-logo.svg";
 import JotFormEmbed from "@/components/JotFormEmbed";
 import { Button } from "@/components/ui/button";
 import StructuredData from "@/components/StructuredData";
-import q2ReportCover from "@/assets/india-gcc-report-q2-2026-cover.png";
+import q2ReportCover from "@/assets/india-gcc-report-q2-2026-cover.webp";
 
 const DOWNLOAD_FORM_ID = "262451603191451";
 

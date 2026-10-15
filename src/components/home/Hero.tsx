@@ -2,7 +2,7 @@ import { RiArrowRightLine } from "@remixicon/react";
 import Link from "next/link";
 import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/home-hero.png";
+import heroImage from "@/assets/home-hero.webp";
 
 const CAPABILITIES = [
   {

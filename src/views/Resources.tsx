@@ -6,7 +6,7 @@ import { DemoCta, MarketingHero } from "@/components/layout/B2BMarketingPage";
 import { TrailingArrow } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import q2ReportCover from "@/assets/india-gcc-report-q2-2026-cover.png";
+import q2ReportCover from "@/assets/india-gcc-report-q2-2026-cover.webp";
 
 type Report = {
   href: string;
