@@ -6,20 +6,20 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 const benefits = [
   {
-    title: "Find gaps in the market",
-    description: "See the services and locations your business has not reached yet."
+    title: "Identify whitespace opportunities",
+    description: "Spot untapped service offerings and geographies your business can expand into."
   },
   {
-    title: "Track how the market is changing",
-    description: "See where centres are opening and growing before you commit to an expansion or investment."
+    title: "Assess market dynamics",
+    description: "See how the market is shifting before you commit to an expansion or investment."
   },
   {
-    title: "Follow your competitors",
-    description: "Track their hiring, the functions they add and where they open centres."
+    title: "Understand competitor movements",
+    description: "Track hiring trends, functional shifts, and strategic changes to stay ahead of your competition."
   },
   {
-    title: "Spot risks early",
-    description: "Use the same data to see risks before they affect your plans."
+    title: "Mitigate risks",
+    description: "Use the same data to spot risks early and plan around them."
   }
 ];
 
@@ -29,7 +29,7 @@ const RealTimeData = () => (
       <div className="order-last flex justify-center lg:order-first">
         <img
           src={realtimeIllustration.src}
-          alt="Illustration of GCC data charts"
+          alt="Real-time Data Illustration"
           width="1080"
           height="754"
           loading="lazy"
@@ -38,7 +38,7 @@ const RealTimeData = () => (
       </div>
 
       <div className="flex flex-col gap-10">
-        <SectionHeading title="What current GCC data helps you do" />
+        <SectionHeading title="Real-time data on GCCs can help you" />
         <ul className="border-b border-line">
           {benefits.map((item) => (
             <li key={item.title} className="flex gap-4 border-t border-line py-5">

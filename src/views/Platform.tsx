@@ -45,7 +45,7 @@ const Platform = () => {
             >
               <Button asChild size="lg" className="group w-full sm:w-auto">
                 <CalSchedulingButton>
-                  Book a demo
+                  See Bamboo Reports in action
                   <TrailingArrow />
                 </CalSchedulingButton>
               </Button>

@@ -134,7 +134,7 @@ const Resources = () => {
         </Section>
       </main>
 
-      <DemoCta title="See the data behind these reports." />
+      <DemoCta title="Put GCC intelligence to work for your team." />
 
       <Footer showCta={false} />
     </div>

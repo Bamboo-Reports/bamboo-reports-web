@@ -14,7 +14,7 @@ const LatestReportSection = () => (
             The GCC market moved. <span className="text-primary">See where.</span>
           </>
         }
-        lede="New centres, expansions, hiring and new locations in India's GCC market, in one free quarterly report."
+        lede="Get the new centres, expansions, hiring shifts and emerging locations shaping India's GCC market in one free quarterly report."
         className="max-w-3xl flex-1"
       />
 

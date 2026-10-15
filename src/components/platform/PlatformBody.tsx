@@ -119,7 +119,7 @@ const PlatformBody = () => (
           eyebrow="Who it's for"
           title={
             <>
-              One dataset. <span className="text-primary lg:block">Four kinds of team.</span>
+              The same market. <span className="text-primary lg:block">Better decisions for every team.</span>
             </>
           }
           lede="Build pipeline, compare locations, find talent demand or track expansion from the same centre-level data."
@@ -137,7 +137,7 @@ const PlatformBody = () => (
       </Container>
     </Section>
 
-    <DemoCta title="See the platform on your own market." />
+    <DemoCta title="Know the market. Find the account. Make the move." />
   </>
 );
 

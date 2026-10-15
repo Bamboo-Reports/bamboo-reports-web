@@ -8,22 +8,22 @@ const beneficiaries = [
   {
     icon: RiLineChartLine,
     title: "Marketing & GTM leaders",
-    description: "Size your market, narrow your target list and time campaigns to new centres and expansions."
+    description: "Size your market, sharpen your targeting, and time campaigns to real GCC activity."
   },
   {
     icon: RiTeamLine,
     title: "Enterprise & tech sales teams",
-    description: "Find the right accounts and the leaders who make the buying decisions."
+    description: "Find the accounts that are ready to buy and reach the leaders who decide."
   },
   {
     icon: RiFileTextLine,
     title: "Investment & strategy groups",
-    description: "See new centres and expansions early, with verified data behind each decision."
+    description: "Spot emerging opportunities early and back every decision with verified data."
   },
   {
     icon: RiBriefcaseLine,
     title: "Consulting & advisory firms",
-    description: "Base client recommendations on centre-level counts, not estimates."
+    description: "Ground client recommendations in evidence from the ecosystem, not estimates."
   }
 ];
 
@@ -32,7 +32,7 @@ const WhoBenefits = () => (
     <Container className="flex flex-col gap-14">
       <SectionHeading
         title="Who benefits from Bamboo Reports?"
-        lede="Teams that sell to, advise or invest in India's GCCs."
+        lede="Bamboo Reports serves stakeholders across industries who need more than dashboards to make decisions."
       />
       <FeatureGrid
         items={beneficiaries.map(({ icon, title, description }) => ({ icon, title, desc: description }))}

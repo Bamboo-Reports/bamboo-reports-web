@@ -44,7 +44,7 @@ type Props = {
   surface?: "default" | "subtle";
 };
 
-const TrustLogos = ({ eyebrow = "Used by teams across India's GCC market", surface = "default" }: Props) => (
+const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem", surface = "default" }: Props) => (
   <div className="trust-logos">
     {eyebrow ? (
       <div className="mb-8 text-center text-sm font-semibold text-ink-muted">

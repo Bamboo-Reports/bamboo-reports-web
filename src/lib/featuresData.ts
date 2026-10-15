@@ -17,7 +17,7 @@ export const featureItems: FeatureItem[] = [
   {
     id: "coverage",
     title: "90% more\ncentre-level coverage",
-    summary: "Verified data on each GCC centre in India,\nnot just each parent company.",
+    summary: "Get the deepest view of GCCs in India\nwith verified, site-level intelligence.",
     description: "Bamboo Reports tracks India's GCC ecosystem at the centre level, not just the company level. This gives you a clearer picture of where teams operate, how they are structured, and where real opportunities exist.",
     icon: RiLineChartLine,
     href: "/features/coverage",
@@ -41,7 +41,7 @@ export const featureItems: FeatureItem[] = [
   {
     id: "what-if-scenarios",
     title: "What-if\nscenarios",
-    summary: "Compare GCC options before you commit budget.",
+    summary: "Model critical GCC decisions before you commit resources.",
     description: "Run structured scenario comparisons using verified centre-level data so strategic decisions are grounded in reality, not spreadsheet assumptions or anecdotes.",
     icon: RiLightbulbLine,
     href: "/features/what-if-scenarios",
@@ -66,7 +66,7 @@ export const featureItems: FeatureItem[] = [
   {
     id: "proprietary-tam-slicers",
     title: "Proprietary TAM\nslicers",
-    summary: "Size your market by centre type, function and scale.",
+    summary: "Build your TAM the way India GCCs actually operate.",
     description: "Move from inflated top-down TAMs to precise, actionable account universes built on verified GCC presence, maturity, scale, and capability signals.",
     icon: RiFilter3Line,
     href: "/features/proprietary-tam-slicers",
@@ -91,7 +91,7 @@ export const featureItems: FeatureItem[] = [
   {
     id: "tailor-made-market-insights",
     title: "Tailor-made market\ninsights",
-    summary: "Analysts answer the market questions specific to you.",
+    summary: "Analyst-led answers, not another template dashboard.",
     description: "Custom market insights designed around specific business questions using verified GCC data, analyst interpretation, and contextual narratives teams can act on immediately.",
     icon: RiFocus3Line,
     href: "/features/tailor-made-market-insights",
