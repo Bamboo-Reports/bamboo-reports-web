@@ -59,6 +59,7 @@ const FAQS = [
 // engines can quote the report without the PDF. Every figure is taken from
 // the Q2 2026 report; the full report stays behind the download form.
 const REPORT_AUTHOR = { name: "Santosh Abraham", jobTitle: "Founder", role: "Founder, Bamboo Reports" };
+const PUBLISHED = { iso: "2026-07", label: "July 2026" };
 
 const CITY_SHARE = [
   { city: "Bengaluru", centres: 29, share: "26%" },
@@ -151,6 +152,7 @@ const IndiaGccReportQ22026 = () => {
           headline: "India GCC Quarterly Report, Q2 2026 (April to June)",
           image: "https://bambooreports.com/gcc/india-gcc-report-share-card-q2-2026.png",
           author: { name: REPORT_AUTHOR.name, jobTitle: REPORT_AUTHOR.jobTitle },
+          datePublished: PUBLISHED.iso,
         }}
       />
       <div className="flex h-1" aria-hidden>
@@ -184,7 +186,8 @@ const IndiaGccReportQ22026 = () => {
               >
                 Bamboo Reports
               </a>{" "}
-              GCC Intelligence
+              GCC Intelligence &middot; Published{" "}
+              <time dateTime={PUBLISHED.iso}>{PUBLISHED.label}</time>
             </p>
             <h1 className="hero-rise mt-5 text-balance text-4xl font-bold leading-tight text-navy [animation-delay:80ms] md:text-5xl lg:whitespace-nowrap lg:text-[clamp(2rem,3.2vw,2.75rem)]">
               India GCC Quarterly Report, <span className="text-primary">Q2 2026</span>
@@ -349,6 +352,7 @@ const IndiaGccReportQ22026 = () => {
           </h2>
           <p className="mt-3 text-sm text-muted-foreground">
             From the India GCC Quarterly Report, Q2 2026, by {REPORT_AUTHOR.name}, {REPORT_AUTHOR.role}.
+            Published <time dateTime={PUBLISHED.iso}>{PUBLISHED.label}</time>.
           </p>
 
           <div className="mt-8 grid gap-x-16 gap-y-10 lg:grid-cols-2">

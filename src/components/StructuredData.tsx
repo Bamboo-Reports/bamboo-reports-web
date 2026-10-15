@@ -36,8 +36,8 @@ interface ReportData {
   headline: string;
   image: string;
   author: { name: string; jobTitle: string };
-  /** ISO date. Omitted until the publish date is confirmed. */
-  datePublished?: string;
+  /** ISO 8601 date; month precision (e.g. "2026-07") is valid. */
+  datePublished: string;
 }
 
 // Inlined rather than referenced by @id alone: the full Organization node
