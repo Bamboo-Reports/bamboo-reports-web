@@ -8,6 +8,16 @@ interface FAQData {
   questions: FAQQuestion[];
 }
 
+interface BreadcrumbItem {
+  name: string;
+  /** Absolute URL of the crumb. */
+  url: string;
+}
+
+interface BreadcrumbData {
+  items: BreadcrumbItem[];
+}
+
 interface ProductRating {
   value: number;
   count: number;
@@ -26,7 +36,8 @@ type StructuredDataType =
   | { type: "organization"; data?: never }
   | { type: "website"; data?: never }
   | { type: "product"; data?: ProductData }
-  | { type: "faq"; data?: FAQData };
+  | { type: "faq"; data?: FAQData }
+  | { type: "breadcrumb"; data: BreadcrumbData };
 
 type StructuredDataProps = StructuredDataType;
 
@@ -132,6 +143,18 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
               "text": q.answer
             }
           })) || []
+        };
+
+      case "breadcrumb":
+        return {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": data.items.map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": item.name,
+            "item": item.url
+          }))
         };
 
       default:

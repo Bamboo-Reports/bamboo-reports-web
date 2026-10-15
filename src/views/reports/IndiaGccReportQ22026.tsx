@@ -57,10 +57,22 @@ const FAQS = [
 
 const FAQ_SCHEMA = { questions: FAQS };
 
+const BREADCRUMB_SCHEMA = {
+  items: [
+    { name: "Home", url: "https://bambooreports.com/" },
+    { name: "Resources", url: "https://bambooreports.com/resources" },
+    {
+      name: "India GCC Quarterly Report, Q2 2026",
+      url: "https://bambooreports.com/reports/india-gcc-report-q2-2026",
+    },
+  ],
+};
+
 const IndiaGccReportQ22026 = () => {
   return (
     <div className="min-h-screen bg-background pb-[calc(4.75rem+env(safe-area-inset-bottom))] lg:pb-0">
       <StructuredData type="faq" data={FAQ_SCHEMA} />
+      <StructuredData type="breadcrumb" data={BREADCRUMB_SCHEMA} />
       <div className="flex h-1" aria-hidden>
         <div className="w-2/3 bg-primary" />
         <div className="w-1/3 bg-accent" />

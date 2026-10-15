@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const SITE_URL = "https://bambooreports.com";
 
-const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
+const DEFAULT_IMAGE = `${SITE_URL}/og-default.png`;
 const INDEX_ROBOTS = "index, follow, max-image-preview:large";
 
 interface PageMeta {
@@ -61,6 +61,8 @@ const PAGE_META = {
   "/map-your-gcc-opportunity": {
     title: "Map your India GCC opportunity | Bamboo Reports",
     description: "Map your India GCC opportunity with Bamboo Reports.",
+    // Form-only page with no content of its own.
+    robots: "noindex, follow",
   },
   "/privacy-policy": {
     title: "Privacy Policy | Bamboo Reports",
@@ -115,3 +117,10 @@ export const buildMetadata = (meta: PageMeta, path?: string): Metadata => {
 };
 
 export const pageMetadata = (path: SitePath): Metadata => buildMetadata(PAGE_META[path], path);
+
+/** Indexable paths, in PAGE_META order. Feeds the sitemap. */
+export const indexablePaths = (): SitePath[] =>
+  (Object.keys(PAGE_META) as SitePath[]).filter((path) => {
+    const meta: PageMeta = PAGE_META[path];
+    return !meta.robots?.includes("noindex");
+  });
