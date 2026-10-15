@@ -59,7 +59,7 @@ const FAQS = [
 // engines can quote the report without the PDF. Every figure is taken from
 // the Q2 2026 report; the full report stays behind the download form.
 const REPORT_AUTHOR = { name: "Santosh Abraham", jobTitle: "Founder", role: "Founder, Bamboo Reports" };
-const PUBLISHED = { iso: "2026-07", label: "July 2026" };
+const PUBLISHED = { iso: "2026-08", label: "August 2026" };
 
 const CITY_SHARE = [
   { city: "Bengaluru", centres: 29, share: "26%" },
