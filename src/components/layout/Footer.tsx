@@ -21,9 +21,9 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
         {showCta ? (
           <div className="flex flex-col gap-8 border-b border-line py-14 md:flex-row md:items-end md:justify-between">
             <SectionHeading
-              eyebrow="Always-on GCC intelligence"
-              title="Ready to unlock GCC intelligence for your team?"
-              lede="See how Bamboo Reports keeps you ahead with verified GCC data, benchmarks, and weekly insight drops tailored to strategy, location, and talent teams."
+              eyebrow="Book a demo"
+              title="See what the data shows for your market."
+              lede="We will walk you through verified GCC data, benchmarks and weekly updates for the sectors and cities your strategy, location or talent team covers."
               size="title"
               className="max-w-2xl"
             />
@@ -44,10 +44,9 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
         <div className="grid gap-14 py-16 lg:grid-cols-[1.1fr_2fr] lg:gap-20">
           {/* Identity and contact */}
           <div className="flex flex-col gap-6">
-            <img src={logo.src} alt="Bamboo Reports: GCC Intelligence Provider" className="h-10 w-auto self-start" />
+            <img src={logo.src} alt="Bamboo Reports" className="h-10 w-auto self-start" />
             <p className="max-w-xs text-sm leading-relaxed text-ink-soft">
-              The leading GCC intelligence platform for Global Capability Centres research, market
-              intelligence, and executive-ready insights.
+              Centre-level data and research on Global Capability Centres in India.
             </p>
             <a
               href={`mailto:${SITE_EMAIL}`}

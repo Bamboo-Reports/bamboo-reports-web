@@ -8,7 +8,7 @@ const ResearchNXT = () => (
     <Container className="flex flex-col gap-12">
       <SectionHeading
         title="Bamboo Reports is built by Research NXT"
-        lede="A market intelligence firm trusted by 50+ global tech companies."
+        lede="A market research firm that works with 50+ global tech companies."
       />
       <div className="border-y border-line py-8">
         <TrustLogos eyebrow="" surface="subtle" />

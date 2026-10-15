@@ -39,18 +39,18 @@ import { SectionHeading } from "@/components/ui/section-heading";
 const EXCLUSIVE = "Exclusive to Bamboo Reports";
 
 const PRODUCTS: OfferItem[] = [
-  { icon: RiCommunityLine, title: "City GCC intelligence reports", body: "Deep-dives into India's top GCC cities. Each edition covers active and upcoming centre counts, workforce composition, sector and function mix, micro-geography clustering, and growth signals. Delivered as interactive reports built for executive audiences." },
-  { icon: RiPieChart2Line, title: "Sector snapshot reports", body: "Fast intelligence on high-priority verticals: BFSI, Technology, Pharma, Retail, Manufacturing. Covers centre counts, top employers, function breakdown, and city spread. Ideal for product teams, sales leaders, and consultants targeting a specific vertical." },
-  { icon: RiOrganizationChart, title: "Function-mix intelligence", badge: EXCLUSIVE, body: "Understand how GCCs are staffing themselves across functions: Engineering vs. Finance vs. Legal vs. HR. Identify white spaces. Benchmark your accounts. No one else produces this." },
-  { icon: RiBarChartGroupedLine, title: "Software vendor market share reports", badge: EXCLUSIVE, body: "Which ERP, HCM, or IT platforms dominate inside India GCCs? Track adoption by sector, size, and city. Built from thousands of verified tech and software records." },
-  { icon: RiFileList3Line, title: "Custom research briefs", body: "Need a bespoke market view? We build custom intelligence packs for specific account clusters, geographies, or competitive questions." },
+  { icon: RiCommunityLine, title: "City GCC intelligence reports", body: "Detailed reports on India's main GCC cities. Each edition covers active and upcoming centres, workforce make-up, sector and function mix, clusters within the city, and growth trends. Delivered as interactive reports." },
+  { icon: RiPieChart2Line, title: "Sector snapshot reports", body: "Short reports on single sectors: BFSI, Technology, Pharma, Retail and Manufacturing. Each covers centre counts, top employers, function breakdown and city spread. Useful for product, sales and consulting teams focused on one sector." },
+  { icon: RiOrganizationChart, title: "Function-mix intelligence", badge: EXCLUSIVE, body: "How GCCs split their staff across functions such as Engineering, Finance, Legal and HR. Use it to find gaps and benchmark your accounts." },
+  { icon: RiBarChartGroupedLine, title: "Software vendor market share reports", badge: EXCLUSIVE, body: "Which ERP, HCM and IT platforms India GCCs use, broken down by sector, size and city. Built from thousands of verified technology records." },
+  { icon: RiFileList3Line, title: "Custom research briefs", body: "Research built to your brief: a set of accounts, a region or a competitive question." },
 ];
 
 const PLATFORM_CAPABILITIES: Feature[] = [
-  { icon: RiDashboard3Line, title: "Interactive dashboards", desc: "Real-time analytics across accounts, centres, and functions with instant filtering." },
+  { icon: RiDashboard3Line, title: "Interactive dashboards", desc: "Filter accounts, centres and functions and see the results update as you go." },
   { icon: RiMap2Line, title: "Geospatial intelligence", desc: "See Global Capability\ncentres by location,\ncluster and state." },
   { icon: RiBookmark3Line, title: "Saved filters", desc: "Save any search, reopen\nit in one click and share\nit with your team." },
-  { icon: RiUserSettingsLine, title: "My Bamboo Reports©", desc: "Personalised workspace: your target accounts, your ICP, your watermarked views." },
+  { icon: RiUserSettingsLine, title: "My Bamboo Reports©", desc: "Your own workspace with your target accounts, ICP and watermarked views." },
 ];
 
 const WHAT_IF = [
@@ -70,13 +70,13 @@ const USERS = [
   { icon: RiCompass3Line, name: "Product & strategy leaders", desc: "Market sizing and white-space identification." },
   { icon: RiFundsLine, name: "Private equity & investors", desc: "GCC ecosystem mapping\nfor due diligence." },
   { icon: RiPresentationLine, name: "Consulting firms", desc: "Client-facing intelligence with differentiated data." },
-  { icon: RiBuilding2Line, name: "GCC leaders themselves", desc: "Benchmark against peers, track market shifts." },
+  { icon: RiBuilding2Line, name: "GCC leaders", desc: "Benchmark against peers, track market shifts." },
 ];
 
 const DIFFERENCES = [
   { name: "Built bottom-up from 2,400+ accounts and 6,000+ centres. 260+ man-months of structured research." },
   { name: "Sliceable by city, sector, function, size, tech stack, and centre status." },
-  { name: "AI-augmented weekly refresh,\nnot an annual publishing cycle." },
+  { name: "Refreshed weekly with AI assistance,\nnot published once a year." },
   { name: "Exclusive coverage: service-mix, function-mix, and software vendor market share at centre level." },
 ];
 
@@ -96,12 +96,12 @@ const AccountMarketIntelligence = () => {
         <Container>
           <ProblemSpread
             eyebrow="The problem"
-            title="GCC strategy without data is just guesswork."
+            title="Most GCC data is too coarse to act on."
             body="Published reports track GCCs at parent-company level and go stale in months. Consulting decks arrive weeks later as 80-page PDFs. Neither answers what a specific centre actually does, or how your sector is moving right now."
             statement={
               <>
-                You need ground-truth intelligence:{" "}
-                <span className="text-primary">centre-level, structured, and queryable.</span>
+                You need data on each centre,{" "}
+                <span className="text-primary">structured so you can filter it.</span>
               </>
             }
           />
@@ -110,7 +110,7 @@ const AccountMarketIntelligence = () => {
 
       <Section surface="subtle" bordered>
         <Container>
-          <Block eyebrow="Product suite" title="Intelligence products for every stage of strategy.">
+          <Block eyebrow="Product suite" title="Reports and research, from quick reads to custom work.">
             <OfferIndex
               label="Product suite"
               items={PRODUCTS.map(({ icon: Icon, ...product }) => ({
@@ -127,8 +127,8 @@ const AccountMarketIntelligence = () => {
           <div className="flex flex-col gap-8">
             <SectionHeading
               eyebrow="Platform in action"
-              title="Live intelligence, not static PDFs."
-              lede="Filter to Pharma + Hyderabad and see 41 accounts, 57 centres in seconds. Click into Bayer AG and drill into its 18 centres across India: headcount, full tech stack, and 3 years of historical movement. This is what centre-level, queryable intelligence looks like."
+              title="Filter the data yourself instead of reading a PDF."
+              lede="Filter to Pharma and Hyderabad and you get 41 accounts and 57 centres in seconds. Open Bayer AG to see its 18 centres across India, with headcount, full tech stack and 3 years of history."
             />
             <div>
               <Button asChild variant="outline" className="group">
@@ -144,7 +144,7 @@ const AccountMarketIntelligence = () => {
 
           <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
             <div className="flex flex-col gap-5">
-              <p className="text-sm font-semibold text-primary">What-if scenario intelligence</p>
+              <p className="text-sm font-semibold text-primary">Questions the data answers</p>
               <ul className="border-b border-line">
                 {WHAT_IF.map((question) => (
                   <li key={question} className="flex gap-3 border-t border-line py-5">
@@ -155,7 +155,7 @@ const AccountMarketIntelligence = () => {
               </ul>
             </div>
             <div className="flex flex-col gap-5">
-              <p className="text-sm font-semibold text-primary">Measurable impact</p>
+              <p className="text-sm font-semibold text-primary">Results</p>
               <ProofLedger items={IMPACT} compact fill />
             </div>
           </div>
@@ -164,7 +164,7 @@ const AccountMarketIntelligence = () => {
 
       <Section surface="subtle" bordered spacing="tight">
         <Container>
-          <Block eyebrow="Who uses this" title="Intelligence for the decisions that matter.">
+          <Block eyebrow="Who uses this" title="Sales, strategy, investment and GCC teams.">
             <OfferMatrix
               items={USERS.map(({ name, desc, ...rest }) => ({ ...rest, title: name, desc }))}
               prompt="Don't see your team here?" surface="subtle"
@@ -182,13 +182,13 @@ const AccountMarketIntelligence = () => {
                     Structured data. <span className="text-primary lg:block">Not another survey report.</span>
                   </>
                 }
-                lede="Most GCC market reports are survey-based, delayed by months, and impossible to slice. Bamboo Reports' intelligence is:">
+                lede="Most GCC market reports are survey-based, months out of date and cannot be filtered. Bamboo Reports data is:">
             <RuledList items={DIFFERENCES} max={2} />
           </Block>
         </Container>
       </Section>
 
-      <DemoCta title="Ready to see what your market really looks like?" />
+      <DemoCta title="See your market in the platform." />
       <Footer showCta={false} />
     </div>
   );

@@ -17,7 +17,7 @@ const ENGAGEMENT_ARC = [
   { title: "Discovery", body: "India GCC overview + peer company profiles in the sector." },
   { title: "Analysis", body: "Talent benchmarking, RA services landscape, peer comparisons." },
   { title: "Ongoing", body: "Customised dashboard + capacity planning + ecosystem monitoring." },
-  { title: "Outcome", body: "Intelligence presented to global leadership. A seat at the table." },
+  { title: "Outcome", body: "Findings presented to the company's global leadership." },
 ];
 
 const SuccessStories = () => {
@@ -29,7 +29,7 @@ const SuccessStories = () => {
         backgroundImage="/hero-backgrounds/success-stories.webp"
         eyebrow="Resources"
         title="Success stories"
-        description="Two long-running engagements that show what centre-level intelligence delivers in practice."
+        description="Two long-running client engagements and what each one produced."
       />
 
       <Section>
@@ -54,9 +54,9 @@ const SuccessStories = () => {
             eyebrow="Two sides of the same ecosystem"
             title={
               <>
-                One platform. Two audiences.{" "}
+                One dataset. Two kinds of client.{" "}
                 <span className="text-primary lg:block">
-                  The same centre-level intelligence that wins mandates also builds business cases.
+                  Vendors use it to win mandates. GCCs use it to build business cases.
                 </span>
               </>
             }
@@ -70,8 +70,8 @@ const SuccessStories = () => {
             eyebrow="Global medical device company GCC"
             title="GCC benchmarking, talent & expansion"
             meta="Fortune 500 · Phased · Strategic"
-            body="A Fortune 500 medical device company setting up their India GCC needed structured intelligence on peer GCCs, talent landscapes, and a benchmarking framework to build their board-level business case."
-            statement="Intelligence presented to global leadership. A seat at the table."
+            body="A Fortune 500 medical device company setting up its India GCC needed structured data on peer GCCs and the talent market, plus a benchmarking framework for its business case to the board."
+            statement="The findings were presented to the company's global leadership."
           />
           <div className="flex flex-col gap-8">
             <p className="text-sm font-semibold text-primary">The engagement arc</p>
@@ -80,7 +80,7 @@ const SuccessStories = () => {
         </Container>
       </Section>
 
-      <DemoCta title="Your engagement could be the next story." />
+      <DemoCta title="Talk to us about your own GCC project." />
 
       <Footer showCta={false} />
     </div>

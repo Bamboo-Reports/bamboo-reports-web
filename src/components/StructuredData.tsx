@@ -39,7 +39,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           "@type": "Organization",
           "@id": "https://bambooreports.com/#organization",
           "name": "Bamboo Reports",
-          "description": "Leading GCC Intelligence platform providing actionable insights on Global Capability Centres across India. Comprehensive market intelligence, GTM research, and GCC benchmarking solutions. A Research NXT product.",
+          "description": "Centre-level data and research on Global Capability Centres in India, for go-to-market, research and benchmarking work. A Research NXT product.",
           "url": "https://bambooreports.com/",
           "logo": {
             "@type": "ImageObject",
@@ -103,7 +103,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
             "@id": "https://bambooreports.com/#organization"
           },
           "applicationCategory": "BusinessApplication",
-          "description": data?.description || "Comprehensive GCC Intelligence platform with India's largest repository of Global Capability Centres data, GTM research, and market intelligence solutions.",
+          "description": data?.description || "Search India's Global Capability Centres by account, centre and decision-maker, with GTM research and market reports.",
           "operatingSystem": "Web",
           "aggregateRating": data?.rating ? {
             "@type": "AggregateRating",

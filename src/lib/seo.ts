@@ -21,7 +21,7 @@ interface PageMeta {
 const PAGE_META = {
   "/": {
     title: "GCC GTM Enablement | Bamboo Reports",
-    description: "Verified India GCC data, account intelligence, and analyst-led research for GTM teams building their India GCC opportunity.",
+    description: "Verified India GCC data, account intelligence and analyst-led research for teams selling into India's Global Capability Centres.",
   },
   "/about": {
     title: "About Bamboo Reports | The India GCC dataset built centre by centre",
@@ -29,15 +29,15 @@ const PAGE_META = {
   },
   "/account-market-intelligence": {
     title: "Account & Market Intelligence | India GCC Research | Bamboo Reports",
-    description: "Structured, data-backed views of India's GCC ecosystem by city, sector, function, or company. From quick snapshots to deep-dive research.",
+    description: "Centre-level data and reports on India's GCCs by city, sector, function or company, from short sector reports to custom research.",
   },
   "/gcc-abm": {
     title: "GCC ABM | Account-Based Marketing for India GCCs | Bamboo Reports",
-    description: "End-to-end ABM campaigns targeting decision-makers inside India's Global Capability Centres. Bamboo Reports brings the data, the audience, and the execution.",
+    description: "End-to-end ABM campaigns aimed at decision-makers in India's Global Capability Centres. Bamboo Reports supplies the data and runs the campaigns.",
   },
   "/gcc-prospect-data": {
     title: "GCC Prospect Data | Verified India GCC Decision-Makers | Bamboo Reports",
-    description: "The most complete, structured contact intelligence on India's GCC ecosystem. Verified decision-makers across thousands of centres, ready to power your outreach.",
+    description: "Verified decision-makers at 6,000+ India GCC centres, each mapped to the centre they work in.",
   },
   "/platform": {
     title: "India GCC Intelligence Platform | Bamboo Reports",
@@ -45,7 +45,7 @@ const PAGE_META = {
   },
   "/success-stories": {
     title: "Success Stories | Bamboo Reports",
-    description: "Proof that the Bamboo Reports model works across solution providers and GCCs alike. Explore GCC strategy, intelligence, benchmarking, talent, and expansion outcomes.",
+    description: "Two client engagements: BFSI GCC strategy for a global IT services firm, and GCC benchmarking, talent and expansion research for a medical device company.",
   },
   "/resources": {
     title: "Resources | India GCC Reports | Bamboo Reports",
@@ -64,11 +64,11 @@ const PAGE_META = {
   },
   "/privacy-policy": {
     title: "Privacy Policy | Bamboo Reports",
-    description: "Privacy Policy for Bamboo Reports. Learn how we collect, use, and safeguard your information.",
+    description: "Privacy Policy for Bamboo Reports: how we collect, use and protect your information.",
   },
   "/terms-conditions": {
     title: "Terms & Conditions | Bamboo Reports",
-    description: "Terms and Conditions for Bamboo Reports. Read our terms of service, usage rights, and user responsibilities.",
+    description: "Terms and Conditions for Bamboo Reports: terms of service, usage rights and user responsibilities.",
   },
   "/thank-you": {
     title: "Thank You | Bamboo Reports",

@@ -7,15 +7,15 @@ import { SectionHeading } from "@/components/ui/section-heading";
 const categories = [
   {
     title: "Industries",
-    description: "Comprehensive data on companies in India, segmented across 30+ categories, 110+ industries, and 813+ sub-industries."
+    description: "Companies in India classified into 30+ categories, 110+ industries and 813+ sub-industries."
   },
   {
     title: "Functions",
-    description: "Analysis of all capability centre types, including R&D, Engineering, IT, Manufacturing, GBS, GCC/GIC, SSC, and Sales & Marketing."
+    description: "Every capability centre type: R&D, Engineering, IT, Manufacturing, GBS, GCC/GIC, SSC, and Sales & Marketing."
   },
   {
     title: "Geographies",
-    description: "A unified platform covering Global Capability Centres (GCCs) from multinational corporations headquartered in 50+ countries."
+    description: "GCCs run by multinational companies headquartered in 50+ countries."
   }
 ];
 
@@ -23,7 +23,7 @@ const IntelligenceSpans = () => (
   <Section>
     <Container className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
       <div className="flex flex-col gap-10">
-        <SectionHeading title="Our intelligence spans" />
+        <SectionHeading title="What we cover" />
         <ul className="border-b border-line">
           {categories.map((item) => (
             <li key={item.title} className="flex gap-4 border-t border-line py-5">
@@ -40,7 +40,7 @@ const IntelligenceSpans = () => (
       <div className="flex justify-center">
         <img
           src={indiaMap.src}
-          alt="GCC Intelligence Coverage"
+          alt="Map of India showing GCC coverage"
           width="2280"
           height="2282"
           loading="lazy"
