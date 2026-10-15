@@ -4,7 +4,6 @@ import {
   RiCloudLine,
   RiPresentationLine,
   RiUserSearchLine,
-  RiPriceTag3Line,
   RiStackLine,
   RiUserStarLine,
 } from "@remixicon/react";
@@ -28,7 +27,6 @@ import { SectionHeading } from "@/components/ui/section-heading";
 const COVERAGE: Feature[] = [
   { icon: RiUserStarLine, title: "Decision makers", desc: "Named C-suite, VPs, directors and function heads at GCCs across India." },
   { icon: RiStackLine, title: "Function coverage", desc: "Engineering, Product, Data, Finance, HR, Legal, Operations, IT, and more." },
-  { icon: RiPriceTag3Line, title: "Sector & tech tagging", desc: "BFSI, Tech, Pharma, Retail, Manufacturing, with tech-stack signals layered in." },
 ];
 
 const USERS = [
@@ -93,8 +91,8 @@ const GCCProspectData = () => {
             body="India's GCC market changes quickly. New centres open every quarter and leaders change roles. Scraped databases give you outdated contacts, wrong titles, records only at parent-company level and nothing about the centre itself."
             statement={
               <>
-                Each contact is <span className="text-primary">mapped to the right centre and role</span>, along with
-                that centre's services and tech stack, so you know what to open the conversation with.
+                Each contact is <span className="text-primary">verified and kept up to date</span>, so your outreach
+                reaches the right people.
               </>
             }
           />
