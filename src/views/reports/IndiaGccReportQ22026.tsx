@@ -307,18 +307,27 @@ const IndiaGccReportQ22026 = () => {
             Published <time dateTime={PUBLISHED.iso}>{PUBLISHED.label}</time>.
           </p>
 
-          <dl className="mt-8 grid gap-x-16 gap-y-8 lg:grid-cols-2">
-            {KEY_FINDINGS.map((finding) => (
-              <div key={finding.question} className="border-t-2 border-primary pt-5">
-                <dt>
-                  <h3 className="text-lg font-semibold leading-snug text-navy">{finding.question}</h3>
-                </dt>
-                <dd className="mt-2 max-w-[70ch] text-base leading-relaxed text-muted-foreground">
+          {/* Same accordion as the FAQ below. Answers stay in the HTML when
+              collapsed, so crawlers still read them. */}
+          <div className="mt-6">
+            {KEY_FINDINGS.map((finding, index) => (
+              <details
+                key={finding.question}
+                open={index === 0}
+                className="group border-t border-primary/20 py-3 last:border-b"
+              >
+                <summary className="cursor-pointer list-none text-base font-semibold transition-colors hover:text-primary [&::-webkit-details-marker]:hidden">
+                  <span className="mr-3 inline-block text-primary transition-transform group-open:rotate-90 motion-reduce:transition-none">
+                    ›
+                  </span>
+                  {finding.question}
+                </summary>
+                <p className="max-w-2xl pt-2 text-base leading-relaxed text-muted-foreground">
                   {finding.answer}
-                </dd>
-              </div>
+                </p>
+              </details>
             ))}
-          </dl>
+          </div>
 
           <p className="mt-10 max-w-[70ch] text-base leading-relaxed text-muted-foreground">
             The full report breaks these numbers down by city, industry and function, names the
