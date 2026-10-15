@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+// Relative, not "@/": netlify/functions/deploy-succeeded.ts bundles this file.
+import { UNLISTED_ROBOTS, gccDirectoryLive } from "../config/flags";
 
 export const SITE_URL = "https://bambooreports.com";
 
@@ -57,6 +59,12 @@ const PAGE_META = {
     description: "The Q2 2026 India GCC Quarterly Report: 110 centres across 99 companies and 27 cities, 40 first-time entrants, 75K+ announced roles and AI-first centres.",
     image: `${SITE_URL}/gcc/india-gcc-report-share-card-q2-2026.png`,
     type: "article",
+  },
+  "/gcc-companies": {
+    title: "India GCC Companies Directory | Bamboo Reports",
+    description: "Global companies with Global Capability Centres in India: centre locations, centre types, functions, opening years and headcount, from Bamboo Reports.",
+    // Unlisted until the directory flag is on; see src/config/flags.ts.
+    robots: gccDirectoryLive ? undefined : UNLISTED_ROBOTS,
   },
   "/map-your-gcc-opportunity": {
     title: "Map your India GCC opportunity | Bamboo Reports",

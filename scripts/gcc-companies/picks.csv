@@ -1,0 +1,351 @@
+uuid,name
+BR3,3M Co.
+BR6,A.P. Moller Maersk A/S
+BR10,ABB Ltd.
+BR48,"ADP, Inc."
+BR237,AT&T Inc.
+BR276,AXA S.A.
+BR12,AbbVie Inc.
+BR11,Abbott Laboratories
+BR18,Accenture plc
+BR42,Adidas AG
+BR46,"Adobe, Inc."
+BR50,"Advanced Micro Devices, Inc."
+BR54,Adyen N.V.
+BR70,"Air Products & Chemicals, Inc"
+BR73,Airbus SE
+BR76,"Akamai Technologies, Inc."
+BR81,Alcon Inc.
+BR98,Allianz SE
+BR100,Allstate Insurance Co.
+BR103,Alphabet Inc.
+BR119,"Amadeus IT Group, S.A."
+BR122,"Amazon.com, Inc."
+BR126,American Airlines Group Inc.
+BR128,American Express Co.
+BR129,"American International Group, Inc."
+BR132,"Ameriprise Financial, Inc."
+BR134,Amgen Inc.
+BR139,Amphenol Corp.
+BR143,"Analog Devices, Inc."
+BR148,Anheuser-Busch InBev S.A./N.V.
+BR162,Aon plc
+BR168,Apollo Global Management Inc.
+BR173,Apple Inc.
+BR174,"Applied Materials, Inc."
+BR183,Aptiv plc
+BR191,ArcelorMittal S.A.
+BR200,"Arista Networks, Inc."
+BR201,Aristocrat Leisure Ltd.
+BR206,Arm Holdings plc
+BR2707,Arrive
+BR211,"Arrow Electronics, Inc"
+BR227,Assicurazioni Generali S.p.A.
+BR231,Astellas Pharma Inc.
+BR234,AstraZeneca plc
+BR241,Atlassian Corporation
+BR250,Australia and New Zealand Banking Group Ltd.
+BR251,"Autodesk, Inc."
+BR289,BAE Systems plc
+BR302,BASF SE
+BR377,BNP Paribas S.A.
+BR394,BP plc
+BR417,BT Group plc
+BR291,Baker Hughes Co.
+BR295,Bank of America Corp.
+BR296,Barclays plc
+BR310,Bayer AG
+BR311,Bayerische Motoren Werke AG
+BR321,"Becton, Dickinson and Co."
+BR337,"Best Buy Co., Inc."
+BR360,"BlackRock, Inc."
+BR366,Bloomberg L.P.
+BR379,Boehringer Ingelheim International GmbH
+BR382,Booking Holdings Inc.
+BR406,Bristol-Myers Squibb Co.
+BR408,Broadcom Inc.
+BR421,Bunge Ltd.
+BR468,"CBRE Group, Inc."
+BR548,CNH Industrial N.V.
+BR430,"Cadence Design Systems, Inc."
+BR441,Capgemini SE
+BR442,Capita plc
+BR444,Capital One Financial Corp.
+BR447,"Cardinal Health, Inc."
+BR452,"Cargill, Inc."
+BR453,Carl Zeiss Meditec AG
+BR454,Carlsberg Breweries A/S
+BR458,Carrier Global Corp.
+BR466,Caterpillar Inc.
+BR482,"Cencora, Inc."
+BR505,"Chegg, Inc."
+BR512,Chevron Corp.
+BR514,Chubb Ltd.
+BR517,Cigna Corp.
+BR525,"Cisco Systems, Inc."
+BR526,Citigroup Inc.
+BR553,Cognizant Technology Solutions Corp.
+BR558,Colgate-Palmolive Co.
+BR561,"Collins Aerospace, Inc."
+BR563,Comcast Corp.
+BR565,Commonwealth Bank of Australia ABN
+BR570,Compagnie de Saint-Gobain S.A.
+BR573,Compass Group plc
+BR580,Concentrix Corp.
+BR589,Continental AG
+BR606,Costco Wholesale Corp.
+BR610,"Coupang, Inc."
+BR622,"Credit Agricole Corporate and Investment Bank, S.A."
+BR642,Cummins Inc.
+BR647,Cushman & Wakefield plc
+BR688,DAZN Ltd.
+BR690,DBS Group Holdings Ltd.
+BR722,DHL International GmbH
+BR761,DXC Technology Co.
+BR665,Danaher Corp.
+BR670,Danone S.A.
+BR675,Dassault Systemes SE
+BR695,Deere & Co.
+BR697,Deliveroo plc
+BR699,Dell Technologies Inc.
+BR702,"Delta Air Lines, Inc."
+BR716,Deutsche Bank AG
+BR719,Deutsche Telekom AG
+BR723,Diageo plc
+BR744,Dow Inc.
+BR842,"EPAM Systems, Inc."
+BR773,Eaton Corp. plc
+BR782,Ecolab Inc.
+BR787,Edwards Lifesciences Corp.
+BR802,Electrolux AB
+BR803,Electronic Arts Inc.
+BR807,Eli Lilly and Co.
+BR813,Emerson Electric Co.
+BR850,Equifax Inc.
+BR896,"Expedia Group, Inc."
+BR898,Experian plc
+BR904,Exxon Mobil Corp.
+BR907,F. Hoffmann-La Roche Ltd.
+BR970,FMR LLC
+BR911,FactSet Research Systems Inc.
+BR919,Fastenal Co.
+BR926,FedEx Corp.
+BR940,"Fidelity National Information Services, Inc."
+BR954,"Fiserv, Inc."
+BR959,Flex Ltd.
+BR966,Fluor Corp.
+BR973,Ford Motor Co.
+BR990,"Franklin Resources, Inc."
+BR1001,Fujitsu Ltd.
+BR1019,GE HealthCare Technologies Inc.
+BR1020,GE Power Inc.
+BR1026,General Electric Co.
+BR1027,General Mills Inc.
+BR1028,General Motors Co.
+BR1031,Genpact Ltd.
+BR1050,GlaxoSmithKline plc
+BR1051,"Glean Technologies, Inc."
+BR1055,GlobalFoundries U.S. Inc.
+BR1061,Goldman Sachs & Co. LLC
+BR1074,"Grid Dynamics Holdings, Inc."
+BR1076,Groupe SII
+BR1112,"HCA Healthcare, Inc."
+BR1157,HP Inc.
+BR1159,HSBC Holdings plc
+BR1101,"Halliburton Energy Services, Inc."
+BR1105,Harman International Industries Inc.
+BR1120,Heineken N.V.
+BR1130,Hewlett Packard Enterprise Co.
+BR1138,Hitachi Energy Ltd.
+BR1142,Hitachi Vantara LLC
+BR1151,"Hon Hai Precision Industry Co., Ltd."
+BR1153,Honeywell International Inc.
+BR1176,Hyundai Motor Co.
+BR1296,IQVIA Holdings Inc.
+BR1179,"Icertis, Inc."
+BR1218,Infineon Technologies AG
+BR1235,Ingram Micro
+BR1254,Intel Corp.
+BR1255,Inter IKEA Systems B.V.
+BR1262,International Business Machines Corp.
+BR1274,Intuit Inc.
+BR1275,"Intuitive Surgical, Inc."
+BR1279,Invesco Ltd.
+BR1336,JPMorgan Chase & Co.
+BR1315,Jacobs Solutions Inc.
+BR1330,"Johnson & Johnson Services, Inc."
+BR1331,Johnson Controls International plc
+BR1333,Jones Lang LaSalle Inc.
+BR1338,"Juniper Networks, Inc."
+BR1372,KLA Corp.
+BR1352,Kellanova
+BR1360,Keysight Technologies Inc.
+BR1365,Kimberly Clark Corp.
+BR1368,Kion Group AG
+BR1389,Koninklijke Philips N.V.
+BR1403,Kyndryl Inc.
+BR1433,LG Electronics Inc.
+BR1410,Lam Research Corp.
+BR1420,Lear Corp.
+BR1425,Lenovo Group Ltd.
+BR1434,Liberty Mutual Holding Company Inc.
+BR1438,Likewize Corp.
+BR1442,Linde plc
+BR1445,LinkedIn Corp.
+BR1451,Lloyds Banking Group PLC
+BR1454,Lockheed Martin Corp.
+BR1457,London Stock Exchange Group plc
+BR1461,"Lowe's Companies, Inc."
+BR1483,Magna International Inc.
+BR1495,ManpowerGroup Global Inc.
+BR1504,"Marriott International, Inc."
+BR1505,"Mars, Inc."
+BR1506,"Marsh & McLennan Co., Inc."
+BR1510,Massachusetts Mutual Life Insurance Co.
+BR1513,Mastercard Inc.
+BR1526,McDonald's Corp.
+BR1527,"McKinsey & Company, Inc."
+BR1533,"Medline Industries, LP"
+BR1535,Medtronic plc
+BR1543,Mercedes-Benz Group AG
+BR1545,"Merck & Co., Inc."
+BR1546,Merck K.G.a.A.
+BR1556,"MetLife, Inc."
+BR1552,"Meta Platforms, Inc."
+BR1569,"Micron Technology, Inc."
+BR1571,Microsoft Corp.
+BR1591,Mitsubishi Electric Corp.
+BR1595,"Mizuho Financial Group, Inc."
+BR1614,"Mondelez International, Inc."
+BR1620,Moody's Corp.
+BR1624,Morgan Stanley & Co. LLC
+BR1625,"Morningstar, Inc."
+BR1628,"Motorola Solutions, Inc."
+BR1671,NEC Corp.
+BR1743,NXP Semiconductors N.V.
+BR1662,NatWest Group plc
+BR1658,National Australia Bank Ltd.
+BR1672,Neighborly Co.
+BR1677,Nestle S.A.
+BR1678,"NetApp, Inc."
+BR1681,"Netflix, Inc."
+BR1705,"Nike, Inc."
+BR1711,"Nissan Motor Co., Ltd."
+BR1714,Nokia Corp.
+BR1722,Northern Trust Corp.
+BR1727,Novartis AG
+BR1729,Novo Nordisk A/S
+BR1738,"Nutanix, Inc."
+BR1742,Nvidia Corp.
+BR1759,"Okta, Inc."
+BR1764,Olympus Corp.
+BR1787,Oracle Corp.
+BR1788,Orange S.A.
+BR1801,Otis Worldwide Corp.
+BR1894,"PPG Industries, Inc."
+BR1924,PTC Inc.
+BR1817,Panasonic Holdings Corp.
+BR1820,"Papa John's International, Inc."
+BR1832,"PayPal Holdings, Inc."
+BR1834,PayU B.V.
+BR1838,Pearson plc
+BR1845,"PepsiCo, Inc."
+BR1849,Pernod Ricard S.A.
+BR1856,Pfizer Inc.
+BR1884,"Point72, L.P."
+BR1892,"PowerSchool Holdings, Inc."
+BR1896,Pratt & Whitney Co. Inc.
+BR1918,"Prudential Financial, Inc."
+BR1925,Publicis Groupe S.A.
+BR1937,Qiagen N.V.
+BR1940,"Qualcomm Technologies, Inc."
+BR1988,RELX PLC
+BR1961,"Rakuten Group, Inc."
+BR1975,Reckitt Benckiser Group plc
+BR1977,"Red Hat, Inc."
+BR1989,Renault S.A.
+BR2011,Rio Tinto plc
+BR2021,Robert Bosch GmbH
+BR2028,Rockwell Automation Inc.
+BR2033,Rolls-Royce plc
+BR2080,SAP SE
+BR2251,STMicroelectronics N.V.
+BR2057,Sabre Corp.
+BR2062,Safran S.A.
+BR2070,"Salesforce, Inc."
+BR2073,Samsung Electronics Co. Ltd.
+BR2078,Sanofi S.A.
+BR2088,Saudi Arabian Oil Co.
+BR2096,Scania AB
+BR2097,Schaeffler AG
+BR2101,Schneider Electric SE
+BR2111,Seagate Technology Holdings PLC
+BR2133,"ServiceNow, Inc."
+BR2140,Shell plc
+BR2148,Siemens AG
+BR2152,Siemens Healthineers AG
+BR2183,Smith & Nephew plc
+BR2189,Snowflake Inc.
+BR2192,Societe Generale S.A.
+BR2213,Sony Group Corp.
+BR2224,Splunk Inc.
+BR2236,Standard Chartered plc
+BR2240,Starbucks Corp.
+BR2244,State Street Corp.
+BR2248,Stellantis N.V.
+BR2253,StoneX Group Inc.
+BR2258,"Stripe, Inc."
+BR2260,Stryker Corp.
+BR2282,Swiss Re Ltd.
+BR2298,Synopsys Inc.
+BR2301,"T-Mobile US, Inc."
+BR2306,Takeda Pharmaceutical Company Ltd.
+BR2308,Target Corp.
+BR2333,Telefonaktiebolaget LM Ericsson
+BR2351,Tesco plc
+BR2352,"Tesla, Inc."
+BR2357,Texas Instruments Inc.
+BR2360,Thales S.A.
+BR2362,The Bank of New York Mellon Corp.
+BR2363,The Boeing Co.
+BR2365,The British Council
+BR2369,The Coca Cola Co.
+BR2379,"The Home Depot, Inc."
+BR2389,The Procter & Gamble Co.
+BR2398,The Walt Disney Co.
+BR2407,Thermo Fisher Scientific Inc.
+BR2409,Thomson Reuters Corp.
+BR2412,Thyssenkrupp AG
+BR2415,Tietoevry Oyj
+BR2432,TotalEnergies SE
+BR2436,Toyota Motor Corp.
+BR2447,TransUnion LLC
+BR2456,Trimble Inc.
+BR2472,Twilio Inc.
+BR2474,"Tyson Foods, Inc."
+BR2478,UBS Group AG
+BR2475,"Uber Technologies, Inc."
+BR2477,Ubisoft Entertainment S.A.
+BR2488,Unilever plc
+BR2496,"United Parcel Service, Inc."
+BR2498,"UnitedHealth Group, Inc."
+BR2573,"VMware, Inc."
+BR2537,Verizon Communications Inc.
+BR2563,Visa Inc.
+BR2576,Volkswagen AG
+BR2577,Volvo AB
+BR2587,Walmart Inc.
+BR2588,"Warner Bros. Discovery, Inc."
+BR2591,Waters Corp.
+BR2594,Wayfair LLC
+BR2601,Wells Fargo & Co.
+BR2604,Western Digital Corp.
+BR2605,Whirlpool Corp.
+BR2610,Willis Towers Watson plc
+BR2619,"Workday, Inc."
+BR2622,World Bank Group
+BR2655,"Zendesk, Inc."
+BR2662,"Zimmer Biomet Holdings, Inc."
+BR2673,"Zscaler, Inc."
+BR2676,Zurich Insurance Group Ltd.
+BR775,eBay Inc.
