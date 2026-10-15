@@ -86,27 +86,27 @@ const QUESTIONS: QuestionItem[] = [
   {
     question: "What is Account & Market Intelligence?",
     answer:
-      "Centre-level data and reports on India's GCCs that you can filter by city, sector, function or company, with three years of history. It covers 2,400+ accounts and 6,100+ centres.",
+      "Centre-level data and reports on India's GCCs, filterable by city, sector, function or company, with three years of history.",
   },
   {
     question: "What reports are included?",
     answer:
-      "City GCC intelligence reports, sector snapshot reports (BFSI, technology, pharma, retail and manufacturing), function-mix intelligence, software vendor market share reports, and custom research briefs built to your brief.",
+      "City reports, sector snapshots, function-mix intelligence, software vendor market share reports and custom research briefs.",
   },
   {
     question: "How is it different from other GCC market reports?",
     answer:
-      "Most GCC market reports are based on surveys, months out of date and can't be filtered. Bamboo Reports data is built up from individual centres, refreshed weekly with AI assistance, and can be filtered by city, sector, function, size, tech stack and centre status.",
+      "It is built up from individual centres, refreshed weekly and filterable, unlike survey-based reports that go out of date.",
   },
   {
     question: "Can I filter the data myself?",
     answer:
-      "Yes. The platform has interactive dashboards, a map of centres by location, cluster and state, saved filters you can share with your team, and your own workspace for your target accounts. For example, filtering to pharma in Hyderabad returns 41 accounts and 57 centres in seconds.",
+      "Yes. The platform has dashboards, a map of centres, saved filters and your own workspace for target accounts.",
   },
   {
     question: "Who uses it?",
     answer:
-      "Enterprise sales teams, product and strategy leaders, private equity and investors, consulting firms, and GCC leaders.",
+      "Enterprise sales, product and strategy teams, investors, consulting firms and GCC leaders.",
   },
 ];
 

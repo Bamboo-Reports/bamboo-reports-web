@@ -71,32 +71,32 @@ const QUESTIONS: QuestionItem[] = [
   {
     question: "What is GCC ABM?",
     answer:
-      "Account-based marketing campaigns aimed at India's Global Capability Centres, run end to end by Bamboo Reports on its own GCC data. Campaigns come with a guaranteed number of qualified leads (MQLs), not an impressions count.",
+      "Account-based marketing campaigns aimed at India's GCCs, run end to end on Bamboo Reports' own data, with a guaranteed number of qualified leads.",
   },
   {
     question: "How does a GCC ABM campaign work?",
     answer:
-      "In four steps. We pick the GCC accounts that match your ideal customer profile (sector, city, company size, function, tech stack). We build a target list of verified decision-makers at those centres. We run the campaign across LinkedIn, email, curated roundtables and content syndication. Then we hand over qualified leads: contacts who engaged with your content, attended your events or asked to hear more.",
+      "We pick accounts that match your ideal customer profile, target verified decision-makers there, run the campaign and hand over qualified leads.",
   },
   {
     question: "What campaign formats are available?",
     answer:
-      "A focused ABM sprint (a short campaign on a fixed list of accounts), a city blitz (one GCC cluster), a roundtable programme (curated events with senior GCC leaders), content and nurture (a LinkedIn and email sequence across named accounts), and a full GTM programme (several cities and channels over a longer period).",
+      "Focused ABM sprints, city blitzes, roundtable programmes, content and nurture sequences, and full multi-city GTM programmes.",
   },
   {
     question: "What results have past campaigns delivered?",
     answer:
-      "250+ MQLs from a single campaign for an enterprise software client, and 600+ MQLs and 40+ sales-qualified leads from a multi-quarter programme for another enterprise client.",
+      "250+ MQLs from a single campaign, and 600+ MQLs and 40+ SQLs from a multi-quarter enterprise programme.",
   },
   {
     question: "Who is GCC ABM for?",
     answer:
-      "SaaS and tech vendors, staffing, RPO and HR tech firms, real estate and facilities companies, professional services firms, and any B2B brand whose buyers work inside GCCs.",
+      "SaaS and tech vendors, staffing and HR tech firms, real estate companies, professional services firms and any B2B brand selling into GCCs.",
   },
   {
     question: "Where does the contact data come from?",
     answer:
-      "From Bamboo Reports' own research, not a third-party data provider: 260+ man-months of structured research, refreshed weekly with AI assistance.",
+      "Bamboo Reports' own research, not a third-party provider, refreshed weekly.",
   },
 ];
 

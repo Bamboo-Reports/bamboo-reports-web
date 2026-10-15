@@ -50,22 +50,22 @@ const QUESTIONS: QuestionItem[] = [
   {
     question: "What is GCC Prospect Data?",
     answer:
-      "GCC Prospect Data is a database of verified decision-makers at Global Capability Centres (GCCs) in India.",
+      "A database of verified decision-makers at Global Capability Centres (GCCs) in India.",
   },
   {
     question: "What does the data include?",
     answer:
-      "Named C-suite leaders, VPs, directors and function heads, across engineering, product, data, finance, HR, legal, operations, IT and more.",
+      "Named C-suite leaders, VPs, directors and function heads across engineering, product, data, finance, HR, IT and more.",
   },
   {
     question: "How is the data collected and kept up to date?",
     answer:
-      "Bamboo Reports researches the data itself instead of scraping it: 260+ man-months of structured research since 2022, with 250+ data points per GCC. It is refreshed weekly with AI assistance, and leadership changes are detected automatically.",
+      "Bamboo Reports researches it in-house instead of scraping it, and refreshes it weekly with AI assistance.",
   },
   {
     question: "Who uses GCC Prospect Data?",
     answer:
-      "Teams that sell into GCCs: SaaS and tech vendors, staffing and RPO firms, real estate and facilities providers, consulting and advisory firms, and event and community platforms.",
+      "Teams that sell into GCCs: SaaS vendors, staffing and RPO firms, real estate providers, consultancies and event platforms.",
   },
 ];
 
