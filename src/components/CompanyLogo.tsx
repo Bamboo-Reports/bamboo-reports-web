@@ -66,7 +66,7 @@ const CompanyLogo = ({
       loading="lazy"
       decoding="async"
       onError={() => setFailed(true)}
-      className={cn("shrink-0 border border-line bg-white object-cover", sizes[size], className)}
+      className={cn("shrink-0 border border-line bg-white object-contain", sizes[size], className)}
     />
   );
 };

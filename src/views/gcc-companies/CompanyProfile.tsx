@@ -6,6 +6,7 @@ import {
   RiLockLine,
 } from "@remixicon/react";
 import Link from "next/link";
+import { preconnect } from "react-dom";
 import type { ReactNode } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -148,6 +149,7 @@ const LOCKED = (c: GccCompany) => {
 };
 
 const CompanyProfile = ({ company: c }: { company: GccCompany }) => {
+  preconnect("https://cdn.brandfetch.io");
   const faqs = profileFaqs(c);
   // A to Z here; the directory cards keep the most common first.
   const functions = [...c.functions].sort((a, b) => a.localeCompare(b));

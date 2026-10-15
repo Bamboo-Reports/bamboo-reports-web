@@ -41,33 +41,51 @@ export type GccCompany = {
 export type GccCompanySummary = {
   slug: string;
   name: string;
+  /** Lower-cased name and legal name, so search also finds "Meta Platforms". */
+  search: string;
   website: string | null;
   category: string;
   /** HQ country, e.g. "United States". */
   hq: string | null;
   since: number | null;
   headcount: string | null;
+  /** Headcount band as a sortable number: 0 for "<50" up to 7 for ">10K". */
+  headcountRank: number;
   centres: number;
   cities: { name: string; centres: number }[];
-  types: string[];
   functions: string[];
 };
 
 export const companies = data as GccCompany[];
+
+// India headcount bands, smallest first, as they appear in the workbook.
+const HEADCOUNT_BANDS = ["<50", "51 - 100", "101 - 200", "201 - 500", "501 - 1K", "1K - 5K", "5K - 10K", ">10K"];
+
+/**
+ * Filter labels that spell out the abbreviations first-time visitors won't
+ * know. Cards keep the short form; only the filter options expand.
+ */
+const LONG_LABELS: Record<string, string> = {
+  BFSI: "BFSI: banking, financial services and insurance",
+  TTLH: "TTLH: travel, transport, logistics and hospitality",
+};
+
+export const longLabel = (value: string) => LONG_LABELS[value] ?? value;
 
 export const getCompany = (slug: string) => companies.find((c) => c.slug === slug);
 
 export const toSummary = (c: GccCompany): GccCompanySummary => ({
   slug: c.slug,
   name: c.name,
+  search: `${c.name} ${c.legalName}`.toLowerCase(),
   website: c.website,
   category: c.category,
   hq: c.hq.country,
   since: c.india.since,
   headcount: c.india.headcount,
+  headcountRank: c.india.headcount ? HEADCOUNT_BANDS.indexOf(c.india.headcount) : -1,
   centres: c.centreCount,
   cities: c.india.cities,
-  types: c.centreTypes.map((t) => t.type),
   functions: c.functions,
 });
 
