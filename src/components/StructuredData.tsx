@@ -35,7 +35,6 @@ interface ReportData {
   path: SitePath;
   headline: string;
   image: string;
-  author: { name: string; jobTitle: string };
   /** ISO 8601 date; month precision (e.g. "2026-08") is valid. */
   datePublished: string;
 }
@@ -226,12 +225,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           "image": data.image,
           "inLanguage": "en",
           "datePublished": data.datePublished,
-          "author": {
-            "@type": "Person",
-            "name": data.author.name,
-            "jobTitle": data.author.jobTitle,
-            "worksFor": PROVIDER
-          },
+          "author": PROVIDER,
           "publisher": PROVIDER,
           "about": "Global Capability Centres in India"
         };

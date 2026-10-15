@@ -59,7 +59,6 @@ const FAQS = [
 // answer engines. Deliberately top-line only: the breakdowns (cities,
 // industries, named companies, BFSI, pipeline) stay in the PDF so readers
 // still have a reason to download it.
-const REPORT_AUTHOR = { name: "Santosh Abraham", jobTitle: "Founder", role: "Founder, Bamboo Reports" };
 const PUBLISHED = { iso: "2026-08", label: "August 2026" };
 
 const KEY_FINDINGS = [
@@ -105,7 +104,6 @@ const IndiaGccReportQ22026 = () => {
           path: "/reports/india-gcc-report-q2-2026",
           headline: "India GCC Quarterly Report, Q2 2026 (April to June)",
           image: "https://bambooreports.com/gcc/india-gcc-report-share-card-q2-2026.png",
-          author: { name: REPORT_AUTHOR.name, jobTitle: REPORT_AUTHOR.jobTitle },
           datePublished: PUBLISHED.iso,
         }}
       />
@@ -305,7 +303,7 @@ const IndiaGccReportQ22026 = () => {
             India GCC market in Q2 2026: the numbers
           </h2>
           <p className="mt-3 text-sm text-muted-foreground">
-            From the India GCC Quarterly Report, Q2 2026, by {REPORT_AUTHOR.name}, {REPORT_AUTHOR.role}.
+            From the India GCC Quarterly Report, Q2 2026, by Bamboo Reports.
             Published <time dateTime={PUBLISHED.iso}>{PUBLISHED.label}</time>.
           </p>
 
