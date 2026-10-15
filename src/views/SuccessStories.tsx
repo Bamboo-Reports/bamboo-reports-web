@@ -23,6 +23,7 @@ const SuccessStories = () => {
       <Header />
 
       <MarketingHero
+        backgroundImage="/hero-backgrounds/success-stories.webp"
         eyebrow="Resources"
         title="Success stories"
         description="Two long-running engagements that show what centre-level intelligence delivers in practice."

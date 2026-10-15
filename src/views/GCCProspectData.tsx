@@ -33,6 +33,7 @@ const GCCProspectData = () => {
       <Header />
 
       <MarketingHero
+        backgroundImage="/hero-backgrounds/gcc-prospect-data.webp"
         eyebrow="What we offer"
         title="GCC Prospect Data"
         description="Verified decision-makers across 6,000+ India GCC centres, continuously refreshed and ready for outreach."

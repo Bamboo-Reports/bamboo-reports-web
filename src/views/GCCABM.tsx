@@ -30,6 +30,7 @@ const GCCABM = () => {
       <Header />
 
       <MarketingHero
+        backgroundImage="/hero-backgrounds/gcc-abm.webp"
         eyebrow="What we offer"
         title="GCC ABM"
         description="Account-based campaigns for the India GCC market, run end to end on the best data in the business."

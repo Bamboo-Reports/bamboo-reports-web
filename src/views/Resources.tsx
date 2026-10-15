@@ -35,6 +35,7 @@ const Resources = () => {
 
       <main>
         <MarketingHero
+        backgroundImage="/hero-backgrounds/reports.webp"
           eyebrow="Resources"
           title="Reports"
           description="Research and market reports from the team tracking India's GCC ecosystem centre by centre."

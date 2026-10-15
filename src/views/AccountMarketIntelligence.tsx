@@ -32,6 +32,7 @@ const AccountMarketIntelligence = () => {
       <Header />
 
       <MarketingHero
+        backgroundImage="/hero-backgrounds/account-market-intelligence.webp"
         eyebrow="What we offer"
         title="Account & Market Intelligence"
         description="Centre-level GCC intelligence you can filter by city, sector, function or company, with three years of history."

@@ -204,6 +204,7 @@ const About = () => {
       <Header />
 
       <PageHero
+        backgroundImage="/hero-backgrounds/about-v2.webp"
         title="About us"
         lede="The India GCC dataset that had to be built, not bought."
       />
