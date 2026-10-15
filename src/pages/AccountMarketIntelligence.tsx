@@ -1,7 +1,7 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/FadeIn";
-import { DemoCta, MarketingHero, SectionIntro } from "@/components/B2BMarketingPage";
+import { DemoCta, MarketingHero, SectionIntro } from "@/components/layout/B2BMarketingPage";
 import { useSEO } from "@/hooks/useSEO";
 
 const PRODUCTS = [

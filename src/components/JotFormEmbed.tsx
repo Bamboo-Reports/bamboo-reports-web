@@ -1,10 +1,10 @@
 import { useState, useCallback, useEffect, useId, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { ensureJotformEmbedHandler, getJotformEmbedSrc } from "@/lib/jotform";
-
-type JotformWindow = Window & {
-  jotformEmbedHandler?: (selector: string, source: string) => void;
-};
+import {
+  ensureJotformEmbedHandler,
+  getJotformEmbedSrc,
+  type JotformWindow,
+} from "@/lib/jotform";
 
 interface JotFormEmbedProps {
   formId: string;
@@ -14,7 +14,6 @@ interface JotFormEmbedProps {
   /** Size the embed to the height this form reports via setHeight messages,
    *  falling back to height/heightClassName until the first report arrives. */
   autoHeight?: boolean;
-  className?: string;
   autoReloadAfterSubmit?: boolean;
 }
 
@@ -29,7 +28,6 @@ const JotFormEmbed = ({
   height = "539px",
   heightClassName,
   autoHeight = false,
-  className = "",
   autoReloadAfterSubmit = false,
 }: JotFormEmbedProps) => {
   const { search } = useLocation();
@@ -184,7 +182,7 @@ const JotFormEmbed = ({
 
   return (
     <div
-      className={`relative overflow-hidden ${useClassHeight ? heightClassName : ""} ${className}`}
+      className={`relative overflow-hidden ${useClassHeight ? heightClassName : ""}`}
       style={useClassHeight ? undefined : { height: reportedHeight ?? height }}
     >
       {/* Loading skeleton */}

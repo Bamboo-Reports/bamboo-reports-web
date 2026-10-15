@@ -4,7 +4,7 @@ import JotFormEmbed from "@/components/JotFormEmbed";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 import StructuredData from "@/components/StructuredData";
-import q2ReportCover from "../../../q2-report-cover.png";
+import q2ReportCover from "@/assets/india-gcc-report-q2-2026-cover.png";
 
 const DOWNLOAD_FORM_ID = "262451603191451";
 

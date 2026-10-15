@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/FadeIn";
-import { DemoCta } from "@/components/B2BMarketingPage";
+import { DemoCta } from "@/components/layout/B2BMarketingPage";
 import { HERO_DESCRIPTION, HERO_SHOT, STAGES } from "@/components/platform/content";
 import { useSEO } from "@/hooks/useSEO";
 import { ArrowDown, ArrowRight } from "lucide-react";

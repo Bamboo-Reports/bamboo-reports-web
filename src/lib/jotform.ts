@@ -1,6 +1,10 @@
 const JOTFORM_SCRIPT_SRC =
   "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
 
+export type JotformWindow = Window & {
+  jotformEmbedHandler?: (selector: string, source: string) => void;
+};
+
 let jotformScriptPromise: Promise<void> | null = null;
 
 // Prefill fields forwarded from the page URL into the embedded Jotform,
@@ -52,7 +56,7 @@ export const ensureJotformEmbedHandler = () => {
 
   warmupJotform();
 
-  if ((window as any).jotformEmbedHandler) {
+  if ((window as JotformWindow).jotformEmbedHandler) {
     return Promise.resolve();
   }
 
@@ -75,7 +79,7 @@ export const ensureJotformEmbedHandler = () => {
 
     const handleReady = () => resolve();
 
-    if ((window as any).jotformEmbedHandler) {
+    if ((window as JotformWindow).jotformEmbedHandler) {
       handleReady();
       return;
     }

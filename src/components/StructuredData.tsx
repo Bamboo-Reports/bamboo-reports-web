@@ -10,15 +10,6 @@ interface FAQData {
   questions: FAQQuestion[];
 }
 
-interface BreadcrumbItem {
-  name: string;
-  url: string;
-}
-
-interface BreadcrumbData {
-  items: BreadcrumbItem[];
-}
-
 interface ProductRating {
   value: number;
   count: number;
@@ -32,27 +23,12 @@ interface ProductData {
   features?: string[];
 }
 
-interface EventData {
-  name: string;
-  description: string;
-  startDate: string;
-  endDate: string;
-  url: string;
-  locationName: string;
-  addressLocality: string;
-  addressCountry: string;
-  organizerName: string;
-  organizerUrl: string;
-}
-
 // Discriminated union type for data prop based on type
 type StructuredDataType =
   | { type: "organization"; data?: never }
   | { type: "website"; data?: never }
   | { type: "product"; data?: ProductData }
-  | { type: "event"; data: EventData }
-  | { type: "faq"; data?: FAQData }
-  | { type: "breadcrumb"; data?: BreadcrumbData };
+  | { type: "faq"; data?: FAQData };
 
 type StructuredDataProps = StructuredDataType;
 
@@ -146,33 +122,6 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           ]
         };
 
-      case "event":
-        return {
-          "@context": "https://schema.org",
-          "@type": "Event",
-          "name": data.name,
-          "description": data.description,
-          "startDate": data.startDate,
-          "endDate": data.endDate,
-          "eventStatus": "https://schema.org/EventScheduled",
-          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-          "url": data.url,
-          "location": {
-            "@type": "Place",
-            "name": data.locationName,
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": data.addressLocality,
-              "addressCountry": data.addressCountry
-            }
-          },
-          "organizer": {
-            "@type": "Organization",
-            "name": data.organizerName,
-            "url": data.organizerUrl
-          }
-        };
-
       case "faq":
         return {
           "@context": "https://schema.org",
@@ -184,18 +133,6 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
               "@type": "Answer",
               "text": q.answer
             }
-          })) || []
-        };
-
-      case "breadcrumb":
-        return {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": data?.items?.map((item, index: number) => ({
-            "@type": "ListItem",
-            "position": index + 1,
-            "name": item.name,
-            "item": item.url
           })) || []
         };
 

@@ -1,0 +1,135 @@
+import { useEffect, useRef, useState } from "react";
+
+// Dataset figures as of the Aug 2026 export. Update by hand on refresh.
+const STATS: Array<{ label: string; value: number; displayValue?: string }> = [
+  { label: "Companies", value: 2437 },
+  { label: "Centres", value: 5962, displayValue: "6.0K+" },
+  { label: "Headcount", value: 3949355 },
+];
+
+const COUNT_DURATION_MS = 1400;
+
+// 2433 -> "2.4K+", 5901 -> "5.9K+", 3949355 -> "3.9M+". Always floors so
+// the claim never overstates the dataset figures.
+const formatCompact = (n: number) => {
+  if (n < 1000) return n.toLocaleString("en-US");
+  const scaled = n < 1_000_000 ? n / 1000 : n / 1_000_000;
+  const suffix = n < 1_000_000 ? "K+" : "M+";
+  const shown = scaled < 10 ? Math.floor(scaled * 10) / 10 : Math.floor(scaled);
+  return `${shown}${suffix}`;
+};
+
+// Counts from 0 to target once `active` flips true. Skips straight to the
+// final value when the visitor prefers reduced motion.
+const useCountUp = (target: number, active: boolean) => {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!active) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setValue(target);
+      return;
+    }
+    let frame: number;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / COUNT_DURATION_MS, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setValue(Math.round(target * eased));
+      if (t < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [active, target]);
+
+  return value;
+};
+
+const StatCell = ({
+  label,
+  value,
+  displayValue,
+  active,
+}: {
+  label: string;
+  value: number;
+  displayValue?: string;
+  active: boolean;
+}) => {
+  const shown = useCountUp(value, active);
+  const formatted = shown === value && displayValue ? displayValue : formatCompact(shown);
+  const hasPlus = formatted.endsWith("+");
+  const digits = hasPlus ? formatted.slice(0, -1) : formatted;
+  return (
+    <div className="flex flex-col border-l px-2 text-center first:border-l-0 sm:px-6">
+      <dt className="order-2 mt-2.5 text-xs font-medium text-muted-foreground sm:text-sm">
+        {label}
+      </dt>
+      <dd className="order-1 text-3xl font-bold tracking-tight tabular-nums text-navy sm:text-4xl md:text-5xl md:leading-none">
+        <span className="relative">
+          {digits}
+          {hasPlus && (
+            <span
+              className="text-accent sm:absolute sm:left-full"
+              aria-hidden
+            >
+              +
+            </span>
+          )}
+          {hasPlus && <span className="sr-only">+</span>}
+        </span>
+      </dd>
+    </div>
+  );
+};
+
+// The dataset readout, set on the page background as a ruled ledger row.
+const GccStatsBand = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node || !("IntersectionObserver" in window)) {
+      setActive(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="border-t px-5 py-10 sm:px-4 md:py-16">
+      <div className="mx-auto max-w-7xl">
+        <div className="border-b pb-4">
+          <h2 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-navy">
+            India GCC coverage
+          </h2>
+        </div>
+
+        <dl className="grid grid-cols-3 pt-6 sm:pt-10">
+          {STATS.map((stat) => (
+            <StatCell
+              key={stat.label}
+              label={stat.label}
+              value={stat.value}
+              displayValue={stat.displayValue}
+              active={active}
+            />
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+};
+
+export default GccStatsBand;
