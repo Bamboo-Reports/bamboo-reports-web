@@ -56,12 +56,12 @@ const QUESTIONS: QuestionItem[] = [
   {
     question: "What is GCC Prospect Data?",
     answer:
-      "GCC Prospect Data is a database of verified decision-makers at Global Capability Centres (GCCs) in India. It covers 6,100+ individual centres.",
+      "GCC Prospect Data is a database of verified decision-makers at Global Capability Centres (GCCs) in India.",
   },
   {
     question: "What does the data include?",
     answer:
-      "Named C-suite leaders, VPs, directors and function heads, across engineering, product, data, finance, HR, legal, operations, IT and more. Every centre is geocoded and carries 5–12 service classifications, plus sector and tech-stack tags.",
+      "Named C-suite leaders, VPs, directors and function heads, across engineering, product, data, finance, HR, legal, operations, IT and more.",
   },
   {
     question: "How is the data collected and kept up to date?",
