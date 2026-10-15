@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import CompanyProfile from "@/views/gcc-companies/CompanyProfile";
+import { UNLISTED_ROBOTS, gccDirectoryLive } from "@/config/flags";
 import { buildMetadata } from "@/lib/seo";
 import { companies, getCompany } from "@/lib/gccCompanies";
 
@@ -21,6 +22,7 @@ export const generateMetadata = async ({ params }: Props) => {
       description: `${c.name} has ${c.centreCount} India centre${c.centreCount === 1 ? "" : "s"} in ${where}${
         c.india.since ? `, in India since ${c.india.since}` : ""
       }. Centre types, functions and India headcount from Bamboo Reports.`,
+      robots: gccDirectoryLive ? undefined : UNLISTED_ROBOTS,
     },
     `/gcc-companies/${c.slug}`,
   );

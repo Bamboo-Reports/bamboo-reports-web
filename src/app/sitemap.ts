@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL, indexablePaths } from "@/lib/seo";
+import { gccDirectoryLive } from "@/config/flags";
 import { companies } from "@/lib/gccCompanies";
 
 // Required for `output: "export"`: emits a static out/sitemap.xml.
@@ -9,7 +10,9 @@ export const dynamic = "force-static";
 // pages never are. Google ignores changefreq/priority, so they are omitted.
 const sitemap = (): MetadataRoute.Sitemap => [
   ...indexablePaths().map((path) => ({ url: `${SITE_URL}${path}` })),
-  ...companies.map((c) => ({ url: `${SITE_URL}/gcc-companies/${c.slug}`, lastModified: c.updated })),
+  ...(gccDirectoryLive
+    ? companies.map((c) => ({ url: `${SITE_URL}/gcc-companies/${c.slug}`, lastModified: c.updated }))
+    : []),
 ];
 
 export default sitemap;
