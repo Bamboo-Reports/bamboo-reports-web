@@ -13,5 +13,5 @@ const widths = {
 
 /** Page-width wrapper shared with researchnxt.com. */
 export function Container({ width = "default", className, ...props }: ContainerProps) {
-  return <div className={cn("mx-auto w-full px-gutter lg:px-10", widths[width], className)} {...props} />;
+  return <div className={cn("mx-auto w-full px-gutter lg:px-8", widths[width], className)} {...props} />;
 }

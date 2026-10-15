@@ -36,23 +36,29 @@ const logos = [
   { src: zycusLogo.src, alt: "Zycus" },
 ];
 
-type Props = { eyebrow?: string };
+type Props = {
+  eyebrow?: string;
+  /** The band the strip sits on. The logo files carry white backgrounds and
+   *  blend (multiply) into the track, which is animated and therefore its own
+   *  layer, so the track takes the band's colour for the blend to read it. */
+  surface?: "default" | "subtle";
+};
 
-const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem" }: Props) => (
+const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem", surface = "default" }: Props) => (
   <div className="trust-logos">
     {eyebrow ? (
-      <div className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8">
+      <div className="mb-8 text-center text-sm font-semibold text-ink-muted">
         {eyebrow}
       </div>
     ) : null}
     <div className="trust-logos-track-wrap">
-      <div className="trust-logos-track">
+      <div className={`trust-logos-track ${surface === "subtle" ? "bg-surface-subtle" : "bg-background"}`}>
         {logos.map((logo) => (
           <div key={logo.alt} className="trust-logos-item">
             <img
               src={logo.src}
               alt={logo.alt}
-              className="h-[4.5rem] object-contain"
+              className="h-[4.5rem] object-contain mix-blend-multiply"
               decoding="async"
             />
           </div>
@@ -63,7 +69,7 @@ const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem" 
               <img
                 src={logo.src}
                 alt=""
-                className="h-[4.5rem] object-contain"
+                className="h-[4.5rem] object-contain mix-blend-multiply"
                 loading="lazy"
                 decoding="async"
               />

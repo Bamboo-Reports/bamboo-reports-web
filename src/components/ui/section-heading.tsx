@@ -20,7 +20,7 @@ const titleSizes = {
 } as const;
 
 const ledeClass = (align: "left" | "center") =>
-  cn("max-w-[64ch] text-lg leading-relaxed text-ink-soft", align === "center" && "mx-auto");
+  cn("text-lg leading-relaxed text-ink-soft", align === "center" && "mx-auto max-w-[64ch]");
 
 /**
  * Section opener shared with researchnxt.com. The eyebrow is the family's

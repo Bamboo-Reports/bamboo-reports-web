@@ -1,11 +1,12 @@
-import { Filter, Lightbulb, LucideIcon, Target, TrendingUp } from "lucide-react";
+import { RiFilter3Line, RiFocus3Line, RiLightbulbLine, RiLineChartLine } from "@remixicon/react";
+import type { RemixiconComponentType } from "@remixicon/react";
 
 export type FeatureItem = {
   id: string;
   title: string;
   summary: string;
   description: string;
-  icon: LucideIcon;
+  icon: RemixiconComponentType;
   href: string;
   highlights: string[];
   outcomes: string[];
@@ -15,10 +16,10 @@ export type FeatureItem = {
 export const featureItems: FeatureItem[] = [
   {
     id: "coverage",
-    title: "90% more centre-level coverage",
-    summary: "Get the deepest view of GCCs in India with verified, site-level intelligence.",
+    title: "90% more\ncentre-level coverage",
+    summary: "Get the deepest view of GCCs in India\nwith verified, site-level intelligence.",
     description: "Bamboo Reports tracks India's GCC ecosystem at the centre level, not just the company level. This gives you a clearer picture of where teams operate, how they are structured, and where real opportunities exist.",
-    icon: TrendingUp,
+    icon: RiLineChartLine,
     href: "/features/coverage",
     highlights: [
       "Site-level visibility across Tier 1 and Tier 2 hubs with clear context on location, size, and each city's role in the footprint.",
@@ -39,10 +40,10 @@ export const featureItems: FeatureItem[] = [
   },
   {
     id: "what-if-scenarios",
-    title: "What-if scenarios",
+    title: "What-if\nscenarios",
     summary: "Model critical GCC decisions before you commit resources.",
     description: "Run structured scenario comparisons using verified centre-level data so strategic decisions are grounded in reality, not spreadsheet assumptions or anecdotes.",
-    icon: Lightbulb,
+    icon: RiLightbulbLine,
     href: "/features/what-if-scenarios",
     highlights: [
       "Compare city choices using real GCC precedents across Bengaluru, Hyderabad, Pune, NCR, Chennai, and Tier 2 hubs, including scale, functions, and how they evolved.",
@@ -64,10 +65,10 @@ export const featureItems: FeatureItem[] = [
   },
   {
     id: "proprietary-tam-slicers",
-    title: "Proprietary TAM slicers",
+    title: "Proprietary TAM\nslicers",
     summary: "Build your TAM the way India GCCs actually operate.",
     description: "Move from inflated top-down TAMs to precise, actionable account universes built on verified GCC presence, maturity, scale, and capability signals.",
-    icon: Filter,
+    icon: RiFilter3Line,
     href: "/features/proprietary-tam-slicers",
     highlights: [
       "Slice TAM by real GCC maturity, not revenue bands: filter by centre age, scale bands, operating model, and evolution stage to focus on accounts that can actually buy.",
@@ -89,10 +90,10 @@ export const featureItems: FeatureItem[] = [
   },
   {
     id: "tailor-made-market-insights",
-    title: "Tailor-made market insights",
+    title: "Tailor-made market\ninsights",
     summary: "Analyst-led answers, not another template dashboard.",
     description: "Custom market insights designed around specific business questions using verified GCC data, analyst interpretation, and contextual narratives teams can act on immediately.",
-    icon: Target,
+    icon: RiFocus3Line,
     href: "/features/tailor-made-market-insights",
     highlights: [
       "Custom market cuts aligned to your GTM focus with sector, city, or capability-specific views built around your target customer profile rather than generic reports.",

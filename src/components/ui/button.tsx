@@ -1,10 +1,10 @@
 "use client";
 
+import { RiArrowRightLine } from "@remixicon/react";
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -55,7 +55,7 @@ Button.displayName = "Button";
  * distance and easing match everywhere. Needs a `group` ancestor.
  */
 const TrailingArrow = ({ className }: { className?: string }) => (
-  <ArrowRight
+  <RiArrowRightLine
     aria-hidden
     className={cn(
       "size-4 shrink-0 transition-[transform,color] duration-200 ease-out-quart group-hover:translate-x-1",

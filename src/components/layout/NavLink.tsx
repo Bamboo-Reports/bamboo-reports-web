@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { RiArrowRightUpLine } from "@remixicon/react";
 import Link from "next/link";
 import type { NavItem } from "@/config/nav";
 import { cn } from "@/lib/utils";
@@ -22,7 +22,7 @@ const NavLink = ({
   const content = (
     <>
       {children ?? item.label}
-      {item.external && withIcon ? <ArrowUpRight className="size-4 shrink-0" aria-hidden /> : null}
+      {item.external && withIcon ? <RiArrowRightUpLine className="size-4 shrink-0" aria-hidden /> : null}
     </>
   );
 

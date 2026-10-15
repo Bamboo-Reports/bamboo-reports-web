@@ -1,5 +1,8 @@
+import { RiCheckLine } from "@remixicon/react";
 import realtimeIllustration from "@/assets/realtime-data-illustration.svg";
-import { Check } from "lucide-react";
+import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 const benefits = [
   {
@@ -21,8 +24,8 @@ const benefits = [
 ];
 
 const RealTimeData = () => (
-  <section className="bg-background px-5 py-12 sm:px-4 md:py-20">
-    <div className="mx-auto grid max-w-7xl items-center gap-8 sm:gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
+  <Section>
+    <Container className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
       <div className="order-last flex justify-center lg:order-first">
         <img
           src={realtimeIllustration.src}
@@ -34,28 +37,22 @@ const RealTimeData = () => (
         />
       </div>
 
-      <div>
-        <h2 className="max-w-xl text-3xl font-bold leading-tight md:text-4xl">
-          Real-time data on GCCs can help you
-        </h2>
-
-        <div className="mt-6 border-t sm:mt-8">
-          {benefits.map((benefit) => (
-            <div
-              key={benefit.title}
-              className="grid grid-cols-[1.5rem_1fr] gap-3 border-b py-4 sm:gap-4 sm:py-5"
-            >
-              <Check className="mt-1 h-5 w-5 text-primary" aria-hidden />
+      <div className="flex flex-col gap-10">
+        <SectionHeading title="Real-time data on GCCs can help you" />
+        <ul className="border-b border-line">
+          {benefits.map((item) => (
+            <li key={item.title} className="flex gap-4 border-t border-line py-5">
+              <RiCheckLine className="mt-1 size-5 shrink-0 text-primary" aria-hidden />
               <div>
-                <h3 className="text-lg font-bold">{benefit.title}</h3>
-                <p className="mt-2 text-muted-foreground">{benefit.description}</p>
+                <h3 className="text-lg font-semibold text-ink">{item.title}</h3>
+                <p className="mt-1.5 leading-relaxed text-ink-soft">{item.description}</p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-    </div>
-  </section>
+    </Container>
+  </Section>
 );
 
 export default RealTimeData;

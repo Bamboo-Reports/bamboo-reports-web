@@ -1,4 +1,4 @@
-import { Download } from "lucide-react";
+import { RiDownloadLine } from "@remixicon/react";
 import logo from "@/assets/bamboo-logo.svg";
 import JotFormEmbed from "@/components/JotFormEmbed";
 import { Button } from "@/components/ui/button";
@@ -299,7 +299,7 @@ const IndiaGccReportQ22026 = () => {
         <Button asChild size="lg" className="w-full font-semibold">
           <a href="#download-report">
             Download report
-            <Download className="ml-2 h-4 w-4" aria-hidden />
+            <RiDownloadLine className="ml-2 h-4 w-4" aria-hidden />
           </a>
         </Button>
       </div>

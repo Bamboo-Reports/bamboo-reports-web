@@ -1,5 +1,6 @@
 "use client";
 
+import { RiArrowDownSLine, RiCloseLine, RiMenuLine } from "@remixicon/react";
 import logo from "@/assets/bamboo-logo.svg";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import NavLink from "@/components/layout/NavLink";
@@ -8,7 +9,6 @@ import { Container } from "@/components/ui/container";
 import { isNavGroup, primaryNav } from "@/config/nav";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
 import { cn } from "@/lib/utils";
-import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -193,7 +193,7 @@ const Header = () => {
                       >
                         {entry.label}
                         <ActiveMark active={groupActive} />
-                        <ChevronDown
+                        <RiArrowDownSLine
                           aria-hidden
                           className={cn("size-4 transition-transform duration-150", open && "rotate-180")}
                         />
@@ -237,7 +237,7 @@ const Header = () => {
                 className="relative inline-flex size-9 items-center justify-center rounded-md text-ink before:absolute before:-inset-1 before:content-[''] xl:hidden"
               >
                 <span className="sr-only">{mobileOpen ? "Close menu" : "Open menu"}</span>
-                {mobileOpen ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
+                {mobileOpen ? <RiCloseLine className="size-5" aria-hidden /> : <RiMenuLine className="size-5" aria-hidden />}
               </button>
             </div>
           </div>

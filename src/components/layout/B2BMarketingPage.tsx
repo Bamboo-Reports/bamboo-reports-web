@@ -1,5 +1,5 @@
+import { RiArrowRightLine } from "@remixicon/react";
 import type { ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
 import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import PageHero from "@/components/layout/PageHero";
 import { Button } from "@/components/ui/button";
@@ -69,7 +69,7 @@ export const DemoCta = ({
         >
           <CalSchedulingButton>
             Get a demo
-            <ArrowRight className="h-4 w-4" aria-hidden />
+            <RiArrowRightLine className="h-4 w-4" aria-hidden />
           </CalSchedulingButton>
         </Button>
       </div>

@@ -1,4 +1,3 @@
-import FadeIn from "@/components/FadeIn";
 import DemoLinkHandler from "@/components/home/DemoLinkHandler";
 import Features from "@/components/home/Features";
 import Footer from "@/components/layout/Footer";
@@ -23,30 +22,14 @@ const Home = () => {
       <Header />
       <main>
         <Hero />
-        <FadeIn>
-          <GccStatsBand />
-        </FadeIn>
-        <FadeIn>
-          <LatestReportSection />
-        </FadeIn>
-        <FadeIn>
-          <Features />
-        </FadeIn>
-        <FadeIn>
-          <IntelligenceSpans />
-        </FadeIn>
-        <FadeIn>
-          <WhoBenefits />
-        </FadeIn>
-        <FadeIn>
-          <RealTimeData />
-        </FadeIn>
-        <FadeIn>
-          <ResearchNXT />
-        </FadeIn>
-        <FadeIn>
-          <WhatIsGccIntelligence />
-        </FadeIn>
+        <GccStatsBand />
+        <LatestReportSection />
+        <Features />
+        <IntelligenceSpans />
+        <WhoBenefits />
+        <RealTimeData />
+        <ResearchNXT />
+        <WhatIsGccIntelligence />
       </main>
       <Footer />
     </div>

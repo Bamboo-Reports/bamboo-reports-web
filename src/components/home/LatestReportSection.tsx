@@ -1,49 +1,31 @@
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button, TrailingArrow } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 const LatestReportSection = () => (
-  <section className="relative overflow-hidden border-y bg-background px-5 py-10 sm:px-4 md:py-16">
-    <div className="absolute inset-x-0 top-0 flex h-1" aria-hidden>
-      <div className="w-2/3 bg-primary" />
-      <div className="w-1/3 bg-accent" />
-    </div>
-    <div className="absolute inset-x-0 bottom-0 flex h-1" aria-hidden>
-      <div className="w-2/3 bg-primary" />
-      <div className="w-1/3 bg-accent" />
-    </div>
+  <Section spacing="tight" bordered>
+    <Container className="flex flex-wrap items-end justify-between gap-x-14 gap-y-8">
+      <SectionHeading
+        eyebrow="Q2 2026"
+        title={
+          <>
+            The GCC market moved. <span className="text-primary">See where.</span>
+          </>
+        }
+        lede="Get the new centres, expansions, hiring shifts and emerging locations shaping India's GCC market in one free quarterly report."
+        className="max-w-3xl flex-1"
+      />
 
-    <div className="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-14 gap-y-6 sm:gap-y-8">
-      <div>
-        <p className="text-sm font-semibold tabular-nums text-muted-foreground">
-          Q2 2026
-        </p>
-
-        <h2 className="mt-4 max-w-2xl text-balance text-2xl font-bold leading-tight tracking-tight text-foreground md:text-3xl">
-          The GCC market moved. <span className="text-primary">See where.</span>
-        </h2>
-
-        <p className="mt-3 max-w-xl leading-relaxed text-muted-foreground">
-          Get the new centres, expansions, hiring shifts and emerging locations
-          shaping India&apos;s GCC market in one free quarterly report.
-        </p>
-      </div>
-
-      <Button
-        asChild
-        size="lg"
-        className="group h-12 w-full rounded-full px-8 text-base font-semibold sm:w-auto"
-      >
+      <Button asChild size="lg" className="group w-full sm:w-auto">
         <Link href="/reports/india-gcc-report-q2-2026?src=home-q2report">
           Download the report
-          <ArrowRight
-            className="ml-2.5 h-4 w-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
-            aria-hidden
-          />
+          <TrailingArrow />
         </Link>
       </Button>
-    </div>
-  </section>
+    </Container>
+  </Section>
 );
 
 export default LatestReportSection;

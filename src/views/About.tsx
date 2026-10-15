@@ -1,14 +1,36 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  RiBookmark3Line,
+  RiBriefcase4Line,
+  RiBuilding2Line,
+  RiContactsBook2Line,
+  RiDashboard3Line,
+  RiDatabase2Line,
+  RiFileChart2Line,
+  RiFileList3Line,
+  RiFileTextLine,
+  RiFilter3Line,
+  RiMap2Line,
+  RiRefreshLine,
+  RiShieldCheckLine,
+  RiTableLine,
+  RiTeamLine,
+  type RemixiconComponentType,
+} from "@remixicon/react";
+import { useEffect, useRef, useState } from "react";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
-import FadeIn from "@/components/FadeIn";
 import { DemoCta } from "@/components/layout/B2BMarketingPage";
-import { HERO_DESCRIPTION, HERO_SHOT, STAGES } from "@/components/platform/content";
-import { ArrowRight } from "lucide-react";
+import { Lines, OfferMatrix, ProblemSpread, type MatrixItem } from "@/components/marketing/OfferBlocks";
+import OfferIndex from "@/components/marketing/OfferIndex";
+import { TrailingArrow } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { HERO_DESCRIPTION, STAGES } from "@/components/platform/content";
 import Link from "next/link";
 
 /* ------------------------------------------------------------------ */
@@ -32,25 +54,28 @@ const TIMELINE = [
   },
 ];
 
-const ALTERNATIVES = [
+const ALTERNATIVES: MatrixItem[] = [
   {
+    icon: RiFileTextLine,
     title: "Published reports",
-    copy: "Counts at parent company level, published annually, and 6 to 12 months out of date on release. No function breakdown.",
+    desc: "Counts at parent company level, published annually, and 6 to 12 months out of date on release. No function breakdown.",
   },
   {
+    icon: RiContactsBook2Line,
     title: "Contact databases",
-    copy: "Names against a company, with no way to tell which centre a person sits in or what that centre is responsible for.",
+    desc: "Names against a company, with no way to tell which centre a person sits in or what that centre is responsible for.",
   },
   {
+    icon: RiTeamLine,
     title: "Internal knowledge",
-    copy: "Sharp on accounts a team has touched, blank everywhere else, and it decays as centres restructure.",
+    desc: "Sharp on accounts a team has touched, blank everywhere else, and it decays as centres restructure.",
   },
 ];
 
 const AUDIENCES = [
   {
     title: "Selling to GCCs",
-    who: "Advisory firms, technology vendors, real estate, private equity",
+    who: "Advisory firms, technology vendors,\nreal estate, private equity",
     points: [
       { lead: "Origination", copy: "centres in build surface before the mandate goes to open pitch." },
       { lead: "Proposal strength", copy: "benchmarking anchored on current, centre-level data." },
@@ -59,7 +84,7 @@ const AUDIENCES = [
   },
   {
     title: "Running a GCC",
-    who: "Centre heads, chief operating officers, strategy and expansion teams",
+    who: "Centre heads, chief operating officers,\nstrategy and expansion teams",
     points: [
       { lead: "Peer benchmarking", copy: "how peer centres in the same sector, size and city are structured." },
       { lead: "Expansion planning", copy: "cities and functions for new capability centres, backed by real data." },
@@ -68,30 +93,43 @@ const AUDIENCES = [
   },
 ];
 
-const ACCESS_TIERS = [
-  { title: "Platform access", copy: "Dashboards, mapping and saved views" },
-  { title: "Reports and data cuts", copy: "Standard, exclusive and on-demand slices" },
-  { title: "Enterprise engagements", copy: "ICP scoping, ABM activation, analyst support" },
+const ACCESS_TIERS: MatrixItem[] = [
+  { icon: RiDashboard3Line, title: "Platform access", desc: "Dashboards, mapping\nand saved views" },
+  { icon: RiFileChart2Line, title: "Reports and data cuts", desc: "Standard, exclusive and\non-demand slices" },
+  { icon: RiBriefcase4Line, title: "Enterprise engagements", desc: "ICP scoping, ABM activation,\nanalyst support" },
 ];
 
-const SOURCING = [
+const SOURCING: MatrixItem[] = [
   {
+    icon: RiDatabase2Line,
     title: "Where it comes from",
-    copy: "A mix of primary and secondary research: public information validated by analysts, with primary layers from surveys and leadership interviews.",
+    desc: "A mix of primary and secondary research: public information validated by analysts, with primary layers from surveys and leadership interviews.",
   },
   {
+    icon: RiRefreshLine,
     title: "How current it stays",
-    copy: "Every field carries a defined weekly, monthly or quarterly refresh cycle. Contact records hold 95%+ accuracy on business email and title.",
+    desc: "Every field carries a defined weekly, monthly or quarterly refresh cycle. Contact records hold 95%+ accuracy on business email and title.",
   },
   {
+    icon: RiShieldCheckLine,
     title: "How consent is handled",
-    copy: "For intelligence and data, consent ownership sits with the client under prevailing privacy laws. For ABM, explicit consent is captured before any lead is passed on.",
+    desc: "For intelligence and data, consent ownership sits with the client under prevailing privacy laws. For ABM, explicit consent is captured before any lead is passed on.",
   },
   {
+    icon: RiFileList3Line,
     title: "What procurement needs",
-    copy: "Non-disclosure and data processing agreements supported, with corporate credentials available for internal approval processes.",
+    desc: "Non-disclosure and data processing agreements supported,\nwith corporate credentials available for internal\napproval processes.",
   },
 ];
+
+// One icon per platform stage, keyed by the stage id in platform/content.ts.
+const STAGE_ICONS: Record<string, RemixiconComponentType> = {
+  filters: RiFilter3Line,
+  map: RiMap2Line,
+  "data-view": RiTableLine,
+  "extended-data-view": RiBuilding2Line,
+  "saved-filters": RiBookmark3Line,
+};
 
 // All optimised stills from past roundtables, shown as a scrolling strip
 // in a fresh order on every visit.
@@ -112,36 +150,6 @@ const ROUNDTABLE_PHOTOS = Array.from(
 /* ------------------------------------------------------------------ */
 /* Local building blocks                                               */
 /* ------------------------------------------------------------------ */
-
-/**
- * The page's one section grammar: a label seated on a hairline rule,
- * the way a research report divides its chapters. Replaces the
- * floating-eyebrow-per-section pattern.
- */
-const SectionRule = ({
-  label,
-  title,
-  children,
-}: {
-  label: string;
-  title: ReactNode;
-  children?: ReactNode;
-}) => (
-  <header>
-    <div className="flex items-center gap-4">
-      <p className="flex-shrink-0 text-sm font-semibold leading-none text-accent">{label}</p>
-      <span className="h-px flex-1 bg-border" aria-hidden />
-    </div>
-    <h2 className="mt-5 max-w-3xl text-balance text-3xl font-bold leading-tight tracking-tight md:text-4xl">
-      {title}
-    </h2>
-    {children && (
-      <div className="mt-4 max-w-2xl leading-relaxed text-muted-foreground md:text-lg">
-        {children}
-      </div>
-    )}
-  </header>
-);
 
 /**
  * Counts from 0 to target when the element scrolls into view. Jumps
@@ -210,225 +218,144 @@ const About = () => {
       />
 
       {/* ---------- The numbers ---------- */}
-      <section className="border-y px-5 py-14 sm:px-4 md:py-20">
-        <div className="mx-auto max-w-7xl">
+      <Section spacing="tight" bordered>
+        <Container className="flex flex-col gap-3">
           <p
             ref={centres.ref as React.RefObject<HTMLParagraphElement>}
-            className="text-6xl font-bold tabular-nums tracking-tight text-primary sm:text-7xl md:text-8xl"
+            className="font-display tabular-nums text-[clamp(4rem,2.5rem+6vw,7.5rem)] leading-none tracking-[-0.03em] text-primary"
           >
             {formatCentres(centres.value)}
             <span className="text-accent">+</span>
           </p>
-          <p className="mt-4 max-w-2xl text-xl font-semibold leading-snug md:text-2xl">
-            individual centres, each profiled separately
+          <p className="mt-2 text-title font-display-soft text-ink">individual centres, each profiled separately</p>
+          <p className="text-lg leading-relaxed text-ink-soft">
+            Against 2,400+ parent accounts. That gap is the whole point: most companies run more than one.
           </p>
-          <p className="mt-2 leading-relaxed text-muted-foreground">
-            Against 2,400+ parent accounts. That gap is the whole point: most companies run more
-            than one.
-          </p>
-
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ---------- Why it exists ---------- */}
-      <FadeIn>
-        <section id="origin" className="scroll-mt-24 px-5 py-14 sm:px-4 md:py-20">
-          <div className="mx-auto max-w-7xl">
-            <SectionRule label="Why it exists" title="How the dataset started" />
+      <Section id="origin" surface="subtle" bordered className="scroll-mt-24">
+        <Container className="flex flex-col gap-12">
+          <ProblemSpread
+            eyebrow="Why it exists"
+            title="How the dataset started"
+            body="Research NXT built the first structured GCC list for the NASSCOM GCC Forum in 2018. The requests that followed kept arriving in the same shape: not how many centres a company has, but what a specific centre in a specific city does, and who to speak to there."
+            statement="No published source held that. So the answer had to be built rather than bought, starting in 2022. It took 260+ man-months before the first client saw it."
+          />
 
-            <div className="mt-10 space-y-5 leading-relaxed text-muted-foreground md:text-lg">
-              <p>
-                Research NXT built the first structured GCC list for the NASSCOM GCC Forum in
-                2018. The requests that followed kept arriving in the same shape: not how many
-                centres a company has, but what a specific centre in a specific city does, and
-                who to speak to there.
-              </p>
-              <p>
-                No published source held that. So the answer had to be built rather than bought,
-                starting in 2022. It took 260+ man-months before the first client saw it.
-              </p>
-            </div>
-
-            {/* The same story as three ruled milestones. */}
-            <ol className="mt-12 grid gap-x-12 gap-y-8 md:mt-16 md:grid-cols-3">
-              {TIMELINE.map((moment) => (
-                <li key={moment.year} className="border-t-2 border-accent pt-4">
-                  <p className="text-2xl font-bold tabular-nums tracking-tight md:text-3xl">
-                    {moment.year}
-                  </p>
-                  <p className="mt-2 max-w-[38ch] leading-relaxed text-muted-foreground">
-                    {moment.copy}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-      </FadeIn>
+          {/* The same story as three milestones: a real sequence. */}
+          <ol className="grid gap-x-10 gap-y-10 md:grid-cols-3">
+            {TIMELINE.map((moment) => (
+              <li key={moment.year} className="flex flex-col gap-3 border-t border-line-strong pt-6">
+                <span aria-hidden="true" className="block h-1 w-6 rounded-[1px] bg-accent" />
+                <p className="font-display tabular-nums text-figure-sm text-ink">{moment.year}</p>
+                <p className="leading-relaxed text-ink-soft">{moment.copy}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </Section>
 
       {/* ---------- What the alternatives miss ---------- */}
-      <FadeIn>
-        <section className="border-y bg-secondary/30 px-5 py-14 sm:px-4 md:py-20">
-          <div className="mx-auto max-w-7xl">
-            <SectionRule label="What the alternatives miss" title="Why it had to be built" />
+      <Section>
+        <Container className="flex flex-col gap-12">
+          <SectionHeading eyebrow="What the alternatives miss" title="Why it had to be built" />
 
-            {/* A comparison reads best as a table, not a card grid. */}
-            <div className="mt-10 border-t">
-              {ALTERNATIVES.map((item) => (
-                <div
-                  key={item.title}
-                  className="grid gap-2 border-b py-6 md:grid-cols-[16rem_minmax(0,1fr)] md:gap-10 md:py-7"
-                >
-                  <h3 className="text-lg font-bold leading-snug">{item.title}</h3>
-                  <p className="max-w-3xl leading-relaxed text-muted-foreground">{item.copy}</p>
-                </div>
-              ))}
-            </div>
+          <OfferMatrix items={ALTERNATIVES} />
 
-            <p className="mt-10 text-pretty text-xl font-semibold leading-snug md:text-2xl">
-              Building from the ground up is also why the dataset holds{" "}
-              <span className="text-primary">40% more accounts</span> and{" "}
-              <span className="text-primary">3x more centres</span> than published industry figures.
-            </p>
-          </div>
-        </section>
-      </FadeIn>
+          <p className="text-xl font-semibold leading-snug text-ink">
+            Building from the ground up is also why the dataset holds{" "}
+            <span className="text-primary">40% more accounts</span> and{" "}
+            <span className="text-primary">3x more centres</span> than published industry figures.
+          </p>
+        </Container>
+      </Section>
 
       {/* ---------- Inside the platform ---------- */}
-      <FadeIn>
-        <section className="px-5 py-14 sm:px-4 md:py-20">
-          <div className="mx-auto max-w-7xl">
-            <SectionRule label="Inside the platform" title="What the platform does">
-              <p>{HERO_DESCRIPTION}</p>
-            </SectionRule>
+      <Section surface="subtle" bordered>
+        <Container className="flex flex-col gap-12">
+          <SectionHeading eyebrow="Inside the platform" title="What the platform does" lede={HERO_DESCRIPTION} />
 
-            <div className="mt-10">
-              <img
-                src={HERO_SHOT.src}
-                srcSet={HERO_SHOT.srcSet}
-                sizes={HERO_SHOT.sizes}
-                alt={HERO_SHOT.alt}
-                width={HERO_SHOT.width}
-                height={HERO_SHOT.height}
-                loading="lazy"
-                className="h-auto w-full rounded-md border bg-background shadow-sm"
-              />
-            </div>
-
-            {/* The five stages, in the order the work is done. Copy is
-                shared with /platform via components/platform/content.ts.
-                The numbering is real: it is the working sequence. */}
-            <ol className="mt-10 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
-              {STAGES.map((stage, index) => (
-                <li key={stage.id} className="border-t py-6">
-                  <p className="text-sm font-semibold tabular-nums text-accent">
-                    {index + 1} · {stage.verb}
-                  </p>
-                  <h3 className="mt-2 text-lg font-bold leading-snug">{stage.headline}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {stage.desc}
-                  </p>
-                </li>
-              ))}
-              {/* The natural sixth step: go see it. Styled as one more
-                  row of the sequence so the grid closes cleanly. */}
-              <li className="border-t py-6">
-                <p className="text-sm font-semibold tabular-nums text-accent">6 · Explore</p>
-                <h3 className="mt-2 text-lg font-bold leading-snug">See it for yourself.</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  The full product tour, one screen at a time.
-                </p>
-                <Link
-                  href="/platform"
-                  className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary transition-colors duration-micro ease-smooth hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                >
-                  Walk through the platform
-                  <ArrowRight className="h-4 w-4" aria-hidden />
-                </Link>
-              </li>
-            </ol>
+          {/* The five stages in the order the work is done (copy shared with
+              /platform), read one at a time like the product suite. The step
+              number stays: it is the working sequence. */}
+          <OfferIndex
+            label="Inside the platform"
+            items={STAGES.map((stage, index) => {
+              const Icon = STAGE_ICONS[stage.id] ?? RiDashboard3Line;
+              return {
+                title: stage.headline,
+                badge: `${index + 1} · ${stage.verb}`,
+                body: stage.desc,
+                icon: <Icon className="size-6" aria-hidden />,
+              };
+            })}
+          />
+          <div>
+            <Link
+              href="/platform"
+              className="group inline-flex min-h-11 items-center gap-2 font-semibold text-primary transition-colors duration-200 hover:text-primary-hover"
+            >
+              Walk through the platform
+              <TrailingArrow />
+            </Link>
           </div>
-        </section>
-      </FadeIn>
+        </Container>
+      </Section>
 
       {/* ---------- Who uses it ---------- */}
-      <FadeIn>
-        <section className="border-y bg-secondary/30 px-5 py-14 sm:px-4 md:py-20">
-          <div className="mx-auto max-w-7xl">
-            <SectionRule label="Who uses it" title="Two audiences, one dataset" />
+      <Section>
+        <Container className="flex flex-col gap-12">
+          <SectionHeading eyebrow="Who uses it" title="Two audiences, one dataset" />
 
-            <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:gap-0 lg:divide-x">
-              {AUDIENCES.map((audience, index) => (
-                <div key={audience.title} className={index === 0 ? "lg:pr-14" : "lg:pl-14"}>
-                  <h3 className="text-xl font-bold leading-snug md:text-2xl">{audience.title}</h3>
-                  <p className="mt-2 text-sm font-semibold text-muted-foreground">
-                    {audience.who}
-                  </p>
-                  <dl className="mt-6">
-                    {audience.points.map((point) => (
-                      <div key={point.lead} className="border-t py-4">
-                        <dt className="font-semibold text-foreground">{point.lead}</dt>
-                        <dd className="mt-1 leading-relaxed text-muted-foreground">{point.copy}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
-              ))}
-            </div>
-
-            <dl className="mt-12 grid gap-x-10 border-t pt-2 md:mt-16 md:grid-cols-3">
-              {ACCESS_TIERS.map((tier) => (
-                <div key={tier.title} className="py-5">
-                  <dt className="text-lg font-bold leading-snug">{tier.title}</dt>
-                  <dd className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                    {tier.copy}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-line">
+            {AUDIENCES.map((audience, index) => (
+              <div key={audience.title} className={index === 0 ? "lg:pr-14" : "lg:pl-14"}>
+                <h3 className="text-headline font-display-soft text-ink">{audience.title}</h3>
+                <p className="mt-2 font-semibold text-ink-muted">
+                  <Lines text={audience.who} />
+                </p>
+                <dl className="mt-6 border-b border-line">
+                  {audience.points.map((point) => (
+                    <div key={point.lead} className="border-t border-line py-5">
+                      <dt className="text-lg font-semibold text-ink">{point.lead}</dt>
+                      <dd className="mt-1 leading-relaxed text-ink-soft">{point.copy}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ))}
           </div>
-        </section>
-      </FadeIn>
+
+          <OfferMatrix items={ACCESS_TIERS} />
+        </Container>
+      </Section>
 
       {/* ---------- Sourcing and compliance ---------- */}
-      <FadeIn>
-        <section className="px-5 py-14 sm:px-4 md:py-20">
-          <div className="mx-auto max-w-7xl">
-            <SectionRule label="Sourcing and compliance" title="What procurement asks for">
-              <p>
-                Enterprise buyers put this data through procurement and risk review. The four
-                points below cover what those teams normally need on file.
-              </p>
-            </SectionRule>
-
-            <div className="mt-10 grid gap-x-16 md:grid-cols-2">
-              {SOURCING.map((item) => (
-                <div key={item.title} className="border-t py-6">
-                  <h3 className="text-lg font-bold leading-snug">{item.title}</h3>
-                  <p className="mt-2 max-w-prose leading-relaxed text-muted-foreground">
-                    {item.copy}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </FadeIn>
+      <Section surface="subtle" bordered>
+        <Container className="flex flex-col gap-12">
+          <SectionHeading
+            eyebrow="Sourcing and compliance"
+            title="What procurement asks for"
+            lede="Enterprise buyers put this data through procurement and risk review. The four points below cover what those teams normally need on file."
+          />
+          <OfferMatrix items={SOURCING} columns={2} surface="subtle" />
+        </Container>
+      </Section>
 
       {/* ---------- Roundtables: the marquee carries the motion ---------- */}
-      <section className="border-t px-5 py-14 sm:px-4 md:py-20">
-        <div className="mx-auto max-w-7xl">
-          <SectionRule label="Beyond the platform" title="Roundtables" />
-
-          <p className="mt-4 leading-relaxed text-muted-foreground md:text-lg">
-            The first roundtable ran in 2025. Since then the sessions have travelled across
-            Mumbai, NCR and Bengaluru, putting centre heads in a room with the people building
-            for them &mdash; client-hosted sessions alongside our own.
-          </p>
-        </div>
+      <Section bordered>
+        <Container>
+          <SectionHeading
+            eyebrow="Beyond the platform"
+            title="Roundtables"
+            lede="The first roundtable ran in 2025. Since then the sessions have travelled across Mumbai, NCR and Bengaluru, putting centre heads in a room with the people building for them, client-hosted sessions alongside our own."
+          />
+        </Container>
 
         <div
-          className="roundtable-strip -mx-5 mt-10 sm:-mx-4 md:mt-12"
+          className="roundtable-strip mt-12"
           role="img"
           aria-label="Photographs from past roundtable sessions, hosted by Bamboo Reports and by clients, across Mumbai, NCR and Bengaluru"
         >
@@ -442,7 +369,7 @@ const About = () => {
                 height={540}
                 loading="lazy"
                 decoding="async"
-                className="h-40 w-auto flex-shrink-0 rounded-md border object-cover md:h-52"
+                className="h-40 w-auto flex-shrink-0 rounded-md border border-line object-cover md:h-52"
               />
             ))}
             {/* Second copy of the strip so the loop wraps seamlessly. */}
@@ -456,12 +383,12 @@ const About = () => {
                 loading="lazy"
                 decoding="async"
                 aria-hidden
-                className="h-40 w-auto flex-shrink-0 rounded-md border object-cover md:h-52"
+                className="h-40 w-auto flex-shrink-0 rounded-md border border-line object-cover md:h-52"
               />
             ))}
           </div>
         </div>
-      </section>
+      </Section>
 
       <DemoCta
         label="See your slice of the data"

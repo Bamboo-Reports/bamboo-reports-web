@@ -1,5 +1,6 @@
 "use client";
 
+import { RiLinkedinBoxLine, RiMailLine } from "@remixicon/react";
 import logo from "@/assets/bamboo-logo.svg";
 import NavLink from "@/components/layout/NavLink";
 import { CalSchedulingButton } from "@/components/CalSchedulingButton";
@@ -8,7 +9,6 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { LINKEDIN_URL, SITE_EMAIL, footerNav, legalNav } from "@/config/nav";
 import { useInquiryForm } from "@/contexts/InquiryFormContext";
-import { Linkedin, Mail } from "lucide-react";
 
 /** Site footer, laid out to match researchnxt.com. */
 const Footer = ({ showCta = true }: { showCta?: boolean }) => {
@@ -64,7 +64,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
                   aria-label="LinkedIn (opens in a new tab)"
                   className="-m-2.5 block p-2.5 text-ink-soft transition-colors duration-200 hover:text-ink"
                 >
-                  <Linkedin className="size-5" aria-hidden />
+                  <RiLinkedinBoxLine className="size-5" aria-hidden />
                 </a>
               </li>
               <li>
@@ -73,7 +73,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
                   aria-label={`Email ${SITE_EMAIL}`}
                   className="-m-2.5 block p-2.5 text-ink-soft transition-colors duration-200 hover:text-ink"
                 >
-                  <Mail className="size-5" aria-hidden />
+                  <RiMailLine className="size-5" aria-hidden />
                 </a>
               </li>
             </ul>

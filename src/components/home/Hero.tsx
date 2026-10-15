@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { RiArrowRightLine } from "@remixicon/react";
 import Link from "next/link";
 import { CalSchedulingButton } from "@/components/CalSchedulingButton";
 import { Button } from "@/components/ui/button";
@@ -75,7 +75,7 @@ const Hero = () => (
           >
             <CalSchedulingButton>
               Get a demo
-              <ArrowRight className="h-4 w-4" aria-hidden />
+              <RiArrowRightLine className="h-4 w-4" aria-hidden />
             </CalSchedulingButton>
           </Button>
         </div>
@@ -101,7 +101,7 @@ const Hero = () => (
                   {item.description}
                 </span>
               </span>
-              <ArrowRight
+              <RiArrowRightLine
                 className="h-5 w-5 flex-none text-white/75 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent group-focus-visible:text-accent motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
                 aria-hidden
               />
@@ -122,7 +122,7 @@ const Hero = () => (
         >
           <CalSchedulingButton>
             Get a demo
-            <ArrowRight className="h-4 w-4" aria-hidden />
+            <RiArrowRightLine className="h-4 w-4" aria-hidden />
           </CalSchedulingButton>
         </Button>
       </div>
