@@ -139,7 +139,7 @@ const Header = () => {
         <Container>
           <div className="flex h-16 items-center justify-between gap-6">
             <Link href="/" className="inline-flex min-h-11 flex-none items-center">
-              <img src={logo.src} alt="Bamboo Reports" className="h-9 w-auto sm:h-10" />
+              <img src={logo.src} alt="Bamboo Reports" width={logo.width} height={logo.height} className="h-9 w-auto sm:h-10" />
             </Link>
 
             {/* Desktop navigation */}

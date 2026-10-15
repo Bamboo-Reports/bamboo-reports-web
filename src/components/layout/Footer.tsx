@@ -44,7 +44,7 @@ const Footer = ({ showCta = true }: { showCta?: boolean }) => {
         <div className="grid gap-14 py-16 lg:grid-cols-[1.1fr_2fr] lg:gap-20">
           {/* Identity and contact */}
           <div className="flex flex-col gap-6">
-            <img src={logo.src} alt="Bamboo Reports" className="h-10 w-auto self-start" />
+            <img src={logo.src} alt="Bamboo Reports" width={logo.width} height={logo.height} className="h-10 w-auto self-start" />
             <p className="max-w-xs text-sm leading-relaxed text-ink-soft">
               Centre-level data and research on Global Capability Centres in India.
             </p>

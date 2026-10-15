@@ -28,6 +28,7 @@ const Hero = () => (
       src={heroImage.src}
       alt=""
       aria-hidden
+      fetchPriority="high"
       className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[74%_50%] sm:object-[center_58%]"
     />
     <div

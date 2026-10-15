@@ -60,7 +60,8 @@ const StatCell = ({
   active: boolean;
 }) => {
   const shown = useCountUp(value, active);
-  const formatted = shown === value && displayValue ? displayValue : formatCompact(shown);
+  const final = displayValue ?? formatCompact(value);
+  const formatted = shown === value ? final : formatCompact(shown);
   const hasPlus = formatted.endsWith("+");
   const digits = hasPlus ? formatted.slice(0, -1) : formatted;
   return (
@@ -69,17 +70,12 @@ const StatCell = ({
         {label}
       </dt>
       <dd className="order-1 font-display tabular-nums text-figure text-ink md:text-figure-lg">
-        <span className="relative">
+        {/* Crawlers and screen readers get the final figure; the count-up
+            starts at 0 in the prerendered HTML, so it is visual only. */}
+        <span className="sr-only">{final}</span>
+        <span className="relative" aria-hidden="true">
           {digits}
-          {hasPlus && (
-            <span
-              className="text-accent sm:absolute sm:left-full"
-              aria-hidden
-            >
-              +
-            </span>
-          )}
-          {hasPlus && <span className="sr-only">+</span>}
+          {hasPlus && <span className="text-accent sm:absolute sm:left-full">+</span>}
         </span>
       </dd>
     </div>
