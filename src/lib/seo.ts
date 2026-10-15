@@ -25,7 +25,7 @@ const PAGE_META = {
   },
   "/about": {
     title: "About Bamboo Reports | The India GCC dataset built centre by centre",
-    description: "Bamboo Reports profiles 6,000+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
+    description: "Bamboo Reports profiles 6,100+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
   },
   "/account-market-intelligence": {
     title: "Account & Market Intelligence | India GCC Research | Bamboo Reports",
@@ -37,7 +37,7 @@ const PAGE_META = {
   },
   "/gcc-prospect-data": {
     title: "GCC Prospect Data | Verified India GCC Decision-Makers | Bamboo Reports",
-    description: "Verified decision-makers at 6,000+ India GCC centres, each mapped to the centre they work in.",
+    description: "Verified decision-makers at 6,100+ India GCC centres, each mapped to the centre they work in.",
   },
   "/platform": {
     title: "India GCC Intelligence Platform | Bamboo Reports",

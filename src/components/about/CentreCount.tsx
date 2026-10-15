@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const CENTRE_COUNT = 6000;
+// Oct 2026 export: 6,129 centres, rounded down so the figure never overstates.
+const CENTRE_COUNT = 6100;
 
-// 6000 -> "6,000": the ledger always shows the thousands separator.
+// 6100 -> "6,100": the ledger always shows the thousands separator.
 const formatCentres = (n: number) => n.toLocaleString("en-US");
 
 /**

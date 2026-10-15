@@ -3,20 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/ui/container";
 
-// Dataset figures as of the Aug 2026 export. Update these and DATA_AS_OF
+// Dataset figures as of the Oct 2026 export. Update these and DATA_AS_OF
 // together by hand on refresh.
 const STATS: Array<{ label: string; value: number; displayValue?: string }> = [
-  { label: "Companies", value: 2437 },
-  { label: "Centres", value: 5962, displayValue: "6.0K+" },
-  { label: "Headcount", value: 3949355 },
+  { label: "Companies", value: 2493 },
+  { label: "Centres", value: 6129 },
+  { label: "Headcount", value: 3973567 },
 ];
 
 // Shown under the figures so readers and answer engines know how current they are.
-const DATA_AS_OF = { iso: "2026-08", label: "August 2026" };
+const DATA_AS_OF = { iso: "2026-10", label: "October 2026" };
 
 const COUNT_DURATION_MS = 1400;
 
-// 2433 -> "2.4K+", 5901 -> "5.9K+", 3949355 -> "3.9M+". Always floors so
+// 2493 -> "2.4K+", 6129 -> "6.1K+", 3973567 -> "3.9M+". Always floors so
 // the claim never overstates the dataset figures.
 const formatCompact = (n: number) => {
   if (n < 1000) return n.toLocaleString("en-US");

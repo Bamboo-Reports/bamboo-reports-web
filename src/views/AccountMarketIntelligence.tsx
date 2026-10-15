@@ -75,7 +75,7 @@ const USERS = [
 ];
 
 const DIFFERENCES = [
-  { name: "Built bottom-up from 2,400+ accounts and 6,000+ centres. 260+ man-months of structured research." },
+  { name: "Built bottom-up from 2,400+ accounts and 6,100+ centres. 260+ man-months of structured research." },
   { name: "Sliceable by city, sector, function, size, tech stack, and centre status." },
   { name: "Refreshed weekly with AI assistance,\nnot published once a year." },
   { name: "Exclusive coverage: service-mix, function-mix, and software vendor market share at centre level." },

@@ -49,7 +49,7 @@ const TIMELINE = [
   },
   {
     year: "Today",
-    copy: "6,000+ centres profiled across India, each held separately.",
+    copy: "6,100+ centres profiled across India, each held separately.",
   },
 ];
 
