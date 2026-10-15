@@ -88,7 +88,7 @@ const GCCProspectData = () => {
           <ProblemSpread
             eyebrow="The problem"
             title="Your outreach is only as good as your data."
-            body="India's GCC market changes quickly. New centres open every quarter and leaders change roles. Scraped databases give you outdated contacts, wrong titles, records only at parent-company level and nothing about the centre itself."
+            body="India's GCC market changes quickly. New centres open every quarter and leaders change roles. Scraped databases give you outdated contacts and wrong titles."
             statement={
               <>
                 Each contact is <span className="text-primary">verified and kept up to date</span>, so your outreach
