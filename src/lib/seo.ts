@@ -58,6 +58,10 @@ const PAGE_META = {
     image: `${SITE_URL}/gcc/india-gcc-report-share-card-q2-2026.png`,
     type: "article",
   },
+  "/gcc-companies": {
+    title: "India GCC Companies Directory | Bamboo Reports",
+    description: "Global companies with Global Capability Centres in India: centre locations, centre types, functions, opening years and headcount, from Bamboo Reports.",
+  },
   "/map-your-gcc-opportunity": {
     title: "Map your India GCC opportunity | Bamboo Reports",
     description: "Map your India GCC opportunity with Bamboo Reports.",
