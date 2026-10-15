@@ -1,3 +1,5 @@
+import { SITE_URL, pageMeta, type SitePath } from "@/lib/seo";
+
 // Type definitions for structured data schemas
 interface FAQQuestion {
   question: string;
@@ -7,6 +9,44 @@ interface FAQQuestion {
 interface FAQData {
   questions: FAQQuestion[];
 }
+
+interface BreadcrumbItem {
+  name: string;
+  /** Absolute URL of the crumb. */
+  url: string;
+}
+
+interface BreadcrumbData {
+  items: BreadcrumbItem[];
+}
+
+interface ServiceData {
+  /** Page the service is described on; supplies the URL and description. */
+  path: SitePath;
+  name: string;
+  serviceType: string;
+}
+
+interface AboutPageData {
+  path: SitePath;
+}
+
+interface ReportData {
+  path: SitePath;
+  headline: string;
+  image: string;
+  /** ISO 8601 date; month precision (e.g. "2026-08") is valid. */
+  datePublished: string;
+}
+
+// Inlined rather than referenced by @id alone: the full Organization node
+// only exists on the home page, and crawlers resolve @id per page.
+const PROVIDER = {
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  "name": "Bamboo Reports",
+  "url": `${SITE_URL}/`,
+};
 
 interface ProductRating {
   value: number;
@@ -26,7 +66,11 @@ type StructuredDataType =
   | { type: "organization"; data?: never }
   | { type: "website"; data?: never }
   | { type: "product"; data?: ProductData }
-  | { type: "faq"; data?: FAQData };
+  | { type: "faq"; data?: FAQData }
+  | { type: "breadcrumb"; data: BreadcrumbData }
+  | { type: "service"; data: ServiceData }
+  | { type: "aboutPage"; data: AboutPageData }
+  | { type: "report"; data: ReportData };
 
 type StructuredDataProps = StructuredDataType;
 
@@ -112,11 +156,11 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
           } : undefined,
           "featureList": data?.features || [
             "2,400+ MNC GCC Database",
-            "6000+ GCC Centres Mapping",
+            "6,100+ GCC Centres Mapping",
             "India GCC Market Intelligence",
             "GTM Research Tools",
             "GCC Contact Database",
-            "Real-time GCC Insights"
+            "Weekly data refresh"
           ]
         };
 
@@ -132,6 +176,58 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
               "text": q.answer
             }
           })) || []
+        };
+
+      case "breadcrumb":
+        return {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": data.items.map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": item.name,
+            "item": item.url
+          }))
+        };
+
+      case "service":
+        return {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": data.name,
+          "serviceType": data.serviceType,
+          "description": pageMeta(data.path).description,
+          "url": `${SITE_URL}${data.path}`,
+          "provider": PROVIDER,
+          "areaServed": {
+            "@type": "Country",
+            "name": "India"
+          }
+        };
+
+      case "aboutPage":
+        return {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": pageMeta(data.path).title,
+          "description": pageMeta(data.path).description,
+          "url": `${SITE_URL}${data.path}`,
+          "mainEntity": PROVIDER
+        };
+
+      case "report":
+        return {
+          "@context": "https://schema.org",
+          "@type": "Report",
+          "headline": data.headline,
+          "description": pageMeta(data.path).description,
+          "url": `${SITE_URL}${data.path}`,
+          "image": data.image,
+          "inLanguage": "en",
+          "datePublished": data.datePublished,
+          "author": PROVIDER,
+          "publisher": PROVIDER,
+          "about": "Global Capability Centres in India"
         };
 
       default:

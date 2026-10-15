@@ -3,16 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/ui/container";
 
-// Dataset figures as of the Aug 2026 export. Update by hand on refresh.
+// Dataset figures as of the Oct 2026 export. Update these and DATA_AS_OF
+// together by hand on refresh.
 const STATS: Array<{ label: string; value: number; displayValue?: string }> = [
-  { label: "Companies", value: 2437 },
-  { label: "Centres", value: 5962, displayValue: "6.0K+" },
-  { label: "Headcount", value: 3949355 },
+  { label: "Companies", value: 2493 },
+  { label: "Centres", value: 6129 },
+  { label: "Headcount", value: 3973567 },
 ];
+
+// Shown under the figures so readers and answer engines know how current they are.
+const DATA_AS_OF = { iso: "2026-10", label: "October 2026" };
 
 const COUNT_DURATION_MS = 1400;
 
-// 2433 -> "2.4K+", 5901 -> "5.9K+", 3949355 -> "3.9M+". Always floors so
+// 2493 -> "2.4K+", 6129 -> "6.1K+", 3973567 -> "3.9M+". Always floors so
 // the claim never overstates the dataset figures.
 const formatCompact = (n: number) => {
   if (n < 1000) return n.toLocaleString("en-US");
@@ -60,7 +64,8 @@ const StatCell = ({
   active: boolean;
 }) => {
   const shown = useCountUp(value, active);
-  const formatted = shown === value && displayValue ? displayValue : formatCompact(shown);
+  const final = displayValue ?? formatCompact(value);
+  const formatted = shown === value ? final : formatCompact(shown);
   const hasPlus = formatted.endsWith("+");
   const digits = hasPlus ? formatted.slice(0, -1) : formatted;
   return (
@@ -69,17 +74,12 @@ const StatCell = ({
         {label}
       </dt>
       <dd className="order-1 font-display tabular-nums text-figure text-ink md:text-figure-lg">
-        <span className="relative">
+        {/* Crawlers and screen readers get the final figure; the count-up
+            starts at 0 in the prerendered HTML, so it is visual only. */}
+        <span className="sr-only">{final}</span>
+        <span className="relative" aria-hidden="true">
           {digits}
-          {hasPlus && (
-            <span
-              className="text-accent sm:absolute sm:left-full"
-              aria-hidden
-            >
-              +
-            </span>
-          )}
-          {hasPlus && <span className="sr-only">+</span>}
+          {hasPlus && <span className="text-accent sm:absolute sm:left-full">+</span>}
         </span>
       </dd>
     </div>
@@ -130,6 +130,9 @@ const GccStatsBand = () => {
             />
           ))}
         </dl>
+        <p className="mt-8 text-center text-sm text-ink-muted">
+          Figures as of <time dateTime={DATA_AS_OF.iso}>{DATA_AS_OF.label}</time>.
+        </p>
       </Container>
     </section>
   );

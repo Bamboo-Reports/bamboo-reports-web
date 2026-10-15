@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const SITE_URL = "https://bambooreports.com";
 
-const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
+const DEFAULT_IMAGE = `${SITE_URL}/og-default.png`;
 const INDEX_ROBOTS = "index, follow, max-image-preview:large";
 
 interface PageMeta {
@@ -24,20 +24,20 @@ const PAGE_META = {
     description: "Verified India GCC data, account intelligence and analyst-led research for teams selling into India's Global Capability Centres.",
   },
   "/about": {
-    title: "About Bamboo Reports | The India GCC dataset built centre by centre",
-    description: "Bamboo Reports profiles 6,000+ individual India GCC centres against 2,400+ parent accounts: what each centre does, who runs it and what it runs on. A Research NXT product, built since 2022.",
+    title: "About Bamboo Reports | India GCC data, centre by centre",
+    description: "Bamboo Reports profiles 6,100+ India GCC centres across 2,400+ parent accounts: what each centre does, who runs it and what it runs on. Built since 2022.",
   },
   "/account-market-intelligence": {
-    title: "Account & Market Intelligence | India GCC Research | Bamboo Reports",
+    title: "India GCC Account & Market Intelligence | Bamboo Reports",
     description: "Centre-level data and reports on India's GCCs by city, sector, function or company, from short sector reports to custom research.",
   },
   "/gcc-abm": {
-    title: "GCC ABM | Account-Based Marketing for India GCCs | Bamboo Reports",
+    title: "GCC ABM | Account-Based Marketing for GCCs | Bamboo Reports",
     description: "End-to-end ABM campaigns aimed at decision-makers in India's Global Capability Centres. Bamboo Reports supplies the data and runs the campaigns.",
   },
   "/gcc-prospect-data": {
-    title: "GCC Prospect Data | Verified India GCC Decision-Makers | Bamboo Reports",
-    description: "Verified decision-makers at 6,000+ India GCC centres, each mapped to the centre they work in.",
+    title: "GCC Prospect Data | India GCC Contacts | Bamboo Reports",
+    description: "Verified decision-makers at India's Global Capability Centres, across engineering, product, data, finance, HR, IT and more. Refreshed weekly.",
   },
   "/platform": {
     title: "India GCC Intelligence Platform | Bamboo Reports",
@@ -49,18 +49,20 @@ const PAGE_META = {
   },
   "/resources": {
     title: "Resources | India GCC Reports | Bamboo Reports",
-    description: "Market reports from the team tracking India's GCC ecosystem centre by centre.",
+    description: "Reports on India's Global Capability Centres, including the India GCC Quarterly Report, from the team tracking the market centre by centre.",
   },
   "/reports/india-gcc-report-q2-2026": {
-    title: "India GCC Quarterly Report, Q2 2026 (April to June) | Bamboo Reports",
+    title: "India GCC Quarterly Report, Q2 2026 | Bamboo Reports",
     ogTitle: "India GCC Quarterly Report, Q2 2026 (April to June)",
-    description: "The Q2 2026 India GCC Quarterly Report tracks 110 centre events across 99 companies and 27 cities, including 40 first-time entrants, 75K+ announced roles and the rise of AI-first centres.",
+    description: "The Q2 2026 India GCC Quarterly Report: 110 centres across 99 companies and 27 cities, 40 first-time entrants, 75K+ announced roles and AI-first centres.",
     image: `${SITE_URL}/gcc/india-gcc-report-share-card-q2-2026.png`,
     type: "article",
   },
   "/map-your-gcc-opportunity": {
     title: "Map your India GCC opportunity | Bamboo Reports",
     description: "Map your India GCC opportunity with Bamboo Reports.",
+    // Form-only page with no content of its own.
+    robots: "noindex, follow",
   },
   "/privacy-policy": {
     title: "Privacy Policy | Bamboo Reports",
@@ -115,3 +117,13 @@ export const buildMetadata = (meta: PageMeta, path?: string): Metadata => {
 };
 
 export const pageMetadata = (path: SitePath): Metadata => buildMetadata(PAGE_META[path], path);
+
+/** Title and description for a page, e.g. to reuse in structured data. */
+export const pageMeta = (path: SitePath): PageMeta => PAGE_META[path];
+
+/** Indexable paths, in PAGE_META order. Feeds the sitemap. */
+export const indexablePaths = (): SitePath[] =>
+  (Object.keys(PAGE_META) as SitePath[]).filter((path) => {
+    const meta: PageMeta = PAGE_META[path];
+    return !meta.robots?.includes("noindex");
+  });

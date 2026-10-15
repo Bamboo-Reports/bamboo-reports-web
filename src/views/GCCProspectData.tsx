@@ -1,16 +1,14 @@
 import {
-  RiBuilding2Line,
   RiBuildingLine,
   RiCalendarEventLine,
   RiCloudLine,
   RiPresentationLine,
   RiUserSearchLine,
-  RiMapPin2Line,
-  RiPriceTag3Line,
-  RiShapesLine,
   RiStackLine,
   RiUserStarLine,
 } from "@remixicon/react";
+import StructuredData from "@/components/StructuredData";
+import QuestionList, { type QuestionItem } from "@/components/marketing/QuestionList";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { DemoCta, MarketingHero } from "@/components/layout/B2BMarketingPage";
@@ -28,11 +26,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 const COVERAGE: Feature[] = [
   { icon: RiUserStarLine, title: "Decision makers", desc: "Named C-suite, VPs, directors and function heads at GCCs across India." },
-  { icon: RiBuilding2Line, title: "Centre-level mapping", desc: "Contacts tied to 6,000+ individual centres, not just parent companies." },
   { icon: RiStackLine, title: "Function coverage", desc: "Engineering, Product, Data, Finance, HR, Legal, Operations, IT, and more." },
-  { icon: RiMapPin2Line, title: "Location data", desc: "Every centre geocoded across India's GCC cities and clusters." },
-  { icon: RiShapesLine, title: "Service-mix context", desc: "5–12 structured service classifications per centre: what each GCC actually does." },
-  { icon: RiPriceTag3Line, title: "Sector & tech tagging", desc: "BFSI, Tech, Pharma, Retail, Manufacturing, with tech-stack signals layered in." },
 ];
 
 const USERS = [
@@ -50,16 +44,43 @@ const RESEARCH = [
   { name: "Each field has an AI agent that fills it in and checks it." },
 ];
 
+const QUESTIONS: QuestionItem[] = [
+  {
+    question: "What is GCC Prospect Data?",
+    answer:
+      "A database of verified decision-makers at Global Capability Centres (GCCs) in India.",
+  },
+  {
+    question: "What does the data include?",
+    answer:
+      "Named C-suite leaders, VPs, directors and function heads across engineering, product, data, finance, HR, IT and more.",
+  },
+  {
+    question: "How is the data collected and kept up to date?",
+    answer:
+      "Bamboo Reports researches it in-house instead of scraping it, and refreshes it weekly with AI assistance.",
+  },
+  {
+    question: "Who uses GCC Prospect Data?",
+    answer:
+      "Teams that sell into GCCs: SaaS vendors, staffing and RPO firms, real estate providers, consultancies and event platforms.",
+  },
+];
+
 const GCCProspectData = () => {
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData
+        type="service"
+        data={{ path: "/gcc-prospect-data", name: "GCC Prospect Data", serviceType: "Decision-maker data for India GCCs" }}
+      />
       <Header />
 
       <MarketingHero
         backgroundImage="/hero-backgrounds/gcc-prospect-data.webp"
         eyebrow="What we offer"
         title="GCC Prospect Data"
-        description="Verified decision-makers across 6,000+ India GCC centres, kept up to date for outreach."
+        description="Verified decision-makers at India's Global Capability Centres, kept up to date for outreach."
       />
 
       <Section>
@@ -67,11 +88,11 @@ const GCCProspectData = () => {
           <ProblemSpread
             eyebrow="The problem"
             title="Your outreach is only as good as your data."
-            body="India's GCC market changes quickly. New centres open every quarter and leaders change roles. Scraped databases give you outdated contacts, wrong titles, records only at parent-company level and nothing about the centre itself."
+            body="India's GCC market changes quickly. New centres open every quarter and leaders change roles. Scraped databases give you outdated contacts and wrong titles."
             statement={
               <>
-                Each contact is <span className="text-primary">mapped to the right centre and role</span>, along with
-                that centre's services and tech stack, so you know what to open the conversation with.
+                Each contact is <span className="text-primary">verified and kept up to date</span>, so your outreach
+                reaches the right people.
               </>
             }
           />
@@ -116,6 +137,8 @@ const GCCProspectData = () => {
           </Block>
         </Container>
       </Section>
+
+      <QuestionList title="Questions about GCC Prospect Data" items={QUESTIONS} />
 
       <DemoCta title="Get custom GCC coverage built around your market." />
 

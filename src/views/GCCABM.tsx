@@ -10,6 +10,8 @@ import {
   RiMapPinRangeLine,
   RiRocket2Line,
 } from "@remixicon/react";
+import StructuredData from "@/components/StructuredData";
+import QuestionList, { type QuestionItem } from "@/components/marketing/QuestionList";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { DemoCta, MarketingHero } from "@/components/layout/B2BMarketingPage";
@@ -65,9 +67,46 @@ const REASONS = [
   { name: "Messaging informed by the team that writes Bamboo Reports' India GCC research." },
 ];
 
+const QUESTIONS: QuestionItem[] = [
+  {
+    question: "What is GCC ABM?",
+    answer:
+      "Account-based marketing campaigns aimed at India's GCCs, run end to end on Bamboo Reports' own data, with a guaranteed number of qualified leads.",
+  },
+  {
+    question: "How does a GCC ABM campaign work?",
+    answer:
+      "We pick accounts that match your ideal customer profile, target verified decision-makers there, run the campaign and hand over qualified leads.",
+  },
+  {
+    question: "What campaign formats are available?",
+    answer:
+      "Focused ABM sprints, city blitzes, roundtable programmes, content and nurture sequences, and full multi-city GTM programmes.",
+  },
+  {
+    question: "What results have past campaigns delivered?",
+    answer:
+      "250+ MQLs from a single campaign, and 600+ MQLs and 40+ SQLs from a multi-quarter enterprise programme.",
+  },
+  {
+    question: "Who is GCC ABM for?",
+    answer:
+      "SaaS and tech vendors, staffing and HR tech firms, real estate companies, professional services firms and any B2B brand selling into GCCs.",
+  },
+  {
+    question: "Where does the contact data come from?",
+    answer:
+      "Bamboo Reports' own research, not a third-party provider, refreshed weekly.",
+  },
+];
+
 const GCCABM = () => {
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData
+        type="service"
+        data={{ path: "/gcc-abm", name: "GCC ABM", serviceType: "Account-based marketing campaigns for India GCCs" }}
+      />
       <Header />
 
       <MarketingHero
@@ -162,6 +201,8 @@ const GCCABM = () => {
           </Block>
         </Container>
       </Section>
+
+      <QuestionList title="Questions about GCC ABM" items={QUESTIONS} />
 
       <DemoCta title="Plan a GCC campaign with us." />
       <Footer showCta={false} />

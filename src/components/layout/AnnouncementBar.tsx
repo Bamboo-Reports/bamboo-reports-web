@@ -6,7 +6,7 @@ const AnnouncementBar = () => (
   <div className="bg-navy px-gutter py-2 text-white">
     <div className="mx-auto flex min-h-8 max-w-page items-center justify-center gap-3 text-center text-sm font-semibold">
       <span className="hidden sm:inline">
-        The Q2 India GCC report: 110 centre events across 99 companies.
+        The Q2 India GCC report: every GCC move, tracked.
       </span>
       <span className="sm:hidden">The Q2 India GCC report.</span>
       <Link

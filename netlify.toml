@@ -23,6 +23,11 @@
   [headers.values]
     X-Robots-Tag = "noindex, follow"
 
+[[headers]]
+  for = "/map-your-gcc-opportunity"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
 # Build settings
 [build.environment]
   NODE_VERSION = "22"

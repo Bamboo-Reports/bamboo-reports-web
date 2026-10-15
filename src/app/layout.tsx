@@ -28,9 +28,13 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
     <body>
       <InquiryFormProvider>{children}</InquiryFormProvider>
 
+      {/* gtag.js (~175 KB) loads once the page is idle so it stays off the
+          critical path. The inline init below still queues the page view
+          early; gtag sends it when it arrives. Trade-off: visitors who leave
+          within a second or two may not be counted. */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <Script id="gtag-init" strategy="afterInteractive">
         {`window.dataLayer = window.dataLayer || [];

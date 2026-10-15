@@ -32,8 +32,8 @@ const FINDINGS = [
 
 const METHOD_STATS = [
   { value: "2,400+", label: "companies under coverage" },
-  { value: "6,000+", label: "centres tracked at coordinate level" },
-  { value: "58K+", label: "decision-makers mapped" },
+  { value: "6,100+", label: "centres tracked at coordinate level" },
+  { value: "61K+", label: "decision-makers mapped" },
 ];
 
 const FAQS = [
@@ -55,12 +55,58 @@ const FAQS = [
   },
 ];
 
+// A short, quotable teaser of the report's headline numbers for search and
+// answer engines. Deliberately top-line only: the breakdowns (cities,
+// industries, named companies, BFSI, pipeline) stay in the PDF so readers
+// still have a reason to download it.
+const PUBLISHED = { iso: "2026-08", label: "August 2026" };
+
+const KEY_FINDINGS = [
+  {
+    question: "How many GCCs opened in India in Q2 2026?",
+    answer: "Between April and June 2026, 99 companies opened or expanded 110 GCC centres across 27 Indian cities. 40 of them entered India for the first time.",
+  },
+  {
+    question: "Which cities led India's GCC growth?",
+    answer: "Bengaluru and Hyderabad took half of all centre activity, and Hyderabad closed the gap with Bengaluru to a single centre.",
+  },
+  {
+    question: "How many jobs did India GCCs announce?",
+    answer: "More than 75,000 roles, 95% of them at mid or senior level.",
+  },
+  {
+    question: "How many new GCCs are focused on AI?",
+    answer: "23% of new centres opened with an AI or machine-learning mandate.",
+  },
+];
+
 const FAQ_SCHEMA = { questions: FAQS };
+
+const BREADCRUMB_SCHEMA = {
+  items: [
+    { name: "Home", url: "https://bambooreports.com/" },
+    { name: "Resources", url: "https://bambooreports.com/resources" },
+    {
+      name: "India GCC Quarterly Report, Q2 2026",
+      url: "https://bambooreports.com/reports/india-gcc-report-q2-2026",
+    },
+  ],
+};
 
 const IndiaGccReportQ22026 = () => {
   return (
     <div className="min-h-screen bg-background pb-[calc(4.75rem+env(safe-area-inset-bottom))] lg:pb-0">
       <StructuredData type="faq" data={FAQ_SCHEMA} />
+      <StructuredData type="breadcrumb" data={BREADCRUMB_SCHEMA} />
+      <StructuredData
+        type="report"
+        data={{
+          path: "/reports/india-gcc-report-q2-2026",
+          headline: "India GCC Quarterly Report, Q2 2026 (April to June)",
+          image: "https://bambooreports.com/gcc/india-gcc-report-share-card-q2-2026.png",
+          datePublished: PUBLISHED.iso,
+        }}
+      />
       <div className="flex h-1" aria-hidden>
         <div className="w-2/3 bg-primary" />
         <div className="w-1/3 bg-accent" />
@@ -92,7 +138,8 @@ const IndiaGccReportQ22026 = () => {
               >
                 Bamboo Reports
               </a>{" "}
-              GCC Intelligence
+              GCC Intelligence &middot; Published{" "}
+              <time dateTime={PUBLISHED.iso}>{PUBLISHED.label}</time>
             </p>
             <h1 className="hero-rise mt-5 text-balance text-4xl font-bold leading-tight text-navy [animation-delay:80ms] md:text-5xl lg:whitespace-nowrap lg:text-[clamp(2rem,3.2vw,2.75rem)]">
               India GCC Quarterly Report, <span className="text-primary">Q2 2026</span>
@@ -243,6 +290,54 @@ const IndiaGccReportQ22026 = () => {
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+
+      <section aria-labelledby="key-findings" className="bg-background px-4 py-10 md:py-14">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-semibold text-primary">Key findings</p>
+          <h2
+            id="key-findings"
+            className="mt-3 text-2xl font-bold leading-snug tracking-tight text-navy md:text-3xl"
+          >
+            India GCC market in Q2 2026: the numbers
+          </h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            From the India GCC Quarterly Report, Q2 2026, by Bamboo Reports.
+            Published <time dateTime={PUBLISHED.iso}>{PUBLISHED.label}</time>.
+          </p>
+
+          {/* Same accordion as the FAQ below. Answers stay in the HTML when
+              collapsed, so crawlers still read them. */}
+          <div className="mt-6">
+            {KEY_FINDINGS.map((finding, index) => (
+              <details
+                key={finding.question}
+                open={index === 0}
+                className="group border-t border-primary/20 py-3 last:border-b"
+              >
+                <summary className="cursor-pointer list-none text-base font-semibold transition-colors hover:text-primary [&::-webkit-details-marker]:hidden">
+                  <span className="mr-3 inline-block text-primary transition-transform group-open:rotate-90 motion-reduce:transition-none">
+                    ›
+                  </span>
+                  {finding.question}
+                </summary>
+                <p className="max-w-2xl pt-2 text-base leading-relaxed text-muted-foreground">
+                  {finding.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+
+          <p className="mt-10 max-w-[70ch] text-base leading-relaxed text-muted-foreground">
+            The full report breaks these numbers down by city, industry and function, names the
+            companies behind the quarter&apos;s biggest moves, and makes two predictions for Q3
+            2026.{" "}
+            <a href="#download-report" className="font-semibold text-primary hover:underline">
+              Download the full report
+            </a>
+            .
+          </p>
         </div>
       </section>
 

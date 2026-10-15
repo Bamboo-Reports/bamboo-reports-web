@@ -1,5 +1,3 @@
-"use client";
-
 import {
   RiBookmark3Line,
   RiBriefcase4Line,
@@ -18,8 +16,9 @@ import {
   RiTeamLine,
   type RemixiconComponentType,
 } from "@remixicon/react";
-import { useEffect, useRef, useState } from "react";
-
+import CentreCount from "@/components/about/CentreCount";
+import RoundtableStrip from "@/components/about/RoundtableStrip";
+import StructuredData from "@/components/StructuredData";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
@@ -50,7 +49,7 @@ const TIMELINE = [
   },
   {
     year: "Today",
-    copy: "6,000+ centres profiled across India, each held separately.",
+    copy: "6,100+ centres profiled across India, each held separately.",
   },
 ];
 
@@ -131,84 +130,20 @@ const STAGE_ICONS: Record<string, RemixiconComponentType> = {
   "saved-filters": RiBookmark3Line,
 };
 
-// All optimised stills from past roundtables, shown as a scrolling strip
-// in a fresh order on every visit.
-const shuffle = <T,>(items: T[]) => {
-  const result = [...items];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-};
-
-const ROUNDTABLE_PHOTOS = Array.from(
-  { length: 18 },
-  (_, i) => `/roundtables/${i + 1}-960.webp`,
-);
 
 /* ------------------------------------------------------------------ */
 /* Local building blocks                                               */
 /* ------------------------------------------------------------------ */
 
-/**
- * Counts from 0 to target when the element scrolls into view. Jumps
- * straight to the final figure under prefers-reduced-motion.
- */
-const useCountUp = (target: number, durationMs = 1600) => {
-  const ref = useRef<HTMLElement | null>(null);
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    if (
-      typeof IntersectionObserver === "undefined" ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      setValue(target);
-      return;
-    }
-
-    let frame: number;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((entry) => entry.isIntersecting)) return;
-        observer.disconnect();
-        const start = performance.now();
-        const tick = (now: number) => {
-          const t = Math.min((now - start) / durationMs, 1);
-          const eased = 1 - Math.pow(1 - t, 4);
-          setValue(Math.round(target * eased));
-          if (t < 1) frame = requestAnimationFrame(tick);
-        };
-        frame = requestAnimationFrame(tick);
-      },
-      { threshold: 0.4 },
-    );
-    observer.observe(node);
-    return () => {
-      observer.disconnect();
-      cancelAnimationFrame(frame);
-    };
-  }, [target, durationMs]);
-
-  return { ref, value };
-};
 
 /* ------------------------------------------------------------------ */
 /* Page                                                                */
 /* ------------------------------------------------------------------ */
 
 const About = () => {
-  // Shuffle after hydration: the prerendered HTML has to match the first
-  // client render, so both start from the fixed order.
-  const [photos, setPhotos] = useState(ROUNDTABLE_PHOTOS);
-  useEffect(() => setPhotos(shuffle(ROUNDTABLE_PHOTOS)), []);
-  const centres = useCountUp(6000);
-
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData type="aboutPage" data={{ path: "/about" }} />
       <Header />
 
       <PageHero
@@ -220,13 +155,7 @@ const About = () => {
       {/* ---------- The numbers ---------- */}
       <Section spacing="tight" bordered>
         <Container className="flex flex-col gap-3">
-          <p
-            ref={centres.ref as React.RefObject<HTMLParagraphElement>}
-            className="font-display tabular-nums text-[clamp(4rem,2.5rem+6vw,7.5rem)] leading-none tracking-[-0.03em] text-primary"
-          >
-            {formatCentres(centres.value)}
-            <span className="text-accent">+</span>
-          </p>
+          <CentreCount />
           <p className="mt-2 text-title font-display-soft text-ink">individual centres, each profiled separately</p>
           <p className="text-lg leading-relaxed text-ink-soft">
             Against 2,400+ parent accounts. The gap matters because most companies run more than one centre.
@@ -354,40 +283,7 @@ const About = () => {
           />
         </Container>
 
-        <div
-          className="roundtable-strip mt-12"
-          role="img"
-          aria-label="Photographs from past roundtable sessions, hosted by Bamboo Reports and by clients, across Mumbai, NCR and Bengaluru"
-        >
-          <div className="roundtable-strip-track">
-            {photos.map((src) => (
-              <img
-                key={src}
-                src={src}
-                alt=""
-                width={960}
-                height={540}
-                loading="lazy"
-                decoding="async"
-                className="h-40 w-auto flex-shrink-0 rounded-md border border-line object-cover md:h-52"
-              />
-            ))}
-            {/* Second copy of the strip so the loop wraps seamlessly. */}
-            {photos.map((src) => (
-              <img
-                key={`${src}-dup`}
-                src={src}
-                alt=""
-                width={960}
-                height={540}
-                loading="lazy"
-                decoding="async"
-                aria-hidden
-                className="h-40 w-auto flex-shrink-0 rounded-md border border-line object-cover md:h-52"
-              />
-            ))}
-          </div>
-        </div>
+        <RoundtableStrip className="mt-12" />
       </Section>
 
       <DemoCta
@@ -405,8 +301,5 @@ const About = () => {
     </div>
   );
 };
-
-// 6000 -> "6,000": the ledger always shows the thousands separator.
-const formatCentres = (n: number) => n.toLocaleString("en-US");
 
 export default About;

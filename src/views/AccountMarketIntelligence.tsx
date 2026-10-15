@@ -15,6 +15,8 @@ import {
   RiQuestionLine,
   RiUserSettingsLine,
 } from "@remixicon/react";
+import StructuredData from "@/components/StructuredData";
+import QuestionList, { type QuestionItem } from "@/components/marketing/QuestionList";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { DemoCta, MarketingHero } from "@/components/layout/B2BMarketingPage";
@@ -74,15 +76,47 @@ const USERS = [
 ];
 
 const DIFFERENCES = [
-  { name: "Built bottom-up from 2,400+ accounts and 6,000+ centres. 260+ man-months of structured research." },
+  { name: "Built bottom-up from 2,400+ accounts and 6,100+ centres. 260+ man-months of structured research." },
   { name: "Sliceable by city, sector, function, size, tech stack, and centre status." },
   { name: "Refreshed weekly with AI assistance,\nnot published once a year." },
   { name: "Exclusive coverage: service-mix, function-mix, and software vendor market share at centre level." },
 ];
 
+const QUESTIONS: QuestionItem[] = [
+  {
+    question: "What is Account & Market Intelligence?",
+    answer:
+      "Centre-level data and reports on India's GCCs, filterable by city, sector, function or company, with three years of history.",
+  },
+  {
+    question: "What reports are included?",
+    answer:
+      "City reports, sector snapshots, function-mix intelligence, software vendor market share reports and custom research briefs.",
+  },
+  {
+    question: "How is it different from other GCC market reports?",
+    answer:
+      "It is built up from individual centres, refreshed weekly and filterable, unlike survey-based reports that go out of date.",
+  },
+  {
+    question: "Can I filter the data myself?",
+    answer:
+      "Yes. The platform has dashboards, a map of centres, saved filters and your own workspace for target accounts.",
+  },
+  {
+    question: "Who uses it?",
+    answer:
+      "Enterprise sales, product and strategy teams, investors, consulting firms and GCC leaders.",
+  },
+];
+
 const AccountMarketIntelligence = () => {
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData
+        type="service"
+        data={{ path: "/account-market-intelligence", name: "Account & Market Intelligence", serviceType: "India GCC market research and reports" }}
+      />
       <Header />
 
       <MarketingHero
@@ -187,6 +221,8 @@ const AccountMarketIntelligence = () => {
           </Block>
         </Container>
       </Section>
+
+      <QuestionList title="Questions about Account & Market Intelligence" items={QUESTIONS} />
 
       <DemoCta title="See your market in the platform." />
       <Footer showCta={false} />

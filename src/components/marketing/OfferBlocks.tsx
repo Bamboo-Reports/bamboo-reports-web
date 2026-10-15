@@ -185,7 +185,7 @@ export const FeatureGrid = ({ items }: { items: Feature[] }) => (
   <ul
     className={cn(
       "grid gap-x-10 gap-y-12 sm:grid-cols-2",
-      items.length % 4 === 0 ? "lg:grid-cols-4 lg:gap-x-4" : "lg:grid-cols-3",
+      items.length % 4 === 0 ? "lg:grid-cols-4 lg:gap-x-4" : items.length === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3",
     )}
   >
     {items.map(({ icon: Icon, title, desc }) => (
