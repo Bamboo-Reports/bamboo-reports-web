@@ -29,7 +29,7 @@ type Values = { firstName: string; lastName: string; company: string; email: str
 type Errors = Partial<Record<keyof Values | "consent", string>>;
 
 // From the confirmation email: review, get in touch, understand requirements.
-const NEXT_STEPS = ["We review your request", "We get in touch", "We understand your requirements"];
+const NEXT_STEPS = ["We review your request", "We get in touch", "We discuss what you need"];
 
 const EMPTY: Values = { firstName: "", lastName: "", company: "", email: "", phone: "" };
 

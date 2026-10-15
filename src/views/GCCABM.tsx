@@ -29,17 +29,17 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 const STEPS = [
   { title: "Account selection", body: "We start with your ICP: sector, city, company size, function, tech stack. We pull the matching GCC accounts from our database, with full context on each centre's size, age, parent company, and leadership." },
-  { title: "Contact targeting", body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies, with no duplication and no guesswork." },
+  { title: "Contact targeting", body: "From our verified decision-maker contact pool, we build your target list: the right function heads, at the right centres, in the right geographies, with duplicates removed." },
   { title: "Campaign execution", body: "We run multi-channel campaigns across LinkedIn, email, curated roundtables, and content syndication through the Bamboo Reports audience." },
-  { title: "MQL handoff", body: "We deliver qualified leads: contacts who've engaged with your content, attended your events, or raised their hand. Not raw lists. Not cold traffic." },
+  { title: "MQL handoff", body: "We hand over qualified leads: contacts who have engaged with your content, attended your events or asked to hear more. You do not get raw lists or cold traffic." },
 ];
 
 const FORMATS: MatrixItem[] = [
-  { icon: RiFocus3Line, title: "Focused ABM sprint", desc: "Short, sharp campaign targeting a defined account list." },
+  { icon: RiFocus3Line, title: "Focused ABM sprint", desc: "A short campaign aimed at a fixed list of accounts." },
   { icon: RiMapPinRangeLine, title: "City blitz", desc: "Concentrated push\nin one GCC cluster." },
   { icon: RiGroupLine, title: "Roundtable programme", desc: "Curated events with\nsenior GCC leaders." },
   { icon: RiMailSendLine, title: "Content + nurture", desc: "LinkedIn and email sequence across named accounts." },
-  { icon: RiRocket2Line, title: "Full GTM programme", desc: "Multi-city, multi-channel, long-form engagement." },
+  { icon: RiRocket2Line, title: "Full GTM programme", desc: "Several cities and channels over a longer period." },
 ];
 
 const RESULTS: Proof[] = [
@@ -59,10 +59,10 @@ const AUDIENCE = [
 ];
 
 const REASONS = [
-  { name: "No data middlemen and no stale records: 260+ man-months of structured research, AI-refreshed weekly." },
-  { name: "Campaigns that reflect actual centre-level org structures: service-mix, function splits, tech stacks." },
-  { name: "Audience segments no competitor can replicate. 21x more structured data per GCC than the nearest alternative." },
-  { name: "Messaging context from the same team publishing the India GCC intelligence layer." },
+  { name: "No third-party data: 260+ man-months of our own structured research, refreshed weekly with AI assistance." },
+  { name: "Targeting based on how each centre is organised: its services, function split and tech stack." },
+  { name: "21x more structured data per GCC than the nearest alternative, so you can build segments others cannot." },
+  { name: "Messaging informed by the team that writes Bamboo Reports' India GCC research." },
 ];
 
 const GCCABM = () => {
@@ -74,7 +74,7 @@ const GCCABM = () => {
         backgroundImage="/hero-backgrounds/gcc-abm.webp"
         eyebrow="What we offer"
         title="GCC ABM"
-        description="Account-based campaigns for the India GCC market, run end to end on the best data in the business."
+        description="Account-based campaigns for the India GCC market, run end to end on our own GCC data."
       />
 
       <Section>
@@ -86,11 +86,11 @@ const GCCABM = () => {
                 GCC buyers are hard to reach. <span className="lg:block">Generic ABM doesn't work here.</span>
               </>
             }
-            body="India's GCC ecosystem doesn't behave like the broader enterprise market. Decision-makers aren't always visible. Org charts are opaque. Titles vary wildly. And most ABM platforms don't understand what a GCC actually is."
+            body="India's GCC market works differently from the wider enterprise market. Decision-makers are often hard to identify, org charts are not public and titles vary from one company to the next. Most ABM platforms treat a GCC as part of its parent company."
             statement={
               <>
-                Running campaigns into this market without GCC-native data means{" "}
-                <span className="text-primary">wasted spend, wrong targets,</span> and messaging that lands with the
+                Run campaigns here without GCC-specific data and you{" "}
+                <span className="text-primary">spend money on the wrong accounts</span> and send messages to the
                 wrong people.
               </>
             }
@@ -100,17 +100,17 @@ const GCCABM = () => {
 
       <Section id="how-it-works" surface="subtle" bordered className="scroll-mt-24">
         <Container className="flex flex-col gap-14">
-          <SectionHeading eyebrow="How it works" title="Full-funnel ABM, end to end." />
+          <SectionHeading eyebrow="How it works" title="From account list to qualified leads." />
           <ProcessRail steps={STEPS} />
         </Container>
       </Section>
 
       <Section>
         <Container>
-          <Block eyebrow="Campaign formats" title="Pick your play.">
+          <Block eyebrow="Campaign formats" title="Choose a campaign format.">
             <OfferMatrix
               items={FORMATS}
-              prompt="Not sure which play fits?"
+              prompt="Not sure which format fits?"
             />
           </Block>
         </Container>
@@ -122,14 +122,14 @@ const GCCABM = () => {
             eyebrow="Proven results"
             title={
               <>
-                Qualified pipeline. <span className="lg:block">Measurable outcomes.</span>
+                Results from <span className="lg:block">past campaigns.</span>
               </>
             }
             lede={
               <p>
-                ABM campaigns for SaaS vendors, enterprise software, and professional services firms, delivered across
-                India's top GCC cities with{" "}
-                <span className="font-semibold text-primary">guaranteed MQL outcomes, not just impressions.</span>
+                ABM campaigns for SaaS vendors, enterprise software and professional services firms across India's main
+                GCC cities, with{" "}
+                <span className="font-semibold text-primary">a guaranteed MQL number, not an impressions count.</span>
               </p>
             }
           />
@@ -154,16 +154,16 @@ const GCCABM = () => {
                 eyebrow="Why Bamboo Reports"
                 title={
                   <>
-                    We don't just run campaigns. <span className="text-primary lg:block">We know the market.</span>
+                    The data is ours. <span className="text-primary lg:block">We research it ourselves.</span>
                   </>
                 }
-                lede="Most ABM agencies build your list, send your emails, and call it done. We're different because the data is ours, built and maintained by us, not licensed from a third party.">
+                lede="Most ABM agencies license contact data from a third party. We build and maintain our own.">
             <RuledList items={REASONS} max={2} />
           </Block>
         </Container>
       </Section>
 
-      <DemoCta title="Let's build the pipeline your competitors can't." />
+      <DemoCta title="Plan a GCC campaign with us." />
       <Footer showCta={false} />
     </div>
   );

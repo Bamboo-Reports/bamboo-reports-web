@@ -229,7 +229,7 @@ const About = () => {
           </p>
           <p className="mt-2 text-title font-display-soft text-ink">individual centres, each profiled separately</p>
           <p className="text-lg leading-relaxed text-ink-soft">
-            Against 2,400+ parent accounts. That gap is the whole point: most companies run more than one.
+            Against 2,400+ parent accounts. The gap matters because most companies run more than one centre.
           </p>
         </Container>
       </Section>

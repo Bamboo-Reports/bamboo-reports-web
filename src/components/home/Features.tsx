@@ -9,7 +9,7 @@ const Features = () => (
     <Container className="flex flex-col gap-14">
       <SectionHeading
         title="Why Bamboo Reports"
-        lede="Bamboo Reports is a research-backed intelligence solution built to make the India GCC opportunity accessible and actionable."
+        lede="A centre-level database of India's GCCs, backed by analyst research."
       />
       <FeatureGrid
         items={featureItems.map(({ icon, title, summary }) => ({ icon, title, desc: summary }))}
