@@ -19,6 +19,9 @@ All colors MUST be HSL.
 
     --primary: 204 100% 39%;
     --primary-foreground: 0 0% 100%;
+    /* Hover is darker, never lighter, so primary text keeps its contrast. */
+    --primary-hover: 204 100% 32%;
+    --primary-soft: 204 76% 95%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 0 0% 0%;
@@ -46,6 +49,19 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Neutrals shared with researchnxt.com. ink-soft is deliberately dark:
+       light grey body copy reads badly. Hairlines carry structure instead
+       of shadows. */
+    --ink: #0c0e12;
+    --ink-soft: #39404d;
+    --ink-muted: #626b7a;
+    --line: #dde3ea;
+    --line-strong: #bfc8d4;
+    --surface: oklch(0.989 0.004 245);
+    --surface-bright: oklch(1 0 0);
+    --surface-subtle: oklch(0.969 0.006 245);
+    --surface-muted: oklch(0.944 0.009 245);
   }
 }
 
@@ -56,6 +72,16 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    font-variation-settings: "opsz" 14;
+  }
+
+  /* Headings sit on the display end of DM Sans' optical-size axis, which
+     gives them their own voice without a second typeface. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-variation-settings: "opsz" 32;
   }
 
   /* Font Hierarchy */
@@ -89,10 +115,64 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Film-grain texture for gradient cover tiles (SVG turbulence noise). */
-  .gradient-noise {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
+  /* Display voice shared with researchnxt.com: DM Sans at full optical
+     size. Pair with the text-display / text-headline / text-title scale. */
+  .font-display {
+    font-variation-settings: "opsz" 40;
+    font-weight: 800;
+  }
+
+  .font-display-soft {
+    font-variation-settings: "opsz" 32;
+    font-weight: 700;
+  }
+
+  /* Tabular figures so columns of numbers align. */
+  .font-figure {
+    font-variation-settings: "opsz" 16;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Light brand wash behind page heroes, shared with researchnxt.com but in
+     Bamboo's colours: blue-led, with a whisper of the orange in one corner.
+     Light enough that ink text keeps AA contrast. */
+  .hero-wash {
+    background:
+      radial-gradient(
+        52rem 30rem at 88% -12%,
+        hsl(var(--accent) / 0.12),
+        transparent 65%
+      ),
+      radial-gradient(
+        60rem 34rem at -8% 115%,
+        hsl(var(--primary) / 0.14),
+        transparent 60%
+      ),
+      linear-gradient(115deg, hsl(var(--primary-soft)), var(--surface) 62%);
+  }
+
+  /* Over a hero background image: a light reading surface that fades out
+     early so the artwork stays clear. Phones keep a veil over the image. */
+  .page-hero-background-fade {
+    background: linear-gradient(90deg, rgb(242 246 250 / 90%), rgb(242 246 250 / 78%) 65%, rgb(242 246 250 / 60%));
+  }
+
+  @media (min-width: 1024px) {
+    .page-hero-background-fade {
+      background: linear-gradient(90deg, #f2f6fa 0%, rgb(242 246 250 / 98%) 20%, rgb(242 246 250 / 88%) 35%, rgb(242 246 250 / 68%) 48%, rgb(242 246 250 / 20%) 60%, transparent 75%);
+    }
+  }
+
+  /* The dotted rule that runs out from a section eyebrow. */
+  .rule-ticks {
+    background-image: linear-gradient(
+      to right,
+      var(--line-strong) 0 1px,
+      transparent 1px 100%
+    );
+    background-size: 5px 1px;
+    background-repeat: repeat-x;
+    background-position: 0 50%;
   }
 
   .fade-in {
@@ -238,7 +318,6 @@ All colors MUST be HSL.
    ============================================================ */
 @layer components {
   .platform-page {
-    --pf-paper: 210 33% 98%;
 
     /* The product's second accent, sampled from the filter panels: the
        selected attribute chips are emerald, not blue. The page had been
@@ -258,30 +337,7 @@ All colors MUST be HSL.
     background:
       radial-gradient(60% 45% at 12% -8%, hsl(204 100% 50% / 0.07), transparent 70%),
       radial-gradient(52% 42% at 90% -6%, hsl(var(--pf-green) / 0.06), transparent 70%),
-      hsl(var(--pf-paper));
-  }
-
-  .platform-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    color: hsl(var(--primary));
-    font-size: 0.75rem;
-    font-weight: 650;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .platform-eyebrow::before,
-  .platform-eyebrow::after {
-    width: 1.75rem;
-    height: 1px;
-    background: hsl(var(--primary) / 0.4);
-    content: "";
-  }
-
-  .platform-primary-cta {
-    box-shadow: 0 12px 30px -14px hsl(var(--primary) / 0.55);
+      var(--surface-subtle);
   }
 
   /* The hero product shot wears the same frame as the stage shots — a
@@ -341,44 +397,9 @@ All colors MUST be HSL.
     }
   }
 
-  .platform-sequence {
-    background:
-      radial-gradient(circle at 12% 14%, hsl(204 100% 93% / 0.65), transparent 30rem),
-      hsl(var(--pf-paper));
-  }
-
   .platform-stage {
     position: relative;
-    border-top: 1px solid hsl(var(--border));
-  }
-
-  /* The stage verb carries the step now that the number is gone. A short
-     rule sits in front of it — a structural tick that reads as "next
-     move" without pretending the list is numbered. */
-  .platform-stage-verb {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .platform-stage-verb::before {
-    width: 1.4rem;
-    height: 2px;
-    border-radius: 9999px;
-    background: hsl(var(--primary));
-    content: "";
-  }
-
-  /* Light, not the second navy void it used to be. Two full-dark slabs
-     back to back — personas then the navy CTA — was the bulk of the
-     "too much navy". A faint green wash at one corner and blue at the
-     other echo the product's two accents without tinting the whole
-     field. */
-  .platform-personas {
-    background:
-      radial-gradient(circle at 88% 8%, hsl(var(--pf-green-tint) / 0.7), transparent 30rem),
-      radial-gradient(circle at 4% 96%, hsl(204 100% 94% / 0.55), transparent 32rem),
-      hsl(var(--pf-paper));
+    border-top: 1px solid var(--line);
   }
 
 
@@ -417,12 +438,6 @@ All colors MUST be HSL.
     box-shadow:
       0 1px 2px hsl(var(--navy) / 0.05),
       0 18px 36px -20px hsl(var(--navy) / 0.22);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .platform-primary-cta {
-      transition: none;
-    }
   }
 
 }

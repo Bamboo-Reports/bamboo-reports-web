@@ -1,58 +1,64 @@
-import amperaLogo from "@/assets/logos/Ampera.png";
-import cytviaLogo from "@/assets/logos/Cytvia.png";
-import hcltechLogo from "@/assets/logos/HCL_Tech.png";
-import harmanLogo from "@/assets/logos/Harman.png";
-import mindTreeLogo from "@/assets/logos/MindTree.png";
-import mothersonLogo from "@/assets/logos/Motherson.png";
-import moveinsyncLogo from "@/assets/logos/Move_In_Sync.png";
-import nasscomLogo from "@/assets/logos/Nasscom.png";
-import pandoLogo from "@/assets/logos/Pando.png";
-import qyrusLogo from "@/assets/logos/qyrus.png";
-import ramcoLogo from "@/assets/logos/ramco.png";
-import salesforceLogo from "@/assets/logos/salesforce.png";
-import slkLogo from "@/assets/logos/slk.png";
-import thoughtworksLogo from "@/assets/logos/thoughtworks.png";
-import yethiLogo from "@/assets/logos/Ythi.png";
-import zohoLogo from "@/assets/logos/Zoho.png";
-import zycusLogo from "@/assets/logos/Zycus.png";
+import amperaLogo from "@/assets/logos/ampera.webp";
+import cytivaLogo from "@/assets/logos/cytiva.webp";
+import hcltechLogo from "@/assets/logos/hcltech.webp";
+import harmanLogo from "@/assets/logos/harman.webp";
+import mindTreeLogo from "@/assets/logos/mindtree.webp";
+import mothersonLogo from "@/assets/logos/motherson.webp";
+import moveinsyncLogo from "@/assets/logos/moveinsync.webp";
+import nasscomLogo from "@/assets/logos/nasscom.webp";
+import pandoLogo from "@/assets/logos/pando.webp";
+import qyrusLogo from "@/assets/logos/qyrus.webp";
+import ramcoLogo from "@/assets/logos/ramco.webp";
+import salesforceLogo from "@/assets/logos/salesforce.webp";
+import slkLogo from "@/assets/logos/slk.webp";
+import thoughtworksLogo from "@/assets/logos/thoughtworks.webp";
+import yethiLogo from "@/assets/logos/yethi.webp";
+import zohoLogo from "@/assets/logos/zoho.webp";
+import zycusLogo from "@/assets/logos/zycus.webp";
 
 const logos = [
-  { src: amperaLogo, alt: "Ampera" },
-  { src: cytviaLogo, alt: "Cytvia" },
-  { src: hcltechLogo, alt: "HCLTech" },
-  { src: harmanLogo, alt: "Harman" },
-  { src: mindTreeLogo, alt: "MindTree" },
-  { src: mothersonLogo, alt: "Motherson" },
-  { src: moveinsyncLogo, alt: "MoveInSync" },
-  { src: nasscomLogo, alt: "Nasscom" },
-  { src: pandoLogo, alt: "Pando" },
-  { src: qyrusLogo, alt: "Qyrus" },
-  { src: ramcoLogo, alt: "Ramco" },
-  { src: salesforceLogo, alt: "Salesforce" },
-  { src: slkLogo, alt: "SLK" },
-  { src: thoughtworksLogo, alt: "Thoughtworks" },
-  { src: yethiLogo, alt: "Yethi" },
-  { src: zohoLogo, alt: "Zoho" },
-  { src: zycusLogo, alt: "Zycus" },
+  { src: amperaLogo.src, alt: "Ampera" },
+  { src: cytivaLogo.src, alt: "Cytiva" },
+  { src: hcltechLogo.src, alt: "HCLTech" },
+  { src: harmanLogo.src, alt: "Harman" },
+  { src: mindTreeLogo.src, alt: "MindTree" },
+  { src: mothersonLogo.src, alt: "Motherson" },
+  { src: moveinsyncLogo.src, alt: "MoveInSync" },
+  { src: nasscomLogo.src, alt: "Nasscom" },
+  { src: pandoLogo.src, alt: "Pando" },
+  { src: qyrusLogo.src, alt: "Qyrus" },
+  { src: ramcoLogo.src, alt: "Ramco" },
+  { src: salesforceLogo.src, alt: "Salesforce" },
+  { src: slkLogo.src, alt: "SLK" },
+  { src: thoughtworksLogo.src, alt: "Thoughtworks" },
+  { src: yethiLogo.src, alt: "Yethi" },
+  { src: zohoLogo.src, alt: "Zoho" },
+  { src: zycusLogo.src, alt: "Zycus" },
 ];
 
-type Props = { eyebrow?: string };
+type Props = {
+  eyebrow?: string;
+  /** The band the strip sits on. The logo files carry white backgrounds and
+   *  blend (multiply) into the track, which is animated and therefore its own
+   *  layer, so the track takes the band's colour for the blend to read it. */
+  surface?: "default" | "subtle";
+};
 
-const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem" }: Props) => (
+const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem", surface = "default" }: Props) => (
   <div className="trust-logos">
     {eyebrow ? (
-      <div className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8">
+      <div className="mb-8 text-center text-sm font-semibold text-ink-muted">
         {eyebrow}
       </div>
     ) : null}
     <div className="trust-logos-track-wrap">
-      <div className="trust-logos-track">
+      <div className={`trust-logos-track ${surface === "subtle" ? "bg-surface-subtle" : "bg-background"}`}>
         {logos.map((logo) => (
           <div key={logo.alt} className="trust-logos-item">
             <img
               src={logo.src}
               alt={logo.alt}
-              className="h-[4.5rem] object-contain"
+              className="h-[4.5rem] object-contain mix-blend-multiply"
               decoding="async"
             />
           </div>
@@ -63,7 +69,7 @@ const TrustLogos = ({ eyebrow = "Trusted by teams across India's GCC ecosystem" 
               <img
                 src={logo.src}
                 alt=""
-                className="h-[4.5rem] object-contain"
+                className="h-[4.5rem] object-contain mix-blend-multiply"
                 loading="lazy"
                 decoding="async"
               />

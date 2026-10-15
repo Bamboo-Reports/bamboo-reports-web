@@ -1,19 +1,20 @@
 import TrustLogos from "@/components/TrustLogos";
+import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 const ResearchNXT = () => (
-  <section className="border-y bg-secondary/30 px-5 py-12 sm:px-4 md:py-20">
-    <div className="mx-auto max-w-7xl">
-      <h2 className="text-3xl font-bold leading-tight md:text-4xl">
-        Bamboo Reports is built by Research NXT
-      </h2>
-      <p className="mt-4 max-w-6xl text-muted-foreground">
-        A market intelligence firm trusted by 50+ global tech companies.
-      </p>
-      <div className="mt-8 border-y py-6 sm:mt-10 sm:py-8">
-        <TrustLogos eyebrow="" />
+  <Section surface="subtle" bordered>
+    <Container className="flex flex-col gap-12">
+      <SectionHeading
+        title="Bamboo Reports is built by Research NXT"
+        lede="A market intelligence firm trusted by 50+ global tech companies."
+      />
+      <div className="border-y border-line py-8">
+        <TrustLogos eyebrow="" surface="subtle" />
       </div>
-    </div>
-  </section>
+    </Container>
+  </Section>
 );
 
 export default ResearchNXT;

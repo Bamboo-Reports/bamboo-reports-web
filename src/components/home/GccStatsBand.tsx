@@ -1,4 +1,7 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
+import { Container } from "@/components/ui/container";
 
 // Dataset figures as of the Aug 2026 export. Update by hand on refresh.
 const STATS: Array<{ label: string; value: number; displayValue?: string }> = [
@@ -61,11 +64,11 @@ const StatCell = ({
   const hasPlus = formatted.endsWith("+");
   const digits = hasPlus ? formatted.slice(0, -1) : formatted;
   return (
-    <div className="flex flex-col border-l px-2 text-center first:border-l-0 sm:px-6">
-      <dt className="order-2 mt-2.5 text-xs font-medium text-muted-foreground sm:text-sm">
+    <div className="flex flex-col border-l border-line px-2 text-center first:border-l-0 sm:px-6">
+      <dt className="order-2 mt-2.5 text-sm font-semibold text-ink-muted">
         {label}
       </dt>
-      <dd className="order-1 text-3xl font-bold tracking-tight tabular-nums text-navy sm:text-4xl md:text-5xl md:leading-none">
+      <dd className="order-1 font-display tabular-nums text-figure text-ink md:text-figure-lg">
         <span className="relative">
           {digits}
           {hasPlus && (
@@ -108,15 +111,15 @@ const GccStatsBand = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="border-t px-5 py-10 sm:px-4 md:py-16">
-      <div className="mx-auto max-w-7xl">
-        <div className="border-b pb-4">
-          <h2 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-navy">
-            India GCC coverage
-          </h2>
-        </div>
+    <section ref={sectionRef} className="border-t border-line bg-surface-subtle py-12 sm:py-16">
+      <Container>
+        <h2 className="flex items-center gap-3 text-sm font-semibold text-primary">
+          <span aria-hidden="true" className="size-1.5 shrink-0 rounded-[1px] bg-accent" />
+          India GCC coverage
+          <span aria-hidden="true" className="rule-ticks h-px min-w-8 flex-1" />
+        </h2>
 
-        <dl className="grid grid-cols-3 pt-6 sm:pt-10">
+        <dl className="grid grid-cols-3 pt-8 sm:pt-10">
           {STATS.map((stat) => (
             <StatCell
               key={stat.label}
@@ -127,7 +130,7 @@ const GccStatsBand = () => {
             />
           ))}
         </dl>
-      </div>
+      </Container>
     </section>
   );
 };

@@ -1,9 +1,14 @@
+import { RiBriefcase4Line, RiBuilding2Line, RiBuildingLine, RiUserSearchLine } from "@remixicon/react";
 import TrustLogos from "@/components/TrustLogos";
-// SectionIntro is the site-wide section header: amber label, bold (not
-// extrabold) heading, muted body. Imported rather than restyled locally
-// so this page cannot drift from the rest of the site again.
-import { DemoCta, SectionIntro } from "@/components/layout/B2BMarketingPage";
+import { DemoCta } from "@/components/layout/B2BMarketingPage";
+import { OfferMatrix, type MatrixItem } from "@/components/marketing/OfferBlocks";
+import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { HERO_SHOT, PERSONAS, STAGES } from "./content";
+
+// One icon per persona, in PERSONAS order.
+const PERSONA_ICONS = [RiBriefcase4Line, RiBuilding2Line, RiUserSearchLine, RiBuildingLine];
 
 // Every stage shot is framed. The hero shot is the one exception and is
 // left bare, in PlatformHeroShot below.
@@ -40,21 +45,18 @@ export const PlatformHeroShot = ({ overlap = true }: { overlap?: boolean }) => (
  */
 const PlatformBody = () => (
   <>
-    <section className="px-4 pb-12 pt-12 md:pb-16 md:pt-16">
-      <div className="mx-auto max-w-7xl">
-        <p className="mb-10 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+    <Section spacing="tight">
+      <Container>
+        <p className="mb-10 text-center text-sm font-semibold text-ink-muted">
           Used by teams building business across India&apos;s GCC market
         </p>
         <TrustLogos eyebrow="" />
-      </div>
-    </section>
+      </Container>
+    </Section>
 
     {/* ---------- The working sequence ---------- */}
-    <section
-      id="sequence"
-      className="platform-sequence scroll-mt-28 px-4 pb-12 pt-8 md:pb-16 md:pt-12"
-    >
-      <div className="mx-auto max-w-7xl">
+    <Section id="sequence" surface="subtle" bordered className="scroll-mt-28">
+      <Container>
         <div>
           {STAGES.map((stage, index) => {
             // Stages alternate sides. The two columns are different widths,
@@ -67,20 +69,19 @@ const PlatformBody = () => (
             return (
               <div
                 key={stage.id}
-                className={`platform-stage grid gap-9 py-10 first:pt-0 last:pb-0 md:py-14 lg:items-center lg:gap-20 ${
+                className={`platform-stage grid gap-9 py-10 first:border-t-0 first:pt-0 last:pb-0 md:py-14 lg:items-center lg:gap-20 ${
                   mirrored
                     ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]"
                     : "lg:grid-cols-[minmax(0,24rem)_minmax(0,1fr)]"
                 }`}
               >
                 <div className={mirrored ? "lg:order-2" : ""}>
-                  <div className="flex items-center gap-3 text-sm font-semibold">
-                    <span className="platform-stage-verb text-primary">{stage.verb}</span>
-                  </div>
-                  <h3 className="mt-5 text-3xl font-bold leading-[1.08] tracking-tight md:text-4xl">
-                    {stage.headline}
-                  </h3>
-                  <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">{stage.desc}</p>
+                  <p className="flex items-center gap-3 text-sm font-semibold text-primary">
+                    <span aria-hidden="true" className="size-1.5 shrink-0 rounded-[1px] bg-accent" />
+                    {stage.verb}
+                  </p>
+                  <h3 className="mt-5 text-headline font-display-soft text-ink">{stage.headline}</h3>
+                  <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-soft">{stage.desc}</p>
                 </div>
 
                 {/* Height caps give screenshots with different proportions
@@ -108,43 +109,33 @@ const PlatformBody = () => (
             );
           })}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
 
     {/* ---------- Who it's for ---------- */}
-    <section className="platform-personas px-4 pb-20 pt-12 md:pb-28 md:pt-16">
-        <div className="mx-auto max-w-7xl">
-          <SectionIntro
-            label="Who it's for"
-            title={
-              <>
-                <span className="block">The same market.</span>
-                <span className="block text-primary">
-                  Better decisions for every team.
-                </span>
-              </>
-            }
-          >
-            <p>
-              Build pipeline, compare locations, find talent demand or track expansion
-              from the same centre-level data.
-            </p>
-          </SectionIntro>
-
-          <ul className="mt-16 border-y border-border">
-            {PERSONAS.map((persona) => (
-              <li key={persona.name} className="border-b border-border py-8 last:border-b-0">
-                <div className="grid gap-2 sm:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] sm:items-baseline sm:gap-10">
-                  <span className="block text-lg font-bold">{persona.name}</span>
-                  <span className="block max-w-2xl leading-relaxed text-muted-foreground">
-                    {persona.desc}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+    <Section>
+      <Container className="flex flex-col gap-12">
+        <SectionHeading
+          eyebrow="Who it's for"
+          title={
+            <>
+              The same market. <span className="text-primary lg:block">Better decisions for every team.</span>
+            </>
+          }
+          lede="Build pipeline, compare locations, find talent demand or track expansion from the same centre-level data."
+        />
+        <OfferMatrix
+          columns={2}
+          items={PERSONAS.map(
+            (persona, index): MatrixItem => ({
+              icon: PERSONA_ICONS[index] ?? RiBriefcase4Line,
+              title: persona.name,
+              desc: persona.desc,
+            }),
+          )}
+        />
+      </Container>
+    </Section>
 
     <DemoCta title="Know the market. Find the account. Make the move." />
   </>

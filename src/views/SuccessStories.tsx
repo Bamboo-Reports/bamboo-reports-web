@@ -1,0 +1,90 @@
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { DemoCta, MarketingHero } from "@/components/layout/B2BMarketingPage";
+import { ProblemSpread, ProcessRail, ProofLedger, type Proof } from "@/components/marketing/OfferBlocks";
+import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
+import { SectionHeading } from "@/components/ui/section-heading";
+
+const CASE_ONE_RESULTS: Proof[] = [
+  { value: "1,050", label: "Prospect universe: global customers with India GCCs + look-alike accounts" },
+  { value: "70+", label: "BFSI accounts shortlisted for strategic GTM fit" },
+  { value: "44", label: "Drill-down reports: vendor, tech, entry points, decision-makers" },
+  { value: "364", label: "Decision-makers mapped across BFSI shortlist" },
+];
+
+const ENGAGEMENT_ARC = [
+  { title: "Discovery", body: "India GCC overview + peer company profiles in the sector." },
+  { title: "Analysis", body: "Talent benchmarking, RA services landscape, peer comparisons." },
+  { title: "Ongoing", body: "Customised dashboard + capacity planning + ecosystem monitoring." },
+  { title: "Outcome", body: "Intelligence presented to global leadership. A seat at the table." },
+];
+
+const SuccessStories = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+
+      <MarketingHero
+        backgroundImage="/hero-backgrounds/success-stories.webp"
+        eyebrow="Resources"
+        title="Success stories"
+        description="Two long-running engagements that show what centre-level intelligence delivers in practice."
+      />
+
+      <Section>
+        <Container className="flex flex-col gap-12">
+          <ProblemSpread
+            eyebrow="Leading global IT services firm"
+            title="BFSI GCC strategy & intelligence"
+            meta="4 years · Ongoing"
+            body="A global technology and consulting firm needed to expand its India BFSI GCC pipeline. The mandate: map global customers with India GCC presence, add look-alike accounts beyond their book, then go deep on the BFSI strategic shortlist."
+            statement="The programme is still running 4 years on."
+          />
+          <div className="flex flex-col gap-5">
+            <p className="text-sm font-semibold text-primary">What we delivered</p>
+            <ProofLedger items={CASE_ONE_RESULTS} />
+          </div>
+        </Container>
+      </Section>
+
+      <Section surface="subtle" bordered spacing="tight">
+        <Container>
+          <SectionHeading
+            eyebrow="Two sides of the same ecosystem"
+            title={
+              <>
+                One platform. Two audiences.{" "}
+                <span className="text-primary lg:block">
+                  The same centre-level intelligence that wins mandates also builds business cases.
+                </span>
+              </>
+            }
+          />
+        </Container>
+      </Section>
+
+      <Section>
+        <Container className="flex flex-col gap-12">
+          <ProblemSpread
+            eyebrow="Global medical device company GCC"
+            title="GCC benchmarking, talent & expansion"
+            meta="Fortune 500 · Phased · Strategic"
+            body="A Fortune 500 medical device company setting up their India GCC needed structured intelligence on peer GCCs, talent landscapes, and a benchmarking framework to build their board-level business case."
+            statement="Intelligence presented to global leadership. A seat at the table."
+          />
+          <div className="flex flex-col gap-8">
+            <p className="text-sm font-semibold text-primary">The engagement arc</p>
+            <ProcessRail steps={ENGAGEMENT_ARC} surface="default" />
+          </div>
+        </Container>
+      </Section>
+
+      <DemoCta title="Your engagement could be the next story." />
+
+      <Footer showCta={false} />
+    </div>
+  );
+};
+
+export default SuccessStories;
