@@ -37,7 +37,7 @@ const PAGE_META = {
   },
   "/gcc-prospect-data": {
     title: "GCC Prospect Data | Verified India GCC Decision-Makers | Bamboo Reports",
-    description: "Verified decision-makers at 6,100+ India GCC centres, each mapped to the centre they work in.",
+    description: "Verified decision-makers at India's Global Capability Centres, across engineering, product, data, finance, HR, IT and more. Refreshed weekly.",
   },
   "/platform": {
     title: "India GCC Intelligence Platform | Bamboo Reports",

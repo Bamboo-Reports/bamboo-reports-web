@@ -1,13 +1,10 @@
 import {
-  RiBuilding2Line,
   RiBuildingLine,
   RiCalendarEventLine,
   RiCloudLine,
   RiPresentationLine,
   RiUserSearchLine,
-  RiMapPin2Line,
   RiPriceTag3Line,
-  RiShapesLine,
   RiStackLine,
   RiUserStarLine,
 } from "@remixicon/react";
@@ -30,10 +27,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 const COVERAGE: Feature[] = [
   { icon: RiUserStarLine, title: "Decision makers", desc: "Named C-suite, VPs, directors and function heads at GCCs across India." },
-  { icon: RiBuilding2Line, title: "Centre-level mapping", desc: "Contacts tied to 6,100+ individual centres, not just parent companies." },
   { icon: RiStackLine, title: "Function coverage", desc: "Engineering, Product, Data, Finance, HR, Legal, Operations, IT, and more." },
-  { icon: RiMapPin2Line, title: "Location data", desc: "Every centre geocoded across India's GCC cities and clusters." },
-  { icon: RiShapesLine, title: "Service-mix context", desc: "5–12 structured service classifications per centre: what each GCC actually does." },
   { icon: RiPriceTag3Line, title: "Sector & tech tagging", desc: "BFSI, Tech, Pharma, Retail, Manufacturing, with tech-stack signals layered in." },
 ];
 
@@ -88,7 +82,7 @@ const GCCProspectData = () => {
         backgroundImage="/hero-backgrounds/gcc-prospect-data.webp"
         eyebrow="What we offer"
         title="GCC Prospect Data"
-        description="Verified decision-makers across 6,100+ India GCC centres, kept up to date for outreach."
+        description="Verified decision-makers at India's Global Capability Centres, kept up to date for outreach."
       />
 
       <Section>
