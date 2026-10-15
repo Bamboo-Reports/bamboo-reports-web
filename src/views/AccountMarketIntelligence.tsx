@@ -15,6 +15,7 @@ import {
   RiQuestionLine,
   RiUserSettingsLine,
 } from "@remixicon/react";
+import StructuredData from "@/components/StructuredData";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { DemoCta, MarketingHero } from "@/components/layout/B2BMarketingPage";
@@ -83,6 +84,10 @@ const DIFFERENCES = [
 const AccountMarketIntelligence = () => {
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData
+        type="service"
+        data={{ path: "/account-market-intelligence", name: "Account & Market Intelligence", serviceType: "India GCC market research and reports" }}
+      />
       <Header />
 
       <MarketingHero

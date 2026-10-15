@@ -118,6 +118,9 @@ export const buildMetadata = (meta: PageMeta, path?: string): Metadata => {
 
 export const pageMetadata = (path: SitePath): Metadata => buildMetadata(PAGE_META[path], path);
 
+/** Title and description for a page, e.g. to reuse in structured data. */
+export const pageMeta = (path: SitePath): PageMeta => PAGE_META[path];
+
 /** Indexable paths, in PAGE_META order. Feeds the sitemap. */
 export const indexablePaths = (): SitePath[] =>
   (Object.keys(PAGE_META) as SitePath[]).filter((path) => {

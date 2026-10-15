@@ -11,6 +11,7 @@ import {
   RiStackLine,
   RiUserStarLine,
 } from "@remixicon/react";
+import StructuredData from "@/components/StructuredData";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { DemoCta, MarketingHero } from "@/components/layout/B2BMarketingPage";
@@ -53,6 +54,10 @@ const RESEARCH = [
 const GCCProspectData = () => {
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData
+        type="service"
+        data={{ path: "/gcc-prospect-data", name: "GCC Prospect Data", serviceType: "Decision-maker data for India GCCs" }}
+      />
       <Header />
 
       <MarketingHero

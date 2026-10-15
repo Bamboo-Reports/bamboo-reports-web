@@ -1,3 +1,5 @@
+import { SITE_URL, pageMeta, type SitePath } from "@/lib/seo";
+
 // Type definitions for structured data schemas
 interface FAQQuestion {
   question: string;
@@ -18,6 +20,26 @@ interface BreadcrumbData {
   items: BreadcrumbItem[];
 }
 
+interface ServiceData {
+  /** Page the service is described on; supplies the URL and description. */
+  path: SitePath;
+  name: string;
+  serviceType: string;
+}
+
+interface AboutPageData {
+  path: SitePath;
+}
+
+// Inlined rather than referenced by @id alone: the full Organization node
+// only exists on the home page, and crawlers resolve @id per page.
+const PROVIDER = {
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  "name": "Bamboo Reports",
+  "url": `${SITE_URL}/`,
+};
+
 interface ProductRating {
   value: number;
   count: number;
@@ -37,7 +59,9 @@ type StructuredDataType =
   | { type: "website"; data?: never }
   | { type: "product"; data?: ProductData }
   | { type: "faq"; data?: FAQData }
-  | { type: "breadcrumb"; data: BreadcrumbData };
+  | { type: "breadcrumb"; data: BreadcrumbData }
+  | { type: "service"; data: ServiceData }
+  | { type: "aboutPage"; data: AboutPageData };
 
 type StructuredDataProps = StructuredDataType;
 
@@ -127,7 +151,7 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
             "India GCC Market Intelligence",
             "GTM Research Tools",
             "GCC Contact Database",
-            "Real-time GCC Insights"
+            "Weekly data refresh"
           ]
         };
 
@@ -155,6 +179,31 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
             "name": item.name,
             "item": item.url
           }))
+        };
+
+      case "service":
+        return {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": data.name,
+          "serviceType": data.serviceType,
+          "description": pageMeta(data.path).description,
+          "url": `${SITE_URL}${data.path}`,
+          "provider": PROVIDER,
+          "areaServed": {
+            "@type": "Country",
+            "name": "India"
+          }
+        };
+
+      case "aboutPage":
+        return {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": pageMeta(data.path).title,
+          "description": pageMeta(data.path).description,
+          "url": `${SITE_URL}${data.path}`,
+          "mainEntity": PROVIDER
         };
 
       default:

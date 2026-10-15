@@ -18,6 +18,7 @@ import {
 } from "@remixicon/react";
 import CentreCount from "@/components/about/CentreCount";
 import RoundtableStrip from "@/components/about/RoundtableStrip";
+import StructuredData from "@/components/StructuredData";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
@@ -142,6 +143,7 @@ const STAGE_ICONS: Record<string, RemixiconComponentType> = {
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData type="aboutPage" data={{ path: "/about" }} />
       <Header />
 
       <PageHero

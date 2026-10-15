@@ -3,12 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/ui/container";
 
-// Dataset figures as of the Aug 2026 export. Update by hand on refresh.
+// Dataset figures as of the Aug 2026 export. Update these and DATA_AS_OF
+// together by hand on refresh.
 const STATS: Array<{ label: string; value: number; displayValue?: string }> = [
   { label: "Companies", value: 2437 },
   { label: "Centres", value: 5962, displayValue: "6.0K+" },
   { label: "Headcount", value: 3949355 },
 ];
+
+// Shown under the figures so readers and answer engines know how current they are.
+const DATA_AS_OF = { iso: "2026-08", label: "August 2026" };
 
 const COUNT_DURATION_MS = 1400;
 
@@ -126,6 +130,9 @@ const GccStatsBand = () => {
             />
           ))}
         </dl>
+        <p className="mt-8 text-center text-sm text-ink-muted">
+          Figures as of <time dateTime={DATA_AS_OF.iso}>{DATA_AS_OF.label}</time>.
+        </p>
       </Container>
     </section>
   );

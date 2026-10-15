@@ -10,6 +10,7 @@ import {
   RiMapPinRangeLine,
   RiRocket2Line,
 } from "@remixicon/react";
+import StructuredData from "@/components/StructuredData";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { DemoCta, MarketingHero } from "@/components/layout/B2BMarketingPage";
@@ -68,6 +69,10 @@ const REASONS = [
 const GCCABM = () => {
   return (
     <div className="min-h-screen bg-background">
+      <StructuredData
+        type="service"
+        data={{ path: "/gcc-abm", name: "GCC ABM", serviceType: "Account-based marketing campaigns for India GCCs" }}
+      />
       <Header />
 
       <MarketingHero
