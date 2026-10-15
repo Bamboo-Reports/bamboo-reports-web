@@ -16,6 +16,7 @@ import {
   RiUserSettingsLine,
 } from "@remixicon/react";
 import StructuredData from "@/components/StructuredData";
+import QuestionList, { type QuestionItem } from "@/components/marketing/QuestionList";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { DemoCta, MarketingHero } from "@/components/layout/B2BMarketingPage";
@@ -79,6 +80,34 @@ const DIFFERENCES = [
   { name: "Sliceable by city, sector, function, size, tech stack, and centre status." },
   { name: "Refreshed weekly with AI assistance,\nnot published once a year." },
   { name: "Exclusive coverage: service-mix, function-mix, and software vendor market share at centre level." },
+];
+
+const QUESTIONS: QuestionItem[] = [
+  {
+    question: "What is Account & Market Intelligence?",
+    answer:
+      "Centre-level data and reports on India's GCCs that you can filter by city, sector, function or company, with three years of history. It covers 2,400+ accounts and 6,100+ centres.",
+  },
+  {
+    question: "What reports are included?",
+    answer:
+      "City GCC intelligence reports, sector snapshot reports (BFSI, technology, pharma, retail and manufacturing), function-mix intelligence, software vendor market share reports, and custom research briefs built to your brief.",
+  },
+  {
+    question: "How is it different from other GCC market reports?",
+    answer:
+      "Most GCC market reports are based on surveys, months out of date and can't be filtered. Bamboo Reports data is built up from individual centres, refreshed weekly with AI assistance, and can be filtered by city, sector, function, size, tech stack and centre status.",
+  },
+  {
+    question: "Can I filter the data myself?",
+    answer:
+      "Yes. The platform has interactive dashboards, a map of centres by location, cluster and state, saved filters you can share with your team, and your own workspace for your target accounts. For example, filtering to pharma in Hyderabad returns 41 accounts and 57 centres in seconds.",
+  },
+  {
+    question: "Who uses it?",
+    answer:
+      "Enterprise sales teams, product and strategy leaders, private equity and investors, consulting firms, and GCC leaders.",
+  },
 ];
 
 const AccountMarketIntelligence = () => {
@@ -192,6 +221,8 @@ const AccountMarketIntelligence = () => {
           </Block>
         </Container>
       </Section>
+
+      <QuestionList title="Questions about Account & Market Intelligence" items={QUESTIONS} />
 
       <DemoCta title="See your market in the platform." />
       <Footer showCta={false} />
