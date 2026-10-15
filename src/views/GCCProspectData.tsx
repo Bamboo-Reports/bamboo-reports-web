@@ -33,19 +33,9 @@ const GCCProspectData = () => {
       <Header />
 
       <MarketingHero
-        title={
-          <>
-            <span className="block">Every GCC in India.</span>
-            <span className="block text-primary">Every decision-maker who matters.</span>
-          </>
-        }
-        description={
-          <p>
-            Bamboo Reports gives you the most complete, structured contact intelligence on India's
-            Global Capability Centre ecosystem: verified decision makers across 6,000+
-            centres, continuously refreshed and ready to power your outreach.
-          </p>
-        }
+        eyebrow="What we offer"
+        title="GCC Prospect Data"
+        description="Verified decision-makers across 6,000+ India GCC centres, continuously refreshed and ready for outreach."
       />
 
       <FadeIn>

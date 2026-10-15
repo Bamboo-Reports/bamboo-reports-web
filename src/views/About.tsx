@@ -4,10 +4,11 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import PageHero from "@/components/layout/PageHero";
 import FadeIn from "@/components/FadeIn";
 import { DemoCta } from "@/components/layout/B2BMarketingPage";
 import { HERO_DESCRIPTION, HERO_SHOT, STAGES } from "@/components/platform/content";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 /* ------------------------------------------------------------------ */
@@ -202,41 +203,10 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* ---------- Hero: headline left, argument right ---------- */}
-      <section className="px-5 pb-14 pt-14 sm:px-4 md:pb-20 md:pt-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-20">
-            <h1
-              className="hero-rise text-balance text-4xl font-bold leading-[1.05] tracking-[-0.02em] sm:text-5xl md:text-6xl"
-              style={{ animationDelay: "20ms" }}
-            >
-              The GCC dataset that had to be built, not bought.
-            </h1>
-
-            <div>
-              <p
-                className="hero-rise text-pretty leading-relaxed text-muted-foreground md:text-lg"
-                style={{ animationDelay: "100ms" }}
-              >
-                Published research counts GCCs at parent company level. In 2022 we started
-                answering a different question: what each individual centre does, who runs it,
-                and what it runs on. That answer now covers 6,000+ centres across India.
-              </p>
-              <a
-                href="#origin"
-                className="hero-rise group mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors duration-micro ease-smooth hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                style={{ animationDelay: "180ms" }}
-              >
-                How the data is built
-                <ArrowDown
-                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1"
-                  aria-hidden
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="About us"
+        lede="The India GCC dataset that had to be built, not bought."
+      />
 
       {/* ---------- The numbers ---------- */}
       <section className="border-y px-5 py-14 sm:px-4 md:py-20">

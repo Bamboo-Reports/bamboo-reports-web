@@ -23,9 +23,9 @@ const SuccessStories = () => {
       <Header />
 
       <MarketingHero
-        showAction={false}
-        title={<><span className="block">Intelligence at work.</span><span className="block text-primary">Outcomes, not headlines.</span></>}
-        description={<p>Two long-running engagements that show what structured, centre-level intelligence delivers in practice. One for a solution provider selling into GCCs. One for a GCC building its own future.</p>}
+        eyebrow="Resources"
+        title="Success stories"
+        description="Two long-running engagements that show what centre-level intelligence delivers in practice."
       />
 
       <FadeIn>

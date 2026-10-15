@@ -32,8 +32,9 @@ const AccountMarketIntelligence = () => {
       <Header />
 
       <MarketingHero
-        title={<><span className="block">Know the GCC market</span><span className="block text-primary">before your competitor does.</span></>}
-        description={<p>Up-to-date coverage you can filter by city, sector, function, or company, with three years of historical movement and tech adoption trends at the GCC level. Not a survey report or a parent-level picture: structured, centre-level intelligence.</p>}
+        eyebrow="What we offer"
+        title="Account & Market Intelligence"
+        description="Centre-level GCC intelligence you can filter by city, sector, function or company, with three years of history."
       />
 
       <FadeIn>

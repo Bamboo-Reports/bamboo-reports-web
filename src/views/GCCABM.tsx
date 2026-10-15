@@ -30,8 +30,9 @@ const GCCABM = () => {
       <Header />
 
       <MarketingHero
-        title={<><span className="block">Account-based marketing</span><span className="block">for the India GCC market.</span><span className="block text-primary">Built on the best data in the business.</span></>}
-        description={<p>From prospect data and account planning to campaign execution and performance reporting, we run focused GCC outreach programmes end to end. We handle the signals, scoring, segmentation, and insights, so your team can run personalised GCC campaigns without drowning in operational work.</p>}
+        eyebrow="What we offer"
+        title="GCC ABM"
+        description="Account-based campaigns for the India GCC market, run end to end on the best data in the business."
       />
 
       <FadeIn>

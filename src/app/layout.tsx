@@ -9,6 +9,8 @@ import "@/index.css";
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: "variable",
+  // The optical-size axis drives the display voice (.font-display).
+  axes: ["opsz"],
   display: "swap",
   variable: "--font-dm-sans",
 });

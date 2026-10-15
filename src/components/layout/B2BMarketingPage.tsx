@@ -1,46 +1,21 @@
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { CalSchedulingButton } from "@/components/CalSchedulingButton";
+import PageHero from "@/components/layout/PageHero";
 import { Button } from "@/components/ui/button";
 
 export const MarketingHero = ({
+  eyebrow,
   title,
   description,
-  showAction = true,
+  backgroundImage,
 }: {
+  eyebrow?: string;
   title: ReactNode;
   description?: ReactNode;
-  showAction?: boolean;
-}) => (
-  <section
-    className={`border-b px-5 sm:px-4 ${
-      description || showAction
-        ? "pb-12 pt-10 md:pb-20 md:pt-16"
-        : "py-10 md:py-14"
-    }`}
-  >
-    <div className="mx-auto max-w-7xl">
-      <h1 className="max-w-6xl break-words text-3xl font-bold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
-        {title}
-      </h1>
-      {description && (
-        <div className="mt-6 max-w-6xl text-base leading-relaxed text-muted-foreground md:text-lg">
-          {description}
-        </div>
-      )}
-      {showAction && (
-        <div className="mt-8">
-          <Button asChild size="lg" className="w-full px-7 text-base font-semibold sm:w-auto">
-            <CalSchedulingButton>
-              Get a demo
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </CalSchedulingButton>
-          </Button>
-        </div>
-      )}
-    </div>
-  </section>
-);
+  /** Path under public/ for hero artwork, e.g. "/hero-backgrounds/gcc-abm.png". */
+  backgroundImage?: string;
+}) => <PageHero eyebrow={eyebrow} title={title} lede={description} backgroundImage={backgroundImage} />;
 
 export const SectionIntro = ({
   label,

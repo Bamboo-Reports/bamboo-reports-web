@@ -1,121 +1,124 @@
 "use client";
 
 import logo from "@/assets/bamboo-logo.svg";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
-import { useInquiryForm } from "@/contexts/InquiryFormContext";
+import NavLink from "@/components/layout/NavLink";
 import { CalSchedulingButton } from "@/components/CalSchedulingButton";
+import { Button, TrailingArrow } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { LINKEDIN_URL, SITE_EMAIL, footerNav, legalNav } from "@/config/nav";
+import { useInquiryForm } from "@/contexts/InquiryFormContext";
+import { Linkedin, Mail } from "lucide-react";
 
-const exploreLinks = [
-  { label: "Platform", to: "/platform" },
-  { label: "About us", to: "/about" },
-  { label: "Success stories", to: "/success-stories" },
-  { label: "Resources", to: "/resources" },
-];
-
-// Mirrors the header's "What we offer" dropdown, A to Z.
-const offerLinks = [
-  { label: "Account and Market Intelligence", to: "/account-market-intelligence" },
-  { label: "GCC ABM", to: "/gcc-abm" },
-  { label: "GCC Prospect Data", to: "/gcc-prospect-data" },
-];
-
+/** Site footer, laid out to match researchnxt.com. */
 const Footer = ({ showCta = true }: { showCta?: boolean }) => {
   const { openInquiryForm } = useInquiryForm();
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="relative border-t bg-background">
-
-      <div className="relative z-10 mx-auto max-w-7xl space-y-10 px-5 py-10 sm:px-4 md:space-y-12 md:py-12 lg:py-16">
-        {showCta && <div className="border-y py-7 md:py-10">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-7">
-            <div className="space-y-4">
-              <p className="text-sm font-semibold text-primary">
-                Always-on GCC intelligence
-              </p>
-              <div className="space-y-2">
-                <h2 className="text-xl md:text-2xl font-semibold text-foreground">
-                  Ready to unlock GCC intelligence for your team?
-                </h2>
-                <p className="text-sm md:text-base text-muted-foreground max-w-2xl">
-                  See how Bamboo Reports keeps you ahead with verified GCC data, benchmarks, and weekly insight drops tailored to strategy, location, and talent teams.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto md:flex-col">
-              <CalSchedulingButton
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors duration-micro ease-smooth hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-              >
-                Get a demo
-                <ArrowUpRight className="h-4 w-4" aria-hidden />
-              </CalSchedulingButton>
-              <button
-                onClick={openInquiryForm}
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors duration-micro ease-smooth hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-              >
-                Pricing
-              </button>
-            </div>
-          </div>
-        </div>}
-
-        {/* Main Footer */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 md:gap-10">
-          <div className="col-span-2 space-y-4 md:col-span-2">
-            <img
-              src={logo.src}
-              alt="Bamboo Reports: GCC Intelligence Provider"
-              className="h-12 w-auto"
+    <footer className="mt-auto border-t border-line bg-surface-subtle">
+      <Container>
+        {showCta ? (
+          <div className="flex flex-col gap-8 border-b border-line py-14 md:flex-row md:items-end md:justify-between">
+            <SectionHeading
+              eyebrow="Always-on GCC intelligence"
+              title="Ready to unlock GCC intelligence for your team?"
+              lede="See how Bamboo Reports keeps you ahead with verified GCC data, benchmarks, and weekly insight drops tailored to strategy, location, and talent teams."
+              size="title"
+              className="max-w-2xl"
             />
-            <p className="max-w-xl text-sm text-muted-foreground">
-              The leading GCC intelligence platform for Global Capability Centres research, market intelligence, and executive-ready insights.
+            <div className="flex flex-none flex-col gap-3 sm:flex-row">
+              <Button asChild className="group">
+                <CalSchedulingButton>
+                  Get a demo
+                  <TrailingArrow />
+                </CalSchedulingButton>
+              </Button>
+              <Button variant="outline" onClick={openInquiryForm}>
+                Pricing
+              </Button>
+            </div>
+          </div>
+        ) : null}
+
+        <div className="grid gap-14 py-16 lg:grid-cols-[1.1fr_2fr] lg:gap-20">
+          {/* Identity and contact */}
+          <div className="flex flex-col gap-6">
+            <img src={logo.src} alt="Bamboo Reports: GCC Intelligence Provider" className="h-10 w-auto self-start" />
+            <p className="max-w-xs text-sm leading-relaxed text-ink-soft">
+              The leading GCC intelligence platform for Global Capability Centres research, market
+              intelligence, and executive-ready insights.
             </p>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="text-sm font-semibold text-foreground">What we offer</h2>
-            <ul className="text-sm text-muted-foreground">
-              {offerLinks.map((link) => (
-                <li key={link.to}>
-                  <Link href={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+            <a
+              href={`mailto:${SITE_EMAIL}`}
+              className="self-start text-sm font-semibold text-primary transition-colors duration-200 hover:text-primary-hover"
+            >
+              {SITE_EMAIL}
+            </a>
+            <ul className="flex items-center gap-x-5">
+              <li>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn (opens in a new tab)"
+                  className="-m-2.5 block p-2.5 text-ink-soft transition-colors duration-200 hover:text-ink"
+                >
+                  <Linkedin className="size-5" aria-hidden />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${SITE_EMAIL}`}
+                  aria-label={`Email ${SITE_EMAIL}`}
+                  className="-m-2.5 block p-2.5 text-ink-soft transition-colors duration-200 hover:text-ink"
+                >
+                  <Mail className="size-5" aria-hidden />
+                </a>
+              </li>
             </ul>
           </div>
 
-          <div className="space-y-4">
-            <h2 className="text-sm font-semibold text-foreground">Explore</h2>
-            <ul className="text-sm text-muted-foreground">
-              {exploreLinks.map((link) => (
-                <li key={link.to}>
-                  <Link href={link.to} className="inline-flex min-h-11 items-center transition-colors duration-micro ease-smooth hover:text-primary">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+          {/* Link columns */}
+          <nav aria-label="Footer" className="grid gap-10 sm:grid-cols-3">
+            {footerNav.map((group) => (
+              <div key={group.label} className="flex flex-col gap-5">
+                {/* Not a heading: extra h2s after the main content would
+                    pollute the outline of every page. */}
+                <p className="flex items-center gap-2.5 text-sm font-semibold text-ink">
+                  <span aria-hidden="true" className="size-1.5 shrink-0 rounded-[1px] bg-accent" />
+                  {group.label}
+                </p>
+                <ul className="flex flex-col gap-3">
+                  {group.items.map((item) => (
+                    <li key={item.label}>
+                      <NavLink
+                        item={item}
+                        className="text-sm text-ink-soft transition-colors duration-200 hover:text-primary"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col gap-4 border-t pt-6 md:flex-row md:items-center md:justify-between">
-          <div className="text-sm text-muted-foreground">
-            &copy; {currentYear} Bamboo Reports - A Research NXT Product. All rights reserved.
-          </div>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <Link href="/privacy-policy" className="transition-colors duration-micro ease-smooth hover:text-primary">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-conditions" className="transition-colors duration-micro ease-smooth hover:text-primary">
-              Terms & Conditions
-            </Link>
-          </div>
+        <div className="flex flex-col gap-4 border-t border-line py-6 text-sm text-ink-muted sm:flex-row sm:items-center sm:justify-between">
+          {/* The year is baked in at build time; the browser may disagree
+              after New Year until the next deploy. */}
+          <p suppressHydrationWarning>
+            © {year} Bamboo Reports, a Research NXT product. All rights reserved.
+          </p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {legalNav.map((item) => (
+              <li key={item.label}>
+                <NavLink item={item} className="transition-colors duration-200 hover:text-ink" />
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 };
