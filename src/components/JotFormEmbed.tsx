@@ -228,7 +228,6 @@ const JotFormFrame = ({
         ref={iframeRef}
         id={iframeId}
         title={title}
-        allowTransparency={true}
         allow="geolocation; microphone; camera; fullscreen; payment"
         src={embedSrc}
         frameBorder="0"
