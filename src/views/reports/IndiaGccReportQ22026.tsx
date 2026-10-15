@@ -55,75 +55,29 @@ const FAQS = [
   },
 ];
 
-// Key findings as plain question-and-answer text, so search and answer
-// engines can quote the report without the PDF. Every figure is taken from
-// the Q2 2026 report; the full report stays behind the download form.
+// A short, quotable teaser of the report's headline numbers for search and
+// answer engines. Deliberately top-line only: the breakdowns (cities,
+// industries, named companies, BFSI, pipeline) stay in the PDF so readers
+// still have a reason to download it.
 const REPORT_AUTHOR = { name: "Santosh Abraham", jobTitle: "Founder", role: "Founder, Bamboo Reports" };
 const PUBLISHED = { iso: "2026-08", label: "August 2026" };
 
-const CITY_SHARE = [
-  { city: "Bengaluru", centres: 29, share: "26%" },
-  { city: "Hyderabad", centres: 28, share: "25%" },
-  { city: "Pune", centres: 15, share: "14%" },
-  { city: "Chennai", centres: 6, share: "5%" },
-  { city: "Delhi NCR", centres: 5, share: "5%" },
-  { city: "Mumbai", centres: 4, share: "4%" },
-  { city: "19 tier-2 and tier-3 cities", centres: 23, share: "21%" },
-];
-
-const KEY_FINDINGS: { question: string; answer: string[]; cities?: boolean }[] = [
+const KEY_FINDINGS = [
   {
     question: "How many GCCs opened in India in Q2 2026?",
-    answer: [
-      "Between April and June 2026, 99 companies opened or expanded 110 GCC centres across 27 Indian cities. 84 of those centres are already operating and 26 have been announced. 40 companies entered India for the first time; the other 59 expanded an existing presence.",
-      "That is up from 77 centres and 74 companies in Q1 2026 (January to March), and from 47 centres in Q2 2025.",
-    ],
+    answer: "Between April and June 2026, 99 companies opened or expanded 110 GCC centres across 27 Indian cities. 40 of them entered India for the first time.",
   },
   {
-    question: "Which Indian cities attracted the most GCCs?",
-    answer: [
-      "Bengaluru and Hyderabad took half of all centre activity. Hyderabad closed the gap with Bengaluru from five centres to one in a single quarter, and has the larger announced pipeline: 7 centres against Bengaluru's 4. Within the cities, Outer Ring Road was the busiest corridor in Bengaluru (9 of 29 centres) and HITEC City led in Hyderabad.",
-    ],
-    cities: true,
+    question: "Which cities led India's GCC growth?",
+    answer: "Bengaluru and Hyderabad took half of all centre activity, and Hyderabad closed the gap with Bengaluru to a single centre.",
   },
   {
-    question: "Which industries are setting up GCCs in India?",
-    answer: [
-      "Software and SaaS led with 17 of the 99 companies. Retail and consumer goods and BFSI followed with 10 each. Retail and consumer goods was the fastest-growing industry, up from 2 companies in Q1 2026 to 10.",
-      "GCC/GIC centres were 35% of all centres opened. Together with R&D centres and centres of excellence, capability-focused centres made up more than half.",
-    ],
+    question: "How many jobs did India GCCs announce?",
+    answer: "More than 75,000 roles, 95% of them at mid or senior level.",
   },
   {
-    question: "How many jobs did India GCCs announce in Q2 2026?",
-    answer: [
-      "Companies announced more than 75,000 roles: about 52,000 in centres already hiring and 23,000 in announced centres. This is a floor, because it only counts centres that disclose a number.",
-      "Hiring is concentrated: 32% of roles are in Bengaluru, 25% in Hyderabad, and the 12 largest centres hold 74% of all announced roles. 95% of roles are mid or senior level. Software engineering is the largest function at 17% of roles, followed by AI and machine learning at 10%.",
-    ],
-  },
-  {
-    question: "How many new GCCs in India are focused on AI?",
-    answer: [
-      "23% of the centres opened in Q2 2026 had AI or machine learning as part of their core mandate. 10% of all announced roles are AI roles, rising to 23% in software centres, and 80% of AI roles are in centres that are already operating.",
-    ],
-  },
-  {
-    question: "Where are the companies opening India GCCs based?",
-    answer: [
-      "51% are headquartered in North America (46% in the United States), 35% in Europe (led by the UK at 10%) and 13% in Asia-Pacific (led by Japan at 8%). 30% have annual revenue below $1 billion, a sign that mid-market companies, many of them software firms, are now entering too.",
-    ],
-  },
-  {
-    question: "What changed in BFSI GCCs?",
-    answer: [
-      "BFSI shifted from banking to insurance. Six of the 10 BFSI companies active in the quarter are insurers, three of them entering India for the first time, and all 10 set up as full captive centres. Half of the BFSI centres are in Hyderabad, and 80% focus on IT.",
-    ],
-  },
-  {
-    question: "Which companies opened or expanded GCCs in India in Q2 2026?",
-    answer: [
-      "First India entries included Zimmer Biomet in Bengaluru and Southwest Airlines in Hyderabad, the airline's first Global Innovation Centre outside the US. S&P Global added a 3,500-seat facility in Gurugram, and Merck KGaA brought several India operations together into a larger Bengaluru hub.",
-      "Announced centres include Canadian Imperial Bank of Commerce in Hyderabad (more than 2,000 roles; live since July 2026), Regeneron Pharmaceuticals in Hyderabad, Uber's twin campuses in Bengaluru and Hyderabad (9,600 planned roles) and Microsoft's Gachibowli campus in Hyderabad (7,300 planned roles).",
-    ],
+    question: "How many new GCCs are focused on AI?",
+    answer: "23% of new centres opened with an AI or machine-learning mandate.",
   },
 ];
 
@@ -355,45 +309,27 @@ const IndiaGccReportQ22026 = () => {
             Published <time dateTime={PUBLISHED.iso}>{PUBLISHED.label}</time>.
           </p>
 
-          <div className="mt-8 grid gap-x-16 gap-y-10 lg:grid-cols-2">
+          <dl className="mt-8 grid gap-x-16 gap-y-8 lg:grid-cols-2">
             {KEY_FINDINGS.map((finding) => (
               <div key={finding.question} className="border-t-2 border-primary pt-5">
-                <h3 className="text-lg font-semibold leading-snug text-navy">{finding.question}</h3>
-                {finding.answer.map((paragraph) => (
-                  <p key={paragraph} className="mt-3 max-w-[70ch] text-base leading-relaxed text-muted-foreground">
-                    {paragraph}
-                  </p>
-                ))}
-                {finding.cities ? (
-                  <table className="mt-4 w-full max-w-md text-left text-sm">
-                    <caption className="sr-only">GCC centres opened in Q2 2026 by city</caption>
-                    <thead>
-                      <tr className="border-b border-primary/20 text-muted-foreground">
-                        <th scope="col" className="py-2 font-semibold">City</th>
-                        <th scope="col" className="py-2 text-right font-semibold">Centres</th>
-                        <th scope="col" className="py-2 text-right font-semibold">Share</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {CITY_SHARE.map((row) => (
-                        <tr key={row.city} className="border-b border-primary/10">
-                          <th scope="row" className="py-2 font-normal text-foreground">{row.city}</th>
-                          <td className="py-2 text-right tabular-nums">{row.centres}</td>
-                          <td className="py-2 text-right tabular-nums">{row.share}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                ) : null}
+                <dt>
+                  <h3 className="text-lg font-semibold leading-snug text-navy">{finding.question}</h3>
+                </dt>
+                <dd className="mt-2 max-w-[70ch] text-base leading-relaxed text-muted-foreground">
+                  {finding.answer}
+                </dd>
               </div>
             ))}
-          </div>
+          </dl>
 
-          <p className="mt-10 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">
-            Figures are counts of individual centres, not parent companies. Hiring figures are a
-            floor, based on centres that disclose a number. Source: Bamboo Reports | Research NXT
-            GCC Intelligence Platform. The full report adds micro-cluster maps, the pipeline with
-            expected go-live windows and two scored predictions for Q3 2026.
+          <p className="mt-10 max-w-[70ch] text-base leading-relaxed text-muted-foreground">
+            The full report breaks these numbers down by city, industry and function, names the
+            companies behind the quarter&apos;s biggest moves, and makes two predictions for Q3
+            2026.{" "}
+            <a href="#download-report" className="font-semibold text-primary hover:underline">
+              Download the full report
+            </a>
+            .
           </p>
         </div>
       </section>
