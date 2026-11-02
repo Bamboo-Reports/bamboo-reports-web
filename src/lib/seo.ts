@@ -58,6 +58,13 @@ const PAGE_META = {
     image: `${SITE_URL}/gcc/india-gcc-report-share-card-q2-2026.png`,
     type: "article",
   },
+  "/reports/india-gcc-report-q3-2026": {
+    title: "India GCC Quarterly Report, Q3 2026 | Bamboo Reports",
+    ogTitle: "India GCC Quarterly Report, Q3 2026 (July to September)",
+    description: "The Q3 2026 India GCC Quarterly Report: 164 centres across 143 companies and 38 cities, 51 first-time entrants, 80K+ announced roles and an industrial surge.",
+    image: `${SITE_URL}/gcc/india-gcc-report-share-card-q3-2026.png`,
+    type: "article",
+  },
   "/map-your-gcc-opportunity": {
     title: "Map your India GCC opportunity | Bamboo Reports",
     description: "Map your India GCC opportunity with Bamboo Reports.",

@@ -8,7 +8,7 @@ const LatestReportSection = () => (
   <Section spacing="tight" bordered>
     <Container className="flex flex-wrap items-end justify-between gap-x-14 gap-y-8">
       <SectionHeading
-        eyebrow="Q2 2026"
+        eyebrow="Q3 2026"
         title={
           <>
             The GCC market moved. <span className="text-primary">See where.</span>
@@ -19,7 +19,7 @@ const LatestReportSection = () => (
       />
 
       <Button asChild size="lg" className="group w-full sm:w-auto">
-        <Link href="/reports/india-gcc-report-q2-2026?src=home-q2report">
+        <Link href="/reports/india-gcc-report-q3-2026?src=home-q3report">
           Download the report
           <TrailingArrow />
         </Link>
