@@ -1,0 +1,411 @@
+import { RiDownloadLine } from "@remixicon/react";
+import logo from "@/assets/bamboo-logo.svg";
+import JotFormEmbed from "@/components/JotFormEmbed";
+import { Button } from "@/components/ui/button";
+import StructuredData from "@/components/StructuredData";
+import q3ReportCover from "@/assets/india-gcc-report-q3-2026-cover.webp";
+
+const DOWNLOAD_FORM_ID = "263050417985461";
+
+const NUMBERS = [
+  { value: "143", label: "companies\ntracked", highlight: false },
+  { value: "164", label: "centres", highlight: false },
+  { value: "51", label: "first-time\nentrants", highlight: true },
+  { value: "92", label: "expanding companies", highlight: false },
+  { value: "39", label: "announced", highlight: true },
+];
+
+const FINDINGS = [
+  {
+    lead: "Global responsibilities:",
+    rest: "companies brought technology work in-house from external partners and handed India teams product and engineering ownership, not only larger headcounts.",
+  },
+  {
+    lead: "Industrial investment:",
+    rest: "industrial companies rose from 4 to 18 and moved into second place behind software and SaaS, building engineering, software and product capabilities alongside manufacturing.",
+  },
+  {
+    lead: "Specialised hiring:",
+    rest: "80K+ roles were announced, and technology functions made up 62% of captured job postings, led by software development, data and analytics, cybersecurity and AI/ML.",
+  },
+];
+
+const METHOD_STATS = [
+  { value: "2,400+", label: "companies under coverage" },
+  { value: "6,100+", label: "centres tracked at coordinate level" },
+  { value: "61K+", label: "decision-makers mapped" },
+];
+
+const FAQS = [
+  {
+    question: "What does the India GCC Quarterly Report cover?",
+    answer:
+      "A centre-level view of GCC activity in India: new centres, expansions, announced pipeline, hiring signals, city and micro-cluster activity, sector focus pages on industrial and retail, and predictions for the next quarter. The Q3 2026 edition covers July to September 2026.",
+    open: true,
+  },
+  {
+    question: "Is it free?",
+    answer:
+      "Yes. Complete the short download form to access the full report at no cost.",
+  },
+  {
+    question: "How is the data collected?",
+    answer:
+      "From the Bamboo Reports platform, which tracks individual GCC centres across India at coordinate level, enriched by an analyst team since 2022. The report sets out its data conventions up front and describes the platform behind the numbers in its closing section.",
+  },
+];
+
+// A short, quotable teaser of the report's headline numbers for search and
+// answer engines. Deliberately top-line only: the breakdowns (micro-clusters,
+// named companies, sector focus, pipeline, skills) stay in the PDF so readers
+// still have a reason to download it.
+const PUBLISHED = { iso: "2026-11", label: "November 2026" };
+
+const KEY_FINDINGS = [
+  {
+    question: "How many GCCs opened in India in Q3 2026?",
+    answer:
+      "Between July and September 2026, 143 companies opened or expanded 164 GCC centres across 38 Indian cities, 49% more centres than in Q2. 51 of the companies entered India for the first time.",
+  },
+  {
+    question: "Which cities led India's GCC growth?",
+    answer:
+      "Bengaluru and Hyderabad stayed the two largest hubs, one centre apart, but their combined share fell from 52% to 38% as about a third of activity moved beyond the six leading city clusters.",
+  },
+  {
+    question: "Which industries grew fastest?",
+    answer:
+      "Industrial rose from 4 to 18 companies to rank second behind software and SaaS, and hi-tech grew from 3 to 13.",
+  },
+  {
+    question: "How many jobs did India GCCs announce?",
+    answer:
+      "More than 80,000 roles across new and existing centres. Technology functions made up 62% of captured job postings.",
+  },
+];
+
+const FAQ_SCHEMA = { questions: FAQS };
+
+const BREADCRUMB_SCHEMA = {
+  items: [
+    { name: "Home", url: "https://bambooreports.com/" },
+    { name: "Resources", url: "https://bambooreports.com/resources" },
+    {
+      name: "India GCC Quarterly Report, Q3 2026",
+      url: "https://bambooreports.com/reports/india-gcc-report-q3-2026",
+    },
+  ],
+};
+
+const IndiaGccReportQ32026 = () => {
+  return (
+    <div className="min-h-screen bg-background pb-[calc(4.75rem+env(safe-area-inset-bottom))] lg:pb-0">
+      <StructuredData type="faq" data={FAQ_SCHEMA} />
+      <StructuredData type="breadcrumb" data={BREADCRUMB_SCHEMA} />
+      <StructuredData
+        type="report"
+        data={{
+          path: "/reports/india-gcc-report-q3-2026",
+          headline: "India GCC Quarterly Report, Q3 2026 (July to September)",
+          image: "https://bambooreports.com/gcc/india-gcc-report-share-card-q3-2026.png",
+          datePublished: PUBLISHED.iso,
+        }}
+      />
+      <div className="flex h-1" aria-hidden>
+        <div className="w-2/3 bg-primary" />
+        <div className="w-1/3 bg-accent" />
+      </div>
+
+      <header className="border-b border-primary/15 bg-background px-4">
+        <div className="mx-auto flex max-w-7xl items-center py-4">
+          <img
+            src={logo.src}
+            alt="Bamboo Reports"
+            width={777}
+            height={336}
+            className="h-10 w-auto md:h-12"
+          />
+        </div>
+      </header>
+
+      <main className="bg-background px-4 py-10 md:py-14">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(320px,3fr)] lg:gap-x-16 lg:gap-y-0">
+          <section className="lg:col-start-1 lg:row-start-1">
+            <p className="hero-rise text-sm font-semibold text-primary">
+              India GCC Quarterly Report &middot; Q3 2026, July to September
+            </p>
+            <p className="hero-rise mt-1 text-sm text-muted-foreground">
+              Powered by{" "}
+              <a
+                href="https://bambooreports.com"
+                className="text-primary hover:underline"
+              >
+                Bamboo Reports
+              </a>{" "}
+              GCC Intelligence &middot; Published{" "}
+              <time dateTime={PUBLISHED.iso}>{PUBLISHED.label}</time>
+            </p>
+            <h1 className="hero-rise mt-5 text-balance text-4xl font-bold leading-tight text-navy [animation-delay:80ms] md:text-5xl lg:whitespace-nowrap lg:text-[clamp(2rem,3.2vw,2.75rem)]">
+              India GCC Quarterly Report, <span className="text-primary">Q3 2026</span>
+            </h1>
+            <p className="hero-rise mt-4 max-w-3xl text-xl leading-snug text-muted-foreground [animation-delay:120ms]">
+              GCC investment hits a new high as AI and advanced technology gain ground.
+            </p>
+            <p className="hero-rise mt-5 text-sm text-muted-foreground [animation-delay:160ms]">
+              A centre-level read of who entered, who expanded, and the global
+              work India teams are being handed.
+            </p>
+            <div className="hero-rise mt-6 overflow-hidden rounded-lg border border-primary/15 bg-transparent [animation-delay:220ms]">
+              <dl className="grid grid-cols-2 gap-y-6 p-4 sm:grid-cols-5 sm:gap-y-0 sm:p-6 md:p-7">
+                {NUMBERS.map((stat, index) => (
+                  <div
+                    key={stat.label}
+                    className={`${
+                      index % 2 === 0 ? "" : "border-l border-primary/15 pl-3"
+                    } ${
+                      index % 5 === 0
+                        ? "sm:border-l-0 sm:pl-0"
+                        : "sm:border-l sm:border-primary/15 sm:pl-6"
+                    }`}
+                  >
+                    <dd
+                      className={`text-3xl font-bold tabular-nums tracking-tight sm:text-4xl ${
+                        stat.highlight ? "text-accent-deep" : "text-navy"
+                      }`}
+                    >
+                      {stat.value}
+                    </dd>
+                    <dt className="mt-1.5 whitespace-pre-line text-[13px] leading-snug text-muted-foreground sm:text-sm">
+                      {stat.label}
+                    </dt>
+                  </div>
+                ))}
+              </dl>
+              <p className="border-t border-primary/10 px-4 py-3 text-[13px] text-muted-foreground sm:px-6 md:px-7">
+                Source: Bamboo Reports | Research NXT GCC Intelligence Platform.
+              </p>
+            </div>
+
+          </section>
+
+          <aside
+            id="download-report"
+            className="scroll-mt-6 self-start lg:sticky lg:top-6 lg:col-start-2 lg:row-start-1 lg:row-span-2"
+          >
+            <div className="hero-rise rounded-lg border border-primary/20 bg-background p-4 [animation-delay:160ms] sm:p-6">
+              <div className="mb-5 h-1 w-14 rounded-full bg-accent" aria-hidden />
+              <h2 className="text-2xl font-bold leading-tight tracking-tight text-navy">
+                Download the report
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Complete the form to access your free copy.
+              </p>
+              <div className="mt-4 overflow-hidden rounded-md border border-primary/15">
+                <JotFormEmbed
+                  formId={DOWNLOAD_FORM_ID}
+                  title="BR - Q3 2026 (Download)"
+                  height="539px"
+                  autoReloadAfterSubmit
+                />
+              </div>
+            </div>
+          </aside>
+
+          <section className="lg:col-start-1 lg:row-start-2 lg:mt-12">
+            <p className="text-sm font-semibold text-primary">
+              In this edition
+            </p>
+            <h2 className="mt-3 text-2xl font-bold leading-snug tracking-tight text-navy md:text-3xl">
+              Three signals that shaped the quarter
+            </h2>
+            <div className="mt-6 grid items-center gap-8 sm:grid-cols-[auto_1fr] sm:gap-10">
+              <img
+                src={q3ReportCover.src}
+                alt="Report cover: India GCC Quarterly Report, Q3 2026, July to September, with the quarter's GCC hubs marked on a map of India"
+                width={1700}
+                height={2200}
+                loading="lazy"
+                className="w-44 justify-self-center rounded-md shadow-xl shadow-navy/25 sm:w-52 sm:justify-self-start md:w-60 lg:w-72"
+              />
+              <ol className="border-t-2 border-primary">
+                {FINDINGS.map((finding, index) => (
+                  <li key={finding.lead} className="flex gap-5 border-b py-4">
+                    <span className="min-w-[1.875rem] pt-0.5 text-sm font-bold text-primary">
+                      0{index + 1}
+                    </span>
+                    <p className="text-sm leading-relaxed md:text-base">
+                      <strong className="font-semibold">{finding.lead}</strong>{" "}
+                      {finding.rest}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              <strong className="font-semibold text-foreground">
+                Also inside:
+              </strong>{" "}
+              five quarters of centre growth, the 164 centres mapped across 38
+              cities with Chennai and Pune broken out by micro-cluster, four
+              investments that stood out, industrial and retail sector focus
+              pages, hiring by city, function, seniority and skill, the
+              announced pipeline with expected opening years, and two Q4 2026
+              predictions that will be scored openly in the next edition. Data
+              conventions and sources included.
+            </p>
+          </section>
+        </div>
+      </main>
+
+      <section className="bg-navy px-4 py-10 text-white md:py-12">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-12">
+          <div>
+            <p className="text-sm font-semibold text-[hsl(33_100%_65%)]">
+              About this research
+            </p>
+            <h2 className="mt-3 text-2xl font-bold leading-snug tracking-tight text-white md:text-3xl">
+              Counted from the ground up, not estimated from the top down
+            </h2>
+            <p className="mt-3 max-w-[70ch] text-base leading-relaxed text-white/75">
+              Research NXT has worked on India&apos;s GCC ecosystem since 2018.
+              The report is built on{" "}
+              <a
+                href="https://bambooreports.com"
+                className="font-semibold text-[hsl(33_100%_65%)] hover:underline"
+              >
+                Bamboo Reports
+              </a>
+              , our intelligence platform that tracks individual GCC centres
+              across India at coordinate level, enriched continuously by our analyst
+              team since 2022. Every figure is a count from tracked centres,
+              not a modelled estimate, and where a figure depends on company
+              disclosure, the report says so.
+            </p>
+          </div>
+          <dl className="flex flex-wrap self-center">
+            {METHOD_STATS.map((stat) => (
+              <div
+                key={stat.label}
+                className="min-w-[40%] flex-1 border-t-2 border-white/25 py-3 pr-3"
+              >
+                <dd className="text-2xl font-bold text-[hsl(33_100%_65%)]">{stat.value}</dd>
+                <dt className="mt-0.5 text-xs leading-snug text-white/70">
+                  {stat.label}
+                </dt>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section aria-labelledby="key-findings" className="bg-background px-4 py-10 md:py-14">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-semibold text-primary">Key findings</p>
+          <h2
+            id="key-findings"
+            className="mt-3 text-2xl font-bold leading-snug tracking-tight text-navy md:text-3xl"
+          >
+            India GCC market in Q3 2026: the numbers
+          </h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            From the India GCC Quarterly Report, Q3 2026, by Bamboo Reports.
+            Published <time dateTime={PUBLISHED.iso}>{PUBLISHED.label}</time>.
+          </p>
+
+          {/* Same accordion as the FAQ below. Answers stay in the HTML when
+              collapsed, so crawlers still read them. */}
+          <div className="mt-6">
+            {KEY_FINDINGS.map((finding, index) => (
+              <details
+                key={finding.question}
+                open={index === 0}
+                className="group border-t border-primary/20 py-3 last:border-b"
+              >
+                <summary className="cursor-pointer list-none text-base font-semibold transition-colors hover:text-primary [&::-webkit-details-marker]:hidden">
+                  <span className="mr-3 inline-block text-primary transition-transform group-open:rotate-90 motion-reduce:transition-none">
+                    ›
+                  </span>
+                  {finding.question}
+                </summary>
+                <p className="max-w-2xl pt-2 text-base leading-relaxed text-muted-foreground">
+                  {finding.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+
+          <p className="mt-10 max-w-[70ch] text-base leading-relaxed text-muted-foreground">
+            The full report breaks these numbers down by city, micro-cluster, industry and
+            function, names the companies behind the quarter&apos;s biggest moves, and makes two
+            predictions for Q4 2026.{" "}
+            <a href="#download-report" className="font-semibold text-primary hover:underline">
+              Download the full report
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-background px-4 py-10 md:py-14">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl font-bold leading-snug tracking-tight text-navy md:text-3xl">
+            Frequently asked questions
+          </h2>
+          <div className="mt-5">
+            {FAQS.map((faq) => (
+              <details
+                key={faq.question}
+                open={faq.open}
+                className="group border-t border-primary/20 py-3 last:border-b"
+              >
+                <summary className="cursor-pointer list-none text-base font-semibold transition-colors hover:text-primary [&::-webkit-details-marker]:hidden">
+                  <span className="mr-3 inline-block text-primary transition-transform group-open:rotate-90 motion-reduce:transition-none">
+                    ›
+                  </span>
+                  {faq.question}
+                </summary>
+                <p className="max-w-2xl pt-2 text-base leading-relaxed text-muted-foreground">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10 bg-navy px-4 py-5">
+        <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 text-xs text-white/70">
+          <span>&copy; 2026 Bamboo Reports - A Research NXT Product &middot; Pune, India</span>
+          <span>
+            Powered by{" "}
+            <a
+              href="https://bambooreports.com"
+              className="text-white hover:text-[hsl(33_100%_65%)] hover:underline"
+            >
+              Bamboo Reports
+            </a>{" "}
+            GCC Intelligence &middot;{" "}
+            <a
+              href="https://bambooreports.com/privacy-policy"
+              className="text-white hover:text-[hsl(33_100%_65%)] hover:underline"
+            >
+              Privacy policy
+            </a>
+          </span>
+        </div>
+      </footer>
+
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-primary/15 bg-background/95 px-4 pt-3 backdrop-blur-sm pb-[calc(0.75rem+env(safe-area-inset-bottom))] lg:hidden">
+        <Button asChild size="lg" className="w-full font-semibold">
+          <a href="#download-report">
+            Download report
+            <RiDownloadLine className="ml-2 h-4 w-4" aria-hidden />
+          </a>
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default IndiaGccReportQ32026;

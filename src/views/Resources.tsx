@@ -8,6 +8,7 @@ import { TrailingArrow } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import q2ReportCover from "@/assets/india-gcc-report-q2-2026-cover.webp";
+import q3ReportCover from "@/assets/india-gcc-report-q3-2026-cover.webp";
 import commuteCover from "@/assets/navigating-corporate-commute-cover.webp";
 import cxCover from "@/assets/transforming-cx-cover.webp";
 
@@ -25,6 +26,12 @@ type Report = {
 const RNXT_REPORTS = "https://researchnxt.com/resources/reports-whitepapers";
 
 const reports: Report[] = [
+  {
+    href: "/reports/india-gcc-report-q3-2026",
+    title: "The Q3 2026\nIndia GCC report",
+    released: "2026-11-02",
+    cover: q3ReportCover.src,
+  },
   {
     href: "/reports/india-gcc-report-q2-2026",
     title: "The Q2 2026\nIndia GCC report",
