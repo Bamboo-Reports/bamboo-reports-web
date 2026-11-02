@@ -59,3 +59,4 @@ next-env.d.ts
 
 # Source report PDFs (delivered via the download forms, not hosted here)
 /Q3 GCC Report*.pdf
+/organized.pdf

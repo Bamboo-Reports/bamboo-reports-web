@@ -222,8 +222,8 @@ const IndiaGccReportQ32026 = () => {
               <img
                 src={q3ReportCover.src}
                 alt="Report cover: India GCC Quarterly Report, Q3 2026, July to September, with the quarter's GCC hubs marked on a map of India"
-                width={1700}
-                height={2200}
+                width={1655}
+                height={2340}
                 loading="lazy"
                 className="w-44 justify-self-center rounded-md shadow-xl shadow-navy/25 sm:w-52 sm:justify-self-start md:w-60 lg:w-72"
               />
